@@ -1,0 +1,417 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "일정 알림"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "완료"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "취소"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "기본"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "삭제"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "오늘로 이동"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "설정"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "하루 종일"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "오늘"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "일정이 없습니다"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "선택한 일정을 삭제합니다."
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "일정 %d개를 삭제합니다."
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "일정을 모두 삭제합니다."
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "취소"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "모두 선택"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "검색 결과가 없습니다"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "%s 님의 생일"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "시작 시간에"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d분 전"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "직접 설정"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "완료"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "일정을 저장하였습니다."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "다른 일정과 겹칩니다."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "복사"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "이번 일정만"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "이번 및 다음 일정"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "모든 반복 일정"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "다시 울림"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "해제"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "시간대"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "시간대 고정"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "주 시작 요일"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "알림 방식"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "알림음"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "선택한 시간대로 일정 시간 및 날짜를 고정합니다. 다른 시간대로 이동하여도 시간 및 날짜는 변경되지 않습니다."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "지역 기본설정"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "토요일"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "일요일"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "월요일"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "팝업 알림"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "알림 없음"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "매일"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "매주"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "매월"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "매년"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "매"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "분"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "시간"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "주"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "제목"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "연락처에 저장된 생일"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "종료"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "시작"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "위치"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "더보기"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "알림"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "반복"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "삭제"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "모든 캘린더"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "추가"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "삭제"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "내 캘린더"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "모든 캘린더를 삭제합니다."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "삭제하려는 일정 중 반복 일정이 %d개 있습니다. 반복 일정을 모두 삭제할까요?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "매월 다섯 번째 %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "매월 첫 번째 %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "매월 네 번째 %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "매월 두 번째 %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "매월 세 번째 %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "계속 반복"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "개월"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "년"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "반복 종료일"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "해당월 %d일"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "검색"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "회"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "일정 1개를 삭제합니다."
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "설정"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "캘린더"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "변경사항 저장 안 함"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "모든 변경사항을 저장하지 않습니다."
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "편집"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "이벤트"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "내 일정"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "알림 설정"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "VCS 파일"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "문자"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "%d개 선택"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "공유"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "개월"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "년"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1분 전"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "1시간 전"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d시간 전"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1일 전"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d일 전"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1주 전"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d주 전"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "종료 시간은 시작 시간 이후로 설정해야 합니다."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "종료일은 시작일 이후로 설정해야 합니다."
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "저장 안 함"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "%s 님의 기념일"
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "캘린더 1개를 삭제합니다."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "시간 설정"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "항목 추가"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "클립보드에 복사"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "웹 주소로 이동"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "북마크에 추가"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "다시 알림 간격 설정"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "상태표시줄 알림"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "새 일정 초대를 추가하거나 초대를 수락하면, 여기에 표시됩니다."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "삭제하려는 일정 중 반복 일정이 1개 있습니다. 반복 일정을 모두 삭제할까요?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "기타"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "설정 안 함"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "매주 %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "%1$d%2$s 간격으로 %3$s마다"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "%1$d%2$s 간격"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "화요일"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "수요일"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "목요일"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "금요일"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "%s까지"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "알 수 없는 오류가 발생하여 일정을 저장하지 못하였습니다."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "VTS 파일은 지원되지 않습니다."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d분"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "최대 첨부파일 수(%d)에 도달하였습니다."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "설정 가능 범위를 벗어난 날짜입니다. %1$s-%2$s 사이의 날짜를 선택하세요."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "삽입 가능한 최대 일정 수(%d)에 도달하였습니다."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "캘린더에 저장"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "캘린더 관리"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "메모"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "상세정보"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "날짜 설정"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "안 함"
+
+msgid "IDS_CLD_BODY_WEEKS_M_DURATION_LC"
+msgstr "주 간격"
+
+msgid "IDS_CLD_BODY_DAY_M_DURATION_LC"
+msgstr "일 간격"
+
+msgid "IDS_CLD_BODY_DAYS_M_DURATION_LC"
+msgstr "일 간격"
+
+msgid "IDS_CLD_ACBUTTON_TODAY"
+msgstr "오늘"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "%d자까지 입력할 수 있습니다."
+

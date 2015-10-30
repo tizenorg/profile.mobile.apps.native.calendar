@@ -1,0 +1,108 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+group { name, "CalNumberPickerPopup";
+
+	parts {
+        part { name, "bg";
+			type, RECT;
+			description {
+				state, "default" 0.0;
+				min:0 276;
+				color: 0 0 0 0;
+			}
+		}
+		part {
+			name, "top_padding";
+			type, SPACER;
+			description {
+				state, "default" 0.0;
+				rel2.relative, 1.0 0.0;
+				min, 0 27;
+				max, -1 27;
+				fixed, 0 1;
+				align, 0.5 0.0;
+			}
+		}
+		part {
+			name, "bottom_padding";
+			type, SPACER;
+			description {
+				state, "default" 0.0;
+				rel1.relative, 0.0 1.0;
+				min, 0 27;
+				max, -1 27;
+				fixed, 0 1;
+				align, 0.5 1.0;
+			}
+		}
+		part {
+			name, "left_padding";
+			type, SPACER;
+			description {
+				state, "default" 0.0;
+				rel1 {
+					relative: 0.0 0.0;
+					to: "bg";
+				}
+				rel2 {
+					relative: 0.0 1.0;
+					to: "bg";
+				}
+				min, 170 0;
+				max, 170 -1;
+				fixed, 1 0;
+				align, 0.0 0.5;
+			}
+		}
+		part {
+			name, "right_padding";
+			type, SPACER;
+			description {
+				state, "default" 0.0;
+				rel1 {
+					relative: 1.0 0.0;
+					to: "bg";
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					to: "bg";
+				}
+				min, 170 0;
+				max, 170 -1;
+				fixed, 1 0;
+				align, 1.0 0.5;
+			}
+		}
+		part { name, "value.sw";
+			type, SWALLOW;
+			description {
+				state, "default" 0.0;
+				rel1 {
+					relative: 1.0 1.0;
+					to_x: "left_padding";
+					to_y: "top_padding";
+				}
+				rel2 {
+					relative: 0.0 0.0;
+					to_x: "right_padding";
+					to_y: "bottom_padding";
+				}
+			}
+		}
+	}
+}

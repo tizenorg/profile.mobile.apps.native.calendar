@@ -1,0 +1,247 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#define HEADER_BG_COLOR color: 61 185 204 255
+#define MONTH_BG_COLOR color: 255 255 255 255
+#define LIST_BG_COLOR color: 255 255 255 255
+#define TITLE_COLOR color: 61 185 204 255
+#define HEADER_NAVIFRAME_COLOR color: 2 128 144 128
+#define BASE_COLOR_TRANSPARENT color: 0 0 0 0
+#define HEADER_COLOR_TRANSPARENT color: 0 0 0 0
+
+#define MONTH_ROW_COUNT 6
+
+#define MONTH_ROW_HEIGHT     82
+#define MONTH_TOP_PADDING     1
+#define MONTH_BOTTOM_PADDING  1
+
+#define MONTH_HEIGHT        (MONTH_TOP_PADDING + MONTH_ROW_HEIGHT * MONTH_ROW_COUNT + MONTH_BOTTOM_PADDING)
+
+#define PULL_DOWN_CUE_HEIGHT      42
+#define PULL_DOWN_CUE_WIDTH       40
+#define MONTH_HEADER_HEIGHT       70
+#define MONTH_LIST_DIVIDER_HEIGHT  1
+
+#define MONTH_TEXT_DEFAULT_SIZE 40
+#define MONTH_TEXT_NORMAL_SIZE  MONTH_TEXT_DEFAULT_SIZE
+#define MONTH_TEXT_SUNDAY_SIZE  MONTH_TEXT_DEFAULT_SIZE
+#define MONTH_TEXT_TODAY_SIZE   MONTH_TEXT_DEFAULT_SIZE
+
+#define MONTH_TEXT_DAYOFWEEK_SIZE 36
+
+#define MASKED_MONTH_TOP_PADDING     14
+#define MASKED_MONTH_BOTTOM_PADDING (PULL_DOWN_CUE_HEIGHT + MONTH_LIST_DIVIDER_HEIGHT)
+#define MASKED_MONTH_SECTION_HEIGHT	(MONTH_ROW_HEIGHT + MASKED_MONTH_TOP_PADDING + MASKED_MONTH_BOTTOM_PADDING)
+
+#define SWIPE_TRANSIT       SIN_FAC 0.667 0.8
+
+#define _PART_TYPE SPACER
+#define _COLOR_PROPERTY
+
+#define TOP_PADDING(_name, _height)\
+		part {\
+			name: _name;\
+			type: _PART_TYPE;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				rel1 { relative: 0 0; }\
+				rel2 { relative: 1 0; }\
+				align: 0 0;\
+				fixed: 1 1;\
+				min: 0 _height;\
+				_COLOR_PROPERTY\
+			}\
+		}
+
+#define BOTTOM_PADDING(_name, _height)\
+		part {\
+			name: _name;\
+			type: _PART_TYPE;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				rel1 { relative: 0 1; }\
+				rel2 { relative: 1 1; }\
+				align: 0 1;\
+				fixed: 1 1;\
+				min: 0 _height;\
+				_COLOR_PROPERTY\
+			}\
+		}
+
+#define LEFT_PADDING(_name, _width)\
+		part {\
+			name: _name;\
+			type: _PART_TYPE;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				rel1 { relative: 0 0; }\
+				rel2 { relative: 0 1; }\
+				align: 0 0;\
+				fixed: 1 1;\
+				min: _width 0;\
+				_COLOR_PROPERTY\
+			}\
+		}
+
+#define RIGHT_PADDING(_name, _width)\
+		part {\
+			name: _name;\
+			type: _PART_TYPE;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				rel1 { relative: 1 0; }\
+				rel2 { relative: 1 1; }\
+				align: 1 0;\
+				fixed: 1 1;\
+				min: _width 0;\
+				_COLOR_PROPERTY\
+			}\
+		}
+
+#define POS_TOP(_height)\
+				rel1 { relative: 0 0; }\
+				rel2 { relative: 1 0; }\
+				align: 0 0;\
+				fixed: 1 1;\
+				min: 0 _height;
+
+#define POS_TOP_WITHIN(_container_part, _height)\
+				rel1 { relative: 0 0; to: _container_part; }\
+				rel2 { relative: 1 0; to: _container_part; }\
+				align: 0 0;\
+				fixed: 1 1;\
+				min: 0 _height;
+
+#define POS_BOTTOM_WITHIN(_container_part, _height)\
+				rel1 { relative: 0 1; to: _container_part; }\
+				rel2 { relative: 1 1; to: _container_part; }\
+				align: 0 1;\
+				fixed: 1 1;\
+				min: 0 _height;
+
+#define POS_BOTTOM_CENTER_WITHIN(_container_part, _width, _height)\
+				rel1 { relative: 0.5 1; to: _container_part; }\
+				rel2 { relative: 0.5 1; to: _container_part; }\
+				align: 0.5 1;\
+				fixed: 1 1;\
+				min: _width _height;
+
+#define TOP_PADDING_WITHIN(_container_part, _name, _height)\
+		part {\
+			name: _name;\
+			type: _PART_TYPE;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				POS_TOP_WITHIN(_container_part, _height)\
+				_COLOR_PROPERTY\
+			}\
+		}
+
+#define BOTTOM_PADDING_WITHIN(_container_part, _name, _height)\
+		part {\
+			name: _name;\
+			type: _PART_TYPE;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				POS_BOTTOM_WITHIN(_container_part, _height)\
+				_COLOR_PROPERTY\
+			}\
+		}
+
+#define LEFT_PADDING_WITHIN(_container_part, _name, _width)\
+		part {\
+			name: _name;\
+			type: _PART_TYPE;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				rel1 { relative: 0 0; to: _container_part; }\
+				rel2 { relative: 0 1; to: _container_part; }\
+				align: 0 0;\
+				fixed: 1 1;\
+				min: _width 0;\
+				_COLOR_PROPERTY\
+			}\
+		}
+
+#define RIGHT_PADDING_WITHIN(_container_part, _name, _width)\
+		part {\
+			name: _name;\
+			type: _PART_TYPE;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				rel1 { relative: 1 0; to: _container_part; }\
+				rel2 { relative: 1 1; to: _container_part; }\
+				align: 1 0;\
+				fixed: 1 1;\
+				min: _width 0;\
+				_COLOR_PROPERTY\
+			}\
+		}
+
+#define POS_STACK_BELOW(_upper_part, _height)\
+				rel1 { relative: 0 1; to_y: _upper_part; }\
+				rel2 { relative: 1 1; to_y: _upper_part; }\
+				align: 0.5 0;\
+				fixed: 1 1;\
+				min: 0 _height;
+
+#define POS_STACK_BELOW_WITHIN(_container_part, _upper_part, _height)\
+				rel1 { relative: 0 1; to_x: _container_part; to_y: _upper_part; }\
+				rel2 { relative: 1 1; to_x: _container_part; to_y: _upper_part; }\
+				align: 0.5 0;\
+				fixed: 1 1;\
+				min: 0 _height;
+
+#define POS_STACK_ABOVE_WITHIN(_container_part, _lower_part, _height)\
+				rel1 { relative: 0 0; to_x: _container_part; to_y: _lower_part; }\
+				rel2 { relative: 1 0; to_x: _container_part; to_y: _lower_part; }\
+				align: 0.5 1;\
+				fixed: 1 1;\
+				min: 0 _height;
+
+#define POS_STACK_ABOVE_CENTER_WITHIN(_container_part, _lower_part, _width, _height)\
+				rel1 { relative: 0.5 0; to_x: _container_part; to_y: _lower_part; }\
+				rel2 { relative: 0.5 0; to_x: _container_part; to_y: _lower_part; }\
+				align: 0.5 1;\
+				fixed: 1 1;\
+				min: _width _height;
+
+#define POS_SANDWICH_VERTICALLY_BETWEEN(_top, _bottom)\
+				rel1 { relative: 0 1; to: _top; }\
+				rel2 { relative: 1 0; to: _bottom; }\
+				fixed: 1 1;
+
+#define POS_SANDWICH_HORIZONTALLY_BETWEEN(_left, _right)\
+				rel1 { relative: 1 0; to: _left; }\
+				rel2 { relative: 0 1; to: _right; }\
+				fixed: 1 1;
+
+#define POS_CENTER_WITH_SIZE(_to_part, _width, _height)\
+				rel1 { relative: 0.5 0.5; to: _to_part; }\
+				rel2 { relative: 0.5 0.5; to: _to_part; }\
+				align: 0.5 0.5;\
+				fixed: 1 1;\
+				min: _width _height;\
+				max: _width _height;

@@ -1,0 +1,177 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#define EDIT_REPEAT_UNTIL_SWALLOW_TIMES_WIDTH 140
+
+group { name: "elm/genlist/item/CalDialogEditRepeatUntilTimesItem/default";
+   data.item: "treesize" GENLIST_TREESIZE_DEFAULT;
+   data.item: "texts" "elm.text";
+   data.item: "contents" "elm.icon.right elm.swallow.times";
+   data.item: "banded_bg_area" "elm.swallow.bg";
+   data.item: "banded_bg_color" "255 255 255 255";
+
+   parts {
+      part { name: "elm.swallow.bg";
+            type: SWALLOW;
+                scale: 1;
+                description { state: "default" 0.0;
+            }
+      }
+      PART(SPACER, "elm.padding.left",
+         DSC_FROM_L("default" 0.0,
+            min: LIST_PADDING_DEFAULT_SIZE 0;
+            max: LIST_PADDING_DEFAULT_SIZE -1;
+         )
+      )
+      PART(SPACER, "elm.padding.right",
+         DSC_FROM_R("default" 0.0,
+            min: LIST_PADDING_DEFAULT_SIZE 0;
+            max: LIST_PADDING_DEFAULT_SIZE -1;
+         )
+      )
+      PART(SPACER, "elm.padding.top",
+         DSC_FROM_T("default" 0.0,
+            min: 0 LIST_PADDING_DEFAULT_SIZE;
+            max: -1 LIST_PADDING_DEFAULT_SIZE;
+         )
+      )
+      PART(SPACER, "elm.padding.bottom",
+         DSC_FROM_B("default" 0.0,
+            min: 0 LIST_PADDING_DEFAULT_SIZE;
+            max: -1 LIST_PADDING_DEFAULT_SIZE;
+         )
+      )
+      PART(SPACER, "elm.padding.times.left",
+         DSC_L("default" 0.0,
+            "elm.swallow.times",
+            min: LIST_PADDING_DEFAULT_SIZE 0;
+            max: LIST_PADDING_DEFAULT_SIZE -1;
+         )
+      )
+      PART(SWALLOW, "elm.swallow.times",
+         DSC_LTB("default" 0.0,
+            "elm.padding.left", "elm.padding.top", "elm.padding.bottom",
+            min: EDIT_REPEAT_UNTIL_SWALLOW_TIMES_WIDTH 0;
+            max: EDIT_REPEAT_UNTIL_SWALLOW_TIMES_WIDTH -1;
+            fixed: 0 1;
+            rel2.relative: 1 0;
+            rel2.to_x: "elm.padding.times.left";
+            align: 0.0 0.5;
+         )
+      )
+      PART(SPACER, "elm.padding.times.right",
+         DSC_L("default" 0.0,
+            "elm.swallow.times",
+            min: LIST_PADDING_DEFAULT_SIZE 0;
+            max: LIST_PADDING_DEFAULT_SIZE -1;
+         )
+      )
+      PART(TEXTBLOCK, "elm.text",
+         DSC_LRTB("default" 0.0,
+            "elm.padding.times.left", "elm.icon.right", "elm.padding.top", "elm.padding.bottom",
+            min: 0 56;
+            text.min: 0 1;
+            text.style: "list_text_main";
+            align: 0.0 0.5;
+         )
+      )
+      PART(SWALLOW, "elm.icon.right",
+         DSC_R("default" 0.0, "elm.padding.right", )
+      )
+   }
+   programs {
+        LIST_PROGRAM_SOUND
+   }
+}
+
+group { name: "elm/genlist/item/CalDialogEditRepeatUntilTimesItemRTL/default";
+   data.item: "treesize" GENLIST_TREESIZE_DEFAULT;
+   data.item: "texts" "elm.text.right";
+   data.item: "contents" "elm.icon.right elm.swallow.times";
+   data.item: "banded_bg_area" "elm.swallow.bg";
+   data.item: "banded_bg_color" "255 255 255 255";
+
+   parts {
+      part { name: "elm.swallow.bg";
+            type: SWALLOW;
+                scale: 1;
+                description { state: "default" 0.0;
+            }
+      }
+      //LIST_PART_BG
+      PART(SPACER, "elm.padding.left",
+         DSC_FROM_L("default" 0.0,
+            min: 0 0;
+            max: 0 -1;
+         )
+      )
+      PART(SPACER, "elm.padding.right",
+         DSC_FROM_R("default" 0.0,
+            min: LIST_PADDING_DEFAULT_SIZE 0;
+            max: LIST_PADDING_DEFAULT_SIZE -1;
+         )
+      )
+      PART(SPACER, "elm.padding.top",
+         DSC_FROM_T("default" 0.0,
+            min: 0 LIST_PADDING_DEFAULT_SIZE;
+            max: -1 LIST_PADDING_DEFAULT_SIZE;
+         )
+      )
+      PART(SPACER, "elm.padding.bottom",
+         DSC_FROM_B("default" 0.0,
+            min: 0 LIST_PADDING_DEFAULT_SIZE;
+            max: -1 LIST_PADDING_DEFAULT_SIZE;
+         )
+      )
+      PART(SWALLOW, "elm.icon.right",
+         DSC_R("default" 0.0, "elm.padding.right", )
+      )
+      PART(SPACER, "elm.padding.times.right",
+         DSC_R("default" 0.0,
+            "elm.icon.right",
+            min: 15 0;
+            max: 15 -1;
+         )
+      )
+      PART(SWALLOW, "elm.swallow.times",
+         DSC_RTB("default" 0.0,
+            "elm.padding.times.right", "elm.padding.top", "elm.padding.bottom",
+            min: EDIT_REPEAT_UNTIL_SWALLOW_TIMES_WIDTH 60;
+            fixed: 1 1;
+         )
+      )
+      PART(SPACER, "elm.padding.times.left",
+         DSC_R("default" 0.0,
+            "elm.swallow.times",
+            min: LIST_PADDING_DEFAULT_SIZE 0;
+            max: LIST_PADDING_DEFAULT_SIZE -1;
+         )
+      )
+      PART(TEXTBLOCK, "elm.text.right",
+         DSC_LRTB("default" 0.0,
+            "elm.padding.left","elm.padding.times.left", "elm.padding.top", "elm.padding.bottom",
+            min: 0 56;
+            text.min: 0 1;
+            text.style: "list_text_main_repeat_item";
+            align: 1.0 0.5;
+         )
+      )
+   }
+   programs {
+        LIST_PROGRAM_SOUND
+   }
+}

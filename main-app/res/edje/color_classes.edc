@@ -1,0 +1,76 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+#ifndef COLOR_CLASSES
+#define COLOR_CLASSES
+
+#define CAL_COLOR_T023 "#000000"
+#define CAL_COLOR_T023D "#000000"
+#define CAL_COLOR_T023P "#000000"
+#define CAL_COLOR_T023W "#FFFFFF"
+#define CAL_COLOR_T024 "#7F7F7F"
+#define CAL_COLOR_T024D "#7F7F7F"
+#define CAL_COLOR_T024P "#7F7F7F"
+#define CAL_COLOR_T024L1 "#7F7F7F"
+#define CAL_COLOR_T024L1P "#7F7F7F"
+#define CAL_COLOR_T024L1D "#7F7F7F"
+#define CAL_COLOR_T0222L1 "#F9F9F9"
+#define CAL_COLOR_T0222L2 "#F9F9F9"
+#define CAL_COLOR_T027L2 "#000000"
+#define CAL_COLOR_T020 "#F9F9F9"
+#define CAL_COLOR_T1067 "#CC1414"
+
+color_classes {
+    color_class {
+		name: "CAL_B0211";
+      	color: 255 255 255 255;
+      	color2: 255 255 255 255;
+      	color3: 255 255 255 255;
+    }
+    color_class {
+		name: "CAL_B0211P";
+      	color: 255 255 255 76;
+      	color2: 255 255 255 76;
+      	color3: 255 255 255 76;
+    }
+    color_class {
+		name: "CAL_B011";
+      	color: 0 0 0 255;
+      	color2: 0 0 0 255;
+      	color3: 0 0 0 255;
+    }
+    color_class {
+		name: "CAL_W031L1";
+      	color: 255 255 255 255;
+      	color2: 255 255 255 255;
+      	color3:255 255 255 255;
+    }
+    color_class {
+		name: "CAL_W021L2";
+      	color: 0 0 0 255;
+      	color2: 0 0 0 255;
+      	color3: 0 0 0 255;
+    }
+    color_class {
+		name: "CAL_T0222L1";
+      	color: 249 249 249 255;
+      	color2: 249 249 249 255;
+      	color3: 249 249 249 255;
+    }
+}
+#endif
+
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="org.tizen.calendar" version="0.1.0">
+    <profile name="mobile" />
+    <ui-application appid="org.tizen.calendar.alert" exec="alert" type="capp" multiple="false" taskmanage="false" nodisplay="true" launch_mode="caller">
+        <label>Calendar Alert</label>
+        <icon>calendar.png</icon>
+        <app-control>
+            <operation name="http://tizen.org/appcontrol/operation/view" />
+            <mime name="application/x-tizen.calendar.reminder" />
+        </app-control>
+    </ui-application>
+</manifest>
