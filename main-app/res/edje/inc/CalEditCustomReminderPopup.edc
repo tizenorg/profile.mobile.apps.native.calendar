@@ -1,0 +1,120 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#define CAL_CUSTOM_REMINDER_VERTICAL_PADDING_HEIGHT 27
+#define CAL_CUSTOM_REMINDER_HORIZONTAL_PADDING_WIDTH 45
+#define CAL_CUSTOM_REMINDER_HORIZONTAL_DELIMITER_PADDING_WIDTH 10
+
+group { name: "CalEditCustomReminderPopup";
+	parts {
+	part { name: "bg";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+			}
+		}
+		part {
+			name: "top_padding";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 0 CAL_CUSTOM_REMINDER_VERTICAL_PADDING_HEIGHT;
+				max: -1 CAL_CUSTOM_REMINDER_VERTICAL_PADDING_HEIGHT;
+				fixed: 0 1;
+				align: 0.5 0.0;
+			}
+		}
+		part {
+			name: "bottom_padding";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1.relative: 0.0 1.0;
+				min: 0 CAL_CUSTOM_REMINDER_VERTICAL_PADDING_HEIGHT;
+				max: -1 CAL_CUSTOM_REMINDER_VERTICAL_PADDING_HEIGHT;
+				fixed: 0 1;
+				align: 0.5 1.0;
+			}
+		}
+		part {
+			name: "left_padding";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: CAL_CUSTOM_REMINDER_VERTICAL_PADDING_HEIGHT 0;
+				max: CAL_CUSTOM_REMINDER_VERTICAL_PADDING_HEIGHT 0;
+				fixed: 1 0;
+				align: 0.0 0.5;
+			}
+		}
+		part { name: "value.sw";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 {
+					relative: 1.0 1.0;
+					to_x: "left_padding";
+					to_y: "top_padding";
+				}
+				rel2 {
+					relative: 0.5 0.0;
+					to_x: "top_padding";
+					to_y: "bottom_padding";
+				}
+			}
+		}
+		part {
+			name: "left_padding_type";
+			type: SPACER;
+			description {
+				state: "default" 0.0;
+				rel1 {
+					relative: 0.5 0.0;
+					to: "top_padding";
+				}
+				rel2 {
+					relative: 0.5 1.0;
+					to: "top_padding";
+				}
+				min: CAL_CUSTOM_REMINDER_HORIZONTAL_DELIMITER_PADDING_WIDTH 0;
+				max: CAL_CUSTOM_REMINDER_HORIZONTAL_DELIMITER_PADDING_WIDTH 0;
+				fixed: 1 0;
+				align: 0.0 1.0;
+			}
+		}
+		part { name: "type.sw";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 {
+					relative: 1.0 1.0;
+					to_x: "left_padding_type";
+					to_y: "top_padding";
+				}
+				rel2 {
+					relative: 1.0 0.0;
+					to: "bottom_padding";
+				}
+			}
+		}
+	}
+}

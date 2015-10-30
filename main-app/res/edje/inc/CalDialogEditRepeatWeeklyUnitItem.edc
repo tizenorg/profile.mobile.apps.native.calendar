@@ -1,0 +1,195 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+styles {
+	style { name: "button_main_item";
+      base: "font=Tizen:style=Regular font_size=40 align=center color=#070707 alpha=77 ellipsis=1.0";
+      STYLE_TAGS
+   }
+   style { name: "button_main_item_press";
+      base: "font=Tizen:style=Regular font_size=40 align=center color=#349E59 ellipsis=1.0";
+      STYLE_TAGS
+   }
+   style { name: "button_main_item_sun";
+      base: "font=Tizen:style=Regular font_size=40 align=center color=#D81313 ellipsis=1.0";
+      STYLE_TAGS
+   }
+   style { name: "button_main_item_sun_press";
+      base: "font=Tizen:style=Regular font_size=40 align=center color=#349E59 ellipsis=1.0";
+      STYLE_TAGS
+   }
+}
+group { name: "elm/check/base/WeeklyCheckItem";
+	data.item: "texts" "button";
+	data.item: "bg_color" "B0211";
+   script {
+      public check_state;
+      public check_disabled;
+      public check_visible;
+   }
+   parts {
+      part { name: "bg";
+         type: SPACER;
+         mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            min: CHECK_GEN_SIZE;
+         }
+      }
+      part { name: "button";
+			type: TEXTBLOCK;
+         mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            fixed: 1 1;
+            text {
+                min: 1 0;
+                style: "button_main_item";
+                ellipsis: CALENDAR_TEXT_ELLIPSIS_VALUE;
+            }
+         }
+         description { state: "on" 0.0;
+                inherit: "default" 0.0;
+                text {
+                    style: "button_main_item_press";
+                    ellipsis: CALENDAR_TEXT_ELLIPSIS_VALUE;
+                }
+         }
+      }
+      part { name: "event";
+         scale: 1;
+         type: RECT;
+         description { state: "default" 0.0;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            color: 0 0 0 0;
+         }
+      }
+   }
+   programs {
+      program { name: "show";
+         signal: "show";
+         script {
+            set_int(check_visible, 1);
+         }
+      }
+      program { name: "hide";
+         signal: "hide";
+         script {
+            set_int(check_visible, 0);
+         }
+      }
+      program { name: "click";
+         signal: "mouse,clicked,1";
+         source: "event";
+         script {
+            if (get_int(check_disabled) == 1) return;
+            emit("elm,action,check,toggle", "");
+            run_program(PROGRAM:"touch_sound");
+         }
+      }
+      program { name: "touch_sound";
+         action: RUN_PLUGIN "touch_sound";
+      }
+      program { name: "unpressed";
+         signal: "mouse,up,1";
+         source: "event";
+         script {
+            if (get_int(check_disabled) == 1) return;
+            if (get_int(check_state) == 1) {
+              set_state(PART:"button", "on", 0.0);
+            }
+            else {
+              set_state(PART:"button", "default", 0.0);
+            }
+         }
+      }
+      program { name: "unpressed2";
+         signal: "elm,state,mouse,up";
+         source: "elm";
+         script {
+            if (get_int(check_disabled) == 1) return;
+            if (get_int(check_state) == 1) {
+              set_state(PART:"button", "on", 0.0)
+            }
+            else {
+              set_state(PART:"button", "default", 0.0);
+            }
+         }
+      }
+      program { name: "check_on";
+         signal: "elm,state,check,on";
+         source: "elm";
+         script {
+            set_state(PART:"button", "on", 0.0)
+            set_int(check_state, 1);
+         }
+      }
+      program { name: "check_off";
+         signal: "elm,state,check,off";
+         source: "elm";
+         script {
+            set_state(PART:"button", "default", 0.0);
+            set_int(check_state, 0);
+         }
+      }
+      program { name: "disable";
+         signal: "elm,state,disabled";
+         source: "elm";
+         script {
+            set_int(check_disabled, 1);
+         }
+      }
+      program { name: "enable";
+         signal: "elm,state,enabled";
+         source: "elm";
+         script {
+            set_int(check_disabled, 0);
+         }
+      }
+   }
+}
+group { name: "elm/check/base/WeeklyCheckSunItem";
+	inherit: "elm/check/base/WeeklyCheckItem";
+   parts {
+      part { name: "button";
+			type: TEXTBLOCK;
+         mouse_events: 0;
+         scale: 1;
+         description { state: "default" 0.0;
+            rel1.to: "bg";
+            rel2.to: "bg";
+            fixed: 1 1;
+            text {
+                min: 1 0;
+                style: "button_main_item_sun";
+                ellipsis: CALENDAR_TEXT_ELLIPSIS_VALUE;
+            }
+         }
+         description { state: "on" 0.0;
+                    inherit: "default" 0.0;
+                    text {
+                        style: "button_main_item_sun_press";
+                        ellipsis: CALENDAR_TEXT_ELLIPSIS_VALUE;
+                    }
+         }
+      }
+   }
+}
+

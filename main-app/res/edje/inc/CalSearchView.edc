@@ -1,0 +1,109 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#define TITLE_FUNC_BTN_SIZE_INC 68 68
+#define SEARCH_HEADER_HEIGHT 110
+#define SEARCH_HEADER_LEFT_PADDING 8
+#define SEARCH_BUTTON_SEARCHBAR_PADDING_WIDTH 0
+
+group { name: "CalSearchView";
+
+	parts {
+		part { name: "base";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				align: 0.0 0.0;
+				BASE_COLOR_TRANSPARENT;
+			}
+		}
+		part {
+			name: "header";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				align: 0.5 0;
+				fixed: 0 1;
+				min: 0 SEARCH_HEADER_HEIGHT;
+				max: -1 SEARCH_HEADER_HEIGHT;
+				HEADER_NAVIFRAME_COLOR;
+			}
+		}
+		part {
+			name: "header_left_padding";
+			type: SPACER;
+			description {
+				state: "default" 0.0;
+				min: SEARCH_HEADER_LEFT_PADDING 0;
+				max: SEARCH_HEADER_LEFT_PADDING -1;
+				fixed: 1 0;
+				align: 0 0;
+				rel1 { relative: 0 0; to: "header";}
+				rel2 { relative: 0 1; to: "header";}
+			}
+		}
+		part {
+			name: "elm.search.back";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				min: TITLE_FUNC_BTN_SIZE_INC;
+				max: TITLE_FUNC_BTN_SIZE_INC;
+				fixed: 1 1;
+				align: 0 0.5;
+				rel1 { relative: 1 0; to_x: "header_left_padding"; to_y: "header";}
+				rel2 { relative: 1 1; to_x: "header_left_padding"; to_y: "header";}
+			}
+		}
+		part {
+			name: "elm.search.spacer";
+			type: SPACER;
+			description {
+				state: "default" 0.0;
+				min: SEARCH_BUTTON_SEARCHBAR_PADDING_WIDTH 0;
+				max: SEARCH_BUTTON_SEARCHBAR_PADDING_WIDTH -1;
+				fixed: 1 0;
+				align: 0.5 0.5;
+				rel1 { relative: 1 0; to: "elm.search.back";}
+				rel2 { relative: 1 1; to: "elm.search.back";}
+			}
+		}
+		part { name: "elm.swallow.searchbar";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: 1.0 0.0; to_x: "elm.search.spacer"; to_y: "header";}
+				rel2 { relative: 1.0 1.0; to: "header";}
+				fixed: 1 1;
+			}
+			description {
+				state: "hide" 0.0;
+				inherit: "default" 0.0;
+				min: 0 0;
+				fixed: 1 1;
+			}
+		}
+		part { name: "elm.swallow.content";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: 0.0 1.0; to_y: "header"; }
+				rel2 { relative: 1.0 1.0; to_x: "base"; to_y: "base"; }
+			}
+		}
+	}
+}

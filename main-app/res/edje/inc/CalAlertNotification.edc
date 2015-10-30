@@ -1,0 +1,137 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+group { name: "Event_notification";
+	parts {
+	part { name: "bg";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				align: 0.0 0.0;
+				color: 255 255 255 0;
+			}
+		}
+		part { name: "sw";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 {
+					relative: 0.0 0.0;
+					to_x: "bg";
+					to_y: "bg";
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					to_x: "bg";
+					to_y: "bg";
+				}
+			}
+		}
+	}
+}
+
+group {
+	name: "toolbar_button";
+	parts {
+		part {
+			name: "base";
+			type: RECT;
+			mouse_events: 1;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 0 CAL_BOTTOM_BAR_MAX_HEIGHT;
+				color: 250 250 250 255;
+			}
+		}
+		part {
+			name: "center.padding";
+			type: SPACER;
+			mouse_events: 0;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				fixed: 1 0;
+				min: CAL_BOTTOM_BAR_CENTER_PADDING_WIDTH 0;
+				max: CAL_BOTTOM_BAR_CENTER_PADDING_WIDTH -1;
+				align: 0.5 0.0;
+			}
+		}
+		part {
+			name: "left_button";
+			type: SWALLOW;
+			mouse_events: 1;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				max: -1 CAL_BOTTOM_BAR_BUTTON_MAX_HEIGHT;
+				rel1 { relative: 1.0 0.0; to_x: "left_button_padding";}
+				rel2 { relative: 0.0 1.0; to_x: "center.padding";}
+				align: 0.0 0.5;
+			}
+		}
+		part {
+			name: "right_button";
+			type: SWALLOW;
+			mouse_events: 1;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				max: -1 CAL_BOTTOM_BAR_BUTTON_MAX_HEIGHT;
+				rel1 { relative: 1.0 0.0; to_x: "center.padding";}
+				rel2 { relative: 0.0 1.0; to_x: "right_button_padding";}
+				align: 0.0 0.5;
+			}
+		}
+		part { name: "left_button_padding";
+			type: SPACER;
+			description {
+				state: "default" 0.0;
+				min: CAL_BOTTOM_BAR_CENTER_PADDING_WIDTH 0;
+				max: CAL_BOTTOM_BAR_CENTER_PADDING_WIDTH -1;
+				fixed: 1 0;
+				rel1 {
+					relative: 0.0 0.0;
+					to: "base";
+				}
+				rel2 {
+					relative: 0.0 1.0;
+					to: "base";
+				}
+				align: 0.0 0.0;
+			}
+		}
+		part { name: "right_button_padding";
+			type: SPACER;
+			description {
+				state: "default" 0.0;
+				min: CAL_BOTTOM_BAR_CENTER_PADDING_WIDTH 0;
+				max: CAL_BOTTOM_BAR_CENTER_PADDING_WIDTH -1;
+				fixed: 1 0;
+				rel1 {
+					relative: 1.0 0.0;
+					to: "base";
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					to: "base";
+				}
+				align: 1.0 0.0;
+			}
+		}
+	}
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="org.tizen.calendar" version="1.0.0">
+    <profile name="mobile"/>
+    <ui-application appid="org.tizen.calendar.alert" auto-restart="false" exec="calendar-alert" launch_mode="caller" multiple="false" nodisplay="true" taskmanage="false" type="capp">
+        <label>Calendar Alert</label>
+        <icon>calendar.png</icon>
+        <app-control>
+            <operation name="http://tizen.org/appcontrol/operation/view"/>
+            <mime name="application/x-tizen.calendar.reminder"/>
+        </app-control>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/calendar.read</privilege>
+        <privilege>http://tizen.org/privilege/notification</privilege>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+        <privilege>http://tizen.org/privilege/calendar.write</privilege>
+        <privilege>http://tizen.org/privilege/display</privilege>
+    </privileges>
+    <feature name="http://tizen.org/feature/screen.size.all">true</feature>
+</manifest>

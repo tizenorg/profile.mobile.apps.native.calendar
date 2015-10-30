@@ -1,0 +1,417 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "Известување за настан"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "ГОТОВО"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "ОТКАЖИ"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "Основно"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Избриши"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "На денешен датум"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Опции"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "Цел ден"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Денес"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Нема настани"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "Овој настан ќе се избрише."
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "Ќе се избришат %d настани."
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "Сите настани ќе се избришат."
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Откажи"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "Избери ги сите"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "Нема резултати"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "Роденден на %s"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "На почетно време"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d минути порано"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "Прилагодено"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "Готово"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "Настанот е сочуван."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "Настанот се преклопува со друг."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "Копирај"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "Само овој настан"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "Овој и идни настани"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "Сите повторени настани"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "Пауза"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "Откажи"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "Временска зона"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "Заклучи временска зона"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "Седмицата почнува во"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "Тип известување"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "Звук за известување"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "Заклучете ги времињата и датумите на активностите во својата избрана временска зона. Тие нема да се сменат дури и ако се преместите во друга временска зона."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "Основен локал"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Сабота"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Недела"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Понеделник"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "Појавни известувања"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "Нема известувања"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "Дневен"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Седмично"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Месечно"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "Секоја година"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "Секој"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "мин"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "час"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "нед."
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Наслов"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "Родендени на контактите"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "Крај"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "Почни"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "Локација"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "Повеќе"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "Потсетник"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "Повторување"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Избриши"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "Сите календари"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "Ново"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Избриши"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "Мој календар"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "Сите календари ќе се избришат."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "%d од настаните што ги избравте за бришење се повторуваат. Да се избришат сите случувања од тие настани?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "Секој(а) петти/та %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "Секој(а) прв(а) %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "Секој(а) четврти/та %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "Секој(а) втор(а) %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "Секој(а) трет(а) %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "Вечно"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "месец"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "година"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "Повторувај до"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "На ден %d"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Пребарување"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "пати"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "1 настан ќе се избрише."
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Постави"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "Календар"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "Отфрли промени"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "Сите промени ќе се отфрлат."
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Измени"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Настани"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "Мој настан"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "Одреди потсетник"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "VCS фајл"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Текст"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "%d избрани"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "Сподели како"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "месеци"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "години"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1 минута претходно"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "1 час претходно"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d часа претходно"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1 ден претходно"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d дена претходно"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1 седмица претходно"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d седмици претходно"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "Крајното време треба да биде подоцна од почетното време."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "Крајниот датум треба да биде подоцна од почетниот."
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "Отфрли"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "Годишнина на %s"
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "1 календар ќе се избрише."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "Одреди час"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "Додај поле"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "Копирај во посредната меморија"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "Оди на интернет адреса"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "Додај во омилени страници"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "Одредете траење на паузата"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "Извест. на лентата за сост."
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "Откако ќе направите или ќе прифатите покани за настани, ќе се прикажат тука."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "1 од настаните што ги избравте за бришење се повторува. Да се избришат сите негови случувања?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "Друго"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Ништо"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "секоја %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "Секои %1$d %2$s во %3$s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "Секои %1$d %2$s"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Вторник"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Среда"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Четврток"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Петок"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "до %s"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "Неуспешно сочувување настан. Дојде до непозната грешка."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "Фајлови VTS не се поддржани."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d минути"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "Достигнат е максималниот број прилози (%d)."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "Датумот е надвор од прифатливиот опсег. Изберете датум меѓу %1$s и %2$s."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "Достигнат е максималниот број настани што може да се вметнат (%d)."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "Сочувај во Календар"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "Уреди календари"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "Белешки"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Детали"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "Одреди датум"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "Никогаш"
+
+msgid "IDS_CLD_BODY_WEEKS_M_DURATION_LC"
+msgstr "седмици"
+
+msgid "IDS_CLD_BODY_DAY_M_DURATION_LC"
+msgstr "ден"
+
+msgid "IDS_CLD_BODY_DAYS_M_DURATION_LC"
+msgstr "дена"
+
+msgid "IDS_CLD_ACBUTTON_TODAY"
+msgstr "ДЕНЕСКА"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Достигнат е максималниот број знаци (%d)."
+

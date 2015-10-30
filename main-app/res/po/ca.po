@@ -1,0 +1,417 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "Avís d'esdeveniments"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "REALITZAT"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "CANCEL·LAR"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "Predeterminat"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Esborrar"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "Anar a avui"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Ajustaments"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "Tot dia"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Avui"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "No hi ha cap esdeveniment"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "S'esborrarà aquest esdeveniment"
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "S'esborraran %d esdeveniments"
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "S'esborraran tots els esdeveniments"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Cancel"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "Seleccionar tot"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "No s'han trobat resultats"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "Natalici de %s"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "A l'hora d'inici"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d minuts abans"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "Personalitzar"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "Finalitzat"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "Esdeveniment desat."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "L'esdeveniment se solapa amb un altre."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "Copiar"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "Només aquest esdeveniment"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "Aquest esdeveniment i futurs"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "Tots esdeveniments repetits"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "Repetir"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "Descart"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "Zona horària"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "Bloquejar zona horària"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "La setmana comença el"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "Tipus d'avís"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "So de notificació"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "Bloquegi les dates i hores dels esdeveniments a la zona horària seleccionada. No canviaran encara que les mogui a una altra zona horària."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "Config regional predet"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Dissabte"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Diumenge"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Dilluns"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "Notificacions emergents"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "Sense avisos"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "Diàriament"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Setmanal"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Mensual"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "Anualment"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "Cada dia"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "min"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "hora"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "setm"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Títol"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "Aniversaris dels contactes"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "Finalitzar"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "Iniciar"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "Ubicació"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "Més"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "Recordatori"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "Repetir"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Esborrar"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "Tots el calendaris"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "Crear"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Esborrar"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "El meu calendari"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "S'esborraran tots els calendaris."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "%d dels esdeveniments que ha seleccionat esborrar són esdeveniments recurrents. Esborrar totes les repeticions d'aquests esdeveniments?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "Cada cinc %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "Cada primer %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "Cada quatre %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "Cada dos %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "Cada tres %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "Per sempre"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "mes"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "any"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "Repetir fins"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "El dia %d"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Cercar"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "vegades"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "S'esborrarà 1 esdeveniment"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Definir"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "Calendari"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "Descartar canvis"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "Es descartaran tots els canvis"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Editar"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Esdeveniments"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "El meu esdeveniment"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "Definir recordatori"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "Fitxer VCS"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Text"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "%d seleccionats"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "Compartir com"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "mesos"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "anys"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1 minut abans"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "1 hora abans"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d hores abans"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1 dia abans"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "Fa %d dies"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1 setmana abans"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "Fa %d setmanes"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "L'hora de finalització ha de ser posterior a l'hora d'inici."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "La data de finalització ha de ser posterior a la data d'inici."
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "Descartar"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "Aniversari de %s"
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "S'esborrarà 1 calendari."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "Definir hora"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "Afegir camp"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "Copiar al porta-retalls"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "Anar a l'adreça web"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "Afegir a Preferits"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "Definir durada de la repetició"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "Notificacions barra d'estat"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "Després de crear o acceptar invitacions a esdeveniments, es mostraran aquí."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "1 dels esdeveniments que ha seleccionat esborrar es un esdeveniment recurrent. Esborrar totes les repeticions d'aquest esdeveniment?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "Altres"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Cap"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "cada %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "Cada %1$d %2$s el %3$s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "Cada %1$d %2$s"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Dimarts"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Dimecres"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Dijous"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Divendres"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "fins a %s"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "Error en desar l'esdeveniment. S'ha produït un error desconegut."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "No s'admeten els fitxers VTS."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minuts"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "S'ha assolit el nombre màxim d'adjunts (%d)."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "Dades fora de l'interval acceptat. Seleccioni una data entre %1$s i %2$s."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "S'ha assolit el nombre màxim d'esdeveniments que es poden inserir (%d)."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "Desar al Calendari"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "Gestionar calendaris"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "Notes"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Detalls"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "Definir data"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "Mai"
+
+msgid "IDS_CLD_BODY_WEEKS_M_DURATION_LC"
+msgstr "setmanes"
+
+msgid "IDS_CLD_BODY_DAY_M_DURATION_LC"
+msgstr "dia"
+
+msgid "IDS_CLD_BODY_DAYS_M_DURATION_LC"
+msgstr "dies"
+
+msgid "IDS_CLD_ACBUTTON_TODAY"
+msgstr "AVUI"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "S'ha assolit el nombre màxim de caràcters (%d)."
+
