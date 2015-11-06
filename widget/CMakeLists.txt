@@ -1,12 +1,11 @@
 SET(CAL_WIDGET calendar-widget)
 
+add_definitions("-DTIZEN_WIDGET=\"_WIDGET\"")
 FILE(GLOB SRCS
 	${CMAKE_SOURCE_DIR}/widget/*.cpp
-	${CMAKE_SOURCE_DIR}/main-app/src/edit/*.cpp
-	${CMAKE_SOURCE_DIR}/main-app/src/common/*.cpp
-	${CMAKE_SOURCE_DIR}/main-app/src/month/*.cpp
-	${CMAKE_SOURCE_DIR}/main-app/src/list/*.cpp
-	${CMAKE_SOURCE_DIR}/main-app/src/book/*.cpp
+	${CMAKE_SOURCE_DIR}/main-app/src/month/CalMonthControl2.cpp
+	${CMAKE_SOURCE_DIR}/main-app/src/month/CalMonthControl.cpp
+	${CMAKE_SOURCE_DIR}/main-app/src/month/CalMonthRowControl.cpp
 )
 
 INCLUDE_DIRECTORIES(
@@ -14,11 +13,6 @@ INCLUDE_DIRECTORIES(
 	${CMAKE_SOURCE_DIR}/common
 	${CMAKE_SOURCE_DIR}/common/fw
 	${CMAKE_SOURCE_DIR}/common/model
-	${CMAKE_SOURCE_DIR}/main-app/src/edit
-	${CMAKE_SOURCE_DIR}/main-app/src/common
-	${CMAKE_SOURCE_DIR}/main-app/src/month
-	${CMAKE_SOURCE_DIR}/main-app/src/list
-	${CMAKE_SOURCE_DIR}/main-app/src/book
 )
 
 ADD_EXECUTABLE(${CAL_WIDGET} ${SRCS})

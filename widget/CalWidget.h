@@ -19,7 +19,8 @@
 #ifndef _CALWIDGET_H_
 #define _CALWIDGET_H_
 
-#include <app_control.h>
+#include <widget_app.h>
+
 #include <Ecore.h>
 #include <memory>
 #include "CalDate.h"
@@ -27,7 +28,6 @@
 #include "CalMonthControl2.h"
 #include "CalEvent.h"
 #include "ICalEventListener.h"
-#include "CalWidgetApp.h"
 
 class CalWidget : private ICalEventListener
 {

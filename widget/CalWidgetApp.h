@@ -20,9 +20,6 @@
 #define CALWIDGETAPP_H_
 
 #include <widget_app.h>
-#include <widget_app_efl.h>
-#include <Elementary.h>
-#include "CalWidget.h"
 
 class CalWidgetApp
 {

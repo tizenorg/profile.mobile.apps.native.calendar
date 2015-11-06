@@ -25,7 +25,6 @@
 #include "CalOriginalSchedule.h"
 #include "CalSettingsManager.h"
 #include "CalLocaleManager.h"
-#include "CalBookManager.h"
 
 CalSchedule::CalSchedule()
 {

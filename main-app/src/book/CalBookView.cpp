@@ -36,7 +36,6 @@ CalBookView::CalBookView() : CalView("CalBookView"),
 CalBookView::~CalBookView()
 {
 	__localBookMap.clear();
-	__localBookItems.clear();
 }
 
 /**
@@ -116,8 +115,6 @@ void CalBookView::__update()
 
 			Elm_Object_Item *obj = __dialog->add(item);
 			item->setCustomData(obj);
-
-			__localBookItems.push_back(item);
 		}
 	}
 
@@ -135,8 +132,6 @@ void CalBookView::__update()
 
 			Elm_Object_Item *obj = __dialog->add(item);
 			item->setCustomData(obj);
-
-			__localBookItems.push_back(item);
 		}
 	}
 }

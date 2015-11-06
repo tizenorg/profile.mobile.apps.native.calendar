@@ -67,7 +67,7 @@ CalSettingsView::~CalSettingsView()
  */
 void CalSettingsView::__dialogDeleteCallback(void *data, Evas *e, Evas_Object *obj, void *event_info)
 {
-	CAL_FN_START;
+    WENTER();
 }
 
 /**
@@ -254,7 +254,7 @@ void CalSettingsView::radioOnLockTimeZone(void)
  */
 Evas_Object* CalSettingsView::onCreate(Evas_Object* parent, void* viewParam)
 {
-	CAL_FN_START;
+	WENTER();
 
 	__dialog = new CalDialogControl;
 	__dialog->create(parent, NULL);

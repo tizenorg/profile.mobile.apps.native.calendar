@@ -16,11 +16,13 @@
  */
 
 #include "CalWidgetApp.h"
+
 #include "CalTheme.h"
 #include "GuiDefines.h"
 #include "CalSettingsManager.h"
 #include "CalEventManager.h"
 #include "CalLocaleManager.h"
+#include "CalWidget.h"
 
 namespace
 {
@@ -142,6 +144,7 @@ int CalWidgetApp::onWidgetDestroy(widget_context_h context, widget_app_destroy_t
 	{
 		widget->destroy(reason);
 	}
+	CalTheme::finalize();
 
 	return WIDGET_ERROR_NONE;
 }

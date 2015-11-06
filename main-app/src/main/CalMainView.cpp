@@ -15,10 +15,10 @@
  *
  */
 
-#include <notification.h>
 #include "CalCommon.h"
 #include "CalNaviframe.h"
 #include "WMenuPopup.h"
+#include "WUiTimer.h"
 
 #include "CalMainView.h"
 
@@ -29,7 +29,6 @@
 #include "CalSettingsView.h"
 
 #include "CalLocaleManager.h"
-#include "CalBookManager.h"
 #include "CalListModelFactory.h"
 
 #ifdef __cplusplus
@@ -45,6 +44,8 @@
 #define TRACK_MODE_CHANGE_FLOW(_tag)\
 	WDEBUG("[mode] %s: __listMode(%d) __listDragRecognizerState(%d) __listIsBeingDragged(%d) __monthDragBegan(%d)",\
 		   _tag, __listMode, __listDragRecognizerState, __listIsBeingDragged, __monthDragBegan);
+
+#define LIST_FOCUS_ACTION_DELAY 1.5
 
 CalMainView::CalMainView(const CalDate& focusedDate) : CalView("CalMainView"),
 	__focusedDate(focusedDate),
@@ -290,6 +291,12 @@ void CalMainView::onCreated()
 	__month->load();
 
 	__createListControl();
+
+	WUiTimer::addTimer(LIST_FOCUS_ACTION_DELAY, [](void* data) {
+			CalMainView* self = (CalMainView*) data;
+			self->__focusList();
+		return ECORE_CALLBACK_CANCEL;
+		}, this, getWeakPtr());
 
 	__monthSlideAnimator = new CalSlideAnimator(
 		getMonth(0).getEvasObj(),
