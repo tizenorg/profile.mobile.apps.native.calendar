@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="org.tizen.calendar" version="1.0.0">
+    <profile name="mobile"/>
+    <ui-application appid="org.tizen.calendar" auto-restart="false" exec="calendar" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>calendar</label>
+        <icon>calendar.png</icon>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/calendar.read</privilege>
+        <privilege>http://tizen.org/privilege/notification</privilege>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+        <privilege>http://tizen.org/privilege/calendar.write</privilege>
+        <privilege>http://tizen.org/privilege/contact.read</privilege>
+    </privileges>
+    <feature name="http://tizen.org/feature/screen.size.all">true</feature>
+</manifest>

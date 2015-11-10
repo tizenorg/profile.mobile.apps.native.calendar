@@ -1,0 +1,172 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+#include "../theme/inc/genlist_macro.edc"
+
+#define LIST_ITEM_COLOR_BAR_WIDTH           9
+#define PRESSED_ITEM_COLOR 61 185 204 100
+#define ORANGE_BAR 224 167 79 255
+#define PURPLE_BAR 141 17 27 255
+
+styles {
+    // Agenda main text
+    style { name: "event_title";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" valign=middle align=left color=#000000 ellipsis=-1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+    }
+
+    // Agenda sub text
+    style { name: "event_subtitle";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" valign=middle align=left color=#555555 ellipsis=-1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+    }
+}
+
+group
+{
+    name, "CalEventItem";
+    data.item: "texts" "elm.text.time elm.text.title elm.text.location";
+    data.item: "contents" "elm.swallow.color.bar elm.swallow.checkbox";
+
+    images {
+       image: "bg_colorbar.#.png" COMP;
+    }
+
+    parts {
+    PART_LIST_PADDINGS(0, 20, 0, 8)
+    PART(RECT, "bg",
+        description { state: "default" 0.0;
+            color: 255 255 255 0;
+        }
+        description { state: "pressed" 0.0;
+            inherit: "default" 0.0;
+            color: PRESSED_ITEM_COLOR;
+       }
+    )
+
+    PART(SWALLOW, "elm.padding.colorbar.left",
+       DSC_L("default" 0.0, "elm.swallow.color.bar",
+          min: 24 0;
+          max: 24 -1;
+       )
+     )
+     PART(SWALLOW, "elm.swallow.color.bar",
+         DSC_LTB("default" 0.0,  "elm.padding.left", "elm.padding.top", "elm.padding.bottom",
+            min: LIST_ITEM_COLOR_BAR_WIDTH 0;
+            max: LIST_ITEM_COLOR_BAR_WIDTH -1;
+         )
+      )
+      part { name: "elm.image.line.bg";
+         mouse_events: 0;
+         scale: 1;
+         type: IMAGE;
+         description { state: "default" 0.0;
+               min: LIST_BAR_WIDTH 0;
+               max: LIST_BAR_WIDTH -1;
+               rel1.to: "elm.swallow.color.bar";
+               rel1.relative: 0.0 0.0;
+               rel2.to: "elm.swallow.color.bar";
+               rel2.relative: 1.0 1.0;
+               color: ORANGE_BAR;
+            image {
+               normal: "bg_colorbar.#.png";
+               border: 2 2 4 4;
+               border_scale: 1;
+            }
+         }
+      }
+      PART(TEXTBLOCK, "elm.text.title",
+         DSC_LRT("default" 0.0,
+         "elm.padding.colorbar.left", "elm.padding.right", "elm.padding.top",
+            min: 0 LIST_TEXT_MAIN_HEIGHT;
+            text.style: "event_title";
+            text.min: 0 1;
+            fixed: 1 0;
+         )
+      )
+      PART(TEXTBLOCK, "elm.text.time",
+         DSC_LRT("default" 0.0,
+         "elm.padding.colorbar.left", "elm.padding.right", "elm.text.title",
+            min: 0 LIST_TEXT_SUB_HEIGHT;
+            text.style: "event_subtitle";
+            text.min: 0 1;
+            fixed: 1 0;
+         )
+      )
+      PART(TEXTBLOCK, "elm.text.location",
+         DSC_LRTB("default" 0.0,
+         "elm.padding.colorbar.left", "elm.padding.right", "elm.text.time", "elm.padding.bottom",
+            min: 0 LIST_TEXT_SUB_HEIGHT;
+            text.style: "event_subtitle";
+            text.min: 0 1;
+            fixed: 1 0;
+         )
+      )
+      PART(SWALLOW, "elm.swallow.checkbox",
+         DSC_R("default" 0.0,
+         "elm.padding.right",
+            min: CHECK_SIZE CHECK_SIZE;
+            max: CHECK_SIZE CHECK_SIZE;
+            visible: 1;
+         )
+      )
+    }
+    programs {
+        program {
+            name: "button_pressed";
+            signal: "elm,button,pressed";
+            source: "*";
+            action: STATE_SET "pressed" 0.0;
+            target: "bg";
+        }
+        program {
+            name: "button_unpressed";
+            signal: "elm,button,unpressed";
+            source: "*";
+            transition: LINEAR 0.1;
+            action: STATE_SET "default" 0.0;
+            target: "bg";
+        }
+    }
+}
+
+group { name: "CalEventItem.NoLocation";
+        inherit: "CalEventItem";
+    parts {
+      PART(TEXTBLOCK, "elm.text.location",
+         DSC_LRTB("default" 0.0,
+         "elm.padding.colorbar.left", "elm.padding.right",
+         "elm.text.time", "elm.padding.bottom",
+            min: 0 0;
+            max: 0 0;
+            visible: 0;
+         )
+      )
+   }
+}
+
+group { name: "CalEventItem.Purple";
+        inherit: "CalEventItem.NoLocation";
+    parts {
+      part { name: "elm.image.line.bg";
+         description { state: "default" 0.0;
+               color: PURPLE_BAR;
+         }
+      }
+   }
+}

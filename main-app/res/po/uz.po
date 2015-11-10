@@ -1,0 +1,423 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "Voqea eslatmasi"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "BAJARILDI"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "BEKOR QILISH"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "Birlamchi"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "O‘chirish"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "Bugungi sanaga o‘tish"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Parametrlar"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "Kun mob."
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Bugun"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Hodisalar yo‘q"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "Ushbu hodisa o'chirildi."
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "%d voqealar o'chiriladi."
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "Barcha voqealar o'chiriladi."
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Bekor qilish"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "Barchasini tanlash"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "Natijalar topilmadi"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "%s tug‘ilgan kuni"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "Boshlash vaqtida"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d daqiqa avval"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "Sozlanadigan"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "Bajarildi"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "Hodisa saqlandi."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "Hodisa boshqa hodisaga to‘g‘ri kelyapti."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "Nusxa ko‘chirish"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "Faqat ushbu hodisa"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "Ushbu va kelajakdagi hodisalar"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "Barcha takrorlanuvchi hodisa"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "Pauza"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "O‘tkazib yubor"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "Vaqt mintaqasi"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "Vaqt mintaqasini mahkaml."
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "Hafta boshlanadi:"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "Signal turi"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "Signal ovozi"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "Hodisa vaqti va sanasini tanlangan vaqt mintaqangizga mahkamlang. Boshqa vaqt mintaqasiga o‘tsangiz ham, ular o‘zgarmaydi."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "Birlamchi mahalliy qiymat"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Shanba"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Yakshanba"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Dushanba"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "Qalquvchi bildirishnomalar"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "Signallar yo‘q"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "Kundalik"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Haftalik"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Oylik"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "Yillik"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "Har"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "daq"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "soat"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "hft"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Sarlavha"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "Kontaktlar tug‘ilgan kunlari"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "Tugatish"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "Boshlash"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "Joylashuv"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "Ko‘proq"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "Eslatma"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "Takrorlash"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "O'chirish"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "Barcha kalendarlar"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "Yaratish"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "O'chirish"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "Mening kalendarim"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "Barcha kalendarlar yo‘q qilinadi."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "Yo‘q qilish uchun tanlangan hodisalardan %dtasi takrorlanuvchi hodisa hisoblanadi. Ushbu hodisalarning barcha takrorlanishlari yo‘q qilinsinmi?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "Har beshinchi %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "Har birinchi %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "Har to‘rtinchi %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "Har ikkinchi %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "Har uchinchi %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "Har doim"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "oy"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "yil"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "Quyidagigacha takrorlash"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "%d kunida"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Qidirish"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "marta"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "1 voqea o'chiriladi."
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "O‘rnatish"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "Kalendar"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "O‘zgartirishlarni rad etish"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "Barcha o‘zgartirishlar rad etiladi."
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Tahrirlash"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Hodisalar"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "Mening hodisam"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "Eslatma o‘rnatish"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "VCS fayl"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Matn"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "%d tanlandi"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "Quyidagi sif. ulash"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "oy"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "yil"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1 daqiqa avval"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "1 soat avval"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d soat avval"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1 kun avval"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d kun avval"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1 hafta avval"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d hafta avval"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "Tugash vaqti boshlanish vaqtidan keyinroq kelishi lozim."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "Yakunlash sanasi boshlash sanasidan keyinroq bo‘lishi lozim"
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "Rad etish"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "%s yubileyi"
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "1 ta kalendar yo‘q qilinadi."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "Vaqtni o‘rnat"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "Maydon qo‘shish"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "Buferga nusxa olish"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "Veb-manzilga o‘ting"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "Xatcho‘plarga qo‘shish"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "Pauza davomliligini o‘rnatish"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "Hlt satri bildirishnomalari"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "Hodisalar takliflarini yaratganingizdan yoki qabul qilganingizdan so‘ng ular bu yerda ko‘rsatiladi."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "Yo‘q qilish uchun tanlangan hodisalardan 1tasi takrorlanuvchi hodisa hisoblanadi. Ushbu hodisaning barcha takrorlanishlari yo‘q qilinsinmi?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "Boshqa"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Hech qaysi"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "har %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "Har %1$d %2$s %3$s da"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "Har %1$d/%2$s"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Seshanba"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Chorshanba"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Payshanba"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Juma"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "%s gacha"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "Hodisani saqlab bo‘lmadi. Noma’lum xato yuz berdi."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "VTS fayllari qo‘llab-quvvatlanmaydi."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d daqiqa"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "Biriktirmalar soni maksimal miqdorga (%d) yetdi."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "Sana qabul qilingan diapazondan tashqarida. %1$s va %2$s oralig‘idagi sanani tanlang."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "Kiritilgan hodisalar soni maksimal miqdorga (%d) yetdi."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "Kalendarda saqlash"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "Kalendarlarni boshqarish"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "Eslatmalar"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Tafsilotlar"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "Sana o‘rnatish"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "Hech qachon"
+
+msgid "IDS_CLD_BODY_WEEKS_M_DURATION_LC"
+msgstr "haftalar"
+
+msgid "IDS_CLD_BODY_DAY_M_DURATION_LC"
+msgstr "kun"
+
+msgid "IDS_CLD_BODY_DAYS_M_DURATION_LC"
+msgstr "kun"
+
+msgid "IDS_CLD_ACBUTTON_TODAY"
+msgstr "BUGUN"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Belgilar soni ruxsat etilgan maksimal miqdorga (%d) yetdi"
+
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Hodisa bildirishnomalari"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (To‘xtatib qo‘yilgan)"
+

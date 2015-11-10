@@ -1,0 +1,66 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#include "color_classes.edc"
+
+#ifdef GBS_BUILD
+#define CALENDAR_TEXT_ELLIPSIS_VALUE -1
+#else
+#ifdef TIZEN_SDK_2_4
+#define CALENDAR_TEXT_ELLIPSIS_VALUE -1
+#else
+#define CALENDAR_TEXT_ELLIPSIS_VALUE 1
+#endif
+#endif
+
+#include "../../../app-assist-efl/inc/GuiDefines.h"
+
+collections {
+
+base_scale: APP_BASE_SCALE;
+
+#include "inc/sound.edc"
+#include "theme/inc/WVGA-inc.edc"
+#include "theme/inc/genlist_macro.edc"
+
+#include "inc/year-month-content.edc"
+
+#include "inc/CalMainView.edc"
+#include "inc/CalMonthControl2.edc"
+#include "inc/CalMonthControl.edc"
+#include "inc/CalMonthControl.Header.edc"
+#include "inc/CalMonthRowControl.edc"
+#include "inc/CalEventItem.edc"
+#include "inc/CalSearchView.edc"
+#include "inc/CalAlertView.edc"
+#include "inc/CalAlertNotification.edc"
+#include "inc/CalNumberPickerPopup.edc"
+#include "inc/CalDialogEditDateTimeItem.edc"
+#include "inc/CalDialogEditMoreItem.edc"
+#include "inc/CalDialogDetailSummaryItem.edc"
+#include "inc/CalDialogDetailReminderItem.edc"
+#include "inc/CalDialogEditOptionalTextFieldItem.edc"
+#include "inc/CalDialogDetailDescriptionItem.edc"
+#include "inc/CalDialogEditRepeatWeeklyUnitItem.edc"
+#include "inc/CalDialogEditRepeatWeeklyUnitInfoItem.edc"
+#include "inc/CalDialogEditRepeatUnitItem.edc"
+#include "inc/CalDialogEditRepeatUntilTimesItem.edc"
+#include "inc/CalDialogEditRepeatUntilDueDateItem.edc"
+#include "inc/CalEditCustomReminderPopup.edc"
+#include "inc/CalCheckboxPopup.edc"
+#include "inc/WidgetLayout.edc"
+}

@@ -1,0 +1,423 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "Fógra maidir le himeacht"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "DÉANTA"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "CUIR AR CEAL"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "Réamhshocrú"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Scrios"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "Gabh chuig inniu"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Socruithe"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "Lá ar fad"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Inniu"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Níl imeachtaí ann"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "Scriosfar an t-imeacht seo"
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "Scriosfar %d imeacht"
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "Scriosfar gach imeacht"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Cealaigh"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "Roghnaigh gach"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "Níor aimsíodh torthaí"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "Breithlá %s"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "Ag an am tosaithe"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d nóiméad roimhe"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "Saincheaptha"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "Déanta"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "Imeacht sábháilte."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "Forluíonn an t-imeacht le himeacht eile."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "Cóipeáil"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "An t-imeacht seo amháin"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "An t-imeacht seo & amach anseo"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "Gach imeacht athfhillteach"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "Néal codlata"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "Ruaig"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "Amchrios"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "Amchrios glasála"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "Tosaíonn an tseachtain ar"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "Cineál foláirimh"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "Fuaim fhógra"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "Glasáil amanna agus dátaí imeachtaí chuig d'amchrios roghnaithe. Ní athrófar iad fiú má bhogann tú chuig amchrios eile."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "Réamhshocrú logchaighdeáin"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Dé Sathairn"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Dé Domhnaigh"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Dé Luain"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "Míreanna fógraí aníos"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "Níl foláirimh ann"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "Laethúil"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Seachtainiúil"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Míosúil"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "Bliantúil"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "Gach"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "nóim"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "uair"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "scht"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Teideal"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "Lá breithe teagmhálaithe"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "Críoch"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "Tús"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "Suíomh"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "Tuilleadh"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "Meabhrúchán"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "Déan arís"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Scrios"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "Gach féilire"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "Déan"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Scrios"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "M’fhéilire"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "Scriosfar gach féilire."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "Is imeachtaí athfhillteacha iad %d de na himeachtaí a roghnaigh tú le scriosadh. Scrios gach tarlú na n-imeachtaí seo?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "Gach cúigiú %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "Gach céad %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "Gach ceathrú %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "Gach dara %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "Gach tríú %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "Choíche"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "mí"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "bliain"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "Athdhéan go dtí"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "Ar lá %d"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Cuardaigh"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "uaireanta"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "Scriosfar 1 imeacht"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Socraigh"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "Féilire"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "Cuileáil athruithe"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "Cuileálfar gach athrú"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Cuir in eagar"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Imeachtaí"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "M’imeacht"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "Socraigh meabhrúchán"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "Comhad VCS"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Téacs"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "%d roghnaithe"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "Comhroinn mar"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "míonna"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "blianta"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1 nóiméad roimhe"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "Uair 'chloig roimhe"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d u. 'chloig roimhe"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1 lá roimhe"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d lá roimhe"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1 seachtain roimhe"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d seachtain roimhe"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "Ba cheart go mbeadh an t-am deiridh i ndiaidh an ama thosaithe."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "Ba cheart don dáta deiridh a bheith i ndiaidh dáta tosaithe."
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "Cuileáil"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "Lá cinn bliana %s"
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "Scriosfar 1 fhéilire."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "Socraigh am"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "Cuir réimse leis"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "Cóipeáil chuig gearrthaisce"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "Gabh chuig seoladh gréasáin"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "Cuir le Leabharmharcanna"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "Socraigh fad an néil chodlata"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "Fógraí barra stádais"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "Tar éis duit cuirí imeachta a chruthú nó glacadh leo, taispeánfar anseo iad."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "Is imeacht athfhillteach 1 de na himeachtaí a roghnaigh tú le scriosadh. Scrios gach tarlú an imeachta seo?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "Eile"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Dada"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "gach %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "Gach %1$d %2$s ar an %3$s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "Gach %1$d %2$s"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Dé Máirt"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Dé Céadaoin"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Déardaoin"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Dé hAoine"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "go dtí %s"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "Theip ar shábháil an imeachta. Tharla earráid neamhaithnid."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "Níl tacú ann do chomhaid VTS."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d nóiméad"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "Uaslíon na gceangaltán (%d) bainte amach."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "Dáta lasmuigh den raon inghlactha. Roghnaigh dáta idir %1$s agus %2$s."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "Uaslíon na n-imeachtaí is féidir a ionsá (%d) bainte amach."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "Sábháil i bhFéilire"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "Bainistigh féilirí"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "Nótaí"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Sonraí"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "Socraigh dáta"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "Choíche"
+
+msgid "IDS_CLD_BODY_WEEKS_M_DURATION_LC"
+msgstr "seachtaine"
+
+msgid "IDS_CLD_BODY_DAY_M_DURATION_LC"
+msgstr "lá"
+
+msgid "IDS_CLD_BODY_DAYS_M_DURATION_LC"
+msgstr "lá"
+
+msgid "IDS_CLD_ACBUTTON_TODAY"
+msgstr "INNIU"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Uaslíon na gcarachtar (%d) bainte amach."
+
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Fógra maidir le himeachtaí"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (ar néal codlata)"
+

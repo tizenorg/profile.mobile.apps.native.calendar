@@ -1,0 +1,483 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#include "common.edc"
+
+#define MONTH_CLIP_TOP\
+		part {\
+			name: "month/clip/top";\
+			type: SPACER;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				POS_STACK_BELOW("header", MASKED_MONTH_TOP_PADDING);\
+			}\
+		}
+
+#define MONTH_CONTENT_POS(_row)\
+		part {\
+			name: "month/content/pos/"_row;\
+			type: SPACER;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				rel1 { relative: 0 1; to_y: "month/clip/top"; }\
+				rel2 { relative: 1 1; to_y: "month/clip/top"; }\
+				align: 0 1;\
+				fixed: 1 1;\
+				min: 0 (MONTH_ROW_HEIGHT*_row);\
+			}\
+		}
+
+#define LIST_POS(_row)\
+		part {\
+			name: "list/pos/"_row;\
+			type: SPACER;\
+			scale: 1;\
+			description {\
+				state: "default" 0.0;\
+				rel1 { relative: 0 0; to: "month/content"; }\
+				rel2 { relative: 1 0; to: "month/content"; }\
+				align: 0 0;\
+				fixed: 1 1;\
+				min: 0 (MONTH_ROW_HEIGHT*(_row+1)+MASKED_MONTH_BOTTOM_PADDING);\
+			}\
+		}
+
+#define MONTH_CONTENT_POS_SHOWING_ONLY_ROW_DESC(_row)\
+			description {\
+				state: "showing-one-row/"_row 0.0;\
+				inherit: "default" 0.0;\
+				rel1 { relative: 0 0; to: "month/content/pos/"_row; }\
+				rel2 { relative: 1 0; to: "month/content/pos/"_row; }\
+			}
+
+#define LIST_POS_SHOWING_ONLY_ROW_DESC(_row)\
+			description {\
+				state: "showing-one-row/"_row 0.0;\
+				inherit: "default" 0.0;\
+				rel1 { relative: 0 1; to: "list/pos/"_row; }\
+			}
+
+#define PROGRAM_SHOW_ALL_ROWS\
+		program {\
+			signal, "show-all-rows";\
+			action, STATE_SET "default" 0.0;\
+			target, "month/content";\
+			target, "list";\
+			target, "month";\
+			target, "month/top-padding";\
+			target, "month/clip";\
+			target, "month/pull-down-cue";\
+			target, "header/sw";\
+			transition, SIN 0.3;\
+			after, "show-all-rows/done"; \
+		}\
+		program {\
+			signal, "show-all-rows/pre";\
+			action, STATE_SET "default" 0.0;\
+			target, "month/top-padding";\
+			target, "month/clip";\
+			target, "month/pull-down-cue";\
+		}\
+		program {\
+			signal, "show-all-rows/post";\
+			action, STATE_SET "default" 0.0;\
+			target, "month/content";\
+			target, "header/sw";\
+			target, "list";\
+			target, "month";\
+		}\
+		program {\
+			name, "show-all-rows/done";\
+			action, SIGNAL_EMIT "show-all-rows/done/cpp" "";\
+		}\
+		program {\
+			name: "show-all-rows/post";\
+			signal, "show-all-rows/post";\
+			action, STATE_SET "default" 0.0;\
+			target, "header";\
+		}
+
+#define PROGRAM_SHOW_ONLY_ROW(_row)\
+		program {\
+			signal, "show-one-row/"_row;\
+			action, STATE_SET "showing-one-row/"_row 0.0;\
+			target, "month/content";\
+			target, "list";\
+			transition, SIN 0.2;\
+		}\
+		program {\
+			signal, "show-one-row/no-anim/"_row;\
+			action, STATE_SET "showing-one-row" 0.0;\
+			target, "month/content";\
+			target, "list";\
+		}\
+		program {\
+			signal, "show-one-row/no-anim/"_row;\
+			action, STATE_SET "hidden" 0.0;\
+			target, "header";\
+		}\
+		program {\
+			signal, "show-one-row/"_row;\
+			action, STATE_SET "showing-one-row" 0.0;\
+			target, "month";\
+			target, "month/top-padding";\
+			target, "month/clip";\
+			target, "month/pull-down-cue";\
+			transition, SIN 0.2;\
+		}\
+		program {\
+			signal, "show-one-row/no-anim/"_row;\
+			action, STATE_SET "showing-one-row" 0.0;\
+			target, "month";\
+			target, "month/top-padding";\
+			target, "month/clip";\
+			target, "month/pull-down-cue";\
+			target, "header/sw";\
+		}
+
+group {
+	name: "CalMainView";
+	images {
+		image: "ic_calendar_handler.png" COMP;
+	}
+	parts {
+
+		MONTH_CLIP_TOP
+
+		MONTH_CONTENT_POS(5)
+		MONTH_CONTENT_POS(4)
+		MONTH_CONTENT_POS(3)
+		MONTH_CONTENT_POS(2)
+		MONTH_CONTENT_POS(1)
+		MONTH_CONTENT_POS(0)
+
+		LIST_POS(0)
+		LIST_POS(1)
+		LIST_POS(2)
+		LIST_POS(3)
+		LIST_POS(4)
+		LIST_POS(5)
+
+		part {
+			name: "header";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_TOP(MONTH_HEADER_HEIGHT)
+				HEADER_COLOR_TRANSPARENT;
+			}
+			description {
+				state: "hidden" 0.0;
+				inherit: "default" 0.0;
+				POS_TOP(0)
+			}
+		}
+
+		part {
+			name: "header/top";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_TOP_WITHIN("header", 0)
+				HEADER_COLOR_TRANSPARENT;
+			}
+		}
+		part {
+			name: "header/sw";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				fixed: 1 1;
+				rel1 { relative: 0 1; to: "header/top"; }
+				rel2 { relative: 1 1; to: "header"	; }
+			}
+			description {
+				state: "showing-one-row" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
+			}
+		}
+		part {
+			name: "month/original";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_STACK_BELOW("header", MONTH_HEIGHT);
+				MONTH_BG_COLOR;
+				visible: 0;
+			}
+		}
+		part {
+			name: "month";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_STACK_BELOW("header", MONTH_HEIGHT);
+				MONTH_BG_COLOR;
+			}
+			description {
+				state: "showing-one-row" 0.0;
+				inherit: "default" 0.0;
+				min: 0 PULL_DOWN_CUE_HEIGHT;
+				HEADER_COLOR_TRANSPARENT;
+			}
+		}
+		part {
+			name: "month/top-padding/original";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_TOP_WITHIN("month", MONTH_TOP_PADDING);
+				color: 0 0 0 0;
+			}
+		}
+		part {
+			name: "month/top-padding";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_TOP_WITHIN("month", MONTH_TOP_PADDING);
+			}
+			description {
+				state: "showing-one-row" 0.0;
+				inherit: "default" 0.0;
+				min: 0 MASKED_MONTH_TOP_PADDING;
+			}
+		}
+		part {
+			name: "month/clip";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_STACK_BELOW("month/top-padding", (MONTH_ROW_HEIGHT * MONTH_ROW_COUNT));
+				color: 255 255 255 255;
+			}
+			description {
+				state: "showing-one-row" 0.0;
+				inherit: "default" 0.0;
+				min: 0 0;
+			}
+		}
+		part {
+			name: "month/content";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_STACK_BELOW("month/top-padding", (MONTH_ROW_HEIGHT * MONTH_ROW_COUNT));
+			}
+			description {
+				state: "showing-one-row" 0.0;
+				inherit: "default" 0.0;
+				min: 0 0;
+			}
+			MONTH_CONTENT_POS_SHOWING_ONLY_ROW_DESC(0)
+			MONTH_CONTENT_POS_SHOWING_ONLY_ROW_DESC(1)
+			MONTH_CONTENT_POS_SHOWING_ONLY_ROW_DESC(2)
+			MONTH_CONTENT_POS_SHOWING_ONLY_ROW_DESC(3)
+			MONTH_CONTENT_POS_SHOWING_ONLY_ROW_DESC(4)
+			MONTH_CONTENT_POS_SHOWING_ONLY_ROW_DESC(5)
+		}
+		part {
+			name: "month/touch";
+			type: RECT;
+			scale: 1;
+			mouse_events: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { to: "header"; }
+				rel2 { to: "month"; }
+				color: 0 0 0 0;
+			}
+		}
+		part {
+			name: "month/sw";
+			type: SWALLOW;
+			scale: 1;
+			clip_to: "month/clip";
+			mouse_events: 1;
+			repeat_events: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { to: "month/content"; }
+				rel2 { to: "month/content"; }
+			}
+		}
+		part {
+			name: "month/pull-down-cue";
+			type: IMAGE;
+			scale: 1;
+			mouse_events: 1;
+			repeat_events: 0;
+			description {
+				state: "default" 0.0;
+				POS_STACK_ABOVE_CENTER_WITHIN("month", "month/divider", PULL_DOWN_CUE_WIDTH, PULL_DOWN_CUE_HEIGHT);
+				image.normal: "ic_calendar_handler.png";
+				LIST_BG_COLOR;
+				visible: 0;
+			}
+			description {
+				state: "showing-one-row" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+			}
+		}
+		part {
+			name: "month/divider";
+			type: RECT;
+			scale: 1;
+			mouse_events: 0;
+			repeat_events: 0;
+			description {
+				state: "default" 0.0;
+				POS_BOTTOM_WITHIN("month", MONTH_LIST_DIVIDER_HEIGHT);
+				color: 216 216 216 255;
+			}
+		}
+		part {
+			name: "week";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_STACK_BELOW("header", MASKED_MONTH_SECTION_HEIGHT);
+			}
+		}
+		part {
+			name: "week/top-padding";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				POS_TOP_WITHIN("week", MASKED_MONTH_TOP_PADDING);
+			}
+		}
+		part {
+			name: "week/bottom-padding";
+			type: RECT;
+			scale: 1;
+			mouse_events: 0;
+			repeat_events: 0;
+			description {
+				state: "default" 0.0;
+				POS_BOTTOM_WITHIN("week", MASKED_MONTH_BOTTOM_PADDING);
+				color: 0 0 0 0;
+			}
+		}
+		part {
+			name: "list";
+			type: SPACER;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: 0 1; to: "month"; }
+				fixed: 1 1;
+			}
+			description {
+				state: "showing-one-row" 0.0;
+				inherit: "default" 0.0;
+				rel1 { relative: 0 0; to: "month/divider"; }
+			}
+
+			LIST_POS_SHOWING_ONLY_ROW_DESC(0)
+			LIST_POS_SHOWING_ONLY_ROW_DESC(1)
+			LIST_POS_SHOWING_ONLY_ROW_DESC(2)
+			LIST_POS_SHOWING_ONLY_ROW_DESC(3)
+			LIST_POS_SHOWING_ONLY_ROW_DESC(4)
+			LIST_POS_SHOWING_ONLY_ROW_DESC(5)
+
+		}
+		part {
+			name: "list/touch";
+			type: RECT;
+			scale: 1;
+			mouse_events: 1;
+			repeat_events: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { to: "list"; }
+				rel2 { to: "list"; }
+				color: 0 0 0 0;
+			}
+		}
+		part {
+			name: "list/sw";
+			type: SWALLOW;
+			scale: 1;
+			mouse_events: 1;
+			repeat_events: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { to: "list"; }
+				rel2 { to: "list"; }
+			}
+			description {
+				state: "hidden" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
+			}
+		}
+		part {
+			name: "list/no-events";
+			type: SWALLOW;
+			scale: 1;
+			mouse_events: 1;
+			repeat_events: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { to: "list"; }
+				rel2 { to: "list"; }
+			}
+		}
+	}
+	programs {
+		PROGRAM_SHOW_ALL_ROWS
+		PROGRAM_SHOW_ONLY_ROW(0)
+		PROGRAM_SHOW_ONLY_ROW(1)
+		PROGRAM_SHOW_ONLY_ROW(2)
+		PROGRAM_SHOW_ONLY_ROW(3)
+		PROGRAM_SHOW_ONLY_ROW(4)
+		PROGRAM_SHOW_ONLY_ROW(5)
+		program {
+			signal, "show,list";
+			action, STATE_SET "default" 0.0;
+			target, "list/sw";
+		}
+		program {
+			signal, "hide,list";
+			action, STATE_SET "hidden" 0.0;
+			target, "list/sw";
+		}
+		program {
+			name: "button_click";
+			signal: "mouse,down,1";
+			source: "month/pull-down-cue";
+			action: SIGNAL_EMIT "show-all-rows" "";
+			after: "show-all-rows/post";
+		}
+	}
+}

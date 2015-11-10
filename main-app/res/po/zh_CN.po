@@ -1,0 +1,423 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "事件通知"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "完成"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "取消"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "默认"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "删除"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "转到今天"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "设定"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "全天"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "今天"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "没有事件"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "此事件将被删除。"
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "%d个事件将被删除。"
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "全部事件将被删除。"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "取消"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "全选"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "未找到结果"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "%s 的生日"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "准时"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d 分钟前"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "自定义"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "完成"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "事件已保存"
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "该事件与另一事件重叠"
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "复制"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "仅限该事件"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "该事件及日后事件"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "所有重复事件"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "再响"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "停止"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "时区"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "锁定时区"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "每周开始于"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "提醒类型"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "通知声音"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "将事件时间和日期锁定至选中的时区。即使您移动至另一时区，它们也不会更改。"
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "地区默认值"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "星期六"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "星期日"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "星期一"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "弹出通知"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "无提醒"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "每日"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "每周"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "每月"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "每年"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "每隔"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "分钟"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "小时"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "周"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "标题"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "联系人的生日"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "结束"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "开始"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "位置"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "更多"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "提醒"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "重复"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "删除"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "所有日历"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "制作"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "删除"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "我的日历"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "将删除所有日历。"
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "您已选择删除的 %d 个事件为复现事件。是否删除这些事件的所有复现？"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "每月的第五个 %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "每月的第一个 %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "每月的第四个 %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "每月的第二个 %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "每月的第三个 %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "一直"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "月"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "年"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "重复直至"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "在第 %d 日"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "搜索"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "次"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "1个事件将被删除。"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "设定"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "日历"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "放弃更改"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "将丢弃全部更改"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "编辑"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "事件"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "我的事件"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "设置提醒"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "VCS 文件"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "文本"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "已选中 %d 个"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "分享为"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "月"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "年"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1 分钟前"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "1 小时之前"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d 小时之前"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1 天前"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d 天前"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1 周前"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d 周前"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "结束时间应在开始时间之后"
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "结束日期应在开始日期之后"
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "放弃"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "%s 的周年纪念日"
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "将删除 1 个日历。"
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "设置时间"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "添加字段"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "复制到剪贴板"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "进入网址"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "添加至书签"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "设置再响时间"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "状态条通知"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "创建或接受事件邀请后，其将显示在此处。"
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "您已选择删除的 1 个事件为复现事件。是否删除该事件的所有复现？"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "其他"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "无"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "每个 %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "每 %1$d %2$s 的 %3$s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "每 %1$d %2$s"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "星期二"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "星期三"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "星期四"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "星期五"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "直至 %s"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "保存事件失败。发生未知错误。"
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "不支持 VTS 文件"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d 分钟"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "已达到最大附件数 (%d)"
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "日期不在可接受范围内。请选择介于 %1$s 和 %2$s 之间的日期。"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "已达到可插入的最大事件数 (%d)"
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "保存在日历中"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "管理日历"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "备注"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "详情"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "设置日期"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "从不"
+
+msgid "IDS_CLD_BODY_WEEKS_M_DURATION_LC"
+msgstr "周"
+
+msgid "IDS_CLD_BODY_DAY_M_DURATION_LC"
+msgstr "天"
+
+msgid "IDS_CLD_BODY_DAYS_M_DURATION_LC"
+msgstr "天"
+
+msgid "IDS_CLD_ACBUTTON_TODAY"
+msgstr "今天"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "已达最大字符数（%d）"
+
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "事件通知"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s（已暂停）"
+

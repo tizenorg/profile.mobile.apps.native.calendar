@@ -1,0 +1,79 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0	8
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+// 2.2.1.A41
+group { name: "elm/genlist/item/EntryIconCustom/default";
+    alias: "elm/layout/entry.icon/default";
+   data.item: "contents" "elm.icon.entry elm.icon";
+   data.item: "banded_bg_area" "elm.swallow.bg";
+   data.item: "banded_bg_color" "255 255 255 255";
+
+   parts {
+      part { name: "elm.swallow.bg";
+            type: SWALLOW;
+            scale: 1;
+            description { state: "default" 0.0;
+            }
+      }
+      PART(SPACER, "elm.padding.left",
+         DSC_FROM_L("default" 0.0,
+            min: 32 0;
+            max: 32 -1;
+         )
+      )
+      PART(SPACER, "elm.padding.right",
+         DSC_FROM_R("default" 0.0,
+            min: 32 0;
+            max: 32 -1;
+         )
+      )
+      PART(SPACER, "elm.padding.top",
+         DSC_FROM_T("default" 0.0,
+            min: 0 LIST_ENTRY_PADDING_TOP_SIZE;
+            max: -1 LIST_ENTRY_PADDING_TOP_SIZE;
+         )
+      )
+      PART(SPACER, "elm.padding.bottom",
+         DSC_FROM_B("default" 0.0,
+            min: 0 LIST_ENTRY_PADDING_BOTTOM_SIZE;
+            max: -1 LIST_ENTRY_PADDING_BOTTOM_SIZE;
+         )
+      )
+      PART(SWALLOW, "elm.icon",
+         DSC_R("default" 0.0,
+            "elm.padding.right",
+            min: 0 0;
+         )
+      )
+      PART(SPACER, "elm.padding.entry.right",
+         DSC_R("default" 0.0,
+            "elm.icon",
+            min: LIST_ENTRY_PADDING_RIGHT_SIZE 0;
+            max: LIST_ENTRY_PADDING_RIGHT_SIZE -1;
+         )
+      )
+      PART(SWALLOW, "elm.icon.entry",
+         DSC_LRTB("default" 0.0,
+            "elm.padding.left", "elm.padding.entry.right", "elm.padding.top", "elm.padding.bottom",
+            min: 0 LIST_ENTRY_ENTRY_HEIGHT;
+         )
+      )
+      programs {
+          LIST_PROGRAM_SOUND
+          }
+    }
+}

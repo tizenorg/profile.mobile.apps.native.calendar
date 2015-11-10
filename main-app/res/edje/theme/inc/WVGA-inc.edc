@@ -1,0 +1,269 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+//****************************************************************************//
+// This file defines the width, height (not color!) for each widgets
+// We can define different INC file by Resolution (HD, WVGA, HVGA)
+//
+// ************* Naming Rule ************ //
+// {WIDGET}_{GROUP}_{PART}_{STATE}_{TYPE}
+//   WIDGET: NAVIFRAME, LIST, DATETIME, POPUP, etc.
+//   GROUP:  INDEX
+//   PART:   TEXT, ICON, BG, PADDING, DIVIDER, ICON, etc.
+//   STATE:  LEFT, RIGHT, TOP, BOTTOM, MIN, MAX,
+//   TYPE:   HEIGHT, WIDTH, SIZE
+// e.g. LIST_PADDING_LEFT_HEIGHT
+//****************************************************************************//
+
+//****************************************************************************//
+// Genlist
+//****************************************************************************//
+// Group index
+#define LIST_INDEX_PADDING_LEFT_SIZE        15
+#define LIST_INDEX_PADDING_RIGHT_SIZE       15
+#define LIST_INDEX_PADDING_TOP_SIZE         7
+#define LIST_INDEX_PADDING_BOTTOM_SIZE      8
+
+#define LIST_INDEX_HEIGHT                   36
+
+#define LIST_INDEX_TEXT_MAIN_SIZE           32
+#define LIST_INDEX_TEXT_SUB_SIZE            27
+#define LIST_INDEX_TEXT_SUB_WIDTH_MAX       160
+#define LIST_INDEX_TEXT_PADDING_SIZE        15
+#define LIST_INDEX_BOTTOMLINE_HEIGHT        1
+
+// Normal style
+#define LIST_2LINE_PADDING_TOP_SIZE         7
+#define LIST_2LINE_PADDING_BOTTOM_SIZE      7
+#define LIST_PADDING_DATE_BLOCK             18
+#define LIST_PADDING_CENTER_LEFT_SIZE       15
+#define LIST_PADDING_CENTER_RIGHT_SIZE      15
+#define LIST_PADDING_TEXT_SIZE              22
+#define LIST_PADDING_DEFAULT_SIZE           32
+
+#define LIST_TEXT_MAIN_HEIGHT               54
+#define LIST_TEXT_SUB_WIDTH_MAX             130
+#define LIST_TEXT_SUB_HEIGHT                44
+
+#define LIST_TEXT_MDAY_SIZE                 50
+#define LIST_TEXT_MAIN_SIZE                 40
+#define LIST_TEXT_SUB_SIZE                  38
+
+// Multiline style
+#define LIST_WRAP_PADDING_LEFT_SIZE         32
+#define LIST_WRAP_PADDING_RIGHT_SIZE        32
+#define LIST_WRAP_PADDING_TOP_SIZE          14
+#define LIST_WRAP_PADDING_BOTTOM_SIZE       14
+#define LIST_MULTILINE_ICON_SIZE            60 60
+#define LIST_MULTILINE_ICON_SIZE1           40 40
+
+// Editfield style
+#define LIST_ENTRY_PADDING_LEFT_SIZE          0
+#define LIST_ENTRY_PADDING_RIGHT_SIZE         0
+#define LIST_ENTRY_PADDING_TOP_SIZE           0
+#define LIST_ENTRY_PADDING_BOTTOM_SIZE        0
+
+#define LIST_ENTRY_PADDING_ICON_RIGHT_SIZE    15
+#define LIST_ENTRY_PADDING_MAIN_TEXT_TOP_SIZE 12
+
+#define LIST_ENTRY_ENTRY_HEIGHT               96
+#define LIST_ENTRY_TEXT_SUB_WIDTH_MAX         160
+#define LIST_ENTRY_ICON_SIZE                  46 46
+
+// Bar style
+#define LIST_BAR_WIDTH                        8
+#define LIST_BAR_PADDING_TOP_SIZE             14
+#define LIST_BAR_PADDING_BOTTOM_SIZE          14
+#define LIST_SLIDER_PADDING_CENTER_SIZE       10
+#define LIST_PROGRESSBAR_HEIGHT               20
+#define LIST_PROGRESSBAR_PADDING_CENTER_SIZE  10
+
+// List A
+#define LIST_A_LEFTICON_RIGHT_PADDING_WIDTH   10
+#define LIST_A_LEFTICON_SIZE               32 32
+#define LIST_A_RIGHTICON_LEFT_PADDING_WIDTH   10
+#define LIST_A_RIGHTICON_SIZE              32 32
+#define LIST_B_TYPE1_ICON_SIZE             96 96
+#define LIST_B_TYPE2_LEFT_PADDING_WIDTH       15
+#define LIST_B_TYPE2_ICON_SIZE             74 74
+#define LIST_B_TYPE3_LEFT_PADDING_WIDTH       14
+#define LIST_B_TYPE3_ICON_SIZE             46 46
+#define LIST_B_TYPE4_LEFT_PADDING_WIDTH       15
+#define LIST_B_TYPE4_RIGHT_PADDING_WIDTH       5
+#define LIST_B_TYPE4_ICON_SIZE             40 40
+#define LIST_C_TYPE1_RIGHT_PADDING_WIDTH      15
+#define LIST_C_TYPE1_ICON_SIZE             46 46
+#define LIST_C_TYPE2_RIGHT_PADDING_WIDTH      15
+#define LIST_C_TYPE2_ICON_SIZE             40 40
+#define LIST_C_TYPE3_RIGHT_PADDING_WIDTH      15
+#define LIST_C_TYPE3_ICON_SIZE             60 60
+#define LIST_C_TYPE4_TOGGLE_DIVIDER_SIZE    1 40
+#define LIST_C_TYPE4_LEFT_PADDING_WIDTH       15
+#define LIST_C_TYPE4_RIGHT_PADDING_WIDTH      15
+#define LIST_C_TYPE4_ICON_SIZE             60 60
+#define LIST_GROUP_HEIGHT                     10
+#define LIST_DESC_PADDING_TOP_SIZE            10
+#define LIST_DESC_PADDING_BOTTOM_SIZE         32
+#define LIST_DESC_PADDING_LEFT_RIGHT_SIZE     15
+#define LIST_DESC_TEXT_PART_SIZE              32
+#define LIST_DESC_TEXT_SIZE                   24
+#define LIST_SELECT_ALL_PADDING_LEFT_SIZE     15
+#define LIST_SELECT_ALL_PADDING_RIGHT_SIZE    15
+#define LIST_SELECT_ALL_PADDING_BOTTOM_SIZE    1
+#define LIST_SELECT_ALL_ICON_SIZE          40 40
+#define LIST_SELECT_ALL_PADDING_CENTER_SIZE   15
+#define LIST_SELECT_ALL_HEIGHT                84
+
+//Expand style
+#define GENLIST_TREESIZE_DEFAULT            22
+
+//Check and Radio
+#define CHECK_GEN_SIZE 67 68
+#define CHECK_SIZE  50 50
+#define CHECK_PAD_BEFORE_TEXT_INC 15 0
+// No Content
+#define NO_CONTENT_BG_HEIGHT_INC 280
+#define NO_CONTENT_BG_LANDSCAPE_HEIGHT_INC 150
+//Button
+#define BUTTON_DROPDOWN_ICON_SIZE 24 24
+
+//****************************************************************************//
+// Popup
+//****************************************************************************//
+#define POPUP_BASE_DEFAULT_TEXT_FONT_SIZE_INC 30
+#define POPUP_CONTENT_DEFAULT_PADDING_LEFT_MIN_INC 15
+#define POPUP_CONTENT_DEFAULT_PADDING_RIGHT_MIN_INC 15
+
+#define CAL_BOTTOM_BAR_MAX_HEIGHT 152
+#define CAL_BOTTOM_BAR_BUTTON_MAX_HEIGHT 104
+#define CAL_BOTTOM_BAR_CENTER_PADDING_WIDTH 32
+
+#define CAL_LIST_ITEM_PADDING 32
+#define CAL_LIST_BASE_SIZE 40
+#define CAL_LIST_ITEM_MIDDLE_PADDING 16
+#define CAL_LIST_ITEM_TIME_MAX_WIDTH 170
+
+#define STYLE_TAGS \
+   tag:  "br" "\n";\
+   tag:  "ps" "ps";\
+   tag:  "tab" "\t";\
+   tag:  "b" "+ font_weight=Bold";
+
+#define STYLE_TAG_MATCH \
+   tag:  "match" "+ color=#3db8cc";
+
+styles {
+   // ************* list main text ********** //
+   style { name: "list_text_main";
+      base: "color=#070707FF font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_main_dim";
+      base: "color=#0707077F font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_main_press";
+      base: "color=#070707FF font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_main_01";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" color="CAL_COLOR_T024" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_main_01_dim";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" color="CAL_COLOR_T024D" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_main_01_press";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" color="CAL_COLOR_T024P" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   // ************* list sub text ********** //
+   style { name: "list_text_sub_01";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_sub_01_dim";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024D" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_sub_01_press";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024P" text_class=list_item ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_sub_02";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024L1" text_class=T024L1 ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_sub_02_dim";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024L1D" text_class=T024L1D ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_sub_02_press";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024L1P" text_class=T024L1P ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   // multiline text
+   style { name: "list_text_multiline_main";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" color="CAL_COLOR_T023" text_class=list_item wrap=mixed";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_multiline_main_dim";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" color="CAL_COLOR_T023D" text_class=list_item wrap=mixed";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_multiline_main_press";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" color="CAL_COLOR_T023P" text_class=list_item wrap=mixed";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_multiline_sub";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024" text_class=T024 wrap=mixed";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_multiline_sub_dim";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024D" text_class=T024D wrap=mixed";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+   style { name: "list_text_multiline_sub_press";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" color="CAL_COLOR_T024P" text_class=T024P wrap=mixed";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+  // ************* no Content text ********** //
+   style { name: "empty_state_3";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" align=center color="CAL_COLOR_T023W" wrap=mixed ellipsis=1.0";
+      STYLE_TAGS
+      STYLE_TAG_MATCH
+   }
+}

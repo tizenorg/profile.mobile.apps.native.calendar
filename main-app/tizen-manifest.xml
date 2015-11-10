@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="org.tizen.calendar" version="0.1.0">
+    <label>Calendar</label>
+    <author email="jeffry82@samsung.com" href="www.samsung.com">Jaepil Choi</author>
+    <description>Calendar</description>
+    <ui-application appid="org.tizen.calendar" exec="calendar" mainapp="true" multiple="false" nodisplay="false" taskmanage="true" type="capp" launch_mode="single">
+        <label>Calendar</label>
+        <label xml:lang="as-in">কেলেণ্ডাৰ</label>
+        <label xml:lang="bn-in">ক্যালেন্ডার</label>
+        <label xml:lang="en-gb">Calendar</label>
+        <label xml:lang="en-ph">Calendar</label>
+        <label xml:lang="en-us">Calendar</label>
+        <label xml:lang="gu-in">કૅલેન્ડર</label>
+        <label xml:lang="hi-in">कैलेंडर</label>
+        <label xml:lang="id-id">Kalender</label>
+        <label xml:lang="km-kh">ប្រតិទិន</label>
+        <label xml:lang="kn-in">ಕ್ಯಾಲೆಂಡರ್</label>
+        <label xml:lang="ko-kr">캘린더</label>
+        <label xml:lang="lo-la">ປະຕິທິນ</label>
+        <label xml:lang="ml-in">കലണ്ടര്‍</label>
+        <label xml:lang="mr-in">दिनदर्शिका</label>
+        <label xml:lang="ms-my">Kalendar</label>
+        <label xml:lang="my-mm">ျပကၡဒိန္</label>
+        <label xml:lang="ne-np">पात्रो</label>
+        <label xml:lang="or-in">କ୍ୟାଲେଣ୍ଡର୍</label>
+        <label xml:lang="pa-in">ਕੈਲੇਂਡਰ</label>
+        <label xml:lang="pt-br">Calendário</label>
+        <label xml:lang="si-lk">දිනදසුන</label>
+        <label xml:lang="ta-in">நாட்காட்டி</label>
+        <label xml:lang="te-in">క్యాలెండర్</label>
+        <label xml:lang="th-th">ปฏิทิน</label>
+        <label xml:lang="tl-ph">Kalendaryo</label>
+        <label xml:lang="ur-pk">کیلنڈر</label>
+        <label xml:lang="vi-vn">Lịch năm</label>
+        <label xml:lang="zh-cn">日历</label>
+        <icon>calendar.png</icon>
+    </ui-application>
+    <privileges>
+		<privilege>http://tizen.org/privilege/display</privilege>
+        <privilege>http://tizen.org/privilege/calendar.read</privilege>
+        <privilege>http://tizen.org/privilege/systemsettings</privilege>
+        <privilege>http://tizen.org/privilege/notification</privilege>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+        <privilege>http://tizen.org/privilege/calendar.write</privilege>
+        <privilege>http://tizen.org/privilege/message.read</privilege>
+        <privilege>http://tizen.org/privilege/account.read</privilege>
+        <privilege>http://tizen.org/privilege/contact.read</privilege>
+        <privilege>http://tizen.org/privilege/window.priority.set</privilege>
+    </privileges>
+</manifest>

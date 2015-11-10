@@ -1,0 +1,423 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "Paziņojums par notikumu"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "GATAVS"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "ATCELT"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "Noklusējums"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Dzēst"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "Atvērt šodienu"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Iestatījumi"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "Visu dienu"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Šodien"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Nav notikumu"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "Šis notikums tiks dzēsts."
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "%d notikumi tiks izdzēsti."
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "Visi notikumi tiks izdzēsti."
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Atcelt"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "Izvēlēties visu"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "Nav atrasts neviens rezultāts"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "Dzimš. diena: %s"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "Sākuma laikā"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d minūtes pirms"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "Pielāgota"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "Gatavs"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "Notikums ir saglabāts."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "Notikums pārklājas ar citu notikumu."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "Kopēt"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "Tikai šo notikumu"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "Šo un turpmākos notikumus"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "Visi atkārtotie notikumi"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "Atlikt"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "Noraidīt"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "Laika josla"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "Laika joslas bloķēšana"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "Nedēļa sākas"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "Signāla veids"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "Paziņojuma skaņa"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "Bloķējiet notikumu laiku un datumu izvēlētajai laika joslai. Tie netiks mainīti pat tad, ja pārvietosities uz citu laika joslu."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "Noklusējuma lokalizācija"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Sestdiena"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Svētdiena"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Pirmdiena"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "Uznirstošie paziņojumi"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "Nav brīdinājumu"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "Katru dienu"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Katru nedēļu"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Katru mēnesi"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "Katru gadu"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "Katru"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "min"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "st."
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "ned."
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Nosaukums"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "Kontaktu dzimšanas dienas"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "Beigas"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "Sākums"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "Atrašanās vieta"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "Vairāk"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "Atgādinājums"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "Atkārtot"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Dzēst"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "Visi kalendāri"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "Izveidot"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Dzēst"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "Mans kalendārs"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "Tiks izdzēsti visi kalendāri."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "%d dzēšanai izvēlētie notikumi ir periodiski notikumi. Vai dzēst visus šo notikumu gadījumus?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "Katra piektā %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "Katra pirmā %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "Katra ceturtā %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "Katra otrā %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "Katra trešā %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "Vienmēr"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "mēnesis"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "gads"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "Atkārtot līdz"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "Diena: %d"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Meklēt"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "reizes"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "1 notikums tiks izdzēsts."
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Iestatīt"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "Kalendārs"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "Atmest izmaiņas"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "Visas izmaiņas tiks atmestas."
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Rediģēt"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Notikumi"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "Mans notikums"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "Iestatīt atgādinājumu"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "VCS fails"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Teksts"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "Izvēlēti %d"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "Kopīgot kā"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "mēneši"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "gadi"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1 minūti pirms"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "1 h pirms"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d h pirms"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1 dienu pirms"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d dienas pirms"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1 nedēļu pirms"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d nedēļas pirms"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "Beigu laikam jābūt pēc sākuma laika."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "Beigu datumam jābūt vēlākam par sākuma datumu"
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "Atmest"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "Kontakta %s jubileja"
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "Tiks izdzēsts 1 kalendārs."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "Iestatīt laiku"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "Pievienot lauku"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "Kopēt starpliktuvē"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "Atvērt tīmekļa adresi"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "Pievienot grāmatzīmēm"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "Iestatīt snaudas ilgumu"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "Statusa joslas paziņojumi"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "Kad izveidosit vai pieņemsit ielūgumus uz notikumiem, tie tiks parādīti šeit."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "Viens dzēšanai izvēlētais notikums ir periodisks notikums. Vai dzēst visus šī notikuma gadījumus?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "Cits"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Nav"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "katru %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "Katru %1$d %2$s, %3$s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "Katru %1$d %2$s"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Otrdiena"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Trešdiena"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Ceturtdiena"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Piektdiena"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "līdz %s"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "Neizdevās saglabāt notikumu. Radās nezināma kļūda."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "VTS faili netiek atbalstīti."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minūtes"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "Sasniegts maksimālais pielikumu skaits (%d)."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "Datums ir ārpus pieņemamā diapazona. Izvēlieties datumu no %1$s līdz %2$s."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "Sasniegts maksimālais ievietojamo notikumu skaits (%d)."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "Saglabāt kalendārā"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "Pārvaldīt kalendārus"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "Piezīmes"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Dati"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "Iestatīt datumu"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "Nekad"
+
+msgid "IDS_CLD_BODY_WEEKS_M_DURATION_LC"
+msgstr "nedēļas"
+
+msgid "IDS_CLD_BODY_DAY_M_DURATION_LC"
+msgstr "diena"
+
+msgid "IDS_CLD_BODY_DAYS_M_DURATION_LC"
+msgstr "dienas"
+
+msgid "IDS_CLD_ACBUTTON_TODAY"
+msgstr "ŠODIEN"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Sasniegts maksimālais rakstzīmju skaits (%d)"
+
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Notikumu paziņojumi"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (snaudas režīmā)"
+

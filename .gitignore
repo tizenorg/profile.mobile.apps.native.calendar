@@ -1,0 +1,16 @@
+Debug/
+Release/
+crash-info
+.sign
+.checkers
+.metadata
+*/lib/
+BUILD_DIR_TIZEN/
+debugfiles.list
+debuglinks.list
+debugsources.list
+Calendar.config
+Calendar.creator
+Calendar.creator.user
+Calendar.files
+Calendar.includes

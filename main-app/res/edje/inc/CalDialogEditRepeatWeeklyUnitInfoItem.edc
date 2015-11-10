@@ -1,0 +1,65 @@
+/*
+ * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#define WEEK_SQUARE 66 66
+
+group { name: "elm/genlist/item/CalDialogEditRepeatWeeklyUnitInfoItem/default";
+    data.item: "contents" "elm.icon.1 elm.icon.2 elm.icon.3 elm.icon.4 elm.icon.5 elm.icon.6 elm.icon.7";
+    data.item: "banded_bg_area" "elm.swallow.bg";
+    data.item: "banded_bg_color" "255 255 255 255";
+
+     parts {
+          part { name: "elm.swallow.bg";
+               type: SWALLOW;
+                   scale: 1;
+                   description { state: "default" 0.0;
+               }
+        }
+      PART(SPACER, "elm.padding.left",
+         DSC_FROM_L("default" 0.0,
+            min: 5 0;
+            max: 5 -1;
+         )
+      )
+      PART(SPACER, "elm.padding.right",
+         DSC_FROM_R("default" 0.0,
+            min: 6 0;
+            max: 6 -1;
+         )
+      )
+      PART(SPACER, "elm.padding.top",
+         DSC_FROM_T("default" 0.0,
+            min: 0 LIST_WRAP_PADDING_TOP_SIZE;
+            max: -1 LIST_WRAP_PADDING_TOP_SIZE;
+         )
+      )
+      PART(SPACER, "elm.padding.bottom",
+         DSC_FROM_B("default" 0.0,
+            min: 0 LIST_WRAP_PADDING_BOTTOM_SIZE;
+            max: -1 LIST_WRAP_PADDING_BOTTOM_SIZE;
+         )
+      )
+
+      PART(SWALLOW, "elm.icon.1", DSC_LTB("default" 0.0, "elm.padding.left", "elm.padding.top", "elm.padding.bottom",	min: WEEK_SQUARE;))
+      PART(SWALLOW, "elm.icon.2", DSC_LTB("default" 0.0, "elm.icon.1", "elm.padding.top", "elm.padding.bottom", min: WEEK_SQUARE;))
+      PART(SWALLOW, "elm.icon.3", DSC_LTB("default" 0.0, "elm.icon.2", "elm.padding.top", "elm.padding.bottom", min: WEEK_SQUARE;))
+      PART(SWALLOW, "elm.icon.4", DSC_LTB("default" 0.0, "elm.icon.3", "elm.padding.top", "elm.padding.bottom", min: WEEK_SQUARE;))
+      PART(SWALLOW, "elm.icon.5", DSC_LTB("default" 0.0, "elm.icon.4", "elm.padding.top", "elm.padding.bottom", min: WEEK_SQUARE;))
+      PART(SWALLOW, "elm.icon.6", DSC_LTB("default" 0.0, "elm.icon.5", "elm.padding.top", "elm.padding.bottom", min: WEEK_SQUARE;))
+      PART(SWALLOW, "elm.icon.7", DSC_LTB("default" 0.0, "elm.icon.6", "elm.padding.top", "elm.padding.bottom", min: WEEK_SQUARE;))
+   }
+}

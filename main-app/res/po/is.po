@@ -1,0 +1,423 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "Tilkynning um viðburð"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "LOKIÐ"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "HÆTTA VIÐ"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "Sjálfgefið"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Eyða"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "Fara í í dag"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Stillingar"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "Dagurinn"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Í dag"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Enginn viðburður"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "Þessum viðburði verður eytt."
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "%d atvikum verður eytt."
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "Öllum viðburðum verður eytt."
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Hætta v."
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "Velja allt"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "Engar niðurstöður"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "%s á afmæli"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "Við upphafstíma"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d mínútum áður"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "Sérsniðið"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "Lokið"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "Viðburður vistaður."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "Þessi viðburður skarast við annan viðburð."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "Afrita"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "Aðeins þessi viðburður"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "Þessi og komandi viðburðir"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "Allir endurteknir viðburðir"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "Blundur"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "Hafna"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "Tímabelti"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "Læsa tímabelti"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "Vikan byrjar á"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "Gerð áminningar"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "Tilkynningahljóð"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "Læsa tíma og dagsetningum viðburðar á valið tímabelti. Þetta breytist ekki jafnvel þótt þú farir í annað tímabelti."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "Sjálfgildi landsstaðals"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Laugardagur"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Sunnudagur"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Mánudagur"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "Sprettitilkynningar"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "Engar áminningar"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "Daglega"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Vikulega"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Mánaðarlega"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "Árlega"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "Hvern"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "m."
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "klst"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "vika"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Titill"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "Afmælisdagar tengiliða"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "Lok"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "Upphaf"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "Staðsetning"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "Meira"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "Áminning"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "Endurtaka"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Eyða"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "Öll dagatöl"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "Búa til"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Eyða"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "Dagatalið mitt"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "Öllum dagatölum verður eytt."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "%d af viðburðunum sem þú valdir að eyða eru endurteknir viðburðir. Viltu eyða öllum tilvikum þessara viðburða?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "Fimmti %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "Fyrsti %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "Fjórði %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "Annar %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "Þriðji %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "Endalaust"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "mánuður"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "ár"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "Endurtaka fram til"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "Á degi %d"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Leita"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "sinnum"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "1 atviki verður eytt."
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Stilla"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "Dagatal"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "Hunsa breytingar"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "Öllum breytingum verður fleygt."
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Breyta"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Viðburðir"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "Minn viðburður"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "Stilla áminningu"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "VCS-skrá"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Texti"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "%d valin"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "Deila sem"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "mánuðir"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "ár"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1 mínútu áður"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "1 klst. fyrir"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d klst. fyrir"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1 degi áður"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d dögum áður"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1 viku áður"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d vikum áður"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "Lokatími þarf að vera á eftir upphafstíma."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "Lokadagsetning þarf að vera á eftir upphafsdagsetningu."
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "Fleygja"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "%s á afmæli"
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "1 dagatali verður eytt."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "Stilltu tíma"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "Bæta reit við"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "Afrita á klippiborð"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "Opna veffang"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "Bæta við bókamerki"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "Velja lengd blunds"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "Tilkynningar stöðustiku"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "Viðburðir birtast hér eftir að þú býrð þá til eða samþykkir viðburðarboð."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "Einn af viðburðunum sem þú valdir að eyða er endurtekinn viðburður. Viltu eyða öllum tilvikum þessa viðburðar?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "Annað"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Ekkert"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "hver %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "%3$s með millibilinu: %1$d %2$s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "Millibil: %1$d %2$s"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Þriðjudagur"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Miðvikudagur"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Fimmtudagur"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Föstudagur"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "fram til %s"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "Mistókst að vista viðburð. Óþekkt villa kom upp."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "VTS-skrár eru ekki studdar."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d mínútur"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "Hámarksfjölda viðhengja (%d) hefur verið náð."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "Dagsetning er utan leyfilegs tímabils. Veldu dagsetningu á milli %1$s og %2$s."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "Hámarksfjölda viðburða sem hægt er að setja inn (%d) hefur verið náð."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "Vista í dagatali"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "Vinna með dagatöl"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "Glósur"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Upplýsingar"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "Veldu dag"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "Aldrei"
+
+msgid "IDS_CLD_BODY_WEEKS_M_DURATION_LC"
+msgstr "vikur"
+
+msgid "IDS_CLD_BODY_DAY_M_DURATION_LC"
+msgstr "dagur"
+
+msgid "IDS_CLD_BODY_DAYS_M_DURATION_LC"
+msgstr "dagar"
+
+msgid "IDS_CLD_ACBUTTON_TODAY"
+msgstr "Í DAG"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Hámarksfjölda stafa (%d) hefur verið náð."
+
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Viðburðir og tilkynningar"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (stillt á blund)"
+
