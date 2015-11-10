@@ -137,6 +137,11 @@ int CalWidgetApp::onWidgetCreate(widget_context_h context, bundle *content, int 
 
 int CalWidgetApp::onWidgetDestroy(widget_context_h context, widget_app_destroy_type_e reason, bundle *content, void *data)
 {
+	if (reason != WIDGET_APP_DESTROY_TYPE_PERMANENT)
+	{
+		// Save the current status at the bundle object.
+	}
+
 	CalWidget *widget = getWidget(context);
 	if(widget)
 	{

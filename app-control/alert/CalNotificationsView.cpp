@@ -15,9 +15,6 @@
  *
  */
 
-#ifdef GBS_BUILD
-#include <app_control_internal.h>
-#endif
 #include "CalCommon.h"
 #include "CalNotificationsView.h"
 #include "CalSchedule.h"
@@ -52,11 +49,11 @@ void CalNotificationsView::__updateSelectAllCheck(void)
 	WLEAVE();
 }
 
-void CalNotificationsView::__updateButtonStatus( bool status)
+void CalNotificationsView::__updateButtonStatus(bool leftStatus, bool rightStatus)
 {
 	WENTER();
-	elm_object_disabled_set(__left_button, status);
-	elm_object_disabled_set(__right_button, status);
+	elm_object_disabled_set(__left_button, leftStatus);
+	elm_object_disabled_set(__right_button, rightStatus);
 	WLEAVE();
 }
 
@@ -69,9 +66,15 @@ void CalNotificationsView::__updateSelectAllItems()
 	for (auto it = __itemMap.begin(); it != __itemMap.end(); ++it)
 	{
 		CalAlertItem* item = it->second;
-		Evas_Object* obj = item->getCheckObject();
-		elm_check_state_set(obj, __isAllVisible);
-		__updateButtonStatus(!__isAllVisible);
+		elm_check_state_set(item->getCheckObject(), __isAllVisible);
+		if(item->isSnoozedItem())
+		{
+			__updateButtonStatus(!__isAllVisible, true);
+		}
+		else
+		{
+			__updateButtonStatus(!__isAllVisible, false);
+		}
 	}
 	WLEAVE();
 }
@@ -80,24 +83,43 @@ void CalNotificationsView::__updateCheckStatus()
 {
 	WENTER();
 	int checkedCount = 0;
+	int snoozedCount = 0;
 	for (auto it = __itemMap.begin(); it != __itemMap.end(); ++it)
 	{
 		CalAlertItem* item = it->second;
 		Evas_Object* obj = item->getCheckObject();
 		if (elm_check_state_get(obj) == EINA_TRUE)
 		{
-			checkedCount++;
+			++checkedCount;
+			if(item->isSnoozedItem())
+			{
+				++snoozedCount;
+			}
 		}
+
 	}
 	WHIT();
-	if(checkedCount == 0 && __model.getCount() > 1)
+
+	bool snooze = false;
+	bool dismiss = false;
+
+	if(checkedCount == 0)
 	{
-		__updateButtonStatus(EINA_TRUE);
+		snooze = true;
+		dismiss = true;
+	}
+	else if (checkedCount > 0 && snoozedCount == 0)
+	{
+		snooze = false;
+		dismiss = false;
 	}
 	else
 	{
-		__updateButtonStatus(EINA_FALSE);
+		snooze = true;
+		dismiss = false;
 	}
+
+	__updateButtonStatus(dismiss, snooze);
 
 	if (__model.getCount() > 1)
 	{
@@ -105,6 +127,23 @@ void CalNotificationsView::__updateCheckStatus()
 		__updateSelectAllCheck();
 	}
 	WLEAVE();
+}
+
+void CalNotificationsView::__launchDetailApp(const std::shared_ptr<CalAlertNotificationItem>& alertItem)
+{
+	app_control_h req = NULL;
+	app_control_create(&req);
+	app_control_set_mime(req, APP_CONTROL_MIME_CALENDAR);
+	app_control_set_operation(req, APP_CONTROL_OPERATION_VIEW);
+
+	int recordIndex = alertItem->getScheduleId();
+	char buf[ID_LENGTH] = {0};
+	snprintf(buf, sizeof(buf), "%d", recordIndex);
+
+	app_control_add_extra_data(req, APP_CONTROL_DATA_ID, buf);
+	app_control_set_launch_mode(req, APP_CONTROL_LAUNCH_MODE_GROUP);
+
+	CalAppControlLauncher::getInstance().sendLaunchRequest(req, NULL, NULL, __dialog->getEvasObj());
 }
 
 void CalNotificationsView::__update()
@@ -118,11 +157,15 @@ void CalNotificationsView::__update()
 	__itemMap.clear();
 
 	int count = __model.getCount();
+
 	if(count > 1)
 	{
-		__selectAllItem = new CalNotificationsSelectAllItem(__isAllVisible, [this] () {
-					__updateSelectAllItems();
-				});
+		__selectAllItem = new CalNotificationsSelectAllItem(__isAllVisible,
+			[this] ()
+			{
+				__updateSelectAllItems();
+			});
+
 		__dialog->add(__selectAllItem);
 	}
 	else
@@ -132,19 +175,26 @@ void CalNotificationsView::__update()
 
 	for (int i = 0; i < count; i++)
 	{
-		std::shared_ptr<CalSchedule> schedule = __model.getAt(i);
+		std::shared_ptr<CalAlertNotificationItem> alertItem = __model.getAt(i);
+		CalAlertItem* item = new CalAlertItem(alertItem);
 
-		CalAlertItem* item = new CalAlertItem(schedule);
 		item->setSelectCb(
-			[this, item, schedule, i] (void) {
-				bool isSelect = elm_check_state_get(item->getCheckObject());
-				elm_check_state_set(item->getCheckObject(), !isSelect);
-				__updateCheckStatus();
-			}
+				[this, alertItem, i] (void) {
+						__launchDetailApp(alertItem);
+						__model.dismiss(i);
+				}
+		);
+
+		item->setCheckCb(
+				[this, item] (void) {
+						bool isSelect = elm_check_state_get(item->getCheckObject());
+						elm_check_state_set(item->getCheckObject(), !isSelect);
+						__updateCheckStatus();
+				}
 		);
 
 		__dialog->add(item);
-		__itemMap.insert(std::pair<int,CalAlertItem*>(i,item));
+		__itemMap.insert(std::pair<int, CalAlertItem*>(i, item));
 	}
 	WLEAVE();
 }
@@ -206,7 +256,7 @@ void CalNotificationsView::onExpose()
 void CalNotificationsView::onPushed(Elm_Object_Item* naviItem)
 {
 	WENTER();
-	elm_object_item_part_text_set(naviItem, "elm.text.title", _L_("IDS_CLD_HEADER_EVENT_NOTIFICATION"));
+	elm_object_item_part_text_set(naviItem, "elm.text.title", _L_("IDS_CLD_HEADER_EVENT_NOTIFICATIONS"));
 
 	Evas_Object* layout = elm_layout_add(getNaviframe()->getEvasObj());
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -229,15 +279,17 @@ void CalNotificationsView::onPushed(Elm_Object_Item* naviItem)
 				{
 					WDEBUG("Dismiss selected");
 					int i = 0;
+					std::vector<int> nths;
 					for (auto item : self->__itemMap)
 					{
 						Evas_Object* obj = item.second->getCheckObject();
 						if (elm_check_state_get(obj))
 						{
-							self->__model.dismiss(i);
+							nths.push_back(i);
 						}
 						i++;
 					}
+					self->__model.dismiss(nths);
 				}
 			}
 			else
@@ -294,7 +346,18 @@ void CalNotificationsView::onPushed(Elm_Object_Item* naviItem)
 	__left_button = left_button;
 	__right_button = right_button;
 
-	__updateButtonStatus(__model.getCount() > 1);
+	if(__model.getCount() == 1)
+	{
+		auto item = __model.getAt(0);
+		if(item->isSnoozed())
+		{
+			__updateButtonStatus(false, true);
+		}
+		else
+		{
+			__updateButtonStatus(false, false);
+		}
+	}
 
 	elm_object_item_part_content_set(naviItem, "toolbar", layout);
 }
@@ -304,32 +367,38 @@ void CalNotificationsView::onEvent(const CalEvent& event)
 	WENTER();
 	WDEBUG("type = %u, source = %u", event.type, event.source);
 	switch (event.type) {
-		case CalEvent::APP_PAUSED:
-			elm_exit();
-			break;
 		case CalEvent::DB_CHANGED:
 		{
 			CalStatusBarManager::getInstance().checkDeletedEvent();
 			std::shared_ptr<CalAlertData> alertData = std::make_shared<CalAlertData>();
-			if (alertData->getCount() <= 0)
+			if (alertData->getCount() == 0)
+			{
 				elm_exit();
+			}
 			__model.relaceAlertData(alertData);
 			__update();
 			break;
 		}
+		case CalEvent::APP_RESUMED:
+			if(__model.getCount() == 0)
+			{
+				elm_exit();
+			} else {
+				__update();
+			}
+			break;
 		default:
 			WERROR("invalid type = %u", event.type);
 			break;
 	}
 }
 
-
 void CalNotificationsView::replaceAlertData(std::shared_ptr<CalAlertData> alertData)
 {
 	WENTER();
-	__model.relaceAlertData(alertData);
 
-	// TODO  please update UI
+	__model.relaceAlertData(alertData);
 	__update();
+
 	WLEAVE();
 }

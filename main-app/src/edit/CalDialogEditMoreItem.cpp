@@ -152,7 +152,7 @@ Evas_Object* CalDialogEditMoreItem::onCreateIcon(Evas_Object* parent, const char
 				return;
 
 			CalDialogEditMoreItem* pCalDialogDateTimeItem = (CalDialogEditMoreItem*)data;
-			ButtonType buttonType = static_cast<ButtonType> (reinterpret_cast<long long> (evas_object_data_get(obj, "buttonType")));
+			ButtonType buttonType = static_cast<ButtonType> (reinterpret_cast<int> (evas_object_data_get(obj, "buttonType")));
 			pCalDialogDateTimeItem->__buttonClickedCb(buttonType, obj);
 		}
 	, this);

@@ -19,26 +19,28 @@
 #define _CAL_ALERT_ITEM_H_
 
 #include "CalDialogControl.h"
-#include "CalSchedule.h"
 #include "CalBook.h"
+
+class CalAlertNotificationItem;
 
 class CalAlertItem : public CalDialogControl::Item
 {
 public:
-	CalAlertItem(const std::shared_ptr<CalSchedule>& schedule);
+	CalAlertItem(const std::shared_ptr<CalAlertNotificationItem>& alertItem);
 	virtual ~CalAlertItem();
-public:
-	// TODO please remove CalBook
+
+	void setCheckCb(std::function<void (void)> checkCb);
 	void setSelectCb(std::function<void (void)> selectCb);
 	Evas_Object * getCheckObject();
+
+	bool isSnoozedItem();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalAlertItem);
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
-private:
 	virtual void onSelect();
 	virtual void onCheck();
-private:
-	std::shared_ptr<CalSchedule> __schedule;
+
+	std::shared_ptr<CalAlertNotificationItem> __alertItem;
 	Evas_Object *__check;
 	int __count;
 	std::function<void (void)> __selectCb;

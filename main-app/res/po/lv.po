@@ -415,3 +415,9 @@ msgstr "ŠODIEN"
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
 msgstr "Sasniegts maksimālais rakstzīmju skaits (%d)"
 
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Notikumu paziņojumi"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (snaudas režīmā)"
+

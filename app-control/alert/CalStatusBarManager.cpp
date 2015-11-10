@@ -47,19 +47,13 @@ void CalStatusBarManager::pushNotification(std::shared_ptr<CalAlertData> &alertD
 	notification_h notification = __getHandle();
 	WDEBUG("Notification: %p", notification);
 	app_control_h service = NULL;
-	std::vector<int> ids;
 
 	if (NULL == notification)
 	{
 		WDEBUG("Create new notification");
 		notification = notification_create(NOTIFICATION_TYPE_NOTI);
 		__setTag(notification);
-
-		app_control_create(&service);
-		app_control_set_app_id(service, CALENDAR_NOTI_PACKAGE);
-		app_control_add_extra_data(service, CAL_APPALERT_PARAM_ACTION, CAL_APPALERT_ACTION_SHOW_NOTIFICATION_LIST);
-		app_control_add_extra_data(service, CAL_APPSVC_PARAM_CALLER, CAL_APPSVC_PARAM_CALLER_NOTIFICATION);
-
+		service = __createAppControl();
 	}
 	else
 	{
@@ -99,10 +93,41 @@ void CalStatusBarManager::pushActiveNotification(const std::shared_ptr<CalAlertD
 
 	for (int i = 0; i < count; i++)
 	{
-		std::shared_ptr<CalSchedule> schedule = alertData->getAt(i);
+		auto alertItem = alertData->getAt(i);
+		auto schedule = alertItem->getSchedule();
 		WPRET_M((schedule == NULL),"invalid param");
 		recordIndex = schedule->getIndex();
 		__pushActiveNotification(schedule, addSound);
+	}
+}
+
+void CalStatusBarManager::update(std::shared_ptr<CalAlertData>& alertData)
+{
+	WENTER();
+	notification_h notification = __getHandle();
+
+	if (notification != NULL)
+	{
+		if (alertData->getCount() > 0)
+		{
+			app_control_h service = NULL;
+			notification_get_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, (void*)&service);
+			if(service)
+			{
+				__setNotificationData(service, alertData);
+				notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, service);
+				notification_update(notification);
+				app_control_destroy(service);
+			}
+
+			notification_update(notification);
+		}
+		else
+		{
+			WDEBUG("No more events! Delete notification");
+			notification_delete(notification);
+			notification_free(notification);
+		}
 	}
 }
 
@@ -118,24 +143,20 @@ void CalStatusBarManager::removeFromNotification(const int id)
 
 	if (notification != NULL)
 	{
-		do
-		{
-			WDEBUG("Remove id[%d] from notification", id);
+		WDEBUG("Remove id[%d] from notification", id);
 
-			app_control_h service = NULL;
-			notification_get_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, (void*)&service);
+		app_control_h service = NULL;
+		service = __createAppControl();
 
-			std::shared_ptr<CalAlertData> alertData = std::make_shared<CalAlertData>();
-			if (service)
-			{
-				alertData->removeById(id);
+		std::shared_ptr<CalAlertData> alertData = std::make_shared<CalAlertData>();
+		alertData->removeById(id);
 
 				if (alertData->getCount() == 0)
 				{
 					WDEBUG("No more events! Delete notification");
 					notification_delete(notification);
 					app_control_destroy(service);
-					break;
+					return;
 				}
 
 				__setNotificationData(service, alertData);
@@ -144,10 +165,7 @@ void CalStatusBarManager::removeFromNotification(const int id)
 				notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, service);
 				notification_update(notification);
 
-				app_control_destroy(service);
-			}
-
-		} while (false);
+		notification_update(notification);
 		notification_free(notification);
 	}
 	WLEAVE();
@@ -160,36 +178,38 @@ void CalStatusBarManager::removeFromNotification(std::vector<int> &idsToRemove)
 
 	if (notification != NULL)
 	{
-		do
+		WDEBUG("Remove %d IDs from notification", idsToRemove.size());
+
+		app_control_h service = NULL;
+		service = __createAppControl();
+
+		std::shared_ptr<CalAlertData> alertData = std::make_shared<CalAlertData>();
+		for (auto id : idsToRemove)
 		{
-			WDEBUG("Remove %d IDs from notification", idsToRemove.size());
+			alertData->removeById(id);
+		}
 
-			app_control_h service = NULL;
-			notification_get_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, (void*)&service);
-			if (service)
-			{
-				std::shared_ptr<CalAlertData> alertData;
-				for (auto id : idsToRemove)
-				{
-					alertData->removeById(id);
-				}
+		if (alertData->getCount() == 0)
+		{
+			notification_delete(notification);
+			return;
+		}
+		__setNotificationData(service, alertData);
+		__setNotificationTitle(notification, alertData);
 
-				if (alertData->getCount() == 0)
-				{
-					notification_delete(notification);
-					app_control_destroy(service);
-					break;
-				}
-				__setNotificationData(service, alertData);
-				__setNotificationTitle(notification, alertData);
+		if (alertData->getCount() == 0)
+		{
+			notification_delete(notification);
+			app_control_destroy(service);
+			return;
+		}
+		__setNotificationData(service, alertData);
+		__setNotificationTitle(notification, alertData);
 
-				notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, (void *)service);
-				notification_update(notification);
+		notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, (void *)service);
+		notification_update(notification);
 
-				app_control_destroy(service);
-			}
-
-		} while (false);
+		app_control_destroy(service);
 		notification_free(notification);
 	}
 	WLEAVE();
@@ -353,6 +373,16 @@ void CalStatusBarManager::__postNotification(notification_h notification)
 	}
 }
 
+app_control_h CalStatusBarManager::__createAppControl()
+{
+	app_control_h service = NULL;
+	app_control_create(&service);
+	app_control_set_app_id(service, CALENDAR_NOTI_PACKAGE);
+	app_control_add_extra_data(service, CAL_APPALERT_PARAM_ACTION, CAL_APPALERT_ACTION_SHOW_NOTIFICATION_LIST);
+	app_control_add_extra_data(service, CAL_APPSVC_PARAM_CALLER, CAL_APPSVC_PARAM_CALLER_NOTIFICATION);
+	return service;
+}
+
 void CalStatusBarManager::removeNotification()
 {
 	WENTER();
@@ -367,7 +397,7 @@ void CalStatusBarManager::removeNotification()
 	}
 }
 
-void CalStatusBarManager::getAllStatusBar(std::vector<int> &ids)
+void CalStatusBarManager::getAllStatusBar(std::vector<std::shared_ptr<CalAlertNotificationItem> > &items)
 {
 	WENTER();
 	notification_h notification = __getHandle();
@@ -385,14 +415,39 @@ void CalStatusBarManager::getAllStatusBar(std::vector<int> &ids)
 		WDEBUG("service: %p", service);
 		char **idsStr = NULL;
 		int alertCount = 0;
+		char key[ID_LENGTH] = {0};
+		char alarmIdKey[ID_LENGTH] = {0};
+		char *alarmId = NULL;
+		char *isSnoozed = NULL;
+		int recordIndex = 0;
 		app_control_get_extra_data_array(service, CAL_APPCALSVC_PARAM_IDS, &idsStr, &alertCount);
 
 		if (idsStr && alertCount > 0)
 		{
 			for (int i = 0; i < alertCount; i++)
 			{
-				WDEBUG("id[%s]", idsStr[i]);
-				ids.insert(ids.begin(), atoi(idsStr[i]));
+				recordIndex = atoi(idsStr[i]);
+				WDEBUG("recordIndex: %d", recordIndex);
+
+				snprintf(key, sizeof(key), "%d.%s", recordIndex, CAL_APPALERT_PARAM_IS_SNOOZED);
+				app_control_get_extra_data(service, key, &isSnoozed);
+
+				auto item = std::make_shared<CalAlertNotificationItem>(recordIndex);
+				if(isSnoozed && !strcmp(isSnoozed, CAL_APPALERT_IS_SNOOZED))
+				{
+					WDEBUG("Snoozed!!!");
+					item->setSnoozed(true);
+					free(isSnoozed);
+					isSnoozed = NULL;
+
+					snprintf(alarmIdKey, sizeof(alarmIdKey), "%d.%s", recordIndex, CAL_APPALERT_PARAM_ALARM_ID);
+
+					app_control_get_extra_data(service, alarmIdKey, &alarmId);
+					item->setAlarmId(atoi(alarmId));
+					WDEBUG("Alarm ID: %d", item->getAlarmId());
+				}
+
+				items.insert(items.begin(), item);
 				free(idsStr[i]);
 			}
 			free(idsStr);
@@ -406,7 +461,7 @@ void CalStatusBarManager::getAllStatusBar(std::vector<int> &ids)
 		}
 		app_control_destroy(service);
 	}
-	WDEBUG("IDs count is: %d", ids.size());
+	WDEBUG("Items count is: %d", items.size());
 	notification_free(notification);
 }
 
@@ -495,13 +550,27 @@ bool CalStatusBarManager::__setNotificationData(app_control_h service, std::shar
 	int alertCount = alertData->getCount();
 	if (alertCount > 0)
 	{
+		char snoozedKey[ID_LENGTH] = {0};
+		char alarmIdKey[ID_LENGTH] = {0};
+		char alarmId[ID_LENGTH] = {0};
 		char **ids = g_new0(char*, alertCount);
 
 		for (int i = 0; i < alertCount; ++i)
 		{
-			int id = alertData->getAt(i)->getIndex();
+			auto alertItem = alertData->getAt(i);
+			int id = alertItem->getScheduleId();
 			char* strId = g_strdup_printf("%d", id);
 			ids[i] = strId;
+
+			if(alertItem->isSnoozed())
+			{
+				snprintf(snoozedKey, sizeof(snoozedKey), "%d.%s", id, CAL_APPALERT_PARAM_IS_SNOOZED);
+				app_control_add_extra_data(service, snoozedKey, CAL_APPALERT_IS_SNOOZED);
+
+				snprintf(alarmIdKey, sizeof(alarmIdKey), "%d.%s", id, CAL_APPALERT_PARAM_ALARM_ID);
+				snprintf(alarmId, sizeof(alarmId), "%d", alertItem->getAlarmId());
+				app_control_add_extra_data(service, alarmIdKey, alarmId);
+			}
 		}
 
 		app_control_add_extra_data_array(service, CAL_APPCALSVC_PARAM_IDS, (const char**)ids, alertCount);
@@ -528,13 +597,13 @@ void CalStatusBarManager::__setNotificationTitle(notification_h notification, co
 		WDEBUG("Multiple event");
 		for (int i = 0; i < count; i++)
 		{
-			auto schedule = alertData->getAt(i);
-
-			const char * eventName = schedule->getSummary();
+			auto alertItem = alertData->getAt(i);
+			char *eventName = alertItem->getEventOriginalName();
 			WDEBUG("Event name: %s", eventName);
 			if (eventName && *eventName)
 			{
 				subTitle << eventName;
+				free(eventName);
 			}
 			else
 			{
@@ -557,29 +626,30 @@ void CalStatusBarManager::__setNotificationTitle(notification_h notification, co
 	else if (count == 1)
 	{
 		WDEBUG("Single event");
-		auto schedule = alertData->getAt(0);
-		const char * eventName = schedule->getSummary();
+		auto alertItem = alertData->getAt(0);
+		char *eventName = alertItem->getEventOriginalName();
 		if (eventName && *eventName)
 		{
 			notification_set_text(notification, NOTIFICATION_TEXT_TYPE_TITLE, eventName, NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
+			free(eventName);
 		}
 		else
 		{
 			notification_set_text(notification, NOTIFICATION_TEXT_TYPE_TITLE, _L_("IDS_CLD_MBODY_MY_EVENT"), NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
 		}
 
-		std::string timeBuff;
-		CalDateTime startTime;
-		schedule->getStart(startTime);
-		startTime.getTimeString(timeBuff);
-		const char * location = schedule->getLocation();
+		char* startTime = alertItem->getStartTime();
+		subTitle << startTime;
 
-		subTitle << timeBuff;
-		if (location && *location)
+		char * location = alertItem->getLocation();
+		if (*location)
 		{
 			subTitle << ", ";
 			subTitle << location;
 		}
+		free(location);
+		free(startTime);
+
 		notification_set_text(notification, NOTIFICATION_TEXT_TYPE_CONTENT, subTitle.str().c_str(), NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
 		WDEBUG("Title: %s", title.str().c_str());
 		WDEBUG("Sub-title: %s", subTitle.str().c_str());

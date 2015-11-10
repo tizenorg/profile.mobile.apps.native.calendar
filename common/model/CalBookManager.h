@@ -21,24 +21,27 @@
 #include <memory>
 #include <map>
 #include <list>
-#include "cal_books.h"
 #include "WDefine.h"
 #include "CalSingleton.h"
 #include "CalBook.h"
 #include "CalEvent.h"
 
+typedef void* cal_books_h;
+
+/**
+* @class	CalBookManager
+* @brief	This class is class of container of %CalBook entities
+*
+*
+* The %CalBookManager class is the class of a manager of calendar books.
+* %CalBookManager serves to manage %CalBook entities
+*/
 class WAPP_ASSIST_EXPORT CalBookManager
 {
 SINGLETON_IDIOM(CalBookManager);
 public:
 	std::shared_ptr<CalBook> getBook(int index);
-	std::shared_ptr<CalBook> findBook(const char* name);
-	std::shared_ptr<CalBook> findBook(int r, int g, int b, int a);
-	std::shared_ptr<CalBook> findBook(const char* name, int r, int g, int b, int a);
-	bool isAllVisible();
 	void getBooks(std::map<int, std::shared_ptr<CalBook>>& bookMap);
-	int insertBook(const std::shared_ptr<CalBook>& book);
-	int deleteBook(const std::shared_ptr<CalBook>& book);
 	int updateBook(const std::shared_ptr<CalBook>& book);
 protected:
 	CalBookManager();
@@ -51,10 +54,10 @@ private:
 	void __createBookMap();
 	void __destroyBookMap();
 	void __addLocalBooks(std::map<int, std::shared_ptr<CalBook>>& bookMap);
+	void __fillColorlessBook(std::map<int, std::shared_ptr<CalBook>>& bookMap);
 
 private:
 	std::map<int, std::shared_ptr<CalBook>> __bookMap;
-	cal_books_h __books;
 };
 
 #endif /* _CAL_BOOK_MANAGER_H_ */

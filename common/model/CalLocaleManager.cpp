@@ -178,19 +178,20 @@ bool CalLocaleManager::isRTL()
 void CalLocaleManager::setTimeZone(const std::string& timeZone)
 {
 	WENTER();
+	std::string tzid = timeZone;
 
-	if (timeZone.empty())
+	if (tzid.empty())
 	{
 		WERROR("input timezone is empty");
 		return;
 	}
 
-	if (timeZone.compare(__tzid)== 0)
+	if (tzid.compare(__tzid)== 0)
 	{
 		return;
 	}
 
-	__tzid = timeZone;
+	__tzid = tzid;
 	WDEBUG("timezone[%s]",__tzid.c_str());
 	if (__cal)
 		i18n_ucalendar_destroy (__cal);
@@ -204,9 +205,9 @@ void CalLocaleManager::setTimeZone(const std::string& timeZone)
 void CalLocaleManager::getTimeZone(std::string& timeZone)
 {
 	WENTER();
-	WDEBUG("In CalLocaleManager::getTimeZone(): __tzid == %s", __tzid.c_str());
+	WDEBUG("[%s]",__tzid.c_str());
 	timeZone = __tzid;
-	WLEAVE();
+	WENTER();
 }
 
 void CalLocaleManager::updateRegion(void)

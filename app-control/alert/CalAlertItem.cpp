@@ -15,15 +15,17 @@
  *
  */
 
+#include <sstream>
+
 #include "CalAlertItem.h"
 #include "CalCommon.h"
 #include "CalSchedule.h"
 #include "CalBook.h"
 #include "CalBookManager.h"
+#include "CalAlertNotificationItem.h"
 
-
-CalAlertItem::CalAlertItem(const std::shared_ptr<CalSchedule>& schedule) :
-	__schedule(schedule),
+CalAlertItem::CalAlertItem(const std::shared_ptr<CalAlertNotificationItem> &alertItem) :
+	__alertItem(alertItem),
 	__check(NULL),
 	__selectCb(nullptr),
 	__checkCb(nullptr)
@@ -43,49 +45,23 @@ Elm_Genlist_Item_Class* CalAlertItem::getItemClassStatic()
 	{
 		CalAlertItem* self = (CalAlertItem*)data;
 
-		if(self && self->__schedule.get())
+		if(self && self->__alertItem.get())
 		{
-			const char *summary = self->__schedule->getSummary();
 			if (!strcmp(part, "elm.text.main.top"))
 			{
-				if (summary && *summary)
-				{
-					return strdup(summary);
-				}
-				else
-				{
-					return strdup(_L_("IDS_CLD_MBODY_MY_EVENT"));
-				}
+				return self->__alertItem->getEventName();
 			}
 			else if (!strcmp(part, "elm.text.time.up"))
 			{
-				CalDateTime startTime;
-				self->__schedule->getStart(startTime);
-				std::string startText;
-				startTime.getTimeString(startText);
-
-				return strdup(startText.c_str());
+				return self->__alertItem->getStartTime();
 			}
 			else if (!strcmp(part, "elm.text.time.down"))
 			{
-				CalDateTime endTime;
-				self->__schedule->getEnd(endTime);
-				std::string endText;
-				endTime.getTimeString(endText);
-
-				return strdup(endText.c_str());
+				return self->__alertItem->getEndTime();
 			}
 			else if (!strcmp(part, "elm.text.location"))
 			{
-				const char *location = self->__schedule->getLocation();
-				if (location && *location)
-				{
-					return strdup(location);
-				}
-				else
-				{
-					return strdup("");
-				}
+				return self->__alertItem->getLocation();
 			}
 		}
 		return NULL;
@@ -108,13 +84,13 @@ Elm_Genlist_Item_Class* CalAlertItem::getItemClassStatic()
 		}
 		else if (!strcmp(part, "elm.swallow.color.bar"))
 		{
-			CalAlertItem *item = (CalAlertItem *)data;
+			CalAlertItem *self = (CalAlertItem *)data;
 
 			Evas_Object* icon = evas_object_rectangle_add(evas_object_evas_get(obj));
 			evas_object_size_hint_align_set(icon, EVAS_HINT_FILL, EVAS_HINT_FILL);
 
 			int r,g,b,a;
-			std::shared_ptr<CalBook> book = CalBookManager::getInstance().getBook(item->__schedule->getBookId());
+			std::shared_ptr<CalBook> book = CalBookManager::getInstance().getBook(self->__alertItem->getSchedule()->getBookId());
 			book->getColor(r,g,b,a);
 			evas_object_color_set(icon, r, g, b, a);
 
@@ -131,8 +107,16 @@ void CalAlertItem::onCheck()
 	if (__check)
 	{
 		elm_check_state_set(__check, !elm_check_state_get(__check));
-		onSelect();
+		if (__checkCb)
+		{
+			__checkCb();
+		}
 	}
+}
+
+void CalAlertItem::setCheckCb(std::function<void (void)> checkCb)
+{
+	__checkCb = checkCb;
 }
 
 void CalAlertItem::onSelect()
@@ -152,4 +136,10 @@ Evas_Object * CalAlertItem::getCheckObject()
 {
 	return __check;
 }
+
+bool CalAlertItem::isSnoozedItem()
+{
+	return __alertItem->isSnoozed();
+}
+
 

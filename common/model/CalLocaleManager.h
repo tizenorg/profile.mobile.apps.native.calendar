@@ -96,20 +96,31 @@ public:
 	void getDateTimeText(const char* timezone, const DateFormat dateFormat, const TimeFormat timeFormat, const CalDateTime& dateTime, std::string& text);
 	void getDateText(const DateFormat dateFormat, const CalDate& date, std::string& text);
 
+	// cal_locale_manager
+	// long long int cal_locale_manager_mktime2(struct tm *tm)
 	long long int getUtime(struct tm& tm);
+	// void cal_locale_manager_get_lli_from_tm(const char *timezone, const struct tm *tm, long long int *lli);
 	long long int getUtimeFromTm(const char *timezone, const struct tm &tm);
+	// void cal_locale_manager_get_tm_from_lli(const char *timezone, long long int lli, struct tm *tm);
 	void getTmFromUtime(const char *timezone, const long long int utime, struct tm &tm);
+	//int cal_locale_manager_get_day_of_week_in_month(long long int lli);
 	int getDayOfWeekInMonth(const char *timezone, const long long int utime);
+	//char * cal_locale_manager_get_day_of_week(long long int lli);
 	const char* getWeekdayText(const char *timezone, const long long int utime);
 	const char* getWeekdayText(int weekday);
 	const char* getWeekdayShortText(int weekday);
 	int getWeekday(const char *timezone, const long long int utime); // 0 : sun ~ 6 : sat
 
+	//void cal_locale_manager_update_tm_hour(struct tm *tm, int delta);
+	//void cal_locale_manager_update_tm_day(struct tm *tm, int delta);
+	//void cal_locale_manager_update_tm_month(struct tm *tm, int delta);
+	//void cal_locale_manager_update_tm_year(struct tm *tm, int delta);
 	void updateTmHour(const int delta, struct tm& tm);
 	void updateTmDay(const int delta, struct tm& tm);
 	void updateTmMonth(const int delta, struct tm& tm);
 	void updateTmYear(const int delta, struct tm& tm);
 
+	// int cal_locale_manager_get_day_diff(const struct tm* date1, const struct tm* date2)
 	int getDayDiff(const struct tm& date1, const struct tm& date2);
 
 	// get timezone text
@@ -132,7 +143,9 @@ private:
 	i18n_udate_format_h __getUDateFormat(const char* timezone, const DateFormat df, const TimeFormat tf);
 
 	// for UCalendar
+	//static inline void __cal_locale_manager_get_from_tm(const struct tm *tm);
 	void __setUCalendar(i18n_ucalendar_h calendar, const struct tm *tm);
+	//static inline void __cal_locale_manager_set_to_tm(struct tm *tm);
 	void __getUCalendar(i18n_ucalendar_h calendar, struct tm *tm);
 	char* __getTzOffset(i18n_ucalendar_h cal);
 	char* __getTzName(i18n_ucalendar_h cal, const char *language, const std::string& timeZone);

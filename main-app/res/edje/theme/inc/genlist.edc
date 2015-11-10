@@ -32,18 +32,6 @@
 #define LIST_ITEM_3TEXT_1COLOR_BAR_HEIGHT   10
 
 styles {
-   style { name: "list_text_time";
-      base: "font=Tizen:style=Regular font_size=24 color=#000000 ellipsis=1.0";
-      STYLE_TAGS
-   }
-   style { name: "1line_1icon_title";
-      base: "font=Tizen:style=Regular font_size=24 color=#000000 ellipsis=1.0";///there is not "ATO017"
-      STYLE_TAGS
-   }
-   style { name: "1line_1icon";
-      base: "font=Tizen:style=Regular font_size=24 color=#000000 ellipsis=1.0"; ////there is not "ATO018"
-      STYLE_TAGS
-   }
    style { name: "list_text_main_multiline";
       base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" color="CAL_COLOR_T023" text_class=T023 wrap=mixed";
       STYLE_TAGS
@@ -54,24 +42,6 @@ styles {
    }
    style { name: "list_text_main_multiline_press";
       base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" color="CAL_COLOR_T023P" text_class=T023P wrap=mixed";
-      STYLE_TAGS
-   }
-   style { name: "list_text_time_hidden";
-      base: "font=Tizen:style=Regular font_size=24 color=#000000 ellipsis=1.0";
-      STYLE_TAGS
-   }
-   style { name: "list_text_main_hidden";
-      base: "font=Tizen:style=Regular font_size=30 color=#000000 ellipsis=1.0";
-      STYLE_TAGS
-      STYLE_TAG_MATCH
-   }
-    style { name: "list_text_sub_01_hidden";
-      base: "font=Tizen:style=Regular font_size=24 color=#000000 ellipsis=1.0";
-      STYLE_TAGS
-      STYLE_TAG_MATCH
-   }
-   style { name: "list_text_date";
-      base: "font=Tizen:style=Regular font_size="LIST_INDEX_TEXT_MAIN_SIZE" valign=middle align=center color=#3DB9CC ellipsis=1.0";
       STYLE_TAGS
    }
    style { name: "list_text_month";
@@ -85,18 +55,10 @@ styles {
       base: "font=Condensed:style=Regular font_size="LIST_TEXT_MDAY_SIZE" valign=middle align=center color=#11B5BA ellipsis=1.0";
       STYLE_TAGS
    }
-   style { name: "ATO004D";
-      base: "font=Condensed:style=Regular font_size="LIST_TEXT_MDAY_SIZE" valign=middle align=center color=#11B5BA88 ellipsis=1.0";
-      STYLE_TAGS
-   }
 
 // Agenda day abb.
     style { name: "ATO005";
       base: "font=Condensed:style=Regular font_size="LIST_TEXT_SUB_SIZE" valign=middle align=center color=#11B5BA ellipsis=1.0";
-      STYLE_TAGS
-    }
-    style { name: "ATO005D";
-      base: "font=Condensed:style=Regular font_size="LIST_TEXT_SUB_SIZE" valign=middle align=center color=#11B5BA88 ellipsis=1.0";
       STYLE_TAGS
     }
 }

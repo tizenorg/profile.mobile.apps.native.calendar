@@ -20,7 +20,6 @@
 #include <efl_util.h>
 #include "WWindow.h"
 #include "CalNaviframe.h"
-#include "CalAlertData.h"
 #include "CalAlertType.h"
 #include "CalAlertApp.h"
 #include "CalAlertView.h"
@@ -65,6 +64,8 @@ void CalAlertApp::onPause()
 void CalAlertApp::onResume()
 {
 	WENTER();
+	CalEvent event(CalEvent::APP_RESUMED, CalEvent::REMOTE);
+	CalEventManager::getInstance().notify(event);
 }
 
 bool CalAlertApp::onCreate()

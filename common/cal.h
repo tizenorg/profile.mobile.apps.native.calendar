@@ -18,29 +18,8 @@
 #ifndef _C_CAL_H_
 #define _C_CAL_H_
 
-#include <glib.h>
 #include <calendar.h>
 
-#include "cal_log.h"
 #include "cal_utils.h"
-
-#ifndef API
-#define API __attribute__ ((visibility("default")))
-#endif
-
-#if !defined(CALENDAR)
-#define CALENDAR "calendar"
-#endif
-
-#if !defined(VENDOR)
-#define VENDOR "org.tizen"
-#endif
-
-#if !defined(CALENDAR_PACKAGE)
-#define CALENDAR_PACKAGE VENDOR "." CALENDAR
-#endif
-
-#define _CALENDAR_ALL_ACCOUNT_ID 0
-#define _CALENDAR_LOCAL_ACCOUNT_ID -1
 
 #endif /* _C_CAL_H_ */

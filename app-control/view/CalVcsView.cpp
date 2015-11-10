@@ -44,11 +44,11 @@ Evas_Object* CalVcsView::onCreate(Evas_Object* parent, void* viewParam)
 {
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "CalDeleteView");
+	elm_layout_theme_set(layout, "layout", "application", "default");
 
 	__box = elm_box_add(layout);
 	evas_object_size_hint_weight_set(__box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_object_part_content_set(layout, "sw", __box);
+	elm_object_part_content_set(layout, "elm.swallow.content", __box);
 
 	__selectAllLayout = elm_layout_add(__box);
 	elm_layout_theme_set(__selectAllLayout, "genlist", "item", "select_all/default");

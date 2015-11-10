@@ -3,13 +3,14 @@
 %define REF_APP_LABEL Calendar
 #define widget_disabled 1
 
+
 Name:       org.tizen.%{REF_APP_NAME}
 Summary:    %{REF_APP_LABEL} application
 Version:    1.0.0
 Release:    1
 Group:      Applications/PIM
 License:    Apache-2.0
-Source0:    %{name}-%{version}.tar.gz
+Source:    %{name}-%{version}.tar.gz
 
 %if "%{?tizen_profile_name}" == "wearable" || "%{?tizen_profile_name}" == "tv"
 ExcludeArch: %{arm} %ix86 x86_64
@@ -17,7 +18,7 @@ ExcludeArch: %{arm} %ix86 x86_64
 
 BuildRequires: cmake
 BuildRequires: edje-bin
-BuildRequires: gettext-devel
+BuildRequires: gettext
 
 BuildRequires: pkgconfig(dlog)
 BuildRequires: pkgconfig(capi-appfw-application)
@@ -34,6 +35,7 @@ BuildRequires: pkgconfig(capi-system-system-settings)
 BuildRequires: pkgconfig(capi-media-metadata-extractor)
 BuildRequires: pkgconfig(capi-system-device)
 BuildRequires: pkgconfig(capi-base-utils-i18n)
+BuildRequires: pkgconfig(utilX)
 BuildRequires: pkgconfig(capi-ui-efl-util)
 %if 0%{?widget_disabled}
 %else
@@ -42,19 +44,18 @@ BuildRequires: pkgconfig(capi-appfw-widget-application)
 
 Requires: contacts-service2
 
-Requires(post): /bin/chown
-
 
 %description
 UI %{REF_APP_LABEL} application.
-
 
 %define PREFIX    /usr/apps/%{name}
 %define RESDIR    %{PREFIX}/res
 %define DATADIR   /opt/usr/apps/%{name}/data
 
+
 %prep
 %setup -q
+
 
 %build
 
@@ -71,38 +72,29 @@ fi
 
 cd %{BUILD_DIR}
 cmake ./../.. -DCMAKE_INSTALL_PREFIX=%{PREFIX} -DDATADIR=%{DATADIR} \
-    -DPKGVERSION=%{version} %{?widget_disabled: -DWIDGET_DISABLED=1} -DREF_APP_NAME=%{REF_APP_NAME} -DREF_APP_LABEL=%{REF_APP_LABEL}
-make %{?jobs:-j%jobs} \
+    -DPKGVERSION=%{version} %{?widget_disabled: -DWIDGET_DISABLED=1} \
+    -DREF_APP_NAME=%{REF_APP_NAME} -DREF_APP_LABEL=%{REF_APP_LABEL}
+make %{?_smp_mflags} \
 2>&1 | sed \
 -e 's%^.*: error: .*$%\x1b[37;41m&\x1b[m%' \
 -e 's%^.*: warning: .*$%\x1b[30;43m&\x1b[m%'
 
+
 %install
-rm -rf %{buildroot}
 cd %{BUILD_DIR}
 %make_install
-
-%post
-# 5000 is inhouse user id
-# do not use relative path
-
-mkdir -p /opt/usr/apps/%{name}/shared/data/.%{REF_APP_NAME}
-chown -R 5000:5000 /opt/usr/apps/%{name}/shared/data/.%{REF_APP_NAME}
-mkdir -p %{DATADIR}
-chown -R 5000:5000 %{DATADIR}
+%find_lang %{REF_APP_NAME}
 
 
-%files -n %{name}
+%files
 %manifest %{BUILD_DIR}/%{name}.manifest
-%defattr(-,root,root,-)
 %dir %{DATADIR}
 %{PREFIX}/bin/*
-%{PREFIX}/lib/libapp-assist-efl.so
-%{PREFIX}/lib/libcalendar-common.so
+%{PREFIX}/lib/*.so
 %{RESDIR}/*
 
 /usr/share/packages/%{name}.xml
 /usr/share/icons/default/small/*
-/usr/share/license/%{name}
+%doc /usr/share/license/%{name}
 
 /etc/smack/accesses.d/%{name}.efl

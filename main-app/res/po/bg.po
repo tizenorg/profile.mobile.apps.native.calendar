@@ -242,7 +242,7 @@ msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Всички промени в менюто ще бъдат отхвърлени."
 
 msgid "IDS_CLD_OPT_EDIT"
-msgstr "Редактиране"
+msgstr "Редакт."
 
 msgid "IDS_CLD_HEADER_EVENTS"
 msgstr "Събития"
@@ -414,4 +414,10 @@ msgstr "ДНЕС"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
 msgstr "Достигнат е максималният брой знаци (%d)."
+
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Уведомявания за събития"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (в дрямка) "
 

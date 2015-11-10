@@ -250,6 +250,7 @@ const char* CalViewApp::__getFilePath()
 
 std::shared_ptr<CalSchedule> CalViewApp::__getScheduleFromExtraData(app_control_h request)
 {
+	WENTER();
 	char* value = NULL;
 	app_control_get_extra_data(request, APP_CONTROL_DATA_ID, &value);
 	if (value && strlen(value))
@@ -275,6 +276,7 @@ std::shared_ptr<CalSchedule> CalViewApp::__getScheduleFromExtraData(app_control_
 
 void CalViewApp::__replyError()
 {
+	WENTER();
 	app_control_h reply;
 	app_control_create(&reply);
 	app_control_reply_to_launch_request(reply, __request, APP_CONTROL_RESULT_FAILED);

@@ -36,7 +36,7 @@ CalSettingFirstDayOfWeekPopup::~CalSettingFirstDayOfWeekPopup()
 
 void CalSettingFirstDayOfWeekPopup::__dialogDeleteCallback(void *data, Evas *e, Evas_Object *obj, void *event_info)
 {
-	CAL_FN_START;
+	WENTER();
 }
 
 
