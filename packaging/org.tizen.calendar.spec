@@ -47,9 +47,9 @@ Requires: contacts-service2
 %description
 UI %{REF_APP_LABEL} application.
 
-%define PREFIX    /usr/apps/%{name}
+%define PREFIX    %{TZ_SYS_RO_APP}/%{name}
 %define RESDIR    %{PREFIX}/res
-%define DATADIR   /opt/usr/apps/%{name}/data
+%define DATADIR   %{TZ_USER_APP}/%{name}/data
 
 
 %prep
@@ -92,8 +92,8 @@ cd %{BUILD_DIR}
 %{PREFIX}/lib/*.so
 %{RESDIR}/*
 
-/usr/share/packages/%{name}.xml
-/usr/share/icons/default/small/*
-%doc /usr/share/license/%{name}
+%{TZ_SYS_RO_PACKAGES}/%{name}.xml
+%{TZ_SYS_RO_ICONS}/default/small/*
+%doc %{TZ_SYS_SHARE}/license/%{name}
 
-/etc/smack/accesses.d/%{name}.efl
+%{TZ_SYS_SMACK}/accesses.d/%{name}.efl
