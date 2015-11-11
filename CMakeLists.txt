@@ -64,11 +64,9 @@ ENDIF()
 INCLUDE(FindPkgConfig)
 pkg_check_modules(pkgs REQUIRED
 		dlog
-		utilX
 		contacts-service2
 		calendar-service2
 		ecore-imf
-		ecore-x
 		elementary
 		edje
 		glib-2.0
@@ -97,10 +95,10 @@ ENDFOREACH(flag)
 SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} -DCAL_PREFIX=${CALENDAR_PREFIX}")
 
 SET(GC_SECTIONS_FLAGS "-fdata-sections -ffunction-sections -Wl,--gc-sections")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS} -fPIC -Wall -Werror -Wno-unused -Wno-format-extra-args -Wl,--no-undefined ${GC_SECTIONS_FLAGS}")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS} -fPIC -Wno-unused -Wno-format-extra-args -Wl,--no-undefined ${GC_SECTIONS_FLAGS}")
 SET(CMAKE_C_FLAGS_DEBUG "-O0 -g")
 SET(CMAKE_C_FLAGS_RELEASE "-O2")
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_CFLAGS} -Wall -Werror -Wno-unused -Wno-format-extra-args -Wl,--no-undefined -fvisibility=hidden -fPIC -std=c++0x ${GC_SECTIONS_FLAGS}")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_CFLAGS} -Wno-unused -Wno-format-extra-args -Wl,--no-undefined -fvisibility=hidden -fPIC -std=c++0x ${GC_SECTIONS_FLAGS}")
 SET(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
 SET(CMAKE_CXX_FLAGS_RELEASE "-O2")
 SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)

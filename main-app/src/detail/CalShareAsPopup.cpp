@@ -17,6 +17,7 @@
 
 #include "CalCommon.h"
 #include "CalShareAsPopup.h"
+#include "CalBookManager.h"
 #include "CalEventManager.h"
 #include "CalDialogControl.h"
 #include "CalDialogOneLineItem.h"

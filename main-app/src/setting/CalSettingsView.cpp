@@ -67,7 +67,7 @@ CalSettingsView::~CalSettingsView()
  */
 void CalSettingsView::__dialogDeleteCallback(void *data, Evas *e, Evas_Object *obj, void *event_info)
 {
-    WENTER();
+	CAL_FN_START;
 }
 
 /**
@@ -120,7 +120,7 @@ void CalSettingsView::onTimeZone(void)
 			if (timezone &&  strlen(timezone) > 0) {
 				CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 				self->__time_zone_item->setSubText(dT.c_str());
-				CalSettingsManager::getInstance().setLockTimeZone(tz);
+				CalSettingsManager::getInstance().setTimeZone(tz);
 			}
 
 			if (timezone) {
@@ -254,7 +254,7 @@ void CalSettingsView::radioOnLockTimeZone(void)
  */
 Evas_Object* CalSettingsView::onCreate(Evas_Object* parent, void* viewParam)
 {
-	WENTER();
+	CAL_FN_START;
 
 	__dialog = new CalDialogControl;
 	__dialog->create(parent, NULL);
@@ -336,7 +336,7 @@ Evas_Object* CalSettingsView::onCreate(Evas_Object* parent, void* viewParam)
 	// Time zone
 	std::string tz;
 	std::string dT;
-	CalSettingsManager::getInstance().getLockTimeZone(tz);
+	CalSettingsManager::getInstance().getTimeZone(tz);
 
 	CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 
@@ -365,7 +365,7 @@ void CalSettingsView::__update()
 
 	std::string tz;
 	std::string dT;
-	CalSettingsManager::getInstance().getLockTimeZone(tz);
+	CalSettingsManager::getInstance().getTimeZone(tz);
 
 	CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 	if(__time_zone_item)

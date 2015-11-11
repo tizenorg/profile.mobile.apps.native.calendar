@@ -26,15 +26,4 @@
 
 #include "WDebugBase.h"
 
-#define ERR WERROR
-#define c_warn_if(expr, fmt, arg...) do { \
-	if (expr) { \
-		WERROR(fmt, ##arg); \
-	} \
-} while (0)
-
-#define c_retvm_if WPRET_VM
-#define c_retv_if(expr, val) WPRET_VM(expr, val, "(%s) expression", #expr)
-#define c_retm_if(expr, fmt, arg...) WPRET_M(expr, "(%s) expression", #expr)
-
 #endif /* _CAL_DEBUG_INTERNAL_H_ */

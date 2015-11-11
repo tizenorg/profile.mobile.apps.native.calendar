@@ -18,63 +18,39 @@
 #include "CalBook.h"
 #include "CalCommon.h"
 
-#define COLOR_BUFFER 17
-
-typedef calendar_record_h cal_book_s;
-
 CalBook::CalBook()
 {
-	cal_book_s *lbook = (cal_book_s*) calloc(1, sizeof(cal_book_s));
-	calendar_record_create(_calendar_book._uri, lbook);
-	__book = (cal_book_h) lbook;
+	__book = cal_book_create();
 	WASSERT(__book);
 }
 
 CalBook::~CalBook()
 {
-	destroyBook();
+	if (__book)
+	{
+		cal_book_destroy(__book);
+	}
 }
 
 CalBook::CalBook(const CalBook& obj)
 {
-	cal_book_s *lbook = (cal_book_s*) obj.__book;
-	cal_book_s *copied_book = (cal_book_s*) calloc(1, sizeof(cal_book_s));
-	calendar_record_clone(*lbook, copied_book);
-	__book = (cal_book_h) copied_book;
+	__book = cal_book_clone(obj.__book);
 }
 
 CalBook::CalBook(const cal_book_h book)
 {
-	cal_book_s *lbook = (cal_book_s*) book;
-	cal_book_s *copied_book = (cal_book_s*) calloc(1, sizeof(cal_book_s));
-	calendar_record_clone(*lbook, copied_book);
-	__book = (cal_book_h) copied_book;
+	__book = cal_book_clone(book);
 }
 
 const CalBook& CalBook::operator=(const CalBook& obj)
 {
 	if (this != &obj)
 	{
-		this->destroyBook();
-		return *(obj.cloneBook());
+		cal_book_destroy(__book);
+		__book = cal_book_clone(obj.__book);
 	}
 
 	return *this;
-}
-
-CalBook* CalBook::cloneBook() const
-{
-	return new CalBook(*this);
-}
-
-void CalBook::destroyBook()
-{
-	cal_book_s *lbook = (cal_book_s*) __book;
-	if (lbook)
-	{
-		calendar_record_destroy(*lbook, true);
-		free(lbook);
-	}
 }
 
 const cal_book_h CalBook::getBook() const
@@ -84,252 +60,137 @@ const cal_book_h CalBook::getBook() const
 
 int CalBook::getIndex() const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int id = -1;
-	int error = calendar_record_get_int(*lbook, _calendar_book.id, &id);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	return id;
+	return cal_book_get_id(__book);
+}
+
+const char* CalBook::getUid() const
+{
+	return cal_book_get_uid(__book);
 }
 
 const char* CalBook::getName() const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	char* name = NULL;
-	int error = calendar_record_get_str_p(*lbook, _calendar_book.name, &name);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	return name;
+	return cal_book_get_name(__book);
 }
 
-void CalBook::parseColorString(char *color, int &r, int &g, int &b, int &a) const
+const char* CalBook::getDescription() const
 {
-	WPRET_M(!color, "pass null pointer");
-	r = g = b = a = -1;
-	char *pch = NULL;
-	const char *delim = ".";
-	pch = strtok(color, delim);
-	int step = 0;
-	while (pch != NULL) {
-		int tcolor = atoi(pch);
-		switch (step) {
-		case 0:
-			r = tcolor;
-			break;
-		case 1:
-			g = tcolor;
-			break;
-		case 2:
-			b = tcolor;
-			break;
-		case 3:
-			a = tcolor;
-			break;
-		default:
-			CAL_ASSERT("wrong color parsing step");
-			break;
-		}
-		pch = strtok(NULL, delim);
-		++step;
-	}
+	return cal_book_get_description(__book);
 }
-
 
 void CalBook::getColor(int& r, int& g, int& b, int& a) const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	char *color = NULL;
-	int error = calendar_record_get_str_p(*lbook, _calendar_book.color, &color);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	char *temp = strdup(color);
-	parseColorString(temp, r, g, b, a);
-	free(temp);
+	cal_book_get_color_rgb(__book, &r, &g, &b, &a);
 }
 
 const char* CalBook::getLocation() const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	char *location = NULL;
-	int error = calendar_record_get_str_p(*lbook, _calendar_book.location, &location);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	return location;
+	return cal_book_get_location(__book);
 }
 
 bool CalBook::getVisibility() const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int visibility = EINA_FALSE;
-	int error = calendar_record_get_int(*lbook, _calendar_book.visibility, &visibility);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	return (bool) visibility;
+	return (bool)cal_book_get_visibility(__book);
 }
 
 int CalBook::getAccountId() const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int account_id = -1;
-	int error = calendar_record_get_int(*lbook, _calendar_book.account_id, &account_id);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	return account_id;
+	return cal_book_get_account_id(__book);
 }
 
 int CalBook::getStoreType() const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int store_type = -1;
-	int error = calendar_record_get_int(*lbook, _calendar_book.store_type, &store_type);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	return store_type;
+	return cal_book_get_store_type(__book);
 }
 
-const char* CalBook::getSyncData(SyncDataType type) const
+const char* CalBook::getSyncData1() const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	char *syncData = NULL;
-	calendar_error_e error = CALENDAR_ERROR_NONE;
-	switch (type) {
-	case SYNC_DATA_1:
-		error = (calendar_error_e) calendar_record_get_str_p(*lbook, _calendar_book.sync_data1, &syncData);
-		break;
-	case SYNC_DATA_2:
-		error = (calendar_error_e) calendar_record_get_str_p(*lbook, _calendar_book.sync_data2, &syncData);
-		break;
-	case SYNC_DATA_3:
-		error = (calendar_error_e) calendar_record_get_str_p(*lbook, _calendar_book.sync_data3, &syncData);
-		break;
-	case SYNC_DATA_4:
-		error = (calendar_error_e) calendar_record_get_str_p(*lbook, _calendar_book.sync_data4, &syncData);
-		break;
-	default:
-		assert(true);
-		break;
-	}
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	return syncData;
+	return cal_book_get_sync_data1(__book);
+}
+
+const char* CalBook::getSyncData2() const
+{
+	return cal_book_get_sync_data2(__book);
+}
+
+const char* CalBook::getSyncData3() const
+{
+	return cal_book_get_sync_data3(__book);
+}
+
+const char* CalBook::getSyncData4() const
+{
+	return cal_book_get_sync_data4(__book);
 }
 
 int CalBook::getMode() const
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int mode = -1;
-	calendar_error_e error = (calendar_error_e)  calendar_record_get_int(*lbook, _calendar_book.mode, &mode);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
-	return mode;
+	return cal_book_get_mode(__book);
 }
 
 void CalBook::setUid(const char* uid)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook && uid);
-	int error = calendar_record_set_str(*lbook, _calendar_book.uid, uid);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_uid(__book, uid);
 }
 
 void CalBook::setName(const char* name)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook && name);
-	int error = calendar_record_set_str(*lbook, _calendar_book.name, name);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_name(__book, name);
 }
 
 void CalBook::setDescription(const char* description)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook && description);
-	int error = calendar_record_set_str(*lbook, _calendar_book.description, description);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_description(__book, description);
 }
 
 void CalBook::setColor(int r, int g, int b, int a)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	char color[COLOR_BUFFER] = {0};
-	snprintf(color, sizeof(color), "%d.%d.%d.%d", r, g, b, a);
-	int error = calendar_record_set_str(*lbook, _calendar_book.color, color);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_color_rgb(__book, r, g, b, a);
 }
 
 void CalBook::setLocation(const char* location)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook && location);
-	int error = calendar_record_set_str(*lbook, _calendar_book.location, location);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_location(__book, location);
 }
 
 void CalBook::setVisibility(bool visibility)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int error = calendar_record_set_int(*lbook, _calendar_book.visibility, visibility);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_visibility(__book, (Eina_Bool)visibility);
 }
 
-void CalBook::setAccountId(int account_id)
+void CalBook::setAccountId(int accountId)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-
-	int id = getIndex();
-	if (id <= 0) {
-		int record_id = 0;
-		int error = calendar_record_get_int(*lbook, _calendar_book.account_id, &record_id);
-		if(error == CALENDAR_ERROR_NONE && record_id != account_id) {
-			calendar_record_set_int(*lbook, _calendar_book.account_id, account_id);
-		}
-	} else {
-		ERR("already book have id(%d), (%d) ", id, account_id);
-	}
+	cal_book_set_account_id(__book, accountId);
 }
 
 void CalBook::setStoreType(int storeType)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int error = calendar_record_set_int(*lbook, _calendar_book.store_type, storeType);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_store_type(__book, storeType);
 }
 
-void CalBook::setSyncData(SyncDataType type, const char *syncData)
+void CalBook::setSyncData1(const char* syncData)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook && syncData);
-	int error = CALENDAR_ERROR_NONE;
-	switch (type) {
-	case SYNC_DATA_1:
-		error = calendar_record_set_str(*lbook, _calendar_book.sync_data1, syncData);
-		break;
-	case SYNC_DATA_2:
-		error = calendar_record_set_str(*lbook, _calendar_book.sync_data3, syncData);
-		break;
-	case SYNC_DATA_3:
-		error = calendar_record_set_str(*lbook, _calendar_book.sync_data3, syncData);
-		break;
-	case SYNC_DATA_4:
-		error = calendar_record_set_str(*lbook, _calendar_book.sync_data4, syncData);
-		break;
-	default:
-		assert(true);
-		break;
-	}
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_sync_data1(__book, syncData);
+}
+
+void CalBook::setSyncData2(const char* syncData)
+{
+	cal_book_set_sync_data2(__book, syncData);
+}
+
+void CalBook::setSyncData3(const char* syncData)
+{
+	cal_book_set_sync_data3(__book, syncData);
+}
+
+void CalBook::setSyncData4(const char* syncData)
+{
+	cal_book_set_sync_data4(__book, syncData);
 }
 
 void CalBook::setMode(int mode)
 {
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int error = calendar_record_set_int(*lbook, _calendar_book.mode, mode);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
+	cal_book_set_mode(__book, mode);
 }
 
 bool CalBook::isReadOnly() const
@@ -340,12 +201,4 @@ bool CalBook::isReadOnly() const
 	}
 
 	return false;
-}
-
-void CalBook::updateDbRecord()
-{
-	cal_book_s *lbook = (cal_book_s*) __book;
-	CAL_ASSERT(lbook);
-	int error = calendar_db_update_record(*lbook);
-	CAL_ASSERT(error == CALENDAR_ERROR_NONE);
 }

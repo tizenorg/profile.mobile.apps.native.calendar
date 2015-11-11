@@ -15,9 +15,6 @@
  *
  */
 
-#ifdef GBS_BUILD
-#include <utilX.h>
-#endif
 #include "CalCommon.h"
 #include "CalAlertView.h"
 #include "CalSchedule.h"

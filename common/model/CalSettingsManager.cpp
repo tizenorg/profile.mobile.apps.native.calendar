@@ -23,16 +23,12 @@
 #include "CalLocaleManager.h"
 
 
-#ifndef CALENDAR_PREFERENCE_PATH
-#define CALENDAR_PREFERENCE_PATH "db/private/" CAL_PKGNAME"/"
-#endif
-
-#define CAL_SETTING_FIRST_DAY_OF_WEEK_KEY           CALENDAR_PREFERENCE_PATH"first_day_of_week" 	// locales, sat, sun, mon
-#define CAL_SETTING_LOCK_TIME_ZONE_KEY              CALENDAR_PREFERENCE_PATH"timezone_on_off"		// on, off
-#define CAL_SETTING_TIME_ZONE_KEY                   CALENDAR_PREFERENCE_PATH"timezone_path"			// string
-#define CAL_SETTING_SELECT_ALERT_TYPE_KEY           CALENDAR_PREFERENCE_PATH"select_alert_type"		// alert, status bar, off
-#define CAL_SETTING_NOTIFICATION_SOUND_KEY          CALENDAR_PREFERENCE_PATH"notification_sound"	// string
-#define CAL_SETTING_LAST_USED_CALENDAR_KEY          CALENDAR_PREFERENCE_PATH"last_used_calendar"	// int
+#define CAL_SETTING_FIRST_DAY_OF_WEEK_KEY           "first_day_of_week" 	// locales, sat, sun, mon
+#define CAL_SETTING_LOCK_TIME_ZONE_KEY              "timezone_on_off"		// on, off
+#define CAL_SETTING_TIME_ZONE_KEY                   "timezone_path"			// string
+#define CAL_SETTING_SELECT_ALERT_TYPE_KEY           "select_alert_type"		// alert, status bar, off
+#define CAL_SETTING_NOTIFICATION_SOUND_KEY          "notification_sound"	// string
+#define CAL_SETTING_LAST_USED_CALENDAR_KEY          "last_used_calendar"	// int
 
 /*
  * default value
@@ -72,68 +68,92 @@ void CalSettingsManager::init()
 	bool check = false;
 	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_FIRST_DAY_OF_WEEK_KEY, &check))
 	{
+		WDEBUG("preference_is_existing(%s) succeeded", CAL_SETTING_FIRST_DAY_OF_WEEK_KEY);
 		if (!check)
 		{
 			setFirstDayOfWeek(CAL_SETTING_FIRST_DAY_OF_WEEK_DEFAULT);
+			WDEBUG("preference %s was NOT set", CAL_SETTING_FIRST_DAY_OF_WEEK_KEY);
+		}
+		else
+		{
+			WDEBUG("preference %s was set", CAL_SETTING_FIRST_DAY_OF_WEEK_KEY);
 		}
 	}
 	else
 	{
-		WERROR ("Failing of existence of key %s", CAL_SETTING_FIRST_DAY_OF_WEEK_KEY);
+		WERROR ("preference_is_existing(%s) failed!", CAL_SETTING_FIRST_DAY_OF_WEEK_KEY);
 	}
 
-	if (PREFERENCE_ERROR_NONE
-			== preference_is_existing(CAL_SETTING_TIME_ZONE_KEY, &check))
+	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_TIME_ZONE_KEY, &check))
 	{
+		WDEBUG("preference_is_existing(%s) succeeded", CAL_SETTING_TIME_ZONE_KEY);
 		if (!check)
 		{
-			setLockTimeZone(CAL_SETTING_TIME_ZONE_DEFAULT);
+			setTimeZone(CAL_SETTING_TIME_ZONE_DEFAULT);
+			WDEBUG("preference %s was NOT set", CAL_SETTING_TIME_ZONE_KEY);
+		}
+		else
+		{
+			WDEBUG("preference %s was set", CAL_SETTING_TIME_ZONE_KEY);
 		}
 	}
 	else
 	{
-		WERROR("Failing of existence of key %s", CAL_SETTING_TIME_ZONE_KEY);
+		WERROR("preference_is_existing(%s) failed!", CAL_SETTING_TIME_ZONE_KEY);
 	}
 
-	if (PREFERENCE_ERROR_NONE
-			== preference_is_existing(CAL_SETTING_SELECT_ALERT_TYPE_KEY, &check))
+	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_SELECT_ALERT_TYPE_KEY, &check))
 	{
+		WDEBUG("preference_is_existing(%s) succeeded", CAL_SETTING_SELECT_ALERT_TYPE_KEY);
 		if (!check)
 		{
-			setAlertType(ALERT);
+			setAlertType(CAL_SETTING_SELECT_ALERT_TYPE_DEFAULT);
+			WDEBUG("preference %s was NOT set", CAL_SETTING_SELECT_ALERT_TYPE_KEY);
+		}
+		else
+		{
+			WDEBUG("preference %s was set", CAL_SETTING_SELECT_ALERT_TYPE_KEY);
 		}
 	}
 	else
 	{
-		WERROR("Failing of existence of key %s",
-				CAL_SETTING_SELECT_ALERT_TYPE_KEY);
+		WERROR("preference_is_existing(%s) failed!", CAL_SETTING_SELECT_ALERT_TYPE_KEY);
 	}
 
-	if (PREFERENCE_ERROR_NONE
-			== preference_is_existing(CAL_SETTING_TIME_ZONE_KEY, &check))
+	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_LOCK_TIME_ZONE_KEY, &check))
 	{
+		WDEBUG("preference_is_existing(%s) succeeded", CAL_SETTING_LOCK_TIME_ZONE_KEY);
 		if (!check)
 		{
-			setLockTimeZone(CAL_SETTING_TIME_ZONE_DEFAULT);
+			setLockTimeZone(CAL_SETTING_LOCK_TIME_ZONE_DEFAULT);
+			WDEBUG("preference %s was NOT set", CAL_SETTING_LOCK_TIME_ZONE_KEY);
+		}
+		else
+		{
+			WDEBUG("preference %s was set", CAL_SETTING_LOCK_TIME_ZONE_KEY);
 		}
 	}
 	else
 	{
-		WERROR("Failing of existence of key %s", CAL_SETTING_TIME_ZONE_KEY);
+		WERROR("preference_is_existing(%s) failed!", CAL_SETTING_LOCK_TIME_ZONE_KEY);
 	}
 
-	if (PREFERENCE_ERROR_NONE
-			== preference_is_existing(CAL_SETTING_LAST_USED_CALENDAR_KEY, &check))
+	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_LAST_USED_CALENDAR_KEY, &check))
 	{
+		WDEBUG("preference_is_existing(%s) succeeded", CAL_SETTING_LAST_USED_CALENDAR_KEY);
 		if (!check)
 		{
 			setLastUsedCalendar(CAL_SETTING_LAST_USED_CALENDAR_DEFAULT);
+			WDEBUG("preference %s was NOT set", CAL_SETTING_LAST_USED_CALENDAR_KEY);
+		}
+		else
+		{
+			WDEBUG("preference %s was set", CAL_SETTING_LAST_USED_CALENDAR_KEY);
 		}
 	}
 	else
 	{
-		WERROR("Failing of existence of key %s",
-				CAL_SETTING_LAST_USED_CALENDAR_KEY);
+		WERROR("preference_is_existing(%s) failed!", CAL_SETTING_LAST_USED_CALENDAR_KEY);
 	}
 
 	__alertSound = std::string();
@@ -203,7 +223,7 @@ void CalSettingsManager::__setLocaleTimeZone(void)
 	}
 	else
 	{
-		 getLockTimeZone(timeZone);
+		getTimeZone(timeZone);
 	}
 	CalLocaleManager::getInstance().getTimeZone(localeTimeZone);
 
@@ -216,22 +236,16 @@ void CalSettingsManager::__setLocaleTimeZone(void)
 void CalSettingsManager::getDeviceTimeZone(std::string& timeZone)
 {
 	WENTER();
-	const int timeZoneBuffer = 256;
-	char buf[timeZoneBuffer] = {0};
+	int length = strlen(timeZone.c_str());
+	i18n_uchar str[length] = {0};
+	char tz[length] = {0};
+	i18n_ucalendar_get_default_timezone(str, length);
+	i18n_ustring_copy_au_n(tz, str, length);
 
-	ssize_t len = readlink("/opt/etc/localtime", buf, sizeof(buf) - 1);
-	if (len == -1)
-	{
-		return;
-	}
+	timeZone = tz;
 
-	buf[len] = '\0';
-
-	// ex) /usr/share/zoneinfo/Asia/Seoul
-	timeZone = buf;
-	timeZone.erase(0, 20);
-	WDEBUG("deviceTimeZone[%s]",timeZone.c_str());
-	return ;
+	WDEBUG("deviceTimeZone == %s", timeZone.c_str());
+	return;
 }
 
 void CalSettingsManager::__notifyTimeChanged(void)
@@ -272,7 +286,7 @@ bool CalSettingsManager::getLockTimeZone(void)
 	}
 }
 
-void CalSettingsManager::getLockTimeZone(std::string& timezone)
+void CalSettingsManager::getTimeZone(std::string& timezone)
 {
 	char *value = NULL;
 	bool isLockTimeZone = getLockTimeZone();
@@ -283,7 +297,7 @@ void CalSettingsManager::getLockTimeZone(std::string& timezone)
 		WHIT();
 		std::string deviceTz;
 		getDeviceTimeZone(deviceTz);
-		setLockTimeZone(deviceTz);
+		setTimeZone(deviceTz);
 		timezone = deviceTz;
 	}
 	else
@@ -381,7 +395,7 @@ void CalSettingsManager::setLockTimeZone(const bool isOn)
 			// this is first set
 			std::string deviceTz;
 			getDeviceTimeZone(deviceTz);
-			setLockTimeZone(deviceTz);
+			setTimeZone(deviceTz);
 		}
 
 		free(value);
@@ -393,7 +407,7 @@ void CalSettingsManager::setLockTimeZone(const bool isOn)
 	CalEventManager::getInstance().notify(event);
 }
 
-void CalSettingsManager::setLockTimeZone(const std::string& timezone)
+void CalSettingsManager::setTimeZone(const std::string& timezone)
 {
 	int error = 0;
 

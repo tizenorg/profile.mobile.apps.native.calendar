@@ -55,7 +55,7 @@ public:
 	// get
 	int getFirstDayOfWeek(void);
 	bool getLockTimeZone(void);
-	void getLockTimeZone(std::string& timezone);
+	void getTimeZone(std::string& timezone);
 	AlertType getAlertType(void);
 	const char* getAlertSound(void);
 	int getLastUsedCalendar(void);
@@ -63,7 +63,7 @@ public:
 	// set
 	void setFirstDayOfWeek(const FirstDayOfWeekType type);
 	void setLockTimeZone(const bool isOn);
-	void setLockTimeZone(const std::string& timezone);
+	void setTimeZone(const std::string& timezone);
 	void setAlertType(const AlertType type);
 	void setAlertSound(const char* sound);
 	void setLastUsedCalendar(const int bookId);

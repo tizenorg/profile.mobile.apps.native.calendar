@@ -79,7 +79,7 @@ void __WMenuPopupImpl::__popupSelectCb( void* data, Evas_Object* obj, void* even
 {
 	WENTER();
 	auto p = (WMenuPopup*)WControl_getInstanceFromEvasObj(obj);
-	const unsigned int itemIndex = (unsigned int)data;
+	const unsigned int itemIndex = reinterpret_cast<unsigned long long>(data);
 	if (p && p->__pv)
 	{
 	    p->__pv->__vSelectItemCb[itemIndex]();

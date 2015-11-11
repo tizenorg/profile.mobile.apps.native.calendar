@@ -77,6 +77,7 @@ private:
 private:
 	CalDialogControl* __dialog;
 	std::map<int, std::shared_ptr<CalBook>> __localBookMap;
+	std::vector<CalDialogBookLocalItem*> __localBookItems;
 };
 
 #endif /* _CAL_BOOK_VIEW_H_ */

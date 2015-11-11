@@ -530,7 +530,7 @@ void CalEditView::__onAddRepeatButton()
  */
 void CalEditView::__reminderRemoveCb(CalDialogEditOneTextRemoveIconItem* reminderItem)
 {
-	const int reminderIndex = __getReminderIndexFromInterval((int)reminderItem->getCustomData());
+	const int reminderIndex = __getReminderIndexFromInterval(reinterpret_cast<long long>(reminderItem->getCustomData()));
 	WDEBUG("Reminder[%d] remove selected", reminderIndex);
 	__removeAllReminderItems();
 	__workingCopy->removeReminder(reminderIndex);
@@ -555,7 +555,7 @@ CalDialogEditOneTextRemoveIconItem* CalEditView::__createReminderItem(const CalS
 		new CalDialogEditOneTextRemoveIconItem(sortIndex, reminderText.c_str());
 
 	reminderItem->setSelectCb([this, reminderItem]() {
-		const int reminderInterval = (int)reminderItem->getCustomData();
+		const int reminderInterval = reinterpret_cast<long long>(reminderItem->getCustomData());
 
 		CalScheduleReminder reminder;
 		const int count = __workingCopy->getRemindersCount();
@@ -787,7 +787,7 @@ void CalEditView::__applyChangesToReminder(const CalScheduleReminder& reminder, 
 		return; // NONE selected
 	}
 
-	const int reminderIndex = __getReminderIndexFromInterval((int)reminderItem->getCustomData());
+	const int reminderIndex = __getReminderIndexFromInterval(reinterpret_cast<long long>(reminderItem->getCustomData()));
 	__workingCopy->setReminder(reminderIndex, reminder);
 
 	__removeAllReminderItems();
@@ -1303,7 +1303,7 @@ void CalEditView::__addItemsForNoEmptyField()
 	std::string tz;
 	if (defaultTz)
 	{
-		CalSettingsManager::getInstance().getLockTimeZone(tz);
+		CalSettingsManager::getInstance().getTimeZone(tz);
 		if (tz.compare(defaultTz) != 0)
 		{
 			__onAddTimezoneField();
