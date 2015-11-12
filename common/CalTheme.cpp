@@ -16,8 +16,7 @@
  */
 
 #include "CalTheme.h"
-
-#include "cal_defines.h"
+#include "CalDefines.h"
 
 
 Elm_Theme* CalTheme::__theme = nullptr;

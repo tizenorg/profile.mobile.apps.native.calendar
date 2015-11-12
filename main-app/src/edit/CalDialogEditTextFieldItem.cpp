@@ -15,7 +15,6 @@
  *
  */
 
-#include "cal.h"
 #include "CalDialogEditTextFieldItem.h"
 #include "CalCommon.h"
 
