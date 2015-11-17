@@ -36,6 +36,7 @@ BuildRequires: pkgconfig(capi-media-metadata-extractor)
 BuildRequires: pkgconfig(capi-system-device)
 BuildRequires: pkgconfig(capi-base-utils-i18n)
 BuildRequires: pkgconfig(capi-ui-efl-util)
+BuildRequires: pkgconfig(libtzplatform-config)
 %if 0%{?widget_disabled}
 %else
 BuildRequires: pkgconfig(capi-appfw-widget-application)
@@ -49,7 +50,6 @@ UI %{REF_APP_LABEL} application.
 
 %define PREFIX    %{TZ_SYS_RO_APP}/%{name}
 %define RESDIR    %{PREFIX}/res
-%define DATADIR   %{TZ_USER_APP}/%{name}/data
 
 
 %prep
@@ -70,7 +70,7 @@ then
 fi
 
 cd %{BUILD_DIR}
-cmake ./../.. -DCMAKE_INSTALL_PREFIX=%{PREFIX} -DDATADIR=%{DATADIR} \
+cmake ./../.. -DCMAKE_INSTALL_PREFIX=%{PREFIX} \
     -DPKGVERSION=%{version} %{?widget_disabled: -DWIDGET_DISABLED=1} \
     -DREF_APP_NAME=%{REF_APP_NAME} -DREF_APP_LABEL=%{REF_APP_LABEL}
 make %{?_smp_mflags} \
@@ -87,7 +87,6 @@ cd %{BUILD_DIR}
 
 %files
 %manifest %{BUILD_DIR}/%{name}.manifest
-%dir %{DATADIR}
 %{PREFIX}/bin/*
 %{PREFIX}/lib/*.so
 %{RESDIR}/*
