@@ -67,14 +67,14 @@ void CalSettingsManager::init()
 	bool check = false;
 	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_FIRST_DAY_OF_WEEK_KEY, &check))
 	{
-		if (!check)
+		if (check)
 		{
 			WDEBUG(CAL_PREFERENCE_EXISTS, CAL_SETTING_FIRST_DAY_OF_WEEK_KEY);
-			setFirstDayOfWeek(CAL_SETTING_FIRST_DAY_OF_WEEK_DEFAULT);
 		}
 		else
 		{
-			WERROR(CAL_PREFERENCE_DOES_NOT_EXIST, CAL_SETTING_FIRST_DAY_OF_WEEK_KEY);
+			WDEBUG(CAL_PREFERENCE_DOES_NOT_EXIST, CAL_SETTING_FIRST_DAY_OF_WEEK_KEY);
+			setFirstDayOfWeek(CAL_SETTING_FIRST_DAY_OF_WEEK_DEFAULT);
 		}
 	}
 	else
@@ -84,14 +84,14 @@ void CalSettingsManager::init()
 
 	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_TIME_ZONE_KEY, &check))
 	{
-		if (!check)
+		if (check)
 		{
 			WDEBUG(CAL_PREFERENCE_EXISTS, CAL_SETTING_TIME_ZONE_KEY);
-			setTimeZone(CAL_SETTING_TIME_ZONE_DEFAULT);
 		}
 		else
 		{
 			WDEBUG(CAL_PREFERENCE_DOES_NOT_EXIST, CAL_SETTING_TIME_ZONE_KEY);
+			setTimeZone(CAL_SETTING_TIME_ZONE_DEFAULT);
 		}
 	}
 	else
@@ -101,14 +101,14 @@ void CalSettingsManager::init()
 
 	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_SELECT_ALERT_TYPE_KEY, &check))
 	{
-		if (!check)
+		if (check)
 		{
 			WDEBUG(CAL_PREFERENCE_EXISTS, CAL_SETTING_SELECT_ALERT_TYPE_KEY);
-			setAlertType(CAL_SETTING_SELECT_ALERT_TYPE_DEFAULT);
 		}
 		else
 		{
 			WDEBUG(CAL_PREFERENCE_DOES_NOT_EXIST, CAL_SETTING_SELECT_ALERT_TYPE_KEY);
+			setAlertType(CAL_SETTING_SELECT_ALERT_TYPE_DEFAULT);
 		}
 	}
 	else
@@ -118,14 +118,14 @@ void CalSettingsManager::init()
 
 	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_LOCK_TIME_ZONE_KEY, &check))
 	{
-		if (!check)
+		if (check)
 		{
 			WDEBUG(CAL_PREFERENCE_EXISTS, CAL_SETTING_LOCK_TIME_ZONE_KEY);
-			setLockTimeZone(CAL_SETTING_LOCK_TIME_ZONE_DEFAULT);
 		}
 		else
 		{
 			WDEBUG(CAL_PREFERENCE_DOES_NOT_EXIST, CAL_SETTING_LOCK_TIME_ZONE_KEY);
+			setLockTimeZone(CAL_SETTING_LOCK_TIME_ZONE_DEFAULT);
 		}
 	}
 	else
@@ -135,14 +135,14 @@ void CalSettingsManager::init()
 
 	if (PREFERENCE_ERROR_NONE == preference_is_existing(CAL_SETTING_LAST_USED_CALENDAR_KEY, &check))
 	{
-		if (!check)
+		if (check)
 		{
 			WDEBUG(CAL_PREFERENCE_EXISTS, CAL_SETTING_LAST_USED_CALENDAR_KEY);
-			setLastUsedCalendar(CAL_SETTING_LAST_USED_CALENDAR_DEFAULT);
 		}
 		else
 		{
 			WDEBUG(CAL_PREFERENCE_DOES_NOT_EXIST, CAL_SETTING_LAST_USED_CALENDAR_KEY);
+			setLastUsedCalendar(CAL_SETTING_LAST_USED_CALENDAR_DEFAULT);
 		}
 	}
 	else
@@ -376,7 +376,9 @@ int CalSettingsManager::getLastUsedCalendar(void)
 void CalSettingsManager::setFirstDayOfWeek(const FirstDayOfWeekType type)
 {
 	WENTER();
-	int error = preference_set_int(CAL_SETTING_FIRST_DAY_OF_WEEK_KEY, type);
+	int error = 0;
+
+	error = preference_set_int(CAL_SETTING_FIRST_DAY_OF_WEEK_KEY, type);
 	if (error != PREFERENCE_ERROR_NONE)
 	{
 		WERROR("preference_set_int is failed(%x)", error);

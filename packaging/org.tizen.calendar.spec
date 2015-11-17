@@ -57,7 +57,6 @@ UI %{REF_APP_LABEL} application.
 
 
 %build
-
 %if 0%{?sec_build_binary_debug_enable}
 export CFLAGS="$CFLAGS -DTIZEN_DEBUG_ENABLE"
 export CXXFLAGS="$CXXFLAGS -DTIZEN_DEBUG_ENABLE"
