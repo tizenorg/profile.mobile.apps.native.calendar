@@ -1,5 +1,7 @@
 Debug/
 Release/
+/SA_Report
+.package-stamp
 crash-info
 .sign
 .checkers
