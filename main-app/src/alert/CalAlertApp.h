@@ -18,22 +18,17 @@
 #ifndef _CAL_ALERT_APP_H_
 #define _CAL_ALERT_APP_H_
 
-#include <Ecore.h>
-
-#include "WApp.h"
 #include "CalAlertModel.h"
-#include "WAppEventHandler.h"
 
 class CalAlertView;
 class CalNotificationsView;
 
-class CalAlertApp : public WApp
+class CalAlertApp
 {
 public:
 	CalAlertApp();
 	virtual ~CalAlertApp();
 
-protected:
 	enum Mode
 	{
 		CALALERT_NONE = 0,
@@ -45,13 +40,8 @@ protected:
 		CALALERT_UPDATE_STATUSBAR
 	};
 
-	virtual bool onCreate();
-	virtual void onTerminate();
-	virtual void onAppControl(app_control_h request, bool firstLaunch);
-	virtual void onPause();
-	virtual void onResume();
-private:
-	WDISABLE_COPY_AND_ASSIGN(CalAlertApp);
+	void onAppControl(app_control_h request, bool firstLaunch);
+
 private:
 	void __createWindowSafe(bool isFirstLaunch, bool isAlertPopup);
 	void __createWindow(bool isAlertPopup);
@@ -61,15 +51,13 @@ private:
 	void __setStatusBar(std::shared_ptr<CalAlertData> alertData);
 	void __exit();
 	void __stopExit();
-private:
+
 	CalAlertView* __alertView;
 	CalNotificationsView* __notificationsView;
 	Ecore_Timer* __timer;
-	WAppEventHandler __languageChangedHandler;
-	WAppEventHandler __regionFormatChangedHandler;
+
 	Mode __mode;
 	std::shared_ptr<CalAlertData> __alertData;
 	std::shared_ptr<CalAlertModel> __model;
 };
-
 #endif /* _CAL_ALERT_APP_H_ */

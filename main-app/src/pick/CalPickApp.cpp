@@ -41,109 +41,7 @@ CalPickApp::~CalPickApp()
 {
 }
 
-void CalPickApp::onPause()
-{
-	WENTER();
-
-	CalEventManager::getInstance().suspend();
-}
-
-void CalPickApp::onResume()
-{
-	WENTER();
-
-	CalEventManager::getInstance().resume();
-}
-
-bool CalPickApp::onCreate()
-{
-	WENTER();
-
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
-	CalEventManager::getInstance();
-	CalDataManager::getInstance();
-	CalBookManager::getInstance();
-	CalSettingsManager::getInstance();
-	CalMidnightNotifier::getInstance().turnOn(CalMidnightNotifier::TIMEOUT);
-
-	__regionFormatChangedHandler.addEventHandler(APP_EVENT_REGION_FORMAT_CHANGED, [](app_event_info_h eventInfo, void* userData) {
-			char* region = NULL;
-
-			app_event_get_region_format( eventInfo, &region );
-			WDEBUG("changed region=%s", region);
-
-			CalSettingsManager::getInstance().updateRegion();
-			CalEvent event(CalEvent::SETTING_CHANGED, CalEvent::REMOTE);
-			CalEventManager::getInstance().notify(event);
-
-			free(region);
-
-		}, this );
-	__languageChangedHandler.addEventHandler(APP_EVENT_LANGUAGE_CHANGED, [](app_event_info_h eventInfo, void* userData) {
-			CalLocaleManager::getInstance().updateLocaleForEvasObj();
-			CalEvent event(CalEvent::LANGUAGE_CHANGED, CalEvent::REMOTE);
-			CalEventManager::getInstance().notify(event);
-		}, this );
-
-	attachWindow(new WWindow("Calendar", ELM_WIN_BASIC));
-	CalNaviframe* naviframe = new CalNaviframe();
-	naviframe->setOnLastItemPop([] (bool* popOut) {
-			*popOut = true;
-			elm_exit();
-		});
-	getWindow()->attachBaseUiObject(naviframe);
-	elm_win_indicator_mode_set(getWindow()->getEvasObj(), ELM_WIN_INDICATOR_SHOW);
-	elm_win_indicator_opacity_set(getWindow()->getEvasObj(), ELM_WIN_INDICATOR_TRANSPARENT);
-	int rots[1] = {0};
-	elm_win_wm_rotation_available_rotations_set(getWindow()->getEvasObj(), rots, 1);
-	elm_win_wm_rotation_preferred_rotation_set(getWindow()->getEvasObj(), (const int)(rots[0]));
-
-	CalLocaleManager::getInstance().setEvasObjForRTL(getWindow()->getEvasObj());
-
-	CalTheme::initialize();
-
-	return true;
-}
-
-void CalPickApp::onTerminate()
-{
-	WENTER();
-	CalTheme::finalize();
-
-	if (__isDone)
-		return;
-
-	app_control_h reply;
-	app_control_create(&reply);
-	app_control_reply_to_launch_request(reply, __request, APP_CONTROL_RESULT_FAILED);
-	app_control_destroy(__request);
-	app_control_destroy(reply);
-	WLEAVE();
-}
-
 void CalPickApp::onAppControl(app_control_h request, bool firstLaunch)
-{
-	WENTER();
-	app_control_clone(&__request, request);
-
-	__readAppControlData();
-
-	WDEBUG("maxLimit : %d, resultType : %d, firstLaunch = %u", __maxLimit, __resultType, firstLaunch);
-
-	CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
-	CalPickView* view = new CalPickView(__maxLimit, __resultType);
-
-	view->setSelectCb([this](const std::list<std::shared_ptr<CalSchedule>>& schedules) {
-		// get selected schedules
-		__processResult(schedules);
-	});
-	frame->push(view);
-
-	WApp::onAppControl(__request, firstLaunch);
-	WLEAVE();
-}
-
-void CalPickApp::__readAppControlData()
 {
 	char *value = NULL;
 
@@ -197,6 +95,16 @@ void CalPickApp::__readAppControlData()
 	{
 		__mimeType = CalPickApp::MIME_ICS;
 	}
+
+	// TODO
+	//CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
+	CalPickView* view = new CalPickView(__maxLimit, __resultType);
+
+	view->setSelectCb([this](const std::list<std::shared_ptr<CalSchedule>>& schedules) {
+		__processResult(schedules);
+	});
+	// TODO
+	//frame->push(view);
 }
 
 void CalPickApp::__processResult(const std::list<std::shared_ptr<CalSchedule>>& schedules)
@@ -224,7 +132,9 @@ void CalPickApp::__processResult(const std::list<std::shared_ptr<CalSchedule>>& 
 
 	if (__resultType == CalPickView::RESULT_TYPE_VCS)
 	{
-		char *resPath = app_get_shared_data_path();
+	// TODO
+	//char *resPath = app_get_shared_data_path();
+		char *resPath = NULL;
 		char *pathFormat = NULL;
 		if(__mimeType == CalPickApp::MIME_ICS)
 		{
