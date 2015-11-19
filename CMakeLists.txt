@@ -13,6 +13,9 @@ FILE(GLOB SRCS
     main-app/src/month/*.cpp
     main-app/src/search/*.cpp
     main-app/src/setting/*.cpp
+    main-app/src/view/*.cpp
+    main-app/src/pick/*.cpp
+    main-app/src/alert/*.cpp
 )
 
 SET(VENDOR "org.tizen")
@@ -48,6 +51,9 @@ INCLUDE_DIRECTORIES(
 	${CMAKE_SOURCE_DIR}/main-app/src/month
 	${CMAKE_SOURCE_DIR}/main-app/src/search
 	${CMAKE_SOURCE_DIR}/main-app/src/setting
+	${CMAKE_SOURCE_DIR}/main-app/src/view
+	${CMAKE_SOURCE_DIR}/main-app/src/pick
+	${CMAKE_SOURCE_DIR}/main-app/src/alert
 )
 
 SET(pkgs_WIDGET_LIST "")
@@ -138,10 +144,6 @@ ADD_SUBDIRECTORY(main-app/res/po)
 ADD_SUBDIRECTORY(main-app/shared)
 ADD_SUBDIRECTORY(app-assist-efl)
 ADD_SUBDIRECTORY(common)
-ADD_SUBDIRECTORY(app-control/alert)
-ADD_SUBDIRECTORY(app-control/pick)
-ADD_SUBDIRECTORY(app-control/view)
-ADD_SUBDIRECTORY(app-control/edit)
 
 IF(NOT WIDGET_DISABLED)
 ADD_SUBDIRECTORY(widget)

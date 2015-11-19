@@ -17,17 +17,13 @@
 
 #include <Ecore.h>
 #include <Elementary.h>
-
 #include "WWindow.h"
 #include "CalNaviframe.h"
-
 #include "CalApp.h"
 #include "CalCommon.h"
 #include "CalTheme.h"
-
 #include "CalMainView.h"
 #include "CalDetailView.h"
-
 #include "CalEventManager.h"
 #include "CalDataManager.h"
 #include "CalBookManager.h"
@@ -199,6 +195,37 @@ void CalApp::onAppControl(app_control_h request, bool firstLaunch)
 			CalEvent event(CalEvent::APP_RESUMED, CalEvent::REMOTE);
 			CalEventManager::getInstance().notify(event);
 		}
+	}
+
+	/* GET type of operation */
+	char **operation;
+	app_control_get_operation(request, operation);
+	if (*operation == APP_CONTROL_OPERATION_VIEW)
+	{
+	// TODO
+	/*	CalViewApp view;
+		view.onAppControl(); */
+	}
+
+	if (*operation == APP_CONTROL_OPERATION_PICK)
+	{
+	// TODO
+	/*	CalPickApp view;
+		view.onAppControl(); */
+	}
+
+	if (*operation == APP_CONTROL_OPERATION_ADD)
+	{
+	// TODO
+	/*	CalAddApp view;
+		view.onAppControl();*/
+	}
+
+	if (*operation == APP_CONTROL_OPERATION_EDIT)
+	{
+	// TODO
+	/*	CalEditApp view;
+		view.onAppControl();*/
 	}
 
 	WApp::onAppControl(request, firstLaunch);
