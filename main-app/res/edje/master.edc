@@ -44,7 +44,6 @@ base_scale: APP_BASE_SCALE;
 #include "inc/CalMonthControl.edc"
 #include "inc/CalMonthControl.Header.edc"
 #include "inc/CalMonthRowControl.edc"
-#include "inc/CalDeleteView.edc"
 #include "inc/CalEventItem.edc"
 #include "inc/CalSearchView.edc"
 #include "inc/CalAlertView.edc"

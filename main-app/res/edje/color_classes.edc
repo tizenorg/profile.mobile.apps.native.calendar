@@ -27,11 +27,6 @@
 #define CAL_COLOR_T024L1 "#7F7F7F"
 #define CAL_COLOR_T024L1P "#7F7F7F"
 #define CAL_COLOR_T024L1D "#7F7F7F"
-#define CAL_COLOR_T0222L1 "#F9F9F9"
-#define CAL_COLOR_T0222L2 "#F9F9F9"
-#define CAL_COLOR_T027L2 "#000000"
-#define CAL_COLOR_T020 "#F9F9F9"
-#define CAL_COLOR_T1067 "#CC1414"
 
 color_classes {
     color_class {
@@ -47,28 +42,10 @@ color_classes {
       	color3: 255 255 255 76;
     }
     color_class {
-		name: "CAL_B011";
-      	color: 0 0 0 255;
-      	color2: 0 0 0 255;
-      	color3: 0 0 0 255;
-    }
-    color_class {
-		name: "CAL_W031L1";
-      	color: 255 255 255 255;
-      	color2: 255 255 255 255;
-      	color3:255 255 255 255;
-    }
-    color_class {
 		name: "CAL_W021L2";
       	color: 0 0 0 255;
       	color2: 0 0 0 255;
       	color3: 0 0 0 255;
-    }
-    color_class {
-		name: "CAL_T0222L1";
-      	color: 249 249 249 255;
-      	color2: 249 249 249 255;
-      	color3: 249 249 249 255;
     }
 }
 #endif

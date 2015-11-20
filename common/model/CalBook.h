@@ -19,30 +19,42 @@
 #define _CAL_BOOK_H_
 
 #include "WDefine.h"
-#include "cal_book.h"
 
+typedef void* cal_book_h;
+
+/**
+* @class	CalBook
+* @brief	This class is class of calendar book information
+*
+*
+* The %CalBook class contains information about calendar book with event.
+* It serves to save changes in database. It is wrapper of %calendar_record_h of book entity.
+*/
 class WAPP_ASSIST_EXPORT CalBook
 {
 public:
+	enum SyncDataType {
+		SYNC_DATA_1 = 1,
+		SYNC_DATA_2,
+		SYNC_DATA_3,
+		SYNC_DATA_4
+	};
 	CalBook();
 	virtual ~CalBook();
+private:
 	CalBook(const CalBook&);
 	const CalBook& operator=(const CalBook&);
 public:
 	//get
 	int getIndex() const;
-	const char* getUid() const;
 	const char* getName() const;
-	const char* getDescription() const;
 	void getColor(int& r, int& g, int& b, int& a) const;
 	const char* getLocation() const;
 	bool getVisibility() const;
 	int getAccountId() const;
 	int getStoreType() const;
-	const char* getSyncData1() const;
-	const char* getSyncData2() const;
-	const char* getSyncData3() const;
-	const char* getSyncData4() const;
+	const char* getSyncData(SyncDataType type) const;
+
 	int getMode() const;
 	//set
 	void setUid(const char* uid);
@@ -53,18 +65,19 @@ public:
 	void setVisibility(bool visibility);
 	void setAccountId(int accountId);
 	void setStoreType(int storeType);
-	void setSyncData1(const char* syncData);
-	void setSyncData2(const char* syncData);
-	void setSyncData3(const char* syncData);
-	void setSyncData4(const char* syncData);
+	void setSyncData(SyncDataType type, const char *syncData);
 	void setMode(int mode);
 
 	bool isReadOnly() const;
 protected:
 	friend class CalBookManager;
-	CalBook(const cal_book_h book);
+	explicit CalBook(const cal_book_h book);
 	const cal_book_h getBook() const;
+	void updateDbRecord();
 private:
+	CalBook* cloneBook() const;
+	void destroyBook();
+	void parseColorString(char *color, int &r, int &g, int &b, int &a) const;
 	cal_book_h __book;
 };
 

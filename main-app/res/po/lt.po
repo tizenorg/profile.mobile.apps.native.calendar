@@ -415,3 +415,9 @@ msgstr "ŠIANDIEN"
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
 msgstr "Pasiektas didžiausias simbolių skaičius (%d)"
 
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Įspėjimai apie įvykius"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (atidėta)"
+

@@ -24,8 +24,7 @@
 
 CalAlertData::CalAlertData(app_control_h request) :
 	__tick(0),
-	__unit(0),
-	__count(0)
+	__unit(0)
 {
 	WENTER();
 	char *value = NULL;
@@ -44,8 +43,6 @@ CalAlertData::CalAlertData(app_control_h request) :
 		value = NULL;
 	}
 
-	const int indexBuffer = 8;
-
 	// ids
 	char **ids = NULL;
 	int len = 0;
@@ -57,7 +54,7 @@ CalAlertData::CalAlertData(app_control_h request) :
 		for (int i = 0; i < len; i++)
 		{
 			int recordIndex = atoi(ids[i]);
-			__addRecord(recordIndex);
+			__addRecord(recordIndex, false);
 			WDEBUG("alert index[%d]",recordIndex);
 		}
 
@@ -66,7 +63,6 @@ CalAlertData::CalAlertData(app_control_h request) :
 			free(ids);
 		}
 
-		__count = __schedules.size();
 		return;
 	}
 
@@ -78,40 +74,52 @@ CalAlertData::CalAlertData(app_control_h request) :
 	app_control_get_extra_data(request, CAL_APPSVC_PARAM_COUNT, &value);
 	if (value)
 	{
-		__count = atoi(value);
 		free(value);
 		value = NULL;
 	}
 
-	WDEBUG("alert count[%d]",__count);
-	if (__count > 1)
+	WDEBUG("alert count[%d]",getCount());
+	if (getCount() > 1)
 	{
-		char key[indexBuffer] = {0};
+		char key[ID_LENGTH] = {0};
+		char snoozedKey[ID_LENGTH] = {0};
 		int index = 0;
-		while (__count != index)
+		char *snoozed = NULL;
+		bool isSnoozed = false;
+
+		while (getCount() != index)
 		{
-			snprintf(key, sizeof(key), "%d", index++);
+			snprintf(key, sizeof(key), "%d", index);
 			app_control_get_extra_data(request, key, &value);
+
+			snprintf(snoozedKey, sizeof(snoozedKey), "%d.%s", index, CAL_APPALERT_PARAM_IS_SNOOZED);
+
+			if(APP_CONTROL_ERROR_NONE == app_control_get_extra_data(request, snoozedKey, &snoozed))
+			{
+				isSnoozed = snoozed && !strcmp(snoozed, CAL_APPALERT_IS_SNOOZED);
+				free(snoozed);
+			}
+
 			if (value)
 			{
 				int recordIndex = atoi(value);
 				free(value);
 				value = NULL;
-				__addRecord(recordIndex);
+				__addRecord(recordIndex, isSnoozed);
 				WDEBUG("alert index[%d]",recordIndex);
 			}
+			index++;
 		}
 	}
 	else
 	{
-		__count = 1;
 		app_control_get_extra_data(request, CAL_APPCALSVC_PARAM_ID, &value);
 		if (value)
 		{
 			int recordIndex = atoi(value);
 			free(value);
 			value = NULL;
-			__addRecord(recordIndex);
+			__addRecord(recordIndex, false);
 			WDEBUG("alert index[%d]",recordIndex);
 		}
 		else
@@ -122,23 +130,13 @@ CalAlertData::CalAlertData(app_control_h request) :
 	WLEAVE();
 }
 
-CalAlertData::CalAlertData()
+CalAlertData::CalAlertData():
+	__tick(0),
+	__unit(0)
 {
 	WENTER();
-	__tick = 0;
-	__unit = 0;
-	__count = 0;
 
-	std::vector<int> missed;
-	CalStatusBarManager::getInstance().getAllStatusBar(missed);
-	for (auto it = missed.begin() ; it != missed.end(); ++it)
-	{
-		int recordIndex = *it;
-		__addRecord(recordIndex);
-		WDEBUG("alert index[%d]",recordIndex);
-	}
-	__count = __schedules.size();
-
+	CalStatusBarManager::getInstance().getAllStatusBar(__alerts);
 	WLEAVE();
 }
 
@@ -151,8 +149,7 @@ CalAlertData::CalAlertData(const CalAlertData& obj)
 {
 	__tick = obj.__tick;
 	__unit = obj.__unit;
-	__count = obj.__count;
-	__schedules = obj.__schedules;
+	__alerts = obj.__alerts;
 }
 
 const CalAlertData& CalAlertData::operator=(const CalAlertData& obj)
@@ -161,8 +158,7 @@ const CalAlertData& CalAlertData::operator=(const CalAlertData& obj)
 	{
 		__tick = obj.__tick;
 		__unit = obj.__unit;
-		__count = obj.__count;
-		__schedules = obj.__schedules;
+		__alerts = obj.__alerts;
 	}
 	return *this;
 }
@@ -181,57 +177,58 @@ int CalAlertData::getUnit(void)
 
 int CalAlertData::getCount(void)
 {
-	WENTER();
-	return __count;
+	return __alerts.size();
 }
 
-std::shared_ptr<CalSchedule> CalAlertData::getAt(int nth)
+std::shared_ptr<CalAlertNotificationItem> CalAlertData::getAt(int nth)
 {
 	WENTER();
-	if (nth >= __count)
+	if (nth >= getCount())
 	{
-		WERROR("invalid input[%d/%d]",nth,__count);
+		WERROR("invalid input[%d/%d]", nth, getCount());
 		return nullptr;
 	}
-	std::shared_ptr<CalSchedule> schedule = __schedules[nth];
-	return schedule;
+	return __alerts[nth];
+}
+
+bool CalAlertData::isSnoozed(int nth)
+{
+	return __alerts[nth]->isSnoozed();
 }
 
 void CalAlertData::remove(int nth)
 {
 	WENTER();
-	if (nth >= __count)
+	if (nth >= getCount())
 	{
-		WERROR("invalid input[%d/%d]",nth,__count);
+		WERROR("invalid input[%d/%d]", nth, getCount());
 		return;
 	}
-	__schedules.erase(__schedules.begin()+nth);
-	__count--;
+	__alerts.erase(__alerts.begin() + nth);
 }
 
 void CalAlertData::removeById(int id)
 {
 	WENTER();
-	for (auto schedule = __schedules.begin(); schedule != __schedules.end();)
+	int idx = 0;
+	for (auto alertNotiItem = __alerts.begin(); alertNotiItem != __alerts.end(); ++idx)
 	{
-		if ((*schedule)->getIndex() == id)
+		if ((*alertNotiItem)->getScheduleId() == id)
 		{
-			schedule = __schedules.erase(schedule);
+			alertNotiItem = __alerts.erase(alertNotiItem);
 		}
 		else
 		{
-			++schedule;
+			++alertNotiItem;
 		}
 	}
-	__count = __schedules.size();
 	WLEAVE();
 }
 
 void CalAlertData::clear()
 {
 	WENTER();
-	__schedules.clear();
-	__count = __schedules.size();
+	__alerts.clear();
 }
 
 void CalAlertData::add(const CalAlertData& obj)
@@ -239,11 +236,19 @@ void CalAlertData::add(const CalAlertData& obj)
 	WENTER();
 	__tick = obj.__tick;
 	__unit = obj.__unit;
-	__count = __count + obj.__count;
 
-	for (auto it = obj.__schedules.begin(); it != obj.__schedules.end(); ++it)
+	for (auto item : obj.__alerts)
 	{
-		__schedules.push_back(*it);
+		auto result = std::find_if(__alerts.begin(), __alerts.end(),
+			[item](const std::shared_ptr<CalAlertNotificationItem> &it) -> bool
+			{
+				return item->getScheduleId() == it->getScheduleId();
+			});
+
+		if(__alerts.end() == result)
+		{
+			__alerts.insert(__alerts.begin(), item);
+		}
 	}
 }
 
@@ -252,17 +257,12 @@ void CalAlertData::replace(const CalAlertData& obj)
 	WENTER();
 	__tick = obj.__tick;
 	__unit = obj.__unit;
-	__count = obj.__count;
-	__schedules = obj.__schedules;
+	__alerts = obj.__alerts;
 }
 
-void CalAlertData::__addRecord(int recordIndex)
+void CalAlertData::__addRecord(int recordIndex, bool isSnoozed)
 {
-	calendar_record_h record = NULL;
-	int error = calendar_db_get_record(_calendar_event._uri, recordIndex, &record);
-	if (error == CALENDAR_ERROR_NONE)
-	{
-		std::shared_ptr<CalSchedule> original(std::make_shared<CalOriginalSchedule>(record));
-		__schedules.push_back(original);
-	}
+	auto item = std::make_shared<CalAlertNotificationItem>(recordIndex);
+	item->setSnoozed(isSnoozed);
+	__alerts.push_back(item);
 }

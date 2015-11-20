@@ -49,9 +49,6 @@
 #include "CalEditView.h"
 #include <notification.h>
 #include <app_control.h>
-#ifdef GBS_BUILD
-#include <app_control_internal.h>
-#endif
 #include "CalLocaleManager.h"
 
 #include "WPopup.h"

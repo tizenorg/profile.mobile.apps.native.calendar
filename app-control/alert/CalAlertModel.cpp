@@ -55,7 +55,7 @@ int CalAlertModel::getCount(void)
 	return __alertData->getCount();
 }
 
-std::shared_ptr<CalSchedule> CalAlertModel::getAt(int nth)
+std::shared_ptr<CalAlertNotificationItem> CalAlertModel::getAt(int nth)
 {
 	WENTER();
 	return __alertData->getAt(nth);
@@ -72,29 +72,32 @@ void CalAlertModel::snoozeAll(void)
 	}
 
 	int recordIndex = 0;
-	for (int i=0;i<count;i++)
+	for (int i = 0; i < count; i++)
 	{
-		std::shared_ptr<CalSchedule> schedule = __alertData->getAt(i);
-		if(schedule)
+		std::shared_ptr<CalAlertNotificationItem> alertItem = __alertData->getAt(i);
+		if(alertItem)
 		{
-			recordIndex = schedule->getIndex();
-			__snooze(recordIndex);
+			alertItem->setSnoozed(true);
+			__snooze(alertItem);
 		}
 	}
+	CalStatusBarManager::getInstance().update(__alertData);
 }
 
 void CalAlertModel::snooze(int nth)
 {
 	WENTER();
-	std::shared_ptr<CalSchedule> schedule = __alertData->getAt(nth);
+	std::shared_ptr<CalAlertNotificationItem> alertItem = __alertData->getAt(nth);
 
-	if (schedule == NULL)
+	if (alertItem == NULL)
 	{
 		WERROR("fail");
 		return;
 	}
 
-	__snooze(schedule->getIndex());
+	__snooze(alertItem);
+	alertItem->setSnoozed(true);
+	CalStatusBarManager::getInstance().update(__alertData);
 }
 
 void CalAlertModel::dismissAll(void)
@@ -103,6 +106,14 @@ void CalAlertModel::dismissAll(void)
 	int count = __alertData->getCount();
 	if(count > 0)
 	{
+		for (int i = 0; i < count; i++)
+		{
+			std::shared_ptr<CalAlertNotificationItem> alertItem = __alertData->getAt(i);
+			if(alertItem->isSnoozed())
+			{
+				__dismiss(alertItem);
+			}
+		}
 		__alertData->clear();
 		CalStatusBarManager::getInstance().removeNotification();
 	}
@@ -111,14 +122,32 @@ void CalAlertModel::dismissAll(void)
 void CalAlertModel::dismiss(int nth)
 {
 	WENTER();
-	std::shared_ptr<CalSchedule> schedule = __alertData->getAt(nth);
-	if (schedule == NULL)
+	std::shared_ptr<CalAlertNotificationItem> alertItem = __alertData->getAt(nth);
+	if (alertItem == NULL)
 	{
 		WERROR("fail");
 		return;
 	}
-	int recordIndex = schedule->getIndex();
-	CalStatusBarManager::getInstance().removeFromNotification(recordIndex);
+
+	if(alertItem->isSnoozed())
+	{
+		__dismiss(alertItem);
+	}
+
+	__alertData->remove(nth);
+	CalStatusBarManager::getInstance().update(__alertData);
+
+}
+
+void CalAlertModel::dismiss(std::vector<int> &nths)
+{
+	WENTER();
+	for (auto nth : nths)
+	{
+		__alertData->remove(nth);
+	}
+	CalStatusBarManager::getInstance().update(__alertData);
+
 }
 
 void CalAlertModel::remove(int nth)
@@ -207,22 +236,20 @@ int CalAlertModel::getSnoozeMinute(void)
 	return min;
 }
 
-void CalAlertModel::__snooze(int recordIndex)
+void CalAlertModel::__snooze(std::shared_ptr<CalAlertNotificationItem> &item)
 {
 	WENTER();
-	WDEBUG("index[%d]",recordIndex);
-
-	const int indexBuffer = 8;
+	WDEBUG("index[%d]", item->getScheduleId());
 
 	app_control_h service = NULL;
 
 	app_control_create(&service);
 	app_control_set_app_id(service, CALENDAR_NOTI_PACKAGE);
 	app_control_set_operation(service, APP_CONTROL_OPERATION_DEFAULT);
-	char value[indexBuffer] = {0};
+	char value[ID_LENGTH] = {0};
 	snprintf(value, sizeof(value), "%s", CAL_APPSVC_PARAM_COUNT_SINGLE);
 	app_control_add_extra_data(service, CAL_APPSVC_PARAM_COUNT, value);
-	snprintf(value, sizeof(value), "%d", recordIndex);
+	snprintf(value, sizeof(value), "%d", item->getScheduleId());
 	app_control_add_extra_data(service, CAL_APPSVC_PARAM_ZERO, value);
 	app_control_add_extra_data(service, CAL_APPSVC_PARAM_REMINDER_ID, value);
 
@@ -246,5 +273,18 @@ void CalAlertModel::__snooze(int recordIndex)
 	}
 	WDEBUG("alarm_id[%d]", alarm_id);
 
+	item->setAlarmId(alarm_id);
+
 	app_control_destroy(service);
+}
+
+void CalAlertModel::__dismiss(std::shared_ptr<CalAlertNotificationItem> &item)
+{
+	WENTER();
+	int alarmId = item->getAlarmId();
+	int error = alarm_cancel(alarmId);
+	if (error != ALARM_ERROR_NONE)
+	{
+		WERROR("Failed to delete alarm %d", alarmId);
+	}
 }

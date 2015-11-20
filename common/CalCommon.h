@@ -18,8 +18,9 @@
 #ifndef _CAL_COMMON_H_
 #define _CAL_COMMON_H_
 
-#include "cal.h"
-#include "cal_defines.h"
+#include <calendar.h>
+#include "CalDefines.h"
+#include "CalUtils.h"
 #include "CalDebugInternal.h"
 
 // === ALL OPERATIONS ===

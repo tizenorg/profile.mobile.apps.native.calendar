@@ -415,3 +415,9 @@ msgstr "HOXE"
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
 msgstr "Alcanzouse o número máximo de carácteres (%d)."
 
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Notificacións de eventos"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (repetido)"
+

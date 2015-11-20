@@ -17,24 +17,15 @@
 
 #include <memory>
 #include "CalBookView.h"
-#include "CalBookEditView.h"
-#include "CalBookDeleteView.h"
-#include "CalBookSelectView.h"
 #include "CalCommon.h"
 #include "WMenuPopup.h"
 
 #include "CalBookManager.h"
 #include "CalEventManager.h"
 
-#include "CalDialogBookSelectAllItem.h"
-#include "CalDialogBookGroupTitleItem.h"
-
 #include "CalAppControlLauncher.h"
 
 #include <app_control.h>
-#ifdef GBS_BUILD
-#include <app_control_internal.h>
-#endif
 
 
 CalBookView::CalBookView() : CalView("CalBookView"),
@@ -45,7 +36,6 @@ CalBookView::CalBookView() : CalView("CalBookView"),
 CalBookView::~CalBookView()
 {
 	__localBookMap.clear();
-	__localBookItems.clear();
 }
 
 /**
@@ -125,8 +115,6 @@ void CalBookView::__update()
 
 			Elm_Object_Item *obj = __dialog->add(item);
 			item->setCustomData(obj);
-
-			__localBookItems.push_back(item);
 		}
 	}
 
@@ -144,8 +132,6 @@ void CalBookView::__update()
 
 			Elm_Object_Item *obj = __dialog->add(item);
 			item->setCustomData(obj);
-
-			__localBookItems.push_back(item);
 		}
 	}
 }

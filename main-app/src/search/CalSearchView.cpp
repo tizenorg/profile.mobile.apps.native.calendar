@@ -368,6 +368,8 @@ Evas_Object* CalSearchView::__createNoContent()
 {
 	Evas_Object *noContent = elm_layout_add(getEvasObj());
 	elm_layout_theme_set(noContent, "layout", "nocontents", "default");
+	evas_object_size_hint_weight_set(noContent, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(noContent, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	elm_object_part_text_set(noContent, "elm.text", _L_("IDS_CLD_NPBODY_NO_RESULTS_FOUND"));
 	evas_object_show(noContent);
 	return noContent;

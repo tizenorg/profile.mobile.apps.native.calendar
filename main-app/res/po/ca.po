@@ -415,3 +415,9 @@ msgstr "AVUI"
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
 msgstr "S'ha assolit el nombre màxim de caràcters (%d)."
 
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Avisos d'esdeveniments"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (repetit)"
+

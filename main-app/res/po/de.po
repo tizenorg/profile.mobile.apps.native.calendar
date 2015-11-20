@@ -415,3 +415,9 @@ msgstr "HEUTE"
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
 msgstr "Maximale Anzahl an Zeichen (%d) erreicht."
 
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Ereignisbenachrichtigungen"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (schlummernd)"
+

@@ -19,9 +19,6 @@
 #define _CAL_EDIT_APP_H_
 
 #include <app_control.h>
-#ifdef GBS_BUILD
-#include <app_control_internal.h>
-#endif
 #include <Ecore.h>
 #include <memory>
 #include "WAppEventHandler.h"

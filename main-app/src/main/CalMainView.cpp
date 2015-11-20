@@ -15,22 +15,20 @@
  *
  */
 
-#include <notification.h>
 #include "CalCommon.h"
 #include "CalNaviframe.h"
 #include "WMenuPopup.h"
+#include "WUiTimer.h"
 
 #include "CalMainView.h"
 
 #include "CalEditView.h"
 #include "CalDetailView.h"
-#include "CalDeleteView.h"
 #include "CalSearchView.h"
 #include "CalBookView.h"
 #include "CalSettingsView.h"
 
 #include "CalLocaleManager.h"
-#include "CalBookManager.h"
 #include "CalListModelFactory.h"
 
 #ifdef __cplusplus
@@ -46,6 +44,8 @@
 #define TRACK_MODE_CHANGE_FLOW(_tag)\
 	WDEBUG("[mode] %s: __listMode(%d) __listDragRecognizerState(%d) __listIsBeingDragged(%d) __monthDragBegan(%d)",\
 		   _tag, __listMode, __listDragRecognizerState, __listIsBeingDragged, __monthDragBegan);
+
+#define LIST_FOCUS_ACTION_DELAY 1.5
 
 CalMainView::CalMainView(const CalDate& focusedDate) : CalView("CalMainView"),
 	__focusedDate(focusedDate),
@@ -262,10 +262,11 @@ Evas_Object* CalMainView::onCreate(Evas_Object* parent, void* viewParam)
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	elm_layout_file_set(layout, CAL_EDJE, "CalMainView");
 	elm_object_signal_callback_add(layout, "show-all-rows/done/cpp", "",
-								[](void *data, Evas_Object *obj, const char *emission, const char *source){
-									CalMainView *view = (CalMainView*) data;
-									view->__terminateUserInteraction();
-								}, this);
+			[](void *data, Evas_Object* obj, const char* emission, const char* source) {
+				CalMainView* view = (CalMainView*) data;
+				view->__blockTouch(__func__);
+				view->__finalizeModeChange(false);
+			}, this);
 	elm_object_part_content_set(baseLayout, "elm.swallow.content", layout);
 	evas_object_show(layout);
 
@@ -291,6 +292,12 @@ void CalMainView::onCreated()
 
 	__createListControl();
 
+	WUiTimer::addTimer(LIST_FOCUS_ACTION_DELAY, [](void* data) {
+			CalMainView* self = (CalMainView*) data;
+			self->__focusList();
+		return ECORE_CALLBACK_CANCEL;
+		}, this, getWeakPtr());
+
 	__monthSlideAnimator = new CalSlideAnimator(
 		getMonth(0).getEvasObj(),
 		[this](int dir) {
@@ -302,6 +309,21 @@ void CalMainView::onCreated()
 
 	__monthDragRecognizer->addTarget((Evas_Object*)edje_object_part_object_get(elm_layout_edje_get(__mainViewLayout), "month/touch"));
 	__monthDragRecognizer->block();
+
+	Evas_Object *button= elm_button_add(__mainViewLayout);
+	elm_object_part_content_set(__mainViewLayout, "add_button", button);
+
+	Evas_Object *icon = elm_image_add(__mainViewLayout);
+	elm_image_file_set(icon, CAL_IMAGE_DIR "core_floating_button_icon.png", NULL);
+	elm_object_part_content_set(button, "icon", icon);
+
+	evas_object_smart_callback_add(button, "clicked",
+			[](void* data, Evas_Object* obj, void* event_info){
+				CalMainView* self = (CalMainView*)data;
+				self->getNaviframe()->push(new CalEditView(self->__focusedDate));
+			},this
+		);
+	evas_object_show(button);
 }
 
 /**
@@ -857,11 +879,13 @@ void CalMainView::__showNoContent(bool isShow)
 	if (isShow)
 	{
 		Evas_Object* noContents = elm_layout_add(__mainViewLayout);
+		elm_layout_theme_set(noContents, "layout", "nocontents", "default");
 		evas_object_size_hint_weight_set(noContents, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-		elm_layout_file_set(noContents, CAL_EDJE, "CalMainView.nocontents");
-		elm_object_part_text_set(noContents, "elm/text", _L_("IDS_CLD_BODY_NO_EVENTS"));
-		elm_object_part_text_set(noContents, "elm/help/text",
+		evas_object_size_hint_align_set(noContents, EVAS_HINT_FILL, EVAS_HINT_FILL);
+		elm_object_part_text_set(noContents, "elm.text", _L_("IDS_CLD_BODY_NO_EVENTS"));
+		elm_object_part_text_set(noContents, "elm.help.text",
 			_L_("IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"));
+		elm_layout_signal_emit(noContents, "align.center", "elm");
 		evas_object_show(noContents);
 		elm_object_part_content_set(__mainViewLayout, "list/no-events", noContents);
 	}

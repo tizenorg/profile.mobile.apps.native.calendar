@@ -35,12 +35,14 @@ public:
 
 	// get alertData
 	int getCount(void);
-	std::shared_ptr<CalSchedule> getAt(int nth);
+
+	std::shared_ptr<CalAlertNotificationItem> getAt(int nth);
 
 	void snoozeAll(void);
 	void snooze(int nth);
 	void dismissAll(void);
 	void dismiss(int nth);
+	void dismiss(std::vector<int> &nths);
 	void remove(int nth);
 
 	// lcd !
@@ -52,7 +54,8 @@ public:
 	void setSnoozeMinute(const int min);
 	int getSnoozeMinute(void);
 private:
-	void __snooze(int recordIndex);
+	void __snooze(std::shared_ptr<CalAlertNotificationItem> &item);
+	void __dismiss(std::shared_ptr<CalAlertNotificationItem> &item);
 private:
 	std::shared_ptr<CalAlertData> __alertData;
 };

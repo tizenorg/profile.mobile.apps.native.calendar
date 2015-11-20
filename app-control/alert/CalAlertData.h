@@ -20,7 +20,7 @@
 
 #include <vector>
 #include "WApp.h"
-#include "CalSchedule.h"
+#include "CalAlertNotificationItem.h"
 
 class CalAlertData
 {
@@ -36,7 +36,8 @@ public:
 	int getTick(void);
 	int getUnit(void);
 	int getCount(void);
-	std::shared_ptr<CalSchedule> getAt(int nth);
+	std::shared_ptr<CalAlertNotificationItem> getAt(int nth);
+	bool isSnoozed(int nth);
 
 	// remove
 	void remove(int nth);
@@ -47,13 +48,12 @@ public:
 	void add(const CalAlertData&);
 	void replace(const CalAlertData&);
 private:
-	void __addRecord(int recordIndex);
+	void __addRecord(int recordIndex, bool isSnoozed = false);
 private:
 	// see alarm-data.h
 	int __tick;
 	int __unit;
-	int __count;
-	std::vector<std::shared_ptr<CalSchedule>> __schedules;
+	std::vector<std::shared_ptr<CalAlertNotificationItem> > __alerts;
 };
 
 #endif

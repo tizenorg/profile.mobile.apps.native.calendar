@@ -20,9 +20,7 @@
 
 #include <map>
 #include "CalView.h"
-#include "CalAlertData.h"
 #include "CalAlertModel.h"
-#include "CalSchedule.h"
 #include "CalBookManager.h"
 #include "CalEventManager.h"
 #include "CalNotificationsSelectAllItem.h"
@@ -48,9 +46,10 @@ private:
 	void __createAlertEventGenlist(Evas_Object* parent, void* viewParam);
 	void __update();
 	void __updateSelectAllItems();
+	void __launchDetailApp(const std::shared_ptr<CalAlertNotificationItem> &alertItem);
 	void __updateCheckStatus();
 	void __updateSelectAllCheck(void);
-	void __updateButtonStatus( bool status);
+	void __updateButtonStatus(bool leftStatus, bool rightStatus);
 private:
 	bool __isAllVisible;
 	bool __isAllSelected;

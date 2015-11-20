@@ -17,6 +17,7 @@
 
 
 #include <algorithm>
+#include <widget_app_efl.h>
 #include "CalWidget.h"
 #include "WDebugBase.h"
 #include "CalEventManager.h"

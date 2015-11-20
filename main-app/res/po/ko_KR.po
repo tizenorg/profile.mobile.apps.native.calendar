@@ -101,7 +101,7 @@ msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
 msgstr "알림음"
 
 msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
-msgstr "선택한 시간대로 일정 시간 및 날짜를 고정합니다. 다른 시간대로 이동하여도 시간 및 날짜는 변경되지 않습니다."
+msgstr "선택한 시간대로 일정의 시간 및 날짜를 고정합니다. 다른 시간대로 이동하여도 시간 및 날짜는 변경되지 않습니다."
 
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "지역 기본설정"
@@ -414,4 +414,10 @@ msgstr "오늘"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
 msgstr "%d자까지 입력할 수 있습니다."
+
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "일정 알림"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s(다시 알림 대기 중)"
 

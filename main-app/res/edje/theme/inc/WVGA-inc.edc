@@ -261,22 +261,7 @@ styles {
       STYLE_TAG_MATCH
    }
   // ************* no Content text ********** //
-   style { name: "empty_state_1";
-      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" align=center color="CAL_COLOR_T023" wrap=mixed ellipsis=1.0";
-      STYLE_TAGS
-      STYLE_TAG_MATCH
-   }
-   style { name: "empty_state_2";
-      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" align=center color="CAL_COLOR_T024" wrap=mixed ellipsis=1.0";
-      STYLE_TAGS
-      STYLE_TAG_MATCH
-   }
    style { name: "empty_state_3";
-      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" align=center color="CAL_COLOR_T023W" wrap=mixed ellipsis=1.0";
-      STYLE_TAGS
-      STYLE_TAG_MATCH
-   }
-   style { name: "empty_state_4";
       base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" align=center color="CAL_COLOR_T023W" wrap=mixed ellipsis=1.0";
       STYLE_TAGS
       STYLE_TAG_MATCH

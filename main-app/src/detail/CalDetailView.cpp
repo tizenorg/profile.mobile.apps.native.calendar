@@ -16,9 +16,6 @@
  */
 
 #include <app_control.h>
-#ifdef GBS_BUILD
-#include <app_control_internal.h>
-#endif
 #include <vector>
 #include <contacts.h>
 

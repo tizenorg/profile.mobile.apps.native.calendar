@@ -67,7 +67,8 @@ Evas_Object* CalAlertView::onCreate( Evas_Object* parent, void* viewParam )
 	elm_layout_file_set(layout, CAL_EDJE, "CalAlertView");
 
 	////  add title
-	std::shared_ptr<CalSchedule> schedule = __model.getAt(0);
+	auto alertItem = __model.getAt(0);
+	auto schedule = alertItem->getSchedule();
 	std::string summary;
 	schedule->getDisplaySummary(-1, summary);
 	elm_object_part_text_set(layout, "event_title", summary.c_str());

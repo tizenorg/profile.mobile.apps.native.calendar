@@ -415,3 +415,9 @@ msgstr "БҮГІН"
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
 msgstr "Ең көп таңбалар санына (%d) жетті"
 
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
+msgstr "Оқиға ескертулері"
+
+msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
+msgstr "%s (қалғу режимінде)"
+

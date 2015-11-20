@@ -56,6 +56,14 @@ public:
 	 */
 	void pushActiveNotification(const std::shared_ptr<CalAlertData>& alertData, bool addSound);
 
+	/**
+	 *
+	 * Update Status-Bar notifications app-control.
+	 *
+	 * @param [in]	alertData	New alert data.
+	 *
+	 */
+	void update(std::shared_ptr<CalAlertData> &alertData);
 
 	/**
 	 * Remove infromation about event with ID from Status-Bar.
@@ -87,10 +95,10 @@ public:
 	/**
 	 * Get IDs of events from Status-Bar notification.
 	 *
-	 * @param [in]	ids		IDs container.
+	 * @param [out]	items		Array of alert items.
 	 *
 	 */
-	void getAllStatusBar(std::vector<int>& ids);
+	void getAllStatusBar(std::vector<std::shared_ptr<CalAlertNotificationItem> > &items);
 
 
 	/**
@@ -106,6 +114,7 @@ private:
 	void __pushActiveNotification(const std::shared_ptr<CalSchedule> &schedule, bool addSound);
 	void __postNotification(notification_h notification);
 
+	app_control_h __createAppControl();
 	void __setNotificationEventCallback(notification_h notification, notification_event_type_e type_button, std::shared_ptr<CalSchedule> schedule, int action);
 
 	notification_h __getHandle();
