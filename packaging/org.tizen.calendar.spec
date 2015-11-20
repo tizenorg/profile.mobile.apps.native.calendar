@@ -27,7 +27,6 @@ BuildRequires: pkgconfig(calendar-service2)
 BuildRequires: pkgconfig(contacts-service2)
 BuildRequires: pkgconfig(notification)
 BuildRequires: pkgconfig(efl-extension)
-BuildRequires: pkgconfig(sqlite3)
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(capi-appfw-app-manager)
 BuildRequires: pkgconfig(capi-system-system-settings)
@@ -77,27 +76,24 @@ fi
 
 cd %{BUILD_DIR}
 
+%define CMAKE_PARAMETERS -DCMAKE_INSTALL_PREFIX=%{PREFIX} -DPKGVERSION=%{version} %{?widget_disabled: -DWIDGET_DISABLED=1} -DREF_APP_NAME=%{REF_APP_NAME} -DREF_APP_LABEL=%{REF_APP_LABEL}
+%define MAKE_LOG_FILTER 2>&1 | sed -e 's%^.*: error: .*$%\x1b[37;41m&\x1b[m%' -e 's%^.*: warning: .*$%\x1b[30;43m&\x1b[m%'
+
 %if 0%is_t3_0
-cmake ./../.. -DCMAKE_INSTALL_PREFIX=%{PREFIX} \
-    -DPKGVERSION=%{version} %{?widget_disabled: -DWIDGET_DISABLED=1} \
-    -DREF_APP_NAME=%{REF_APP_NAME} -DREF_APP_LABEL=%{REF_APP_LABEL} \
-    -DPLATFORM="3.0"
-make %{?_smp_mflags} \
-2>&1 | sed \
--e 's%^.*: error: .*$%\x1b[37;41m&\x1b[m%' \
--e 's%^.*: warning: .*$%\x1b[30;43m&\x1b[m%'
+    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DPLATFORM="3.0"
+    %define MAKE_LOG_FILTER_FULL %{?_smp_mflags} %{MAKE_LOG_FILTER}
 %else
-cmake ./../.. -DCMAKE_INSTALL_PREFIX=%{PREFIX} -DDATADIR=%{DATADIR} \
-    -DPKGVERSION=%{version} %{?widget_disabled: -DWIDGET_DISABLED=1} -DREF_APP_NAME=%{REF_APP_NAME} -DREF_APP_LABEL=%{REF_APP_LABEL} -DPLATFORM="2.4"
-make %{?jobs:-j%jobs} \
-2>&1 | sed \
--e 's%^.*: error: .*$%\x1b[37;41m&\x1b[m%' \
--e 's%^.*: warning: .*$%\x1b[30;43m&\x1b[m%'
+    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DPLATFORM="2.4" -DDATADIR=%{DATADIR}
+    %define MAKE_LOG_FILTER_FULL %{?jobs:-j%jobs} %{MAKE_LOG_FILTER}
 %endif
+
+cmake ./../.. %{CMAKE_PARAMETERS_FULL}
+make %{MAKE_LOG_FILTER_FULL}
 
 %install
 
-%if 1%is_t3_0
+%if 0%is_t3_0
+%else
 rm -rf %{buildroot}
 %endif
 
@@ -107,7 +103,6 @@ cd %{BUILD_DIR}
 
 %if 0%is_t3_0
 %find_lang %{REF_APP_NAME}
-%files
 %else
 %post
 # 5000 is inhouse user id
@@ -118,27 +113,28 @@ chown -R 5000:5000 /opt/usr/apps/%{name}/shared/data/.%{REF_APP_NAME}
 mkdir -p %{DATADIR}
 chown -R 5000:5000 %{DATADIR}
 
-%files -n %{name}
+%define FILE_PARAMETERS -n %{name}
 %endif
+
+%files %{FILE_PARAMETERS}
 
 %manifest %{BUILD_DIR}/%{name}.manifest
 
-%if 1%is_t3_0
+%if 0%is_t3_0
+%else
 %defattr(-,root,root,-)
 %dir %{DATADIR}
 %endif
 
 %{PREFIX}/bin/*
-
 %{PREFIX}/lib/*.so
-
 %{RESDIR}/*
 
 %if 1%is_t3_0
-%define TZ_SYS_RO_PACKAGES   /usr/share/packages
-%define TZ_SYS_RO_ICONS      /usr/share/icons
-%define TZ_SYS_SHARE         /usr/share
-%define TZ_SYS_SMACK         /etc/smack
+    %define TZ_SYS_RO_PACKAGES   /usr/share/packages
+    %define TZ_SYS_RO_ICONS      /usr/share/icons
+    %define TZ_SYS_SHARE         /usr/share
+    %define TZ_SYS_SMACK         /etc/smack
 %endif
 
 %{TZ_SYS_RO_PACKAGES}/%{name}.xml
