@@ -35,7 +35,6 @@
 
 #define EXIT_DELAY 2.0
 
-
 CalAlertApp::CalAlertApp() :
 	__alertView(nullptr),
 	__notificationsView(nullptr),
@@ -52,69 +51,6 @@ CalAlertApp::~CalAlertApp()
 	}
 
 	__timer = NULL;
-}
-
-void CalAlertApp::onPause()
-{
-	WENTER();
-	CalEvent event(CalEvent::APP_PAUSED, CalEvent::REMOTE);
-	CalEventManager::getInstance().notify(event);
-}
-
-void CalAlertApp::onResume()
-{
-	WENTER();
-	CalEvent event(CalEvent::APP_RESUMED, CalEvent::REMOTE);
-	CalEventManager::getInstance().notify(event);
-}
-
-bool CalAlertApp::onCreate()
-{
-	WENTER();
-
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
-	CalEventManager::getInstance();
-	CalDataManager::getInstance();
-	CalBookManager::getInstance();
-	CalSettingsManager::getInstance();
-
-	__regionFormatChangedHandler.addEventHandler(APP_EVENT_REGION_FORMAT_CHANGED, [](app_event_info_h eventInfo, void* userData) {
-			char* region = NULL;
-
-			app_event_get_region_format( eventInfo, &region );
-			WDEBUG("changed region=%s", region);
-
-			CalSettingsManager::getInstance().updateRegion();
-			CalEvent event(CalEvent::SETTING_CHANGED, CalEvent::REMOTE);
-			CalEventManager::getInstance().notify(event);
-
-			free(region);
-
-		}, this );
-	__languageChangedHandler.addEventHandler(APP_EVENT_LANGUAGE_CHANGED, [](app_event_info_h eventInfo, void* userData) {
-			char* lang = NULL;
-
-			app_event_get_language( eventInfo, &lang );
-			WDEBUG("changed language=%s", lang);
-
-			CalLocaleManager::getInstance().updateLocaleForEvasObj();
-
-			CalEvent event(CalEvent::LANGUAGE_CHANGED, CalEvent::REMOTE);
-			CalEventManager::getInstance().notify(event);
-
-			free(lang);
-
-		}, this );
-
-	WLEAVE();
-	return true;
-}
-
-void CalAlertApp::onTerminate()
-{
-	WENTER();
-	CalTheme::finalize();
-	WLEAVE();
 }
 
 void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
@@ -167,10 +103,10 @@ void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 		break;
 	}
 
-	WApp::onAppControl(request, firstLaunch);
 	WLEAVE();
 }
-
+// TODO
+/*
 void CalAlertApp::__createWindowSafe(bool isFirstLaunch, bool isAlertPopup)
 {
 	if (isFirstLaunch)
@@ -224,7 +160,7 @@ void CalAlertApp::__createWindow(bool isAlertPopup)
 
 	CalTheme::initialize();
 }
-
+*/
 void CalAlertApp::__checkRequest(const app_control_h request)
 {
 	WENTER();
@@ -288,11 +224,13 @@ void CalAlertApp::__checkRequest(const app_control_h request)
 void CalAlertApp::__launchAlertView(std::shared_ptr<CalAlertData> alertData)
 {
 	WENTER();
-	CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
+	// TODO
+	//CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
 	if (__alertView == NULL)
 	{
 		__alertView = new CalAlertView(alertData);
-		frame->push(__alertView);
+		// TODO
+		//frame->push(__alertView);
 	}
 	else
 	{
@@ -303,11 +241,13 @@ void CalAlertApp::__launchAlertView(std::shared_ptr<CalAlertData> alertData)
 void CalAlertApp::__launchNotificationView(std::shared_ptr<CalAlertData> alertData)
 {
 	WENTER();
-	CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
+	// TODO
+	//CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
 	if (__notificationsView == NULL)
 	{
 		__notificationsView = new CalNotificationsView(alertData);
-		frame->push(__notificationsView);
+		// TODO
+		//frame->push(__notificationsView);
 	}
 	else
 	{

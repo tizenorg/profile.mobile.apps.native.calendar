@@ -18,21 +18,20 @@
 #ifndef _CAL_PICK_APP_H_
 #define _CAL_PICK_APP_H_
 
-#include "WApp.h"
-#include "CalPickView.h"
-#include "CalSchedule.h"
 #include <app_control.h>
 #include <Ecore.h>
 #include <memory>
 #include <list>
-#include "WAppEventHandler.h"
+#include "CalPickView.h"
+#include "CalSchedule.h"
+#include "CalNaviframe.h"
 
 #define MULTI_SELECT_MAX 10
 
-class CalPickApp : public WApp
+class CalPickApp
 {
 public:
-	CalPickApp();
+	CalPickApp(CalNaviframe *naviframe);
 	virtual ~CalPickApp();
 
 	enum SelectionMode
@@ -47,26 +46,17 @@ public:
 		MIME_ICS
 	};
 
-protected:
-	virtual bool onCreate();
-	virtual void onTerminate();
-	virtual void onAppControl(app_control_h request, bool firstLaunch);
-	virtual void onPause();
-	virtual void onResume();
+	void onAppControl(app_control_h request, bool firstLaunch);
+
 private:
-	WDISABLE_COPY_AND_ASSIGN(CalPickApp);
-private:
-	void __readAppControlData();
 	void __processResult(const std::list<std::shared_ptr<CalSchedule>>& schedules);
-private:
+
 	CalPickView::ResultType __resultType;
 	int __mode;
 	int __mimeType;
 	int __maxLimit;
 	bool __isDone;
 	app_control_h __request;
-	WAppEventHandler __languageChangedHandler;
-	WAppEventHandler __regionFormatChangedHandler;
+	CalNaviframe *__naviframe;
 };
-
 #endif

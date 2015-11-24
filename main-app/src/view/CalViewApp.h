@@ -15,16 +15,31 @@
  *
  */
 
-#include "CalCommon.h"
-#include "CalEditApp.h"
+#ifndef _CAL_VIEW_APP_H_
+#define _CAL_VIEW_APP_H_
 
-WAPP_ASSIST_EXPORT int main(int argc, char *argv[])
+#include <memory>
+#include <app_control.h>
+#include "CalSchedule.h"
+#include "CalDetailView.h"
+#include "CalNaviframe.h"
+
+class CalViewApp
 {
-	WENTER();
+public:
+	CalViewApp(CalNaviframe *naviframe);
+	virtual ~CalViewApp();
+	void onAppControl(app_control_h request, bool firstLaunch);
 
-	CalEditApp app;
-	int ret = app.start( argc, argv );
+private:
+	bool __isVtsFile(const char* filePath);
+	const char* __getFilePath();
+	void __replyError();
+	CalDetailView::MenuState __getMenuState();
 
-	WDEBUG("app return=%d", ret);
-	WLEAVE();
-}
+	CalNaviframe *__naviframe;
+	bool __replyToRequest;
+	app_control_h __request;
+	std::shared_ptr<CalSchedule> __getScheduleFromExtraData(app_control_h request);
+};
+#endif

@@ -15,16 +15,32 @@
  *
  */
 
-#include "CalCommon.h"
-#include "CalAlertApp.h"
+#ifndef _CAL_EDIT_APP_H_
+#define _CAL_EDIT_APP_H_
 
-WAPP_ASSIST_EXPORT int main(int argc, char *argv[])
+#include <app_control.h>
+#include <Ecore.h>
+#include <memory>
+#include "CalSchedule.h"
+#include "CalEditView.h"
+
+class CalEditApp
 {
-	WENTER();
+public:
+	CalEditApp();
+	virtual ~CalEditApp();
+	void onAppControl(app_control_h request, bool firstLaunch);
 
-	CalAlertApp app;
-	int ret = app.start( argc, argv );
+private:
+	void __makeScheduleFromExtraData();
+	void __makeScheduleForCreateMode();
+	void __makeScheduleForEditMode();
+	void __addExtraParams();
+	void __replyError();
 
-	WDEBUG("app return=%d", ret);
-	WLEAVE();
-}
+	bool __replyToRequest;
+	std::shared_ptr<CalSchedule> __schedule;
+	app_control_h __request;
+	CalEditView::CalEditMode __editMode;
+};
+#endif

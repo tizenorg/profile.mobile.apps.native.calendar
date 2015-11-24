@@ -15,6 +15,7 @@
  *
  */
 
+#include <notification.h>
 #include "WWindow.h"
 #include "CalCommon.h"
 #include "CalNaviframe.h"
@@ -26,13 +27,13 @@
 #include "CalVcsView.h"
 #include "CalOriginalSchedule.h"
 #include "CalViewApp.h"
-#include <notification.h>
 #include "CalMidnightNotifier.h"
 #include "CalLocaleManager.h"
 
-CalViewApp::CalViewApp() :
+CalViewApp::CalViewApp(CalNaviframe *naviframe):
 	__replyToRequest(false),
-	__request(nullptr)
+	__request(nullptr),
+	__naviframe(naviframe)
 {
 }
 
@@ -40,106 +41,10 @@ CalViewApp::~CalViewApp()
 {
 }
 
-void CalViewApp::onPause()
-{
-	WENTER();
-
-	CalEventManager::getInstance().suspend();
-}
-
-void CalViewApp::onResume()
-{
-	WENTER();
-
-	CalEventManager::getInstance().resume();
-}
-
-bool CalViewApp::onCreate()
-{
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
-
-	CalEventManager::getInstance();
-	CalDataManager::getInstance();
-	CalBookManager::getInstance();
-	CalSettingsManager::getInstance();
-	CalMidnightNotifier::getInstance().turnOn(CalMidnightNotifier::TIMEOUT);
-
-	__regionFormatChangedHandler.addEventHandler(APP_EVENT_REGION_FORMAT_CHANGED, [](app_event_info_h eventInfo, void* userData) {
-			char* region = NULL;
-
-			app_event_get_region_format( eventInfo, &region );
-			WDEBUG("changed region=%s", region);
-
-			CalSettingsManager::getInstance().updateRegion();
-			CalEvent event(CalEvent::SETTING_CHANGED, CalEvent::REMOTE);
-			CalEventManager::getInstance().notify(event);
-
-			free(region);
-
-		}, this );
-	__languageChangedHandler.addEventHandler(APP_EVENT_LANGUAGE_CHANGED, [](app_event_info_h eventInfo, void* userData) {
-			char* lang = NULL;
-
-			app_event_get_language( eventInfo, &lang );
-			WDEBUG("changed language=%s", lang);
-
-			CalLocaleManager::getInstance().updateLocaleForEvasObj();
-
-			CalEvent event(CalEvent::LANGUAGE_CHANGED, CalEvent::REMOTE);
-			CalEventManager::getInstance().notify(event);
-
-			free(lang);
-
-		}, this );
-
-	attachWindow(new WWindow("Calendar", ELM_WIN_BASIC));
-	CalNaviframe* naviframe = new CalNaviframe();
-	naviframe->setOnLastItemPop([] (bool* popOut) {
-			*popOut = true;
-			elm_exit();
-		});
-	getWindow()->attachBaseUiObject(naviframe);
-
-	elm_win_indicator_mode_set(getWindow()->getEvasObj(), ELM_WIN_INDICATOR_SHOW);
-	elm_win_indicator_opacity_set(getWindow()->getEvasObj(), ELM_WIN_INDICATOR_TRANSPARENT);
-	int rots[1] = {0};
-	elm_win_wm_rotation_available_rotations_set(getWindow()->getEvasObj(), rots, 1);
-	elm_win_wm_rotation_preferred_rotation_set(getWindow()->getEvasObj(), (const int)(rots[0]));
-
-	CalLocaleManager::getInstance().setEvasObjForRTL(getWindow()->getEvasObj());
-
-	CalTheme::initialize();
-
-	return true;
-}
-
-void CalViewApp::onTerminate()
-{
-	CalTheme::finalize();
-
-	if(!__replyToRequest)
-	{
-		__replyError();
-	}
-}
-
 void CalViewApp::onAppControl(app_control_h request, bool firstLaunch)
 {
 	WENTER();
-
-	WDEBUG("firstLaunch = %u", firstLaunch);
-
 	__request = request;
-
-	__makeSchedule();
-
-	WApp::onAppControl(request, firstLaunch);
-	WLEAVE();
-}
-
-void CalViewApp::__makeSchedule()
-{
-	CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
 	const char* filePath = __getFilePath();
 	if (filePath)
 	{
@@ -152,17 +57,15 @@ void CalViewApp::__makeSchedule()
 		std::list<std::shared_ptr<CalSchedule>> schedules;
 		CalDataManager::getInstance().getSchedulesFromVcs(filePath, schedules);
 		int count = schedules.size();
-		if(count == 1)
+		if (count == 1)
 		{
 			std::shared_ptr<CalSchedule> inputSchedule = *(schedules.begin());
-			frame->push(new CalDetailView(inputSchedule, __getMenuState()));
+			__naviframe->push(new CalDetailView(inputSchedule, __getMenuState()));
 		}
 		else
 		{
-			frame->push(new CalVcsView(schedules));
+			__naviframe->push(new CalVcsView(schedules));
 		}
-
-		__replyToRequest = true;
 	}
 	else
 	{
@@ -182,13 +85,13 @@ void CalViewApp::__makeSchedule()
 
 		int eventIndex = atoi(value);
 		std::shared_ptr<CalSchedule> inputSchedule = CalDataManager::getInstance().getSchedule(eventIndex);
-		frame->push(new CalDetailView(inputSchedule, CalDetailView::MENU_DISABLED));
+		__naviframe->push(new CalDetailView(inputSchedule, CalDetailView::MENU_DISABLED));
 
 		free(value);
 		value = NULL;
-
-		__replyToRequest = true;
 	}
+
+	__replyToRequest = true;
 }
 
 CalDetailView::MenuState CalViewApp::__getMenuState()
