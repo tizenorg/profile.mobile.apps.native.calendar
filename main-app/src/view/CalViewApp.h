@@ -22,11 +22,12 @@
 #include <app_control.h>
 #include "CalSchedule.h"
 #include "CalDetailView.h"
+#include "CalNaviframe.h"
 
 class CalViewApp
 {
 public:
-	CalViewApp();
+	CalViewApp(CalNaviframe *naviframe);
 	virtual ~CalViewApp();
 	void onAppControl(app_control_h request, bool firstLaunch);
 
@@ -36,9 +37,9 @@ private:
 	void __replyError();
 	CalDetailView::MenuState __getMenuState();
 
+	CalNaviframe *__naviframe;
 	bool __replyToRequest;
 	app_control_h __request;
 	std::shared_ptr<CalSchedule> __getScheduleFromExtraData(app_control_h request);
-
 };
 #endif

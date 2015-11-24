@@ -27,13 +27,14 @@
 #include "CalMidnightNotifier.h"
 #include "CalLocaleManager.h"
 
-CalPickApp::CalPickApp() :
+CalPickApp::CalPickApp(CalNaviframe *naviframe):
 	__resultType(CalPickView::RESULT_TYPE_ERROR),
 	__mode(CalPickApp::SELECTION_MODE_SINGLE),
 	__mimeType(CalPickApp::MIME_VCS),
 	__maxLimit(1),
 	__isDone(false),
-	__request(NULL)
+	__request(NULL),
+	__naviframe(naviframe)
 {
 }
 
@@ -43,6 +44,8 @@ CalPickApp::~CalPickApp()
 
 void CalPickApp::onAppControl(app_control_h request, bool firstLaunch)
 {
+	WENTER();
+	__request = request;
 	char *value = NULL;
 
 	int ret = app_control_get_extra_data(__request, APP_CONTROL_DATA_SELECTION_MODE, &value);
@@ -65,7 +68,7 @@ void CalPickApp::onAppControl(app_control_h request, bool firstLaunch)
 	value = NULL;
 
 	ret = app_control_get_extra_data(__request, APP_CONTROL_DATA_TYPE, &value);
-	WDEBUG("Resutl type: %s", value);
+	WDEBUG("Result type: %s", value);
 
 	if (APP_CONTROL_ERROR_NONE == ret && value)
 	{
@@ -96,15 +99,13 @@ void CalPickApp::onAppControl(app_control_h request, bool firstLaunch)
 		__mimeType = CalPickApp::MIME_ICS;
 	}
 
-	// TODO
-	//CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
 	CalPickView* view = new CalPickView(__maxLimit, __resultType);
 
 	view->setSelectCb([this](const std::list<std::shared_ptr<CalSchedule>>& schedules) {
 		__processResult(schedules);
 	});
-	// TODO
-	//frame->push(view);
+
+	__naviframe->push(view);
 }
 
 void CalPickApp::__processResult(const std::list<std::shared_ptr<CalSchedule>>& schedules)
