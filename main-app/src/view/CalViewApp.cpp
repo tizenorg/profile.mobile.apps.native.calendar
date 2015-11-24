@@ -15,6 +15,7 @@
  *
  */
 
+#include <notification.h>
 #include "WWindow.h"
 #include "CalCommon.h"
 #include "CalNaviframe.h"
@@ -26,13 +27,13 @@
 #include "CalVcsView.h"
 #include "CalOriginalSchedule.h"
 #include "CalViewApp.h"
-#include <notification.h>
 #include "CalMidnightNotifier.h"
 #include "CalLocaleManager.h"
 
-CalViewApp::CalViewApp():
+CalViewApp::CalViewApp(CalNaviframe *naviframe):
 	__replyToRequest(false),
-	__request(nullptr)
+	__request(nullptr),
+	__naviframe(naviframe)
 {
 }
 
@@ -42,8 +43,8 @@ CalViewApp::~CalViewApp()
 
 void CalViewApp::onAppControl(app_control_h request, bool firstLaunch)
 {
-// TODO
-//	CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
+	WENTER();
+	__request = request;
 	const char* filePath = __getFilePath();
 	if (filePath)
 	{
@@ -56,19 +57,15 @@ void CalViewApp::onAppControl(app_control_h request, bool firstLaunch)
 		std::list<std::shared_ptr<CalSchedule>> schedules;
 		CalDataManager::getInstance().getSchedulesFromVcs(filePath, schedules);
 		int count = schedules.size();
-		if(count == 1)
+		if (count == 1)
 		{
 			std::shared_ptr<CalSchedule> inputSchedule = *(schedules.begin());
-			// TODO
-			//frame->push(new CalDetailView(inputSchedule, __getMenuState()));
+			__naviframe->push(new CalDetailView(inputSchedule, __getMenuState()));
 		}
 		else
 		{
-			// TODO
-			//frame->push(new CalVcsView(schedules));
+			__naviframe->push(new CalVcsView(schedules));
 		}
-
-		__replyToRequest = true;
 	}
 	else
 	{
@@ -88,14 +85,13 @@ void CalViewApp::onAppControl(app_control_h request, bool firstLaunch)
 
 		int eventIndex = atoi(value);
 		std::shared_ptr<CalSchedule> inputSchedule = CalDataManager::getInstance().getSchedule(eventIndex);
-		// TODO
-		//frame->push(new CalDetailView(inputSchedule, CalDetailView::MENU_DISABLED));
+		__naviframe->push(new CalDetailView(inputSchedule, CalDetailView::MENU_DISABLED));
 
 		free(value);
 		value = NULL;
-
-		__replyToRequest = true;
 	}
+
+	__replyToRequest = true;
 }
 
 CalDetailView::MenuState CalViewApp::__getMenuState()

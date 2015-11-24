@@ -24,13 +24,14 @@
 #include <list>
 #include "CalPickView.h"
 #include "CalSchedule.h"
+#include "CalNaviframe.h"
 
 #define MULTI_SELECT_MAX 10
 
 class CalPickApp
 {
 public:
-	CalPickApp();
+	CalPickApp(CalNaviframe *naviframe);
 	virtual ~CalPickApp();
 
 	enum SelectionMode
@@ -56,5 +57,6 @@ private:
 	int __maxLimit;
 	bool __isDone;
 	app_control_h __request;
+	CalNaviframe *__naviframe;
 };
 #endif
