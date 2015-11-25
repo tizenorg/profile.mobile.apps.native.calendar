@@ -16,6 +16,7 @@
  */
 
 #include <app_control.h>
+#include <calendar.h>
 #include "CalCommon.h"
 #include "CalBook.h"
 #include "CalBookManager.h"

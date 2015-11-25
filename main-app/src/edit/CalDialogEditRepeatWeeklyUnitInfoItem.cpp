@@ -60,7 +60,10 @@ Evas_Object* CalDialogEditRepeatWeeklyUnitInfoItem::createCheck(Evas_Object *par
 			CalDialogEditRepeatWeeklyUnitInfoItem *item = (CalDialogEditRepeatWeeklyUnitInfoItem*)data;
 			int day = reinterpret_cast<long long>(evas_object_data_get(obj, "day"));
 			item->__unitInfo.weekly.selected[day] = elm_check_state_get(obj);
-			item->__changedCb(item->__unitInfo);
+			if (item->__changedCb)
+			{
+				item->__changedCb(item->__unitInfo);
+			}
 		}, item
 	);
 

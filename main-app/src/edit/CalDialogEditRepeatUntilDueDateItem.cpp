@@ -182,7 +182,7 @@ Elm_Genlist_Item_Class* CalDialogEditRepeatUntilDueDateItem::getItemClassStatic(
 			evas_object_size_hint_align_set(radio, EVAS_HINT_FILL, EVAS_HINT_FILL);
 			evas_object_smart_callback_add(radio, "changed", [](void *data, Evas_Object *obj, void *event_info)->void {
 					CalDialogEditRepeatUntilDueDateItem *item = (CalDialogEditRepeatUntilDueDateItem *)data;
-					if (item->__radioIndex == elm_radio_value_get(obj))
+					if (item->__radioIndex == elm_radio_value_get(obj) && item->__changedCb)
 					{
 						item->__changedCb(CalScheduleRepeat::DUE_DATE, item->__untilInfo);
 					}
