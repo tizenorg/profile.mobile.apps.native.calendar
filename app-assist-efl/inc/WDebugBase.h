@@ -22,6 +22,13 @@
 #include <string.h>
 #include <assert.h>
 
+#define CALENDAR "calendar"
+
+#define LOGD(fmt, ...) dlog_print(DLOG_DEBUG, CALENDAR, fmt)
+#define LOGE(fmt, ...) dlog_print(DLOG_ERROR, CALENDAR, fmt)
+#define LOGW(fmt, ...) dlog_print(DLOG_WARN, CALENDAR, fmt)
+#define LOGI(fmt, ...) dlog_print(DLOG_INFO, CALENDAR, fmt)
+
 #define WCOLOR_RED "\033[0;31m"
 #define WCOLOR_GREEN "\033[0;32m"
 #define WCOLOR_BROWN "\033[0;33m"
@@ -29,7 +36,7 @@
 #define WCOLOR_PURPLE "\033[0;35m"
 #define WCOLOR_CYAN "\033[0;36m"
 #define WCOLOR_LIGHTBLUE "\033[0;37m"
-#define WCOLOR_END		"\033[0;m"
+#define WCOLOR_END "\033[0;m"
 
 // normal log
 #define WDEBUG(fmt, args...) LOGD(fmt, ##args)
