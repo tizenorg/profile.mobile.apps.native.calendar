@@ -947,9 +947,15 @@ void CalSchedule::__removeDuplicateReminder(void) const
 			continue;
 		}
 		error = calendar_record_get_int(reminder, _calendar_alarm.tick, &tick);
-		if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+		if (error != CALENDAR_ERROR_NONE)
+		{
+			WERROR("fail");
+		}
 		error = calendar_record_get_int(reminder, _calendar_alarm.tick_unit, &tickUnit);
-		if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+		if (error != CALENDAR_ERROR_NONE)
+		{
+			WERROR("fail");
+		}
 		for (j = i+1;j<alarmCount;j++)
 		{
 			calendar_record_h reminder2 = NULL;
@@ -960,9 +966,15 @@ void CalSchedule::__removeDuplicateReminder(void) const
 				continue;
 			}
 			error = calendar_record_get_int(reminder2, _calendar_alarm.tick, &tick2);
-			if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+			if (error != CALENDAR_ERROR_NONE)
+			{
+				WERROR("fail");
+			}
 			error = calendar_record_get_int(reminder2, _calendar_alarm.tick_unit, &tickUnit2);
-			if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+			if (error != CALENDAR_ERROR_NONE)
+			{
+				WERROR("fail");
+			}
 			if (tick == tick2 && tickUnit == tickUnit2)
 			{
 				error = calendar_record_remove_child_record(record,_calendar_event.calendar_alarm, reminder2);
@@ -973,7 +985,10 @@ void CalSchedule::__removeDuplicateReminder(void) const
 				WDEBUG("remove duplicate reminder(%d --)",alarmCount);
 				alarmCount--;
 				error = calendar_record_destroy(reminder2, true);
-				if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+				if (error != CALENDAR_ERROR_NONE)
+				{
+					WERROR("fail");
+				}
 				break;
 			}
 		}
