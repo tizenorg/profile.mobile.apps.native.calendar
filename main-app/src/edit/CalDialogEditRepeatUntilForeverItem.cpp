@@ -68,7 +68,7 @@ Elm_Genlist_Item_Class* CalDialogEditRepeatUntilForeverItem::getItemClassStatic(
 				[](void *data, Evas_Object *obj, void *event_info)->void
 				{
 					CalDialogEditRepeatUntilForeverItem *item = (CalDialogEditRepeatUntilForeverItem *)data;
-					if (item->__radioIndex == elm_radio_value_get(obj)) {
+					if (item->__radioIndex == elm_radio_value_get(obj) && item->__changedCb) {
 						CalScheduleRepeat::UntilInfo untilInfo;
 						item->__changedCb(CalScheduleRepeat::FOREVER, untilInfo);
 					}

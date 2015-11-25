@@ -23,7 +23,6 @@
 #include "CalView.h"
 #include "CalSchedule.h"
 #include "CalEditDialogControl.h"
-#include "CalDialogEditDateTimeItem.h"
 #include "CalDialogEditOptionalTextFieldItem.h"
 #include "CalDialogEditTwoTextRemoveIconItem.h"
 #include "CalDialogEditOneTextRemoveIconItem.h"
@@ -33,6 +32,8 @@
 #include "CalDialogEditMoreItem.h"
 
 #define MAX_REMINDER_COUNT 5
+
+class CalDialogEditDateTimeItem;
 
 class CalEditView : public CalView
 {
@@ -60,19 +61,11 @@ public:
 		REMINDER4,
 		REMINDER5,
 		REPEAT,
-		ATTENDEE,
-		PARTICIPANT,
-		SHOWME,
-		PRIVACY,
-		STATUS,
 		DESCRIPTION,
 		TIMEZONE,
 		MORE,
-		MORE_PARTICIPANT,
-		MORE_SHOWME,
-		MORE_PRIVACY,
 		MORE_DESCRIPTION,
-		MORE_TIMEZONE,
+		MORE_TIMEZONE
 	};
 
 public:
@@ -427,11 +420,11 @@ private:
 	bool __isDiscard;
 	int __reminderNumber;
 	bool __isPrepareExit;
-	Ecore_Animator *__animator;
 	int* __list;
 	int __count;
 	int __appendNum;
-	Ecore_Timer* __timer;/*for append list item to floating box*/
+	std::string __timezoneString;
+	Ecore_Timer* __idler;/*for append list item to floating box*/
 };
 
 #endif

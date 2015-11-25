@@ -85,7 +85,7 @@ Elm_Genlist_Item_Class* CalDialogEditRepeatMonthUnitItem::getItemClassStatic()
 				{
 					CalDialogEditRepeatMonthUnitItem *item = (CalDialogEditRepeatMonthUnitItem*)data;
 					int check_value = elm_radio_state_value_get(obj);
-					if (check_value == item->__radioIndex) {
+					if (check_value == item->__radioIndex && item->__changedCb) {
 						// TODO: set date
 						item->__changedCb(item->__monthlyType);
 					}

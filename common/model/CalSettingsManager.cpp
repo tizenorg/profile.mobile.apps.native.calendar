@@ -48,7 +48,7 @@ CalSettingsManager::CalSettingsManager()
 {
 	WENTER();
 
-	__isHour24 = NULL;
+	__isHour24 = false;
 }
 
 CalSettingsManager::~CalSettingsManager()
