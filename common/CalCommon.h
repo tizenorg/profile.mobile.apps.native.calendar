@@ -18,7 +18,6 @@
 #ifndef _CAL_COMMON_H_
 #define _CAL_COMMON_H_
 
-#include <calendar.h>
 #include "CalDefines.h"
 #include "CalUtils.h"
 #include "CalDebugInternal.h"
