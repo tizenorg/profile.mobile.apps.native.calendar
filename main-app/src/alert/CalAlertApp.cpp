@@ -61,7 +61,8 @@ void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 	{
 	case CALALERT_VIEW:
 		WDEBUG("Show Alert");
-		__createWindowSafe(firstLaunch, true);
+		//TODO:
+		//__createWindowSafe(firstLaunch, true);
 		__launchAlertView(__alertData);
 		break;
 
@@ -82,7 +83,8 @@ void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 
 	case CALALERT_SHOW_NOTIFICATION_LIST:
 		WDEBUG("Show deffered alerts");
-		__createWindowSafe(firstLaunch, false);
+		//TODO:
+		//__createWindowSafe(firstLaunch, false);
 		__launchNotificationView(__alertData);
 		break;
 

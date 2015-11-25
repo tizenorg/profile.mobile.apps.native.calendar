@@ -22,6 +22,13 @@
 #include <string.h>
 #include <assert.h>
 
+#define CALENDAR "calendar"
+
+#define LOGD(fmt, ...)
+#define LOGE(fmt, ...)
+#define LOGW(fmt, ...)
+#define LOGI(fmt, ...)
+
 #define WCOLOR_RED "\033[0;31m"
 #define WCOLOR_GREEN "\033[0;32m"
 #define WCOLOR_BROWN "\033[0;33m"
