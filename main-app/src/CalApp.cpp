@@ -159,7 +159,8 @@ void CalApp::onAppControl(app_control_h request, bool firstLaunch)
 	char* viewParam = NULL;
 	app_control_get_extra_data(request, CAL_APPSVC_PARAM_VIEW, &viewParam);
 
-	if (strcmp(operation, APP_CONTROL_OPERATION_MAIN) == 0)
+	// TODO: change logic of app's launch in different instances
+	if (strcmp(operation, APP_CONTROL_OPERATION_MAIN) == 0 || strcmp(operation, APP_CONTROL_OPERATION_DEFAULT) == 0)
 	{
 		if (viewParam)
 		{
