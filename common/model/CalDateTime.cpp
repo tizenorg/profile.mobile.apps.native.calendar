@@ -149,14 +149,14 @@ void CalDateTime::set(const long long int utime)
 	__allday = false;
 }
 
-void CalDateTime::set(const struct tm& dateTm, const char* timezone)
+void CalDateTime::set(const struct tm& dateTm)
 {
 	__allday = false;
 	struct tm tmp = dateTm;
-	__utime = CalLocaleManager::getInstance().getUtimeFromTm(timezone, tmp);
+	__utime = CalLocaleManager::getInstance().getUtime(tmp);
 }
 
-int CalDateTime::getYear(const char* timezone) const
+int CalDateTime::getYear() const
 {
 	if (__allday == true)
 	{
@@ -165,12 +165,12 @@ int CalDateTime::getYear(const char* timezone) const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(timezone, __utime, time);
+		CalLocaleManager::getInstance().getTm(__utime, time);
 		return time.tm_year + 1900;
 	}
 }
 
-int CalDateTime::getMonth(const char* timezone) const
+int CalDateTime::getMonth() const
 {
 	if (__allday == true)
 	{
@@ -179,12 +179,12 @@ int CalDateTime::getMonth(const char* timezone) const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(timezone, __utime, time);
+		CalLocaleManager::getInstance().getTm(__utime, time);
 		return time.tm_mon + 1;
 	}
 }
 
-int CalDateTime::getMday(const char* timezone) const
+int CalDateTime::getMday() const
 {
 	if (__allday == true)
 	{
@@ -193,12 +193,12 @@ int CalDateTime::getMday(const char* timezone) const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(timezone, __utime, time);
+		CalLocaleManager::getInstance().getTm(__utime, time);
 		return time.tm_mday;
 	}
 }
 
-int CalDateTime::getHour(const char* timezone) const
+int CalDateTime::getHour() const
 {
 	if (__allday == true)
 	{
@@ -207,13 +207,13 @@ int CalDateTime::getHour(const char* timezone) const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(timezone, __utime, time);
+		CalLocaleManager::getInstance().getTm(__utime, time);
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_hour;
 	}
 }
 
-int CalDateTime::getMinute(const char* timezone) const
+int CalDateTime::getMinute() const
 {
 	if (__allday == true)
 	{
@@ -222,13 +222,13 @@ int CalDateTime::getMinute(const char* timezone) const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(timezone, __utime, time);
+		CalLocaleManager::getInstance().getTm(__utime, time);
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_min;
 	}
 }
 
-int CalDateTime::getSecond(const char* timezone) const
+int CalDateTime::getSecond() const
 {
 	if (__allday == true)
 	{
@@ -237,7 +237,7 @@ int CalDateTime::getSecond(const char* timezone) const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(timezone, __utime, time);
+		CalLocaleManager::getInstance().getTm(__utime, time);
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_sec;
 	}
@@ -261,33 +261,11 @@ void CalDateTime::getTm(struct tm* dateTm) const
 	}
 	else
 	{
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, *dateTm);
+		CalLocaleManager::getInstance().getTm(__utime, *dateTm);
 	}
 }
 
-void CalDateTime::getTm(const char* timezone, struct tm* dateTm) const
-{
-	if (dateTm == NULL)
-	{
-		WERROR("invalid input");
-		return;
-	}
-	if (__allday == true)
-	{
-		dateTm->tm_year = __year - 1900;
-		dateTm->tm_mon = __month - 1;
-		dateTm->tm_mday = __mday;
-		dateTm->tm_hour = 0;
-		dateTm->tm_min = 0;
-		dateTm->tm_sec = 0;
-	}
-	else
-	{
-		CalLocaleManager::getInstance().getTmFromUtime(timezone, __utime, *dateTm);
-	}
-}
-
-long long int CalDateTime::getUtime(const char* timezone) const
+long long int CalDateTime::getUtime() const
 {
 	if (__allday == true)
 	{
@@ -300,7 +278,7 @@ long long int CalDateTime::getUtime(const char* timezone) const
 		time.tm_min = 0;
 		time.tm_sec = 0;
 
-		return CalLocaleManager::getInstance().getUtimeFromTm(timezone, time);
+		return CalLocaleManager::getInstance().getUtime(time);
 	}
 	else
 	{
@@ -310,21 +288,6 @@ long long int CalDateTime::getUtime(const char* timezone) const
 
 void CalDateTime::getString(std::string& text) const
 {
-	getString(NULL, text);
-}
-
-void CalDateTime::getTimeString(std::string& text) const
-{
-	getTimeString(NULL, text);
-}
-
-void CalDateTime::getDateString(std::string& text) const
-{
-	getDateString(NULL, text);
-}
-
-void CalDateTime::getString(const char* timezone, std::string& text) const
-{
 	CalLocaleManager::TimeFormat tf = CalLocaleManager::TIMEFORMAT_1;
 	CalLocaleManager::DateFormat df = CalLocaleManager::DATEFORMAT_1;
 
@@ -333,11 +296,11 @@ void CalDateTime::getString(const char* timezone, std::string& text) const
 	struct tm today;
 	time_t current_time = 0;
 	time(&current_time);
-	CalLocaleManager::getInstance().getTmFromUtime(timezone, (long long int)current_time, today);
+	CalLocaleManager::getInstance().getTm((long long int)current_time, today);
 	todayyear = today.tm_year + 1900;
 
 	bool isSameYear = false;
-	if (todayyear == getYear(timezone))
+	if (todayyear == getYear())
 		isSameYear = true;
 
 	if (CalSettingsManager::getInstance().isHour24() == false)
@@ -346,10 +309,10 @@ void CalDateTime::getString(const char* timezone, std::string& text) const
 		tf = CalLocaleManager::TIMEFORMAT_6;
 	if (isSameYear == true && __allday == false)
 		df = CalLocaleManager::DATEFORMAT_24;
-	__getString(timezone, df, tf, text);
+	__getString(df, tf, text);
 }
 
-void CalDateTime::getTimeString(const char* timezone, std::string& text) const
+void CalDateTime::getTimeString(std::string& text) const
 {
 	CalLocaleManager::TimeFormat tf = CalLocaleManager::TIMEFORMAT_2;
 	if (CalSettingsManager::getInstance().isHour24() == false)
@@ -361,25 +324,25 @@ void CalDateTime::getTimeString(const char* timezone, std::string& text) const
 	{
 		return;
 	}
-	__getString(timezone, CalLocaleManager::DATEFORMAT_NONE, tf, text);
+	__getString(CalLocaleManager::DATEFORMAT_NONE, tf, text);
 }
 
-void CalDateTime::getDateString(const char* timezone, std::string& text) const
+void CalDateTime::getDateString(std::string& text) const
 {
-	__getString(timezone, CalLocaleManager::DATEFORMAT_1, CalLocaleManager::TimeFormat::TIMEFORMAT_NONE, text);
+	__getString(CalLocaleManager::DATEFORMAT_1, CalLocaleManager::TimeFormat::TIMEFORMAT_NONE, text);
 }
 
-void CalDateTime::__getString(const char* timezone, int df, int tf, std::string& text) const
+void CalDateTime::__getString(int df, int tf, std::string& text) const
 {
 	if (__allday)
 	{
-		CalLocaleManager::getInstance().getDateTimeText(timezone,
+		CalLocaleManager::getInstance().getDateTimeText(
 				(CalLocaleManager::DateFormat)df,
 				CalLocaleManager::TimeFormat::TIMEFORMAT_NONE, *this, text);
 	}
 	else
 	{
-		CalLocaleManager::getInstance().getDateTimeText(timezone,
+		CalLocaleManager::getInstance().getDateTimeText(
 				(CalLocaleManager::DateFormat)df,
 				(CalLocaleManager::TimeFormat)tf, *this, text);
 	}
@@ -390,17 +353,17 @@ bool CalDateTime::isAllDay() const
 	return __allday;
 }
 
-const char* CalDateTime::getWeekdayText(const char* timezone) const
+const char* CalDateTime::getWeekdayText() const
 {
 	long long int utime = getUtime();
-	return CalLocaleManager::getInstance().getWeekdayText(timezone, utime);
+	return CalLocaleManager::getInstance().getWeekdayText(utime);
 }
 
-int CalDateTime::getWeekday(const char* timezone) const
+int CalDateTime::getWeekday() const
 {
 	long long int utime = getUtime();
 
-	return CalLocaleManager::getInstance().getWeekday(timezone, utime);
+	return CalLocaleManager::getInstance().getWeekday(NULL, utime);
 }
 
 void CalDateTime::setAllDay(const bool isAllDay)
@@ -411,7 +374,7 @@ void CalDateTime::setAllDay(const bool isAllDay)
 			return ;
 		__allday = true;
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		CalLocaleManager::getInstance().getTm(__utime, time);
 		__year = time.tm_year +1900;
 		__month = time.tm_mon +1;
 		__mday = time.tm_mday;
@@ -423,11 +386,11 @@ void CalDateTime::setAllDay(const bool isAllDay)
 
 		__allday = false;
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		CalLocaleManager::getInstance().getTm(__utime, time);
 		time.tm_year = __year - 1900;
 		time.tm_mon = __month - 1;
 		time.tm_mday = __mday;
-		__utime = CalLocaleManager::getInstance().getUtimeFromTm(NULL, time);
+		__utime = CalLocaleManager::getInstance().getUtime(time);
 	}
 	return;
 }
@@ -465,7 +428,7 @@ void CalDateTime::addDays(const int days, const bool setLimit)
 	{
 		long long int utime = getUtime();
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
+		CalLocaleManager::getInstance().getTm(utime, time);
 		CalLocaleManager::getInstance().updateTmDay(days, time);
 		__year = time.tm_year +1900;
 		__month = time.tm_mon +1;
@@ -488,7 +451,7 @@ void CalDateTime::addMonths(const int months, const bool setLimit)
 	{
 		long long int utime = getUtime();
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
+		CalLocaleManager::getInstance().getTm(utime, time);
 		CalLocaleManager::getInstance().updateTmMonth(months, time);
 		__year = time.tm_year +1900;
 		__month = time.tm_mon +1;
@@ -499,7 +462,7 @@ void CalDateTime::addMonths(const int months, const bool setLimit)
 		return;
 	}
 	struct tm time;
-	CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+	CalLocaleManager::getInstance().getTm(__utime, time);
 	CalLocaleManager::getInstance().updateTmMonth(months, time);
 	__utime = CalLocaleManager::getInstance().getUtime(time);
 
@@ -513,7 +476,7 @@ void CalDateTime::addYears(const int years, const bool setLimit)
 	{
 		long long int utime = getUtime();
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
+		CalLocaleManager::getInstance().getTm(utime, time);
 		CalLocaleManager::getInstance().updateTmYear(years, time);
 		__year = time.tm_year +1900;
 		__month = time.tm_mon +1;
@@ -524,7 +487,7 @@ void CalDateTime::addYears(const int years, const bool setLimit)
 		return;
 	}
 	struct tm time;
-	CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+	CalLocaleManager::getInstance().getTm(__utime, time);
 	CalLocaleManager::getInstance().updateTmYear(years, time);
 	__utime = CalLocaleManager::getInstance().getUtime(time);
 

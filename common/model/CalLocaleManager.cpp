@@ -527,6 +527,12 @@ long long int CalLocaleManager::getUtimeFromTm(const char *timezone, const struc
 	}
 }
 
+void CalLocaleManager::getTm(const long long int utime, struct tm &tm)
+{
+	i18n_ucalendar_set_milliseconds(__cal, sec2ms(utime));
+	__getUCalendar(__cal, &tm);
+}
+
 void CalLocaleManager::getTmFromUtime(const char *timezone, const long long int utime, struct tm &tm)
 {
 	if (timezone == NULL || !strcmp(timezone, __tzid.c_str()))

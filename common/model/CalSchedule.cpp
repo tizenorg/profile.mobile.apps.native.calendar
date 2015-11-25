@@ -191,8 +191,8 @@ void CalSchedule::getFromToString(const CalDate& date, std::string& text) const
 	getEnd(endTime);
 
 	std::string startText, endText;
-	startTime.getString(NULL, startText);
-	endTime.getString(NULL, endText);
+	startTime.getString(startText);
+	endTime.getString(endText);
 
 	text = startText + " - " + endText;
 }
@@ -200,13 +200,13 @@ void CalSchedule::getFromToString(const CalDate& date, std::string& text) const
 void CalSchedule::__getFromToString(const char* timezone, const CalDateTime& start, const CalDateTime& end, std::string& text) const
 {
 	std::string startText, endText, endNoDataText;
-	start.getString(timezone, startText);
-	end.getString(timezone, endText);
-	end.getTimeString(timezone, endNoDataText);
+	start.getString(startText);
+	end.getString(endText);
+	end.getTimeString(endNoDataText);
 
-	bool isSameDay = (start.getYear(timezone) == end.getYear(timezone)) &&
-			(start.getMonth(timezone) == end.getMonth(timezone)) &&
-			(start.getMday(timezone) == end.getMday(timezone));
+	bool isSameDay = (start.getYear() == end.getYear()) &&
+			(start.getMonth() == end.getMonth()) &&
+			(start.getMday() == end.getMday());
 
 	if (start.isAllDay() == true)
 	{
@@ -814,8 +814,8 @@ char* CalSchedule::getExceptionString() const
 				start.getYear(), start.getMonth(), start.getMday());
 	else
 		return g_strdup_printf("%04d%02d%02dT%02d%02d%02dZ",
-				start.getYear("Etc/Unknown"), start.getMonth("Etc/Unknown"), start.getMday("Etc/Unknown"),
-				start.getHour("Etc/Unknown"), start.getMinute("Etc/Unknown"), start.getSecond("Etc/Unknown"));
+				start.getYear(), start.getMonth(), start.getMday(),
+				start.getHour(), start.getMinute(), start.getSecond());
 }
 
 std::shared_ptr<CalSchedule> CalSchedule::__createDefaultSchedule()
