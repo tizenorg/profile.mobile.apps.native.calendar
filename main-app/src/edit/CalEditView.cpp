@@ -57,8 +57,7 @@
 #include "CalAppControlLauncher.h"
 #include "CalDatePickerPopup.h"
 #include "CalEditMoreMenuControl.h"
-#include "CalCheckboxPopup.h"
-#include "CalEditLoadingPopup.h"
+
 
 CalEditView::CalEditView() : CalView("CalEditView")
 {
@@ -143,16 +142,10 @@ CalEditView::~CalEditView()
 
 	free(__currentParticipantKeyword);
 
-	if (__animator)
+	if (__idler)
 	{
-		ecore_animator_del(__animator);
-		__animator = NULL;
-	}
-
-	if (__timer)
-	{
-		ecore_timer_del(__timer);
-		__timer = NULL;
+		ecore_timer_del(__idler);
+		__idler = NULL;
 	}
 
 	evas_object_smart_callback_del(__dialog->getEvasObj(), "realized", [](void* data, Evas_Object* obj, void* event_info) {
@@ -162,9 +155,6 @@ CalEditView::~CalEditView()
 	 });
 }
 
-/**
- * Initializes this object.
- */
 void CalEditView::__initialize()
 {
 	__workingCopy = NULL;
@@ -188,18 +178,10 @@ void CalEditView::__initialize()
 	__list = NULL;
 	__count = 0;
 	__appendNum = 0;
-	__animator = NULL;
-	__timer = NULL;
+	__idler = NULL;
 	memset(__reminderItems, 0, sizeof(__reminderItems));
 }
 
-/**
- * Creates repeat popup. Takes current repeat type selected as argument, and calls corresponding popup.
- *
- * @param [in]	naviframe	If non-null, the naviframe.
- * @param [in]	repeat   	The repeat.
- * @param	doneCb			The done cb.
- */
 void CalEditView::createRepeatPopup(WNaviframe *naviframe, CalScheduleRepeat &repeat, const std::function<void (const CalScheduleRepeat)>& doneCb)
 {
 	WENTER();
@@ -257,9 +239,6 @@ void CalEditView::createRepeatPopup(WNaviframe *naviframe, CalScheduleRepeat &re
 	elm_object_part_text_set(popup->getEvasObj(), "title,text", _L_("IDS_CLD_BUTTON_REPEAT_ABB"));
 }
 
-/**
- * Removes the location and updates button in 'more' menu.
- */
 void CalEditView::__removeLocation()
 {
 	if(!__location)
@@ -276,9 +255,6 @@ void CalEditView::__removeLocation()
 	__more->setButtonDisable(CalDialogEditMoreItem::LOCATION, false);
 }
 
-/**
- * Executes the add location field action. Adds new component into the layout, so user can now see 'location' text view.
- */
 void CalEditView::__onAddLocationField()
 {
 	WENTER();
@@ -356,9 +332,6 @@ void CalEditView::__onAddLocationField()
 	);
 }
 
-/**
- * Executes the add location button action. Disables button in menu and calls new text field by executing this function: onAddLocationField()
- */
 void CalEditView::__onAddLocationButton()
 {
 	WENTER();
@@ -372,9 +345,6 @@ void CalEditView::__onAddLocationButton()
 	}
 }
 
-/**
- * Removes the repeat item.
- */
 void CalEditView::__removeRepeatItem()
 {
 	if(!__repeat)
@@ -391,9 +361,6 @@ void CalEditView::__removeRepeatItem()
 	__more->setButtonDisable(CalDialogEditMoreItem::REPEAT, false);
 }
 
-/**
- * Adds repeat.
- */
 void CalEditView::__addRepeat()
 {
 	WENTER();
@@ -455,9 +422,6 @@ void CalEditView::__addRepeat()
 	}
 }
 
-/**
- * Adds repeat 'off'.
- */
 void CalEditView::__addRepeatOff()
 {
 	WENTER();
@@ -498,9 +462,6 @@ void CalEditView::__addRepeatOff()
 	__dialog->add(__repeat);
 }
 
-/**
- * Executes the add repeat button action.
- */
 void CalEditView::__onAddRepeatButton()
 {
 	WENTER();
@@ -523,11 +484,6 @@ void CalEditView::__onAddRepeatButton()
 	);
 }
 
-/**
- * Reminder remove cb.
- *
- * @param [in]	reminderItem	If non-null, the reminder item.
- */
 void CalEditView::__reminderRemoveCb(CalDialogEditOneTextRemoveIconItem* reminderItem)
 {
 	const int reminderIndex = __getReminderIndexFromInterval(reinterpret_cast<long long>(reminderItem->getCustomData()));
@@ -538,14 +494,6 @@ void CalEditView::__reminderRemoveCb(CalDialogEditOneTextRemoveIconItem* reminde
 	__more->setButtonDisable(CalDialogEditMoreItem::REMINDER, false);
 }
 
-/**
- * Creates reminder item. Creates dialog window with reminder content.
- *
- * @param	reminder 	The reminder.
- * @param	sortIndex	Zero-based index of the sort.
- *
- * @return	null if it fails, else the new reminder item.
- */
 CalDialogEditOneTextRemoveIconItem* CalEditView::__createReminderItem(const CalScheduleReminder& reminder, int sortIndex)
 {
 	std::string reminderText;
@@ -596,11 +544,6 @@ CalDialogEditOneTextRemoveIconItem* CalEditView::__createReminderItem(const CalS
 	return reminderItem;
 }
 
-/**
- * Creates reminder off item.
- *
- * @return	null if it fails, else the new reminder off item.
- */
 CalDialogEditOneTextRemoveIconItem* CalEditView::__createReminderOffItem()
 {
 	CalDialogEditOneTextRemoveIconItem* reminderItem =
@@ -618,11 +561,6 @@ CalDialogEditOneTextRemoveIconItem* CalEditView::__createReminderOffItem()
 	return reminderItem;
 }
 
-/**
- * Adds a reminder. There can be a lot of reminders.
- *
- * @param	reminder	The reminder.
- */
 void CalEditView::__addReminder(const CalScheduleReminder& reminder)
 {
 	bool needToAdd = true;
@@ -645,9 +583,6 @@ void CalEditView::__addReminder(const CalScheduleReminder& reminder)
 	}
 }
 
-/**
- * Adds all reminder items.
- */
 void CalEditView::__addAllReminderItems()
 {
 	WENTER();
@@ -694,9 +629,6 @@ void CalEditView::__addAllReminderItems()
 	}
 }
 
-/**
- * Removes all reminder items.
- */
 void CalEditView::__removeAllReminderItems()
 {
 	WENTER();
@@ -720,9 +652,6 @@ void CalEditView::__removeAllReminderItems()
 	__more->setButtonDisable(CalDialogEditMoreItem::REMINDER, false);
 }
 
-/**
- * Adds reminder title item.
- */
 void CalEditView::__addReminderTitleItem()
 {
 	if (__reminderTitleItem)
@@ -734,9 +663,6 @@ void CalEditView::__addReminderTitleItem()
 	__dialog->add(__reminderTitleItem);
 }
 
-/**
- * Removes the reminder title item.
- */
 void CalEditView::__removeReminderTitleItem()
 {
 	if (!__reminderTitleItem)
@@ -748,13 +674,6 @@ void CalEditView::__removeReminderTitleItem()
 	__reminderTitleItem = NULL;
 }
 
-/**
- * Gets reminder index from interval. This happens when numberic representation of some reminder is set between reminder interval.
- *
- * @param	reminderInterval	The reminder interval.
- *
- * @return	The reminder index from interval.
- */
 int CalEditView::__getReminderIndexFromInterval(const int reminderInterval)
 {
 	int reminderIndex = 0;
@@ -774,12 +693,6 @@ int CalEditView::__getReminderIndexFromInterval(const int reminderInterval)
 	return reminderIndex;
 }
 
-/**
- * Applies the changes to reminder (updates all reminder items on view).
- *
- * @param	reminder				The reminder.
- * @param [in]	reminderItem	If non-null, the reminder item.
- */
 void CalEditView::__applyChangesToReminder(const CalScheduleReminder& reminder, CalDialogEditOneTextRemoveIconItem* reminderItem)
 {
 	if(reminder.unitType == CalScheduleReminder::NONE)
@@ -794,9 +707,6 @@ void CalEditView::__applyChangesToReminder(const CalScheduleReminder& reminder, 
 	__addAllReminderItems();
 }
 
-/**
- * Executes the add reminder button action. Calls dialog window containing reminder content.
- */
 void CalEditView::__onAddReminderButton()
 {
 	WENTER();
@@ -834,9 +744,6 @@ void CalEditView::__onAddReminderButton()
 	attachPopup(popup);
 }
 
-/**
- * Clears the more sub items.
- */
 void CalEditView::__clearMoreSubItems()
 {
 	WENTER();
@@ -851,11 +758,6 @@ void CalEditView::__clearMoreSubItems()
 	__removeDescription();
 }
 
-/**
- * Resets all entry state described by item.
- *
- * @param [in]	item	If non-null, the item.
- */
 void CalEditView::__resetAllEntryState(CalDialogControl::Item* item)
 {
 	if (!item)
@@ -887,11 +789,6 @@ void CalEditView::__resetAllEntryState(CalDialogControl::Item* item)
 	}
 }
 
-/**
- * Sets time zone. Updates time info on date buttons.
- *
- * @param	tz	The tz.
- */
 void CalEditView::__setTimeZone(const std::string& tz)
 {
 	// get previous tz
@@ -916,24 +813,8 @@ void CalEditView::__setTimeZone(const std::string& tz)
 	// update floating time
 	__workingCopy->setStart(startDateTime);
 	__workingCopy->setEnd(endDateTime);
-
-	// update __time
-	if (__time)
-	{
-		__time->setTimeZone(tz);
-		__tempStartDateTime = startDateTime;
-		__tempEndDateTime = endDateTime;
-		__time->updateStartAndEndTime(startDateTime, endDateTime);
-	}
 }
 
-/**
- * Executes the idler to free item action.
- *
- * @param	data	The data.
- *
- * @return	A gboolean.
- */
 gboolean CalEditView::__onIdlerToFreeItem(gpointer data)
 {
 	WENTER();
@@ -944,9 +825,6 @@ gboolean CalEditView::__onIdlerToFreeItem(gpointer data)
 	return false;
 }
 
-/**
- * Removes the timezone action.
- */
 void CalEditView::__removeTimezoneItem()
 {
 	if(!__timezone)
@@ -960,9 +838,6 @@ void CalEditView::__removeTimezoneItem()
 	__updateMoreButtonStatus();
 }
 
-/**
- * Executes the add timezone field action.
- */
 void CalEditView::__onAddTimezoneField()
 {
 	if (__timezone)
@@ -1011,7 +886,7 @@ void CalEditView::__onAddTimezoneField()
 					if (timezone &&  strlen(timezone) > 0) {
 						CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 						self->__timezone->setSubText(dT.c_str());
-						self->__setTimeZone(tz);
+						self->__timezoneString = tz;
 					}
 
 					if (timezone) {
@@ -1027,9 +902,6 @@ void CalEditView::__onAddTimezoneField()
 	);
 
 	__timezone->setRemoveCb([this]() {
-			std::string tz;
-			CalSettingsManager::getInstance().getCalendarTimeZone(tz);
-			__setTimeZone(tz);
 			__removeTimezoneItem();
 		}
 	);
@@ -1037,9 +909,6 @@ void CalEditView::__onAddTimezoneField()
 	__dialog->add(__timezone);
 }
 
-/**
- * Removes the description.
- */
 void CalEditView::__removeDescription()
 {
 	if(!__description)
@@ -1056,9 +925,6 @@ void CalEditView::__removeDescription()
 	__updateMoreButtonStatus();
 }
 
-/**
- * Executes the add description field action.
- */
 void CalEditView::__onAddDescriptionField()
 {
 	WENTER();
@@ -1118,11 +984,6 @@ void CalEditView::__onAddDescriptionField()
 		});
 }
 
-/**
- * Returns true if the title is changed
- *
- * @return	true if title changed, false if not.
- */
 bool CalEditView::__isTitleChanged()
 {
 	switch(__mode)
@@ -1172,9 +1033,6 @@ bool CalEditView::__isTitleChanged()
 	}
 }
 
-/**
- * Updates the more button status.
- */
 void CalEditView::__updateMoreButtonStatus()
 {
 	CalDateTime startTime;
@@ -1183,7 +1041,7 @@ void CalEditView::__updateMoreButtonStatus()
 	{
 		bool is_disabled = false;
 
-		if (__description && (__timezone || startTime.isAllDay()))
+		if (__description && (__timezone || (startTime.isAllDay() || (__time && __time->isAllDay())) ) )
 		{
 			is_disabled = true;
 		}
@@ -1192,9 +1050,6 @@ void CalEditView::__updateMoreButtonStatus()
 	}
 }
 
-/**
- * Updates the more item button status.
- */
 void CalEditView::__updateMoreItemButtonStatus()
 {
 	//update location
@@ -1222,9 +1077,6 @@ void CalEditView::__updateMoreItemButtonStatus()
 	}
 }
 
-/**
- * Executes the add more button action.
- */
 void CalEditView::__onAddMoreButton()
 {
 	WENTER();
@@ -1235,7 +1087,7 @@ void CalEditView::__onAddMoreButton()
 	CalDateTime startTime;
 	__workingCopy->getStart(startTime);
 
-	if (__timezone || startTime.isAllDay())
+	if (__timezone || startTime.isAllDay() || __time->isAllDay())
 	{
 		showTimezone = false;
 	}
@@ -1276,9 +1128,6 @@ void CalEditView::__onAddMoreButton()
 
 }
 
-/**
- * Adds items for no empty field.
- */
 void CalEditView::__addItemsForNoEmptyField()
 {
 	const char* loc = __workingCopy->getLocation();
@@ -1311,9 +1160,6 @@ void CalEditView::__addItemsForNoEmptyField()
 	}
 }
 
-/**
- * Updates this object.
- */
 void CalEditView::__update()
 {
 	destroyPopup();
@@ -1439,22 +1285,7 @@ void CalEditView::__update()
 	//update timezone
 	if (__timezone)
 	{
-		const char* defaultTz = __workingCopy->getTimeZone();
-		std::string tz;
-		std::string dT;
-
-		if (!defaultTz || strlen(defaultTz) == 0)
-		{
-			tz.clear();
-			CalSettingsManager::getInstance().getCalendarTimeZone(tz);
-		}
-		else
-		{
-			tz = defaultTz;
-		}
-
-		CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
-		__timezone->setSubText(dT.c_str());
+		__timezone->setSubText(__timezoneString.c_str());
 		elm_genlist_item_update((Elm_Object_Item*)__timezone->getElmObjectItem());
 	}
 
@@ -1465,9 +1296,6 @@ void CalEditView::__update()
 	}
 }
 
-/**
- * Executes the add title field action.
- */
 void CalEditView::__onAddTitleField()
 {
 	__title = new CalDialogEditTextFieldItem(TITLE, [this](CalUnderlineEditField* editField)
@@ -1532,9 +1360,6 @@ void CalEditView::__onAddTitleField()
 	__dialog->add(__title);
 }
 
-/**
- * Sets the time.
- */
 void CalEditView::__setTime()
 {
 	CalDateTime startDateTime;
@@ -1642,7 +1467,7 @@ void CalEditView::__setFocusToField(CalDialogControl::Item *field)
 {
 	if(field == __location || field == __description)
 	{
-	__timer = ecore_idler_add([](void* data)
+	__idler = ecore_idler_add([](void* data)
 		{
 			CalDialogEditOptionalTextFieldItem *self = (CalDialogEditOptionalTextFieldItem*) data;
 			self->getEditField()->setFocusToEntry();
@@ -1651,7 +1476,7 @@ void CalEditView::__setFocusToField(CalDialogControl::Item *field)
 	}
 	else if(field == __title)
 	{
-		__timer = ecore_idler_add([](void* data)
+		__idler = ecore_idler_add([](void* data)
 			{
 				CalDialogEditTextFieldItem *self = (CalDialogEditTextFieldItem*) data;
 				self->getEditField()->setFocusToEntry();
@@ -1660,9 +1485,6 @@ void CalEditView::__setFocusToField(CalDialogControl::Item *field)
 	}
 }
 
-/**
- * Executes the add time field action.
- */
 void CalEditView::__onAddTimeField()
 {
 	CalDateTime startDateTime, endDateTime;
@@ -1709,9 +1531,6 @@ void CalEditView::__onAddTimeField()
 	__dialog->add(__time);
 }
 
-/**
- * Executes the add more field action.
- */
 void CalEditView::__onAddMoreField()
 {
 	__more = new CalDialogEditMoreItem(
@@ -1743,14 +1562,6 @@ void CalEditView::__onAddMoreField()
 	}
 }
 
-/**
- * Executes the create action.
- *
- * @param [in]	parent   	If non-null, the parent.
- * @param [in]	viewParam	If non-null, the view parameter.
- *
- * @return	null if it fails, else an Evas_Object*.
- */
 Evas_Object* CalEditView::onCreate(Evas_Object* parent, void* viewParam)
 {
 	WENTER();
@@ -1791,11 +1602,6 @@ Evas_Object* CalEditView::onCreate(Evas_Object* parent, void* viewParam)
 	return genlist;
 }
 
-/**
- * Executes the pushed action.
- *
- * @param [in]	naviItem	If non-null, the navi item.
- */
 void CalEditView::onPushed(Elm_Object_Item* naviItem)
 {
 	WENTER();
@@ -1844,13 +1650,6 @@ void CalEditView::onPushed(Elm_Object_Item* naviItem)
 	evas_object_smart_callback_add(getNaviframe()->getEvasObj(), "transition,finished", __onNaviframeTransitionFinished, this);
 }
 
-/**
- * Executes the naviframe transition finished action.
- *
- * @param [in]	data	 	If non-null, the data.
- * @param [in]	obj		 	If non-null, the object.
- * @param [in]	eventInfo	If non-null, information describing the event.
- */
 void CalEditView::__onNaviframeTransitionFinished(void* data, Evas_Object* obj, void* eventInfo)
 {
 	CalEditView* self = (CalEditView* )data;
@@ -1863,19 +1662,11 @@ void CalEditView::__onNaviframeTransitionFinished(void* data, Evas_Object* obj, 
 	evas_object_smart_callback_del(self->getNaviframe()->getEvasObj(), "transition,finished", __onNaviframeTransitionFinished);
 }
 
-/**
- * Executes the destroy action.
- */
 void CalEditView::onDestroy()
 {
 	CalAppControlLauncher::getInstance().terminate();
 }
 
-/**
- * Executes the event action.
- *
- * @param	event	The event.
- */
 void CalEditView::onEvent(const CalEvent& event)
 {
 	WENTER();
@@ -1914,12 +1705,6 @@ void CalEditView::onEvent(const CalEvent& event)
 	}
 }
 
-/**
- * Toast popup warning.
- *
- * @param	isOverlapped	The is overlapped.
- * @param	ret				The ret.
- */
 void CalEditView::__toastPopupWarning(const bool isOverlapped, const int ret)
 {
 	if (ret != 0)
@@ -1950,9 +1735,6 @@ void CalEditView::__toastPopupWarning(const bool isOverlapped, const int ret)
 	}
 }
 
-/**
- * Executes the save action.
- */
 void CalEditView::__onSave()
 {
 	WENTER();
@@ -1977,6 +1759,29 @@ void CalEditView::__onSave()
 		CalDateTime endDateTime;
 		__workingCopy->getEnd(endDateTime);
 		endDateTime.addDays(1);
+		__workingCopy->setEnd(endDateTime);
+	}
+	if(__time->isAllDay() &&
+			(__mode == CREATE || (__mode != COPY && __time->isDateChanged())))
+	{
+		CalDateTime endDateTime;
+		__workingCopy->getEnd(endDateTime);
+		endDateTime.addDays(1);
+		__workingCopy->setEnd(endDateTime);
+	}
+	else
+	{
+		struct tm time = {};
+		CalDateTime startDateTime;
+		__workingCopy->getStart(startDateTime);
+		startDateTime.getTm(&time);
+		memset(&time, 0, sizeof(time));
+		startDateTime.set(time, __timezoneString.c_str());
+		__workingCopy->setStart(startDateTime);
+		CalDateTime endDateTime;
+		__workingCopy->getEnd(endDateTime);
+		startDateTime.getTm(&time);
+		endDateTime.set(time, __timezoneString.c_str());
 		__workingCopy->setEnd(endDateTime);
 	}
 
@@ -2013,11 +1818,6 @@ void CalEditView::__onSave()
 	}
 }
 
-/**
- * Executes the pop action.
- *
- * @return	true if it succeeds, false if it fails.
- */
 bool CalEditView::onPop()
 {
 	Ecore_IMF_Context *ctx = ecore_imf_context_add(ecore_imf_context_default_id_get());
@@ -2057,11 +1857,6 @@ bool CalEditView::onPop()
 	return true;
 }
 
-/**
- * Creates date picker popup.
- *
- * @param [in]	dateTime	If non-null, the date time.
- */
 void CalEditView::__createDatePickerPopup(Evas_Object* dateTime)
 {
 	Eina_Bool allDay = false;
@@ -2088,11 +1883,6 @@ void CalEditView::__createDatePickerPopup(Evas_Object* dateTime)
 	attachPopup(popup);
 }
 
-/**
- * Creates time picker popup.
- *
- * @param [in]	dateTime	If non-null, the date time.
- */
 void CalEditView::__createTimePickerPopup(Evas_Object* dateTime)
 {
 	CalDateTime startInitialTime;
@@ -2112,19 +1902,10 @@ void CalEditView::__createTimePickerPopup(Evas_Object* dateTime)
 		__setTime();
 	});
 
-	const char* tz = __workingCopy->getTimeZone();
-	if (tz)
-	{
-		popup->setTimeZone(tz);
-	}
-
 	popup->create(getNaviframe()->getEvasObj(), NULL);
 	attachPopup(popup);
 }
 
-/**
- * Pre process add buttons.
- */
 void CalEditView::__preProcessAddButtons()
 {
 	if (__mode != CREATE)
@@ -2161,9 +1942,6 @@ void CalEditView::__preProcessAddButtons()
 	}
 }
 
-/**
- * Posts the process add buttons.
- */
 void CalEditView::__postProcessAddButtons()
 {
 	if (__mode != CREATE)

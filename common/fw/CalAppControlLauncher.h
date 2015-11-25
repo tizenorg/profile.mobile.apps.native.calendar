@@ -18,11 +18,8 @@
 #ifndef _CAL_APP_CONTROL_LAUNCHER_H_
 #define _CAL_APP_CONTROL_LAUNCHER_H_
 
-#include <app.h>
-#include <Evas.h>
-#include <Eina.h>
-#include <Elementary.h>
-#include <memory>
+#include <app_control.h>
+#include <Ecore.h>
 #include "WEvasObject.h"
 
 

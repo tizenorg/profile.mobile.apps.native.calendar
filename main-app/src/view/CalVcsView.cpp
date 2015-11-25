@@ -18,7 +18,6 @@
 #include "CalCommon.h"
 #include "CalVcsView.h"
 #include "WMenuPopup.h"
-#include "CalInstanceSchedule.h"
 #include "CalDataManager.h"
 #include "CalDetailView.h"
 #include "CalCustomListModel.h"
