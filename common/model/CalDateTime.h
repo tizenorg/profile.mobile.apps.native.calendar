@@ -43,28 +43,24 @@ public:
 	// set
 	void set(const int year, const int month, const int mday);
 	void set(const long long int utime);
-	void set(const struct tm& dateTm, const char* timezone = NULL);
+	void set(const struct tm& dateTm);
 	void setAllDay(const bool isAllDay);
 
 	// get
-	int getYear(const char* timezone = NULL) const;
-	int getMonth(const char* timezone = NULL) const;
-	int getMday(const char* timezone = NULL) const;
-	int getHour(const char* timezone = NULL) const;
-	int getMinute(const char* timezone = NULL) const;
-	int getSecond(const char* timezone = NULL) const;
-	void getTm(struct tm* dateTm) const;
-	void getTm(const char* timezone, struct tm* dateTm) const;
-	long long int getUtime(const char* timezone = NULL) const;
+	int getYear() const;
+	int getMonth() const;
+	int getMday() const;
+	int getHour() const;
+	int getMinute() const;
+	int getSecond() const;
+	void getTmFromUtime(struct tm* dateTm) const;
+	long long int getUtimeFromTm() const;
 	void getString(std::string& text) const;
 	void getTimeString(std::string& text) const;
 	void getDateString(std::string& text) const;
-	void getString(const char* timezone, std::string& text) const;
-	void getTimeString(const char* timezone, std::string& text) const;
-	void getDateString(const char* timezone, std::string& text) const;
 	bool isAllDay() const;
-	const char* getWeekdayText(const char* timezone = NULL) const;
-	int getWeekday(const char* timezone = NULL) const;  // sun: 0 ~ sat: 6
+	const char* getWeekdayText() const;
+	int getWeekday() const;  // sun: 0 ~ sat: 6
 
 	//
 	void addSeconds(const long long int seconds, const bool setLimit = true);
@@ -78,7 +74,7 @@ public:
 	int getDateCompareVal() const;
 
 private:
-	void __getString(const char* timezone, int df, int tf, std::string& text) const;
+	void __getString(int df, int tf, std::string& text) const;
 	void __setLimit();
 
 private:
