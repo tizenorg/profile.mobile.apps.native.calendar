@@ -68,7 +68,7 @@ Evas_Object* CalTimePickerPopup::__createContent(Evas_Object *parent)
 	}
 
 	struct tm time = {};
-	__startDateTime.getTm(&time);
+	__startDateTime.getTmFromUtime(&time);
 
 	elm_datetime_value_set(__dateTime, &time);
 

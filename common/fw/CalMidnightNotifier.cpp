@@ -58,7 +58,7 @@ int CalMidnightNotifier::__setTimeout(const CalDate& date)
 	CalDateTime dateTime(date.getYear(), date.getMonth(), date.getMday(), 0, 0, 0);
 	CalDateTime now;
 
-	int interval = dateTime.getUtime() - now.getUtime();
+	int interval = dateTime.getUtimeFromTm() - now.getUtimeFromTm();
 	if (interval < 0)
 	{
 		return -1;
@@ -94,7 +94,7 @@ int CalMidnightNotifier::__setAlarm(const CalDate& date)
 
 	CalDateTime dateTime(date.getYear(), date.getMonth(), date.getMday(), 0, 0, 0);
 	struct tm tm = {0};
-	dateTime.getTm(&tm);
+	dateTime.getTmFromUtime(&tm);
 
 	int alarm_id = 0;
 

@@ -98,6 +98,7 @@ public:
 
 	long long int getUtime(struct tm& tm);
 	long long int getUtimeFromTm(const char *timezone, const struct tm &tm);
+	void getTm(const long long int utime, struct tm &tm);
 	void getTmFromUtime(const char *timezone, const long long int utime, struct tm &tm);
 	int getDayOfWeekInMonth(const char *timezone, const long long int utime);
 	const char* getWeekdayText(const char *timezone, const long long int utime);
