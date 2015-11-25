@@ -194,11 +194,11 @@ void CalOriginalSchedule::setRepeat(const CalScheduleRepeat& repeat)
 		if (repeat.unitInfo.monthly.type == CalScheduleRepeat::MonthlyType::WEEKDAY)
 		{
 			CalDateTime start(__repeat.startDate.year, __repeat.startDate.month, __repeat.startDate.mday);
-			int weekNum = CalLocaleManager::getInstance().getDayOfWeekInMonth(NULL, start.getUtime());
+			int weekNum = CalLocaleManager::getInstance().getDayOfWeekInMonth(NULL, start.getUtimeFromTm());
 
 			char dayofweek[WEEKDAY_BUFFER] = {0};
 			snprintf(dayofweek, sizeof(dayofweek), "%d", weekNum);
-			const char *wdayText = CalLocaleManager::getInstance().getWeekdayText(NULL, start.getUtime());
+			const char *wdayText = CalLocaleManager::getInstance().getWeekdayText(NULL, start.getUtimeFromTm());
 			strncat(dayofweek, wdayText, WEEKDAY_BUFFER - 1);
 			WDEBUG("dayofweek[%s]",dayofweek);
 			error = calendar_record_set_str(getRecord(), _calendar_event.byday, dayofweek);
