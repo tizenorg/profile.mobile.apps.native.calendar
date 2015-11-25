@@ -16,6 +16,8 @@
  */
 
 #include "CalDialogBookLocalItem.h"
+
+#include <calendar.h>
 #include "CalCommon.h"
 
 CalDialogBookLocalItem::CalDialogBookLocalItem(CalBookLocalMode item_mode, const std::shared_ptr<CalBook>& book) :

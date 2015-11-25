@@ -16,6 +16,8 @@
  */
 
 #include <memory>
+
+#include <calendar.h>
 #include "CalBookView.h"
 #include "CalCommon.h"
 #include "WMenuPopup.h"

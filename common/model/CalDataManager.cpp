@@ -178,6 +178,13 @@ void CalDataManager::__updateAllInstances(const CalSchedule& inputSchedule, CalO
 	__deleteAllExceptionRecords(workingCopy);
 
 	const calendar_record_h record = workingCopy.getRecord();
+
+	char *tz = NULL;
+	calendar_record_get_str(record, _calendar_event.start_tzid, &tz);
+	free(tz);
+	calendar_time_s caltime = {};
+	calendar_record_get_caltime(record, _calendar_event.start_time, &caltime);
+
 	int error = calendar_db_update_record(record);
 	if (error != CALENDAR_ERROR_NONE)
 	{

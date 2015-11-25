@@ -46,7 +46,6 @@ private:
 	CalDateTime __startDateTime;
 	bool __isRepeat;
 	std::string __title;
-	std::string __timezone;
 };
 
 #endif
