@@ -77,7 +77,8 @@ Elm_Genlist_Item_Class* CalDialogEditTwoTextRemoveIconItem::getItemClassStatic()
 		{
 			if(!item->__subText.empty())
 			{
-				return strdup(_L_G_(item->__subText.c_str()));
+				WDEBUG("AAAAAA sub %s", item->__subText.c_str());
+				return strdup(item->__subText.c_str());
 			}
 		}
 

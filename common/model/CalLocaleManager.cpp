@@ -15,6 +15,7 @@
  *
  */
 
+#include <calendar.h>
 #include <sqlite3.h>
 #include <system_settings.h>
 #include <unordered_set>

@@ -178,6 +178,24 @@ void CalDataManager::__updateAllInstances(const CalSchedule& inputSchedule, CalO
 	__deleteAllExceptionRecords(workingCopy);
 
 	const calendar_record_h record = workingCopy.getRecord();
+
+	char *tz = NULL;
+	calendar_record_get_str(record, _calendar_event.start_tzid, &tz);
+	WDEBUG("AAAAAA3 %s", tz);
+	free(tz);
+	calendar_time_s caltime = {};
+	calendar_record_get_caltime(record, _calendar_event.start_time, &caltime);
+
+	if (caltime.type == CALENDAR_TIME_UTIME)
+	{
+		WDEBUG("AAAAAA4 utime = %d", caltime.time.utime);
+	}
+	else
+	{
+		WDEBUG("AAAAAA5 date = %d/%d/%d, %d:%d", caltime.time.date.year, caltime.time.date.month,
+			   caltime.time.date.mday, caltime.time.date.hour, caltime.time.date.minute);
+	}
+
 	int error = calendar_db_update_record(record);
 	if (error != CALENDAR_ERROR_NONE)
 	{

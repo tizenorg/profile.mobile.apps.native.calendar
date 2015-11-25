@@ -72,7 +72,7 @@ Evas_Object* CalDatePickerPopup::__createContent(Evas_Object* parent)
 	addButton("IDS_CLD_BUTTON_CANCEL", NULL);
 	addButton("IDS_CLD_BUTTON_SET", [this](bool* destroyPopup)
 	{
-		if(__changedCb)
+		if (__changedCb)
 		{
 			struct tm time;
 			elm_datetime_value_get(__dateTime, &time);
