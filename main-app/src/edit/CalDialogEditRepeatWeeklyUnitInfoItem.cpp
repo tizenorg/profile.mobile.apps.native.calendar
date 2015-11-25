@@ -34,7 +34,7 @@ CalDialogEditRepeatWeeklyUnitInfoItem::CalDialogEditRepeatWeeklyUnitInfoItem(std
 	__unitInfo = repeat.unitInfo;
 	if ( (__unitInfo.weekly.selected[0] ||__unitInfo.weekly.selected[1] || __unitInfo.weekly.selected[2] || __unitInfo.weekly.selected[3]
 		|| __unitInfo.weekly.selected[4] || __unitInfo.weekly.selected[5] || __unitInfo.weekly.selected[6]) == false) {
-		__unitInfo.weekly.selected[__startDate.getWeekday(__timezone.c_str())] = true;
+		__unitInfo.weekly.selected[__startDate.getWeekday()] = true;
 	}
 }
 

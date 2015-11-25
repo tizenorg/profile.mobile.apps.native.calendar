@@ -98,7 +98,7 @@ void CalDialogEditRepeatUntilDueDateItem::setDateButtonTime(const CalScheduleRep
 	__dateTime.set(repeat.untilInfo.date.year, repeat.untilInfo.date.month, repeat.untilInfo.date.mday);
 
 	std::string dateString;
-	__dateTime.getDateString(NULL, dateString);
+	__dateTime.getDateString(dateString);
 	if(!dateString.empty())
 	{
 		int fontSize = getSystemFontSize();
@@ -152,7 +152,7 @@ Elm_Genlist_Item_Class* CalDialogEditRepeatUntilDueDateItem::getItemClassStatic(
 			evas_object_show(button);
 
 			std::string dateString;
-			item->__dateTime.getDateString(NULL, dateString);
+			item->__dateTime.getDateString(dateString);
 			if(!dateString.empty())
 			{
 				int fontSize = item->getSystemFontSize();

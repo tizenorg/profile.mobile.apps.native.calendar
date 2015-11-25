@@ -49,9 +49,9 @@ Elm_Genlist_Item_Class* CalDialogEditRepeatMonthUnitItem::getItemClassStatic()
 			std::string text;
 			CalScheduleRepeat::Date date;
 			const char* tz = item->__timezone.c_str();
-			date.year = item->__startTime.getYear(tz);
-			date.month = item->__startTime.getMonth(tz);
-			date.mday = item->__startTime.getMday(tz);
+			date.year = item->__startTime.getYear();
+			date.month = item->__startTime.getMonth();
+			date.mday = item->__startTime.getMday();
 			item->__repeat.getMonthlyUnitInfoString(date, tz, item->__monthlyType, text);
 
 			std::stringstream ss;

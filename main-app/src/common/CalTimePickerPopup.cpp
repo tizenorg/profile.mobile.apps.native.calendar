@@ -95,14 +95,8 @@ Evas_Object* CalTimePickerPopup::__createContent(Evas_Object *parent)
 		elm_datetime_value_get(__dateTime, &time);
 
 		CalDateTime newTime;
-		if(__timezone.empty())
-		{
-			newTime.set(time);
-		}
-		else
-		{
-			newTime.set(time, __timezone.c_str());
-		}
+
+		newTime.set(time);
 
 		if(__changedCb)
 		{

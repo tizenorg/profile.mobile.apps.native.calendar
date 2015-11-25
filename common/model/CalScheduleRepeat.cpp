@@ -95,27 +95,27 @@ void CalScheduleRepeat::setDefault(const UnitType type, const CalDateTime& start
 		dueDate.addYears(5);
 	}
 
-	untilInfo.date.year = dueDate.getYear(timezone);
-	untilInfo.date.month = dueDate.getMonth(timezone);
-	untilInfo.date.mday = dueDate.getMday(timezone);
-	startDate.year = start.getYear(timezone);
-	startDate.month = start.getMonth(timezone);
-	startDate.mday = start.getMday(timezone);
+	untilInfo.date.year = dueDate.getYear();
+	untilInfo.date.month = dueDate.getMonth();
+	untilInfo.date.mday = dueDate.getMday();
+	startDate.year = start.getYear();
+	startDate.month = start.getMonth();
+	startDate.mday = start.getMday();
 
 	if (unitType == CalScheduleRepeat::WEEK){
 		for (int i=0;i<7;i++)
 			unitInfo.weekly.selected[i] = false;
 
-		int weekday = start.getWeekday(timezone);
+		int weekday = start.getWeekday();
 		if (weekday >=0 && weekday <=6)
 			unitInfo.weekly.selected[weekday]=true;
 		else
 			WERROR("fail");
 	} else if (unitType == CalScheduleRepeat::MONTH){
 		unitInfo.monthly.type = MONTHDAY;
-		unitInfo.monthly.date.year = start.getYear(timezone);
-		unitInfo.monthly.date.month = start.getMonth(timezone);
-		unitInfo.monthly.date.mday = start.getMday(timezone);
+		unitInfo.monthly.date.year = start.getYear();
+		unitInfo.monthly.date.month = start.getMonth();
+		unitInfo.monthly.date.mday = start.getMday();
 	}
 	print();
 }

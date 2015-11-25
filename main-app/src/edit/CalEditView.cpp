@@ -404,9 +404,9 @@ void CalEditView::__addRepeat()
 	CalDateTime start;
 	const char* tz = __workingCopy->getTimeZone();
 	__workingCopy->getStart(start);
-	date.year = start.getYear(tz);
-	date.month = start.getMonth(tz);
-	date.mday = start.getMday(tz);
+	date.year = start.getYear();
+	date.month = start.getMonth();
+	date.mday = start.getMday();
 
 	repeat.getRepeatString(date, tz, repeatString);
 
@@ -428,9 +428,9 @@ void CalEditView::__addRepeat()
 					CalDateTime start;
 					const char* tz = __workingCopy->getTimeZone();
 					__workingCopy->getStart(start);
-					date.year = start.getYear(tz);
-					date.month = start.getMonth(tz);
-					date.mday = start.getMday(tz);
+					date.year = start.getYear();
+					date.month = start.getMonth();
+					date.mday = start.getMday();
 					repeat.getRepeatString(date, tz, repeatString);
 					((CalDialogEditTwoTextRemoveIconItem*)__repeat)->setSubText(repeatString.c_str());
 					elm_genlist_item_update((Elm_Object_Item*)__repeat->getElmObjectItem());
@@ -480,9 +480,9 @@ void CalEditView::__addRepeatOff()
 					CalDateTime start;
 					const char* tz = __workingCopy->getTimeZone();
 					__workingCopy->getStart(start);
-					date.year = start.getYear(tz);
-					date.month = start.getMonth(tz);
-					date.mday = start.getMday(tz);
+					date.year = start.getYear();
+					date.month = start.getMonth();
+					date.mday = start.getMday();
 					repeat.getRepeatString(date, tz, repeatString);
 					((CalDialogEditTwoTextRemoveIconItem*)__repeat)->setSubText(repeatString.c_str());
 					elm_genlist_item_update((Elm_Object_Item*)__repeat->getElmObjectItem());
@@ -894,8 +894,6 @@ void CalEditView::__resetAllEntryState(CalDialogControl::Item* item)
  */
 void CalEditView::__setTimeZone(const std::string& tz)
 {
-	// get previous tz
-	const char* oldTz = __workingCopy->getTimeZone();
 	CalDateTime startDateTime, endDateTime;
 	struct tm startTm = {};
 	struct tm endTm = {};
@@ -903,15 +901,15 @@ void CalEditView::__setTimeZone(const std::string& tz)
 	__workingCopy->getEnd(endDateTime);
 
 	// get previous start/end for floating time
-	startDateTime.getTm(oldTz, &startTm);
-	endDateTime.getTm(oldTz, &endTm);
+	startDateTime.getTm(&startTm);
+	endDateTime.getTm(&endTm);
 
 	// update tz
 	__workingCopy->setTimeZone(tz.c_str());
 
 	// change start/end for floating time
-	startDateTime.set(startTm, tz.c_str());
-	endDateTime.set(endTm, tz.c_str());
+	startDateTime.set(startTm);
+	endDateTime.set(endTm);
 
 	// update floating time
 	__workingCopy->setStart(startDateTime);
@@ -1427,9 +1425,9 @@ void CalEditView::__update()
 		CalDateTime start;
 		const char* tz = __workingCopy->getTimeZone();
 		__workingCopy->getStart(start);
-		date.year = start.getYear(tz);
-		date.month = start.getMonth(tz);
-		date.mday = start.getMday(tz);
+		date.year = start.getYear();
+		date.month = start.getMonth();
+		date.mday = start.getMday();
 
 		repeat.getRepeatString(date, tz, repeatString);
 		 __repeat->setSubText(repeatString.c_str());
