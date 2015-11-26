@@ -353,7 +353,10 @@ Evas_Object* CalDialogEditDateTimeItem::onCreateDateTime(Evas_Object* parent, bo
 		[](void* data, Evas_Object* obj, void* event_info) {
 
 			CalDialogEditDateTimeItem* item = (CalDialogEditDateTimeItem*)data;
-			item->__changedCb(item->__start, item->__end);
+			if (item->__changedCb)
+			{
+				item->__changedCb(item->__start, item->__end);
+			}
 
 		}, this);
 
@@ -382,8 +385,10 @@ Evas_Object* CalDialogEditDateTimeItem::onCreateAllDayCheckBox(Evas_Object* pare
 				item->__start = CalDateTime(item->__start.getYear(), item->__start.getMonth(), item->__start.getMday(), item->__startAllDay.getHour(), item->__startAllDay.getMinute(), item->__startAllDay.getSecond());
 				item->__end = CalDateTime(item->__end.getYear(), item->__end.getMonth(), item->__end.getMday(), item->__endAllDay.getHour(), item->__endAllDay.getMinute(), item->__endAllDay.getSecond());
 			}
-
-			item->__changedCb(item->__start, item->__end);
+			if (item->__changedCb)
+			{
+				item->__changedCb(item->__start, item->__end);
+			}
 		}, this);
 
 	elm_check_state_set(allDayCheckBox, __isAllDay);

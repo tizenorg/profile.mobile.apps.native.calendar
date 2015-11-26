@@ -16,6 +16,7 @@
  */
 
 #include "CalBook.h"
+#include <calendar.h>
 #include "CalCommon.h"
 
 #define COLOR_BUFFER 17
