@@ -37,8 +37,6 @@ CalDialogEditDateTimeItem::CalDialogEditDateTimeItem( int sortIndex,
 	__timeEndButton(NULL),
 	__start(startDateTime),
 	__end(endDateTime),
-	__startAllDay(startDateTime),
-	__endAllDay(endDateTime),
 	__isDateChanged(false),
 	__isAllDay(false),
 	__isStartSelected(true)
@@ -62,7 +60,6 @@ CalDialogEditDateTimeItem::CalDialogEditDateTimeItem( int sortIndex,
 	if(__isAllDay && __end != __start)
 	{
 		__end.addDays(-1);
-		__endAllDay.addDays(-1);
 	}
 }
 
@@ -141,12 +138,6 @@ void CalDialogEditDateTimeItem::setTimeZone(const std::string& timezone)
 
 void CalDialogEditDateTimeItem::getDateTime(CalDateTime* startDateTime, CalDateTime* endDateTime, Eina_Bool* allDay)
 {
-	if(__isAllDay)
-	{
-		__start = CalDateTime(__start.getYear(), __start.getMonth(), __start.getMday(), 0, 0, 0);
-		__end = CalDateTime(__end.getYear(), __end.getMonth(), __end.getMday(), 0, 0, 0);
-	}
-
 	if(startDateTime)
 	{
 		*startDateTime = __start;
@@ -375,20 +366,11 @@ Evas_Object* CalDialogEditDateTimeItem::onCreateAllDayCheckBox(Evas_Object* pare
 			Eina_Bool isAllDay = elm_check_state_get(obj);
 			item->__isAllDay= isAllDay;
 
-			if(isAllDay)
-			{
-				item->__startAllDay = item->__start;
-				item->__endAllDay = item->__end;
-			}
-			else
-			{
-				item->__start = CalDateTime(item->__start.getYear(), item->__start.getMonth(), item->__start.getMday(), item->__startAllDay.getHour(), item->__startAllDay.getMinute(), item->__startAllDay.getSecond());
-				item->__end = CalDateTime(item->__end.getYear(), item->__end.getMonth(), item->__end.getMday(), item->__endAllDay.getHour(), item->__endAllDay.getMinute(), item->__endAllDay.getSecond());
-			}
 			if (item->__changedCb)
 			{
 				item->__changedCb(item->__start, item->__end);
 			}
+
 		}, this);
 
 	elm_check_state_set(allDayCheckBox, __isAllDay);
