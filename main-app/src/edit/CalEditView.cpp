@@ -58,7 +58,6 @@
 #include "CalDatePickerPopup.h"
 #include "CalEditMoreMenuControl.h"
 #include "CalCheckboxPopup.h"
-#include "CalEditLoadingPopup.h"
 
 CalEditView::CalEditView() : CalView("CalEditView")
 {
