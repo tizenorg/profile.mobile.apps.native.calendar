@@ -610,8 +610,7 @@ void CalSchedule::setLocation(const char* location)
 
 void CalSchedule::setStart(const CalDateTime& startTime)
 {
-	const unsigned int propertyId = getStartProperty();
-	int error = calendar_record_set_caltime(__record, propertyId, getCaltime(startTime));
+	int error = calendar_record_set_caltime(__record, getStartProperty(), getCaltime(startTime));
 	WPRET_M((error != CALENDAR_ERROR_NONE),"set_caltime fail");
 }
 

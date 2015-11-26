@@ -414,8 +414,6 @@ private:
 	char* __currentParticipantKeyword;
 	CalDialogEditOptionalTextFieldItem* __description;
 	CalDialogEditMoreItem* __more;
-	CalDateTime __tempStartDateTime;
-	CalDateTime __tempEndDateTime;
 	CalDate  __focusedDate;
 	bool __isDiscard;
 	int __reminderNumber;
