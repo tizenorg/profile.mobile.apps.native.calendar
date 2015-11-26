@@ -1763,18 +1763,21 @@ void CalEditView::__onSave()
 	}
 	else
 	{
-		struct tm time = {};
-		CalDateTime startDateTime;
-		__workingCopy->getStart(startDateTime);
-		startDateTime.getTm(&time);
-		memset(&time, 0, sizeof(time));
-		startDateTime.set(time, __timezoneString.c_str());
-		__workingCopy->setStart(startDateTime);
-		CalDateTime endDateTime;
-		__workingCopy->getEnd(endDateTime);
-		endDateTime.getTm(&time);
-		endDateTime.set(time, __timezoneString.c_str());
-		__workingCopy->setEnd(endDateTime);
+		if (!__timezoneString.empty())
+		{
+			struct tm time = {};
+			CalDateTime startDateTime;
+			__workingCopy->getStart(startDateTime);
+			startDateTime.getTm(&time);
+			startDateTime.set(time, __timezoneString.c_str());
+			memset(&time, 0, sizeof(time));
+			__workingCopy->setStart(startDateTime);
+			CalDateTime endDateTime;
+			__workingCopy->getEnd(endDateTime);
+			endDateTime.getTm(&time);
+			endDateTime.set(time, __timezoneString.c_str());
+			__workingCopy->setEnd(endDateTime);
+		}
 	}
 
 	switch(__mode)
