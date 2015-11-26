@@ -28,7 +28,6 @@
 #include "CalDataManager.h"
 #include "CalBookManager.h"
 #include "CalSettingsManager.h"
-#include "CalMidnightNotifier.h"
 #include "CalListModelFactory.h"
 #include "CalEditField.h"
 #include "CalLocaleManager.h"
@@ -110,7 +109,6 @@ bool CalApp::onCreate()
 	CalDataManager::getInstance();
 	CalBookManager::getInstance();
 	CalSettingsManager::getInstance();
-	CalMidnightNotifier::getInstance().turnOn(CalMidnightNotifier::TIMEOUT);
 	CalListModelFactory::getInstance().prepare();
 
 	attachWindow(new WWindow("Calendar", ELM_WIN_BASIC));

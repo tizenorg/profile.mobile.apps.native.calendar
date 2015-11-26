@@ -27,7 +27,6 @@
 #include "CalVcsView.h"
 #include "CalOriginalSchedule.h"
 #include "CalViewApp.h"
-#include "CalMidnightNotifier.h"
 #include "CalLocaleManager.h"
 
 CalViewApp::CalViewApp(CalNaviframe *naviframe):

@@ -24,7 +24,6 @@
 #include "CalBookManager.h"
 #include "CalSettingsManager.h"
 #include "CalEditApp.h"
-#include "CalMidnightNotifier.h"
 #include "CalLocaleManager.h"
 
 CalEditApp::CalEditApp() :

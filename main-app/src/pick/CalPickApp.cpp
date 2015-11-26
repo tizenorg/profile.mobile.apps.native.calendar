@@ -24,7 +24,6 @@
 #include "CalBookManager.h"
 #include "CalSettingsManager.h"
 #include "CalPickApp.h"
-#include "CalMidnightNotifier.h"
 #include "CalLocaleManager.h"
 
 CalPickApp::CalPickApp(CalNaviframe *naviframe):
