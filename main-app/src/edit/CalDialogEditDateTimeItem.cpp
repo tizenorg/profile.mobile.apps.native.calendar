@@ -58,12 +58,6 @@ CalDialogEditDateTimeItem::CalDialogEditDateTimeItem( int sortIndex,
 			__isAllDay = true;
 		}
 	}
-
-	if(__isAllDay && __end != __start)
-	{
-		__end.addDays(-1);
-		__endAllDay.addDays(-1);
-	}
 }
 
 CalDialogEditDateTimeItem::~CalDialogEditDateTimeItem()

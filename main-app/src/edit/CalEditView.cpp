@@ -1367,97 +1367,25 @@ void CalEditView::__setTime()
 	Eina_Bool allDay = EINA_TRUE;
 	__time->getDateTime(&startDateTime, &endDateTime, &allDay);
 
-	//adjustment time: keep same UI concept as android S5
-	if(allDay != __tempStartDateTime.isAllDay()) // allday checkbox changed
+	if (allDay)
 	{
-		WDEBUG("Allday checkbox");
-
-		__tempStartDateTime = startDateTime;
-		__tempEndDateTime = endDateTime;
-		if(__tempStartDateTime > __tempEndDateTime)
+		if(startDateTime > endDateTime)
 		{
 			notification_status_message_post(_L_("IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"));
-			__tempEndDateTime = __tempStartDateTime;
-			__tempEndDateTime.addHours(1);
+			endDateTime = startDateTime;
 		}
-	}
-	else if(endDateTime == __tempEndDateTime)
-	{
-		WDEBUG("Edit start date time");
-
-		auto setSameInterval = [this, allDay, &startDateTime, &endDateTime](){
-			long long int start = __tempStartDateTime.getUtime();
-			long long int end = __tempEndDateTime.getUtime();
-			long long int interval = end - start;
-			WDEBUG("Edit interval %ld",interval);
-			if(allDay)
-			{
-				int intervalDay = interval / (24 * 60 * 60);
-				if(interval % (24 * 60 * 60) != 0)
-					intervalDay++;
-
-				WDEBUG("Edit intervalDay %d",intervalDay);
-				endDateTime = startDateTime;
-				endDateTime.addDays(intervalDay);
-			}
-			else
-			{
-				endDateTime = startDateTime;
-				endDateTime.addSeconds(interval);
-			}
-		};
-
-		if (startDateTime >= endDateTime)
+	} else {
+		if(startDateTime >= endDateTime)
 		{
 			notification_status_message_post(_L_("IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"));
-			if(!allDay)
-			{
-				setSameInterval();
-			}
-			else
-			{
-				endDateTime = startDateTime;
-			}
+			endDateTime = startDateTime;
+			endDateTime.addHours(1);
 		}
-		else
-		{
-			setSameInterval();
-		}
-
-		__tempStartDateTime = startDateTime;
-		__tempEndDateTime = endDateTime;
-
-	}
-	else if(startDateTime == __tempStartDateTime)
-	{
-		WDEBUG("Edit end date time");
-
-		if (endDateTime <= startDateTime)
-		{
-			notification_status_message_post(_L_("IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"));
-			if(!allDay)
-			{
-				endDateTime = startDateTime;
-				endDateTime.addHours(1);
-			}
-			else
-			{
-				endDateTime = startDateTime;
-			}
-		}
-
-		__tempStartDateTime = startDateTime;
-		__tempEndDateTime = endDateTime;
-	}
-	else
-	{
-		__tempStartDateTime = startDateTime;
-		__tempEndDateTime = endDateTime;
 	}
 
-	__time->updateStartAndEndTime(__tempStartDateTime, __tempEndDateTime);
-	__workingCopy->setStart(__tempStartDateTime);
-	__workingCopy->setEnd(__tempEndDateTime);
+	__time->updateStartAndEndTime(startDateTime, endDateTime);
+	__workingCopy->setStart(startDateTime);
+	__workingCopy->setEnd(endDateTime);
 	__isChanged = true;
 
 	__updateMoreButtonStatus();
@@ -1490,8 +1418,6 @@ void CalEditView::__onAddTimeField()
 	CalDateTime startDateTime, endDateTime;
 	__workingCopy->getStart(startDateTime);
 	__workingCopy->getEnd(endDateTime);
-	__tempStartDateTime = startDateTime;
-	__tempEndDateTime = endDateTime;
 
 	std::string st, en;
 	startDateTime.getString(st);
@@ -1756,9 +1682,10 @@ void CalEditView::__onSave()
 	if(__time->isAllDay() &&
 			(__mode == CREATE || (__mode != COPY && __time->isDateChanged())))
 	{
-		CalDateTime endDateTime;
-		__workingCopy->getEnd(endDateTime);
-		endDateTime.addDays(1);
+		CalDateTime startDateTime, endDateTime;
+		Eina_Bool allDay = EINA_TRUE;
+		__time->getDateTime(&startDateTime, &endDateTime, &allDay);
+		__workingCopy->setStart(startDateTime);
 		__workingCopy->setEnd(endDateTime);
 	}
 	else
