@@ -22,12 +22,12 @@
 #include <memory>
 #include <functional>
 #include "CalSchedule.h"
-#include "CalView.h"
+#include "CalFilterView.h"
 #include "CalScheduleListControl.h"
 #include "ICalListModel.h"
 #include "CalInstanceScheduleSet.h"
 
-class CalPickView : public CalView
+class CalPickView : public CalFilterView
 {
 public:
 	enum ResultType
@@ -39,42 +39,25 @@ public:
 	};
 
 	CalPickView(int maxLimit, CalPickView::ResultType resultType = RESULT_TYPE_VCS);
-	void setSelectCb(std::function<void (const std::list<std::shared_ptr<CalSchedule>>& schedules)> selectCb);
+	void setDoneCb(std::function<void (const std::list<std::shared_ptr<CalSchedule>>& schedules)> selectCb);
 
-private:
-	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);
-	virtual void onDestroy();
-	virtual void onPushed(Elm_Object_Item* naviItem);
-	virtual void onEvent(const CalEvent& event);
-	void __update();
-	void __updateTitleInfo();
-	void __showContent();
-	void __createList(Evas_Object* parent = NULL);
-	Evas_Object* __createSearchBar(Evas_Object* parent);
-	Evas_Object* __createEntry(Evas_Object* parent);
-	Evas_Object* __createNoContent();
-	void __reCheck();
 protected:
 	virtual ~CalPickView();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalPickView);
-private:
-	std::function<void (const std::list<std::shared_ptr<CalSchedule>>& schedules)> __selectCb;
-private:
+
+	virtual void onPushed(Elm_Object_Item* naviItem);
+	virtual void onEvent(const CalEvent& event);
+
+	void __updateTitleInfo();
+	void __reCheck();
+
+	std::function<void (const std::list<std::shared_ptr<CalSchedule>>& schedules)> __doneCb;
+
 	int __maxLimit;
 	ResultType __resultType;
-	CalScheduleListControl* __list;
-	CalDate __focusDate;
-	char* __entryText;
-	Evas_Object* __entry;
-	Evas_Object* __box;
-	Evas_Object* __noContents;
-	Evas_Object* __searchBar;
-	ICalListModel* __forwardModel;
-	ICalListModel* __backwardModel;
-	Ecore_Timer *__notificationTimer;
-	bool __isNoContents;
-	CalInstanceScheduleSet selectedScheduleSet;
+	CalInstanceScheduleSet __selectedScheduleSet;
 };
 
 #endif

@@ -152,6 +152,7 @@ Evas_Object* CalUnderlineEditField::onCreate( Evas_Object* parent, void* param )
 	elm_layout_theme_set(__layout, "layout", "editfield", "singleline");
 
 	__entry = elm_entry_add(parent);
+	evas_object_show(__entry);
 	elm_entry_single_line_set(__entry, EINA_TRUE);
 	elm_entry_scrollable_set(__entry, EINA_TRUE);
 	elm_object_part_content_set(__layout, "elm.swallow.content", __entry);

@@ -38,11 +38,11 @@ CalDialogEditTextFieldItem::~CalDialogEditTextFieldItem()
 Elm_Genlist_Item_Class* CalDialogEditTextFieldItem::getItemClassStatic()
 {
 	static Elm_Genlist_Item_Class itc = {}; // Implicitly 0-init in C++
-	itc.item_style = "entry";
+	itc.item_style = "full";
 	itc.func.content_get = [](void* data, Evas_Object* obj, const char* part)->Evas_Object*
 	{
 		CalDialogEditTextFieldItem* item = (CalDialogEditTextFieldItem*)data;
-		if (strcmp(part, "elm.icon.entry") == 0)
+		if (strcmp(part, "elm.swallow.content") == 0)
 		{
 			return item->createEntry(obj);
 		}
