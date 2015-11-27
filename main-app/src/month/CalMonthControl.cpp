@@ -15,14 +15,11 @@
  *
  */
 
-#include "CalMonthControl.h"
-
-#include "CalCommon.h"
-
 #include <Elementary.h>
 
+#include "CalMonthControl.h"
+#include "CalCommon.h"
 #include "CalListModelFactory.h"
-
 #include "CalDebugInternal.h"
 
 const CalMonthControl::Position CalMonthControl::__invalidPosition = {-1, -1};
