@@ -121,8 +121,6 @@ public:
 	bool isEasTimeZone(const std::string& timeZone);
 	void getEasTimeZone(const std::string& timeZone, std::string& newTimeZone);
 
-	// for Perisian calendar
-	int getPersianDate(const CalDate& date, CalDate& outDate);
 private:
 	i18n_ucalendar_h __getUcal(const std::string &tzid); // __cal_locale_manager_get_ucal
 	void __getLocale(std::string &localeStr);

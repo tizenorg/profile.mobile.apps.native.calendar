@@ -80,10 +80,10 @@ cd %{BUILD_DIR}
 %define MAKE_LOG_FILTER 2>&1 | sed -e 's%^.*: error: .*$%\x1b[37;41m&\x1b[m%' -e 's%^.*: warning: .*$%\x1b[30;43m&\x1b[m%'
 
 %if 0%is_t3_0
-    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DPLATFORM="3.0"
+    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DTIZEN_PLATFORM_VERSION="30"
     %define MAKE_LOG_FILTER_FULL %{?_smp_mflags} %{MAKE_LOG_FILTER}
 %else
-    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DPLATFORM="2.4" -DDATADIR=%{DATADIR}
+    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DTIZEN_PLATFORM_VERSION="24" -DDATADIR=%{DATADIR}
     %define MAKE_LOG_FILTER_FULL %{?jobs:-j%jobs} %{MAKE_LOG_FILTER}
 %endif
 
