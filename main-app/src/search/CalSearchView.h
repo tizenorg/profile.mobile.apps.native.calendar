@@ -19,28 +19,18 @@
 #define _CAL_SEARCH_VIEW_H_
 
 #include <memory>
-#include "CalView.h"
+#include "CalFilterView.h"
 #include "CalSchedule.h"
 #include "CalScheduleListControl.h"
 #include "ICalListModel.h"
 
-class CalSearchView : public CalView
+class CalSearchView : public CalFilterView
 {
 public:
 	CalSearchView();
-	virtual ~CalSearchView ();
+	virtual ~CalSearchView();
 
 private:
-
-	/**
-	 * Executes the create action.
-	 *
-	 * @param [in]	parent		If non-null, the parent.
-	 * @param [in]	viewParam	If non-null, the view parameter.
-	 *
-	 * @return	null if it fails, else an Evas_Object*.
-	 */
-	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);
 
 	/**
 	 * Executes the pushed action.
@@ -50,37 +40,11 @@ private:
 	virtual void onPushed(Elm_Object_Item* naviItem);
 
 	/**
-	 * Executes the destroy action.
-	 */
-	virtual void onDestroy();
-
-	/**
 	 * Executes the event action.
 	 *
 	 * @param	event	The event.
 	 */
 	virtual void onEvent(const CalEvent& event);
-
-	/**
-	 * Updates this object.
-	 */
-	void __update();
-
-	/**
-	 * Creates the list.
-	 *
-	 * @return	null if it fails, else the new list.
-	 */
-	CalScheduleListControl* __createList();
-
-	/**
-	 * Executes the create search bar
-	 *
-	 * @param [in]	parent		If non-null, the parent.
-	 *
-	 * @return	A pointer to SearchBar object
-	 */
-	Evas_Object* __createSearchBar(Evas_Object* parent);
 
 	/**
 	 * Executes the create entry
@@ -123,16 +87,7 @@ private:
 	WDISABLE_COPY_AND_ASSIGN(CalSearchView);
 
 private:
-	CalScheduleListControl* __list;
-	char *__entryText;
-	Evas_Object* __entry;
 	CalDate __focusDate;
-	bool __isNoContents;
-	Evas_Object* __noContents;
-	Evas_Object* __searchBar;
-	ICalListModel* __forwardModel;
-	ICalListModel* __backwardModel;
-	Ecore_Timer *__notificationTimer;
 };
 
 #endif /* _CAL_SEARCH_VIEW_H_ */
