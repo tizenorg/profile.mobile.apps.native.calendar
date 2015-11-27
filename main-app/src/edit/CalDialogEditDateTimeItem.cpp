@@ -76,6 +76,7 @@ Elm_Genlist_Item_Class* CalDialogEditDateTimeItem::getItemClassStatic()
 	itc.item_style = "timepicker";
 	itc.func.content_get = [](void* data, Evas_Object* obj, const char* part)->Evas_Object*
 	{
+		WENTER();
 		CalDialogEditDateTimeItem* item = (CalDialogEditDateTimeItem*)data;
 		if (!strcmp(part, "start_datetime"))
 		{
@@ -94,6 +95,7 @@ Elm_Genlist_Item_Class* CalDialogEditDateTimeItem::getItemClassStatic()
 	};
 	itc.func.text_get = [](void* data, Evas_Object* obj, const char* part)->char*
 	{
+		WENTER();
 		char temp[FORMAT_BUFFER] = {0};
 		CalDialogEditDateTimeItem* item = (CalDialogEditDateTimeItem*)data;
 
@@ -136,11 +138,12 @@ void CalDialogEditDateTimeItem::setTimeButtonClickedCb(std::function<void (Evas_
 
 void CalDialogEditDateTimeItem::setTimeZone(const std::string& timezone)
 {
-
+	WENTER();
 }
 
 void CalDialogEditDateTimeItem::getDateTime(CalDateTime* startDateTime, CalDateTime* endDateTime, Eina_Bool* allDay)
 {
+	WENTER();
 	if(__isAllDay)
 	{
 		__start = CalDateTime(__start.getYear(), __start.getMonth(), __start.getMday(), 0, 0, 0);
@@ -166,6 +169,7 @@ void CalDialogEditDateTimeItem::getDateTime(CalDateTime* startDateTime, CalDateT
 
 void CalDialogEditDateTimeItem::setDate(const CalDateTime & date)
 {
+	WENTER();
 	CalDateTime &selectedDate = __isStartSelected ? __start : __end;
 
 	CalDateTime tmpDate(date.getYear(), date.getMonth(),
@@ -180,6 +184,7 @@ void CalDialogEditDateTimeItem::setDate(const CalDateTime & date)
 
 void CalDialogEditDateTimeItem::setTime(const CalDateTime & time)
 {
+	WENTER();
 	CalDateTime &selectedTime = __isStartSelected ? __start : __end;
 
 	CalDateTime tmpTime(selectedTime.getYear(), selectedTime.getMonth(), selectedTime.getMday(),
@@ -212,6 +217,7 @@ void CalDialogEditDateTimeItem::update()
 
 void CalDialogEditDateTimeItem::updateStartAndEndTime(const CalDateTime & startDateTime, const CalDateTime &endDateTime)
 {
+	WENTER();
 	__start = startDateTime;
 	__end = endDateTime;
 
@@ -291,6 +297,7 @@ void CalDialogEditDateTimeItem::__onEndTimeClicked(void *data, Evas_Object *obj,
 
 Evas_Object* CalDialogEditDateTimeItem::onCreateDateTime(Evas_Object* parent, bool start)
 {
+	WENTER();
 	std::string strTime;
 	std::string strDate;
 	if (start)
