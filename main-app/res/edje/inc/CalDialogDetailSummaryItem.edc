@@ -27,144 +27,151 @@
 
 
 #define RESOURCE_IMAGE_WITH_MASK(GROUP_NAME, MASK_PATH, SWALLOW_PART_NAME) \
-	group { \
-		name: GROUP_NAME; \
-		images.image: MASK_PATH COMP; \
-		parts { \
-			part { name: "masking"; \
-				precise_is_inside: 1; \
-				description { \
-					state: "default" 0.0; \
-					image.normal: MASK_PATH; \
-					aspect: 1.0 1.0; \
-					aspect_preference: SOURCE; \
-				} \
-			} \
-		} \
-		parts { \
-			part { name: SWALLOW_PART_NAME; \
-				type: SWALLOW; \
-				clip_to: "masking"; \
-				description { \
-					state: "default" 0.0; \
-				} \
-			} \
-		} \
-	}
+    group { \
+        name: GROUP_NAME; \
+        images.image: MASK_PATH COMP; \
+        parts { \
+            part { name: "masking"; \
+                precise_is_inside: 1; \
+                description { \
+                    state: "default" 0.0; \
+                    image.normal: MASK_PATH; \
+                    aspect: 1.0 1.0; \
+                    aspect_preference: SOURCE; \
+                } \
+            } \
+        } \
+        parts { \
+            part { name: SWALLOW_PART_NAME; \
+                type: SWALLOW; \
+                clip_to: "masking"; \
+                description { \
+                    state: "default" 0.0; \
+                } \
+            } \
+        } \
+    }
 
 
 group {
-	name: "elm/genlist/item/CalDialogDetailSummaryPlain/default";
-	data.item: "contents" "elm.details.color elm.details.entry";
+    name: "elm/genlist/item/CalDialogDetailSummaryPlain/default";
+    alias: "elm/genlist/item_compress/CalDialogDetailSummaryPlain/default";
+    alias: "elm/genlist/tree/CalDialogDetailSummaryPlain/default";
+    alias: "elm/genlist/tree_compress/CalDialogDetailSummaryPlain/default";
+    data.item: "contents" "elm.details.color elm.details.entry";
 
-	data.item: "banded_bg_area" "elm.swallow.bg";
-	data.item: "banded_bg_color" "255 255 255 255";
+    data.item: "banded_bg_area" "elm.swallow.bg";
+    data.item: "banded_bg_color" "255 255 255 255";
 
-	parts {
-	part { name: "elm.swallow.bg";
-		type: SWALLOW;
-		scale: 1;
-		description { state: "default" 0.0;
-		}
-	}
+    parts {
+    part { name: "elm.swallow.bg";
+        type: SWALLOW;
+        scale: 1;
+        description { state: "default" 0.0;
+        }
+    }
 
-		LIST_PART_BG
+        LIST_PART_BG
 
-		GENLIST_PART_BASE_SIZE(DETAIL_SUMMARY_COLORBAR_HEIGHT)
-		PART_LIST_PADDINGS(DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,
-			DETAIL_SUMMARY_ITEM_PADDING_TOP_SIZE, DETAIL_SUMMARY_ITEM_PADDING_BOTTOM_SIZE)
+        GENLIST_PART_BASE_SIZE(DETAIL_SUMMARY_COLORBAR_HEIGHT)
+        PART_LIST_PADDINGS(DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,
+            DETAIL_SUMMARY_ITEM_PADDING_TOP_SIZE, DETAIL_SUMMARY_ITEM_PADDING_BOTTOM_SIZE)
 
-		part {
-			name: "elm.details.color";
-			type: SWALLOW;
-			description {
-				state: "default" 0.0;
-				min: DETAIL_SUMMARY_COLORBAR_WIDTH DETAIL_SUMMARY_COLORBAR_HEIGHT;
-				max: DETAIL_SUMMARY_COLORBAR_WIDTH -1;
-				align: 0.0 0.5;
-				fixed: 1 1;
-				rel1 { relative: 0.0 0.0; to: "bg"; }
-				rel2 { relative: 0.0 1.0; to: "bg"; }
-			}
-		}
-		part {
-			name: "elm.details.entry";
-			type: SWALLOW;
-			description {
-				state: "default" 0.0;
-				rel1 { relative: 1 1;  to_x: "elm.padding.left"; to_y: "elm.padding.top"; }
-				rel2 { relative: 0 0;  to_x: "elm.padding.right"; to_y: "elm.padding.bottom"; }
-				align: 0.0 0.5;
-			}
-		}
-	}
+        part {
+            name: "elm.details.color";
+            type: SWALLOW;
+            description {
+                state: "default" 0.0;
+                min: DETAIL_SUMMARY_COLORBAR_WIDTH DETAIL_SUMMARY_COLORBAR_HEIGHT;
+                max: DETAIL_SUMMARY_COLORBAR_WIDTH -1;
+                align: 0.0 0.5;
+                fixed: 1 1;
+                rel1 { relative: 0.0 0.0; to: "bg"; }
+                rel2 { relative: 0.0 1.0; to: "bg"; }
+            }
+        }
+        part {
+            name: "elm.details.entry";
+            type: SWALLOW;
+            description {
+                state: "default" 0.0;
+                rel1 { relative: 1 1;  to_x: "elm.padding.left"; to_y: "elm.padding.top"; }
+                rel2 { relative: 0 0;  to_x: "elm.padding.right"; to_y: "elm.padding.bottom"; }
+                align: 0.0 0.5;
+            }
+        }
+    }
 }
 group {
-	name: "elm/genlist/item/CalDialogDetailSummaryIcon/default";
-	data.item: "contents" "elm.details.color elm.details.icon elm.details.entry";
+    name: "elm/genlist/item/CalDialogDetailSummaryIcon/default";
+    alias: "elm/genlist/item_compress/CalDialogDetailSummaryIcon/default";
+    alias: "elm/genlist/tree/CalDialogDetailSummaryIcon/default";
+    alias: "elm/genlist/tree_compress/CalDialogDetailSummaryIcon/default";
 
-	data.item: "banded_bg_area" "elm.swallow.bg";
-	data.item: "banded_bg_color" "255 255 255 255";
+    data.item: "contents" "elm.details.color elm.details.icon elm.details.entry";
 
-	parts {
-	part { name: "elm.swallow.bg";
-		type: SWALLOW;
-		scale: 1;
-		description { state: "default" 0.0;
-		}
-	}
+    data.item: "banded_bg_area" "elm.swallow.bg";
+    data.item: "banded_bg_color" "255 255 255 255";
 
-		LIST_PART_BG
+    parts {
+    part { name: "elm.swallow.bg";
+        type: SWALLOW;
+        scale: 1;
+        description { state: "default" 0.0;
+        }
+    }
 
-		GENLIST_PART_BASE_SIZE(DETAIL_SUMMARY_COLORBAR_HEIGHT)
-		PART_LIST_PADDINGS(DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,
-			DETAIL_SUMMARY_ITEM_PADDING_TOP_SIZE, DETAIL_SUMMARY_ITEM_PADDING_BOTTOM_SIZE)
+        LIST_PART_BG
 
-		part {
-			name: "elm.details.color";
-			type: SWALLOW;
-			description {
-				state: "default" 0.0;
-				min: DETAIL_SUMMARY_COLORBAR_WIDTH DETAIL_SUMMARY_COLORBAR_HEIGHT;
-				max: DETAIL_SUMMARY_COLORBAR_WIDTH -1;
-				align: 0.0 0.5;
-				fixed: 1 1;
-				rel1 { relative: 0.0 0.0; to: "bg"; }
-				rel2 { relative: 0.0 1.0; to: "bg"; }
-			}
-		}
-		part {
-			name: "elm.details.icon";
-			type: SWALLOW;
-			description {
-				state: "default" 0.0;
-				min: DETAIL_ICON_HEIGHT DETAIL_ICON_HEIGHT;
-				rel1 { relative: 1 0;  to_x: "elm.padding.left"; }
-				rel2 { relative: 0 1;  to_x: "elm.details.spacer"; }
-			}
-		}
-		part {
-			name: "elm.details.spacer";
-			type: SPACER;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				min: DETAIL_ICON_TITLE_PADDINGS;
-				rel1 { relative: 1 1;  to_x: "elm.details.icon"; to_y: "elm.padding.top"; }
-				rel2 { relative: 0 0;  to_x: "elm.details.entry"; to_y: "elm.padding.bottom"; }
-			}
-		}
-		part {
-			name: "elm.details.entry";
-			type: SWALLOW;
-			description {
-				state: "default" 0.0;
-				rel1 { relative: 1 1;  to_x: "elm.details.spacer"; to_y: "elm.padding.top"; }
-				rel2 { relative: 0 0;  to_x: "elm.padding.right"; to_y: "elm.padding.bottom"; }
-				align: 0.0 0.5;
-			}
-		}
-	}
+        GENLIST_PART_BASE_SIZE(DETAIL_SUMMARY_COLORBAR_HEIGHT)
+        PART_LIST_PADDINGS(DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,
+            DETAIL_SUMMARY_ITEM_PADDING_TOP_SIZE, DETAIL_SUMMARY_ITEM_PADDING_BOTTOM_SIZE)
+
+        part {
+            name: "elm.details.color";
+            type: SWALLOW;
+            description {
+                state: "default" 0.0;
+                min: DETAIL_SUMMARY_COLORBAR_WIDTH DETAIL_SUMMARY_COLORBAR_HEIGHT;
+                max: DETAIL_SUMMARY_COLORBAR_WIDTH -1;
+                align: 0.0 0.5;
+                fixed: 1 1;
+                rel1 { relative: 0.0 0.0; to: "bg"; }
+                rel2 { relative: 0.0 1.0; to: "bg"; }
+            }
+        }
+        part {
+            name: "elm.details.icon";
+            type: SWALLOW;
+            description {
+                state: "default" 0.0;
+                min: DETAIL_ICON_HEIGHT DETAIL_ICON_HEIGHT;
+                rel1 { relative: 1 0;  to_x: "elm.padding.left"; }
+                rel2 { relative: 0 1;  to_x: "elm.details.spacer"; }
+            }
+        }
+        part {
+            name: "elm.details.spacer";
+            type: SPACER;
+            scale: 1;
+            description {
+                state: "default" 0.0;
+                min: DETAIL_ICON_TITLE_PADDINGS;
+                rel1 { relative: 1 1;  to_x: "elm.details.icon"; to_y: "elm.padding.top"; }
+                rel2 { relative: 0 0;  to_x: "elm.details.entry"; to_y: "elm.padding.bottom"; }
+            }
+        }
+        part {
+            name: "elm.details.entry";
+            type: SWALLOW;
+            description {
+                state: "default" 0.0;
+                rel1 { relative: 1 1;  to_x: "elm.details.spacer"; to_y: "elm.padding.top"; }
+                rel2 { relative: 0 0;  to_x: "elm.padding.right"; to_y: "elm.padding.bottom"; }
+                align: 0.0 0.5;
+            }
+        }
+    }
 }
 
 RESOURCE_IMAGE_WITH_MASK("thumbnail_96", DEFAULT_THUMBNAIL_BG_96, "swallow.image")

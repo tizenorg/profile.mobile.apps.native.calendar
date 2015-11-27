@@ -3,20 +3,20 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 PROJECT(${REF_APP_NAME} C CXX)
 
 FILE(GLOB SRCS
-    main-app/src/*.cpp
-    main-app/src/book/*.cpp
-    main-app/src/common/*.cpp
-    main-app/src/delete/*.cpp
-    main-app/src/detail/*.cpp
-    main-app/src/edit/*.cpp
-    main-app/src/list/*.cpp
-    main-app/src/main/*.cpp
-    main-app/src/month/*.cpp
-    main-app/src/search/*.cpp
-    main-app/src/setting/*.cpp
-    main-app/src/view/*.cpp
-    main-app/src/pick/*.cpp
-    main-app/src/alert/*.cpp
+		main-app/src/*.cpp
+		main-app/src/book/*.cpp
+		main-app/src/common/*.cpp
+		main-app/src/delete/*.cpp
+		main-app/src/detail/*.cpp
+		main-app/src/edit/*.cpp
+		main-app/src/list/*.cpp
+		main-app/src/main/*.cpp
+		main-app/src/month/*.cpp
+		main-app/src/search/*.cpp
+		main-app/src/setting/*.cpp
+		main-app/src/view/*.cpp
+		main-app/src/pick/*.cpp
+		main-app/src/alert/*.cpp
 )
 
 SET(VENDOR "org.tizen")
@@ -32,37 +32,37 @@ SET(ICONDIR "${RESDIR}/icons/default/small")
 SET(EDJDIR "${RESDIR}/edje")
 
 IF("${CMAKE_BUILD_TYPE}" STREQUAL "")
-        SET(CMAKE_BUILD_TYPE "Release")
+		SET(CMAKE_BUILD_TYPE "Release")
 ENDIF()
 MESSAGE(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 INCLUDE_DIRECTORIES(
-	${CMAKE_SOURCE_DIR}/app-assist-efl/inc
-	${CMAKE_SOURCE_DIR}/common
-	${CMAKE_SOURCE_DIR}/common/fw
-	${CMAKE_SOURCE_DIR}/common/model
-	${CMAKE_SOURCE_DIR}/main-app/src
-	${CMAKE_SOURCE_DIR}/main-app/src/book
-	${CMAKE_SOURCE_DIR}/main-app/src/common
-	${CMAKE_SOURCE_DIR}/main-app/src/delete
-	${CMAKE_SOURCE_DIR}/main-app/src/detail
-	${CMAKE_SOURCE_DIR}/main-app/src/edit
-	${CMAKE_SOURCE_DIR}/main-app/src/list
-	${CMAKE_SOURCE_DIR}/main-app/src/main
-	${CMAKE_SOURCE_DIR}/main-app/src/month
-	${CMAKE_SOURCE_DIR}/main-app/src/search
-	${CMAKE_SOURCE_DIR}/main-app/src/setting
-	${CMAKE_SOURCE_DIR}/main-app/src/view
-	${CMAKE_SOURCE_DIR}/main-app/src/pick
-	${CMAKE_SOURCE_DIR}/main-app/src/alert
+		${CMAKE_SOURCE_DIR}/app-assist-efl/inc
+		${CMAKE_SOURCE_DIR}/common
+		${CMAKE_SOURCE_DIR}/common/fw
+		${CMAKE_SOURCE_DIR}/common/model
+		${CMAKE_SOURCE_DIR}/main-app/src
+		${CMAKE_SOURCE_DIR}/main-app/src/book
+		${CMAKE_SOURCE_DIR}/main-app/src/common
+		${CMAKE_SOURCE_DIR}/main-app/src/delete
+		${CMAKE_SOURCE_DIR}/main-app/src/detail
+		${CMAKE_SOURCE_DIR}/main-app/src/edit
+		${CMAKE_SOURCE_DIR}/main-app/src/list
+		${CMAKE_SOURCE_DIR}/main-app/src/main
+		${CMAKE_SOURCE_DIR}/main-app/src/month
+		${CMAKE_SOURCE_DIR}/main-app/src/search
+		${CMAKE_SOURCE_DIR}/main-app/src/setting
+		${CMAKE_SOURCE_DIR}/main-app/src/view
+		${CMAKE_SOURCE_DIR}/main-app/src/pick
+		${CMAKE_SOURCE_DIR}/main-app/src/alert
 )
 
 SET(pkgs_WIDGET_LIST "")
 SET(HTML_COMMENT_START "<!--")
 SET(HTML_COMMENT_END "-->")
 IF(NOT WIDGET_DISABLED)
-        SET(pkgs_WIDGET_LIST ${pkgs_WIDGET_LIST} capi-appfw-widget-application)
-        SET(HTML_COMMENT_START "")
-        SET(HTML_COMMENT_END "")
+		SET(pkgs_WIDGET_LIST ${pkgs_WIDGET_LIST} capi-appfw-widget-application)
+		SET(HTML_COMMENT_START "")
+		SET(HTML_COMMENT_END "")
 ENDIF()
 
 INCLUDE(FindPkgConfig)
@@ -94,7 +94,7 @@ SET(CMAKE_INSTALL_RPATH "${CALENDAR_PREFIX}/lib")
 
 
 FOREACH(flag ${pkgs_CFLAGS})
-        SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} ${flag}")
+		SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} ${flag}")
 ENDFOREACH(flag)
 SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} -DCAL_PREFIX=${CALENDAR_PREFIX}")
 
@@ -108,15 +108,15 @@ SET(CMAKE_CXX_FLAGS_RELEASE "-O2")
 SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 
 IF("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
-        ADD_DEFINITIONS("-DCLD_DEBUG")
-        ADD_DEFINITIONS("-DCLD_FILE_LOGGING")
+		ADD_DEFINITIONS("-DCLD_DEBUG")
+		ADD_DEFINITIONS("-DCLD_FILE_LOGGING")
 ENDIF()
 
 FIND_PROGRAM(UNAME NAMES uname)
 EXEC_PROGRAM("${UNAME}" ARGS "-m" OUTPUT_VARIABLE "ARCH")
 IF("${ARCH}" STREQUAL "arm")
-	ADD_DEFINITIONS("-DTARGET")
-	MESSAGE(STATUS "add -DTARGET")
+		ADD_DEFINITIONS("-DTARGET")
+		MESSAGE(STATUS "add -DTARGET")
 ENDIF()
 
 ADD_DEFINITIONS("-DGBS_BUILD")
@@ -126,6 +126,8 @@ ADD_DEFINITIONS("-DCALENDAR_PREFIX=\"${CALENDAR_PREFIX}\"")
 ADD_DEFINITIONS("-DRESDIR=\"${RESDIR}\"")
 ADD_DEFINITIONS("-DLOCALEDIR=\"${LOCALEDIR}\"")
 ADD_DEFINITIONS("-DEDJDIR=\"${EDJDIR}\"")
+ADD_DEFINITIONS("-DTIZEN_PLATFORM_VERSION=${TIZEN_PLATFORM_VERSION}")
+
 
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRCS})
 
@@ -144,7 +146,7 @@ ADD_SUBDIRECTORY(app-assist-efl)
 ADD_SUBDIRECTORY(common)
 
 IF(NOT WIDGET_DISABLED)
-        ADD_SUBDIRECTORY(widget)
+		ADD_SUBDIRECTORY(widget)
 ENDIF()
 
 # install tizen files
@@ -154,7 +156,6 @@ INSTALL(FILES LICENSE DESTINATION /usr/share/license RENAME ${PKGNAME})
 
 INSTALL(DIRECTORY main-app/res/images DESTINATION ${RESDIR})
 
-IF("${PLATFORM}" STREQUAL "2.4")
-        INSTALL(DIRECTORY DESTINATION ${DATADIR})
+IF("${TIZEN_PLATFORM_VERSION}" STREQUAL "24")
+		INSTALL(DIRECTORY DESTINATION ${DATADIR})
 ENDIF()
-

@@ -83,6 +83,21 @@
 #define _L_S_(str)    str
 #define _L_G_(str)   _L_(str)
 
+
+#define TIZEN_VERSION_2_4 24
+#define TIZEN_VERSION_3_0 30
+
+#ifdef TIZEN_PLATFORM_VERSION
+	#if TIZEN_PLATFORM_VERSION == TIZEN_VERSION_2_4
+		#define TIZEN_2_4
+	#elif TIZEN_PLATFORM_VERSION == TIZEN_VERSION_3_0
+		#define TIZEN_3_0
+	#endif
+#else
+	#error "Unknown tizen version."
+#endif
+
+
 /////////////////////////////////////////////////////////////////////////////////
 
 #ifdef __cplusplus

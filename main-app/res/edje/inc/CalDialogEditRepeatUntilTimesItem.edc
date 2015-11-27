@@ -18,6 +18,10 @@
 #define EDIT_REPEAT_UNTIL_SWALLOW_TIMES_WIDTH 140
 
 group { name: "elm/genlist/item/CalDialogEditRepeatUntilTimesItem/default";
+   alias: "elm/genlist/item_compress/CalDialogEditRepeatUntilTimesItem/default";
+   alias: "elm/genlist/tree/CalDialogEditRepeatUntilTimesItem/default";
+   alias: "elm/genlist/tree_compress/CalDialogEditRepeatUntilTimesItem/default";
+
    data.item: "treesize" GENLIST_TREESIZE_DEFAULT;
    data.item: "texts" "elm.text";
    data.item: "contents" "elm.icon.right elm.swallow.times";
