@@ -30,7 +30,7 @@ public:
 	virtual ~CalUnderlineEditField();
 public:
 	void setText(const char* text);
-	void setGuideText(const char* text, int font);
+	void setGuideText(const char* text, int font = 40);
 	void setFontSize(int size);
 
 	const char* getText();
