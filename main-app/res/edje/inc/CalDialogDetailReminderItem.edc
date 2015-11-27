@@ -17,6 +17,10 @@
 
 // 2.2.1.A41
 group { name: "elm/genlist/item/CalDialogDetailReminderItem/default";
+   alias: "elm/genlist/item_compress/CalDialogDetailReminderItem/default";
+   alias: "elm/genlist/tree/CalDialogDetailReminderItem/default";
+   alias: "elm/genlist/tree_compress/CalDialogDetailReminderItem/default";
+
    data.item: "texts" "elm.text.title elm.text.multiline";
    data.item: "banded_bg_area" "elm.swallow.bg";
    data.item: "banded_bg_color" "255 255 255 255";
@@ -73,7 +77,7 @@ group { name: "elm/genlist/item/CalDialogDetailReminderItem/default";
       PART(TEXTBLOCK, "elm.text.title",
          DSC_LRTB("default" 0.0,
             "elm.padding.left", "elm.padding.right", "elm.padding.top", "elm.text.multiline",
-				min: 0 LIST_TEXT_SUB_HEIGHT;
+            min: 0 LIST_TEXT_SUB_HEIGHT;
             text.min: 0 1;
             text.style: "list_text_sub_01";
          )
