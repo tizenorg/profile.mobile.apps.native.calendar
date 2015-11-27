@@ -382,7 +382,9 @@ void CalMainView::onMenuButton()
 			__focusList();
 		});
 	if (__list && !__list->isEmpty())
+	{
 		popup->appendItem(_L_("IDS_CLD_OPT_SEARCH"), [this]() {getNaviframe()->push(new CalSearchView());});
+	}
 	popup->appendItem(_L_("IDS_CLD_OPT_MANAGE_CALENDARS_ABB"), [this]() {getNaviframe()->push(new CalBookView);});
 	popup->appendItem(_L_("IDS_CLD_OPT_SETTINGS"), [this]() {getNaviframe()->push(new CalSettingsView);});
 	attachPopup( popup );
