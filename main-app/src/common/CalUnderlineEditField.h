@@ -23,6 +23,8 @@
 #include "WDefine.h"
 #include "CalControl.h"
 
+#define CAL_UNDERLINE_EDIT_FIELD_DEFAULT_FONT_SIZE 40
+
 class WAPP_ASSIST_EXPORT CalUnderlineEditField : public CalControl
 {
 public:
@@ -30,7 +32,7 @@ public:
 	virtual ~CalUnderlineEditField();
 public:
 	void setText(const char* text);
-	void setGuideText(const char* text, int font);
+	void setGuideText(const char* text, int font = CAL_UNDERLINE_EDIT_FIELD_DEFAULT_FONT_SIZE);
 	void setFontSize(int size);
 
 	const char* getText();
