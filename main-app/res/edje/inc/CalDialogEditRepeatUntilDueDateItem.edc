@@ -19,6 +19,10 @@
 #define EDIT_REPEAT_UNTIL_SWALLOW_DATE_HEIGHT 60
 
 group { name: "elm/genlist/item/CalDialogEditRepeatUntilDueDateItem/default";
+   alias: "elm/genlist/item_compress/CalDialogEditRepeatUntilDueDateItem/default";
+   alias: "elm/genlist/tree/CalDialogEditRepeatUntilDueDateItem/default";
+   alias: "elm/genlist/tree_compress/CalDialogEditRepeatUntilDueDateItem/default";
+
     data.item: "texts" "elm.text";
     data.item: "contents" "elm.icon.right elm.swallow.date";
     data.item: "banded_bg_area" "elm.swallow.bg";
@@ -90,6 +94,10 @@ group { name: "elm/genlist/item/CalDialogEditRepeatUntilDueDateItem/default";
 }
 
 group { name: "elm/genlist/item/CalDialogEditRepeatUntilDueDateItemRTL/default";
+   alias: "elm/genlist/item_compress/CalDialogEditRepeatUntilDueDateItemRTL/default";
+   alias: "elm/genlist/tree/CalDialogEditRepeatUntilDueDateItemRTL/default";
+   alias: "elm/genlist/tree_compress/CalDialogEditRepeatUntilDueDateItemRTL/default";
+
       data.item: "texts" "elm.text";
       data.item: "contents" "elm.icon.right elm.swallow.date";
       data.item: "banded_bg_area" "elm.swallow.bg";

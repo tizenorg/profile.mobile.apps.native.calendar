@@ -17,6 +17,10 @@
 
 // 2.2.1.A41
 group { name: "elm/genlist/item/EntryIconCustom/default";
+   alias: "elm/genlist/item_compress/EntryIconCustom/default";
+   alias: "elm/genlist/tree/EntryIconCustom/default";
+   alias: "elm/genlist/tree_compress/EntryIconCustom/default";
+
     alias: "elm/layout/entry.icon/default";
    data.item: "contents" "elm.icon.entry elm.icon";
    data.item: "banded_bg_area" "elm.swallow.bg";

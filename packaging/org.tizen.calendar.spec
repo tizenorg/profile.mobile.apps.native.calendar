@@ -20,6 +20,7 @@ BuildRequires: edje-bin
 BuildRequires: gettext
 
 BuildRequires: pkgconfig(dlog)
+#BuildRequires: pkgconfig(sqllite3)
 BuildRequires: pkgconfig(capi-appfw-application)
 BuildRequires: pkgconfig(elementary)
 
@@ -35,10 +36,10 @@ BuildRequires: pkgconfig(capi-system-device)
 BuildRequires: pkgconfig(capi-base-utils-i18n)
 BuildRequires: pkgconfig(capi-ui-efl-util)
 
-%define is_t3_0 %(if [[ %{_project} =~ "3.0" ]] ; then echo 1 ; else echo 0 ; fi ;)
+%define is_t3_0 %(if [[ %{tizen_version} =~ "3.0" ]] ; then echo 1 ; else echo 0 ; fi ;)
 
 %if 0%is_t3_0
-BuildRequires: pkgconfig(libtzplatform-config)
+#BuildRequires: pkgconfig(libtzplatform-config)
 %endif
 
 %if 0%{?widget_disabled}
@@ -80,10 +81,10 @@ cd %{BUILD_DIR}
 %define MAKE_LOG_FILTER 2>&1 | sed -e 's%^.*: error: .*$%\x1b[37;41m&\x1b[m%' -e 's%^.*: warning: .*$%\x1b[30;43m&\x1b[m%'
 
 %if 0%is_t3_0
-    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DPLATFORM="3.0"
+    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DTIZEN_PLATFORM_VERSION="30"
     %define MAKE_LOG_FILTER_FULL %{?_smp_mflags} %{MAKE_LOG_FILTER}
 %else
-    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DPLATFORM="2.4" -DDATADIR=%{DATADIR}
+    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DTIZEN_PLATFORM_VERSION="24" -DDATADIR=%{DATADIR}
     %define MAKE_LOG_FILTER_FULL %{?jobs:-j%jobs} %{MAKE_LOG_FILTER}
 %endif
 
@@ -103,6 +104,7 @@ cd %{BUILD_DIR}
 
 %if 0%is_t3_0
 %find_lang %{REF_APP_NAME}
+%files
 %else
 %post
 # 5000 is inhouse user id
@@ -114,9 +116,9 @@ mkdir -p %{DATADIR}
 chown -R 5000:5000 %{DATADIR}
 
 %define FILE_PARAMETERS -n %{name}
-%endif
-
 %files %{FILE_PARAMETERS}
+
+%endif
 
 %manifest %{BUILD_DIR}/%{name}.manifest
 
