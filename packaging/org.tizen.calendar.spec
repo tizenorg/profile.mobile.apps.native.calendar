@@ -22,7 +22,7 @@ BuildRequires: gettext
 BuildRequires: pkgconfig(dlog)
 BuildRequires: pkgconfig(capi-appfw-application)
 BuildRequires: pkgconfig(elementary)
-
+BuildRequires: pkgconfig(sqlite3)
 BuildRequires: pkgconfig(calendar-service2)
 BuildRequires: pkgconfig(contacts-service2)
 BuildRequires: pkgconfig(notification)
