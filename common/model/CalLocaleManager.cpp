@@ -248,7 +248,7 @@ void CalLocaleManager::getDateTimeText(const DateFormat df, const TimeFormat tf,
 	i18n_udate date;
 
 	// get udate from CalDateTime
-	long long int utime = dt.getUtime();
+	long long int utime = dt.getUtimeFromTm();
 	date = sec2ms(utime);
 
 	formattedCapacity = (int32_t)(sizeof(formatted)/sizeof((formatted)[0]));
@@ -277,7 +277,7 @@ void CalLocaleManager::getDateTimeText(const char* timezone, const DateFormat df
 	i18n_udate date;
 
 	// get udate from CalDateTime
-	long long int utime = dt.getUtime();
+	long long int utime = dt.getUtimeFromTm();
 	date = sec2ms(utime);
 
 	formattedCapacity = (int32_t)(sizeof(formatted)/sizeof((formatted)[0]));
