@@ -100,11 +100,15 @@ void CalPickApp::onAppControl(app_control_h request, bool firstLaunch)
 
 	CalPickView* view = new CalPickView(__maxLimit, __resultType);
 
-	view->setSelectCb([this](const std::list<std::shared_ptr<CalSchedule>>& schedules) {
+	view->setBackButtonVisibility(false);
+
+	view->setDoneCb([this](const std::list<std::shared_ptr<CalSchedule>>& schedules) {
 		__processResult(schedules);
 	});
 
 	__naviframe->push(view);
+
+	WLEAVE();
 }
 
 void CalPickApp::__processResult(const std::list<std::shared_ptr<CalSchedule>>& schedules)
