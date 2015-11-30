@@ -158,3 +158,7 @@ IF("${PLATFORM}" STREQUAL "2.4")
         INSTALL(DIRECTORY DESTINATION ${DATADIR})
 ENDIF()
 
+# if Google tests are enabled
+if(DEFINED TEST)
+    add_subdirectory(test)
+endif(DEFINED TEST)
