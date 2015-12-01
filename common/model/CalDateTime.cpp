@@ -143,147 +143,11 @@ void CalDateTime::set(const int year, const int month, const int mday)
 	__allday = true;
 }
 
-void CalDateTime::set(const long long int utime)
-{
-	__utime = utime;
-	__allday = false;
-}
-
 void CalDateTime::set(const struct tm& dateTm)
 {
 	__allday = false;
 	struct tm tmp = dateTm;
 	__utime = CalLocaleManager::getInstance().getUtime(tmp);
-}
-
-int CalDateTime::getYear() const
-{
-	if (__allday == true)
-	{
-		return __year;
-	}
-	else
-	{
-		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		return time.tm_year + 1900;
-	}
-}
-
-int CalDateTime::getMonth() const
-{
-	if (__allday == true)
-	{
-		return __month;
-	}
-	else
-	{
-		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		return time.tm_mon + 1;
-	}
-}
-
-int CalDateTime::getMday() const
-{
-	if (__allday == true)
-	{
-		return __mday;
-	}
-	else
-	{
-		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		return time.tm_mday;
-	}
-}
-
-int CalDateTime::getHour() const
-{
-	if (__allday == true)
-	{
-		return 0;
-	}
-	else
-	{
-		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
-		return time.tm_hour;
-	}
-}
-
-int CalDateTime::getMinute() const
-{
-	if (__allday == true)
-	{
-		return 0;
-	}
-	else
-	{
-		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
-		return time.tm_min;
-	}
-}
-
-int CalDateTime::getSecond() const
-{
-	if (__allday == true)
-	{
-		return 0;
-	}
-	else
-	{
-		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
-		return time.tm_sec;
-	}
-}
-
-void CalDateTime::getTmFromUtime(struct tm* dateTm) const
-{
-	if (dateTm == NULL)
-	{
-		WERROR("invalid input");
-		return;
-	}
-	if (__allday == true)
-	{
-		dateTm->tm_year = __year - 1900;
-		dateTm->tm_mon = __month - 1;
-		dateTm->tm_mday = __mday;
-		dateTm->tm_hour = 0;
-		dateTm->tm_min = 0;
-		dateTm->tm_sec = 0;
-	}
-	else
-	{
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, *dateTm);
-	}
-}
-
-long long int CalDateTime::getUtimeFromTm() const
-{
-	if (__allday == true)
-	{
-		struct tm time;
-		memset(&time, 0, sizeof(struct tm));
-		time.tm_year = __year - 1900;
-		time.tm_mon = __month - 1;
-		time.tm_mday = __mday;
-		time.tm_hour = 0;
-		time.tm_min = 0;
-		time.tm_sec = 0;
-
-		return CalLocaleManager::getInstance().getUtime(time);
-	}
-	else
-	{
-		return __utime;
-	}
 }
 
 void CalDateTime::getString(std::string& text) const
@@ -538,16 +402,25 @@ void CalDateTime::__setLimit()
 	}
 }
 
-void CalDateTime::getStringParam(char buffer[]) const
-{
-	sprintf(buffer, "%.04d-%.02d-%.02d %.02d:%.02d:%.02d ",
-			getYear(), getMonth(), getMday(),
-			getHour(), getMinute(), getSecond());
-}
-
 int CalDateTime::getDateCompareVal() const
 {
-	return (getYear() << 9) | (getMonth() << 5) | getMday();
+	return (__date.tm_year << 9) | (__date.tm_mon << 5) | __date.tm_mday;
 }
 
+std::string CalDate::dump(bool showTime) const
+{
+	char buffer[DATE_BUFFER];
+	if (showTime)
+	{
+		snprintf(buffer, DATE_BUFFER, "{%.04d/%.02d/%.02d (%s) %.02d:%.02d:%.02d}",
+			getYear(), getMonth(), getMday(), getWeekdayText(__date.tm_wday),
+			__date.tm_hour, __date.tm_min, __date.tm_sec);
+	}
+	else
+	{
+		snprintf(buffer, DATE_BUFFER, "{%.04d/%.02d/%.02d (%s)}",
+			getYear(), getMonth(), getMday(), getWeekdayText(__date.tm_wday));
+	}
 
+	return std::string(buffer);
+}
