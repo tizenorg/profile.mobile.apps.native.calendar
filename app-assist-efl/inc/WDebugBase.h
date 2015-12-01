@@ -24,16 +24,16 @@
 
 #define CALENDAR "calendar"
 #ifndef LOGD
-#define LOGD(fmt, ...) dlog_print(DLOG_DEBUG, CALENDAR, fmt)
+#define LOGD(fmt, args...) dlog_print(DLOG_DEBUG, CALENDAR, fmt, ##args)
 #endif
 #ifndef LOGE
-#define LOGE(fmt, ...) dlog_print(DLOG_ERROR, CALENDAR, fmt)
+#define LOGE(fmt, args...) dlog_print(DLOG_ERROR, CALENDAR, fmt, ##args)
 #endif
 #ifndef LOGW
-#define LOGW(fmt, ...) dlog_print(DLOG_WARN, CALENDAR, fmt)
+#define LOGW(fmt, args...) dlog_print(DLOG_WARN, CALENDAR, fmt, ##args)
 #endif
 #ifndef LOGI
-#define LOGI(fmt, ...) dlog_print(DLOG_INFO, CALENDAR, fmt)
+#define LOGI(fmt, args...) dlog_print(DLOG_INFO, CALENDAR, fmt, ##args)
 #endif
 
 #define WCOLOR_RED "\033[0;31m"
