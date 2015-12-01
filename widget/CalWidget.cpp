@@ -24,7 +24,6 @@
 #include "CalDataManager.h"
 #include "CalBookManager.h"
 #include "CalSettingsManager.h"
-#include "CalMidnightNotifier.h"
 #include "CalLocaleManager.h"
 #include "CalAppControlLauncher.h"
 

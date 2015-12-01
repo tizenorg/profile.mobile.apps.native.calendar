@@ -74,8 +74,6 @@ private:
 	Evas_Object* __timeEndButton;
 	CalDateTime __start;
 	CalDateTime __end;
-	CalDateTime __startAllDay;
-	CalDateTime __endAllDay;
 
 	bool __isDateChanged;
 	bool __isAllDay;

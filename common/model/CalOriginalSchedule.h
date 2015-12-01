@@ -18,7 +18,6 @@
 #ifndef _CAL_ORIGINAL_SCHEDULE_H_
 #define _CAL_ORIGINAL_SCHEDULE_H_
 
-#include <calendar.h>
 #include "CalSchedule.h"
 #include "CalScheduleReminder.h"
 #include "CalScheduleRepeat.h"

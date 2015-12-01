@@ -34,7 +34,7 @@ CalDialogEditRepeatWeeklyUnitInfoItem::CalDialogEditRepeatWeeklyUnitInfoItem(std
 	__unitInfo = repeat.unitInfo;
 	if ( (__unitInfo.weekly.selected[0] ||__unitInfo.weekly.selected[1] || __unitInfo.weekly.selected[2] || __unitInfo.weekly.selected[3]
 		|| __unitInfo.weekly.selected[4] || __unitInfo.weekly.selected[5] || __unitInfo.weekly.selected[6]) == false) {
-		__unitInfo.weekly.selected[__startDate.getWeekday(__timezone.c_str())] = true;
+		__unitInfo.weekly.selected[__startDate.getWeekday()] = true;
 	}
 }
 
@@ -60,7 +60,10 @@ Evas_Object* CalDialogEditRepeatWeeklyUnitInfoItem::createCheck(Evas_Object *par
 			CalDialogEditRepeatWeeklyUnitInfoItem *item = (CalDialogEditRepeatWeeklyUnitInfoItem*)data;
 			int day = reinterpret_cast<long long>(evas_object_data_get(obj, "day"));
 			item->__unitInfo.weekly.selected[day] = elm_check_state_get(obj);
-			item->__changedCb(item->__unitInfo);
+			if (item->__changedCb)
+			{
+				item->__changedCb(item->__unitInfo);
+			}
 		}, item
 	);
 

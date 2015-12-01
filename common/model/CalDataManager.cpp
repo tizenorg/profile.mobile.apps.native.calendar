@@ -178,6 +178,7 @@ void CalDataManager::__updateAllInstances(const CalSchedule& inputSchedule, CalO
 	__deleteAllExceptionRecords(workingCopy);
 
 	const calendar_record_h record = workingCopy.getRecord();
+
 	int error = calendar_db_update_record(record);
 	if (error != CALENDAR_ERROR_NONE)
 	{
@@ -896,9 +897,9 @@ bool CalDataManager::isOverlapped(const CalSchedule& schedule)
 		if (start.type == CALENDAR_TIME_LOCALTIME)
 		{
 			caltimeStart.type = CALENDAR_TIME_UTIME;
-			caltimeStart.time.utime = startTime.getUtime();
+			caltimeStart.time.utime = startTime.getUtimeFromTm();
 			caltimeEnd.type = CALENDAR_TIME_UTIME;
-			caltimeEnd.time.utime= endTime.getUtime();
+			caltimeEnd.time.utime= endTime.getUtimeFromTm();
 		}
 		else
 		{

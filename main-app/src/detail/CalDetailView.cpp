@@ -18,7 +18,6 @@
 #include <app_control.h>
 #include <vector>
 #include <contacts.h>
-
 #include "CalCommon.h"
 #include "CalNaviframe.h"
 #include "CalDialogControl.h"
@@ -26,11 +25,9 @@
 #include "CalBookManager.h"
 #include "CalEditView.h"
 #include "WMenuPopup.h"
-
 #include "WPopup.h"
 #include "CalRepeatEventModeControl.h"
 #include "CalShareAsPopup.h"
-
 #include "CalDialogDetailLocationItem.h"
 #include "CalDialogDetailRepeatItem.h"
 #include "CalDialogDetailReminderItem.h"
@@ -495,6 +492,7 @@ int CalDetailView::__getPersonIdFromEventId(const int eventId, std::string& imag
 void CalDetailView::__shareByVcs()
 {
 	WENTER();
+
 	char *resPath = app_get_shared_data_path();
 	char *pathFormat = g_strdup_printf("%s%s", resPath, CAL_VCS_FILE_TEMPLATE);
 	free(resPath);

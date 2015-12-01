@@ -191,8 +191,8 @@ void CalSchedule::getFromToString(const CalDate& date, std::string& text) const
 	getEnd(endTime);
 
 	std::string startText, endText;
-	startTime.getString(NULL, startText);
-	endTime.getString(NULL, endText);
+	startTime.getString(startText);
+	endTime.getString(endText);
 
 	text = startText + " - " + endText;
 }
@@ -200,13 +200,13 @@ void CalSchedule::getFromToString(const CalDate& date, std::string& text) const
 void CalSchedule::__getFromToString(const char* timezone, const CalDateTime& start, const CalDateTime& end, std::string& text) const
 {
 	std::string startText, endText, endNoDataText;
-	start.getString(timezone, startText);
-	end.getString(timezone, endText);
-	end.getTimeString(timezone, endNoDataText);
+	start.getString(startText);
+	end.getString(endText);
+	end.getTimeString(endNoDataText);
 
-	bool isSameDay = (start.getYear(timezone) == end.getYear(timezone)) &&
-			(start.getMonth(timezone) == end.getMonth(timezone)) &&
-			(start.getMday(timezone) == end.getMday(timezone));
+	bool isSameDay = (start.getYear() == end.getYear()) &&
+			(start.getMonth() == end.getMonth()) &&
+			(start.getMday() == end.getMday());
 
 	if (start.isAllDay() == true)
 	{
@@ -717,7 +717,7 @@ std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(bool isAllDay)
 	// set default time
 	CalDateTime startTime;
 	struct tm startTm = {0};
-	startTime.getTm(&startTm);
+	startTime.getTmFromUtime(&startTm);
 	startTm.tm_min = 0;
 	startTm.tm_sec = 0;
 	startTime.set(startTm);
@@ -759,7 +759,7 @@ std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(const CalDate& dat
 	// set default time
 	CalDateTime startTime;
 	struct tm startTm = {0};
-	startTime.getTm(&startTm);
+	startTime.getTmFromUtime(&startTm);
 	bool isToday = false;
 	if (startTm.tm_year == (date.getYear() - 1900) &&
 			startTm.tm_mon == (date.getMonth() - 1) &&
@@ -814,8 +814,8 @@ char* CalSchedule::getExceptionString() const
 				start.getYear(), start.getMonth(), start.getMday());
 	else
 		return g_strdup_printf("%04d%02d%02dT%02d%02d%02dZ",
-				start.getYear("Etc/Unknown"), start.getMonth("Etc/Unknown"), start.getMday("Etc/Unknown"),
-				start.getHour("Etc/Unknown"), start.getMinute("Etc/Unknown"), start.getSecond("Etc/Unknown"));
+				start.getYear(), start.getMonth(), start.getMday(),
+				start.getHour(), start.getMinute(), start.getSecond());
 }
 
 std::shared_ptr<CalSchedule> CalSchedule::__createDefaultSchedule()
@@ -844,7 +844,7 @@ calendar_time_s CalSchedule::getCaltime(const CalDateTime& datetime)
 		caltime.time.date.is_leap_month = false;
 	} else {
 		caltime.type = CALENDAR_TIME_UTIME;
-		caltime.time.utime = datetime.getUtime();
+		caltime.time.utime = datetime.getUtimeFromTm();
 	}
 	return caltime;
 }
@@ -947,9 +947,15 @@ void CalSchedule::__removeDuplicateReminder(void) const
 			continue;
 		}
 		error = calendar_record_get_int(reminder, _calendar_alarm.tick, &tick);
-		if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+		if (error != CALENDAR_ERROR_NONE)
+		{
+			WERROR("fail");
+		}
 		error = calendar_record_get_int(reminder, _calendar_alarm.tick_unit, &tickUnit);
-		if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+		if (error != CALENDAR_ERROR_NONE)
+		{
+			WERROR("fail");
+		}
 		for (j = i+1;j<alarmCount;j++)
 		{
 			calendar_record_h reminder2 = NULL;
@@ -960,9 +966,15 @@ void CalSchedule::__removeDuplicateReminder(void) const
 				continue;
 			}
 			error = calendar_record_get_int(reminder2, _calendar_alarm.tick, &tick2);
-			if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+			if (error != CALENDAR_ERROR_NONE)
+			{
+				WERROR("fail");
+			}
 			error = calendar_record_get_int(reminder2, _calendar_alarm.tick_unit, &tickUnit2);
-			if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+			if (error != CALENDAR_ERROR_NONE)
+			{
+				WERROR("fail");
+			}
 			if (tick == tick2 && tickUnit == tickUnit2)
 			{
 				error = calendar_record_remove_child_record(record,_calendar_event.calendar_alarm, reminder2);
@@ -973,7 +985,10 @@ void CalSchedule::__removeDuplicateReminder(void) const
 				WDEBUG("remove duplicate reminder(%d --)",alarmCount);
 				alarmCount--;
 				error = calendar_record_destroy(reminder2, true);
-				if (error != CALENDAR_ERROR_NONE) WERROR("fail");
+				if (error != CALENDAR_ERROR_NONE)
+				{
+					WERROR("fail");
+				}
 				break;
 			}
 		}

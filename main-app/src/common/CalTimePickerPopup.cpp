@@ -68,11 +68,7 @@ Evas_Object* CalTimePickerPopup::__createContent(Evas_Object *parent)
 	}
 
 	struct tm time = {};
-	time.tm_year = __startDateTime.getYear() - 1900;
-	time.tm_mon = __startDateTime.getMonth() - 1;
-	time.tm_mday = __startDateTime.getMday();
-	time.tm_hour = __startDateTime.getHour();
-	time.tm_min = __startDateTime.getMinute();
+	__startDateTime.getTmFromUtime(&time);
 
 	elm_datetime_value_set(__dateTime, &time);
 
@@ -95,14 +91,7 @@ Evas_Object* CalTimePickerPopup::__createContent(Evas_Object *parent)
 		elm_datetime_value_get(__dateTime, &time);
 
 		CalDateTime newTime;
-		if(__timezone.empty())
-		{
-			newTime.set(time);
-		}
-		else
-		{
-			newTime.set(time, __timezone.c_str());
-		}
+		newTime.set(time);
 
 		if(__changedCb)
 		{
@@ -122,9 +111,4 @@ void CalTimePickerPopup::onDestroy()
 void CalTimePickerPopup::setChangeCb(std::function<void (CalDateTime& newTime)> changedCb)
 {
 	__changedCb = changedCb;
-}
-
-void CalTimePickerPopup::setTimeZone(const std::string& timezone)
-{
-	__timezone = timezone;
 }
