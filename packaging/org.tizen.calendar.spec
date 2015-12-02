@@ -3,7 +3,7 @@
 %define REF_APP_LABEL Calendar
 #define widget_disabled 1
 
-Name:       org.tizen.%{REF_APP_NAME}
+Name:       org.tizen.calendar
 Summary:    %{REF_APP_LABEL} application
 Version:    1.0.0
 Release:    1
@@ -87,7 +87,8 @@ cd %{BUILD_DIR}
     %define MAKE_LOG_FILTER_FULL %{?jobs:-j%jobs} %{MAKE_LOG_FILTER}
 %endif
 
-cmake ./../.. %{CMAKE_PARAMETERS_FULL}
+cmake ./../.. %{CMAKE_PARAMETERS_FULL} \
+	%{?TEST: -DTEST=ON }
 make %{MAKE_LOG_FILTER_FULL}
 
 %install

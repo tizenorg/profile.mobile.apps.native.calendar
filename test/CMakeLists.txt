@@ -7,7 +7,7 @@ FILE(GLOB_RECURSE APP_SRCS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_SOURCE_DIR}/common/fw/*.cpp
 	${CMAKE_SOURCE_DIR}/common/model/*.cpp
 
-	${CMAKE_SOURCE_DIR}/main-app/src/*.cpp
+	${CMAKE_SOURCE_DIR}/main-app/src/CalApp.cpp
 	${CMAKE_SOURCE_DIR}/main-app/src/alert/*.cpp
 	${CMAKE_SOURCE_DIR}/main-app/src/book/*.cpp
 	${CMAKE_SOURCE_DIR}/main-app/src/common/*.cpp
@@ -56,6 +56,7 @@ ADD_EXECUTABLE(calendar-test
 TARGET_LINK_LIBRARIES(calendar-test
 	gmock
 	${pkgs_LDFLAGS}
+	${CALENDAR_COMMON} app-assist-efl ${pkgs_LDFLAGS}
 )
 
 install(TARGETS calendar-test DESTINATION ${BINDIR})

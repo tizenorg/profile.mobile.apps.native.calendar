@@ -19,7 +19,7 @@
 #define _CAL_DATE_TIME_H_
 
 #include <time.h>
-
+#include "WDefine.h"
 class WAPP_ASSIST_EXPORT CalDateTime
 {
 public:
