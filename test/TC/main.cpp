@@ -20,7 +20,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <Config.h>
 #include <dlog.h>
 #include <Elementary.h>
 
