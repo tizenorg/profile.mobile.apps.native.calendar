@@ -80,10 +80,7 @@ const CalDateTime& CalDateTime::operator=(const CalDateTime& obj)
 {
 	if (this != &obj)
 	{
-		__utime = obj.__utime;
-		__year = obj.__year;
-		__month = obj.__month;
-		__mday = obj.__mday;
+		__date = obj.__date;
 		__allday = obj.__allday;
 	}
 	return *this;
@@ -91,35 +88,26 @@ const CalDateTime& CalDateTime::operator=(const CalDateTime& obj)
 
 bool CalDateTime::operator==(const CalDateTime &obj) const
 {
-	if (__allday != obj.__allday)
-		return false;
-	if (__allday == true)
-	{
-		return (getYear() == obj.getYear() && getMonth() == obj.getMonth() &&
-				getMday() == obj.getMday());
-	}
-	else
-	{
-		return (__utime == obj.__utime);
-	}
+	return (__date.tm_year == obj.__date.tm_year && __date.tm_mon == obj.__date.tm_mon
+			&& __date.tm_mday == obj.__date.tm_mday && __date.tm_hour == obj.__date.tm_hour
+			&&__date.tm_min == obj.__date.tm_min && __date.tm_sec == obj.__date.tm_sec);
 }
 
 bool CalDateTime::operator !=(const CalDateTime &obj) const
 {
 	return !(*this == obj);
 }
+
 bool CalDateTime::operator >(const CalDateTime &obj) const
 {
-	long long int srcTime = getUtimeFromTm();
-	long long int objTime = obj.getUtimeFromTm();
-	return (srcTime > objTime);
+	return (mktime(&__date) > mktime(&obj.__date));
 }
+
 bool CalDateTime::operator >=(const CalDateTime &obj) const
 {
-	long long int srcTime = getUtimeFromTm();
-	long long int objTime = obj.getUtimeFromTm();
-	return (srcTime >= objTime);
+	return (mktime(&__date) >= mktime(&obj.__date));
 }
+
 bool CalDateTime::operator <(const CalDateTime &obj) const
 {
 	return !(*this >= obj);
