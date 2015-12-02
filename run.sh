@@ -4,22 +4,26 @@ usage()
 {
 echo "
 usage: sh run.sh [-h] [-b] [-i] [-r] [-t] [-d] [-A ARCH]
-                 [--help] [--build] [--install] [--run] [--debug] [--arch ARCH]
+                 [--help] [--build] [--install] [--run] [--test] [--debug] [--arch ARCH]
 
 optional arguments:
   -h, --help             show this help message and exit
 
 action:
-  -b  --build            build project
-  -i, --install          install to device or emulator
-  -r, --run              run application
-  -l, --launch           launch application
-  -d, --debug            install debuginfo and debugsource packages
+  -b  --build           build project
+  -i, --install         install to device or emulator
+  -r, --run             run application. Don't use with -t option
+  -t, --test            builds unit-tests as well, ignored without -b option
+  -d, --debug           install debuginfo and debugsource packages
+  -l, --local		local incremental build(with --noinit --incremental kwys)
 
 build configuration options:
-  -A ARCH, --arch ARCH   build target arch. Default - armv7l 
+  -A ARCH, --arch ARCH   build target arch. Default - armv7l
   -b 'Keys', --build 'Keys'  build project with additional gbs build keys
 
+  examples:
+  'run.sh -b -t -i -A armv7l' will build application and try to install it to target-device, unit-tests will be also built
+  'run.sh -i -A armv7l[i586|aarch64]' will install latest build for tizen-2.4 device [emulator|tizen-3.0 device]
 "
 }
 
@@ -32,10 +36,12 @@ BUILDKEYS=""
 INSTALLOPTION=false
 RUNOPTION=false
 DEBUGOPTION=false
+TESTOPTION=false
 PLATFORM=armv7l
+LOCALBUILD=false
 
-SHORTOPTS="hA:b::irdl"
-LONGOPTS="arch:,build::,install,run,launch,debug,help"
+SHORTOPTS="hA:b::irdtl"
+LONGOPTS="arch:,build::,install,run,debug,test,help,local"
 SCRIPTNAME=`basename $0`
 
 ARGS=$(getopt -q --options "$SHORTOPTS" --longoptions "$LONGOPTS" --name $SCRIPTNAME -- "$@")
@@ -51,30 +57,33 @@ while true; do
          if echo "$SHORTOPTS$LONGOPTS" | grep -q "$val"; then
            echo "Wrong ARCH"
            usage
-           exit 0;             
+           exit 0;
          fi
          PLATFORM=$2
          shift
-         ;;         
+         ;;
       -b|--build)
          BUILDOPTION=true
          key=`echo $2 | sed -e "s/-//g"`
          if ! echo "$SHORTOPTS$LONGOPTS" | grep -q "$key"; then
            BUILDKEYS=$2
            shift
-         fi     
+         fi
          ;;
       -i|--install)
          INSTALLOPTION=true
          ;;
       -r|--run)
-         RUNOPTION=run
-         ;;
-      -l|--launch)
-         RUNOPTION=launch
+         RUNOPTION=true
          ;;
       -d|--debug)
          DEBUGOPTION=true
+         ;;
+      -t|--test)
+         TESTOPTION=true
+         ;;
+      -l|--local)
+         LOCALBUILD=true
          ;;
       --)
          break
@@ -92,6 +101,7 @@ echo "BUILDKEYS=$BUILDKEYS"
 echo "INSTALLOPTION=$INSTALLOPTION"
 echo "RUNOPTION=$RUNOPTION"
 echo "DEBUGOPTION=$DEBUGOPTION"
+echo "TESTOPTION=$TESTOPTION"
 echo "PLATFORM=$PLATFORM"
 
 ##------------- project config -------------##
@@ -99,24 +109,44 @@ echo "PLATFORM=$PLATFORM"
 PREFIX="org.tizen"
 INSTALLDIR=/usr/apps
 SDB=~/tizen-sdk/tools/sdb
-TEMPDIR=/opt/usr/apps/tmp # for keeping rpm packages on device, old one /home/rpms
+TEMPDIR=/home/rpms # for keeping rpm packages on device
 GBSROOT=~/GBS-ROOT
 
-if [ $PLATFORM = "i586" ];
-  then
-  TARGETKEY="-e"
-  else
-  TARGETKEY="-d"
-fi
+##------------------ spec ------------------##
+
+spec_file=`find -name *.spec`
+
+# org.tizen.message
+APPNAME=`cat "$spec_file" | grep ^Name    | awk '{print $2}'`
+# 0.8.52
+VERSION=`cat "$spec_file" | grep ^Version | awk '{print $2}'`
+# 1
+RELEASE=`cat "$spec_file" | grep ^Release | awk '{print $2}'`
+# message
+BINNAME=`echo $APPNAME | sed "s/$PREFIX\.//"`
 
 RPMSPATH=$GBSROOT/local/BUILD-ROOTS/scratch.$PLATFORM.0/home/abuild/rpmbuild/RPMS/$PLATFORM
+
+DEBUGSOURCEPKGNAME=$APPNAME-debugsource-$VERSION-$RELEASE.$PLATFORM
+DEBUGINFOPKGNAME=$APPNAME-debuginfo-$VERSION-$RELEASE.$PLATFORM
+
+##-----------------------------------------##
+
+hasPrefix()
+{
+  if echo "$1" | grep -q "$PREFIX"; then
+    return 0;
+  else
+    return 1;
+  fi
+}
 
 ##--------------- sdb shell ---------------##
 
 SdbShell()
 {
-  ShowMessage "$1" yellow 
-  $SDB $TARGETKEY shell su -c "$1"
+  ShowMessage "$1" yellow
+  $SDB shell su -c "$1"
 }
 
 ##--------------- color echo --------------##
@@ -133,14 +163,14 @@ ShowMessage()
       ;;
     "red")
       color="31m"
-      ;;      
+      ;;
     "blue")
       color="34m"
-      ;; 
+      ;;
     "yellow")
       color="33m"
-      ;;       
-    *)    
+      ;;
+    *)
       color="34m"
       ;;
     esac
@@ -148,50 +178,11 @@ ShowMessage()
   echo "\033[1;"$color$1"\033[0m"
 }
 
-##------------------ spec ------------------##
-
-spec_file=`find packaging/ -name *.spec`
-
-if [ -z "$spec_file" ]; then ShowMessage "SPEC file not found in packaging/ directory" red ; exit 0; fi
-spec_files_count=`echo "$spec_file" | grep -c .spec`
-
-# if spec_files_count more then 1
-if [ $spec_files_count -gt 1 ]; then ShowMessage "$spec_files_count SPEC files was found in packaging/ directory, leave one pls" red ; exit 0; fi
-
-# org.tizen.calendar
-APPNAME='org.tizen.calendar'
-#`cat "$spec_file" | grep ^Name    | awk '{print $2}'`
-# 0.8.52
-VERSION=`cat "$spec_file" | grep ^Version | awk '{print $2}'`
-# 1
-RELEASE=`cat "$spec_file" | grep ^Release | awk '{print $2}'`
-# message
-BINNAME=`echo $APPNAME | sed "s/$PREFIX\.//"`
-
-echo "APPNAME = $APPNAME"
-echo "VERSION = $VERSION"
-echo "RELEASE = $RELEASE"
-echo "BINNAME = $BINNAME"
-
-DEBUGSOURCEPKGNAME=$APPNAME-debugsource-$VERSION-$RELEASE.$PLATFORM
-DEBUGINFOPKGNAME=$APPNAME-debuginfo-$VERSION-$RELEASE.$PLATFORM
-
-##-----------------------------------------##
-
-hasPrefix() 
-{
-  if echo "$1" | grep -q "$PREFIX"; then
-    return 0;
-  else
-    return 1;
-  fi
-}
-
 ##----------- check connection ------------##
 
 checkConnection()
 {
-    sdbstate=$($SDB $TARGETKEY get-state)
+    sdbstate=$($SDB get-state)
     if [ $sdbstate = "unknown" ]
       then
         ShowMessage "Connection error. Make sure that only one device or emulator is connected." red
@@ -205,15 +196,28 @@ build()
 {
     ShowMessage "Building application..."
 
-    gbs build -A $PLATFORM --include-all --keep-packs $BUILDKEYS
+    gbsoutput="gbsoutput.log"
 
-    if [ $? -gt 0 ]
-      then
-        ShowMessage "Build failed!" red 
-        rm -f $gbsoutput
-        exit 0
-      else
-        ShowMessage "Build successfull!" green
+    if [ $LOCALBUILD = "true" ];
+    then
+      BUILDKEYS="$BUILDKEYS --noinit --incremental"
+    fi
+
+    if [ $TESTOPTION = "true" ];
+    then
+      BUILDKEYS+=" --define 'TEST%20ON'"
+    fi
+
+    ShowMessage "gbs -v -d build -B $GBSROOT -A $PLATFORM --include-all --keep-packs $BUILDKEYS"
+    gbs -v -d build -B $GBSROOT -A $PLATFORM --include-all --keep-packs $BUILDKEYS 2>&1 | tee $gbsoutput
+
+    if cat "$gbsoutput" | grep -q "gbs:info: Done"; then
+      ShowMessage "Build successfull!" green
+      rm -f $gbsoutput;
+    else
+      ShowMessage "Build failed!" red
+      rm -f $gbsoutput
+      exit 0;
     fi
 }
 
@@ -227,16 +231,10 @@ initPackageList()
 
     # if packages count more then 1
     if [ $packages_count -gt 1 ]
-      then 
+      then
         ShowMessage "When building the project is generated $packages_count (+ debuginfo and debugsource) RPM packages"
         # case of multipackage project
-        if cat "$spec_file" | grep %package | sed -r 's/ +$//' | grep "$PREFIX.$BINNAME$" ; then
-            PACKAGELIST=`cat "$spec_file" | grep %package | sed 's/-n//' |awk '{print $2}'`
-        else
-            # org.tizen.app not declareted in spec. Add as first element to list
-            PACKAGELIST=`echo "$PREFIX.$BINNAME"; cat "$spec_file" | grep %package | sed 's/-n//' |awk '{print $2}'`
-        fi
-        echo $PACKAGELIST
+        PACKAGELIST=`cat "$spec_file" | grep %package | sed 's/-n//' |awk '{print $2}'`
       else
         ShowMessage "one package"
         # only one package into package list
@@ -248,7 +246,6 @@ initPackageList()
 
 uninstall()
 {
-
     ShowMessage "Stopping old application..."
     SdbShell "pkill -f $APPNAME"
 
@@ -257,12 +254,11 @@ uninstall()
       ShowMessage "Uninstalling old application $current_package..."
       if hasPrefix $current_package; then
         # uninstall with pkgcmd
-        # SdbShell "pkgcmd -q -u -n $current_package"    
-	SdbShell "rpm -e --nodeps $current_package"
+        SdbShell "pkgcmd -q -u -n $current_package"
       else
         # uninstall with rpm
         SdbShell "rpm -e --nodeps $current_package-*"
-      fi  
+      fi
     done
 
     if [ $DEBUGOPTION = "true" ]
@@ -282,13 +278,13 @@ push()
     do
       current_package=$current_package_name-$VERSION-$RELEASE.$PLATFORM.rpm
       ShowMessage "Pushing the package $current_package to device ..."
-      $SDB $TARGETKEY push $RPMSPATH/$current_package $TEMPDIR/  
+      $SDB push $RPMSPATH/$current_package $TEMPDIR/
     done
 
     if [ $DEBUGOPTION = "true" ]
       then
-        $SDB $TARGETKEY push $RPMSPATH/$DEBUGSOURCEPKGNAME.rpm $TEMPDIR/
-        $SDB $TARGETKEY push $RPMSPATH/$DEBUGINFOPKGNAME.rpm $TEMPDIR/
+        $SDB push $RPMSPATH/$DEBUGSOURCEPKGNAME.rpm $TEMPDIR/
+        $SDB push $RPMSPATH/$DEBUGINFOPKGNAME.rpm $TEMPDIR/
     fi
 }
 
@@ -300,22 +296,25 @@ install()
     do
       current_package=$current_package_name-$VERSION-$RELEASE.$PLATFORM.rpm
       ShowMessage "Installing the package $current_package ..."
-      if hasPrefix $current_package; then
+      $SDB install $RPMSPATH/$current_package
+      #if hasPrefix $current_package; then
         # install with pkgcmd
-        SdbShell "pkgcmd -q -i -t rpm -p $TEMPDIR/$current_package" 
-      else
+        #SdbShell "pkgcmd -q -i -t rpm -p $TEMPDIR/$current_package"
+      #else
         # uninstall with rpm
-        SdbShell "rpm -i $TEMPDIR/$current_package --nodeps"
-      fi  
+        #SdbShell "rpm -ivh --force --nodeps $TEMPDIR/$current_package"
+      #fi
     done
 
     if [ $DEBUGOPTION = "true" ]
       then
         ShowMessage "Installing the package $DEBUGINFOPKGNAME.rpm ..."
-        SdbShell "rpm -i $TEMPDIR/$DEBUGINFOPKGNAME.rpm --nodeps"
+        SdbShell "rpm -i $TEMPDIR/$DEBUGINFOPKGNAME.rpm"
         ShowMessage "Installing the package $DEBUGSOURCEPKGNAME.rpm ..."
-        SdbShell "rpm -i $TEMPDIR/$DEBUGSOURCEPKGNAME.rpm --nodeps"
+        SdbShell "rpm -i $TEMPDIR/$DEBUGSOURCEPKGNAME.rpm"
     fi
+
+    #SdbShell "pkg_initdb"
 }
 
 ##--------------- Running ----------------##
@@ -323,21 +322,23 @@ install()
 run()
 {
   if hasPrefix $APPNAME; then
-    ABSOLUTEPATHTOAPP=$INSTALLDIR/$APPNAME/bin/$BINNAME   
+    ABSOLUTEPATHTOAPP=$INSTALLDIR/$APPNAME/bin/$BINNAME
   else
     fullappname=`echo $APPNAME | sed "s/^/$PREFIX\./"`
     ABSOLUTEPATHTOAPP=$INSTALLDIR/$fullappname/bin/$BINNAME
-  fi  
+  fi
 
-  SdbShell "pkill -f $APPNAME"
-  ShowMessage "running the $ABSOLUTEPATHTOAPP..."
-  SdbShell "$ABSOLUTEPATHTOAPP"  
-}
-
-launch()
-{
+  if  [ $1 = "tests" ]
+    then
+      TESTAPP=$ABSOLUTEPATHTOAPP-test
+      # todo: stop old test-run
+      ShowMessage "running the $TESTAPP..."
+      SdbShell "$TESTAPP"
+    else
       SdbShell "pkill -f $APPNAME"
-      SdbShell "launch_app $APPNAME"  
+      ShowMessage "running the $ABSOLUTEPATHTOAPP..."
+      SdbShell "$ABSOLUTEPATHTOAPP"
+  fi
 }
 
 ##-----------------------------------------##
@@ -346,9 +347,13 @@ installApp()
 {
   checkConnection
   initPackageList
-  uninstall
-  push
+
+  #$SDB root on
+  #uninstall
+  #push
   install
+
+  #$SDB root off
 }
 
 runApp()
@@ -357,17 +362,16 @@ runApp()
   run
 }
 
-launchApp()
+runTest()
 {
   checkConnection
-  launch
+  run tests
 }
 
 ##------------------ main -----------------##
 
 if [ $BUILDOPTION = "true" ]; then build; fi
 if [ $INSTALLOPTION = "true" ]; then installApp; fi
-if [ $RUNOPTION = "run" ]; then runApp; fi
-if [ $RUNOPTION = "launch" ]; then launchApp; fi
+if [ $RUNOPTION = "true" ]; then runApp; fi
 
 ##-----------------------------------------##
