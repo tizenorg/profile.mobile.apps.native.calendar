@@ -37,6 +37,14 @@ extern "C" {
 #define ms2sec(ms) ((long long int)ms / 1000)
 #define sec2ms(s) ((i18n_udate)s * 1000.0)
 
+#ifdef TIZEN_2_4
+#define CAL_LOCALE_MANAGER_WORLDCLOCK_DB "/opt/dbspace/.worldclock.db"
+#elif TIZEN_3_0
+#define CAL_LOCALE_MANAGER_WORLDCLOCK_DB "/usr/dbspace/.worldclock.db"
+#else
+#define CAL_LOCALE_MANAGER_WORLDCLOCK_DB "/opt/dbspace/.worldclock.db"
+#endif
+
 static const char* __dateformat[CalLocaleManager::DateFormat::DATEFORMAT_END] = {
   "EEMMMddyyyy", /* Thu Aug 23 2001 */
   "EE", /* Thu */
@@ -869,8 +877,6 @@ int CalLocaleManager::getLocaleFirstDayOfWeek()
 	return first_day_of_week -1;
 }
 
-#define CAL_LOCALE_MANAGER_WORLDCLOCK_DB "/opt/dbspace/.worldclock.db"
-
 char* CalLocaleManager::__getTzNameFromWorldclockDb(const std::string& timeZone)
 {
 	char* cityName = NULL;
@@ -1043,73 +1049,4 @@ int CalLocaleManager::__getTimezoneOffsetFormCalDb(const std::string& standardNa
 		calendar_list_destroy(list, true);
 
 	return (-1)*timezone_offset;
-}
-
-int CalLocaleManager::getPersianDate(const CalDate& date, CalDate& outDate)
-{
-	static i18n_ucalendar_h gregorianCal = NULL;
-	static i18n_ucalendar_h persianCal = NULL;
-	int status = I18N_ERROR_NONE;
-	int year = 0, month = 0, mday = 0;
-
-	if (gregorianCal == NULL) {
-		i18n_uchar utf16_timezone[DATETIME_BUFFER] = {0};
-		i18n_ustring_copy_ua_n(utf16_timezone, "Etc/GMT", DATETIME_BUFFER);
-
-		const char* locale;
-		i18n_ulocale_get_default(&locale);
-		status = i18n_ucalendar_create(utf16_timezone, -1, locale, I18N_UCALENDAR_GREGORIAN , &gregorianCal);
-		if (status)
-		{
-			WERROR("i18n_ucalendar_create got an error : %d", status);
-			return -1;
-		}
-	}
-	if (persianCal == NULL) {
-		int status = I18N_ERROR_NONE;
-		i18n_uchar utf16_timezone[DATETIME_BUFFER] = {0};
-		i18n_ustring_copy_ua_n(utf16_timezone, "Etc/GMT", DATETIME_BUFFER);
-
-		const char* locale;
-		i18n_ulocale_get_default(&locale);
-
-		const int localeLen = 256;
-		char localeBuf[localeLen]={0};
-		snprintf(localeBuf,localeLen,"%s@calendar=Persian", locale);
-		status = i18n_ucalendar_create(utf16_timezone, -1, localeBuf, I18N_UCALENDAR_TRADITIONAL , &persianCal);
-		if (status)
-		{
-			WERROR("i18n_ucalendar_create got an error : %d", status);
-			return -1;
-		}
-	}
-
-	do {
-		status = i18n_ucalendar_set(gregorianCal, I18N_UCALENDAR_YEAR, date.getYear());
-		if (status != I18N_ERROR_NONE) break;
-		status = i18n_ucalendar_set(gregorianCal, I18N_UCALENDAR_MONTH , date.getMonth()-1);
-		if (status != I18N_ERROR_NONE) break;
-		status = i18n_ucalendar_set(gregorianCal, I18N_UCALENDAR_DATE, date.getMday());
-		if (status != I18N_ERROR_NONE) break;
-
-		i18n_udate millis;
-		status = i18n_ucalendar_get_milliseconds(gregorianCal, &millis);
-		if (status != I18N_ERROR_NONE) break;
-		status = i18n_ucalendar_set_milliseconds(persianCal, millis);
-		if (status != I18N_ERROR_NONE) break;
-
-		status = i18n_ucalendar_get(persianCal, I18N_UCALENDAR_YEAR, &year);
-		if (status != I18N_ERROR_NONE) break;
-		status = i18n_ucalendar_get(persianCal, I18N_UCALENDAR_MONTH, &month);
-		if (status != I18N_ERROR_NONE) break;
-		month++;
-		status = i18n_ucalendar_get(persianCal, I18N_UCALENDAR_DATE, &mday);
-		if (status != I18N_ERROR_NONE) break;
-	} while(0);
-	if (status != I18N_ERROR_NONE) {
-		WERROR("fail (%d)", status);
-		return -1;
-	}
-	outDate.set(year, month, mday);
-	return 0;
 }

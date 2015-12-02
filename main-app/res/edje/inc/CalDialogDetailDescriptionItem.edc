@@ -16,81 +16,84 @@
  */
 
 group { name: "elm/genlist/item/CalDialogDetailDescriptionItem/default";
+    alias: "elm/genlist/item_compress/CalDialogDetailDescriptionItem/default";
+    alias: "elm/genlist/tree/CalDialogDetailDescriptionItem/default";
+    alias: "elm/genlist/tree_compress/CalDialogDetailDescriptionItem/default";
 
-   data.item: "texts" "elm.text.title elm.text.multiline";
+    data.item: "texts" "elm.text.title elm.text.multiline";
 
-   data.item: "banded_bg_area" "elm.swallow.bg";
-   data.item: "banded_bg_color" "255 255 255 255";
+    data.item: "banded_bg_area" "elm.swallow.bg";
+    data.item: "banded_bg_color" "255 255 255 255";
 
-   parts {
-   part { name: "elm.swallow.bg";
+    parts {
+    part { name: "elm.swallow.bg";
         type: SWALLOW;
         scale: 1;
         description { state: "default" 0.0;
         }
-   }
+    }
 
-       PART(SPACER, "elm.padding.left",
-         DSC_FROM_L("default" 0.0,
-            min: LIST_WRAP_PADDING_LEFT_SIZE 0;
-            max: LIST_WRAP_PADDING_LEFT_SIZE -1;
-         )
-      )
-      PART(SPACER, "elm.padding.right",
-         DSC_FROM_R("default" 0.0,
-            min: LIST_WRAP_PADDING_RIGHT_SIZE 0;
-            max: LIST_WRAP_PADDING_RIGHT_SIZE -1;
-         )
-      )
-      PART(SPACER, "elm.padding.top",
-         DSC_FROM_T("default" 0.0,
-            min: 0 LIST_WRAP_PADDING_TOP_SIZE;
-            max: -1 LIST_WRAP_PADDING_TOP_SIZE;
-	  fixed: 0 1;
-         )
-      )
-      PART(SPACER, "elm.padding.bottom",
-         DSC_FROM_B("default" 0.0,
-            min: 0 LIST_WRAP_PADDING_BOTTOM_SIZE;
-            max: -1 LIST_WRAP_PADDING_BOTTOM_SIZE;
-	  fixed: 0 1;
-         )
-      )
+    PART(SPACER, "elm.padding.left",
+     DSC_FROM_L("default" 0.0,
+        min: LIST_WRAP_PADDING_LEFT_SIZE 0;
+        max: LIST_WRAP_PADDING_LEFT_SIZE -1;
+     )
+    )
+    PART(SPACER, "elm.padding.right",
+     DSC_FROM_R("default" 0.0,
+        min: LIST_WRAP_PADDING_RIGHT_SIZE 0;
+        max: LIST_WRAP_PADDING_RIGHT_SIZE -1;
+     )
+    )
+    PART(SPACER, "elm.padding.top",
+     DSC_FROM_T("default" 0.0,
+        min: 0 LIST_WRAP_PADDING_TOP_SIZE;
+        max: -1 LIST_WRAP_PADDING_TOP_SIZE;
+      fixed: 0 1;
+     )
+    )
+    PART(SPACER, "elm.padding.bottom",
+     DSC_FROM_B("default" 0.0,
+        min: 0 LIST_WRAP_PADDING_BOTTOM_SIZE;
+        max: -1 LIST_WRAP_PADDING_BOTTOM_SIZE;
+      fixed: 0 1;
+     )
+    )
 
-      PART(TEXTBLOCK, "elm.text.multiline",
-         DSC_LRB("default" 0.0,
-            "elm.padding.left", "elm.padding.right", "elm.padding.bottom",
-            min: 0 LIST_TEXT_MAIN_HEIGHT;
-            text.min: 0 1;
-            text.style: "list_text_multiline_main";
-         )
-         description { state: "pressed" 0.0;
-            inherit: "default" 0.0;
-            text.style: "list_text_multiline_main_press";
-         }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            text.style: "list_text_multiline_main_dim";
-         }
-      )
-      PART(TEXTBLOCK, "elm.text.title",
-         DSC_LRTB("default" 0.0,
-            "elm.padding.left", "elm.padding.right", "elm.padding.top", "elm.text.multiline",
-            min: 0 LIST_TEXT_SUB_HEIGHT;
-            text.min: 0 1;
-            text.style: "list_text_sub_01";
-         )
-         description { state: "pressed" 0.0;
-            inherit: "default" 0.0;
-            text.style: "list_text_sub_01_press";
-         }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            text.style: "list_text_sub_01_dim";
-         }
-      )
-      programs {
-             LIST_PROGRAM_SOUND
-         }
-   }
+    PART(TEXTBLOCK, "elm.text.multiline",
+     DSC_LRB("default" 0.0,
+        "elm.padding.left", "elm.padding.right", "elm.padding.bottom",
+        min: 0 LIST_TEXT_MAIN_HEIGHT;
+        text.min: 0 1;
+        text.style: "list_text_multiline_main";
+     )
+     description { state: "pressed" 0.0;
+        inherit: "default" 0.0;
+        text.style: "list_text_multiline_main_press";
+     }
+     description { state: "disabled" 0.0;
+        inherit: "default" 0.0;
+        text.style: "list_text_multiline_main_dim";
+     }
+    )
+    PART(TEXTBLOCK, "elm.text.title",
+     DSC_LRTB("default" 0.0,
+        "elm.padding.left", "elm.padding.right", "elm.padding.top", "elm.text.multiline",
+        min: 0 LIST_TEXT_SUB_HEIGHT;
+        text.min: 0 1;
+        text.style: "list_text_sub_01";
+     )
+     description { state: "pressed" 0.0;
+        inherit: "default" 0.0;
+        text.style: "list_text_sub_01_press";
+     }
+     description { state: "disabled" 0.0;
+        inherit: "default" 0.0;
+        text.style: "list_text_sub_01_dim";
+     }
+    )
+    programs {
+         LIST_PROGRAM_SOUND
+     }
+    }
 }

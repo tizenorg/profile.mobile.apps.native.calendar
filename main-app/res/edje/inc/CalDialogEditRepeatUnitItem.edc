@@ -24,6 +24,10 @@ styles {
    }
 }
 group { name: "elm/genlist/item/CalDialogEditRepeatUnitItem/default";
+   alias: "elm/genlist/item_compress/CalDialogEditRepeatUnitItem/default";
+   alias: "elm/genlist/tree/CalDialogEditRepeatUnitItem/default";
+   alias: "elm/genlist/tree_compress/CalDialogEditRepeatUnitItem/default";
+
    data.item: "treesize" GENLIST_TREESIZE_DEFAULT;
    data.item: "texts" "elm.text.left elm.text.right";
    data.item: "contents" "elm.swallow.unit";
@@ -117,6 +121,10 @@ group { name: "elm/genlist/item/CalDialogEditRepeatUnitItem/default";
 }
 
 group { name: "elm/genlist/item/CalDialogEditRepeatUnitItemRTL/default";
+   alias: "elm/genlist/item_compress/CalDialogEditRepeatUnitItemRTL/default";
+   alias: "elm/genlist/tree/CalDialogEditRepeatUnitItemRTL/default";
+   alias: "elm/genlist/tree_compress/CalDialogEditRepeatUnitItemRTL/default";
+
    data.item: "treesize" GENLIST_TREESIZE_DEFAULT;
    data.item: "texts" "elm.text.left elm.text.right";
    data.item: "contents" "elm.swallow.unit";

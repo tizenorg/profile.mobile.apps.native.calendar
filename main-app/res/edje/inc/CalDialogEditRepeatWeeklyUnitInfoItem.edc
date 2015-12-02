@@ -18,6 +18,9 @@
 #define WEEK_SQUARE 66 66
 
 group { name: "elm/genlist/item/CalDialogEditRepeatWeeklyUnitInfoItem/default";
+   alias: "elm/genlist/item_compress/CalDialogEditRepeatWeeklyUnitInfoItem/default";
+   alias: "elm/genlist/tree/CalDialogEditRepeatWeeklyUnitInfoItem/default";
+   alias: "elm/genlist/tree_compress/CalDialogEditRepeatWeeklyUnitInfoItem/default";
     data.item: "contents" "elm.icon.1 elm.icon.2 elm.icon.3 elm.icon.4 elm.icon.5 elm.icon.6 elm.icon.7";
     data.item: "banded_bg_area" "elm.swallow.bg";
     data.item: "banded_bg_color" "255 255 255 255";

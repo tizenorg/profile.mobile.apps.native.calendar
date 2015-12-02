@@ -19,102 +19,107 @@
 #define DATETIME_PADDING 0.6
 
 styles {
-   style { name: "text_style";
-      base: "font=Tizen:style=Regular font_size=32 color=#4C4C4C ellipsis=1.0";
-      STYLE_TAGS
-   }
-   style { name: "allday_text_style";
-      base: "font=Tizen:style=Regular font_size=32 align=right color=#4C4C4C ellipsis=1.0";
-      STYLE_TAGS
-   }
+    style { name: "text_style";
+        base: "font=Tizen:style=Regular font_size=32 color=#4C4C4C ellipsis=1.0";
+        STYLE_TAGS
+    }
+    style { name: "allday_text_style";
+        base: "font=Tizen:style=Regular font_size=32 align=right color=#4C4C4C ellipsis=1.0";
+        STYLE_TAGS
+    }
 }
 
 group { name: "elm/genlist/item/timepicker/default";
+    alias: "elm/genlist/item_compress/timepicker/default";
+    alias: "elm/genlist/tree/timepicker/default";
+    alias: "elm/genlist/tree_compress/timepicker/default";
 
-       data.item: "texts" "start_title end_title all_day_title";
-       data.item: "contents" "start_datetime end_datetime all_day_check";
+    data.item: "texts" "start_title end_title all_day_title";
+    data.item: "contents" "start_datetime end_datetime all_day_check";
 
-       data.item: "banded_bg_area" "elm.swallow.bg";
-       data.item: "banded_bg_color" "255 255 255 255";
+    data.item: "banded_bg_area" "elm.swallow.bg";
 
-   parts {
-      part { name: "elm.swallow.bg";
-         type: SWALLOW;
-         scale: 1;
-         description { state: "default" 0.0;
-         }
-      }
-      PART_LIST_PADDINGS(32, 32, 21, 25)
-      PART(TEXTBLOCK, "start_title",
-         DSC_LRT("default" 0.0,
-            "elm.padding.left", "elm.padding.right", "elm.padding.top",
-            fixed: 0 1;
-            text.min: 0 1;
-            text.style: "text_style";
-            align: 0.0 0.0;
-         )
-      )
-      PART(SPACER, "padding_under_start_title",
-         DSC_T("default" 0.0, "start_title",
-            min: 0 11;
-            max: -1 11;
-            fixed: 0 1;
-         )
-      )
-        PART(SWALLOW, "start_datetime",
-         DSC_LRT("default" 0.0,
-                "elm.padding.left", "elm.padding.right", "padding_under_start_title",
+
+    parts {
+        part { name: "elm.swallow.bg";
+            type: SWALLOW;
+            scale: 1;
+            description { state: "default" 0.0;
+            }
+    }
+        PART_LIST_PADDINGS(32, 32, 21, 25)
+        PART(TEXTBLOCK, "start_title",
+            DSC_LRT("default" 0.0,
+                "elm.padding.left", "elm.padding.right", "elm.padding.top",
+                fixed: 0 1;
+                text.min: 0 1;
+                text.style: "text_style";
                 align: 0.0 0.0;
-         )
-      )
+            )
+    )
+        PART(SPACER, "padding_under_start_title",
+            DSC_T("default" 0.0, "start_title",
+                min: 0 11;
+                max: -1 11;
+                fixed: 0 1;
+            )
+        )
+
+        PART(SWALLOW, "start_datetime",
+             DSC_LRT("default" 0.0,
+                    "elm.padding.left", "elm.padding.right", "padding_under_start_title",
+                    align: 0.0 0.0;
+            )
+        )
+
         PART(SPACER, "padding_under_start_datetime",
-         DSC_T("default" 0.0, "start_datetime",
-            min: 0 38;
-            max: -1 38;
-            fixed:0 1;
-         )
-      )
-      PART(TEXTBLOCK, "end_title",
-         DSC_LRT("default" 0.0,
-            "elm.padding.left", "elm.padding.right", "padding_under_start_datetime",
-             fixed: 0 1;
-             text.min: 0 1;
-             text.style: "text_style";
-             align: 0.0 0.0;
-         )
-      )
-      PART(SPACER, "padding_under_end_title",
-         DSC_T("default" 0.0, "end_title",
-            min: 0 11;
-            max: -1 11;
-            fixed:0 1;
-         )
-      )
-      PART(SWALLOW, "end_datetime",
-         DSC_LRT("default" 0.0,
+            DSC_T("default" 0.0, "start_datetime",
+                min: 0 38;
+                max: -1 38;
+                fixed:0 1;
+            )
+        )
+        PART(TEXTBLOCK, "end_title",
+            DSC_LRT("default" 0.0,
+                "elm.padding.left", "elm.padding.right", "padding_under_start_datetime",
+                fixed: 0 1;
+                text.min: 0 1;
+                text.style: "text_style";
+                align: 0.0 0.0;
+            )
+        )
+        PART(SPACER, "padding_under_end_title",
+            DSC_T("default" 0.0, "end_title",
+                min: 0 11;
+                max: -1 11;
+                fixed:0 1;
+            )
+        )
+        PART(SWALLOW, "end_datetime",
+            DSC_LRT("default" 0.0,
                 "elm.padding.left", "elm.padding.right", "padding_under_end_title",
                 align: 0.0 0.0;
-         )
-      )
-      PART(SPACER, "padding_under_end_datetime",
-         DSC_T("default" 0.0,"end_datetime",
+            )
+        )
+        PART(SPACER, "padding_under_end_datetime",
+            DSC_T("default" 0.0,"end_datetime",
             min: 0 44;
             max: -1 44;
             fixed: 0 1;
-         )
-      )
-      PART(SPACER, "right_padding_of_checkbox",
-	      DSC_FROM_R("default" 0.0,
-	         min: 32 0;
-	         max: 32 -1;
-	         fixed: 1 0;
-	      )
-	   )
-      PART(SWALLOW, "all_day_check",
-         DSC_RTB("default" 0.0,
+            )
+        )
+        PART(SPACER, "right_padding_of_checkbox",
+            DSC_FROM_R("default" 0.0,
+                min: 32 0;
+                max: 32 -1;
+                fixed: 1 0;
+            )
+        )
+        PART(SWALLOW, "all_day_check",
+            DSC_RTB("default" 0.0,
                 "elm.padding.right", "padding_under_end_datetime", "elm.padding.bottom",
-         )
-      )
+            )
+        )
        PART(SPACER, "padding_left_all_day_check",
          DSC_R("default" 0.0,"all_day_check",
             min: 32 0;
