@@ -22,60 +22,71 @@
 #include "CalCommon.h"
 #include "CalDateTime.h"
 
-CalDateTime::CalDateTime(InitialValue initialValue)
+CalDateTime::CalDateTime()
 {
-	switch (initialValue)
-	{
-		case INIT_TODAY:
-		{
-			time_t now;
-			time(&now);
-			__date = localtime(now);
-			break;
-		}
-		case INIT_LOWER_BOUND:
-		{
-			set(1900, 1, 1);
-			break;
-		}
-		case INIT_UPPER_BOUND:
-		{
-			set(2037, 12, 31);
-			break;
-		}
-		default:
-		{
-			WASSERT(0);
-			break;
-		}
-	}
+	time_t current_time = 0;
+	time(&current_time);
+	__utime = current_time;
+	__allday = false;
+	__mday = 0;
+	__month = 0;
+	__year = 0;
 }
 
 CalDateTime::CalDateTime(const struct tm& dateTm)
+	: __year(0)
+	, __month(0)
+	, __mday(0)
 {
 	set(dateTm);
 }
 
-CalDateTime::CalDateTime(int year, int month, int mday)
+CalDateTime::CalDateTime(int year, int month, int mday) :
+		__utime(0),__year(year),__month(month),__mday(mday),__allday(true)
 {
-	__date = {0};
-	set(year, month, mday);
 }
 
 CalDateTime::CalDateTime(int year, int month, int mday, int hour, int min, int sec)
 {
-	// TODO: add boundaries checks
-	__date.tm_year = year;
-	__date.tm_mon = month;
-	__date.tm_mday = mday;
-	__date.tm_hour = hour;
-	__date.tm_min = min;
-	__date.tm_sec = sec;
-	// TODO: add logic to determine
-	// tm_wday
-	// tm_yday
-	// tm_isdst
+	struct tm time;
+	memset(&time, 0, sizeof(struct tm));
+	time.tm_year = year - 1900;
+	time.tm_mon = month - 1;
+	time.tm_mday = mday;
+	time.tm_hour = hour;
+	time.tm_min = min;
+	time.tm_sec = sec;
+	__utime = CalLocaleManager::getInstance().getUtime(time);
 	__allday = false;
+	__mday = mday;
+	__month = month;
+	__year = year;
+}
+
+CalDateTime::~CalDateTime()
+{
+}
+
+CalDateTime::CalDateTime(const CalDateTime& obj)
+{
+	__utime = obj.__utime;
+	__year = obj.__year;
+	__month = obj.__month;
+	__mday = obj.__mday;
+	__allday = obj.__allday;
+}
+
+const CalDateTime& CalDateTime::operator=(const CalDateTime& obj)
+{
+	if (this != &obj)
+	{
+		__utime = obj.__utime;
+		__year = obj.__year;
+		__month = obj.__month;
+		__mday = obj.__mday;
+		__allday = obj.__allday;
+	}
+	return *this;
 }
 
 bool CalDateTime::operator==(const CalDateTime &obj) const
@@ -117,23 +128,43 @@ bool CalDateTime::isSameDay(const CalDateTime &obj) const
 
 void CalDateTime::set(const int year, const int month, const int mday)
 {
-	// NOTE: HH:MM:SS remains previous
-	__date.tm_year = year;
-	__date.tm_mon = month;
-	__date.tm_mday = mday;
+	__year = year;
+	__month = month;
+	__mday = mday;
 	__allday = true;
 }
 
 void CalDateTime::set(const struct tm& dateTm)
 {
-	__date = dateTm;
 	__allday = false;
+	struct tm tmp = dateTm;
+	__utime = CalLocaleManager::getInstance().getUtime(tmp);
 }
 
 void CalDateTime::getString(std::string& text) const
 {
-	// TODO
-	//text = asctime(__date);
+	CalLocaleManager::TimeFormat tf = CalLocaleManager::TIMEFORMAT_1;
+	CalLocaleManager::DateFormat df = CalLocaleManager::DATEFORMAT_1;
+
+	int todayyear = 0;
+
+	struct tm today;
+	time_t current_time = 0;
+	time(&current_time);
+	CalLocaleManager::getInstance().getTmFromUtime(NULL, (long long int)current_time, today);
+	todayyear = today.tm_year + 1900;
+
+	bool isSameYear = false;
+	if (todayyear == getYear())
+		isSameYear = true;
+
+	if (CalSettingsManager::getInstance().isHour24() == false)
+		tf = CalLocaleManager::TIMEFORMAT_1;
+	else
+		tf = CalLocaleManager::TIMEFORMAT_6;
+	if (isSameYear == true && __allday == false)
+		df = CalLocaleManager::DATEFORMAT_24;
+	__getString(df, tf, text);
 }
 
 void CalDateTime::getTimeString(std::string& text) const
@@ -192,8 +223,31 @@ int CalDateTime::getWeekday() const
 
 void CalDateTime::setAllDay(const bool isAllDay)
 {
-	__allday = isAllDay;
-	// TODO: if 'true' make HH:MM:SS zero?
+	if (isAllDay == true)
+	{
+		if (__allday == true)
+			return ;
+		__allday = true;
+		struct tm time;
+		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		__year = time.tm_year +1900;
+		__month = time.tm_mon +1;
+		__mday = time.tm_mday;
+	}
+	else
+	{
+		if (__allday == false)
+			return;
+
+		__allday = false;
+		struct tm time;
+		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		time.tm_year = __year - 1900;
+		time.tm_mon = __month - 1;
+		time.tm_mday = __mday;
+		__utime = CalLocaleManager::getInstance().getUtime(time);
+	}
+	return;
 }
 
 void CalDateTime::addSeconds(const long long int seconds, const bool setLimit)
@@ -344,7 +398,7 @@ int CalDateTime::getDateCompareVal() const
 	return (__date.tm_year << 9) | (__date.tm_mon << 5) | __date.tm_mday;
 }
 
-std::string CalDateTime::dump(bool showTime) const
+std::string CalDate::dump(bool showTime) const
 {
 	char buffer[DATE_BUFFER];
 	if (showTime)

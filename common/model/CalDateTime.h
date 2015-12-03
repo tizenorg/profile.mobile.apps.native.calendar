@@ -33,7 +33,10 @@ public:
 	CalDateTime(const struct tm& dateTm);
 	CalDateTime(int year, int month, int mday);
 	CalDateTime(int year, int month, int mday, int hour, int min, int sec);
-	virtual ~CalDateTime() {}
+	virtual ~CalDateTime();
+
+	CalDateTime(const CalDateTime&);
+	const CalDateTime& operator =(const CalDateTime&);
 
 	//* Comparators
 	bool operator ==(const CalDateTime &) const;
