@@ -35,7 +35,7 @@ BuildRequires: pkgconfig(capi-system-device)
 BuildRequires: pkgconfig(capi-base-utils-i18n)
 BuildRequires: pkgconfig(capi-ui-efl-util)
 
-%define is_t3_0 %(if [[ %{_project} =~ "3.0" ]] ; then echo 1 ; else echo 0 ; fi ;)
+%define is_t3_0 %(if [[ %{tizen_version} =~ "3.0" ]] ; then echo 1 ; else echo 0 ; fi ;)
 
 %if 0%is_t3_0
 BuildRequires: pkgconfig(libtzplatform-config)
