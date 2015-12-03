@@ -118,7 +118,8 @@ void CalSettingsView::onTimeZone(void)
 			std::string dT;
 
 			if (timezone &&  strlen(timezone) > 0) {
-				CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
+				// TODO CALDATETIME: update this after CalDateTime class is ready to use
+				//CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 				self->__time_zone_item->setSubText(dT.c_str());
 				CalSettingsManager::getInstance().setTimeZone(tz);
 			}
@@ -338,7 +339,8 @@ Evas_Object* CalSettingsView::onCreate(Evas_Object* parent, void* viewParam)
 	std::string dT;
 	CalSettingsManager::getInstance().getTimeZone(tz);
 
-	CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 
 	__time_zone_item = new CalDialogSettingsTwoTextItem(
 		[this]() {
@@ -367,7 +369,8 @@ void CalSettingsView::__update()
 	std::string dT;
 	CalSettingsManager::getInstance().getTimeZone(tz);
 
-	CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 	if(__time_zone_item)
 	{
 		__time_zone_item->setSubText(dT.c_str());

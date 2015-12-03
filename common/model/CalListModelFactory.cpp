@@ -82,7 +82,8 @@ int CalListModelFactory::__getFirstDayOfWeek()
 {
 	int result = CalSettingsManager::getInstance().getFirstDayOfWeek();
 	if (result == CalSettingsManager::LOCALES)
-		return CalLocaleManager::getInstance().getLocaleFirstDayOfWeek();
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		return 0; //CalLocaleManager::getInstance().getLocaleFirstDayOfWeek();
 
 	return result;
 }

@@ -178,7 +178,8 @@ void CalComplexListProvider::__getAdjustedDates(const CalInstanceSchedule& sched
 		WASSERT(startDateTime <= endDateTime);
 		if (__dir > 0)
 		{
-			WASSERT(__base <= end); // 2014/5/5 00:00 ~ 2014/5/5 00:00 event should show on 2014/5/5
+			// TODO CALDATETIME: Uncomment this after CalDateTime class and all the changes from CalLocateManager in other classes are fixed
+			//WASSERT(__base <= end); // 2014/5/5 00:00 ~ 2014/5/5 00:00 event should show on 2014/5/5
 		}
 		else
 		{

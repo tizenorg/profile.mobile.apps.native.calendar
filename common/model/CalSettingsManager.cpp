@@ -222,12 +222,12 @@ void CalSettingsManager::__setLocaleTimeZone(void)
 		getTimeZone(timeZone);
 	}
 
-	CalLocaleManager::getInstance().getTimeZone(localeTimeZone);
-
-	if (timeZone.compare(localeTimeZone) != 0)
-	{
-		CalLocaleManager::getInstance().setTimeZone(timeZone);
-	}
+//	TODO CALDATETIME: update this after CalDateTime class is ready to use
+//	CalLocaleManager::getInstance().getTimeZone(localeTimeZone);
+//	if (timeZone.compare(localeTimeZone) != 0)
+//	{
+//		CalLocaleManager::getInstance().setTimeZone(timeZone);
+//	}
 }
 
 void CalSettingsManager::getDeviceTimeZone(std::string& timeZone)
@@ -475,7 +475,8 @@ void CalSettingsManager::setHour24(void)
 void CalSettingsManager::getCalendarTimeZone(std::string& timezone)
 {
 	WENTER();
-	CalLocaleManager::getInstance().getTimeZone(timezone);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getTimeZone(timezone);
 }
 
 void CalSettingsManager::updateRegion(void)

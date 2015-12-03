@@ -43,10 +43,6 @@ public:
 	void updateLocaleForEvasObj();
 	void setEvasObjForRTL(Evas_Object* obj);
 
-	void setTimeZone(const std::string& timeZone);
-
-	void getTimeZone(std::string& timeZone);
-
 	void updateRegion(void);
 
 	enum DateFormat
@@ -93,58 +89,22 @@ public:
 		TIMEFORMAT_END,
 	};
 	void getDateTimeText(const DateFormat dateFormat, const TimeFormat timeFormat, const CalDateTime& dateTime, std::string& text);
-	void getDateTimeText(const char* timezone, const DateFormat dateFormat, const TimeFormat timeFormat, const CalDateTime& dateTime, std::string& text);
-	void getDateText(const DateFormat dateFormat, const CalDate& date, std::string& text);
+	void getDateText(const DateFormat dateFormat, const CalDateTime& date, std::string& text);
 
-	long long int getUtime(struct tm& tm);
-	long long int getUtimeFromTm(const char *timezone, const struct tm &tm);
-	void getTmFromUtime(const char *timezone, const long long int utime, struct tm &tm);
-	int getDayOfWeekInMonth(const char *timezone, const long long int utime);
-	const char* getWeekdayText(const char *timezone, const long long int utime);
+	const char* getWeekdayText(const long long int utime);
 	const char* getWeekdayText(int weekday);
 	const char* getWeekdayShortText(int weekday);
-	int getWeekday(const char *timezone, const long long int utime); // 0 : sun ~ 6 : sat
-
-	void updateTmHour(const int delta, struct tm& tm);
-	void updateTmDay(const int delta, struct tm& tm);
-	void updateTmMonth(const int delta, struct tm& tm);
-	void updateTmYear(const int delta, struct tm& tm);
-
-	int getDayDiff(const struct tm& date1, const struct tm& date2);
-
-	// get timezone text
-	void getDisplayTextTimeZone(const std::string& timeZone, std::string& displayText);
-
-	int getLocaleFirstDayOfWeek(); // 0 : sun ~ 6 : sat
-
-	// for  EAS
-	bool isEasTimeZone(const std::string& timeZone);
-	void getEasTimeZone(const std::string& timeZone, std::string& newTimeZone);
 
 private:
-	i18n_ucalendar_h __getUcal(const std::string &tzid); // __cal_locale_manager_get_ucal
 	void __getLocale(std::string &localeStr);
 
 	// __mapFormat
 	const i18n_udate_format_h __getUDateFormat(const DateFormat df, const TimeFormat tf);
-	i18n_udate_format_h __getUDateFormat(const char* timezone, const DateFormat df, const TimeFormat tf);
-
-	// for UCalendar
-	void __setUCalendar(i18n_ucalendar_h calendar, const struct tm *tm);
-	void __getUCalendar(i18n_ucalendar_h calendar, struct tm *tm);
-	char* __getTzOffset(i18n_ucalendar_h cal);
-	char* __getTzName(i18n_ucalendar_h cal, const char *language, const std::string& timeZone);
-	char* __getTzNameFromWorldclockDb(const std::string& timeZone);
 
 	// for weekday
 	void __initWeekday();
 
-	// for EAS
-	void __getTzFromFromWorldclockDb(int timezone_offset, std::string& timeZone);
-	int __getTimezoneOffsetFormCalDb(const std::string& standardName);
-
 public:
-	std::string __tzid;
 	i18n_ucalendar_h __cal;
 
 	std::string __locale;
