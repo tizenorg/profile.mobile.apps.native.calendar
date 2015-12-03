@@ -857,7 +857,8 @@ void CalEditView::__onAddTimezoneField()
 		tz = defaultTz;
 	}
 
-	CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 	__timezone = new CalDialogEditTwoTextRemoveIconItem(TIMEZONE, _L_S_("IDS_CLD_HEADER_TIME_ZONE_ABB"), dT.c_str());
 	__timezone->setSelectCb(
 		[this]()
@@ -882,7 +883,8 @@ void CalEditView::__onAddTimezoneField()
 					std::string dT;
 
 					if (timezone &&  strlen(timezone) > 0) {
-						CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
+						// TODO CALDATETIME: update this after CalDateTime class is ready to use
+						//CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 						self->__timezone->setSubText(dT.c_str());
 						self->__timezoneString = tz;
 					}
@@ -1877,6 +1879,7 @@ void CalEditView::__postProcessAddButtons()
 
 	// timezone
 	std::string timeZone;
-	CalLocaleManager::getInstance().getTimeZone(timeZone);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getTimeZone(timeZone);
 	__model.setOn(CalEditModel::TIME_ZONE, (__timezone && __workingCopy->getTimeZone() && strcmp(__workingCopy->getTimeZone(), timeZone.c_str())));
 }

@@ -264,7 +264,8 @@ int CalWidget::__getFirstDayOfWeek()
 	int result = CalSettingsManager::getInstance().getFirstDayOfWeek();
 	if (result == CalSettingsManager::LOCALES)
 	{
-		return CalLocaleManager::getInstance().getLocaleFirstDayOfWeek();
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		return 0; //CalLocaleManager::getInstance().getLocaleFirstDayOfWeek();
 	}
 
 	return result;
@@ -314,7 +315,8 @@ void CalWidget:: __setMonthLabel()
 {
 	WENTER();
 	std::string strMonth;
-	CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_6, __dateTime, strMonth);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_6, __dateTime, strMonth);
 
 	strMonth = "<p font_size=52 align=center color=#FFFFFF style=far_shadow,bottom shadow_color=#999999FF>" + strMonth + "</p>";
 	elm_object_text_set(__labelMonth, strMonth.c_str());

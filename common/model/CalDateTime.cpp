@@ -56,7 +56,7 @@ CalDateTime::CalDateTime(int year, int month, int mday, int hour, int min, int s
 	time.tm_hour = hour;
 	time.tm_min = min;
 	time.tm_sec = sec;
-	__utime = CalLocaleManager::getInstance().getUtime(time);
+	__utime = 0; //CalLocaleManager::getInstance().getUtime(time);
 	__allday = false;
 	__mday = mday;
 	__month = month;
@@ -153,7 +153,7 @@ void CalDateTime::set(const struct tm& dateTm)
 {
 	__allday = false;
 	struct tm tmp = dateTm;
-	__utime = CalLocaleManager::getInstance().getUtime(tmp);
+	__utime = 0; //CalLocaleManager::getInstance().getUtime(tmp);
 }
 
 int CalDateTime::getYear() const
@@ -165,7 +165,7 @@ int CalDateTime::getYear() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		return time.tm_year + 1900;
 	}
 }
@@ -179,7 +179,7 @@ int CalDateTime::getMonth() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		return time.tm_mon + 1;
 	}
 }
@@ -193,7 +193,7 @@ int CalDateTime::getMday() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		return time.tm_mday;
 	}
 }
@@ -207,7 +207,7 @@ int CalDateTime::getHour() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_hour;
 	}
@@ -222,7 +222,7 @@ int CalDateTime::getMinute() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_min;
 	}
@@ -237,7 +237,7 @@ int CalDateTime::getSecond() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_sec;
 	}
@@ -261,7 +261,7 @@ void CalDateTime::getTmFromUtime(struct tm* dateTm) const
 	}
 	else
 	{
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, *dateTm);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, *dateTm);
 	}
 }
 
@@ -278,7 +278,7 @@ long long int CalDateTime::getUtimeFromTm() const
 		time.tm_min = 0;
 		time.tm_sec = 0;
 
-		return CalLocaleManager::getInstance().getUtime(time);
+		return 0; //CalLocaleManager::getInstance().getUtime(time);
 	}
 	else
 	{
@@ -296,7 +296,7 @@ void CalDateTime::getString(std::string& text) const
 	struct tm today;
 	time_t current_time = 0;
 	time(&current_time);
-	CalLocaleManager::getInstance().getTmFromUtime(NULL, (long long int)current_time, today);
+	//CalLocaleManager::getInstance().getTmFromUtime(NULL, (long long int)current_time, today);
 	todayyear = today.tm_year + 1900;
 
 	bool isSameYear = false;
@@ -363,7 +363,7 @@ int CalDateTime::getWeekday() const
 {
 	long long int utime = getUtimeFromTm();
 
-	return CalLocaleManager::getInstance().getWeekday(NULL, utime);
+	return 0; //CalLocaleManager::getInstance().getWeekday(NULL, utime);
 }
 
 void CalDateTime::setAllDay(const bool isAllDay)
@@ -374,7 +374,7 @@ void CalDateTime::setAllDay(const bool isAllDay)
 			return ;
 		__allday = true;
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		__year = time.tm_year +1900;
 		__month = time.tm_mon +1;
 		__mday = time.tm_mday;
@@ -386,11 +386,11 @@ void CalDateTime::setAllDay(const bool isAllDay)
 
 		__allday = false;
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		time.tm_year = __year - 1900;
 		time.tm_mon = __month - 1;
 		time.tm_mday = __mday;
-		__utime = CalLocaleManager::getInstance().getUtime(time);
+		__utime = 0; //CalLocaleManager::getInstance().getUtime(time);
 	}
 	return;
 }
@@ -428,8 +428,8 @@ void CalDateTime::addDays(const int days, const bool setLimit)
 	{
 		long long int utime = getUtimeFromTm();
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
-		CalLocaleManager::getInstance().updateTmDay(days, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
+		//CalLocaleManager::getInstance().updateTmDay(days, time);
 		__year = time.tm_year +1900;
 		__month = time.tm_mon +1;
 		__mday = time.tm_mday;
@@ -451,8 +451,8 @@ void CalDateTime::addMonths(const int months, const bool setLimit)
 	{
 		long long int utime = getUtimeFromTm();
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
-		CalLocaleManager::getInstance().updateTmMonth(months, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
+		//CalLocaleManager::getInstance().updateTmMonth(months, time);
 		__year = time.tm_year +1900;
 		__month = time.tm_mon +1;
 		__mday = time.tm_mday;
@@ -462,9 +462,9 @@ void CalDateTime::addMonths(const int months, const bool setLimit)
 		return;
 	}
 	struct tm time;
-	CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-	CalLocaleManager::getInstance().updateTmMonth(months, time);
-	__utime = CalLocaleManager::getInstance().getUtime(time);
+	//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+	//CalLocaleManager::getInstance().updateTmMonth(months, time);
+	__utime = 0; //CalLocaleManager::getInstance().getUtime(time);
 
 	if (setLimit == true)
 		__setLimit();
@@ -476,8 +476,8 @@ void CalDateTime::addYears(const int years, const bool setLimit)
 	{
 		long long int utime = getUtimeFromTm();
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
-		CalLocaleManager::getInstance().updateTmYear(years, time);
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
+		//CalLocaleManager::getInstance().updateTmYear(years, time);
 		__year = time.tm_year +1900;
 		__month = time.tm_mon +1;
 		__mday = time.tm_mday;
@@ -487,9 +487,9 @@ void CalDateTime::addYears(const int years, const bool setLimit)
 		return;
 	}
 	struct tm time;
-	CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-	CalLocaleManager::getInstance().updateTmYear(years, time);
-	__utime = CalLocaleManager::getInstance().getUtime(time);
+	//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+	//CalLocaleManager::getInstance().updateTmYear(years, time);
+	__utime = 0; //CalLocaleManager::getInstance().getUtime(time);
 
 	if (setLimit == true)
 		__setLimit();
@@ -514,7 +514,7 @@ void CalDateTime::__setLimit()
 			time.tm_hour = 12;
 			time.tm_min = 0;
 			time.tm_sec = 0;
-			__utime = CalLocaleManager::getInstance().getUtime(time);
+			__utime = 0; //CalLocaleManager::getInstance().getUtime(time);
 		}
 	}
 	else if (getYear() > 2037)
@@ -533,7 +533,7 @@ void CalDateTime::__setLimit()
 			time.tm_hour = 12;
 			time.tm_min = 0;
 			time.tm_sec = 0;
-			__utime = CalLocaleManager::getInstance().getUtime(time);
+			__utime = 0; //0; //CalLocaleManager::getInstance().getUtime(time);
 		}
 	}
 }
