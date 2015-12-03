@@ -87,7 +87,8 @@ cd %{BUILD_DIR}
     %define MAKE_LOG_FILTER_FULL %{?jobs:-j%jobs} %{MAKE_LOG_FILTER}
 %endif
 
-cmake ./../.. %{CMAKE_PARAMETERS_FULL}
+cmake ./../.. %{CMAKE_PARAMETERS_FULL} \
+	%{?TEST: -DTEST=ON }
 make %{MAKE_LOG_FILTER_FULL}
 
 %install
