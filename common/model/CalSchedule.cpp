@@ -112,11 +112,12 @@ void CalSchedule::getFromToDisplayString(std::string& text) const
 
 	std::string displayMyTz;
 	std::string displayCalendarTz;
-	CalLocaleManager::getInstance().getDisplayTextTimeZone(calendarTimezone, displayCalendarTz);
-	if (myTimezone)
-	{
-		CalLocaleManager::getInstance().getDisplayTextTimeZone(myTimezone, displayMyTz);
-	}
+//	TODO CALDATETIME: update this after CalDateTime class is ready to use
+//	CalLocaleManager::getInstance().getDisplayTextTimeZone(calendarTimezone, displayCalendarTz);
+//	if (myTimezone)
+//	{
+//		CalLocaleManager::getInstance().getDisplayTextTimeZone(myTimezone, displayMyTz);
+//	}
 
 	if (startTime.isAllDay( )== true ||
 			myTimezone == NULL ||
@@ -163,7 +164,8 @@ void CalSchedule::getFromToString(std::string& text) const
 	else
 	{
 		std::string stringTemp;
-		CalLocaleManager::getInstance().getDisplayTextTimeZone(calendarTimezone, stringTemp);
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//CalLocaleManager::getInstance().getDisplayTextTimeZone(calendarTimezone, stringTemp);
 
 		text = stringTemp + "\r\n";
 
@@ -173,7 +175,8 @@ void CalSchedule::getFromToString(std::string& text) const
 		text = stringTemp + "\r\n";
 
 		stringTemp.clear();
-		CalLocaleManager::getInstance().getDisplayTextTimeZone(myTimezone, stringTemp);
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//CalLocaleManager::getInstance().getDisplayTextTimeZone(myTimezone, stringTemp);
 
 		text = stringTemp + "\r\n";
 
@@ -529,7 +532,8 @@ const char* CalSchedule::getTimeZone() const
 	if(tmp)
 		buf = tmp;
 
-	CalLocaleManager::getInstance().getEasTimeZone(buf,__timeZone);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getEasTimeZone(buf,__timeZone);
 	return __timeZone.c_str();
 }
 

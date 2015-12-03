@@ -35,7 +35,8 @@ CalDate::CalDate(InitialValue initialValue)
 			struct tm now_tm = {0};
 			time_t now = 0;
 			time(&now);
-			CalLocaleManager::getInstance().getTmFromUtime(NULL, (long long int)now, now_tm);
+			// TODO CALDATETIME: update this after CalDateTime class is ready to use
+			//CalLocaleManager::getInstance().getTmFromUtime(NULL, (long long int)now, now_tm);
 			set(&now_tm);
 			break;
 		}
@@ -102,7 +103,8 @@ const CalDate& CalDate::operator=( const CalDate& obj)
 const char* CalDate::getString() const
 {
 	static std::string dtString;
-	CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_1, *this, dtString);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_1, *this, dtString);
 
 	return dtString.c_str();
 }
@@ -120,7 +122,8 @@ const char* CalDate::getUnixTimeString() const
 const char* CalDate::getMonthString() const
 {
 	static std::string dtString;
-	CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_6, *this, dtString);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_6, *this, dtString);
 
 	return dtString.c_str();
 }
@@ -268,6 +271,7 @@ void CalDate::setMday(int mday)
 		__date.tm_mday = 0;
 		__normalizeStructTm(__date);
 	}
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
 //	WASSERT(__date.tm_mon == originalMon);
 }
 
@@ -314,7 +318,8 @@ const char* CalDate::getWeekdayShortText(int weekday)
 
 int CalDate::getDayDiff(const CalDate& date1, const CalDate& date2)
 {
-	return CalLocaleManager::getInstance().getDayDiff(date1.__date, date2.__date);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	return 0; //CalLocaleManager::getInstance().getDayDiff(date1.__date, date2.__date);
 }
 
 int CalDate::compareMonth(const CalDate& date1, const CalDate& date2)

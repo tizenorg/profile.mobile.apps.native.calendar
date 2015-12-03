@@ -29,8 +29,9 @@ CalListGroupTitleItem::CalListGroupTitleItem(CalScheduleListControl* parent, con
 	__isGroupTitle = true;
 	__date = date;
 
-	CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_2, __date, __weekDay);
-	CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_9, __date, __monthDay);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_2, __date, __weekDay);
+	//CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_9, __date, __monthDay);
 
 	std::size_t found = __monthDay.find_first_not_of("0123456789");
 	if (found != std::string::npos)
