@@ -116,8 +116,8 @@ GBSROOT=~/GBS-ROOT
 
 spec_file=`find -name *.spec`
 
-# org.tizen.message
-APPNAME=`cat "$spec_file" | grep ^Name    | awk '{print $2}'`
+# org.tizen.calendar
+APPNAME='org.tizen.calendar'
 # 0.8.52
 VERSION=`cat "$spec_file" | grep ^Version | awk '{print $2}'`
 # 1
