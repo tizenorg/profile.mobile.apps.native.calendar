@@ -23,75 +23,65 @@
 class WAPP_ASSIST_EXPORT CalDateTime
 {
 public:
-	typedef enum {
-		INIT_TODAY = 0,
-		INIT_LOWER_BOUND,
-		INIT_UPPER_BOUND
-	} InitialValue;
-
-	CalDateTime(InitialValue initialValue = INIT_TODAY);
+	CalDateTime();
 	CalDateTime(const struct tm& dateTm);
 	CalDateTime(int year, int month, int mday);
 	CalDateTime(int year, int month, int mday, int hour, int min, int sec);
 	virtual ~CalDateTime();
 
-	CalDateTime(const CalDateTime&);
-	const CalDateTime& operator =(const CalDateTime&);
-
-	//* Comparators
+	CalDateTime( const CalDateTime& );
+	const CalDateTime& operator=( const CalDateTime& ) ;
 	bool operator ==(const CalDateTime &) const;
 	bool operator !=(const CalDateTime &) const;
 	bool operator >(const CalDateTime &) const;
 	bool operator >=(const CalDateTime &) const;
 	bool operator <(const CalDateTime &) const;
 	bool operator <=(const CalDateTime &) const;
-	bool isSameDay(const CalDateTime &) const;
-	bool isSameMonth(const CalDateTime &) const;
+	bool isSameDay (const CalDateTime &) const;
 
-	//* Setters
+public:
+	// set
 	void set(const int year, const int month, const int mday);
+	void set(const long long int utime);
 	void set(const struct tm& dateTm);
 	void setAllDay(const bool isAllDay);
-	void setMday(int mday);
 
-	//* Getters
-	int getYear() const { return __date.tm_year + 1900; }
-	int getMonth() const { return __date.tm_mon + 1; }
-	int getMday() const { return __date.tm_mday; }
-	int getHour() const { return __date.tm_hour; }
-	int getMinute() const { return __date.tm_min; }
-	int getSecond() const { return __date.tm_sec; }
-
+	// get
+	int getYear() const;
+	int getMonth() const;
+	int getMday() const;
+	int getHour() const;
+	int getMinute() const;
+	int getSecond() const;
+	void getTmFromUtime(struct tm* dateTm) const;
+	long long int getUtimeFromTm() const;
 	void getString(std::string& text) const;
 	void getTimeString(std::string& text) const;
 	void getDateString(std::string& text) const;
 	bool isAllDay() const;
 	const char* getWeekdayText() const;
 	int getWeekday() const;  // sun: 0 ~ sat: 6
-	int getDateCompareVal() const;
-	std::string dump(bool showTime = false) const;
 
-	//* Modifiers
+	//
 	void addSeconds(const long long int seconds, const bool setLimit = true);
 	void addHours(const int hours, const bool setLimit = true);
 	void addDays(const int days, const bool setLimit = true);
 	void addMonths(const int months, const bool setLimit = true);
 	void addYears(const int years, const bool setLimit = true);
 
-	void incrementDay();
-	void decrementDay();
-	void incrementMonth();
-	void decrementMonth();
-	void incrementYear();
-	void decrementYear();
+public:
+	void getStringParam(char buffer[]) const;
+	int getDateCompareVal() const;
 
 private:
 	void __getString(int df, int tf, std::string& text) const;
 	void __setLimit();
-	void __normalizeDateTm();
-	void __normalizeMday();
 
-	struct tm __date;
+private:
+	long long int __utime;
+	int __year;
+	int __month;
+	int __mday;
 	bool __allday;
 };
 
