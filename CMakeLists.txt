@@ -156,9 +156,6 @@ INSTALL(FILES LICENSE DESTINATION /usr/share/license RENAME ${PKGNAME})
 
 INSTALL(DIRECTORY main-app/res/images DESTINATION ${RESDIR})
 
-IF("${TIZEN_PLATFORM_VERSION}" STREQUAL "24")
-		INSTALL(DIRECTORY DESTINATION ${DATADIR})
-ENDIF()
 # if Google tests are enabled
 if(DEFINED TEST)
     add_subdirectory(test)
