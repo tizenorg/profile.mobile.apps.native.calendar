@@ -35,10 +35,10 @@ BuildRequires: pkgconfig(capi-system-device)
 BuildRequires: pkgconfig(capi-base-utils-i18n)
 BuildRequires: pkgconfig(capi-ui-efl-util)
 
-%define is_t3_0 %(if [[ %{_project} =~ "3.0" ]] ; then echo 1 ; else echo 0 ; fi ;)
+%define is_t3_0 %(if [[ %{tizen_version} =~ "3.0" ]] ; then echo 1 ; else echo 0 ; fi ;)
 
 %if 0%is_t3_0
-BuildRequires: pkgconfig(libtzplatform-config)
+#BuildRequires: pkgconfig(libtzplatform-config)
 %endif
 
 %if 0%{?widget_disabled}
@@ -53,14 +53,15 @@ UI %{REF_APP_LABEL} application.
 
 %if 1%is_t3_0
 %define TZ_SYS_RO_APP   /usr/apps
-%define DATADIR         /opt/usr/apps/%{name}/data
 %endif
 
 %define PREFIX    %{TZ_SYS_RO_APP}/%{name}
 %define RESDIR    %{PREFIX}/res
 
+
 %prep
 %setup -q
+
 
 %build
 %if 0%{?sec_build_binary_debug_enable}
@@ -83,7 +84,7 @@ cd %{BUILD_DIR}
     %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DTIZEN_PLATFORM_VERSION="30"
     %define MAKE_LOG_FILTER_FULL %{?_smp_mflags} %{MAKE_LOG_FILTER}
 %else
-    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DTIZEN_PLATFORM_VERSION="24" -DDATADIR=%{DATADIR}
+    %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DTIZEN_PLATFORM_VERSION="24"
     %define MAKE_LOG_FILTER_FULL %{?jobs:-j%jobs} %{MAKE_LOG_FILTER}
 %endif
 
@@ -91,39 +92,22 @@ cmake ./../.. %{CMAKE_PARAMETERS_FULL} \
 	%{?TEST: -DTEST=ON }
 make %{MAKE_LOG_FILTER_FULL}
 
+
 %install
-
-%if 0%is_t3_0
-%else
-rm -rf %{buildroot}
-%endif
-
 cd %{BUILD_DIR}
 
-%make_install
 
+%make_install
 %if 0%is_t3_0
 %find_lang %{REF_APP_NAME}
-%else
-%post
-# 5000 is inhouse user id
-# do not use relative path
-
-mkdir -p /opt/usr/apps/%{name}/shared/data/.%{REF_APP_NAME}
-chown -R 5000:5000 /opt/usr/apps/%{name}/shared/data/.%{REF_APP_NAME}
-mkdir -p %{DATADIR}
-chown -R 5000:5000 %{DATADIR}
-
-%define FILE_PARAMETERS -n %{name}
 %endif
 
-%files %{FILE_PARAMETERS}
 
+%files
 %manifest %{BUILD_DIR}/%{name}.manifest
 
 %if 1%is_t3_0
 %defattr(-,root,root,-)
-%dir %{DATADIR}
 %endif
 
 %{PREFIX}/bin/*
