@@ -1569,6 +1569,7 @@ void CalEditView::onPushed(Elm_Object_Item* naviItem)
 			}
 		}, this
 	);
+
 	elm_object_item_part_content_set(naviItem, "title_right_btn", button);
 
 	evas_object_smart_callback_add(getNaviframe()->getEvasObj(), "transition,finished", __onNaviframeTransitionFinished, this);
@@ -1576,6 +1577,7 @@ void CalEditView::onPushed(Elm_Object_Item* naviItem)
 
 void CalEditView::__onNaviframeTransitionFinished(void* data, Evas_Object* obj, void* eventInfo)
 {
+	WENTER();
 	CalEditView* self = (CalEditView* )data;
 	self->__updateMoreItemButtonStatus();/*for location, reminder, repeat 3 buttons*/
 	self->__updateMoreButtonStatus(); /*for more button*/
@@ -1584,6 +1586,7 @@ void CalEditView::__onNaviframeTransitionFinished(void* data, Evas_Object* obj, 
 		self->__title->getEditField()->setFocusToEntry();
 	}
 	evas_object_smart_callback_del(self->getNaviframe()->getEvasObj(), "transition,finished", __onNaviframeTransitionFinished);
+	WLEAVE();
 }
 
 void CalEditView::onDestroy()
@@ -1692,8 +1695,8 @@ void CalEditView::__onSave()
 		CalDateTime startDateTime;
 		__workingCopy->getStart(startDateTime);
 		startDateTime.getTmFromUtime(&time);
-		memset(&time, 0, sizeof(time));
 		startDateTime.set(time);
+		memset(&time, 0, sizeof(time));
 		__workingCopy->setStart(startDateTime);
 		CalDateTime endDateTime;
 		__workingCopy->getEnd(endDateTime);
