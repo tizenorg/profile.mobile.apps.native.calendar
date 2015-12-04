@@ -1695,8 +1695,8 @@ void CalEditView::__onSave()
 		CalDateTime startDateTime;
 		__workingCopy->getStart(startDateTime);
 		startDateTime.getTmFromUtime(&time);
-		memset(&time, 0, sizeof(time));
 		startDateTime.set(time);
+		memset(&time, 0, sizeof(time));
 		__workingCopy->setStart(startDateTime);
 		CalDateTime endDateTime;
 		__workingCopy->getEnd(endDateTime);
