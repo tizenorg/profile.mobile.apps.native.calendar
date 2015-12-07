@@ -1,12 +1,5 @@
 <manifest>
-	<define>
-                <domain name="${PKGNAME}" policy="shared" />
-	</define>
-	<assign>
-		<filesystem path="/usr/share/icons/default/small/*" label="_"/>
-		<filesystem path="${SHAREDRESDIR}/images/*" label="_"/>
-	</assign>
 	<request>
-                <domain name="${PKGNAME}"/>
+                <domain name="_"/>
 	</request>
 </manifest>

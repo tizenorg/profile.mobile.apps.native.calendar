@@ -116,10 +116,8 @@ cd %{BUILD_DIR}
     %define TZ_SYS_RO_PACKAGES   /usr/share/packages
     %define TZ_SYS_RO_ICONS      /usr/share/icons
     %define TZ_SYS_SHARE         /usr/share
-    %define TZ_SYS_SMACK         /etc/smack
 %endif
 
 %{TZ_SYS_RO_PACKAGES}/%{name}.xml
 %{TZ_SYS_RO_ICONS}/default/small/*
 %doc %{TZ_SYS_SHARE}/license/%{name}
-%{TZ_SYS_SMACK}/accesses.d/%{name}.efl
