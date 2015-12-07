@@ -198,6 +198,7 @@ void CalSettingsManager::__setHour24(void)
 {
 	WENTER();
 	// Indicates whether the 24-hour clock is used. If the value is false, the 12-hour clock is used
+	//TODO: why set function using get function. Where is used bool parameter __isHour24?
 	int error = system_settings_get_value_bool(SYSTEM_SETTINGS_KEY_LOCALE_TIMEFORMAT_24HOUR, &__isHour24);
 	if(error != SYSTEM_SETTINGS_ERROR_NONE)
 	{
