@@ -25,7 +25,7 @@ class WAPP_ASSIST_EXPORT CalDateTime
 public:
 	CalDateTime();
 	CalDateTime(const struct tm& dateTm);
-	CalDateTime(int year, int month, int mday);
+	CalDateTime(int year, int month, int mday, bool fixedDate = true);
 	CalDateTime(int year, int month, int mday, int hour, int min, int sec);
 	virtual ~CalDateTime();
 
@@ -41,7 +41,7 @@ public:
 
 public:
 	// set
-	void set(const int year, const int month, const int mday);
+	void set(const int year, const int month, const int mday, bool fixedDate = true);
 	void set(const long long int utime);
 	void set(const struct tm& dateTm);
 	void setAllDay(const bool isAllDay);
@@ -73,16 +73,14 @@ public:
 	void getStringParam(char buffer[]) const;
 	int getDateCompareVal() const;
 
+	void __createTm(const int year, const int month, const int day, const int hour, const int min, const int sec, struct tm *timeptr);
 private:
 	void __getString(int df, int tf, std::string& text) const;
 	void __setLimit();
 
 private:
 	long long int __utime;
-	int __year;
-	int __month;
-	int __mday;
-	bool __allday;
+	bool __fixedDate;
 };
 
 #endif /* _CAL_DATE_TIME_H_ */
