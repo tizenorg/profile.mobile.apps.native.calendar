@@ -22,45 +22,59 @@
 #include "CalCommon.h"
 #include "CalDateTime.h"
 
+#define CAL_STRUCT_TM_YEAR_LOWER_SHIFT 1900
+#define CAL_STRUCT_TM_MONTH_ARRAY_LOWER_SHIFT 1
+#define CAL_DATETIME_YEAR_UPPER_BOUND 2037
+#define CAL_DATETIME_MONTH_UPPER_BOUND 12
+#define CAL_DATETIME_DAY_UPPER_BOUND 31
+#define CAL_DATETIME_YEAR_LOWER_BOUND 1902
+#define CAL_DATETIME_MONTH_LOWER_BOUND 1
+#define CAL_DATETIME_DAY_LOWER_BOUND 1
+
+#define CAL_TIME_MINUTES_IN_HOUR   60
+#define CAL_TIME_SECONDS_IN_MINUTE 60
+#define CAL_TIME_HOURS_IN_DAY 24
+#define CAL_TIME_SECONDS_IN_HOUR   (CAL_TIME_MINUTES_IN_HOUR * CAL_TIME_SECONDS_IN_MINUTE)
+
+
 CalDateTime::CalDateTime()
 {
 	time_t current_time = 0;
 	time(&current_time);
 	__utime = current_time;
-	__allday = false;
-	__mday = 0;
-	__month = 0;
-	__year = 0;
+	__fixedDate = false;
 }
 
 CalDateTime::CalDateTime(const struct tm& dateTm)
-	: __year(0)
-	, __month(0)
-	, __mday(0)
 {
 	set(dateTm);
 }
 
-CalDateTime::CalDateTime(int year, int month, int mday) :
-		__utime(0),__year(year),__month(month),__mday(mday),__allday(true)
+CalDateTime::CalDateTime(int year, int month, int mday, bool fixedDate)
 {
+	struct tm time = {};
+	__createTm(year, month, mday, 0, 0, 0, &time);
+	if (fixedDate)
+	{
+		__utime = mktime(&time);
+	}
+	else
+	{
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//__utime = CalLocaleManager::getInstance().getUtime(time);
+		__utime = 0;
+	}
+	__fixedDate = fixedDate;
 }
 
 CalDateTime::CalDateTime(int year, int month, int mday, int hour, int min, int sec)
 {
-	struct tm time;
-	memset(&time, 0, sizeof(struct tm));
-	time.tm_year = year - 1900;
-	time.tm_mon = month - 1;
-	time.tm_mday = mday;
-	time.tm_hour = hour;
-	time.tm_min = min;
-	time.tm_sec = sec;
-	__utime = 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getUtime(time);
-	__allday = false;
-	__mday = mday;
-	__month = month;
-	__year = year;
+	struct tm time = {};
+	__createTm(year, month, mday, hour, min, sec, &time);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//__utime = CalLocaleManager::getInstance().getUtime(time);
+	__utime = 0;
+	__fixedDate = false;
 }
 
 CalDateTime::~CalDateTime()
@@ -70,10 +84,7 @@ CalDateTime::~CalDateTime()
 CalDateTime::CalDateTime(const CalDateTime& obj)
 {
 	__utime = obj.__utime;
-	__year = obj.__year;
-	__month = obj.__month;
-	__mday = obj.__mday;
-	__allday = obj.__allday;
+	__fixedDate = obj.__fixedDate;
 }
 
 const CalDateTime& CalDateTime::operator=(const CalDateTime& obj)
@@ -81,45 +92,40 @@ const CalDateTime& CalDateTime::operator=(const CalDateTime& obj)
 	if (this != &obj)
 	{
 		__utime = obj.__utime;
-		__year = obj.__year;
-		__month = obj.__month;
-		__mday = obj.__mday;
-		__allday = obj.__allday;
+		__fixedDate = obj.__fixedDate;
 	}
 	return *this;
 }
 
 bool CalDateTime::operator==(const CalDateTime &obj) const
 {
-	if (__allday != obj.__allday)
+	//TODO: Investigate presence
+	if (__fixedDate != obj.__fixedDate)
+	{
 		return false;
-	if (__allday == true)
-	{
-		return (getYear() == obj.getYear() && getMonth() == obj.getMonth() &&
-				getMday() == obj.getMday());
 	}
-	else
-	{
-		return (__utime == obj.__utime);
-	}
+	return ((getYear() == obj.getYear()) && (getMonth() == obj.getMonth()) && (getMday() == obj.getMday()));
 }
 
 bool CalDateTime::operator !=(const CalDateTime &obj) const
 {
 	return !(*this == obj);
 }
+
 bool CalDateTime::operator >(const CalDateTime &obj) const
 {
 	long long int srcTime = getUtimeFromTm();
 	long long int objTime = obj.getUtimeFromTm();
 	return (srcTime > objTime);
 }
+
 bool CalDateTime::operator >=(const CalDateTime &obj) const
 {
 	long long int srcTime = getUtimeFromTm();
 	long long int objTime = obj.getUtimeFromTm();
 	return (srcTime >= objTime);
 }
+
 bool CalDateTime::operator <(const CalDateTime &obj) const
 {
 	return !(*this >= obj);
@@ -135,94 +141,78 @@ bool CalDateTime::isSameDay(const CalDateTime &obj) const
 	return ((getYear() == obj.getYear()) && (getMonth() == obj.getMonth()) && (getMday() == obj.getMday()));
 }
 
-void CalDateTime::set(const int year, const int month, const int mday)
+void CalDateTime::set(const int year, const int month, const int mday, bool fixedDate)
 {
-	__year = year;
-	__month = month;
-	__mday = mday;
-	__allday = true;
+	struct tm time = {};
+	__createTm(year, month, mday, 0, 0, 0, &time);
+	if (fixedDate)
+	{
+		__utime = mktime(&time);
+	}
+	else
+	{
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		__utime = 0;
+	}
+	__fixedDate = fixedDate;
 }
 
 void CalDateTime::set(const long long int utime)
 {
 	__utime = utime;
-	__allday = false;
+	__fixedDate = false;
 }
 
 void CalDateTime::set(const struct tm& dateTm)
 {
-	__allday = false;
+	__fixedDate = false;
 	struct tm tmp = dateTm;
-	__utime = 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getUtime(tmp);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//__utime = CalLocaleManager::getInstance().getUtime(tmp);
+	__utime = 0;
 }
 
 int CalDateTime::getYear() const
 {
-	if (__allday == true)
-	{
-		return __year;
-	}
-	else
-	{
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		return time.tm_year + 1900;
-	}
+	struct tm time = {};
+	getTmFromUtime(&time);
+	return time.tm_year + CAL_STRUCT_TM_YEAR_LOWER_SHIFT;
 }
 
 int CalDateTime::getMonth() const
 {
-	if (__allday == true)
-	{
-		return __month;
-	}
-	else
-	{
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		return time.tm_mon + 1;
-	}
+	struct tm time = {};
+	getTmFromUtime(&time);
+	return time.tm_mon + CAL_STRUCT_TM_MONTH_ARRAY_LOWER_SHIFT;
 }
 
 int CalDateTime::getMday() const
 {
-	if (__allday == true)
-	{
-		return __mday;
-	}
-	else
-	{
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		return time.tm_mday;
-	}
+	struct tm time = {};
+	getTmFromUtime(&time);
+	return time.tm_mday;
 }
 
 int CalDateTime::getHour() const
 {
-	if (__allday == true)
-	{
-		return 0;
-	}
-	else
-	{
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
-		return time.tm_hour;
-	}
+	struct tm time = {};
+	getTmFromUtime(&time);
+	WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
+	return time.tm_hour;
 }
 
 int CalDateTime::getMinute() const
 {
-	if (__allday == true)
+	if (__fixedDate == true)
 	{
 		return 0;
 	}
 	else
 	{
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		struct tm time = {};
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_min;
 	}
@@ -230,60 +220,43 @@ int CalDateTime::getMinute() const
 
 int CalDateTime::getSecond() const
 {
-	if (__allday == true)
+	if (__fixedDate == true)
 	{
 		return 0;
 	}
 	else
 	{
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		struct tm time = {};
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_sec;
 	}
 }
 
-void CalDateTime::getTmFromUtime(struct tm* dateTm) const
+void CalDateTime::getTmFromUtime(struct tm *dateTm) const
 {
 	if (dateTm == NULL)
 	{
 		WERROR("invalid input");
 		return;
 	}
-	if (__allday == true)
+	if (__fixedDate == true)
 	{
-		dateTm->tm_year = __year - 1900;
-		dateTm->tm_mon = __month - 1;
-		dateTm->tm_mday = __mday;
-		dateTm->tm_hour = 0;
-		dateTm->tm_min = 0;
-		dateTm->tm_sec = 0;
+		time_t utime = (long int) __utime;
+		struct tm *time = gmtime(&utime);
+		memcpy(dateTm, time, sizeof(struct tm));
 	}
 	else
 	{
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, *dateTm);
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, *dateTm);
 	}
 }
 
 long long int CalDateTime::getUtimeFromTm() const
 {
-	if (__allday == true)
-	{
-		struct tm time;
-		memset(&time, 0, sizeof(struct tm));
-		time.tm_year = __year - 1900;
-		time.tm_mon = __month - 1;
-		time.tm_mday = __mday;
-		time.tm_hour = 0;
-		time.tm_min = 0;
-		time.tm_sec = 0;
-
-		return 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getUtime(time);
-	}
-	else
-	{
-		return __utime;
-	}
+	return __utime;
 }
 
 void CalDateTime::getString(std::string& text) const
@@ -296,8 +269,9 @@ void CalDateTime::getString(std::string& text) const
 	struct tm today;
 	time_t current_time = 0;
 	time(&current_time);
-	// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, (long long int)current_time, today);
-	todayyear = today.tm_year + 1900;
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getTmFromUtime(NULL, (long long int)current_time, today);
+	todayyear = today.tm_year + CAL_STRUCT_TM_YEAR_LOWER_SHIFT;
 
 	bool isSameYear = false;
 	if (todayyear == getYear())
@@ -307,7 +281,7 @@ void CalDateTime::getString(std::string& text) const
 		tf = CalLocaleManager::TIMEFORMAT_1;
 	else
 		tf = CalLocaleManager::TIMEFORMAT_6;
-	if (isSameYear == true && __allday == false)
+	if (isSameYear == true && __fixedDate == false)
 		df = CalLocaleManager::DATEFORMAT_24;
 	__getString(df, tf, text);
 }
@@ -320,7 +294,7 @@ void CalDateTime::getTimeString(std::string& text) const
 	else
 		tf = CalLocaleManager::TIMEFORMAT_6;
 	text.clear();
-	if (__allday == true)
+	if (__fixedDate == true)
 	{
 		return;
 	}
@@ -334,7 +308,7 @@ void CalDateTime::getDateString(std::string& text) const
 
 void CalDateTime::__getString(int df, int tf, std::string& text) const
 {
-	if (__allday)
+	if (__fixedDate)
 	{
 		CalLocaleManager::getInstance().getDateTimeText(
 				(CalLocaleManager::DateFormat)df,
@@ -350,7 +324,7 @@ void CalDateTime::__getString(int df, int tf, std::string& text) const
 
 bool CalDateTime::isAllDay() const
 {
-	return __allday;
+	return __fixedDate;
 }
 
 const char* CalDateTime::getWeekdayText() const
@@ -362,42 +336,48 @@ const char* CalDateTime::getWeekdayText() const
 int CalDateTime::getWeekday() const
 {
 	long long int utime = getUtimeFromTm();
-
-	return 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getWeekday(NULL, utime);
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//return CalLocaleManager::getInstance().getWeekday(NULL, utime);
+	return 0;
 }
 
 void CalDateTime::setAllDay(const bool isAllDay)
 {
+	if (__fixedDate == isAllDay)
+	{
+		return;
+	}
+	struct tm time = {};
 	if (isAllDay == true)
 	{
-		if (__allday == true)
-			return ;
-		__allday = true;
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		__year = time.tm_year +1900;
-		__month = time.tm_mon +1;
-		__mday = time.tm_mday;
+		//TODO investigate requirement
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		__utime = mktime(&time);
 	}
 	else
 	{
-		if (__allday == false)
-			return;
-
-		__allday = false;
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-		time.tm_year = __year - 1900;
-		time.tm_mon = __month - 1;
-		time.tm_mday = __mday;
-		__utime = 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getUtime(time);
+		//TODO investigate requirement, prefer to delete
+		struct tm *date = NULL;
+		time_t utime = (long int) __utime;
+		date = gmtime(&utime);
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		__utime = 0;
+		time.tm_year = date->tm_year - CAL_STRUCT_TM_YEAR_LOWER_SHIFT;
+		time.tm_mon = date->tm_mon - CAL_STRUCT_TM_MONTH_ARRAY_LOWER_SHIFT;
+		time.tm_mday = date->tm_mday;
+		// TODO CALDATETIME: update this after CalDateTime class is ready to use
+		//__utime = CalLocaleManager::getInstance().getUtime(time);
+		__utime = 0;
 	}
+	__fixedDate = isAllDay;
 	return;
 }
 
 void CalDateTime::addSeconds(const long long int seconds, const bool setLimit)
 {
-	if (__allday == true)
+	if (__fixedDate == true)
 	{
 		WERROR("invalid");
 		return;
@@ -410,36 +390,12 @@ void CalDateTime::addSeconds(const long long int seconds, const bool setLimit)
 
 void CalDateTime::addHours(const int hours, const bool setLimit)
 {
-	if (__allday == true)
-	{
-		WERROR("invalid");
-		return;
-	}
-
-	__utime += hours * 60 * 60;
-
-	if (setLimit == true)
-		__setLimit();
+	addSeconds(hours * CAL_TIME_SECONDS_IN_HOUR);
 }
 
 void CalDateTime::addDays(const int days, const bool setLimit)
 {
-	if (__allday == true)
-	{
-		long long int utime = getUtimeFromTm();
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().updateTmDay(days, time);
-		__year = time.tm_year +1900;
-		__month = time.tm_mon +1;
-		__mday = time.tm_mday;
-
-		if (setLimit == true)
-			__setLimit();
-		return;
-	}
-
-	__utime += days * 24 * 60 * 60;
+	__utime += days * CAL_TIME_HOURS_IN_DAY * CAL_TIME_SECONDS_IN_HOUR;
 
 	if (setLimit == true)
 		__setLimit();
@@ -447,24 +403,12 @@ void CalDateTime::addDays(const int days, const bool setLimit)
 
 void CalDateTime::addMonths(const int months, const bool setLimit)
 {
-	if (__allday == true)
-	{
-		long long int utime = getUtimeFromTm();
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().updateTmMonth(months, time);
-		__year = time.tm_year +1900;
-		__month = time.tm_mon +1;
-		__mday = time.tm_mday;
-
-		if (setLimit == true)
-			__setLimit();
-		return;
-	}
-	struct tm time;
-	// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-	// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().updateTmMonth(months, time);
-	__utime = 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getUtime(time);
+	struct tm time = {};
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+	//CalLocaleManager::getInstance().updateTmMonth(months, time);
+	//__utime = CalLocaleManager::getInstance().getUtime(time);
+	__utime = 0;
 
 	if (setLimit == true)
 		__setLimit();
@@ -472,24 +416,12 @@ void CalDateTime::addMonths(const int months, const bool setLimit)
 
 void CalDateTime::addYears(const int years, const bool setLimit)
 {
-	if (__allday == true)
-	{
-		long long int utime = getUtimeFromTm();
-		struct tm time;
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, utime, time);
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().updateTmYear(years, time);
-		__year = time.tm_year +1900;
-		__month = time.tm_mon +1;
-		__mday = time.tm_mday;
-
-		if (setLimit == true)
-			__setLimit();
-		return;
-	}
-	struct tm time;
-	// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
-	// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().updateTmYear(years, time);
-	__utime = 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getUtime(time);
+	struct tm time = {};
+	// TODO CALDATETIME: update this after CalDateTime class is ready to use
+	//CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+	//CalLocaleManager::getInstance().updateTmYear(years, time);
+	//__utime = CalLocaleManager::getInstance().getUtime(time);
+	__utime = 0;
 
 	if (setLimit == true)
 		__setLimit();
@@ -497,43 +429,39 @@ void CalDateTime::addYears(const int years, const bool setLimit)
 
 void CalDateTime::__setLimit()
 {
-	// 1902 ~ 2036
-	if (getYear() < 1902)
+	/* CAL_DATETIME_YEAR_LOWER_BOUND <= date  < CAL_DATETIME_YEAR_UPPER_BOUND */
+	if (getYear() < CAL_DATETIME_YEAR_LOWER_BOUND)
 	{
-		if (__allday == true)
+		if (__fixedDate == true)
 		{
-			set(1902,1,1);
+			set(CAL_DATETIME_YEAR_LOWER_BOUND, CAL_DATETIME_MONTH_LOWER_BOUND, CAL_DATETIME_DAY_LOWER_BOUND);
 		}
 		else
 		{
-			struct tm time;
-			memset(&time, 0, sizeof(struct tm));
-			time.tm_year = 1902 - 1900;
-			time.tm_mon = 1 - 1;
-			time.tm_mday = 1;
-			time.tm_hour = 12;
-			time.tm_min = 0;
-			time.tm_sec = 0;
-			__utime = 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getUtime(time);
+			struct tm time = {};
+			__createTm(CAL_DATETIME_YEAR_LOWER_BOUND, CAL_DATETIME_MONTH_LOWER_BOUND, CAL_DATETIME_DAY_LOWER_BOUND,
+					12, 0, 0,
+					&time);
+			// TODO CALDATETIME: update this after CalDateTime class is ready to use
+			//__utime = CalLocaleManager::getInstance().getUtime(time);
+			__utime = 0;
 		}
 	}
-	else if (getYear() > 2037)
+	else if (getYear() > CAL_DATETIME_YEAR_UPPER_BOUND)
 	{
-		if (__allday == true)
+		if (__fixedDate == true)
 		{
-			set(2037,12,31);
+			set(CAL_DATETIME_YEAR_UPPER_BOUND, CAL_DATETIME_MONTH_UPPER_BOUND, CAL_DATETIME_DAY_UPPER_BOUND);
 		}
 		else
 		{
 			struct tm time;
-			memset(&time, 0, sizeof(struct tm));
-			time.tm_year = 2037 - 1900;
-			time.tm_mon = 12 - 1;
-			time.tm_mday = 31;
-			time.tm_hour = 12;
-			time.tm_min = 0;
-			time.tm_sec = 0;
-			__utime = 0; // TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getUtime(time);
+			__createTm(CAL_DATETIME_YEAR_UPPER_BOUND, CAL_DATETIME_MONTH_UPPER_BOUND, CAL_DATETIME_DAY_UPPER_BOUND,
+					12, 0, 0,
+					&time);
+			// TODO CALDATETIME: update this after CalDateTime class is ready to use
+			//__utime = CalLocaleManager::getInstance().getUtime(time);
+			__utime = 0;
 		}
 	}
 }
@@ -550,4 +478,16 @@ int CalDateTime::getDateCompareVal() const
 	return (getYear() << 9) | (getMonth() << 5) | getMday();
 }
 
-
+void CalDateTime::__createTm(const int year, const int month, const int day, const int hour, const int min, const int sec, tm *timeptr)
+{
+	memset(timeptr, 0, sizeof(struct tm));
+	if (timeptr)
+	{
+		timeptr->tm_year = year - CAL_STRUCT_TM_YEAR_LOWER_SHIFT;
+		timeptr->tm_mon = month - CAL_STRUCT_TM_MONTH_ARRAY_LOWER_SHIFT;
+		timeptr->tm_mday = day;
+		timeptr->tm_hour = hour;
+		timeptr->tm_min = min;
+		timeptr->tm_sec = sec;
+	}
+}
