@@ -897,11 +897,9 @@ bool CalDataManager::isOverlapped(const CalSchedule& schedule)
 		if (start.type == CALENDAR_TIME_LOCALTIME)
 		{
 			caltimeStart.type = CALENDAR_TIME_UTIME;
-			// TODO CALDATETIME: update this after CalDateTime class is ready to use
-			//caltimeStart.time.utime = startTime.getUtimeDate();
+			caltimeStart.time.utime = startTime.getUtime();
 			caltimeEnd.type = CALENDAR_TIME_UTIME;
-			// TODO CALDATETIME: update this after CalDateTime class is ready to use
-			//caltimeEnd.time.utime= endTime.getUtimeDate();
+			caltimeEnd.time.utime = endTime.getUtime();
 		}
 		else
 		{

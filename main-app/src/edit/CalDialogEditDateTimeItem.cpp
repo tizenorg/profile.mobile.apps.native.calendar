@@ -45,8 +45,8 @@ CalDialogEditDateTimeItem::CalDialogEditDateTimeItem( int sortIndex,
 	{
 		struct tm tmStart;
 		struct tm tmEnd;
-		startDateTime.getTmFromUtime(&tmStart);
-		endDateTime.getTmFromUtime(&tmEnd);
+		startDateTime.getTmTime(&tmStart);
+		endDateTime.getTmTime(&tmEnd);
 
 		double seconds = difftime(mktime(&tmEnd), mktime(&tmStart));
 		double days = seconds/(60 * 60 * 24.0);

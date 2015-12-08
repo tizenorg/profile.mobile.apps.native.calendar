@@ -91,9 +91,9 @@ public:
 	void getDateTimeText(const DateFormat dateFormat, const TimeFormat timeFormat, const CalDateTime& dateTime, std::string& text);
 	void getDateText(const DateFormat dateFormat, const CalDateTime& date, std::string& text);
 
-	const char* getWeekdayText(const long long int utime);
 	const char* getWeekdayText(int weekday);
 	const char* getWeekdayShortText(int weekday);
+	int getLocaleFirstDayOfWeek();
 
 private:
 	void __getLocale(std::string &localeStr);
@@ -105,8 +105,6 @@ private:
 	void __initWeekday();
 
 public:
-	i18n_ucalendar_h __cal;
-
 	std::string __locale;
 	i18n_udatepg_h __patternGenerator;
 	std::map<std::string,i18n_udate_format_h> __mapFormat;
