@@ -39,7 +39,6 @@ CalEventItem::CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalS
 			__searchText = lowerSearchText;
 		}
 	}
-
 	if(schedule)
 	{
 		CalDateTime eventStartDate;
@@ -47,7 +46,6 @@ CalEventItem::CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalS
 
 		schedule->getStart(eventStartDate);
 		schedule->getEnd(eventEndDate);
-
 		schedule->getDisplayTrimedSummary(-1, __title);
 		if (!__title.empty())
 		{
@@ -60,7 +58,6 @@ CalEventItem::CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalS
 		{
 			__title = _L_("IDS_CLD_MBODY_MY_EVENT");
 		}
-
 		schedule->getDisplayTrimedLocation(-1, __location);
 		if (!__location.empty())
 		{
@@ -69,13 +66,11 @@ CalEventItem::CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalS
 				getHilightText(__location);
 			}
 		}
-
 		if(schedule->getBookId() == DEFAULT_BIRTHDAY_CALENDAR_BOOK_ID)
 		{
 			__dateText = _L_("IDS_CLD_OPT_ALL_DAY_ABB2");
 			return;
 		}
-
 		CalDateTime itemNextDay, groupDateTime(dayOfGroup.getYear(), dayOfGroup.getMonth(), dayOfGroup.getMday(), 0, 0, 0);
 
 		std::string textStartTime, textEndTime;
@@ -84,7 +79,6 @@ CalEventItem::CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalS
 
 		itemNextDay = groupDateTime;
 		itemNextDay.addDays(1);
-
 		if(groupDateTime >= eventStartDate && eventEndDate >= itemNextDay)
 		{
 			textStartTime = _L_("IDS_CLD_OPT_ALL_DAY_ABB2");
@@ -101,7 +95,6 @@ CalEventItem::CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalS
 		{
 			textStartTime += " - " + textEndTime;
 		}
-
 		__dateText = textStartTime;
 	}
 }

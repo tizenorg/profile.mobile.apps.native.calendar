@@ -19,14 +19,15 @@
 #define _CAL_DATE_TIME_H_
 
 #include <time.h>
+#include <utils_i18n.h>
 
 class WAPP_ASSIST_EXPORT CalDateTime
 {
 public:
 	CalDateTime();
-	CalDateTime(const struct tm& dateTm);
-	CalDateTime(int year, int month, int mday, bool fixedDate = true);
-	CalDateTime(int year, int month, int mday, int hour, int min, int sec);
+	CalDateTime(const long long int uTime, bool fixedDate = false);
+	CalDateTime(const struct tm& dateTm, bool fixedDate = false);
+	CalDateTime(int year, int month, int mday, int hour = 0, int min = 0, int sec = 0, bool fixedDate = false);
 	virtual ~CalDateTime();
 
 	CalDateTime( const CalDateTime& );
@@ -40,21 +41,31 @@ public:
 	bool isSameDay (const CalDateTime &) const;
 
 public:
+
+	const char* getWeekdayText(const long long int utime);
+
+	void createUCalendar();
+
 	// set
-	void set(const int year, const int month, const int mday, bool fixedDate = true);
+	void setUCalendar(const struct tm &tm) const;
+	void set(const int year, const int month, const int mday, const int hour = 0, const int minute = 0, const int second = 0);
 	void set(const long long int utime);
 	void set(const struct tm& dateTm);
 	void setAllDay(const bool isAllDay);
 
 	// get
+	void getUCalendar(struct tm &tm) const;
 	int getYear() const;
 	int getMonth() const;
 	int getMday() const;
 	int getHour() const;
 	int getMinute() const;
 	int getSecond() const;
-	void getTmFromUtime(struct tm* dateTm) const;
-	long long int getUtimeFromTm() const;
+
+	void getTmTime(struct tm *dateTm) const;
+	long long int getUtime() const;
+
+	int getDayOfWeek();
 	void getString(std::string& text) const;
 	void getTimeString(std::string& text) const;
 	void getDateString(std::string& text) const;
@@ -64,6 +75,7 @@ public:
 
 	//
 	void addSeconds(const long long int seconds, const bool setLimit = true);
+	void addMinutes(const int minutes, const bool setLimit = true);
 	void addHours(const int hours, const bool setLimit = true);
 	void addDays(const int days, const bool setLimit = true);
 	void addMonths(const int months, const bool setLimit = true);
@@ -72,13 +84,16 @@ public:
 public:
 	void getStringParam(char buffer[]) const;
 	int getDateCompareVal() const;
+	static int getDayDiff(CalDateTime __date1, CalDateTime __date2);
 
 	void __createTm(const int year, const int month, const int day, const int hour, const int min, const int sec, struct tm *timeptr);
+
 private:
 	void __getString(int df, int tf, std::string& text) const;
 	void __setLimit();
 
 private:
+	i18n_ucalendar_h __cal;
 	long long int __utime;
 	bool __fixedDate;
 };

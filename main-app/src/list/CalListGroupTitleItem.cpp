@@ -238,7 +238,9 @@ Elm_Genlist_Item_Class* CalListGroupTitleItem::getItemClassStatic()
 
 void CalListGroupTitleItem::addItem(const std::shared_ptr<CalSchedule>& schedule, bool isCheckboxRequired, bool isCheckboxSelected, const std::string& searchText, int dir)
 {
+	WENTER();
 	CalEventItem* eventItem = new CalEventItem(__date, schedule, isCheckboxRequired, isCheckboxSelected, searchText);
+
 	eventItem->setOnTapCallback([this](CalEventItem* item)
 	{
 		if(__parent)
@@ -255,6 +257,7 @@ void CalListGroupTitleItem::addItem(const std::shared_ptr<CalSchedule>& schedule
 	{
 		__listEvents.push_front(eventItem);
 	}
+	WLEAVE();
 }
 
 int CalListGroupTitleItem::getSelectedItemsCount()

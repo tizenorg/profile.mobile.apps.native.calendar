@@ -194,11 +194,10 @@ void CalOriginalSchedule::setRepeat(const CalScheduleRepeat& repeat)
 		if (repeat.unitInfo.monthly.type == CalScheduleRepeat::MonthlyType::WEEKDAY)
 		{
 			CalDateTime start(__repeat.startDate.year, __repeat.startDate.month, __repeat.startDate.mday);
-			int weekNum = 0;// TODO CALDATETIME: update this after CalDateTime class is ready to use CalLocaleManager::getInstance().getDayOfWeekInMonth(start.getUtimeFromTm());
-
+			int weekNum = start.getDayOfWeek();
 			char dayofweek[WEEKDAY_BUFFER] = {0};
 			snprintf(dayofweek, sizeof(dayofweek), "%d", weekNum);
-			const char *wdayText = CalLocaleManager::getInstance().getWeekdayText(start.getUtimeFromTm());
+			const char *wdayText = start.getWeekdayText();
 			strncat(dayofweek, wdayText, WEEKDAY_BUFFER - 1);
 			WDEBUG("dayofweek[%s]",dayofweek);
 			error = calendar_record_set_str(getRecord(), _calendar_event.byday, dayofweek);
@@ -284,14 +283,14 @@ void CalOriginalSchedule::setRepeat(const CalScheduleRepeat& repeat)
 		if (startTime.type == CALENDAR_TIME_UTIME)
 		{
 			struct tm startTm;
-			// TODO CALDATETIME: update this after CalDateTime class is ready to use
-			//CalLocaleManager::getInstance().getTmFromUtime(getTimeZone(),startTime.time.utime, startTm);
+			CalDateTime tempDateTime(startTime.time.utime);
+			tempDateTime.getTmTime(&startTm);
 			startTm.tm_year = repeat.untilInfo.date.year - 1900;
 			startTm.tm_mon = repeat.untilInfo.date.month - 1;
 			startTm.tm_mday = repeat.untilInfo.date.mday;
 			untilTime.type = CALENDAR_TIME_UTIME;
-			// TODO CALDATETIME: update this after CalDateTime class is ready to use
-			//untilTime.time.utime = CalLocaleManager::getInstance().getUtimeFromTm(getTimeZone(),startTm);
+			tempDateTime.set(startTm);
+			untilTime.time.utime = tempDateTime.getUtime();
 		}
 		else
 		{

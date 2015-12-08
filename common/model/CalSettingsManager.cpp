@@ -151,11 +151,13 @@ void CalSettingsManager::init()
 	}
 
 	__alertSound = std::string();
+
 	__setChangedCb(CAL_SETTING_FIRST_DAY_OF_WEEK_KEY, CalEvent::FIRST_DAY_OF_WEEK_CHANGED);
 	__setChangedCb(CAL_SETTING_LOCK_TIME_ZONE_KEY, CalEvent::SETTING_CHANGED);
 	__setChangedCb(CAL_SETTING_TIME_ZONE_KEY, CalEvent::TIME_CHANGED);
 
 	__setHour24();
+
 	__setLocaleTimeZone();
 
 	system_settings_set_changed_cb(SYSTEM_SETTINGS_KEY_LOCALE_TIMEFORMAT_24HOUR, __systemSettingsChangeCb, NULL);
@@ -212,7 +214,6 @@ void CalSettingsManager::__setLocaleTimeZone(void)
 	WENTER();
 	bool isLockTimeZone = getLockTimeZone();
 	std::string timeZone;
-	std::string localeTimeZone;
 	if (isLockTimeZone == false)
 	{
 		getDeviceTimeZone(timeZone);
@@ -222,12 +223,7 @@ void CalSettingsManager::__setLocaleTimeZone(void)
 		getTimeZone(timeZone);
 	}
 
-//	TODO CALDATETIME: update this after CalDateTime class is ready to use
-//	CalLocaleManager::getInstance().getTimeZone(localeTimeZone);
-//	if (timeZone.compare(localeTimeZone) != 0)
-//	{
-//		CalLocaleManager::getInstance().setTimeZone(timeZone);
-//	}
+	CalLocaleManager::getInstance().updateRegion();
 }
 
 void CalSettingsManager::getDeviceTimeZone(std::string& timeZone)
