@@ -53,6 +53,7 @@ const CalDate& CalComplexListProvider::getCurrentDate()
 
 void CalComplexListProvider::loadNext()
 {
+	WENTER();
 	if (__list.size() == 0 || __iter == __list.end())
 	{
 		__deleteFinishedFromList();
@@ -69,6 +70,7 @@ void CalComplexListProvider::loadNext()
 	__currentSchedule =  (*__iter).__schedule;
 	(*__iter).__remainingDays--;
 	++__iter;
+	WLEAVE();
 }
 
 void CalComplexListProvider::__deleteFinishedFromList()
@@ -89,7 +91,7 @@ void CalComplexListProvider::__deleteFinishedFromList()
 
 void CalComplexListProvider::__updateCurrentDateAndFillList()
 {
-	WDEBUG("[%d%d] %s %d", __dir, __allDay, __currentDate.dump().c_str(), __list.size());
+	WENTER();
 
 	if (!__pending)
 	{
@@ -117,7 +119,7 @@ void CalComplexListProvider::__updateCurrentDateAndFillList()
 		__pending = __getNextScheduleFromDbList(__pendingDate);
 	}
 
-	WDEBUG("[%d%d] %s %d", __dir, __allDay, __currentDate.dump().c_str(), __list.size());
+	WLEAVE();
 }
 
 std::shared_ptr<CalInstanceSchedule> CalComplexListProvider::__getNextScheduleFromDbList(CalDate& date)
@@ -178,14 +180,15 @@ void CalComplexListProvider::__getAdjustedDates(const CalInstanceSchedule& sched
 		WASSERT(startDateTime <= endDateTime);
 		if (__dir > 0)
 		{
-			// TODO CALDATETIME: Uncomment this after CalDateTime class and all the changes from CalLocateManager in other classes are fixed
+			//TODO Uncomment this as soon as CalDate is removed
 			//WASSERT(__base <= end); // 2014/5/5 00:00 ~ 2014/5/5 00:00 event should show on 2014/5/5
 		}
 		else
 		{
 //			http://en.wikipedia.org/wiki/Magadan_Time
 //			http://www.timeanddate.com/time/zone/russia/magadan
-			WASSERT(start <= __base);
+			//TODO Uncomment this as soon as CalDate is removed
+			//WASSERT(start <= __base);
 		}
 	}
 

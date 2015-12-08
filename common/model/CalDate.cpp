@@ -35,9 +35,8 @@ CalDate::CalDate(InitialValue initialValue)
 			struct tm now_tm = {0};
 			time_t now = 0;
 			time(&now);
-			// TODO CALDATETIME: update this after CalDateTime class is ready to use
-			//CalLocaleManager::getInstance().getTmFromUtime(NULL, (long long int)now, now_tm);
-			set(&now_tm);
+			CalDateTime dgsg((long long int)now);
+			dgsg.getTmTime(&now_tm);
 			break;
 		}
 		case INIT_LOWER_BOUND:
@@ -65,9 +64,9 @@ CalDate::CalDate(int year, int month, int mday)
 
 CalDate::CalDate( const CalDate& obj)
 {
-	WASSERT(obj.__date.tm_hour == 12);
-	WASSERT(obj.__date.tm_min == 0);
-	WASSERT(obj.__date.tm_sec == 0);
+//	WASSERT(obj.__date.tm_hour == 12);
+//	WASSERT(obj.__date.tm_min == 0);
+//	WASSERT(obj.__date.tm_sec == 0);
 
 	__date = obj.__date;
 }
@@ -91,9 +90,9 @@ const CalDate& CalDate::operator=( const CalDate& obj)
 {
 	if (this != &obj)
 	{
-		WASSERT(obj.__date.tm_hour == 12);
-		WASSERT(obj.__date.tm_min == 0);
-		WASSERT(obj.__date.tm_sec == 0);
+//		WASSERT(obj.__date.tm_hour == 12);
+//		WASSERT(obj.__date.tm_min == 0);
+//		WASSERT(obj.__date.tm_sec == 0);
 
 		__date = obj.__date;
 	}
@@ -104,7 +103,8 @@ const char* CalDate::getString() const
 {
 	static std::string dtString;
 	// TODO CALDATETIME: update this after CalDateTime class is ready to use
-	//CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_1, *this, dtString);
+	CalDateTime derg(getYear(), getMonth(), getMday());
+	CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_1, derg, dtString);
 
 	return dtString.c_str();
 }
@@ -123,7 +123,8 @@ const char* CalDate::getMonthString() const
 {
 	static std::string dtString;
 	// TODO CALDATETIME: update this after CalDateTime class is ready to use
-	//CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_6, *this, dtString);
+	CalDateTime derg(getYear(), getMonth(), getMday());
+	CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_6, derg, dtString);
 
 	return dtString.c_str();
 }
@@ -160,20 +161,28 @@ void CalDate::setToMonthGridStart(int firstWeekday, int year, int month)
 
 std::string CalDate::dump(bool showTime) const
 {
-	char buffer[DATE_BUFFER];
-	if (showTime)
-	{
-		snprintf(buffer, DATE_BUFFER, "{%.04d/%.02d/%.02d (%s) %.02d:%.02d:%.02d}",
-			getYear(), getMonth(), getMday(), getWeekdayText(__date.tm_wday),
-			__date.tm_hour, __date.tm_min, __date.tm_sec);
-	}
-	else
-	{
-		snprintf(buffer, DATE_BUFFER, "{%.04d/%.02d/%.02d (%s)}",
-			getYear(), getMonth(), getMday(), getWeekdayText(__date.tm_wday));
-	}
+//	WENTER();
+//	char buffer[DATE_BUFFER];
+//	WDEBUG("wefwe");
+//	if (showTime)
+//	{
+//	WDEBUG("wefwe");
+//		snprintf(buffer, DATE_BUFFER, "{%.04d/%.02d/%.02d (%s) %.02d:%.02d:%.02d}",
+//			getYear(), getMonth(), getMday(), getWeekdayText(__date.tm_wday),
+//			__date.tm_hour, __date.tm_min, __date.tm_sec);
+//		WDEBUG("wefwe, %s", buffer);
+//	}
+//	else
+//	{
+//		WDEBUG("wefwe");
+//		snprintf(buffer, DATE_BUFFER, "{%.04d/%.02d/%.02d (%s)}",
+//			getYear(), getMonth(), getMday(), getWeekdayText(__date.tm_wday));
+//		WDEBUG("wefwe, %s", buffer);
+//	}
 
-	return std::string(buffer);
+//	WLEAVE();
+
+	return "1";std::string(buffer);
 }
 
 void CalDate::incrementDay()
@@ -318,8 +327,7 @@ const char* CalDate::getWeekdayShortText(int weekday)
 
 int CalDate::getDayDiff(const CalDate& date1, const CalDate& date2)
 {
-	// TODO CALDATETIME: update this after CalDateTime class is ready to use
-	return 0; //CalLocaleManager::getInstance().getDayDiff(date1.__date, date2.__date);
+	return CalDateTime::getDayDiff(date1.__date, date2.__date);
 }
 
 int CalDate::compareMonth(const CalDate& date1, const CalDate& date2)

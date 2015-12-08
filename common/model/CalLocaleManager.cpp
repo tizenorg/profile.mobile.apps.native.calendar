@@ -33,8 +33,6 @@ extern "C" {
 
 #define DATETIME_BUFFER 64
 
-// sec <-> millisec
-#define ms2sec(ms) ((long long int)ms / 1000)
 #define sec2ms(s) ((i18n_udate)s * 1000.0)
 
 #ifdef TIZEN_2_4
@@ -90,17 +88,15 @@ CalLocaleManager::CalLocaleManager()
 {
 	WENTER();
 
-	__cal = NULL;
 	__obj = NULL;
 	__patternGenerator = NULL;
-	updateRegion();
+
+	WLEAVE();
 }
 
 CalLocaleManager::~CalLocaleManager()
 {
 	WENTER();
-	if (__cal)
-		i18n_ucalendar_destroy(__cal);
 
 	if (__patternGenerator)
 		i18n_udatepg_destroy(__patternGenerator);
@@ -111,21 +107,24 @@ CalLocaleManager::~CalLocaleManager()
 		i18n_udate_destroy(dateFormat);
 	}
 	__mapFormat.clear();
+
+	WLEAVE();
 }
 
 void CalLocaleManager::init()
 {
 	WENTER();
-	__cal = NULL;
 	__patternGenerator = NULL;
 	__obj = NULL;
 
 	updateLocaleForEvasObj();
+	WLEAVE();
 }
 
 void CalLocaleManager::updateLocaleForEvasObj()
 {
 	char *locale = NULL;
+
 	system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE, &locale);
 	WDEBUG("Language %s", locale);
 
@@ -188,7 +187,6 @@ bool CalLocaleManager::isRTL()
 void CalLocaleManager::updateRegion()
 {
 	WENTER();
-	WDEBUG("UPDATE---------------------------------------------------------------------------------------------------------------");
 
 	i18n_ulocale_set_default(getenv("LC_TIME"));
 	std::string locale;
@@ -198,17 +196,49 @@ void CalLocaleManager::updateRegion()
 	__locale = locale;
 	if (__patternGenerator)
 		i18n_udatepg_destroy(__patternGenerator);
-
 	i18n_udatepg_create(__locale.c_str(), &__patternGenerator);
-
 	for (auto it=__mapFormat.begin(); it!=__mapFormat.end(); ++it)
 	{
 		i18n_udate_format_h dateFormat= it->second;
 		i18n_udate_destroy(dateFormat);
 	}
 	__mapFormat.clear();
-
 	__initWeekday();
+	WLEAVE();
+}
+
+int CalLocaleManager::getLocaleFirstDayOfWeek()
+{
+	char *locale = NULL;
+	system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_COUNTRY, &locale);
+
+	if (CAL_STRLEN(locale)) {
+		i18n_ulocale_set_default(locale);
+		free(locale);
+	}
+
+	i18n_ucalendar_h cal;
+
+	const char *loc;
+	i18n_ulocale_get_default(&loc);
+	i18n_ucalendar_create(0, -1, loc, I18N_UCALENDAR_TRADITIONAL , &cal);
+	c_retvm_if(!cal, -1, "cal is null");
+
+	int first_day_of_week;
+	i18n_ucalendar_get_attribute(cal, I18N_UCALENDAR_FIRST_DAY_OF_WEEK, &first_day_of_week);
+
+	i18n_ucalendar_destroy(cal);
+
+/*
+	UCAL_SUNDAY = 1,
+	UCAL_MONDAY,
+	UCAL_TUESDAY,
+	UCAL_WEDNESDAY,
+	UCAL_THURSDAY,
+	UCAL_FRIDAY,
+	UCAL_SATURDAY,
+*/
+	return first_day_of_week -1;
 }
 
 void CalLocaleManager::getDateTimeText(const DateFormat df, const TimeFormat tf, const CalDateTime& dt, std::string& text)
@@ -223,9 +253,7 @@ void CalLocaleManager::getDateTimeText(const DateFormat df, const TimeFormat tf,
 	int32_t formattedLength;
 	i18n_udate date;
 
-	// get udate from CalDateTime
-	long long int utime = 0;// TODO CALDATETIME: Get this stuff from updated CalDateTime class: dt.getUtimeDate();
-	date = sec2ms(utime);
+	date = sec2ms(dt.getUtime());
 
 	formattedCapacity = (int32_t)(sizeof(formatted)/sizeof((formatted)[0]));
 	i18n_udate_format_date(formatter, date, formatted, formattedCapacity, NULL, &formattedLength);
@@ -252,11 +280,7 @@ void CalLocaleManager::getDateText(const DateFormat dateFormat, const CalDateTim
 	int32_t formattedLength;
 	i18n_udate udate;
 
-	CalDateTime time(date.getYear() - 1900, date.getMonth() - 1, date.getMday());
-	long long int utime = 0; // TODO CALDATETIME: Get this stuff from updated CalDateTime class: time.getUtimeDate();
-	udate = sec2ms(utime);
-
-	WENTER();
+	udate = sec2ms(date.getUtime());
 
 	i18n_udate_format_date(formatter, udate, formatted, DATETIME_BUFFER, NULL, &formattedLength);
 
@@ -320,10 +344,8 @@ void CalLocaleManager::__getLocale(std::string &localeStr)
 const i18n_udate_format_h CalLocaleManager::__getUDateFormat(const DateFormat df, const TimeFormat tf)
 {
 	WENTER();
-	WDEBUG("UPDATE---------------------------------------------------------------------------------------------------------------");
 	if (__patternGenerator == NULL)
 	{
-		updateRegion();
 		WASSERT(__patternGenerator);
 	}
 	char buf[1024];
@@ -339,7 +361,6 @@ const i18n_udate_format_h CalLocaleManager::__getUDateFormat(const DateFormat df
 		timeFormat = __timeformat[tf];
 	else
 		timeFormat = "";
-
 	snprintf(buf,sizeof(buf),"%s%s",dateFormat,timeFormat);
 
 	std::string formatString = buf;
@@ -351,30 +372,20 @@ const i18n_udate_format_h CalLocaleManager::__getUDateFormat(const DateFormat df
 		i18n_udate_format_h formatter;
 		i18n_uchar bestPattern[DATETIME_BUFFER] = {0};
 		i18n_ustring_copy_ua_n(custom_format, formatString.c_str(), formatString.length());
-
 		bestPatternCapacity = (int32_t)(sizeof(bestPattern)/sizeof((bestPattern)[0]));
 		i18n_udatepg_get_best_pattern(__patternGenerator, custom_format, i18n_ustring_get_length(custom_format), bestPattern,   bestPatternCapacity, &bestPatternLength);
 
 		i18n_udate_create(I18N_UDATE_PATTERN , I18N_UDATE_PATTERN , __locale.c_str(), nullptr, -1, bestPattern, -1, &formatter);
-
 		__mapFormat.insert(std::pair<std::string,i18n_udate_format_h>(formatString, formatter));
-
+	WLEAVE();
 		return formatter;
 	}
 	else
 	{
+	WLEAVE();
 		return it->second;
 	}
-}
 
-const char* CalLocaleManager::getWeekdayText(const long long int utime)
-{
-	static char weeks[7][3] = {"SU", "MO", "TU", "WE", "TH", "FR", "SA"};
-
-	i18n_ucalendar_set_milliseconds(__cal, sec2ms(utime));
-	int wday = 0;
-	i18n_ucalendar_get(__cal, I18N_UCALENDAR_DAY_OF_WEEK, &wday);
-	return weeks[wday - 1];
 }
 
 const char* CalLocaleManager::getWeekdayText(int weekday)
@@ -389,13 +400,15 @@ const char* CalLocaleManager::getWeekdayShortText(int weekday)
 
 void CalLocaleManager::__initWeekday()
 {
-	// get Sunday
+	WENTER();
 	CalDateTime date(2013,12,1);
 
-	for(int i=0; i < 7; i++)
+	for(int i = 0; i < 7; i++)
 	{
 		getDateText(CalLocaleManager::DATEFORMAT_2, date, __weekdayText[i]);
 		getDateText(CalLocaleManager::DATEFORMAT_17, date, __weekdayShortText[i]);
-		// TODO CALDATETIME: Get this stuff from updated CalDateTime class: date.incrementDay();
+
+		date.addDays(1);
 	}
+	WLEAVE();
 }

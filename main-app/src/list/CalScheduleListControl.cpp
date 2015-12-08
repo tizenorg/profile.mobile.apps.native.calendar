@@ -695,6 +695,7 @@ bool CalScheduleListControl::__appendNext()
 	WENTER();
 	if (!__forwardModel)
 	{
+		WLEAVE();
 		return false;
 	}
 
@@ -776,9 +777,12 @@ bool CalScheduleListControl::__prependNext()
  */
 void CalScheduleListControl::__insertItem(const std::shared_ptr<CalSchedule>& schedule, CalDate date, bool isSelected, int dir)
 {
+	WENTER();
+
 	if(dir < 0) // prepend
 	{
 		CalDateTime startDateTime, endDateTime;
+
 		schedule->getStart(startDateTime);
 		schedule->getEnd(endDateTime);
 
@@ -815,6 +819,7 @@ void CalScheduleListControl::__insertItem(const std::shared_ptr<CalSchedule>& sc
 			dayItem->addItem(schedule, __isCreateCheck, isSelected, __searchText, dir);
 		}
 	}
+	WLEAVE();
 }
 
 /**
@@ -825,6 +830,7 @@ void CalScheduleListControl::__insertItem(const std::shared_ptr<CalSchedule>& sc
  */
 void CalScheduleListControl::__insertMonthItemIfNeeded(CalDate date, int dir)
 {
+	WENTER();
 	bool found = false;
 	bool inserted = false;
 

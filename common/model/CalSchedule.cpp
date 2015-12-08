@@ -721,7 +721,7 @@ std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(bool isAllDay)
 	// set default time
 	CalDateTime startTime;
 	struct tm startTm = {0};
-	startTime.getTmFromUtime(&startTm);
+	startTime.getTmTime(&startTm);
 	startTm.tm_min = 0;
 	startTm.tm_sec = 0;
 	startTime.set(startTm);
@@ -746,7 +746,7 @@ std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(const CalDate& dat
 	// set default time
 	CalDateTime startTime;
 	struct tm startTm;
-	startTime.getTm(deviceTimeZone.c_str(), &startTm);
+	startTime.getTmTime(deviceTimeZone.c_str(), &startTm);
 	startTm.tm_year = date.getYear() - 1900;
 	startTm.tm_mon = date.getMonth() - 1;
 	startTm.tm_mday = date.getMday();
@@ -763,7 +763,7 @@ std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(const CalDate& dat
 	// set default time
 	CalDateTime startTime;
 	struct tm startTm = {0};
-	startTime.getTmFromUtime(&startTm);
+	startTime.getTmTime(&startTm);
 	bool isToday = false;
 	if (startTm.tm_year == (date.getYear() - 1900) &&
 			startTm.tm_mon == (date.getMonth() - 1) &&
@@ -848,7 +848,7 @@ calendar_time_s CalSchedule::getCaltime(const CalDateTime& datetime)
 		caltime.time.date.is_leap_month = false;
 	} else {
 		caltime.type = CALENDAR_TIME_UTIME;
-		caltime.time.utime = datetime.getUtimeFromTm();
+		caltime.time.utime = datetime.getUtime();
 	}
 	return caltime;
 }

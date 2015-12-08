@@ -149,8 +149,7 @@ int CalScheduleRepeat::getFirstDayOfWeek() const
 {
 	int result = CalSettingsManager::getInstance().getFirstDayOfWeek();
 	if (result == CalSettingsManager::LOCALES)
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use
-		return 0; //CalLocaleManager::getInstance().getLocaleFirstDayOfWeek();
+		return CalLocaleManager::getInstance().getLocaleFirstDayOfWeek();
 
 	return result;
 }
@@ -288,8 +287,7 @@ void CalScheduleRepeat::getMonthlyUnitInfoString(const Date date, const char* ti
 	if (type == CalScheduleRepeat::MonthlyType::WEEKDAY)
 	{
 		CalDateTime start(date.year, date.month, date.mday);
-		// TODO CALDATETIME: update this after CalDateTime class is ready to use
-		int weekNum = 0; //CalLocaleManager::getInstance().getDayOfWeekInMonth(timezone, start.getUtimeFromTm());
+		int weekNum = start.getDayOfWeek();
 		std::string text;
 		CalLocaleManager::getInstance().getDateTimeText(CalLocaleManager::DATEFORMAT_14,
 				CalLocaleManager::TIMEFORMAT_NONE, start, text);

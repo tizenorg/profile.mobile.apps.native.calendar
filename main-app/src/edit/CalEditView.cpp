@@ -798,8 +798,8 @@ void CalEditView::__setTimeZone(const std::string& tz)
 	__workingCopy->getEnd(endDateTime);
 
 	// get previous start/end for floating time
-	startDateTime.getTmFromUtime(&startTm);
-	endDateTime.getTmFromUtime(&endTm);
+	startDateTime.getTmTime(&startTm);
+	endDateTime.getTmTime(&endTm);
 
 	// update tz
 	__workingCopy->setTimeZone(tz.c_str());
@@ -1693,13 +1693,13 @@ void CalEditView::__onSave()
 		struct tm time = {};
 		CalDateTime startDateTime;
 		__workingCopy->getStart(startDateTime);
-		startDateTime.getTmFromUtime(&time);
+		startDateTime.getTmTime(&time);
 		memset(&time, 0, sizeof(time));
 		startDateTime.set(time);
 		__workingCopy->setStart(startDateTime);
 		CalDateTime endDateTime;
 		__workingCopy->getEnd(endDateTime);
-		endDateTime.getTmFromUtime(&time);
+		endDateTime.getTmTime(&time);
 		endDateTime.set(time);
 		__workingCopy->setEnd(endDateTime);
 	}
