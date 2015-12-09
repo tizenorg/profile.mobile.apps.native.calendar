@@ -3,8 +3,7 @@
                 <domain name="${PKGNAME}" policy="shared" />
 	</define>
 	<assign>
-		<filesystem path="/usr/share/icons/default/small/*" label="_"/>
-		<filesystem path="${SHAREDRESDIR}/images/*" label="_"/>
+		<filesystem path="/usr/share/icons/default/small/org.tizen.calendar.png" label="_"/>
 	</assign>
 	<request>
                 <domain name="${PKGNAME}"/>
