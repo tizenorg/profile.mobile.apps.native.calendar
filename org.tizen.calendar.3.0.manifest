@@ -1,0 +1,8 @@
+<manifest>
+	<assign>
+		<filesystem path="/usr/share/icons/default/small/org.tizen.calendar.png" label="_"/>
+	</assign>
+	<request>
+                <domain name="_"/>
+	</request>
+</manifest>

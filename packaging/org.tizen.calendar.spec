@@ -35,10 +35,14 @@ BuildRequires: pkgconfig(capi-system-device)
 BuildRequires: pkgconfig(capi-base-utils-i18n)
 BuildRequires: pkgconfig(capi-ui-efl-util)
 
-%define is_t3_0 %(if [[ %{tizen_version} =~ "3.0" ]] ; then echo 1 ; else echo 0 ; fi ;)
+%if "%{tizen_version}" == "3.0"
+%define is_tizen_3_0		1
+%else
+%define is_tizen_3_0		0
+%endif
 
-%if 0%is_t3_0
-#BuildRequires: pkgconfig(libtzplatform-config)
+%if %is_tizen_3_0 == 1
+BuildRequires: pkgconfig(libtzplatform-config)
 %endif
 
 %if 0%{?widget_disabled}
@@ -51,7 +55,7 @@ Requires: contacts-service2
 %description
 UI %{REF_APP_LABEL} application.
 
-%if 1%is_t3_0
+%if %is_tizen_3_0 == 0
 %define TZ_SYS_RO_APP   /usr/apps
 %endif
 
@@ -61,7 +65,6 @@ UI %{REF_APP_LABEL} application.
 
 %prep
 %setup -q
-
 
 %build
 %if 0%{?sec_build_binary_debug_enable}
@@ -80,7 +83,7 @@ cd %{BUILD_DIR}
 %define CMAKE_PARAMETERS -DCMAKE_INSTALL_PREFIX=%{PREFIX} -DPKGVERSION=%{version} %{?widget_disabled: -DWIDGET_DISABLED=1} -DREF_APP_NAME=%{REF_APP_NAME} -DREF_APP_LABEL=%{REF_APP_LABEL}
 %define MAKE_LOG_FILTER 2>&1 | sed -e 's%^.*: error: .*$%\x1b[37;41m&\x1b[m%' -e 's%^.*: warning: .*$%\x1b[30;43m&\x1b[m%'
 
-%if 0%is_t3_0
+%if %is_tizen_3_0 == 1
     %define CMAKE_PARAMETERS_FULL %{CMAKE_PARAMETERS} -DTIZEN_PLATFORM_VERSION="30"
     %define MAKE_LOG_FILTER_FULL %{?_smp_mflags} %{MAKE_LOG_FILTER}
 %else
@@ -96,15 +99,19 @@ make %{MAKE_LOG_FILTER_FULL}
 %install
 cd %{BUILD_DIR}
 %make_install
-%if 0%is_t3_0
+%if %is_tizen_3_0 == 0
 %find_lang %{REF_APP_NAME}
 %endif
 
 
 %files
-%manifest %{BUILD_DIR}/%{name}.manifest
+%if %is_tizen_3_0 == 1
+%manifest %{BUILD_DIR}/%{name}.3.0.manifest
+%else
+%manifest %{BUILD_DIR}/%{name}.2.4.manifest
+%endif
 
-%if 1%is_t3_0
+%if %is_tizen_3_0 == 0
 %defattr(-,root,root,-)
 %endif
 
@@ -112,14 +119,13 @@ cd %{BUILD_DIR}
 %{PREFIX}/lib/*.so
 %{RESDIR}/*
 
-%if 1%is_t3_0
+%if %is_tizen_3_0 == 0
     %define TZ_SYS_RO_PACKAGES   /usr/share/packages
     %define TZ_SYS_RO_ICONS      /usr/share/icons
     %define TZ_SYS_SHARE         /usr/share
-    %define TZ_SYS_SMACK         /etc/smack
+    /etc/smack/accesses.d/%{name}.efl
 %endif
 
 %{TZ_SYS_RO_PACKAGES}/%{name}.xml
-%{TZ_SYS_RO_ICONS}/default/small/*
-%doc %{TZ_SYS_SHARE}/license/%{name}
-%{TZ_SYS_SMACK}/accesses.d/%{name}.efl
+%{TZ_SYS_RO_ICONS}/default/small/*.png
+%{TZ_SYS_SHARE}/license/%{name}
