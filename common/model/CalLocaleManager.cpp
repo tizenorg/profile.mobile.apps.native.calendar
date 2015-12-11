@@ -124,6 +124,7 @@ void CalLocaleManager::init()
 
 void CalLocaleManager::updateLocaleForEvasObj()
 {
+	WENTER();
 	char *locale = NULL;
 	system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE, &locale);
 	WDEBUG("Language %s", locale);
@@ -132,15 +133,18 @@ void CalLocaleManager::updateLocaleForEvasObj()
 		elm_language_set(locale);
 		free(locale);
 	}
+	WLEAVE();
 }
 
 void CalLocaleManager::setEvasObjForRTL(Evas_Object* obj)
 {
+	WENTER();
 	__obj = obj;
 }
 
 bool CalLocaleManager::isRTL()
 {
+	WENTER();
 	Evas_BiDi_Direction bidi = EVAS_BIDI_DIRECTION_NATURAL;
 	if(__obj)
 	{
@@ -180,7 +184,7 @@ bool CalLocaleManager::isRTL()
 			}
 		}
 	}
-
+	WLEAVE();
 	return (bidi == EVAS_BIDI_DIRECTION_RTL);
 }
 
@@ -340,6 +344,7 @@ void CalLocaleManager::getDateText(const DateFormat dateFormat, const CalDate& d
 
 i18n_ucalendar_h CalLocaleManager::__getUcal(const std::string &tzid)
 {
+	WENTER();
 	int status = I18N_ERROR_NONE;
 	i18n_uchar utf16_timezone[DATETIME_BUFFER] = {0};
 
@@ -360,6 +365,7 @@ i18n_ucalendar_h CalLocaleManager::__getUcal(const std::string &tzid)
 
 void CalLocaleManager::__getLocale(std::string &localeStr)
 {
+	WENTER();
 	char *locale = NULL;
 	system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_COUNTRY, &locale);
 	if(locale == NULL) {
@@ -379,9 +385,6 @@ void CalLocaleManager::__getLocale(std::string &localeStr)
 	{
 		count++;
 	}
-
-	//WDEBUG("count:%d", count);
-	//WDEBUG("orig_locale:%s", locale);
 
 	if(count == 2)
 	{
@@ -410,6 +413,7 @@ void CalLocaleManager::__getLocale(std::string &localeStr)
 		free(locale);
 		return ;
 	}
+	WLEAVE();
 }
 
 const i18n_udate_format_h CalLocaleManager::__getUDateFormat(const DateFormat df, const TimeFormat tf)
@@ -506,6 +510,7 @@ i18n_udate_format_h CalLocaleManager::__getUDateFormat(const char* timezone, con
 
 long long int CalLocaleManager::getUtime(struct tm& tm)
 {
+	WENTER();
 	__setUCalendar(__cal, &tm);
 	i18n_udate date;
 	i18n_ucalendar_get_milliseconds(__cal, &date);
@@ -537,6 +542,7 @@ long long int CalLocaleManager::getUtimeFromTm(const char *timezone, const struc
 
 void CalLocaleManager::getTmFromUtime(const char *timezone, const long long int utime, struct tm &tm)
 {
+	WENTER();
 	if (timezone == NULL || !strcmp(timezone, __tzid.c_str()))
 	{
 		i18n_ucalendar_set_milliseconds(__cal, sec2ms(utime));
@@ -553,6 +559,7 @@ void CalLocaleManager::getTmFromUtime(const char *timezone, const long long int 
 
 int CalLocaleManager::getDayOfWeekInMonth(const char *timezone, const long long int utime)
 {
+	WENTER();
 	if (timezone == NULL || !strcmp(timezone, __tzid.c_str()))
 	{
 		i18n_ucalendar_set_milliseconds(__cal, sec2ms(utime));
@@ -573,6 +580,7 @@ int CalLocaleManager::getDayOfWeekInMonth(const char *timezone, const long long 
 
 const char* CalLocaleManager::getWeekdayText(const char *timezone, const long long int utime)
 {
+	WENTER();
 	static char weeks[7][3] = {"SU", "MO", "TU", "WE", "TH", "FR", "SA"};
 	if (timezone == NULL || !strcmp(timezone, __tzid.c_str()))
 	{
@@ -594,16 +602,19 @@ const char* CalLocaleManager::getWeekdayText(const char *timezone, const long lo
 
 const char* CalLocaleManager::getWeekdayText(int weekday)
 {
+	WENTER();
 	return __weekdayText[weekday].c_str();
 }
 
 const char* CalLocaleManager::getWeekdayShortText(int weekday)
 {
+	WENTER();
 	return __weekdayShortText[weekday].c_str();
 }
 
 int CalLocaleManager::getWeekday(const char *timezone, const long long int utime)
 {
+	WENTER();
 	if (timezone == NULL || !strcmp(timezone, __tzid.c_str()))
 	{
 		i18n_ucalendar_set_milliseconds(__cal, sec2ms(utime));
@@ -624,6 +635,7 @@ int CalLocaleManager::getWeekday(const char *timezone, const long long int utime
 
 void CalLocaleManager::updateTmHour(const int delta, struct tm& tm)
 {
+	WENTER();
 	if (!delta)
 		return;
 
@@ -634,6 +646,7 @@ void CalLocaleManager::updateTmHour(const int delta, struct tm& tm)
 
 void CalLocaleManager::updateTmDay(const int delta, struct tm& tm)
 {
+	WENTER();
 	if (!delta)
 		return;
 
@@ -644,6 +657,7 @@ void CalLocaleManager::updateTmDay(const int delta, struct tm& tm)
 
 void CalLocaleManager::updateTmMonth(const int delta, struct tm& tm)
 {
+	WENTER();
 	if (!delta)
 		return;
 
@@ -654,6 +668,7 @@ void CalLocaleManager::updateTmMonth(const int delta, struct tm& tm)
 
 void CalLocaleManager::updateTmYear(const int delta, struct tm& tm)
 {
+	WENTER();
 	if (!delta)
 		return;
 
@@ -664,6 +679,7 @@ void CalLocaleManager::updateTmYear(const int delta, struct tm& tm)
 
 int CalLocaleManager::getDayDiff(const struct tm& date1, const struct tm& date2)
 {
+	WENTER();
 	WASSERT(date1.tm_hour == 12);
 	WASSERT(date1.tm_min == 0);
 	WASSERT(date1.tm_sec == 0);
@@ -691,6 +707,7 @@ void CalLocaleManager::__setUCalendar(i18n_ucalendar_h calendar, const struct tm
 
 void CalLocaleManager::__getUCalendar(i18n_ucalendar_h calendar, struct tm *tm)
 {
+	WENTER();
 	i18n_ucalendar_get(calendar, I18N_UCALENDAR_SECOND, &tm->tm_sec);
 	i18n_ucalendar_get(calendar, I18N_UCALENDAR_MINUTE, &tm->tm_min);
 	i18n_ucalendar_get(calendar, I18N_UCALENDAR_HOUR_OF_DAY, &tm->tm_hour);
@@ -712,6 +729,7 @@ void CalLocaleManager::__getUCalendar(i18n_ucalendar_h calendar, struct tm *tm)
 
 char* CalLocaleManager::__getTzOffset(i18n_ucalendar_h cal)
 {
+	WENTER();
 	int32_t zoneOffset, dstOffset;
 	i18n_ucalendar_get(cal, I18N_UCALENDAR_ZONE_OFFSET, &zoneOffset);
 	i18n_ucalendar_get(cal, I18N_UCALENDAR_DST_OFFSET, &dstOffset);
@@ -726,6 +744,7 @@ char* CalLocaleManager::__getTzOffset(i18n_ucalendar_h cal)
 
 char* CalLocaleManager::__getTzName(i18n_ucalendar_h cal, const char *language, const std::string& timeZone)
 {
+	WENTER();
 	int status = I18N_ERROR_NONE;
 	i18n_uchar tz_standard_name[DATETIME_BUFFER * 2] = {0};
 	char* tz_standard_name_str = NULL;
@@ -770,6 +789,7 @@ char* CalLocaleManager::__getTzName(i18n_ucalendar_h cal, const char *language, 
 
 void CalLocaleManager::__initWeekday()
 {
+	WENTER();
 	// get Sunday
 	CalDate date(2013,12,1);
 
@@ -783,8 +803,22 @@ void CalLocaleManager::__initWeekday()
 
 void CalLocaleManager::getDisplayTextTimeZone(const std::string& timeZone, std::string& displayText)
 {
+	WENTER();
 	char *language = NULL;
-	system_settings_get_value_string (SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE, &language);
+	int result = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE, &language);
+	if (SYSTEM_SETTINGS_ERROR_PERMISSION_DENIED == result)
+	{
+		WDEBUG("SYSTEM_SETTINGS_ERROR_PERMISSION_DENIED");
+	}
+	if (SYSTEM_SETTINGS_ERROR_INVALID_PARAMETER == result)
+	{
+		WDEBUG("SYSTEM_SETTINGS_ERROR_INVALID_PARAMETER");
+	}
+	if (SYSTEM_SETTINGS_ERROR_NONE == result)
+	{
+		WDEBUG("Success, language is %s.", language);
+
+	}
 	CAL_ASSERT(language);
 
 	int status = I18N_ERROR_NONE;
@@ -837,10 +871,12 @@ void CalLocaleManager::getDisplayTextTimeZone(const std::string& timeZone, std::
 	displayText = tz_text;
 
 	g_free(tz_text);
+	WLEAVE();
 }
 
 int CalLocaleManager::getLocaleFirstDayOfWeek()
 {
+	WENTER();
 	i18n_uchar utf16_timezone[DATETIME_BUFFER] = {0};
 
 	char *locale = NULL;
@@ -874,11 +910,13 @@ int CalLocaleManager::getLocaleFirstDayOfWeek()
 	UCAL_FRIDAY,
 	UCAL_SATURDAY,
 */
+	WLEAVE();
 	return first_day_of_week -1;
 }
 
 char* CalLocaleManager::__getTzNameFromWorldclockDb(const std::string& timeZone)
 {
+	WENTER();
 	char* cityName = NULL;
 	sqlite3* db = NULL;
 	sqlite3_stmt *stmt = NULL;
@@ -917,11 +955,13 @@ char* CalLocaleManager::__getTzNameFromWorldclockDb(const std::string& timeZone)
 	if (db)
 		sqlite3_close(db);
 
+	WLEAVE();
 	return cityName;
 }
 
 bool CalLocaleManager::isEasTimeZone(const std::string& timeZone)
 {
+	WENTER();
 	if (timeZone.find("/") != std::string::npos)
 		return false;
 	else
@@ -930,6 +970,7 @@ bool CalLocaleManager::isEasTimeZone(const std::string& timeZone)
 
 void CalLocaleManager::getEasTimeZone(const std::string& timeZone, std::string& newTimeZone)
 {
+	WENTER();
 	if (isEasTimeZone(timeZone) == true) {
 		WDEBUG("before[%s]",timeZone.c_str());
 		int offset = __getTimezoneOffsetFormCalDb(timeZone);
@@ -939,6 +980,7 @@ void CalLocaleManager::getEasTimeZone(const std::string& timeZone, std::string& 
 	} else {
 		newTimeZone = timeZone;
 	}
+	WLEAVE();
 }
 
 void CalLocaleManager::__getTzFromFromWorldclockDb(int timezone_offset, std::string& timeZone)
@@ -999,10 +1041,12 @@ void CalLocaleManager::__getTzFromFromWorldclockDb(int timezone_offset, std::str
 		sqlite3_finalize(stmt);
 	if (db)
 		sqlite3_close(db);
+	WLEAVE();
 }
 
 int CalLocaleManager::__getTimezoneOffsetFormCalDb(const std::string& standardName)
 {
+	WENTER();
 	int timezone_offset = 0;
 	int error = CALENDAR_ERROR_NONE;
 	calendar_query_h query = NULL;
@@ -1048,5 +1092,6 @@ int CalLocaleManager::__getTimezoneOffsetFormCalDb(const std::string& standardNa
 	if (list)
 		calendar_list_destroy(list, true);
 
+	WLEAVE();
 	return (-1)*timezone_offset;
 }

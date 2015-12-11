@@ -161,6 +161,7 @@ void CalSettingsManager::init()
 	system_settings_set_changed_cb(SYSTEM_SETTINGS_KEY_LOCALE_TIMEFORMAT_24HOUR, __systemSettingsChangeCb, NULL);
 	system_settings_set_changed_cb(SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE, __systemSettingsChangeCb, NULL);
 	system_settings_set_changed_cb(SYSTEM_SETTINGS_KEY_TIME_CHANGED, __systemSettingsChangeCb, NULL);
+	WLEAVE();
 }
 
 void CalSettingsManager::__changedCb(const char *key, void *userData)
@@ -178,6 +179,7 @@ void CalSettingsManager::__changedCb(const char *key, void *userData)
 	}
 
 	CalSettingsManager::getInstance().__notify(*type, CalEvent::LOCAL);
+	WLEAVE();
 }
 
 void CalSettingsManager::__setChangedCb(const char* key, CalEvent::Type type)
@@ -192,6 +194,7 @@ void CalSettingsManager::__notify(CalEvent::Type type, CalEvent::Source source)
 	WDEBUG("type=%d, source=%d", type, source);
 	CalEvent event(type, source);
 	CalEventManager::getInstance().notify(event);
+	WLEAVE();
 }
 
 void CalSettingsManager::__setHour24(void)
@@ -228,6 +231,7 @@ void CalSettingsManager::__setLocaleTimeZone(void)
 	{
 		CalLocaleManager::getInstance().setTimeZone(timeZone);
 	}
+	WLEAVE();
 }
 
 void CalSettingsManager::getDeviceTimeZone(std::string& timeZone)
@@ -242,7 +246,7 @@ void CalSettingsManager::getDeviceTimeZone(std::string& timeZone)
 	timeZone = tz;
 
 	WDEBUG("deviceTimeZone == %s", timeZone.c_str());
-	return;
+	WLEAVE();
 }
 
 void CalSettingsManager::__notifyTimeChanged(void)
@@ -265,6 +269,7 @@ int CalSettingsManager::getFirstDayOfWeek(void)
 		return CAL_SETTING_FIRST_DAY_OF_WEEK_DEFAULT;
 	}
 
+	WLEAVE();
 	return value;
 }
 
@@ -284,6 +289,7 @@ bool CalSettingsManager::getLockTimeZone(void)
 	{
 		return (value != 0) ? true : false;
 	}
+	WLEAVE();
 }
 
 void CalSettingsManager::getTimeZone(std::string& timezone)
@@ -325,6 +331,7 @@ CalSettingsManager::AlertType CalSettingsManager::getAlertType(void)
 		return CAL_SETTING_SELECT_ALERT_TYPE_DEFAULT;
 	}
 
+	WLEAVE();
 	return (CalSettingsManager::AlertType)value;
 }
 
@@ -354,6 +361,7 @@ const char* CalSettingsManager::getAlertSound(void)
 
 	free(value);
 
+	WLEAVE();
 	return __alertSound.c_str();
 }
 
@@ -416,6 +424,7 @@ void CalSettingsManager::setLockTimeZone(const bool isOn)
 
 	CalEvent event(CalEvent::TIME_CHANGED, CalEvent::REMOTE);
 	CalEventManager::getInstance().notify(event);
+	WLEAVE();
 }
 
 void CalSettingsManager::setTimeZone(const std::string& timezone)
@@ -428,6 +437,7 @@ void CalSettingsManager::setTimeZone(const std::string& timezone)
 		WERROR("preference_set_string is failed(%x)", error);
 
 	__setLocaleTimeZone();
+	WLEAVE();
 }
 
 void CalSettingsManager::setAlertType(const AlertType type)

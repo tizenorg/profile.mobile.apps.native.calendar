@@ -1521,7 +1521,8 @@ Evas_Object* CalEditView::onCreate(Evas_Object* parent, void* viewParam)
 
 	__preProcessAddButtons();
 
-	__setFocusToField(__title);
+	// TODO: fix crash
+	// __setFocusToField(__title);
 
 	return genlist;
 }
