@@ -26,6 +26,10 @@
 #include "CalSettingsManager.h"
 #include "CalLocaleManager.h"
 
+#ifndef CAL_USE_MULTITHREADING
+#define CAL_USE_MULTITHREADING 0
+#endif
+
 SINGLETON_INSTANCE(CalListModelFactory);
 
 CalListModelFactory::CalListModelFactory() :
@@ -61,21 +65,26 @@ void CalListModelFactory::prepare()
 	if (__worker)
 		return;
 
-	__worker = new CalWorker([this]()
-		{
+
+	auto job = [this]() {
 			const CalDate today;
 			__forwardModel = getList(today, 1, true);
 			__forwardModel->prefetch(false);
 //			__backwardModel = getList(today, -1, true);
 //			__backwardModel->prefetch(false);
-
 			CalDate gridStartDate(today.getYear(), today.getMonth(), 1);
 			gridStartDate.setToMonthGridStart(__getFirstDayOfWeek());
 			CalDate gridEndDate(gridStartDate);
 			gridEndDate.addDays(GRID_ROW_COUNT * DAYS_PER_WEEK);
 			__rangeModel = getRangeList(gridStartDate, gridEndDate, true);
 			__rangeModel->prefetch(false);
-		});
+		};
+
+#if CAL_USE_MULTITHREADING
+		__worker = new CalWorker(job);
+#else
+		job();
+#endif
 }
 
 int CalListModelFactory::__getFirstDayOfWeek()
