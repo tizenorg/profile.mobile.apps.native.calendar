@@ -126,7 +126,7 @@ private:
 	CalScheduleListControl* __list;
 	char *__entryText;
 	Evas_Object* __entry;
-	CalDate __focusDate;
+	CalDateTime __focusDate;
 	bool __isNoContents;
 	Evas_Object* __noContents;
 	Evas_Object* __searchBar;

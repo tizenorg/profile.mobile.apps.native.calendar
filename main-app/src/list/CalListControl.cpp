@@ -131,7 +131,7 @@ Elm_Object_Item* CalListControl::__addItem(CalListControl::Item* item, int dir, 
 	{
 		Elm_Object_Item* monthMarker = NULL;
 
-		CalDate date = item->getDate();
+		CalDateTime date = item->getDate();
 		if (dir > 0)
 		{
 			date.incrementMonth();
@@ -205,7 +205,7 @@ Elm_Object_Item* CalListControl::__addItem(CalListControl::Item* item, int dir, 
  *
  * @return	null if it fails, else the found item.
  */
-CalListControl::Item* CalListControl::__findItem(const CalDate& date)
+CalListControl::Item* CalListControl::__findItem(const CalDateTime& date)
 {
 	Item* retItem = NULL;
 

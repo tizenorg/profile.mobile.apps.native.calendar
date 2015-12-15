@@ -32,16 +32,16 @@ public:
 public:
 	virtual void prefetch(bool fillBothBuffers);
 	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged);
-	virtual const CalDate& getCurrentDate();
+	virtual const CalDateTime& getCurrentDate();
 	virtual bool eof();
 protected:
-	CalListModel(const CalDate& base, int dir, bool enableFlowControl = true);
+	CalListModel(const CalDateTime& base, int dir, bool enableFlowControl = true);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalListModel);
 protected:
 	const int __dir;
 private:
-	CalDate __currentDate;
+	CalDateTime __currentDate;
 	std::vector<ICalListProvider*> __providers;
 	std::shared_ptr<CalSchedule> __currentSchedule;
 	bool __enableFlowControl;

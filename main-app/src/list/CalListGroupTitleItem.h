@@ -26,10 +26,10 @@
 class CalListGroupTitleItem : public CalListControl::Item
 {
 public:
-	CalListGroupTitleItem(CalScheduleListControl* parent, const CalDate& date);
+	CalListGroupTitleItem(CalScheduleListControl* parent, const CalDateTime& date);
 	virtual ~CalListGroupTitleItem();
 public:
-	CalListGroupTitleItem* search(const CalDate& date);
+	CalListGroupTitleItem* search(const CalDateTime& date);
 	void addItem(const std::shared_ptr<CalSchedule>& schedule, bool isCheckboxRequired, bool isCheckboxSelected, const std::string& searchText, int dir);
 	int getSelectedItemsCount();
 	void selectAllItems(bool select);

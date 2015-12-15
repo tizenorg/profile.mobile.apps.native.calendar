@@ -23,7 +23,6 @@
 #include <list>
 #include "WDefine.h"
 #include <calendar.h>
-#include "CalSchedule.h"
 #include "CalInstanceSchedule.h"
 
 struct SetKey {

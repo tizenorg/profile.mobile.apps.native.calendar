@@ -76,7 +76,7 @@ Evas_Object* CalDatePickerPopup::__createContent(Evas_Object* parent)
 		{
 			struct tm time;
 			elm_datetime_value_get(__dateTime, &time);
-			__dateInitial.set(&time);
+			__dateInitial.set(time);
 
 			__changedCb(__dateInitial);
 		}
@@ -91,7 +91,7 @@ void CalDatePickerPopup::onDestroy()
 {
 }
 
-void CalDatePickerPopup::setChangeCb(std::function<void (CalDate& date)> changedCb)
+void CalDatePickerPopup::setChangeCb(std::function<void (CalDateTime& date)> changedCb)
 {
 	__changedCb = changedCb;
 }
