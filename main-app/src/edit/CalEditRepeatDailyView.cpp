@@ -122,7 +122,7 @@ void CalEditRepeatDailyView::__createGenlist()
 		untilDateItem->setDateButtonClickedCb( [this, untilDateItem](Evas_Object* dateTime){
 
 			CalDatePickerPopup* popup = new CalDatePickerPopup(untilDateItem->getUntilDate());
-			popup->setChangeCb([this, dateTime, untilDateItem](CalDate& newdate){
+			popup->setChangeCb([this, dateTime, untilDateItem](CalDateTime& newdate){
 				__repeat.untilInfo.date.mday = newdate.getMday();
 				__repeat.untilInfo.date.month = newdate.getMonth();
 				__repeat.untilInfo.date.year = newdate.getYear();

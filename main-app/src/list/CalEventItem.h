@@ -27,7 +27,7 @@
 class CalEventItem
 {
 public:
-	CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalSchedule> schedule, bool isCheckboxRequired, bool isCheckboxSelected, const std::string& searchText = NULL);
+	CalEventItem(const CalDateTime& dayOfGroup, const std::shared_ptr<CalSchedule> schedule, bool isCheckboxRequired, bool isCheckboxSelected, const std::string& searchText = NULL);
 	~CalEventItem();
 public:
 	const char *getTitle();

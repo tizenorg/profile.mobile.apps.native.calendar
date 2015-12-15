@@ -64,7 +64,7 @@ private:
 	int __maxLimit;
 	ResultType __resultType;
 	CalScheduleListControl* __list;
-	CalDate __focusDate;
+	CalDateTime __focusDate;
 	char* __entryText;
 	Evas_Object* __entry;
 	Evas_Object* __box;

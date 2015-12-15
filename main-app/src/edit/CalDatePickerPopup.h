@@ -25,7 +25,6 @@
 #include <efl_extension.h>
 #include "CalDateTime.h"
 #include "CalMonthControl2.h"
-#include "CalDate.h"
 
 class CalDatePickerPopup: public WPopup
 {
@@ -34,7 +33,7 @@ public:
 protected:
 	virtual ~CalDatePickerPopup();
 public:
-	void setChangeCb(std::function<void (CalDate& date)> changedCb);
+	void setChangeCb(std::function<void (CalDateTime& date)> changedCb);
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);
 	virtual void onDestroy();
@@ -42,8 +41,8 @@ private:
 	int __getFirstDayOfWeek();
 	void __updateTitle();
 private:
-	std::function<void (CalDate& date)> __changedCb;
-	CalDate __dateInitial;
+	std::function<void (CalDateTime& date)> __changedCb;
+	CalDateTime __dateInitial;
 	Evas_Object* __dateTime;
 };
 

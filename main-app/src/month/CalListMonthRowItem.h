@@ -27,16 +27,16 @@
 class CalListMonthRowItem : public CalListControl::Item
 {
 public:
-	CalListMonthRowItem(const CalDate& startDate, int num, CalTapRecognizer& cellTapRecognizer);
+	CalListMonthRowItem(const CalDateTime& startDate, int num, CalTapRecognizer& cellTapRecognizer);
 	virtual ~CalListMonthRowItem();
 public:
 	CalListMonthRowItem* search(int year, int month);
 	const char* dump() {return getString();}
 public:
 	CalMonthRowControl& getRowControl() {return *__rowControl;}
-	const CalDate& getStartDate() {return __startDate;}
+	const CalDateTime& getStartDate() {return __startDate;}
 private:
-	CalDate __getMonth();
+	CalDateTime __getMonth();
 	Evas_Object* __createMonthRow(Evas_Object* parent);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalListMonthRowItem);
@@ -44,7 +44,7 @@ private:
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
 	virtual const char* getString();
 private:
-	CalDate __startDate;
+	CalDateTime __startDate;
 	int __num;
 	CalMonthRowControl* __rowControl;
 private:

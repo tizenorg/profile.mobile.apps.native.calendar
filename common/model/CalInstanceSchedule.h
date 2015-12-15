@@ -50,9 +50,9 @@ protected:
 	virtual unsigned int getSyncData2Property() const;
 
 protected:
-	static calendar_query_h createSimpleListQuery(const CalDate& base, int dir, bool allDay, calendar_filter_h additionalFilter);
-	static calendar_query_h createRangeListQuery(const CalDate& from, const CalDate& to, bool allDay, calendar_filter_h additionalFilter);
-	static calendar_query_h createComplexListQuery(const CalDate& base, int dir, bool allDay, calendar_filter_h additionalFilter);
+	static calendar_query_h createSimpleListQuery(const CalDateTime& base, int dir, bool allDay, calendar_filter_h additionalFilter);
+	static calendar_query_h createRangeListQuery(const CalDateTime& from, const CalDateTime& to, bool allDay, calendar_filter_h additionalFilter);
+	static calendar_query_h createComplexListQuery(const CalDateTime& base, int dir, bool allDay, calendar_filter_h additionalFilter);
 	static calendar_filter_h createListFilter(bool allDay,
 			bool visibleCalendarsOnly,
 			bool editableOnly,

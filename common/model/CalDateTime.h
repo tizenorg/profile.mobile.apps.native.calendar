@@ -21,13 +21,24 @@
 #include <time.h>
 #include <utils_i18n.h>
 
+#include "WDefine.h"
+
 class WAPP_ASSIST_EXPORT CalDateTime
 {
 public:
+	typedef enum
+	{
+		INIT_TODAY = 0,
+		INIT_LOWER_BOUND,
+		INIT_UPPER_BOUND
+	} InitialValue;
+
 	CalDateTime();
+	CalDateTime(InitialValue initialValue);
 	CalDateTime(const long long int uTime, bool fixedDate = false);
 	CalDateTime(const struct tm& dateTm, bool fixedDate = false);
 	CalDateTime(int year, int month, int mday, int hour = 0, int min = 0, int sec = 0, bool fixedDate = false);
+	CalDateTime(const char* stringParam);
 	virtual ~CalDateTime();
 
 	CalDateTime( const CalDateTime& );
@@ -43,6 +54,7 @@ public:
 public:
 
 	const char* getWeekdayText(const long long int utime);
+	std::string dump(bool showTime = false) const;
 
 	void createUCalendar();
 
@@ -52,6 +64,8 @@ public:
 	void set(const long long int utime);
 	void set(const struct tm& dateTm);
 	void setAllDay(const bool isAllDay);
+	void setToMonthGridStart(int firstWeekday);
+	void setToMonthGridStart(int firstWeekday, int year, int month);
 
 	// get
 	void getUCalendar(struct tm &tm) const;
@@ -70,6 +84,7 @@ public:
 	void getTimeString(std::string& text) const;
 	void getDateString(std::string& text) const;
 	bool isAllDay() const;
+	bool isSameMonth(const CalDateTime &date);
 	const char* getWeekdayText() const;
 	int getWeekday() const;  // sun: 0 ~ sat: 6
 
@@ -81,18 +96,31 @@ public:
 	void addMonths(const int months, const bool setLimit = true);
 	void addYears(const int years, const bool setLimit = true);
 
-public:
+	void incrementDay();
+	void decrementDay();
+	void incrementMonth();
+	void decrementMonth();
+
 	void getStringParam(char buffer[]) const;
 	int getDateCompareVal() const;
-	static int getDayDiff(CalDateTime __date1, CalDateTime __date2);
 
-	void __createTm(const int year, const int month, const int day, const int hour, const int min, const int sec, struct tm *timeptr);
+	const char* getUnixTimeString() const;
+	const char* getString();
+	const char* getMonthString() const;
+
+	static int getDayDiff(CalDateTime __date1, CalDateTime __date2);
+	static int compareMonth(const CalDateTime& date1, const CalDateTime& date2);
+	static int compareMonth(int year1, int month1, int year2, int month2);
+	static const char* getWeekdayText(int weekday);
 
 private:
+	void __createTm(const int year, const int month, const int day, const int hour, const int min, const int sec, struct tm *timeptr);
 	void __getString(int df, int tf, std::string& text) const;
 	void __setLimit();
 
-private:
+	static void __getWeekStartDate(int firstWeekday, struct tm& date);
+	static void __normalizeStructTm(struct tm& date);
+
 	i18n_ucalendar_h __cal;
 	long long int __utime;
 	bool __fixedDate;

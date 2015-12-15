@@ -28,7 +28,7 @@ public:
 public:
 	virtual void prefetch(bool fillBothBuffers) = 0;
 	virtual std::shared_ptr<CalSchedule> getCurrentSchedule() = 0;
-	virtual const CalDate& getCurrentDate() = 0;
+	virtual const CalDateTime& getCurrentDate() = 0;
 	virtual void loadNext() = 0;
 	virtual bool eof() = 0;
 };
