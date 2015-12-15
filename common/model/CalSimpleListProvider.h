@@ -27,18 +27,18 @@
 class CalSimpleListProvider : public ICalListProvider
 {
 public:
-	CalSimpleListProvider(const CalDate& base, int dir, bool allDay, calendar_filter_h filter);
-	CalSimpleListProvider(const CalDate& from, const CalDate& to, bool allDay, calendar_filter_h filter);
+	CalSimpleListProvider(const CalDateTime& base, int dir, bool allDay, calendar_filter_h filter);
+	CalSimpleListProvider(const CalDateTime& from, const CalDateTime& to, bool allDay, calendar_filter_h filter);
 	virtual ~CalSimpleListProvider();
 public:
 	virtual void prefetch(bool fillBothBuffers);
 	virtual std::shared_ptr<CalSchedule> getCurrentSchedule();
-	virtual const CalDate& getCurrentDate();
+	virtual const CalDateTime& getCurrentDate();
 	virtual void loadNext();
 	virtual bool eof();
 private:
 	CalRecordBlockFetcher __fetcher;
-	CalDate __currentDate;
+	CalDateTime __currentDate;
 	std::shared_ptr<CalSchedule> __currentSchedule;
 };
 

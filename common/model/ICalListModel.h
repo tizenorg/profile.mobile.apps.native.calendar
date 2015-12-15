@@ -20,14 +20,14 @@
 
 #include <memory>
 #include "CalSchedule.h"
-#include "CalDate.h"
+#include "CalDateTime.h"
 
 class WAPP_ASSIST_EXPORT ICalListModel
 {
 public:
 	virtual void prefetch(bool fillBothBuffers) {}
 	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged) = 0;
-	virtual const CalDate& getCurrentDate() = 0;
+	virtual const CalDateTime& getCurrentDate() = 0;
 	virtual bool eof() = 0;
 public:
 	virtual ~ICalListModel() {}

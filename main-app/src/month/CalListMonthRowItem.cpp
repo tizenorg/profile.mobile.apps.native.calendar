@@ -20,12 +20,12 @@
 
 #define DAYS_PER_WEEK 7
 
-CalListMonthRowItem::CalListMonthRowItem(const CalDate& startDate, int num, CalTapRecognizer& cellTapRecognizer) :
+CalListMonthRowItem::CalListMonthRowItem(const CalDateTime& startDate, int num, CalTapRecognizer& cellTapRecognizer) :
 	__startDate(startDate),
 	__rowControl(NULL),
 	__cellTapRecognizer(cellTapRecognizer)
 {
-	CalDate date(__startDate);
+	CalDateTime date(__startDate);
 	for (int j = 0; j < DAYS_PER_WEEK; j++) {
 		if (date.getMday() == 1) {
 			WDEBUG("%s", date.getString());
@@ -46,20 +46,20 @@ CalListMonthRowItem* CalListMonthRowItem::search(int year, int month)
 	WASSERT(__isGroupTitle);
 	WDEBUG("%d/%d", year, month);
 
-	const CalDate date(year, month, 1);
-	if (CalDate::compareMonth(__getMonth(), date) == 0)
+	const CalDateTime date(year, month, 1);
+	if (CalDateTime::compareMonth(__getMonth(), date) == 0)
 		return this;
 
 	CalListMonthRowItem* item = this;
-	if (CalDate::compareMonth(item->__getMonth(), date) < 0) {
-		while (CalDate::compareMonth(item->__getMonth(), date) < 0) {
+	if (CalDateTime::compareMonth(item->__getMonth(), date) < 0) {
+		while (CalDateTime::compareMonth(item->__getMonth(), date) < 0) {
 			WDEBUG("%s", item->__getMonth().getString());
 			item = (CalListMonthRowItem*)item->getNext();
 			if (item == NULL)
 				return NULL;
 		}
 	} else {
-		while (CalDate::compareMonth(item->__getMonth(), date) > 0) {
+		while (CalDateTime::compareMonth(item->__getMonth(), date) > 0) {
 			WDEBUG("%s", item->__getMonth().getString());
 			item = (CalListMonthRowItem*)item->getPrevious();
 			if (item == NULL)
@@ -69,12 +69,12 @@ CalListMonthRowItem* CalListMonthRowItem::search(int year, int month)
 	return item;
 }
 
-CalDate CalListMonthRowItem::__getMonth()
+CalDateTime CalListMonthRowItem::__getMonth()
 {
 	if (__startDate.getMday() == 1) {
 		return __startDate;
 	} else {
-		CalDate date(__startDate);
+		CalDateTime date(__startDate);
 		date.incrementMonth();
 		return date;
 	}

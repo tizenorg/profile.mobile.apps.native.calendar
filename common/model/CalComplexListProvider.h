@@ -25,36 +25,36 @@
 
 #include "CalRecordBlockFetcher.h"
 #include "CalInstanceSchedule.h"
-#include "CalDate.h"
+#include "CalDateTime.h"
 
 class CalComplexListProvider : public ICalListProvider
 {
 public:
-	CalComplexListProvider(const CalDate& base, int dir, bool allDay, calendar_filter_h filter);
+	CalComplexListProvider(const CalDateTime& base, int dir, bool allDay, calendar_filter_h filter);
 	virtual ~CalComplexListProvider();
 public:
 	virtual void prefetch(bool fillBothBuffers);
 	virtual std::shared_ptr<CalSchedule> getCurrentSchedule();
-	virtual const CalDate& getCurrentDate();
+	virtual const CalDateTime& getCurrentDate();
 	virtual void loadNext();
 	virtual bool eof();
 private:
 	void __deleteFinishedFromList();
 	void __updateCurrentDateAndFillList();
-	std::shared_ptr<CalInstanceSchedule> __getNextScheduleFromDbList(CalDate& date);
-	void __getAdjustedDates(const CalInstanceSchedule& schedule, CalDate& start, CalDate& end) const;
+	std::shared_ptr<CalInstanceSchedule> __getNextScheduleFromDbList(CalDateTime& date);
+	void __getAdjustedDates(const CalInstanceSchedule& schedule, CalDateTime& start, CalDateTime& end) const;
 	int __getDuration(const CalInstanceSchedule& schedule) const;
 private:
-	const CalDate __base;
+	const CalDateTime __base;
 	const int __dir;
 	const int __allDay;
 private:
-	CalDate __currentDate;
+	CalDateTime __currentDate;
 	std::shared_ptr<CalInstanceSchedule> __currentSchedule;
 private:
 	CalRecordBlockFetcher __fetcher;
 	std::shared_ptr<CalInstanceSchedule> __pending;
-	CalDate __pendingDate;
+	CalDateTime __pendingDate;
 private:
 	class Occupant
 	{

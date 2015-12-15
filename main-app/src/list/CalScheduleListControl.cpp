@@ -98,7 +98,7 @@ const char* CalScheduleListControl::getClassName()
  *
  * @return	true if it succeeds, false if it fails.
  */
-bool CalScheduleListControl::scrollTo(const CalDate& date)
+bool CalScheduleListControl::scrollTo(const CalDateTime& date)
 {
 	if (__scrollAnimStarted)
 	{
@@ -247,7 +247,7 @@ void CalScheduleListControl::addInitialBatchOfItems()
 		}
 		else
 		{
-			if (CalDate::compareMonth(__forwardModel->getCurrentDate(), __base) == 0)
+			if (CalDateTime::compareMonth(__forwardModel->getCurrentDate(), __base) == 0)
 			{
 				__baseMonthIsNotEmpty = true;
 			}
@@ -298,7 +298,7 @@ void CalScheduleListControl::__initBackwardModel(bool enableNoEvent)
 	{
 		if (__peekBackwardSchedule->getType() != CalSchedule::INVALID)
 		{
-			if (CalDate::compareMonth(__backwardModel->getCurrentDate(), __base) == 0)
+			if (CalDateTime::compareMonth(__backwardModel->getCurrentDate(), __base) == 0)
 			{
 				__baseMonthIsNotEmpty = true;
 			}
@@ -665,7 +665,7 @@ void CalScheduleListControl::lockDrag(bool lock)
  *
  * @return	null if it fails, else a list of.
  */
-CalScheduleListControl::Item* CalScheduleListControl::__addGroupItem(const CalDate& date, int dir)
+CalScheduleListControl::Item* CalScheduleListControl::__addGroupItem(const CalDateTime& date, int dir)
 {
 	Item* item = (CalListGroupTitleItem*)__findItem(date);
 	if(!item)
@@ -775,7 +775,7 @@ bool CalScheduleListControl::__prependNext()
  * @param	isSelected	True if this object is selected.
  * @param	dir			The dir.
  */
-void CalScheduleListControl::__insertItem(const std::shared_ptr<CalSchedule>& schedule, CalDate date, bool isSelected, int dir)
+void CalScheduleListControl::__insertItem(const std::shared_ptr<CalSchedule>& schedule, CalDateTime date, bool isSelected, int dir)
 {
 	WENTER();
 
@@ -789,7 +789,7 @@ void CalScheduleListControl::__insertItem(const std::shared_ptr<CalSchedule>& sc
 		startDateTime.addDays(1);
 		if(endDateTime >= startDateTime) // all day event
 		{
-			CalDate thisDate(endDateTime.getYear(), endDateTime.getMonth(), endDateTime.getMday());
+			CalDateTime thisDate(endDateTime.getYear(), endDateTime.getMonth(), endDateTime.getMday());
 			if(thisDate == date
 					&& !endDateTime.getHour()
 					&& !endDateTime.getMinute()
@@ -828,7 +828,7 @@ void CalScheduleListControl::__insertItem(const std::shared_ptr<CalSchedule>& sc
  * @param	date	The date.
  * @param	dir		The dir.
  */
-void CalScheduleListControl::__insertMonthItemIfNeeded(CalDate date, int dir)
+void CalScheduleListControl::__insertMonthItemIfNeeded(CalDateTime date, int dir)
 {
 	WENTER();
 	bool found = false;

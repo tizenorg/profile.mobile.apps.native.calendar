@@ -27,7 +27,7 @@
 
 const CalMonthControl::Position CalMonthControl::__invalidPosition = {-1, -1};
 
-CalMonthControl::CalMonthControl(int firstWeekday, int year, int month, const char* rowEdjeGroupName, const CalDate* originDate) :
+CalMonthControl::CalMonthControl(int firstWeekday, int year, int month, const char* rowEdjeGroupName, const CalDateTime* originDate) :
 	__cellTapRecognizer([this](Evas_Object* obj) {
 		if (!__tapCellCb)
 			return;
@@ -167,7 +167,7 @@ void CalMonthControl::focus(int mday)
 {
 	eraseFocus();
 
-	CalDate focusedDate(__year, __month, mday);
+	CalDateTime focusedDate(__year, __month, mday);
 	WDEBUG("%s", focusedDate.dump().c_str());
 	__focusedPosition = __getPos(focusedDate);
 
@@ -194,18 +194,18 @@ void CalMonthControl::load()
 {
 	__clear();
 
-	CalDate gridEndDate(__gridStartDate);
+	CalDateTime gridEndDate(__gridStartDate);
 	gridEndDate.addDays(GRID_ROW_COUNT * DAYS_PER_WEEK);
 	WDEBUG("%s", gridEndDate.dump().c_str());
 
 	int thisMonthStartOffset = 0;
 	int thisMonthEndOffset = 0;
 
-	CalDate thisMonth(__year, __month, 1);
-	thisMonthStartOffset = CalDate::getDayDiff(thisMonth, __gridStartDate);
+	CalDateTime thisMonth(__year, __month, 1);
+	thisMonthStartOffset = CalDateTime::getDayDiff(thisMonth, __gridStartDate);
 	
 	thisMonth.incrementMonth();
-	thisMonthEndOffset = CalDate::getDayDiff(thisMonth, __gridStartDate) - 1;
+	thisMonthEndOffset = CalDateTime::getDayDiff(thisMonth, __gridStartDate) - 1;
 	
 	ICalListModel* model = CalListModelFactory::getInstance().getRangeList(__gridStartDate, gridEndDate);
 	model->prefetch(false);
@@ -216,8 +216,8 @@ void CalMonthControl::load()
 		CalDateTime start, end;
 		schedule->getStart(start);
 		schedule->getEnd(end, true);
-		__occupy(CalDate(start.getYear(), start.getMonth(), start.getMday()),
-			     CalDate(end.getYear(), end.getMonth(), end.getMday()),
+		__occupy(CalDateTime(start.getYear(), start.getMonth(), start.getMday()),
+			     CalDateTime(end.getYear(), end.getMonth(), end.getMday()),
 			     offsetCache);
 		schedule = model->getNext(dayChanged);
 	}
@@ -240,7 +240,7 @@ void CalMonthControl::load()
  *
  * @return	The event count.
  */
-int CalMonthControl::getEventCount(const CalDate& date) const
+int CalMonthControl::getEventCount(const CalDateTime& date) const
 {
 	Position pos = __getPos(date);
 	return __eventCount[pos.i][pos.j];
@@ -261,7 +261,7 @@ int CalMonthControl::getFocusedRow()
  */
 void CalMonthControl::__updateTodayPos()
 {
-	const CalDate& today = __originDate ? *__originDate : CalDate(CalDate::INIT_TODAY);
+	const CalDateTime& today = __originDate ? *__originDate : CalDateTime(CalDateTime::INIT_TODAY);
 	if (__year == today.getYear() && __month == today.getMonth())
 		__todayPosition = __getPos(today);
 	else
@@ -276,7 +276,7 @@ void CalMonthControl::__updateTodayPos()
  */
 void CalMonthControl::__paintDayNums(Evas_Object* month)
 {
-	CalDate date(__gridStartDate);
+	CalDateTime date(__gridStartDate);
 	for (int i = 0; i < GRID_ROW_COUNT; i++) {
 		__row[i]->resetDayNums(__firstWeekday, date, i);
 		if (i == __todayPosition.i)
@@ -321,18 +321,18 @@ static void __addToOffsetCache(std::map<int, int>& offsetCache, int value, int o
  * @param			endDate			The end date.
  * @param [in,out]	offsetCache		The offset cache.
  */
-void CalMonthControl::__occupy(const CalDate& startDate, const CalDate& endDate, std::map<int, int>& offsetCache)
+void CalMonthControl::__occupy(const CalDateTime& startDate, const CalDateTime& endDate, std::map<int, int>& offsetCache)
 {
 	int startDateCompareVal = startDate.getDateCompareVal();
 	int startOffset = __findFromOffsetCache(offsetCache, startDateCompareVal);
 	if (startOffset < 0) {
-		startOffset = CalDate::getDayDiff(startDate, __gridStartDate);
+		startOffset = CalDateTime::getDayDiff(startDate, __gridStartDate);
 		__addToOffsetCache(offsetCache, startDateCompareVal, startOffset);
 	}
 	int endDateCompareVal = endDate.getDateCompareVal();
 	int endOffset = __findFromOffsetCache(offsetCache, endDateCompareVal);
 	if (endOffset < 0) {
-		endOffset = CalDate::getDayDiff(endDate, __gridStartDate);
+		endOffset = CalDateTime::getDayDiff(endDate, __gridStartDate);
 		__addToOffsetCache(offsetCache, endDateCompareVal, endOffset);
 	}
 
@@ -371,9 +371,9 @@ void CalMonthControl::__clear()
  * @param	lowerBound	The lower bound.
  * @param	upperBound	The upper bound.
  */
-void CalMonthControl::resetByBound(const CalDate& lowerBound, const CalDate& upperBound)
+void CalMonthControl::resetByBound(const CalDateTime& lowerBound, const CalDateTime& upperBound)
 {
-	CalDate date(__gridStartDate);
+	CalDateTime date(__gridStartDate);
 	for (int i = 0; i < GRID_ROW_COUNT; i++) {
 		__row[i]->resetDayByBound(date, lowerBound, upperBound);
 		date.addDays(DAYS_PER_WEEK);
@@ -387,10 +387,10 @@ void CalMonthControl::resetByBound(const CalDate& lowerBound, const CalDate& upp
  *
  * @return	The position.
  */
-CalMonthControl::Position CalMonthControl::__getPos(const CalDate& date) const
+CalMonthControl::Position CalMonthControl::__getPos(const CalDateTime& date) const
 {
 	WDEBUG("%s", __gridStartDate.dump().c_str());
-	const int dayDiff = CalDate::getDayDiff(date, __gridStartDate);
+	const int dayDiff = CalDateTime::getDayDiff(date, __gridStartDate);
 	WDEBUG("%s - %s = %d days?", date.dump().c_str(), __gridStartDate.dump().c_str(), dayDiff);
 	return { dayDiff / DAYS_PER_WEEK, dayDiff % DAYS_PER_WEEK };
 }
@@ -434,7 +434,7 @@ static void __signal(Evas_Object* obj, const char* signal, int j)
  * @param				j		Number of days.
  * @param	[in, out]	date	The date.
  */
-void CalMonthControl::getDate(int i, int j, CalDate& date)
+void CalMonthControl::getDate(int i, int j, CalDateTime& date)
 {
 	date = __gridStartDate;
 	date.addDays(i * DAYS_PER_WEEK + j);
@@ -447,12 +447,12 @@ void CalMonthControl::getDate(int i, int j, CalDate& date)
  */
 int CalMonthControl::checkBoundary()
 {
-	CalDate lowerBound(CalDate::INIT_LOWER_BOUND);
-	if (CalDate::compareMonth(__year, __month, lowerBound.getYear(), lowerBound.getMonth()) <= 0)
+	CalDateTime lowerBound(CalDateTime::INIT_LOWER_BOUND);
+	if (CalDateTime::compareMonth(__year, __month, lowerBound.getYear(), lowerBound.getMonth()) <= 0)
 		return -1;
 
-	CalDate upperBound(CalDate::INIT_UPPER_BOUND);
-	if (CalDate::compareMonth(upperBound.getYear(), upperBound.getMonth(), __year, __month) <= 0)
+	CalDateTime upperBound(CalDateTime::INIT_UPPER_BOUND);
+	if (CalDateTime::compareMonth(upperBound.getYear(), upperBound.getMonth(), __year, __month) <= 0)
 		return 1;
 
 	return 0;
@@ -483,7 +483,7 @@ void CalMonthControl::updateHeaderText()
 	for (int j = 0; j < DAYS_PER_WEEK; j++) {
 		char partname[100];
 		sprintf(partname, "cell/%d/weekday", j);
-		elm_object_part_text_set(__header, partname, CalDate::getWeekdayText(__getWeekdayOfColumn(j)));
+		elm_object_part_text_set(__header, partname, CalDateTime::getWeekdayText(__getWeekdayOfColumn(j)));
 	}
 }
 

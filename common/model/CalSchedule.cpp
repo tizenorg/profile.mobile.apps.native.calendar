@@ -187,7 +187,7 @@ void CalSchedule::getFromToString(std::string& text) const
 	}
 }
 
-void CalSchedule::getFromToString(const CalDate& date, std::string& text) const
+void CalSchedule::getFromToString(const CalDateTime& date, std::string& text) const
 {
 	CalDateTime startTime, endTime;
 	getStart(startTime);
@@ -733,33 +733,11 @@ std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(bool isAllDay)
 	return schedule;
 }
 
-std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(const CalDate& date)
+std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(const CalDateTime& date)
 {
 	WENTER();
 	std::shared_ptr<CalSchedule> schedule = __createDefaultSchedule();
 
-#if 0
-	// start hour is always based on device time
-	std::string deviceTimeZone;
-	CalSettingsManager::getInstance().getDeviceTimeZone(deviceTimeZone);
-
-	// set default time
-	CalDateTime startTime;
-	struct tm startTm;
-	startTime.getTmTime(deviceTimeZone.c_str(), &startTm);
-	startTm.tm_year = date.getYear() - 1900;
-	startTm.tm_mon = date.getMonth() - 1;
-	startTm.tm_mday = date.getMday();
-	startTm.tm_min = 0;
-	startTm.tm_sec = 0;
-	startTime.set(startTm);
-	startTime.addHours(1);
-
-	std::string timeZone;
-	CalLocaleManager::getInstance().getTimeZone(timeZone);
-
-	schedule->initialize(timeZone.c_str(), startTime);
-#else
 	// set default time
 	CalDateTime startTime;
 	struct tm startTm = {0};
@@ -786,7 +764,6 @@ std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(const CalDate& dat
 	}
 
 	schedule->initialize(NULL, startTime);
-#endif
 
 	return schedule;
 }
@@ -797,14 +774,6 @@ std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(const CalDateTime&
 	std::shared_ptr<CalSchedule> schedule = __createDefaultSchedule();
 	schedule->initialize(NULL, startTime);
 	schedule->setEnd(endTime);
-	return schedule;
-}
-
-std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(const CalDateTime& startTime)
-{
-	WENTER();
-	std::shared_ptr<CalSchedule> schedule = __createDefaultSchedule();
-	schedule->initialize(NULL, startTime);
 	return schedule;
 }
 

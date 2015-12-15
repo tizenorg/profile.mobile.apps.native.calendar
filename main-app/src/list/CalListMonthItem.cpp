@@ -18,7 +18,7 @@
 #include "CalListMonthItem.h"
 #include "CalCommon.h"
 
-CalListMonthItem::CalListMonthItem(const CalDate& date)
+CalListMonthItem::CalListMonthItem(const CalDateTime& date)
 {
 	__isGroupTitle = false;
 	__date = date;

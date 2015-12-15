@@ -51,7 +51,7 @@ private:
 	bool __isSelectMode;
 	Evas_Object* __box;
 	Evas_Object* __selectAllLayout;
-	CalDate __focusDate;
+	CalDateTime __focusDate;
 	CalScheduleListControl* __list;
 	CalCustomListModel* __fowardModel;
 	CalCustomListModel* __emptyModel;

@@ -73,7 +73,7 @@ CalEditView::CalEditView() : CalView("CalEditView")
 	}
 }
 
-CalEditView::CalEditView(const CalDate& focusedDate) : CalView("CalEditView")
+CalEditView::CalEditView(const CalDateTime& focusedDate) : CalView("CalEditView")
 {
 	WENTER();
 	__initialize();
@@ -1792,7 +1792,7 @@ void CalEditView::__createDatePickerPopup(Evas_Object* dateTime)
 	}
 
 	CalDatePickerPopup* popup = new CalDatePickerPopup(startInitialDate);
-	popup->setChangeCb([this, dateTime](CalDate& newdate){
+	popup->setChangeCb([this, dateTime](CalDateTime& newdate){
 		CalDateTime currentDate(newdate.getYear(), newdate.getMonth(), newdate.getMday());
 		__time->setDate(currentDate);
 		__setTime();

@@ -23,7 +23,7 @@
 #define ITEM_NO_LOCATION_HEIGHT 121  // 54 + 44 + 23 (padding)
 #define ITEM_TOP_PADDING        23
 
-CalListGroupTitleItem::CalListGroupTitleItem(CalScheduleListControl* parent, const CalDate& date) :
+CalListGroupTitleItem::CalListGroupTitleItem(CalScheduleListControl* parent, const CalDateTime& date) :
 	__parent(parent)
 {
 	__isGroupTitle = true;
@@ -48,7 +48,7 @@ CalListGroupTitleItem::~CalListGroupTitleItem()
 	}
 }
 
-CalListGroupTitleItem* CalListGroupTitleItem::search(const CalDate& date)
+CalListGroupTitleItem* CalListGroupTitleItem::search(const CalDateTime& date)
 {
 	auto node = this;
 	if (node->__date > date)
