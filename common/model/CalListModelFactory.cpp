@@ -63,15 +63,15 @@ void CalListModelFactory::prepare()
 
 	__worker = new CalWorker([this]()
 		{
-			const CalDate today;
+			const CalDateTime today;
 			__forwardModel = getList(today, 1, true);
 			__forwardModel->prefetch(false);
 //			__backwardModel = getList(today, -1, true);
 //			__backwardModel->prefetch(false);
 
-			CalDate gridStartDate(today.getYear(), today.getMonth(), 1);
+			CalDateTime gridStartDate(today.getYear(), today.getMonth(), 1);
 			gridStartDate.setToMonthGridStart(__getFirstDayOfWeek());
-			CalDate gridEndDate(gridStartDate);
+			CalDateTime gridEndDate(gridStartDate);
 			gridEndDate.addDays(GRID_ROW_COUNT * DAYS_PER_WEEK);
 			__rangeModel = getRangeList(gridStartDate, gridEndDate, true);
 			__rangeModel->prefetch(false);
@@ -87,7 +87,7 @@ int CalListModelFactory::__getFirstDayOfWeek()
 	return result;
 }
 
-ICalListModel* CalListModelFactory::getList(const CalDate& base, int dir, bool ignoreWorker)
+ICalListModel* CalListModelFactory::getList(const CalDateTime& base, int dir, bool ignoreWorker)
 {
 	WDEBUG("%d", dir);
 
@@ -121,7 +121,7 @@ ICalListModel* CalListModelFactory::getList(const CalDate& base, int dir, bool i
 	return listModel;
 }
 
-ICalListModel* CalListModelFactory::getSearchList(const CalDate& base, int dir, const char* keyword)
+ICalListModel* CalListModelFactory::getSearchList(const CalDateTime& base, int dir, const char* keyword)
 {
 	WDEBUG("%d, %s", dir, keyword);
 
@@ -136,7 +136,7 @@ ICalListModel* CalListModelFactory::getSearchList(const CalDate& base, int dir, 
 	return listModel;
 }
 
-ICalListModel* CalListModelFactory::getDeleteList(const CalDate& base, int dir)
+ICalListModel* CalListModelFactory::getDeleteList(const CalDateTime& base, int dir)
 {
 	WDEBUG("%d", dir);
 
@@ -151,7 +151,7 @@ ICalListModel* CalListModelFactory::getDeleteList(const CalDate& base, int dir)
 	return listModel;
 }
 
-ICalListModel* CalListModelFactory::getRangeList(const CalDate& from, const CalDate& to, bool ignoreWorker)
+ICalListModel* CalListModelFactory::getRangeList(const CalDateTime& from, const CalDateTime& to, bool ignoreWorker)
 {
 	WDEBUG("");
 

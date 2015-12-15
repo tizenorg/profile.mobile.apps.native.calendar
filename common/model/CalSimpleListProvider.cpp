@@ -18,12 +18,12 @@
 #include "CalSimpleListProvider.h"
 #include "CalInstanceSchedule.h"
 
-CalSimpleListProvider::CalSimpleListProvider(const CalDate& base, int dir, bool allDay, calendar_filter_h filter) :
+CalSimpleListProvider::CalSimpleListProvider(const CalDateTime& base, int dir, bool allDay, calendar_filter_h filter) :
 	__fetcher(CalInstanceSchedule::createSimpleListQuery(base, dir, allDay, filter))
 {
 }
 
-CalSimpleListProvider::CalSimpleListProvider(const CalDate& from, const CalDate& to, bool allDay, calendar_filter_h filter) :
+CalSimpleListProvider::CalSimpleListProvider(const CalDateTime& from, const CalDateTime& to, bool allDay, calendar_filter_h filter) :
 	__fetcher(CalInstanceSchedule::createRangeListQuery(from, to, allDay, filter), true)
 {
 }
@@ -46,7 +46,7 @@ std::shared_ptr<CalSchedule> CalSimpleListProvider::getCurrentSchedule()
 	return __currentSchedule;
 }
 
-const CalDate& CalSimpleListProvider::getCurrentDate()
+const CalDateTime& CalSimpleListProvider::getCurrentDate()
 {
 	return __currentDate;
 }

@@ -19,7 +19,6 @@
 #define _CAL_SCHEDULE_REPEAT_H_
 
 #include <string>
-#include "CalDate.h"
 #include "CalDateTime.h"
 
 class WAPP_ASSIST_EXPORT CalScheduleRepeat

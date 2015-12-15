@@ -21,7 +21,7 @@
 #include "CalControl.h"
 
 #include <Evas.h>
-#include "CalDate.h"
+#include "CalDateTime.h"
 #include "CalTouchInputRecognizer.h"
 
 class CalMonthRowControl : public CalControl
@@ -59,7 +59,7 @@ public:
 	 * @param	rowStartDate	The row start date.
 	 * @param	i				Zero-based index of the.
 	 */
-	void resetDayNums(int firstWeekday, const CalDate& rowStartDate, int i = -1);
+	void resetDayNums(int firstWeekday, const CalDateTime& rowStartDate, int i = -1);
 
 	/**
 	 * Resets the day number style described by i.
@@ -75,7 +75,7 @@ public:
 	 * @param	lowerBound  	The lower bound.
 	 * @param	upperBound  	The upper bound.
 	 */
-	void resetDayByBound(const CalDate& rowStartDate, const CalDate& lowerBound, const CalDate& upperBound);
+	void resetDayByBound(const CalDateTime& rowStartDate, const CalDateTime& lowerBound, const CalDateTime& upperBound);
 
 	/**
 	 * Mark today.

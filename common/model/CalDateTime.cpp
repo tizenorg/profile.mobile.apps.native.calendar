@@ -36,6 +36,8 @@
 #define CAL_TIME_HOURS_IN_DAY 24
 #define CAL_TIME_SECONDS_IN_HOUR   (CAL_TIME_MINUTES_IN_HOUR * CAL_TIME_SECONDS_IN_MINUTE)
 
+#define DATE_BUFFER 128
+
 // sec <-> millisec
 #define ms2sec(ms) ((long long int)ms / 1000)
 #define sec2ms(s) ((i18n_udate)s * 1000.0)
@@ -46,6 +48,37 @@ CalDateTime::CalDateTime(): __cal(NULL), __fixedDate(false)
 	time_t current_time = 0;
 	time(&current_time);
 	__utime = current_time;
+}
+
+CalDateTime::CalDateTime(CalDateTime::InitialValue initialValue): __cal(NULL), __fixedDate(true)
+{
+	createUCalendar();
+
+	switch (initialValue)
+	{
+		case INIT_TODAY:
+		{
+			time_t current_time = 0;
+			time(&current_time);
+			__utime = current_time;
+			break;
+		}
+		case INIT_LOWER_BOUND:
+		{
+			set(CAL_DATETIME_YEAR_LOWER_BOUND, CAL_DATETIME_MONTH_LOWER_BOUND, CAL_DATETIME_DAY_LOWER_BOUND);
+			break;
+		}
+		case INIT_UPPER_BOUND:
+		{
+			set(CAL_DATETIME_YEAR_UPPER_BOUND, CAL_DATETIME_MONTH_UPPER_BOUND, CAL_DATETIME_DAY_UPPER_BOUND);
+			break;
+		}
+		default:
+		{
+			WASSERT(0);
+			break;
+		}
+	}
 }
 
 CalDateTime::CalDateTime(const long long int uTime, bool fixedDate): __cal(NULL), __utime(uTime), __fixedDate(fixedDate)
@@ -74,6 +107,11 @@ CalDateTime::CalDateTime(int year, int month, int mday, int hour, int min, int s
 		set(time);
 	}
 	WLEAVE();
+}
+
+CalDateTime::CalDateTime(const char* stringParam)
+{
+	__utime = (time_t)atoll(stringParam);
 }
 
 CalDateTime::~CalDateTime()
@@ -152,6 +190,27 @@ const char* CalDateTime::getWeekdayText(const long long int utime)
 	int wday = 0;
 	i18n_ucalendar_get(__cal, I18N_UCALENDAR_DAY_OF_WEEK, &wday);
 	return weeks[wday - 1];
+}
+
+std::string CalDateTime::dump(bool showTime) const
+{
+	char buffer[DATE_BUFFER];
+	tm date = {0};
+	getTmTime(&date);
+
+	if (showTime)
+	{
+		snprintf(buffer, DATE_BUFFER, "{%.04d/%.02d/%.02d (%s) %.02d:%.02d:%.02d}",
+			getYear(), getMonth(), getMday(), getWeekdayText(date.tm_wday),
+			date.tm_hour, date.tm_min, date.tm_sec);
+	}
+	else
+	{
+		snprintf(buffer, DATE_BUFFER, "{%.04d/%.02d/%.02d (%s)}",
+			getYear(), getMonth(), getMday(), getWeekdayText(date.tm_wday));
+	}
+
+	return std::string(buffer);
 }
 
 void CalDateTime::createUCalendar()
@@ -407,6 +466,11 @@ bool CalDateTime::isAllDay() const
 	return __fixedDate;
 }
 
+bool CalDateTime::isSameMonth(const CalDateTime &date)
+{
+	return getYear() == date.getYear() && getMonth() == date.getMonth();
+}
+
 const char* CalDateTime::getWeekdayText() const
 {
 	return CalLocaleManager::getInstance().getWeekdayText(__utime);
@@ -445,6 +509,21 @@ void CalDateTime::setAllDay(const bool isAllDay)
 	}
 	__fixedDate = isAllDay;
 	return;
+}
+
+void CalDateTime::setToMonthGridStart(int firstWeekday)
+{
+	tm time = {};
+	getTmTime(&time);
+	time.tm_mday = 1;
+	__normalizeStructTm(time);
+	__getWeekStartDate(firstWeekday, time);
+}
+
+void CalDateTime::setToMonthGridStart(int firstWeekday, int year, int month)
+{
+	set(year, month, 1);
+	setToMonthGridStart(firstWeekday);
 }
 
 void CalDateTime::addSeconds(const long long int seconds, const bool setLimit)
@@ -524,6 +603,26 @@ void CalDateTime::addYears(const int years, const bool setLimit)
 		__setLimit();
 }
 
+void CalDateTime::incrementDay()
+{
+	addDays(1);
+}
+
+void CalDateTime::decrementDay()
+{
+	addDays(-1);
+}
+
+void CalDateTime::incrementMonth()
+{
+	addMonths(1);
+}
+
+void CalDateTime::decrementMonth()
+{
+	addMonths(-1);
+}
+
 void CalDateTime::__setLimit()
 {
 	/* CAL_DATETIME_YEAR_LOWER_BOUND <= date  < CAL_DATETIME_YEAR_UPPER_BOUND */
@@ -555,6 +654,23 @@ void CalDateTime::__setLimit()
 	}
 }
 
+void CalDateTime::__getWeekStartDate(int firstWeekday, tm &date)
+{
+	int diff = date.tm_wday - firstWeekday;
+	if (diff < 0)
+		diff += 7;
+	date.tm_mday -= diff;
+	__normalizeStructTm(date);
+}
+
+void CalDateTime::__normalizeStructTm(tm &date)
+{
+	mktime(&date);
+	date.tm_hour = 12;
+	date.tm_min = 0;
+	date.tm_sec = 0;
+}
+
 int CalDateTime::getDayOfWeek()
 {
 	i18n_ucalendar_set_milliseconds(__cal, sec2ms(__utime));
@@ -583,9 +699,55 @@ int CalDateTime::getDayDiff(CalDateTime date1, CalDateTime date2)
 	return difftime(mktime(&time1), mktime(&time2)) / (60 * 60 * 24);
 }
 
+int CalDateTime::compareMonth(const CalDateTime &date1, const CalDateTime &date2)
+{
+	return compareMonth(
+		date1.getYear(), date1.getMonth(),
+		date2.getYear(), date2.getMonth()
+	);
+}
+
+int CalDateTime::compareMonth(int year1, int month1, int year2, int month2)
+{
+	const int monval1 = (year1 << 4) | month1;
+	const int monval2 = (year2 << 4) | month2;
+	return monval1 - monval2;
+}
+
+const char *CalDateTime::getWeekdayText(int weekday)
+{
+	return CalLocaleManager::getInstance().getWeekdayText(weekday);
+}
+
 int CalDateTime::getDateCompareVal() const
 {
 	return (getYear() << 9) | (getMonth() << 5) | getMday();
+}
+
+const char *CalDateTime::getUnixTimeString() const
+{
+	const int unixTimeBuffer = 24;
+	static char buffer[unixTimeBuffer];
+	memset(buffer, 0x0, sizeof(buffer));
+	struct tm time = {0};
+	getTmTime(&time);
+	snprintf(buffer, unixTimeBuffer, "%ld", &time);
+
+	return buffer;
+}
+
+const char *CalDateTime::getString()
+{
+	static std::string dtString = dump();
+	return dtString.c_str();
+}
+
+const char *CalDateTime::getMonthString() const
+{
+	static std::string dtString;
+	CalLocaleManager::getInstance().getDateText(CalLocaleManager::DATEFORMAT_6, *this, dtString);
+
+	return dtString.c_str();
 }
 
 void CalDateTime::__createTm(const int year, const int month, const int day, const int hour, const int min, const int sec, tm *timeptr)

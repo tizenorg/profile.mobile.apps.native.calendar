@@ -17,7 +17,7 @@
 
 #include "CalComplexListProvider.h"
 
-CalComplexListProvider::CalComplexListProvider(const CalDate& base, int dir, bool allDay, calendar_filter_h filter) :
+CalComplexListProvider::CalComplexListProvider(const CalDateTime& base, int dir, bool allDay, calendar_filter_h filter) :
 	__base(base),
 	__dir(dir),
 	__allDay(allDay),
@@ -46,7 +46,7 @@ std::shared_ptr<CalSchedule> CalComplexListProvider::getCurrentSchedule()
 	return __currentSchedule;
 }
 
-const CalDate& CalComplexListProvider::getCurrentDate()
+const CalDateTime& CalComplexListProvider::getCurrentDate()
 {
 	return __currentDate;
 }
@@ -122,7 +122,7 @@ void CalComplexListProvider::__updateCurrentDateAndFillList()
 	WLEAVE();
 }
 
-std::shared_ptr<CalInstanceSchedule> CalComplexListProvider::__getNextScheduleFromDbList(CalDate& date)
+std::shared_ptr<CalInstanceSchedule> CalComplexListProvider::__getNextScheduleFromDbList(CalDateTime& date)
 {
 	calendar_record_h record = __fetcher.getNext(true);
 	if (record == NULL)
@@ -132,16 +132,16 @@ std::shared_ptr<CalInstanceSchedule> CalComplexListProvider::__getNextScheduleFr
 
 	auto schedule = std::make_shared<CalInstanceSchedule>(record);
 
-	CalDate adjustedStart, adjustedEnd;
+	CalDateTime adjustedStart, adjustedEnd;
 	__getAdjustedDates(*schedule, adjustedStart, adjustedEnd);
 
-	if (adjustedStart < CalDate(CalDate::INIT_LOWER_BOUND))
+	if (adjustedStart < CalDateTime(CalDateTime::INIT_LOWER_BOUND))
 	{
 		WDEBUG("Start is out of supported range(%s)", adjustedStart.dump().c_str());
 		return nullptr;
 	}
 
-	if (CalDate(CalDate::INIT_UPPER_BOUND) < adjustedEnd)
+	if (CalDateTime(CalDateTime::INIT_UPPER_BOUND) < adjustedEnd)
 	{
 		WDEBUG("End is out of supported range(%s)", adjustedEnd.dump().c_str());
 		return nullptr;
@@ -151,29 +151,29 @@ std::shared_ptr<CalInstanceSchedule> CalComplexListProvider::__getNextScheduleFr
 	return schedule;
 }
 
-void CalComplexListProvider::__getAdjustedDates(const CalInstanceSchedule& schedule, CalDate& adjustedStart, CalDate& adjustedEnd) const
+void CalComplexListProvider::__getAdjustedDates(const CalInstanceSchedule& schedule, CalDateTime& adjustedStart, CalDateTime& adjustedEnd) const
 {
 	WDEBUG("__base(%s)", __base.dump().c_str());
 
 	CalDateTime startDateTime;
 	schedule.getStart(startDateTime);
-	const CalDate start(startDateTime.getYear(), startDateTime.getMonth(), startDateTime.getMday());
+	const CalDateTime start(startDateTime.getYear(), startDateTime.getMonth(), startDateTime.getMday());
 
 	CalDateTime endDateTime;
 	schedule.getEndForComplexList(endDateTime);
-	const CalDate end(endDateTime.getYear(), endDateTime.getMonth(), endDateTime.getMday());
+	const CalDateTime end(endDateTime.getYear(), endDateTime.getMonth(), endDateTime.getMday());
 
 	if (__allDay)
 	{
 		WASSERT(start <= end);
 		if (__dir > 0)
 		{
-			//TODO Uncomment this as soon as CalDate is removed
+			//TODO Uncomment this as soon as CalDateTime is removed
 			//WASSERT(__base <= end); // 2014/5/4 ~ 2014/5/5 event should show on 2014/5/5
 		}
 		else
 		{
-			//TODO Uncomment this as soon as CalDate is removed
+			//TODO Uncomment this as soon as CalDateTime is removed
 			//WASSERT(start < __base);
 		}
 	}
@@ -182,12 +182,12 @@ void CalComplexListProvider::__getAdjustedDates(const CalInstanceSchedule& sched
 		WASSERT(startDateTime <= endDateTime);
 		if (__dir > 0)
 		{
-			//TODO Uncomment this as soon as CalDate is removed
+			//TODO Uncomment this as soon as CalDateTime is removed
 			//WASSERT(__base <= end); // 2014/5/5 00:00 ~ 2014/5/5 00:00 event should show on 2014/5/5
 		}
 		else
 		{
-			//TODO Uncomment this as soon as CalDate is removed
+			//TODO Uncomment this as soon as CalDateTime is removed
 			//WASSERT(start <= __base);
 		}
 	}
@@ -218,12 +218,12 @@ void CalComplexListProvider::__getAdjustedDates(const CalInstanceSchedule& sched
 
 int CalComplexListProvider::__getDuration(const CalInstanceSchedule& schedule) const
 {
-	CalDate adjustedStart, adjustedEnd;
+	CalDateTime adjustedStart, adjustedEnd;
 	__getAdjustedDates(schedule, adjustedStart, adjustedEnd);
 
 	if (__allDay)
 	{
-		return CalDate::getDayDiff(adjustedEnd, adjustedStart) + 1;
+		return CalDateTime::getDayDiff(adjustedEnd, adjustedStart) + 1;
 
 	}
 	else
@@ -235,11 +235,11 @@ int CalComplexListProvider::__getDuration(const CalInstanceSchedule& schedule) c
 		if (startDateTime.getDateCompareVal() < endDateTime.getDateCompareVal() &&
 		    endDateTime.getHour() == 0 && endDateTime.getMinute() == 0 && endDateTime.getSecond() == 0)
 		{
-			return CalDate::getDayDiff(adjustedEnd, adjustedStart);
+			return CalDateTime::getDayDiff(adjustedEnd, adjustedStart);
 		}
 		else
 		{
-			return CalDate::getDayDiff(adjustedEnd, adjustedStart) + 1;
+			return CalDateTime::getDayDiff(adjustedEnd, adjustedStart) + 1;
 		}
 	}
 }
