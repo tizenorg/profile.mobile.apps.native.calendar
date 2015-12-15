@@ -16,7 +16,6 @@
  */
 
 #include <stdio.h>
-#include <string.h>
 #include "CalScheduleReminder.h"
 
 CalScheduleReminder::CalScheduleReminder() :

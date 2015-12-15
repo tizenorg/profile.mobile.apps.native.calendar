@@ -21,7 +21,7 @@
 
 #include "CalOriginalSchedule.h"
 
-CalListModel2::CalListModel2(const CalDate& base, int dir) :
+CalListModel2::CalListModel2(const CalDateTime& base, int dir) :
 	CalListModel(base, dir),
 	__fresh(true),
 	__currentMonth(base),
@@ -54,12 +54,12 @@ std::shared_ptr<CalSchedule> CalListModel2::getNext(bool& dayChanged)
 
 	if (__dir > 0) {
 
-		if (CalDate::compareMonth(__currentMonth, CalListModel::getCurrentDate()) < 0 && __currentMonthItemReturned) {
+		if (CalDateTime::compareMonth(__currentMonth, CalListModel::getCurrentDate()) < 0 && __currentMonthItemReturned) {
 			__currentMonth.incrementMonth();
 			__currentMonthItemReturned = false;
 		}
 
-		if (__enableNoEvent && CalDate::compareMonth(__currentMonth, CalListModel::getCurrentDate()) < 0 && !__currentMonthItemReturned) {
+		if (__enableNoEvent && CalDateTime::compareMonth(__currentMonth, CalListModel::getCurrentDate()) < 0 && !__currentMonthItemReturned) {
 			auto noEvent = std::make_shared<CalOriginalSchedule>(__currentMonth.getYear(), __currentMonth.getMonth());
 			dayChanged = true;
 			WDEBUG("%s %s", __currentMonth.dump().c_str(), CalListModel::getCurrentDate().dump().c_str());
@@ -77,12 +77,12 @@ std::shared_ptr<CalSchedule> CalListModel2::getNext(bool& dayChanged)
 
 	} else {
 
-		if (CalDate::compareMonth(CalListModel::getCurrentDate(), __currentMonth) < 0 && __currentMonthItemReturned) {
+		if (CalDateTime::compareMonth(CalListModel::getCurrentDate(), __currentMonth) < 0 && __currentMonthItemReturned) {
 			__currentMonth.decrementMonth();
 			__currentMonthItemReturned = false;
 		}
 
-		if (__enableNoEvent && CalDate::compareMonth(CalListModel::getCurrentDate(), __currentMonth) < 0 && !__currentMonthItemReturned) {
+		if (__enableNoEvent && CalDateTime::compareMonth(CalListModel::getCurrentDate(), __currentMonth) < 0 && !__currentMonthItemReturned) {
 			auto noEvent = std::make_shared<CalOriginalSchedule>(__currentMonth.getYear(), __currentMonth.getMonth());
 			dayChanged = true;
 			WDEBUG("%s %s", __currentMonth.dump().c_str(), CalListModel::getCurrentDate().dump().c_str());
@@ -101,7 +101,7 @@ std::shared_ptr<CalSchedule> CalListModel2::getNext(bool& dayChanged)
 	}
 }
 
-const CalDate& CalListModel2::getCurrentDate()
+const CalDateTime& CalListModel2::getCurrentDate()
 {
 	return __currentMonth;
 }

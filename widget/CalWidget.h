@@ -23,7 +23,7 @@
 
 #include <Ecore.h>
 #include <memory>
-#include "CalDate.h"
+#include "CalDateTime.h"
 #include "CalCommon.h"
 #include "CalMonthControl2.h"
 #include "CalEvent.h"
@@ -56,11 +56,11 @@ private:
 	int __height;
 
 	CalMonthControl2 *__monthCalendar;
-	CalDate __lowerBound;
-	CalDate __upperBound;
-	CalDate __dateTime;
-	CalDate __originDate;
-	CalDate __customFocusDate;
+	CalDateTime __lowerBound;
+	CalDateTime __upperBound;
+	CalDateTime __dateTime;
+	CalDateTime __originDate;
+	CalDateTime __customFocusDate;
 	Evas_Object* __buttonToday;
 	Evas_Object* __labelMonth;
 	Ecore_Timer* __timer;

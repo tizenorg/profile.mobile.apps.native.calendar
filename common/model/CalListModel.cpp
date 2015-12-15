@@ -19,7 +19,7 @@
 #include "CalInstanceSchedule.h"
 #include "CalCommon.h"
 
-CalListModel::CalListModel(const CalDate& base, int dir, bool enableFlowControl) :
+CalListModel::CalListModel(const CalDateTime& base, int dir, bool enableFlowControl) :
 	__dir(dir),
 	__currentDate(base),
 	__enableFlowControl(enableFlowControl)
@@ -49,12 +49,12 @@ std::shared_ptr<CalSchedule> CalListModel::getNext(bool& dayChanged)
 
 	if (__dir > 0) {
 
-		CalDate minDate(CalDate::INIT_UPPER_BOUND);
+		CalDateTime minDate(CalDateTime::INIT_UPPER_BOUND);
 		for (auto it = __providers.begin(); it != __providers.end(); ++it) {
 			ICalListProvider* provider = *it;
 			if (!provider->getCurrentSchedule())
 				continue;
-			const CalDate& date = provider->getCurrentDate();
+			const CalDateTime& date = provider->getCurrentDate();
 			if (date < minDate) {
 				minDate = date;
 				selectedProvider = provider;
@@ -63,12 +63,12 @@ std::shared_ptr<CalSchedule> CalListModel::getNext(bool& dayChanged)
 
 	} else {
 
-		CalDate maxDate(CalDate::INIT_LOWER_BOUND);
+		CalDateTime maxDate(CalDateTime::INIT_LOWER_BOUND);
 		for (auto it = __providers.rbegin(); it != __providers.rend(); ++it) {
 			ICalListProvider* provider = *it;
 			if (!provider->getCurrentSchedule())
 				continue;
-			const CalDate& date = provider->getCurrentDate();
+			const CalDateTime& date = provider->getCurrentDate();
 			if (date > maxDate) {
 				maxDate = date;
 				selectedProvider = provider;
@@ -90,7 +90,7 @@ std::shared_ptr<CalSchedule> CalListModel::getNext(bool& dayChanged)
 	return __currentSchedule;
 }
 
-const CalDate& CalListModel::getCurrentDate()
+const CalDateTime& CalListModel::getCurrentDate()
 {
 	return __currentDate;
 }

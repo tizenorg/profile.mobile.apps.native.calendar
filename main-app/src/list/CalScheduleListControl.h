@@ -78,7 +78,7 @@ public:
 	 *
 	 * @return	true if it succeeds, false if it fails.
 	 */
-	bool scrollTo(const CalDate& date);
+	bool scrollTo(const CalDateTime& date);
 
 	/**
 	 * Gets selected schedules.
@@ -273,7 +273,7 @@ private:
 	 *
 	 * @return	null if it fails, else an Item*.
 	 */
-	Item* __addGroupItem(const CalDate& date, int dir);
+	Item* __addGroupItem(const CalDateTime& date, int dir);
 
 	/**
 	 * Inserts an item.
@@ -283,7 +283,7 @@ private:
 	 * @param	isSelected	true if this object is selected.
 	 * @param	dir		  	The dir.
 	 */
-	void __insertItem(const std::shared_ptr<CalSchedule>& schedule, CalDate date, bool isSelected, int dir);
+	void __insertItem(const std::shared_ptr<CalSchedule>& schedule, CalDateTime date, bool isSelected, int dir);
 
 	/**
 	 * Inserts a month item if needed.
@@ -291,7 +291,7 @@ private:
 	 * @param	date	The date.
 	 * @param	dir 	The dir.
 	 */
-	void __insertMonthItemIfNeeded(CalDate date, int dir);
+	void __insertMonthItemIfNeeded(CalDateTime date, int dir);
 private:
 
 	/**
@@ -330,8 +330,8 @@ private:
 	 */
 	int __isOnHold(Evas_Object *obj);
 private:
-	CalDate __base;
-	CalDate __focusDate;
+	CalDateTime __base;
+	CalDateTime __focusDate;
 	bool __appended;
 	bool __prepended;
 	bool __isCreateCheck;

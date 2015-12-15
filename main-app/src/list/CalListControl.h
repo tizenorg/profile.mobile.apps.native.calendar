@@ -27,7 +27,7 @@
 
 #include "CalSearchChain.h"
 
-#include "CalDate.h"
+#include "CalDateTime.h"
 
 #define ITEM_SHOWING_THRESHOLD_HEIGHT 50
 
@@ -68,7 +68,7 @@ public:
 		 *
 		 * @return	The date.
 		 */
-		const CalDate& getDate() const {return __date;}
+		const CalDateTime& getDate() const {return __date;}
 
 	protected:
 
@@ -88,7 +88,7 @@ public:
 
 	protected:
 		bool __isGroupTitle;
-		CalDate __date;
+		CalDateTime __date;
 
 	private:
 
@@ -162,7 +162,7 @@ protected:
 	 *
 	 * @return	null if it fails, else the found item.
 	 */
-	CalListControl::Item* __findItem(const CalDate& date);
+	CalListControl::Item* __findItem(const CalDateTime& date);
 
 	/**
 	 * Gets top showing item.

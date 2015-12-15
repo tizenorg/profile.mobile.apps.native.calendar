@@ -48,7 +48,7 @@ std::shared_ptr<CalSchedule> CalCustomListModel::getNext(bool& dayChanged)
 	std::shared_ptr<CalSchedule> schedule = *__it;
 
 	CalDateTime start;
-	CalDate date;
+	CalDateTime date;
 	schedule->getStart(start);
 	date.set(start.getYear(), start.getMonth(), start.getMday());
 
@@ -59,7 +59,7 @@ std::shared_ptr<CalSchedule> CalCustomListModel::getNext(bool& dayChanged)
 	return schedule;
 }
 
-const CalDate& CalCustomListModel::getCurrentDate()
+const CalDateTime& CalCustomListModel::getCurrentDate()
 {
 	WENTER();
 	return __currentDate;

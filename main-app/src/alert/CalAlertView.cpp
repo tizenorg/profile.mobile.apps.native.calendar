@@ -100,7 +100,7 @@ Evas_Object* CalAlertView::onCreate( Evas_Object* parent, void* viewParam )
 	}
 
 	//// add date
-	CalDate date;
+	CalDateTime date;
 	schedule->getStart(startTime);
 	date.set(startTime.getYear(), startTime.getMonth(), startTime.getMday());
 	elm_object_part_text_set(layout, "event_date", date.getString());

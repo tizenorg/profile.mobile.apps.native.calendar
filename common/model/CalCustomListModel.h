@@ -29,12 +29,12 @@ public:
 	virtual ~CalCustomListModel();
 public:
 	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged);
-	virtual const CalDate& getCurrentDate();
+	virtual const CalDateTime& getCurrentDate();
 	virtual bool eof();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalCustomListModel);
 private:
-	CalDate __currentDate;
+	CalDateTime __currentDate;
 	std::list<std::shared_ptr<CalSchedule>> __schedules;
 	std::list<std::shared_ptr<CalSchedule>>::iterator __it;
 };

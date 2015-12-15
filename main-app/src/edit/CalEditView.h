@@ -70,7 +70,7 @@ public:
 
 public:
 	CalEditView();
-	CalEditView(const CalDate& focusedDate);
+	CalEditView(const CalDateTime& focusedDate);
 	CalEditView(std::shared_ptr<CalSchedule> schedule, CalEditMode mode = CREATE,
 	            std::function<void (int newId)> savedCb = nullptr, bool setLastUsedCalendar = true);
 	virtual ~CalEditView();
@@ -414,7 +414,7 @@ private:
 	char* __currentParticipantKeyword;
 	CalDialogEditOptionalTextFieldItem* __description;
 	CalDialogEditMoreItem* __more;
-	CalDate  __focusedDate;
+	CalDateTime  __focusedDate;
 	bool __isDiscard;
 	int __reminderNumber;
 	bool __isPrepareExit;

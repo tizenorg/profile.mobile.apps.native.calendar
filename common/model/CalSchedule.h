@@ -22,7 +22,6 @@
 #include <calendar.h>
 #include <string>
 #include <memory>
-#include "CalDate.h"
 #include "CalDateTime.h"
 #include "CalScheduleReminder.h"
 #include "CalScheduleRepeat.h"
@@ -52,7 +51,7 @@ public:
 	int getIndex() const;
 	void getFromToDisplayString(std::string& text) const;  // for detail marupStr ..
 	void getFromToString(std::string& text) const;
-	void getFromToString(const CalDate& date, std::string& text) const;  // for list
+	void getFromToString(const CalDateTime& date, std::string& text) const;  // for list
 
 	void getDisplaySummary(const int stringLimit, std::string& text) const; //text	markupStr (elm_entry_utf8_to_markup)
 	void getDisplayTrimedSummary(const int stringLimit, std::string& text);
@@ -98,9 +97,8 @@ public:
 
 	// make
 	static std::shared_ptr<CalSchedule> makeDefaultSchedule(bool isAllDay = false);
-	static std::shared_ptr<CalSchedule> makeDefaultSchedule(const CalDate& date);
+	static std::shared_ptr<CalSchedule> makeDefaultSchedule(const CalDateTime& date);
 	static std::shared_ptr<CalSchedule> makeDefaultSchedule(const CalDateTime& startTime, const CalDateTime& endTime);
-	static std::shared_ptr<CalSchedule> makeDefaultSchedule(const CalDateTime& startTime);
 
 protected:
 	calendar_record_h getRecord() const;

@@ -28,7 +28,7 @@
 #include "WDefine.h"
 
 #include "CalTapRecognizer.h"
-#include "CalDate.h"
+#include "CalDateTime.h"
 
 #include "CalMonthRowControl.h"
 
@@ -38,7 +38,7 @@
 class CalMonthControl : public CalControl
 {
 public:
-	CalMonthControl(int firstWeekday, int year, int month, const char* rowEdjeGroupName = NULL, const CalDate* originDate = NULL);
+	CalMonthControl(int firstWeekday, int year, int month, const char* rowEdjeGroupName = NULL, const CalDateTime* originDate = NULL);
 	virtual ~CalMonthControl();
 	virtual const char* getClassName();
 
@@ -84,7 +84,7 @@ public:
 	 *
 	 * @return	The event count.
 	 */
-	int getEventCount(const CalDate& date) const;
+	int getEventCount(const CalDateTime& date) const;
 
 	/**
 	 * Resets the by bound.
@@ -92,7 +92,7 @@ public:
 	 * @param	lowerBound	The lower bound.
 	 * @param	upperBound	The upper bound.
 	 */
-	void resetByBound(const CalDate& lowerBound, const CalDate& upperBound);
+	void resetByBound(const CalDateTime& lowerBound, const CalDateTime& upperBound);
 
 	/**
 	 * Gets focused row.
@@ -108,7 +108,7 @@ public:
 	 * @param	j				The int to process.
 	 * @param [in]	date	The date.
 	 */
-	void getDate(int i, int j, CalDate& date);
+	void getDate(int i, int j, CalDateTime& date);
 
 	/**
 	 * Check boundary.
@@ -213,7 +213,7 @@ private:
 	 * @param		endDate		The end date.
 	 * @param [in]	dateMap		The date map.
 	 */
-	void __occupy(const CalDate& startDate, const CalDate& endDate, std::map<int, int>& dateMap);
+	void __occupy(const CalDateTime& startDate, const CalDateTime& endDate, std::map<int, int>& dateMap);
 
 	/**
 	 * Clears this object to its blank/initial state.
@@ -227,7 +227,7 @@ private:
 	 *
 	 * @return	The position.
 	 */
-	Position __getPos(const CalDate& date) const;
+	Position __getPos(const CalDateTime& date) const;
 
 	/**
 	 * Gets weekday of column.
@@ -264,13 +264,13 @@ private:
 	int __firstWeekday;
 	int __year;
 	int __month;
-	CalDate __gridStartDate;
+	CalDateTime __gridStartDate;
 	CalMonthRowControl* __row[GRID_ROW_COUNT];
 	Position __focusedPosition;
 	Position __todayPosition;
 	bool __isClean;
 	int __eventCount[GRID_ROW_COUNT][DAYS_PER_WEEK];
-	const CalDate* __originDate;
+	const CalDateTime* __originDate;
 	Evas_Object* __header;
 
 };

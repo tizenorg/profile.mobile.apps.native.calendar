@@ -37,9 +37,9 @@ private:
 	void __replyError();
 	CalDetailView::MenuState __getMenuState();
 
-	CalNaviframe *__naviframe;
 	bool __replyToRequest;
 	app_control_h __request;
+	CalNaviframe *__naviframe;
 	std::shared_ptr<CalSchedule> __getScheduleFromExtraData(app_control_h request);
 };
 #endif

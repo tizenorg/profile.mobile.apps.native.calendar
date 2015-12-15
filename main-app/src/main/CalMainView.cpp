@@ -47,7 +47,7 @@
 
 #define LIST_FOCUS_ACTION_DELAY 1.5
 
-CalMainView::CalMainView(const CalDate& focusedDate) : CalView("CalMainView"),
+CalMainView::CalMainView(const CalDateTime& focusedDate) : CalView("CalMainView"),
 	__focusedDate(focusedDate),
 	__month(NULL),
 	__list(NULL),
@@ -76,7 +76,7 @@ CalMainView::~CalMainView()
  *
  * @param	date	The date.
  */
-void CalMainView::focus(const CalDate& date)
+void CalMainView::focus(const CalDateTime& date)
 {
 	__focusMonth(date);
 	__focusList();
@@ -123,7 +123,7 @@ static void __signal(Evas_Object* obj, const char* signal, int j)
  */
 CalMonthControl2* CalMainView::__constructMonthControl(int dir)
 {
-	CalDate date(__focusedDate);
+	CalDateTime date(__focusedDate);
 	const int firstDayOfMonth = 1;
 	if (dir > 0)
 		date.incrementMonth();
@@ -133,7 +133,7 @@ CalMonthControl2* CalMainView::__constructMonthControl(int dir)
 	month->setTapCellCb(
 		[this](int i, int j) {
 			TRACK_MODE_CHANGE_FLOW("month.tapCellCb");
-			CalDate newFocusDate;
+			CalDateTime newFocusDate;
 			getMonth(0).getDate(i, j, newFocusDate);
 
 			WDEBUG("focusdate %s", __focusedDate.getString());
@@ -378,7 +378,7 @@ void CalMainView::onMenuButton()
 
 	popup->appendItem(_L_("IDS_CLD_OPT_GO_TO_TODAY"),
 		[this]() {
-			__focusMonth(CalDate());
+			__focusMonth(CalDateTime());
 			__focusList();
 		});
 	if (__list && !__list->isEmpty())
@@ -566,7 +566,7 @@ void CalMainView::__createListControl()
 			__unblockTouch("__list.onScrollStop");
 			if(topShowingGroupItem)
 			{
-				const CalDate& topShowingDate = topShowingGroupItem->getDate();
+				const CalDateTime& topShowingDate = topShowingGroupItem->getDate();
 				__focusMonth(topShowingDate);
 			}
 			edje_message_signal_process();
@@ -715,12 +715,12 @@ CalMonthControl2& CalMainView::getMonth(int dir)
  *
  * @param	newFocusDate	The new focus date.
  */
-void CalMainView::__focusMonth(const CalDate& newFocusDate)
+void CalMainView::__focusMonth(const CalDateTime& newFocusDate)
 {
 	WDEBUG("%s", __focusedDate.getString());
-	WDEBUG("%s", newFocusDate.getString());
+	WDEBUG("%s", newFocusDate.dump().c_str());
 	WDEBUG("===============");
-	const bool sameMonth = (CalDate::compareMonth(__focusedDate, newFocusDate) == 0);
+	const bool sameMonth = (CalDateTime::compareMonth(__focusedDate, newFocusDate) == 0);
 	__focusedDate = newFocusDate;
 	if (!sameMonth) {
 		__updateTitle();
@@ -861,7 +861,7 @@ int CalMainView::__getFirstDayOfWeek()
  */
 void CalMainView::__resetMonth(CalMonthControl2& month, int dir)
 {
-	CalDate date(__focusedDate);
+	CalDateTime date(__focusedDate);
 	if (dir > 0)
 		date.incrementMonth();
 	else if (dir < 0)
