@@ -162,11 +162,11 @@ void CalWidget::__createCalendar()
 
 	elm_object_part_content_set(layout, "widget.month.date", boxLeft);
 
-	__dateTime = CalDate(CalDate::INIT_TODAY);
+	__dateTime = CalDateTime(CalDateTime::INIT_TODAY);
 	__originDate = __dateTime;
 	__customFocusDate = __dateTime;
-	__lowerBound = CalDate(CalDate::INIT_LOWER_BOUND),
-	__upperBound = CalDate(CalDate::INIT_UPPER_BOUND);
+	__lowerBound = CalDateTime(CalDateTime::INIT_LOWER_BOUND),
+	__upperBound = CalDateTime(CalDateTime::INIT_UPPER_BOUND);
 
 	__monthCalendar = new CalMonthControl2(__getFirstDayOfWeek(), __dateTime.getYear(), __dateTime.getMonth(), "CalMonthRowWidget", &__originDate,	__lowerBound, __upperBound);
 	__monthCalendar->create(layout, NULL);
@@ -214,7 +214,7 @@ void CalWidget::__createCalendar()
 
 	__monthCalendar->setTapCellCb([this](int i, int j)
 	{
-		CalDate newFocusDate;
+		CalDateTime newFocusDate;
 		__monthCalendar->getDate(i, j, newFocusDate);
 
 		if(newFocusDate < __lowerBound || newFocusDate > __upperBound)
@@ -289,7 +289,7 @@ Eina_Bool CalWidget::__onTimer(void* data)
 
 void CalWidget::__focusToday()
 {
-	__originDate = CalDate(CalDate::INIT_TODAY);
+	__originDate = CalDateTime(CalDateTime::INIT_TODAY);
 
 	int year = __originDate.getYear();
 	int month = __originDate.getMonth();
@@ -348,7 +348,7 @@ void CalWidget::onEvent(const CalEvent& event)
 			break;
 		case CalEvent::SETTING_CHANGED:
 		case CalEvent::TIME_CHANGED:
-			__originDate = CalDate(CalDate::INIT_TODAY);
+			__originDate = CalDateTime(CalDateTime::INIT_TODAY);
 			__monthCalendar->reset(__getFirstDayOfWeek(), __originDate.getYear(), __originDate.getMonth());
 			__monthCalendar->update();
 			__setMonthLabel();

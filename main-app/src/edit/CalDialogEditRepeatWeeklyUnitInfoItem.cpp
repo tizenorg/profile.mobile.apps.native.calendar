@@ -99,7 +99,7 @@ Elm_Genlist_Item_Class* CalDialogEditRepeatWeeklyUnitInfoItem::getItemClassStati
 		else if (strcmp("elm.icon.7", part) == 0) i = 6;
 
 		int j = (__getFirstDayOfWeek() + i)%7;
-		const char* wdayText = CalDate::getWeekdayShortText(j);
+		const char* wdayText = CalLocaleManager::getInstance().getWeekdayShortText(j);
 
 		return item->createCheck(obj, wdayText, i, item, j);
 	};

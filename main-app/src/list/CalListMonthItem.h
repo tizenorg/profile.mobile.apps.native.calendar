@@ -23,7 +23,7 @@
 class CalListMonthItem : public CalListControl::Item
 {
 public:
-	CalListMonthItem(const CalDate& date);
+	CalListMonthItem(const CalDateTime& date);
 	virtual ~CalListMonthItem();
 private:
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();

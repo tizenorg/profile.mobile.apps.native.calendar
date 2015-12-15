@@ -27,7 +27,6 @@
 #include "WDefine.h"
 #include "CalSingleton.h"
 #include "CalDateTime.h"
-#include "CalDate.h"
 
 class WAPP_ASSIST_EXPORT CalLocaleManager
 {

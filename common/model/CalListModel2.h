@@ -27,18 +27,18 @@ public:
 public:
 //	virtual void prefetch(bool fillBothBuffers);
 	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged);
-	virtual const CalDate& getCurrentDate();
+	virtual const CalDateTime& getCurrentDate();
 	virtual bool eof();
 public:
 	void setEnableNoEvent(bool enable) {__enableNoEvent = enable;}
 	bool getEnableNoEvent() {return __enableNoEvent;}
 private:
-	CalListModel2(const CalDate& base, int dir);
+	CalListModel2(const CalDateTime& base, int dir);
 	WDISABLE_COPY_AND_ASSIGN(CalListModel2);
 private:
 	bool __fresh;
 private:
-	CalDate __currentMonth;
+	CalDateTime __currentMonth;
 	bool __currentMonthItemReturned;
 	std::shared_ptr<CalSchedule> __currentSchedule;
 	bool __dayChanged;

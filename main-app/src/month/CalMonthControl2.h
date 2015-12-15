@@ -27,7 +27,7 @@
 #include "WDefine.h"
 
 #include "CalTapRecognizer.h"
-#include "CalDate.h"
+#include "CalDateTime.h"
 
 #include "CalMonthControl.h"
 #include "CalMonthRowControl.h"
@@ -40,9 +40,9 @@ class CalMonthControl2 : public CalControl
 public:
 	CalMonthControl2(int firstWeekday, int year, int month,
 		const char* rowEdjeGroupName = NULL,
-		const CalDate* originDate = NULL,
-		CalDate lowerBound = CalDate(CalDate::INIT_LOWER_BOUND),
-		CalDate upperBound = CalDate(CalDate::INIT_UPPER_BOUND));
+		const CalDateTime* originDate = NULL,
+		CalDateTime lowerBound = CalDateTime(CalDateTime::INIT_LOWER_BOUND),
+		CalDateTime upperBound = CalDateTime(CalDateTime::INIT_UPPER_BOUND));
 	virtual ~CalMonthControl2();
 	virtual const char* getClassName();
 	void setTapCellCb(std::function<void (int i, int j)> tapCellCb);
@@ -86,7 +86,7 @@ public:
 	 *
 	 * @return	The event count.
 	 */
-	int getEventCount(const CalDate& date) const;
+	int getEventCount(const CalDateTime& date) const;
 
 	/**
 	 * Resets the by bound.
@@ -107,7 +107,7 @@ public:
 	 * @param	j				The int to process.
 	 * @param [in]	date	The date.
 	 */
-	void getDate(int i, int j, CalDate& date);
+	void getDate(int i, int j, CalDateTime& date);
 
 	/**
 	 * Creates a header.
@@ -256,7 +256,7 @@ private:
 	 *
 	 * @param	date	The date.
 	 */
-	void __resetAccessoryMonths(const CalDate& date);
+	void __resetAccessoryMonths(const CalDateTime& date);
 
 	/**
 	 * Resets the day nums.
@@ -281,8 +281,8 @@ private:
 	CalDragRecognizer* __dragRecognizer;
 	Ecore_Idler* __monthIdler;
 	bool __blockTap;
-	CalDate __lowerBound;
-	CalDate __upperBound;
+	CalDateTime __lowerBound;
+	CalDateTime __upperBound;
 };
 
 #endif

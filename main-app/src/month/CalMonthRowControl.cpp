@@ -80,10 +80,10 @@ void CalMonthRowControl::receiveTouchInputFor(CalTouchInputRecognizer& touchInpu
  * @param	rowStartDate	The row start date.
  * @param	i				Zero-based index of the.
  */
-void CalMonthRowControl::resetDayNums(int firstWeekday, const CalDate& rowStartDate, int i)
+void CalMonthRowControl::resetDayNums(int firstWeekday, const CalDateTime& rowStartDate, int i)
 {
 	__firstWeekday = firstWeekday;
-	CalDate date(rowStartDate);
+	CalDateTime date(rowStartDate);
 	for (int j = 0; j < DAYS_PER_WEEK; j++) {
 		char partname[100];
 		sprintf(partname, "cell/%d/daynum", j);
@@ -103,9 +103,9 @@ void CalMonthRowControl::resetDayNums(int firstWeekday, const CalDate& rowStartD
  * @param	lowerBound  	The lower bound.
  * @param	upperBound  	The upper bound.
  */
-void CalMonthRowControl::resetDayByBound(const CalDate& rowStartDate, const CalDate& lowerBound, const CalDate& upperBound)
+void CalMonthRowControl::resetDayByBound(const CalDateTime& rowStartDate, const CalDateTime& lowerBound, const CalDateTime& upperBound)
 {
-	CalDate date(rowStartDate);
+	CalDateTime date(rowStartDate);
 	for (int j = 0; j < DAYS_PER_WEEK; j++) {
 		if(date < lowerBound || date > upperBound) {
 			const int weekday = __getWeekdayOfColumn(j);
