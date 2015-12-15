@@ -20,7 +20,7 @@
 #include "CalCommon.h"
 #include "CalLocaleManager.h"
 
-CalEventItem::CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalSchedule> schedule, bool isCheckboxRequired, bool isCheckboxSelected, const std::string& searchText):
+CalEventItem::CalEventItem(const CalDateTime& dayOfGroup, const std::shared_ptr<CalSchedule> schedule, bool isCheckboxRequired, bool isCheckboxSelected, const std::string& searchText):
 	__onTranslateTapToGroup(nullptr),
 	__schedule(schedule),
 	__isCheckboxRequired(isCheckboxRequired),

@@ -186,14 +186,14 @@ void CalApp::onAppControl(app_control_h request, bool firstLaunch)
 
 				if(dateStringParam)
 				{
-					CalDate date(dateStringParam);
+					CalDateTime date(dateStringParam);
 					free(dateStringParam);
 
 					naviframe.push(new CalMainView(date));
 				}
 				else
 				{
-					naviframe.push(new CalMainView(CalDate()));
+					naviframe.push(new CalMainView(CalDateTime()));
 				}
 			}
 			else
@@ -277,7 +277,7 @@ void CalApp::__showMain(app_control_h request, bool firstLaunch)
 
 	if(dateStringParam)
 	{
-		CalDate date(dateStringParam);
+		CalDateTime date(dateStringParam);
 		WDEBUG("%s", date.dump().c_str());
 		free(dateStringParam);
 
@@ -300,7 +300,7 @@ void CalApp::__showMain(app_control_h request, bool firstLaunch)
 	}
 	else if(firstLaunch)
 	{
-		naviframe.push(new CalMainView(CalDate()));
+		naviframe.push(new CalMainView(CalDateTime()));
 	}
 }
 
@@ -336,7 +336,7 @@ void CalApp::__showDetail(app_control_h request)
 	naviframe.destroyAllViews();
 	CalEventManager::getInstance().clear();
 
-	CalDate date;
+	CalDateTime date;
 	naviframe.push(new CalMainView(date));
 	naviframe.push(new CalDetailView(schedule));
 }

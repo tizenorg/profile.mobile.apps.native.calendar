@@ -19,7 +19,7 @@
 #define _CAL_SCHEDULE_REMINDER_H_
 
 #include <string>
-#include "CalDate.h"
+#include "CalDateTime.h"
 #include "CalCommon.h"
 
 class WAPP_ASSIST_EXPORT CalScheduleReminder

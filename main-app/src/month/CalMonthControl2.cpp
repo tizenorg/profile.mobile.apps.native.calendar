@@ -22,7 +22,7 @@
 
 #include "CalDebugInternal.h"
 
-CalMonthControl2::CalMonthControl2(int firstWeekday, int year, int month, const char* rowEdjeGroupName, const CalDate* originDate, CalDate lowerBound, CalDate upperBound)
+CalMonthControl2::CalMonthControl2(int firstWeekday, int year, int month, const char* rowEdjeGroupName, const CalDateTime* originDate, CalDateTime lowerBound, CalDateTime upperBound)
 	: __scrollStartCb(NULL)
 	, __scrollFinishCb(NULL)
 	, __rowEdjeGroupName(rowEdjeGroupName)
@@ -64,7 +64,7 @@ void CalMonthControl2::setTapCellCb(std::function<void (int i, int j)> tapCellCb
 	__thisMonth->setTapCellCb([this, tapCellCb](int i, int j){
 		if (__blockTap)
 			return;
-		CalDate newFocusDate;
+		CalDateTime newFocusDate;
 		__thisMonth->getDate(i, j, newFocusDate);
 		if (newFocusDate < __lowerBound	|| newFocusDate > __upperBound ){
 			WDEBUG("OutRang %s", newFocusDate.getString());
@@ -192,7 +192,7 @@ Evas_Object* CalMonthControl2::onCreate(Evas_Object* parent, void* param)
 //		self->__resetDayNums(self->__nextMonthRows, 1);
 		int year, month;
 		self->__thisMonth->getMonth(year, month);
-		CalDate date(year, month, 1);
+		CalDateTime date(year, month, 1);
 		self->__resetAccessoryMonths(date);
 		self->__dragRecognizer->addTarget(self->getEvasObj()); // Now enable month scrolling.
 
@@ -234,7 +234,7 @@ void CalMonthControl2::reset(int firstWeekday, int year, int month)
 	if (__monthIdler == NULL) {
 		WASSERT(__previousMonth);
 		WASSERT(__nextMonth);
-		__resetAccessoryMonths(CalDate(year, month, 1));
+		__resetAccessoryMonths(CalDateTime(year, month, 1));
 	}
 }
 
@@ -290,7 +290,7 @@ void CalMonthControl2::resetByBound()
  *
  * @return	The event count.
  */
-int CalMonthControl2::getEventCount(const CalDate& date) const
+int CalMonthControl2::getEventCount(const CalDateTime& date) const
 {
 	return __thisMonth->getEventCount(date);
 }
@@ -312,7 +312,7 @@ int CalMonthControl2::getFocusedRow()
  * @param		j		The int to process.
  * @param [in]	date	The date.
  */
-void CalMonthControl2::getDate(int i, int j, CalDate& date)
+void CalMonthControl2::getDate(int i, int j, CalDateTime& date)
 {
 	__thisMonth->getDate(i, j, date);
 }
@@ -418,14 +418,14 @@ int CalMonthControl2::__getPreviousMonthRowOffset()
 	int year, month;
 	__thisMonth->getMonth(year, month);
 
-	CalDate date(year, month, 1);
-	CalDate date2(date);
+	CalDateTime date(year, month, 1);
+	CalDateTime date2(date);
 	date2.decrementMonth();
 
 	date.setToMonthGridStart(__firstWeekday);
 	date2.setToMonthGridStart(__firstWeekday);
 
-	const int rowOffset = CalDate::getDayDiff(date2, date) / DAYS_PER_WEEK;
+	const int rowOffset = CalDateTime::getDayDiff(date2, date) / DAYS_PER_WEEK;
 	WDEBUG("%s %s %d", date.dump().c_str(), date2.dump().c_str(), rowOffset);
 
 	return rowOffset;
@@ -441,14 +441,14 @@ int CalMonthControl2::__getNextMonthRowOffset()
 	int year, month;
 	__thisMonth->getMonth(year, month);
 
-	CalDate date(year, month, 1);
-	CalDate date2(date);
+	CalDateTime date(year, month, 1);
+	CalDateTime date2(date);
 	date2.incrementMonth();
 
 	date.setToMonthGridStart(__firstWeekday);
 	date2.setToMonthGridStart(__firstWeekday);
 
-	const int rowOffset = CalDate::getDayDiff(date2, date) / DAYS_PER_WEEK;
+	const int rowOffset = CalDateTime::getDayDiff(date2, date) / DAYS_PER_WEEK;
 	WDEBUG("%s %s %d", date.dump().c_str(), date2.dump().c_str(), rowOffset);
 
 	return rowOffset;
@@ -529,7 +529,7 @@ void CalMonthControl2::__reset(int dir)
 
 	int year, month;
 	__thisMonth->getMonth(year, month);
-	CalDate date(year, month, 1);
+	CalDateTime date(year, month, 1);
 
 	if (dir > 0)
 		date.incrementMonth();
@@ -546,7 +546,7 @@ void CalMonthControl2::__reset(int dir)
  *
  * @param	date	The date.
  */
-void CalMonthControl2::__resetAccessoryMonths(const CalDate& date)
+void CalMonthControl2::__resetAccessoryMonths(const CalDateTime& date)
 {
 	if (__isLowerBound()) {
 		WDEBUG("Lower-bound reached");
@@ -575,7 +575,7 @@ void CalMonthControl2::__resetDayNums(CalMonthRowControl* rowArray[], int dir)
 {
 	const int rowOffset = dir > 0 ? GRID_ROW_COUNT : -GRID_ROW_COUNT;
 
-	CalDate rowStartDate;
+	CalDateTime rowStartDate;
 	__thisMonth->getDate(0, 0, rowStartDate);
 	rowStartDate.addDays(rowOffset * DAYS_PER_WEEK);
 
@@ -594,9 +594,9 @@ bool CalMonthControl2::__isUpperBound()
 {
 	int year, month;
 	__thisMonth->getMonth(year, month);
-	CalDate date(year, month, 1);
+	CalDateTime date(year, month, 1);
 
-	if (CalDate::compareMonth(__upperBound, date) <= 0)
+	if (CalDateTime::compareMonth(__upperBound, date) <= 0)
 		return true;
 
 	return false;
@@ -611,9 +611,9 @@ bool CalMonthControl2::__isLowerBound()
 {
 	int year, month;
 	__thisMonth->getMonth(year, month);
-	CalDate date(year, month, 1);
+	CalDateTime date(year, month, 1);
 
-	if (CalDate::compareMonth(date, __lowerBound) <= 0)
+	if (CalDateTime::compareMonth(date, __lowerBound) <= 0)
 		return true;
 
 	return false;

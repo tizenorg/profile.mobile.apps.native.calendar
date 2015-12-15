@@ -217,7 +217,7 @@ unsigned int CalInstanceSchedule::getRecurranceIdProperty() const
 	return 0;
 }
 
-calendar_query_h CalInstanceSchedule::createSimpleListQuery(const CalDate& base, int dir, bool allDay, calendar_filter_h additionalFilter)
+calendar_query_h CalInstanceSchedule::createSimpleListQuery(const CalDateTime& base, int dir, bool allDay, calendar_filter_h additionalFilter)
 {
 	const char* uri = allDay ?
 			_calendar_instance_localtime_calendar_book_extended._uri :
@@ -273,7 +273,7 @@ calendar_query_h CalInstanceSchedule::createSimpleListQuery(const CalDate& base,
 	return query;
 }
 
-calendar_query_h CalInstanceSchedule::createRangeListQuery(const CalDate& from, const CalDate& to, bool allDay, calendar_filter_h additionalFilter)
+calendar_query_h CalInstanceSchedule::createRangeListQuery(const CalDateTime& from, const CalDateTime& to, bool allDay, calendar_filter_h additionalFilter)
 {
 	const char* uri = allDay ?
 			_calendar_instance_localtime_calendar_book_extended._uri :
@@ -336,7 +336,7 @@ calendar_query_h CalInstanceSchedule::createRangeListQuery(const CalDate& from, 
 	return query;
 }
 
-calendar_query_h CalInstanceSchedule::createComplexListQuery(const CalDate& base, int dir, bool allDay, calendar_filter_h additionalFilter)
+calendar_query_h CalInstanceSchedule::createComplexListQuery(const CalDateTime& base, int dir, bool allDay, calendar_filter_h additionalFilter)
 {
 	const char* uri = allDay ?
 			_calendar_instance_localtime_calendar_book_extended._uri :

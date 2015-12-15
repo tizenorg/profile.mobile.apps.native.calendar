@@ -21,7 +21,7 @@
 #include "CalCommon.h"
 #include "CalSingleton.h"
 #include "ICalListModel.h"
-#include "CalDate.h"
+#include "CalDateTime.h"
 #include "CalWorker.h"
 
 class WAPP_ASSIST_EXPORT CalListModelFactory
@@ -33,10 +33,10 @@ private:
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalListModelFactory);
 public:
-	ICalListModel* getList(const CalDate& base, int dir, bool ignoreWorker = false);
-	ICalListModel* getSearchList(const CalDate& base, int dir, const char* keyword);
-	ICalListModel* getDeleteList(const CalDate& base, int dir);
-	ICalListModel* getRangeList(const CalDate& from, const CalDate& to, bool ignoreWorker = false);
+	ICalListModel* getList(const CalDateTime& base, int dir, bool ignoreWorker = false);
+	ICalListModel* getSearchList(const CalDateTime& base, int dir, const char* keyword);
+	ICalListModel* getDeleteList(const CalDateTime& base, int dir);
+	ICalListModel* getRangeList(const CalDateTime& from, const CalDateTime& to, bool ignoreWorker = false);
 	void prepare();
 private:
 	int __getFirstDayOfWeek();

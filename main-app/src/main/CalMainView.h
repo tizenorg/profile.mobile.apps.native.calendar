@@ -32,9 +32,9 @@
 class CalMainView : public CalView
 {
 public:
-	CalMainView(const CalDate& focusedDate);
+	CalMainView(const CalDateTime& focusedDate);
 	virtual const char* getClassName();
-	void focus(const CalDate& date);
+	void focus(const CalDateTime& date);
 
 protected:
 	virtual ~CalMainView();
@@ -127,7 +127,7 @@ private:
 	 *
 	 * @param	newFocusDate	The new focus date.
 	 */
-	void __focusMonth(const CalDate& newFocusDate);
+	void __focusMonth(const CalDateTime& newFocusDate);
 
 	/**
 	 * Focus list.
@@ -251,7 +251,7 @@ private:
 		ENABLE,
 	};
 
-	CalDate __focusedDate;
+	CalDateTime __focusedDate;
 	CalMonthControl2* __month;
 	CalScheduleListControl* __list;
 	ICalListModel* __fowardModel;
@@ -266,7 +266,7 @@ private:
 	bool __monthDragBegan;
 	Ecore_Timer* __updateTimer;
 	bool __isCutomFocus;
-	CalDate __customFocusDate;
+	CalDateTime __customFocusDate;
 	Evas_Object* __mainViewLayout;
 };
 
