@@ -103,6 +103,9 @@ group { name: "elm/genlist/item/CalDialogEditRepeatUntilTimesItem/default";
 }
 
 group { name: "elm/genlist/item/CalDialogEditRepeatUntilTimesItemRTL/default";
+   alias: "elm/genlist/item_compress/CalDialogEditRepeatUntilTimesItemRTL/default";
+   alias: "elm/genlist/tree/CalDialogEditRepeatUntilTimesItemRTL/default";
+   alias: "elm/genlist/tree_compress/CalDialogEditRepeatUntilTimesItemRTL/default";
    data.item: "treesize" GENLIST_TREESIZE_DEFAULT;
    data.item: "texts" "elm.text.right";
    data.item: "contents" "elm.icon.right elm.swallow.times";

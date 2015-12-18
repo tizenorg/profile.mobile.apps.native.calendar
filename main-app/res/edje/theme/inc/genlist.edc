@@ -64,7 +64,9 @@ styles {
 }
 
 group { name: "elm/genlist/item/4text.1colorbar.1check/default";
-
+   alias: "elm/genlist/item_compress/4text.1colorbar.1check/default";
+   alias: "elm/genlist/tree/4text.1colorbar.1check/default";
+   alias: "elm/genlist/tree_compress/4text.1colorbar.1check/default";
    data.item: "texts" "elm.text.time elm.text.main.top elm.text.location elm.text.time.up elm.text.time.down";
    data.item: "contents" "elm.swallow.color.bar elm.swallow.checkbox";
    data.item: "banded_bg_area" "elm.swallow.bg";
@@ -191,6 +193,9 @@ group { name: "elm/genlist/item/4text.1colorbar.1check/default";
 }
 
 group { name: "elm/genlist/item/1text.1colorbar/default";
+   alias: "elm/genlist/item_compress/1text.1colorbar/default";
+   alias: "elm/genlist/tree/1text.1colorbar/default";
+   alias: "elm/genlist/tree_compress/1text.1colorbar/default";
    data.item: "texts" "elm.text elm.text.main elm.text.sub";
    data.item: "contents" "elm.swallow.color.bar";
 
@@ -279,6 +284,9 @@ group { name: "elm/genlist/item/1text.1colorbar/default";
 }
 
 group { name: "elm/genlist/item/1text.1colorbar.1check/default";
+   alias: "elm/genlist/item_compress/1text.1colorbar.1check/default";
+   alias: "elm/genlist/tree/1text.1colorbar.1check/default";
+   alias: "elm/genlist/tree_compress/1text.1colorbar.1check/default";
    inherit: "elm/genlist/item/1text.1colorbar/default";
 
    data.item: "texts" "elm.text elm.text.main elm.text.sub";
@@ -301,6 +309,9 @@ group { name: "elm/genlist/item/1text.1colorbar.1check/default";
 }
 
 group { name: "elm/genlist/item/1text.custom/default";
+   alias: "elm/genlist/item_compress/1text.custom/default";
+   alias: "elm/genlist/tree/1text.custom/default";
+   alias: "elm/genlist/tree_compress/1text.custom/default";
    data.item: "texts" "elm.text";
    data.item: "banded_bg_area" "elm.swallow.bg";
    data.item: "banded_bg_color" "255 255 255 255";
@@ -328,6 +339,9 @@ group { name: "elm/genlist/item/1text.custom/default";
 }
 
 group { name: "elm/genlist/item/icon.entry/default";
+   alias: "elm/genlist/item_compress/icon.entry/default";
+   alias: "elm/genlist/tree/icon.entry/default";
+   alias: "elm/genlist/tree_compress/icon.entry/default";
 
    data.item: "texts" "elm.text.time elm.text.main elm.text.main.top elm.text.location";
    data.item: "contents" "elm.swallow.color elm.swallow.textfield";
@@ -381,7 +395,9 @@ group { name: "elm/genlist/item/icon.entry/default";
 #define MONTH_ROW_HEIGHT 56
 
 group { name: "elm/genlist/item/1icon.calendar/default";
-
+   alias: "elm/genlist/item_compress/1icon.calendar/default";
+   alias: "elm/genlist/tree/1icon.calendar/default";
+   alias: "elm/genlist/tree_compress/1icon.calendar/default";
    data.item: "contents" "elm.icon";
    data.item: "bg_color" "B0211";
 
@@ -400,6 +416,9 @@ group { name: "elm/genlist/item/1icon.calendar/default";
 }
 
 group { name: "elm/genlist/item/2line.bottom.multiline/default";
+   alias: "elm/genlist/item_compress/2line.bottom.multiline/default";
+   alias: "elm/genlist/tree/2line.bottom.multiline/default";
+   alias: "elm/genlist/tree_compress/2line.bottom.multiline/default";
 
    data.item: "treesize" GENLIST_TREESIZE_DEFAULT;
    data.item: "texts" "elm.text.main.left.bottom elm.text.sub.right.bottom elm.text.main.right.bottom elm.text.sub.left.bottom elm.text.sub.left.top elm.text.sub.right.top";
@@ -593,6 +612,9 @@ group { name: "elm/genlist/item/2line.bottom.multiline/default";
 }
 
 group { name: "elm/genlist/item/groupindex.day/default";
+   alias: "elm/genlist/item_compress/groupindex.day/default";
+   alias: "elm/genlist/tree/groupindex.day/default";
+   alias: "elm/genlist/tree_compress/groupindex.day/default";
 
 // ---------------------------------------------------------------------------------------------------------------
 // |                   |                             |                                                           |
@@ -660,6 +682,9 @@ group { name: "elm/genlist/item/groupindex.day/default";
 }
 
 group { name: "elm/genlist/item/multiline_sub_settings/default";
+   alias: "elm/genlist/item_compress/multiline_sub_settings/default";
+   alias: "elm/genlist/tree/multiline_sub_settings/default";
+   alias: "elm/genlist/tree_compress/multiline_sub_settings/default";
 
    data.item: "treesize" GENLIST_TREESIZE_DEFAULT;
    data.item: "texts" "elm.text.multiline";
