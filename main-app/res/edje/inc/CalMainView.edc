@@ -453,16 +453,6 @@ group {
 				rel2 { to: "list"; }
 			}
 		}
-		part {
-			name: "add_button";
-			type: SWALLOW;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				rel1 { relative: 0.7 0.85; }
-				rel2 { relative: 0.9 0.93; }
-			}
-		}
 	}
 	programs {
 		PROGRAM_SHOW_ALL_ROWS
