@@ -310,20 +310,23 @@ void CalMainView::onCreated()
 	__monthDragRecognizer->addTarget((Evas_Object*)edje_object_part_object_get(elm_layout_edje_get(__mainViewLayout), "month/touch"));
 	__monthDragRecognizer->block();
 
-	Evas_Object *button= elm_button_add(__mainViewLayout);
-	elm_object_part_content_set(__mainViewLayout, "add_button", button);
+	Evas_Object *floatingButton = eext_floatingbutton_add(getEvasObj());
+	elm_object_part_content_set(getEvasObj(), "elm.swallow.floatingbutton", floatingButton);
+	evas_object_repeat_events_set(floatingButton, EINA_FALSE);
 
-	Evas_Object *icon = elm_image_add(__mainViewLayout);
+	Evas_Object *button= elm_button_add(floatingButton);
+	elm_object_part_content_set(floatingButton, "button1", button);
+
+	Evas_Object *icon = elm_image_add(floatingButton);
 	elm_image_file_set(icon, CAL_IMAGE_DIR "core_floating_button_icon.png", NULL);
 	elm_object_part_content_set(button, "icon", icon);
 
 	evas_object_smart_callback_add(button, "clicked",
-			[](void* data, Evas_Object* obj, void* event_info){
-				CalMainView* self = (CalMainView*)data;
-				self->getNaviframe()->push(new CalEditView(self->__focusedDate));
-			},this
-		);
-	evas_object_show(button);
+		[](void* data, Evas_Object* obj, void* event_info){
+			CalMainView* self = (CalMainView*)data;
+			self->getNaviframe()->push(new CalEditView(self->__focusedDate));
+		},this
+	);
 }
 
 /**
@@ -371,10 +374,6 @@ void CalMainView::onMenuButton()
 	WMenuPopup* popup = new WMenuPopup();
 	popup->prepare(getWindow()->getEvasObj(), getNaviframe()->getEvasObj());
 
-	popup->appendItem(_L_("IDS_CLD_OPT_CREATE"),
-		[this]() {
-			getNaviframe()->push(new CalEditView(__focusedDate));
-		});
 
 	popup->appendItem(_L_("IDS_CLD_OPT_GO_TO_TODAY"),
 		[this]() {
