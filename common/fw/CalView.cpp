@@ -50,7 +50,8 @@ Evas_Object* CalView::__createMenuBtn(Evas_Object* parent, Evas_Smart_Cb func, v
 		return NULL;
 	}
 
-	elm_object_style_set(btn, "naviframe/more/default");
+	// TODO: return back when default style is working again
+	//elm_object_style_set(btn, "naviframe/more/default");
 	evas_object_show(btn);
 	evas_object_smart_callback_add(btn, "clicked", func, data);
 

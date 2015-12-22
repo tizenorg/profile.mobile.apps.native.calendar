@@ -360,7 +360,8 @@ bool WView::enableMoreButton( Elm_Object_Item* naviItem, Evas_Smart_Cb clickedCb
 	}
 	Evas_Object *btn = elm_button_add( getNaviframe()->getEvasObj() );
 	if (!btn) return false;
-	elm_object_style_set(btn, "naviframe/more/default");
+	// TODO: return back when default style is working again
+	//elm_object_style_set(btn, "naviframe/more/default");
 	evas_object_show(btn);
 	evas_object_smart_callback_add(btn, "clicked", clickedCb, userData);
 	elm_object_item_part_content_set(naviItem, "toolbar_more_btn", btn);
