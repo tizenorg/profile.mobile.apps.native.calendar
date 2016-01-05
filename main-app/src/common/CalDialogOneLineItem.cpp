@@ -31,11 +31,11 @@ CalDialogOneLineItem::~CalDialogOneLineItem()
 Elm_Genlist_Item_Class* CalDialogOneLineItem::getItemClassStatic()
 {
 	static Elm_Genlist_Item_Class itc = {}; // Implicitly 0-init in C++
-	itc.item_style = "1line";
+	itc.item_style = "type1";
 	itc.func.text_get = [](void* data, Evas_Object* obj, const char* part)->char*
 	{
 		CalDialogOneLineItem *item = (CalDialogOneLineItem*)data;
-		if (0 == strcmp("elm.text.main.left", part)) {
+		if (0 == strcmp("elm.text", part)) {
 			return g_strdup_printf("%s", _L_G_(item->__text));
 		}
 		return NULL;
