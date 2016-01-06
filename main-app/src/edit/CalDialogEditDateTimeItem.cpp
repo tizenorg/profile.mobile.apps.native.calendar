@@ -341,17 +341,6 @@ Evas_Object* CalDialogEditDateTimeItem::onCreateDateTime(Evas_Object* parent, bo
 		}
 	}
 
-	evas_object_smart_callback_add(parent, "changed",
-		[](void* data, Evas_Object* obj, void* event_info) {
-
-			CalDialogEditDateTimeItem* item = (CalDialogEditDateTimeItem*)data;
-			if (item->__changedCb)
-			{
-				item->__changedCb(item->__start, item->__end);
-			}
-
-		}, this);
-
 	return layout;
 }
 
