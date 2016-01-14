@@ -26,7 +26,7 @@
 class WAPP_ASSIST_EXPORT CalUnderlineEditField : public CalControl
 {
 public:
-	CalUnderlineEditField();
+	CalUnderlineEditField(bool multiLine = false);
 	virtual ~CalUnderlineEditField();
 public:
 	void setText(const char* text);
@@ -56,6 +56,7 @@ private:
 	WDISABLE_COPY_AND_ASSIGN(CalUnderlineEditField);
 
 private:
+	bool __multiLine;
 	Evas_Object* __layout;
 	Evas_Object* __entry;
 	std::function<void (const char* text)> __changeCallback;

@@ -19,7 +19,7 @@
 #include "CalCommon.h"
 #include "CalDialogEditOptionalTextFieldItem.h"
 
-CalDialogEditOptionalTextFieldItem::CalDialogEditOptionalTextFieldItem(int sortIndex, std::function<void (CalEditField* editField)> onCreateEditField, bool multiLine)
+CalDialogEditOptionalTextFieldItem::CalDialogEditOptionalTextFieldItem(int sortIndex, std::function<void (CalUnderlineEditField* editField)> onCreateEditField, bool multiLine)
 	:CalDialogControl::Item(sortIndex),
 	__multiLine(multiLine),
 	__editField(nullptr),
@@ -42,7 +42,7 @@ CalDialogEditOptionalTextFieldItem::~CalDialogEditOptionalTextFieldItem()
 
 Evas_Object* CalDialogEditOptionalTextFieldItem::createEntry(Evas_Object* parent)
 {
-	__editField = new CalEditField(__multiLine);
+	__editField = new CalUnderlineEditField(__multiLine);
 	__editField->create(parent, NULL);
 
 	if (__onCreateEditField)
@@ -83,7 +83,7 @@ Evas_Object* CalDialogEditOptionalTextFieldItem::createRemoveButton(Evas_Object*
 	elm_box_homogeneous_set(box, EINA_FALSE);
 
 	Evas_Object* button = elm_button_add(box);
-	elm_object_style_set(button, "editfield_clear");
+	elm_object_style_set(button, "icon_expand_delete");
 	evas_object_show(button);
 	evas_object_smart_callback_add(button, "clicked", [](void* data, Evas_Object* obj, void* event_info) {
 		CalDialogEditOptionalTextFieldItem* self = (CalDialogEditOptionalTextFieldItem*)data;
@@ -101,7 +101,7 @@ void CalDialogEditOptionalTextFieldItem::setRemoveCb(std::function<void ()> remo
 	__removeCb = removeCb;
 }
 
-CalEditField* CalDialogEditOptionalTextFieldItem::getEditField()
+CalUnderlineEditField *CalDialogEditOptionalTextFieldItem::getEditField()
 {
 	return __editField;
 }

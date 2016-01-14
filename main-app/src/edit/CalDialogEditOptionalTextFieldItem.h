@@ -26,13 +26,13 @@
 class CalDialogEditOptionalTextFieldItem : public CalDialogControl::Item
 {
 public:
-	CalDialogEditOptionalTextFieldItem(int sortIndex, std::function<void (CalEditField* editField)> onCreateEditField, bool multiLine = false);
+	CalDialogEditOptionalTextFieldItem(int sortIndex, std::function<void (CalUnderlineEditField* editField)> onCreateEditField, bool multiLine = false);
 	CalDialogEditOptionalTextFieldItem();
 	virtual ~CalDialogEditOptionalTextFieldItem();
 
 public:
 	void setRemoveCb(std::function<void ()> removeCb);
-	CalEditField* getEditField();
+	CalUnderlineEditField* getEditField();
 
 private:
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
@@ -41,9 +41,9 @@ private:
 
 private:
 	bool __multiLine;
-	CalEditField* __editField;
+	CalUnderlineEditField* __editField;
 	std::function<void ()> __removeCb;
-	std::function<void (CalEditField* editField)> __onCreateEditField;
+	std::function<void (CalUnderlineEditField* editField)> __onCreateEditField;
 };
 
 #endif /* _CAL_DIALOG_EDIT_OPTIONAL_TEXT_FIELD_ITEM_H_ */

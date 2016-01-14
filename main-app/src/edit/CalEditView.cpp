@@ -263,7 +263,7 @@ void CalEditView::__onAddLocationField()
 		return;
 	}
 
-	__location = new CalDialogEditOptionalTextFieldItem(LOCATION, [this](CalEditField* editField)
+	__location = new CalDialogEditOptionalTextFieldItem(LOCATION, [this](CalUnderlineEditField* editField)
 	{
 		std::string location;
 		__workingCopy->getDisplayLocation(-1, location);
@@ -281,13 +281,13 @@ void CalEditView::__onAddLocationField()
 			editField->setGuideText(_L_G_("IDS_CLD_BUTTON_LOCATION_ABB"), 0);
 		}
 
-		editField->setChangeCb([this](const char* text)
+		editField->setChangeCallback([this](const char* text)
 		{
 			WDEBUG("Location : %s", text);
 			__workingCopy->setLocation(text);
 		});
 
-		editField->setEntryCompletedCb([this]()
+		editField->setCompleteCallback([this]()
 		{
 			if (__description)
 			{
@@ -299,14 +299,14 @@ void CalEditView::__onAddLocationField()
 			}
 		});
 
-		editField->setEntryMaxLenReachCb([this]()
+		editField->setEntryMaxLenReachCallback([this]()
 		{
 			char warningText[CAL_WARNING_MAX_LENGTH] = {0};
 			snprintf(warningText, sizeof(warningText)-1, _L_("IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"), CAL_EVENT_TITLE_MAX_CHAR_LIMIT);
 			notification_status_message_post(warningText);
 		});
 
-		editField->setEntryReturnKeyType(CalEditField::DONE);
+		editField->setEntryReturnKeyType(CalUnderlineEditField::DONE);
 
 		CalUnderlineEditField* titleEditField = __title->getEditField();
 		if (titleEditField)
@@ -316,11 +316,11 @@ void CalEditView::__onAddLocationField()
 
 		if (__description == NULL)
 		{
-			editField->setEntryReturnKeyType(CalEditField::DONE);
+			editField->setEntryReturnKeyType(CalUnderlineEditField::DONE);
 		}
 		else
 		{
-			editField->setEntryReturnKeyType(CalEditField::NEXT);
+			editField->setEntryReturnKeyType(CalUnderlineEditField::NEXT);
 		}
 	});
 
@@ -780,7 +780,7 @@ void CalEditView::__resetAllEntryState(CalDialogControl::Item* item)
 	{
 		if (__location)
 		{
-			__location->getEditField()->setEntryReturnKeyType(CalEditField::DONE);
+			__location->getEditField()->setEntryReturnKeyType(CalUnderlineEditField::DONE);
 		}
 		else if (__title && __title->getEditField())
 		{
@@ -932,7 +932,7 @@ void CalEditView::__onAddDescriptionField()
 	}
 
 	__description = new CalDialogEditOptionalTextFieldItem(DESCRIPTION,
-		[this](CalEditField* editField)
+		[this](CalUnderlineEditField* editField)
 	{
 		std::string description;
 		__workingCopy->getDisplayDescription(description);
@@ -950,23 +950,23 @@ void CalEditView::__onAddDescriptionField()
 			editField->setGuideText(_L_G_("IDS_CLD_BUTTON_NOTES_ABB"), 0);
 		}
 
-		editField->setChangeCb([this](const char* text)
+		editField->setChangeCallback([this](const char* text)
 		{
 			__workingCopy->setDescription(text);
 		});
 
-		editField->setEntryMaxLenReachCb([this]()
+		editField->setEntryMaxLenReachCallback([this]()
 		{
 			char warningText[CAL_WARNING_MAX_LENGTH] = {0};
 			snprintf(warningText, sizeof(warningText)-1, _L_("IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"), CAL_EVENT_TITLE_MAX_CHAR_LIMIT);
 			notification_status_message_post(warningText);
 		});
 
-		editField->setEntryReturnKeyType(CalEditField::DONE);
+		editField->setEntryReturnKeyType(CalUnderlineEditField::DONE);
 
 		if (__location)
 		{
-			__location->getEditField()->setEntryReturnKeyType(CalEditField::NEXT);
+			__location->getEditField()->setEntryReturnKeyType(CalUnderlineEditField::NEXT);
 		}
 		else if(__title && __title->getEditField())
 		{
