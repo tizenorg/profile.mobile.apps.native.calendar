@@ -35,8 +35,8 @@ group { name: "elm/genlist/item/EntryIconCustom/default";
       }
       PART(SPACER, "elm.padding.left",
          DSC_FROM_L("default" 0.0,
-            min: 32 0;
-            max: 32 -1;
+            min: 0 0;
+            max: 0 -1;
          )
       )
       PART(SPACER, "elm.padding.right",

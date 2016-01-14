@@ -19,7 +19,8 @@
 #include "CalUnderlineEditField.h"
 #include "CalCommon.h"
 
-CalUnderlineEditField::CalUnderlineEditField() :
+CalUnderlineEditField::CalUnderlineEditField(bool multiLine) :
+		__multiLine(multiLine),
 		__layout(nullptr),
 		__entry(nullptr),
 		__changeCallback(nullptr),
@@ -155,6 +156,9 @@ Evas_Object* CalUnderlineEditField::onCreate( Evas_Object* parent, void* param )
 	evas_object_show(__entry);
 	elm_entry_single_line_set(__entry, EINA_TRUE);
 	elm_entry_scrollable_set(__entry, EINA_TRUE);
+
+	elm_entry_single_line_set(__entry, !__multiLine);
+
 	elm_object_part_content_set(__layout, "elm.swallow.content", __entry);
 
 	Evas_Object *button = elm_button_add(parent);

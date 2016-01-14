@@ -49,7 +49,7 @@ Elm_Genlist_Item_Class* CalDialogEditTwoTextRemoveIconItem::getItemClassStatic()
 		if(!strcmp(part, "elm.swallow.end"))
 		{
 			Evas_Object* button = elm_button_add(obj);
-			elm_object_style_set(button, "editfield_clear");
+			elm_object_style_set(button, "icon_expand_delete");
 
 			evas_object_smart_callback_add(button, "clicked", [](void* data, Evas_Object* obj, void* event_info) {
 				CalDialogEditTwoTextRemoveIconItem* self = (CalDialogEditTwoTextRemoveIconItem*)data;

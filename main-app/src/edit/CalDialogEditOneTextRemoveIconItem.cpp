@@ -62,7 +62,7 @@ Elm_Genlist_Item_Class* CalDialogEditOneTextRemoveIconItem::getItemClassStatic()
 			elm_box_homogeneous_set(box, EINA_FALSE);
 
 			Evas_Object* button = elm_button_add(box);
-			elm_object_style_set(button, "editfield_clear");
+			elm_object_style_set(button, "icon_expand_delete");
 			evas_object_show(button);
 			evas_object_smart_callback_add(button, "clicked", [](void* data, Evas_Object* obj, void* event_info) {
 					CalDialogEditOneTextRemoveIconItem* self = (CalDialogEditOneTextRemoveIconItem*)data;
