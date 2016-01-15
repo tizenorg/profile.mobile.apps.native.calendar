@@ -71,7 +71,6 @@ void CalAlertModel::snoozeAll(void)
 		return ;
 	}
 
-	int recordIndex = 0;
 	for (int i = 0; i < count; i++)
 	{
 		std::shared_ptr<CalAlertNotificationItem> alertItem = __alertData->getAt(i);
