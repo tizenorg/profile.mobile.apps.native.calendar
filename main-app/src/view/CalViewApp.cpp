@@ -30,9 +30,9 @@
 #include "CalLocaleManager.h"
 
 CalViewApp::CalViewApp(CalNaviframe *naviframe):
-	__replyToRequest(false),
-	__request(nullptr),
-	__naviframe(naviframe)
+    __naviframe(naviframe),
+    __replyToRequest(false),
+    __request(nullptr)
 {
 }
 

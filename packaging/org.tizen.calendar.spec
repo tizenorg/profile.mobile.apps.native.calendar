@@ -3,7 +3,7 @@
 %define REF_APP_LABEL Calendar
 #define widget_disabled 1
 
-Name:       org.tizen.%{REF_APP_NAME}
+Name:       org.tizen.calendar
 Summary:    %{REF_APP_LABEL} application
 Version:    1.0.0
 Release:    1

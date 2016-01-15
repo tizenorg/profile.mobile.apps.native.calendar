@@ -144,7 +144,7 @@ void CalScheduleReminder::getString(std::string& text) const
 	return;
 }
 
-int CalScheduleReminder::getMinuteValue() const
+long long CalScheduleReminder::getMinuteValue() const
 {
 	switch (unitType) {
 	case NONE:

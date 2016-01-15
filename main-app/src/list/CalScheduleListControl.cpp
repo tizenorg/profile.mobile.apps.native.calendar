@@ -826,7 +826,6 @@ void CalScheduleListControl::__insertItem(const std::shared_ptr<CalSchedule>& sc
 void CalScheduleListControl::__insertMonthItemIfNeeded(CalDate date, int dir)
 {
 	bool found = false;
-	bool inserted = false;
 
 	Elm_Object_Item* it = NULL;
 	if(dir > 0)

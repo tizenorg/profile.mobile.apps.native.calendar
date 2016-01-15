@@ -88,7 +88,6 @@ void CalStatusBarManager::pushNotification(std::shared_ptr<CalAlertData> &alertD
 void CalStatusBarManager::pushActiveNotification(const std::shared_ptr<CalAlertData>& alertData, bool addSound)
 {
 	WENTER();
-	int recordIndex;
 	int count = alertData->getCount();
 
 	for (int i = 0; i < count; i++)
@@ -96,7 +95,6 @@ void CalStatusBarManager::pushActiveNotification(const std::shared_ptr<CalAlertD
 		auto alertItem = alertData->getAt(i);
 		auto schedule = alertItem->getSchedule();
 		WPRET_M((schedule == NULL),"invalid param");
-		recordIndex = schedule->getIndex();
 		__pushActiveNotification(schedule, addSound);
 	}
 }

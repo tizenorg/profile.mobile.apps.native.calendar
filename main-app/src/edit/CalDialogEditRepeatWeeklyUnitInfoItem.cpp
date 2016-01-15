@@ -42,7 +42,7 @@ CalDialogEditRepeatWeeklyUnitInfoItem::~CalDialogEditRepeatWeeklyUnitInfoItem()
 {
 }
 
-Evas_Object* CalDialogEditRepeatWeeklyUnitInfoItem::createCheck(Evas_Object *parent, const char *text, int index, CalDialogEditRepeatWeeklyUnitInfoItem *item, int day)
+Evas_Object* CalDialogEditRepeatWeeklyUnitInfoItem::createCheck(Evas_Object *parent, const char *text, int index, CalDialogEditRepeatWeeklyUnitInfoItem *item, long long day)
 {
 	Evas_Object *check = elm_check_add(parent);
 
@@ -58,7 +58,7 @@ Evas_Object* CalDialogEditRepeatWeeklyUnitInfoItem::createCheck(Evas_Object *par
 		[](void *data, Evas_Object *obj, void *event_info)->void
 		{
 			CalDialogEditRepeatWeeklyUnitInfoItem *item = (CalDialogEditRepeatWeeklyUnitInfoItem*)data;
-			int day = reinterpret_cast<long long>(evas_object_data_get(obj, "day"));
+			long long day = reinterpret_cast<long long>(evas_object_data_get(obj, "day"));
 			item->__unitInfo.weekly.selected[day] = elm_check_state_get(obj);
 			if (item->__changedCb)
 			{

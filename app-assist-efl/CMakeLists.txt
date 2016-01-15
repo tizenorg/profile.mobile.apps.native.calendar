@@ -35,10 +35,8 @@ FOREACH(flag ${lib_pkgs_CFLAGS})
 	SET(LIB_CFLAGS "${LIB_CFLAGS} ${flag}")
 ENDFOREACH(flag)
 
-SET(GC_SECTIONS_FLAGS "-fdata-sections -ffunction-sections -Wl,--gc-sections")
-SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} -fPIC ${GC_SECTIONS_FLAGS}")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${LIB_CFLAGS} ${EXTRA_CFLAGS} -Wl,--no-undefined -Werror-implicit-function-declaration")
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${LIB_CFLAGS} -Wall -g -fvisibility=hidden -Wl,--no-undefined -fPIC -std=c++0x ${GC_SECTIONS_FLAGS}")
+SET(EXTRA_CFLAGS "${EXTRA_CFLAGS} -fPIC")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${LIB_CFLAGS} -Wall -Werror -g -fvisibility=hidden -fPIC -std=c++0x")
 
 ADD_LIBRARY(${PROJECT_NAME} SHARED ${SRCS})
 #ADD_LIBRARY(${PROJECT_NAME} STATIC ${SRCS})

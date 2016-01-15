@@ -28,7 +28,7 @@ public:
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatWeeklyUnitInfoItem);
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
-	Evas_Object* createCheck(Evas_Object *parent, const char *text, int index, CalDialogEditRepeatWeeklyUnitInfoItem *item, int day);
+	Evas_Object* createCheck(Evas_Object *parent, const char *text, int index, CalDialogEditRepeatWeeklyUnitInfoItem *item, long long day);
 private:
 	std::function<void (CalScheduleRepeat::UnitInfo unitInfo)> __changedCb;
 	const CalScheduleRepeat __repeat;

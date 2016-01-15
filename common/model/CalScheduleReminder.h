@@ -32,7 +32,7 @@ public:
 	const CalScheduleReminder& operator=(const CalScheduleReminder&);
 	const bool operator<(const CalScheduleReminder&) const;
 public:
-	int getMinuteValue() const;
+	long long getMinuteValue() const;
 
 public:
 	enum UnitType {
