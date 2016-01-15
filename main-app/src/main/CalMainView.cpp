@@ -210,23 +210,21 @@ CalMonthControl2* CalMainView::__constructMonthControl(int dir)
 			int sy, sh;
 			elm_scroller_region_get(__list->getEvasObj(), NULL, &sy, NULL, &sh);
 			elm_scroller_region_show(__list->getEvasObj(), 0, sy, 0, sh);
-			elm_layout_signal_emit(__mainViewLayout, "show-all-rows/post", "");
 		},
 		[this](int dx, int dy) {
 			TRACK_MODE_CHANGE_FLOW("__monthDragRecognizer.onMoved");
 			WASSERT(__listMode);
 			if (!__monthDragBegan) {
-				elm_layout_signal_emit(__mainViewLayout, "show-all-rows/pre", "");
 				__monthDragBegan = true;
 			} else {
-				__listSlideAnimator->update(dy);
-				__monthSlideAnimator->update(dy);
 			}
 		},
 		[this](int dx, int dy, bool isValidDrag) {
 			TRACK_MODE_CHANGE_FLOW("__monthDragRecognizer.onReleased");
 			WASSERT(__listMode);
 			if (isValidDrag) {
+				elm_layout_signal_emit(__mainViewLayout, "show-all-rows/post", "");
+				elm_layout_signal_emit(__mainViewLayout, "show-all-rows/pre", "");
 				__blockTouch("__monthDragRecognizer.onReleased");
 				if (dy > DRAG_BUFFER) {
 					__listSlideAnimator->finish(1);
@@ -653,8 +651,6 @@ void CalMainView::__createListControl()
 				}
 			} else {
 				__list->lockDrag(true);
-				__listSlideAnimator->update(dy);
-				__monthSlideAnimator->update(dy);
 			}
 		},
 		[this](int dx, int dy, bool isValidDrag) {
