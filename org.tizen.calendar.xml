@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns="http://tizen.org/ns/packages" package="${PKGNAME}" api-version="3.0" version="${PKGVERSION}">
+<manifest xmlns="http://tizen.org/ns/packages" package="${PKGNAME}" api-version="2.4" version="${PKGVERSION}">
 	<label>${REF_APP_LABEL}</label>
+	<author email="jeffry82@samsung.com" href="www.samsung.com">Jaepil Choi</author>
 	<description>${REF_APP_LABEL}</description>
 	<ui-application appid="${PKGNAME}" exec="${BINDIR}/${REF_APP_NAME}" multiple="false" nodisplay="false" taskmanage="true" type="capp" mainapp="true" indicatordisplay="false" process-pool="true" hw-acceleration="use-GL" launch_mode="single">
 		<label>${REF_APP_LABEL}</label>
@@ -55,15 +56,40 @@
 		<label xml:lang="zh-hk">日曆</label>
 		<label xml:lang="zh-tw">日曆</label>
 		<icon>${REF_APP_NAME}.png</icon>
+	</ui-application>
+	<ui-application appid="${PKGNAME}.alert" exec="${BINDIR}/calendar-alert" multiple="false" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
+		<label>${REF_APP_LABEL} Alert</label>
+		<icon>${REF_APP_NAME}.png</icon>
+		<application-service>
+			<operation name="http://tizen.org/appcontrol/operation/view" />
+			<mime name="application/x-tizen.calendar.reminder" />
+		</application-service>
+	</ui-application>
+	<ui-application appid="${PKGNAME}.pick" exec="${BINDIR}/calendar-pick" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
+		<label>${REF_APP_LABEL} Pick</label>
+		<icon>${REF_APP_NAME}.png</icon>
+		<application-service>
+			<operation name="http://tizen.org/appcontrol/operation/pick" />
+			<mime name="application/vnd.tizen.calendar"/>
+		</application-service>
+	</ui-application>
+	<ui-application appid="${PKGNAME}.view" exec="${BINDIR}/calendar-view" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
+		<label>${REF_APP_LABEL} View</label>
+		<icon>${REF_APP_NAME}.png</icon>
+		<application-service>
+			<operation name="http://tizen.org/appcontrol/operation/view" />
+			<mime name="application/vnd.tizen.calendar"/>
+			<mime name="text/calendar" />
+			<mime name="text/x-vcalendar" />
+		</application-service>
+	</ui-application>
+	<ui-application appid="${PKGNAME}.edit" exec="${BINDIR}/calendar-edit" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
+		<label>${REF_APP_LABEL} Edit</label>
+		<icon>${REF_APP_NAME}.png</icon>
 		<application-service>
 			<operation name="http://tizen.org/appcontrol/operation/add" />
 			<operation name="http://tizen.org/appcontrol/operation/edit" />
-			<operation name="http://tizen.org/appcontrol/operation/view" />
-			<operation name="http://tizen.org/appcontrol/operation/pick" />
-			<mime name="application/x-tizen.calendar.reminder" />
-			<mime name="application/vnd.tizen.calendar" />
-			<mime name="text/calendar" />
-			<mime name="text/x-vcalendar" />
+			<mime name="application/vnd.tizen.calendar"/>
 		</application-service>
 	</ui-application>
 	<privileges>

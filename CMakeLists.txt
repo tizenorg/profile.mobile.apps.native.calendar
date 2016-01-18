@@ -3,20 +3,17 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 PROJECT(${REF_APP_NAME} C CXX)
 
 FILE(GLOB SRCS
-		main-app/src/*.cpp
-		main-app/src/book/*.cpp
-		main-app/src/common/*.cpp
-		main-app/src/delete/*.cpp
-		main-app/src/detail/*.cpp
-		main-app/src/edit/*.cpp
-		main-app/src/list/*.cpp
-		main-app/src/main/*.cpp
-		main-app/src/month/*.cpp
-		main-app/src/search/*.cpp
-		main-app/src/setting/*.cpp
-		main-app/src/view/*.cpp
-		main-app/src/pick/*.cpp
-		main-app/src/alert/*.cpp
+    main-app/src/*.cpp
+    main-app/src/book/*.cpp
+    main-app/src/common/*.cpp
+    main-app/src/delete/*.cpp
+    main-app/src/detail/*.cpp
+    main-app/src/edit/*.cpp
+    main-app/src/list/*.cpp
+    main-app/src/main/*.cpp
+    main-app/src/month/*.cpp
+    main-app/src/search/*.cpp
+    main-app/src/setting/*.cpp
 )
 
 SET(VENDOR "org.tizen")
@@ -36,24 +33,21 @@ IF("${CMAKE_BUILD_TYPE}" STREQUAL "")
 ENDIF()
 MESSAGE(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 INCLUDE_DIRECTORIES(
-		${CMAKE_SOURCE_DIR}/app-assist-efl/inc
-		${CMAKE_SOURCE_DIR}/common
-		${CMAKE_SOURCE_DIR}/common/fw
-		${CMAKE_SOURCE_DIR}/common/model
-		${CMAKE_SOURCE_DIR}/main-app/src
-		${CMAKE_SOURCE_DIR}/main-app/src/book
-		${CMAKE_SOURCE_DIR}/main-app/src/common
-		${CMAKE_SOURCE_DIR}/main-app/src/delete
-		${CMAKE_SOURCE_DIR}/main-app/src/detail
-		${CMAKE_SOURCE_DIR}/main-app/src/edit
-		${CMAKE_SOURCE_DIR}/main-app/src/list
-		${CMAKE_SOURCE_DIR}/main-app/src/main
-		${CMAKE_SOURCE_DIR}/main-app/src/month
-		${CMAKE_SOURCE_DIR}/main-app/src/search
-		${CMAKE_SOURCE_DIR}/main-app/src/setting
-		${CMAKE_SOURCE_DIR}/main-app/src/view
-		${CMAKE_SOURCE_DIR}/main-app/src/pick
-		${CMAKE_SOURCE_DIR}/main-app/src/alert
+	${CMAKE_SOURCE_DIR}/app-assist-efl/inc
+	${CMAKE_SOURCE_DIR}/common
+	${CMAKE_SOURCE_DIR}/common/fw
+	${CMAKE_SOURCE_DIR}/common/model
+	${CMAKE_SOURCE_DIR}/main-app/src
+	${CMAKE_SOURCE_DIR}/main-app/src/book
+	${CMAKE_SOURCE_DIR}/main-app/src/common
+	${CMAKE_SOURCE_DIR}/main-app/src/delete
+	${CMAKE_SOURCE_DIR}/main-app/src/detail
+	${CMAKE_SOURCE_DIR}/main-app/src/edit
+	${CMAKE_SOURCE_DIR}/main-app/src/list
+	${CMAKE_SOURCE_DIR}/main-app/src/main
+	${CMAKE_SOURCE_DIR}/main-app/src/month
+	${CMAKE_SOURCE_DIR}/main-app/src/search
+	${CMAKE_SOURCE_DIR}/main-app/src/setting
 )
 
 SET(pkgs_WIDGET_LIST "")
@@ -147,6 +141,10 @@ ADD_SUBDIRECTORY(main-app/res/po)
 ADD_SUBDIRECTORY(main-app/shared)
 ADD_SUBDIRECTORY(app-assist-efl)
 ADD_SUBDIRECTORY(common)
+ADD_SUBDIRECTORY(app-control/alert)
+ADD_SUBDIRECTORY(app-control/pick)
+ADD_SUBDIRECTORY(app-control/view)
+ADD_SUBDIRECTORY(app-control/edit)
 
 IF(NOT WIDGET_DISABLED)
 ADD_SUBDIRECTORY(widget)
