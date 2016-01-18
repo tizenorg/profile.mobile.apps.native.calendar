@@ -38,6 +38,90 @@ CalEditApp::~CalEditApp()
 {
 }
 
+void CalEditApp::onPause()
+{
+	WENTER();
+
+	CalEventManager::getInstance().suspend();
+}
+
+void CalEditApp::onResume()
+{
+	WENTER();
+
+	CalEventManager::getInstance().resume();
+}
+
+bool CalEditApp::onCreate()
+{
+	WENTER();
+
+	WDEBUG("CAL_LOCALE_DIR %s", CAL_LOCALE_DIR);
+	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
+	CalEventManager::getInstance();
+	CalDataManager::getInstance();
+	CalBookManager::getInstance();
+	CalSettingsManager::getInstance();
+
+	__regionFormatChangedHandler.addEventHandler(APP_EVENT_REGION_FORMAT_CHANGED, [](app_event_info_h eventInfo, void* userData) {
+			char* region = NULL;
+
+			app_event_get_region_format( eventInfo, &region );
+			WDEBUG("changed region=%s", region);
+
+			CalSettingsManager::getInstance().updateRegion();
+			CalEvent event(CalEvent::SETTING_CHANGED, CalEvent::REMOTE);
+			CalEventManager::getInstance().notify(event);
+
+			free(region);
+
+		}, this );
+	__languageChangedHandler.addEventHandler(APP_EVENT_LANGUAGE_CHANGED, [](app_event_info_h eventInfo, void* userData) {
+			char* lang = NULL;
+
+			app_event_get_language( eventInfo, &lang );
+			WDEBUG("changed language=%s", lang);
+
+			CalLocaleManager::getInstance().updateLocaleForEvasObj();
+
+			CalEvent event(CalEvent::LANGUAGE_CHANGED, CalEvent::REMOTE);
+			CalEventManager::getInstance().notify(event);
+
+			free(lang);
+
+		}, this );
+
+	attachWindow(new WWindow("Calendar", ELM_WIN_BASIC));
+	CalNaviframe* naviframe = new CalNaviframe();
+	naviframe->setOnLastItemPop([] (bool* popOut) {
+			*popOut = true;
+			elm_exit();
+		});
+	getWindow()->attachBaseUiObject(naviframe);
+	evas_object_hide(getWindow()->getEvasObj());
+	elm_win_indicator_mode_set(getWindow()->getEvasObj(), ELM_WIN_INDICATOR_SHOW);
+	elm_win_indicator_opacity_set(getWindow()->getEvasObj(), ELM_WIN_INDICATOR_TRANSPARENT);
+	int rots[1] = {0};
+	elm_win_wm_rotation_available_rotations_set(getWindow()->getEvasObj(), rots, 1);
+	elm_win_wm_rotation_preferred_rotation_set(getWindow()->getEvasObj(), (const int)(rots[0]));
+
+	CalLocaleManager::getInstance().setEvasObjForRTL(getWindow()->getEvasObj());
+
+	CalTheme::initialize();
+
+	return true;
+}
+
+void CalEditApp::onTerminate()
+{
+	CalTheme::finalize();
+
+	if(!__replyToRequest)
+	{
+		__replyError();
+	}
+}
+
 void CalEditApp::onAppControl(app_control_h request, bool firstLaunch)
 {
 	WENTER();
@@ -48,8 +132,6 @@ void CalEditApp::onAppControl(app_control_h request, bool firstLaunch)
 
 	__makeScheduleFromExtraData();
 	WDEBUG(" __editMode: %d", __editMode);
-//TODO
-/*
 	CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
 	CalEditView* view = new CalEditView(__schedule, __editMode,
 		[this](int newId)
@@ -68,7 +150,7 @@ void CalEditApp::onAppControl(app_control_h request, bool firstLaunch)
 		}, false);
 
 	frame->push(view);
-*/
+	WApp::onAppControl(request, firstLaunch);
 	WLEAVE();
 }
 

@@ -17,13 +17,17 @@
 
 #include <Ecore.h>
 #include <Elementary.h>
+
 #include "WWindow.h"
 #include "CalNaviframe.h"
+
 #include "CalApp.h"
 #include "CalCommon.h"
 #include "CalTheme.h"
+
 #include "CalMainView.h"
 #include "CalDetailView.h"
+
 #include "CalEventManager.h"
 #include "CalDataManager.h"
 #include "CalBookManager.h"
@@ -31,8 +35,6 @@
 #include "CalListModelFactory.h"
 #include "CalEditField.h"
 #include "CalLocaleManager.h"
-#include "view/CalViewApp.h"
-#include "pick/CalPickApp.h"
 
 CalApp::CalApp()
 {
@@ -157,88 +159,50 @@ void CalApp::onAppControl(app_control_h request, bool firstLaunch)
 	char* viewParam = NULL;
 	app_control_get_extra_data(request, CAL_APPSVC_PARAM_VIEW, &viewParam);
 
-	// TODO: change logic of app's launch in different instances
-	if (strcmp(operation, APP_CONTROL_OPERATION_MAIN) == 0 || strcmp(operation, APP_CONTROL_OPERATION_DEFAULT) == 0)
+	if (viewParam)
 	{
-		if (viewParam)
+		if (!strcmp(viewParam, CAL_APPSVC_PARAM_VIEW_MAIN))
 		{
-			if (!strcmp(viewParam, CAL_APPSVC_PARAM_VIEW_MAIN))
-			{
-				__showMain(request, firstLaunch);
-			}
-			else if (!strcmp(viewParam, CAL_APPSVC_PARAM_VIEW_DETAIL))
-			{
-				__showDetail(request);
-			}
-			else
-			{
-				WASSERT(0);
-			}
-
-			free(viewParam);
+			__showMain(request, firstLaunch);
+		}
+		else if (!strcmp(viewParam, CAL_APPSVC_PARAM_VIEW_DETAIL))
+		{
+			__showDetail(request);
 		}
 		else
 		{
-			if(firstLaunch)
+			WASSERT(0);
+		}
+
+		free(viewParam);
+	}
+	else
+	{
+		if(firstLaunch)
+		{
+			char* dateStringParam = NULL;
+			app_control_get_extra_data(request, CAL_APPSVC_PARAM_DATE, &dateStringParam);
+
+			if(dateStringParam)
 			{
-				char* dateStringParam = NULL;
-				app_control_get_extra_data(request, CAL_APPSVC_PARAM_DATE, &dateStringParam);
+				CalDate date(dateStringParam);
+				free(dateStringParam);
 
-				if(dateStringParam)
-				{
-					CalDate date(dateStringParam);
-					free(dateStringParam);
-
-					naviframe.push(new CalMainView(date));
-				}
-				else
-				{
-					naviframe.push(new CalMainView(CalDate()));
-				}
+				naviframe.push(new CalMainView(date));
 			}
 			else
 			{
-				CalEventManager::getInstance().resume();
-
-				CalEvent event(CalEvent::APP_RESUMED, CalEvent::REMOTE);
-				CalEventManager::getInstance().notify(event);
+				naviframe.push(new CalMainView(CalDate()));
 			}
 		}
-	}
+		else
+		{
+			CalEventManager::getInstance().resume();
 
-	if (strcmp(operation, APP_CONTROL_OPERATION_VIEW) == 0)
-	{
-		CalViewApp view(&naviframe);
-		view.onAppControl(request, firstLaunch);
+			CalEvent event(CalEvent::APP_RESUMED, CalEvent::REMOTE);
+			CalEventManager::getInstance().notify(event);
+		}
 	}
-
-	if (strcmp(operation, APP_CONTROL_OPERATION_PICK) == 0)
-	{
-		CalPickApp view(&naviframe);
-		view.onAppControl(request, firstLaunch);
-	}
-/*
-	if (*operation == APP_CONTROL_OPERATION_ADD)
-	{
-	// TODO
-		CalAddApp view;
-		view.onAppControl();
-	}
-
-	if (*operation == APP_CONTROL_OPERATION_EDIT)
-	{
-	// TODO
-		CalEditApp view;
-		view.onAppControl();
-	}
-
-	// TODO	if (*operation == ALERT)
-	{
-		CalAlertApp view;
-		view.onAppControl();
-	}*/
-
-	free(operation);
 
 	WApp::onAppControl(request, firstLaunch);
 	WLEAVE();
