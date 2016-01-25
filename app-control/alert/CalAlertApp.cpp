@@ -41,10 +41,12 @@ CalAlertApp::CalAlertApp() :
 	__timer(nullptr),
 	__mode(CALALERT_NONE)
 {
+	WENTER();
 }
 
 CalAlertApp::~CalAlertApp()
 {
+	WENTER();
 	if(__timer)
 	{
 		ecore_timer_del(__timer);
@@ -166,7 +168,11 @@ void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 		break;
 	}
 
-	WApp::onAppControl(request, firstLaunch);
+	if(getWindow())
+	{
+		WApp::onAppControl(request, firstLaunch);
+	}
+
 	WLEAVE();
 }
 void CalAlertApp::__createWindowSafe(bool isFirstLaunch, bool isAlertPopup)
