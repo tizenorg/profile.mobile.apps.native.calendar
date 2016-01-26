@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns="http://tizen.org/ns/packages" api-version="2.4" package="org.tizen.calendar" version="1.0.0">
-    <profile name="mobile"/>
-    <widget-application appid="org.tizen.calendar.widget" exec="calendar-widget" main="true" update-period="0">
-        <label>Calendar</label>
-        <icon>calendar.png</icon>
-        <support-size preview="/opt/usr/apps/org.tizen.calendar/shared/res/calendar_preview.png">4x4</support-size>
-    </widget-application>
-</manifest>
