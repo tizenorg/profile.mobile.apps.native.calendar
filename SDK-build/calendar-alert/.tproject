@@ -2,7 +2,7 @@
 <tproject xmlns="http://www.tizen.org/tproject">
     <platforms>
         <platform>
-            <name>mobile-2.4</name>
+            <name>mobile-3.0</name>
         </platform>
     </platforms>
     <package>
@@ -10,8 +10,5 @@
         <referencedProject project="app-assist-efl" path="lib"/>
         <referencedProject project="calendar-common" path="lib"/>
         <resFallback autoGen="true"/>
-        <subProjects>
-            <tizenProject project="calendar-widget"/>
-        </subProjects>
     </package>
 </tproject>
