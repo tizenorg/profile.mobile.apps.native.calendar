@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>calendar</name>
+	<name>calendar-edit</name>
 	<comment></comment>
 	<projects>
-		<project>calendar-alert</project>
-		<project>calendar-edit</project>
-		<project>calendar-common</project>
-		<project>app-assist-efl</project>
-		<project>calendar-view</project>
-		<project>calendar-widget</project>
-		<project>calendar-pick</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -23,34 +16,57 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
-		<buildCommand>
-			<name>org.tizen.nativecore.apichecker.core.builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.cdt.core.cnature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
-		<nature>org.tizen.nativecore.apichecker.core.tizenCppNature</nature>
 	</natures>
 	<linkedResources>
 		<link>
+			<name>common</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/common</locationURI>
+		</link>
+		<link>
+			<name>edit</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/edit</locationURI>
+		</link>
+		<link>
+			<name>list</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/list</locationURI>
+		</link>
+		<link>
+			<name>month</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/month</locationURI>
+		</link>
+		<link>
 			<name>src</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/main-app/src</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/app-control/edit</locationURI>
 		</link>
 	</linkedResources>
 	<filteredResources>
 		<filter>
-			<id>1437663882032</id>
+			<id>1453811290783</id>
 			<name></name>
 			<type>26</type>
 			<matcher>
 				<id>org.eclipse.ui.ide.multiFilter</id>
 				<arguments>1.0-projectRelativePath-matches-false-false-*/.tpk</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1453811290785</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-project_def.prop</arguments>
 			</matcher>
 		</filter>
 	</filteredResources>
