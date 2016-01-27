@@ -48,7 +48,7 @@ public:
 	// lcd !
 	void turnOnLcd(void);
 	void turnOffLcd(void);
-	static bool isScreenOn(void);
+	static bool isDeviceLocked(void);
 
 	// snooze time
 	void setSnoozeMinute(const int min);
