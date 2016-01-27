@@ -19,6 +19,8 @@
 #include <app_preference.h>
 #include <device/display.h>
 #include <device/power.h>
+#include <system_settings.h>
+
 #include "CalAlertModel.h"
 #include "CalCommon.h"
 #include "CalStatusBarManager.h"
@@ -195,17 +197,18 @@ void CalAlertModel::turnOffLcd(void)
 	}
 }
 
-bool CalAlertModel::isScreenOn(void)
+bool CalAlertModel::isDeviceLocked(void)
 {
-	display_state_e state = DISPLAY_STATE_NORMAL;
-	int ret = device_display_get_state(&state);
-	if (ret != DEVICE_ERROR_NONE)
+	int lock_state = SYSTEM_SETTINGS_LOCK_STATE_LOCK;
+	int ret = system_settings_get_value_int(SYSTEM_SETTINGS_KEY_LOCK_STATE, &lock_state);
+	if (ret == SYSTEM_SETTINGS_ERROR_NONE)
 	{
-		WERROR("device_display_get_state error %d", ret);
-		return false;
+		WDEBUG("lock state: %d", lock_state);
+		return !(lock_state == SYSTEM_SETTINGS_LOCK_STATE_UNLOCK);
 	}
-	WDEBUG("display state: %d", state);
-	return (state == DISPLAY_STATE_NORMAL);
+	WERROR("system_settings_get_value_int returned error: %d", ret);
+
+	return true;
 }
 
 void CalAlertModel::setSnoozeMinute(const int min)
