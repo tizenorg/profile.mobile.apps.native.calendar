@@ -277,13 +277,13 @@ void CalAlertApp::__checkRequest(const app_control_h request)
 	else
 	{
 		__alertData = std::make_shared<CalAlertData>(request);
-		if (CalAlertModel::isScreenOn())
+		if (CalAlertModel::isDeviceLocked())
 		{
-			__mode = CALALERT_ACTIVE_NOTIFICATION;
+			__mode = CALALERT_VIEW;
 		}
 		else
 		{
-			__mode = CALALERT_VIEW;
+			__mode = CALALERT_ACTIVE_NOTIFICATION;
 		}
 	}
 }
