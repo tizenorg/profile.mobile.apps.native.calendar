@@ -95,7 +95,6 @@
 	<privileges>
 		<privilege>http://tizen.org/privilege/display</privilege>
 		<privilege>http://tizen.org/privilege/calendar.read</privilege>
-		<privilege>http://tizen.org/privilege/systemsettings</privilege>
 		<privilege>http://tizen.org/privilege/notification</privilege>
 		<privilege>http://tizen.org/privilege/appmanager.launch</privilege>
 		<privilege>http://tizen.org/privilege/calendar.write</privilege>
