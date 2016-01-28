@@ -885,6 +885,7 @@ void CalEditView::__onAddTimezoneField()
 						CalLocaleManager::getInstance().getDisplayTextTimeZone(tz, dT);
 						self->__timezone->setSubText(dT.c_str());
 						self->__timezoneString = tz;
+						self->__setTimeZone(tz);
 					}
 
 					if (timezone) {
