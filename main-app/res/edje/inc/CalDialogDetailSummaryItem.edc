@@ -120,57 +120,44 @@ group {
         description { state: "default" 0.0;
         }
     }
-
         LIST_PART_BG
 
         GENLIST_PART_BASE_SIZE(DETAIL_SUMMARY_COLORBAR_HEIGHT)
-        PART_LIST_PADDINGS(DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,
+        PART_LIST_PADDINGS(DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING, DETAIL_SUMMARY_ITEM_LEFT_RIGHT_PADDING,
             DETAIL_SUMMARY_ITEM_PADDING_TOP_SIZE, DETAIL_SUMMARY_ITEM_PADDING_BOTTOM_SIZE)
 
-        part {
-            name: "elm.details.color";
-            type: SWALLOW;
-            description {
-                state: "default" 0.0;
+        PART(SWALLOW, "elm.details.color",
+            DSC_FROM_L("default" 0.0,
                 min: DETAIL_SUMMARY_COLORBAR_WIDTH DETAIL_SUMMARY_COLORBAR_HEIGHT;
                 max: DETAIL_SUMMARY_COLORBAR_WIDTH -1;
-                align: 0.0 0.5;
                 fixed: 1 1;
-                rel1 { relative: 0.0 0.0; to: "bg"; }
-                rel2 { relative: 0.0 1.0; to: "bg"; }
-            }
-        }
-        part {
-            name: "elm.details.icon";
-            type: SWALLOW;
-            description {
-                state: "default" 0.0;
-                min: DETAIL_ICON_HEIGHT DETAIL_ICON_HEIGHT;
-                rel1 { relative: 1 0;  to_x: "elm.padding.left"; }
-                rel2 { relative: 0 1;  to_x: "elm.details.spacer"; }
-            }
-        }
-        part {
-            name: "elm.details.spacer";
-            type: SPACER;
-            scale: 1;
-            description {
-                state: "default" 0.0;
+            )
+        )
+
+        PART(SPACER, "elm.details.color.spacer",
+            DSC_L("default" 0.0, "elm.details.color",
                 min: DETAIL_ICON_TITLE_PADDINGS;
-                rel1 { relative: 1 1;  to_x: "elm.details.icon"; to_y: "elm.padding.top"; }
-                rel2 { relative: 0 0;  to_x: "elm.details.entry"; to_y: "elm.padding.bottom"; }
-            }
-        }
-        part {
-            name: "elm.details.entry";
-            type: SWALLOW;
-            description {
-                state: "default" 0.0;
-                rel1 { relative: 1 1;  to_x: "elm.details.spacer"; to_y: "elm.padding.top"; }
-                rel2 { relative: 0 0;  to_x: "elm.padding.right"; to_y: "elm.padding.bottom"; }
+            )
+        )
+
+        PART(SWALLOW, "elm.details.icon",
+            DSC_L("default" 0.0, "elm.details.color.spacer",
+                min: DETAIL_ICON_HEIGHT DETAIL_ICON_HEIGHT;
+            )
+        )
+
+        PART(SPACER, "elm.details.entry.spacer",
+            DSC_L("default" 0.0, "elm.details.icon",
+                min: DETAIL_ICON_TITLE_PADDINGS;
+            )
+        )
+
+        PART(SWALLOW, "elm.details.entry",
+            DSC_LRTB("default" 0.0, "elm.details.entry.spacer", "elm.padding.right", "elm.padding.top", "elm.padding.bottom",
+                min: DETAIL_ICON_TITLE_PADDINGS;
                 align: 0.0 0.5;
-            }
-        }
+            )
+        )
     }
 }
 
