@@ -207,11 +207,17 @@ CalUnderlineEditField *CalFilterView::createSearchBarEntry(Evas_Object *parent)
 
 	searchBarEntry->setChangeCallback([this] (const char* text)->void
 		{
-			WDEBUG("Search text: %s", text);
-			if(text && *text && strcasecmp(text, __searchText))
+			WDEBUG("Search text: [%p] [%s]", text, text);
+			if((text && strcasecmp(text, __searchText))
+			|| (*text == '\0' && *__searchText))
 			{
 				__searchText = text;
+				WDEBUG("Update list");
 				updateList();
+			}
+			else
+			{
+				__searchText = text;
 			}
 		});
 
