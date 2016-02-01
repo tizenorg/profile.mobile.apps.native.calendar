@@ -107,6 +107,8 @@ public:
 	void checkDeletedEvent(void);
 
 private:
+	std::string __iconPath;
+
 	void __addVib(notification_h handle);
 	void __addSound(notification_h handle);
 	void __getSound(std::string& sound);

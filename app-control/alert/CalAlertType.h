@@ -47,8 +47,7 @@
 #define CAL_APPCALSVC_PARAM_IDS "ids"
 #define CAL_APPCALSVC_PARAM_IDS_DEFAULT_ARRAY_LENGTH 1
 
-#define QP_PRELOAD_NOTI_ICON_PATH "/usr/apps/" PKG_3DPARTIES_QUICKPANEL"/shared/res/noti_icons/Calendar"
-#define CAL_IMAGES_STATUS_BAR_ICON_PATH QP_PRELOAD_NOTI_ICON_PATH"/noti_calendar.png"
+#define CAL_ACTIVENOTIFICATION_ICON_REL_PATH "/images/noti_calendar.png"
 #define CALENDAR_ALERT_NOTI_MIN_KEY "alert_noti_min"
 
 #endif
