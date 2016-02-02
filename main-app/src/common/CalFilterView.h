@@ -55,7 +55,7 @@ private:
 	virtual void onEvent(const CalEvent& event);
 	virtual void onDestroy();
 
-	const char *__searchText;
+	std::string __searchText;
 	Evas_Object* __noContents;
 	CalUnderlineEditField* __searchBarEntry;
 	ICalListModel* __forwardModel;

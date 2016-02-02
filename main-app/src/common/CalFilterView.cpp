@@ -142,10 +142,10 @@ void CalFilterView::createList(EVENT_ITEM_ONSELECT_CB selectCb, bool useChecks)
 
 	__deleteListModels();
 
-	__forwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, 1, __searchText);
-	__backwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, -1, __searchText);
+	__forwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, 1, __searchText.c_str());
+	__backwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, -1, __searchText.c_str());
 
-	__list = new CalScheduleListControl(__forwardModel, __backwardModel, selectCb, NULL, NULL, useChecks, !useChecks, __searchText);
+	__list = new CalScheduleListControl(__forwardModel, __backwardModel, selectCb, NULL, NULL, useChecks, !useChecks, __searchText.c_str());
 	__list->create(getEvasObj(), NULL);
 
 	showContent();
@@ -207,10 +207,11 @@ CalUnderlineEditField *CalFilterView::createSearchBarEntry(Evas_Object *parent)
 
 	searchBarEntry->setChangeCallback([this] (const char* text)->void
 		{
-			WDEBUG("Search text: %s", text);
-			if(text && *text && strcasecmp(text, __searchText))
+			WDEBUG("Search text: [%p] [%s]", text, text);
+			if(text && strcasecmp(text, __searchText.c_str()))
 			{
 				__searchText = text;
+				WDEBUG("Update list");
 				updateList();
 			}
 		});
@@ -244,9 +245,9 @@ void CalFilterView::updateList()
 	{
 		__deleteListModels();
 
-		__list->updateSearchText(__searchText);
-		__forwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, 1, __searchText);
-		__backwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, -1, __searchText);
+		__list->updateSearchText(__searchText.c_str());
+		__forwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, 1, __searchText.c_str());
+		__backwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, -1, __searchText.c_str());
 		__list->setListModels(__forwardModel, __backwardModel);
 	}
 
