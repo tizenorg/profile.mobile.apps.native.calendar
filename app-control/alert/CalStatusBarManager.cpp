@@ -132,6 +132,13 @@ void CalStatusBarManager::update(std::shared_ptr<CalAlertData>& alertData)
 void CalStatusBarManager::init()
 {
 	WENTER();
+	__iconPath = app_get_resource_path();
+	if(!__iconPath.size())
+	{
+		WERROR("Failed to get resource path.");
+	}
+
+	__iconPath += CAL_ACTIVENOTIFICATION_ICON_REL_PATH;
 }
 
 void CalStatusBarManager::removeFromNotification(const int id)
@@ -339,7 +346,17 @@ void CalStatusBarManager::__pushActiveNotification(const std::shared_ptr<CalSche
 	}
 
 	notification_set_layout(notification, NOTIFICATION_LY_NOTI_EVENT_SINGLE);
-	notification_set_image(notification, NOTIFICATION_IMAGE_TYPE_ICON, CAL_IMAGES_STATUS_BAR_ICON_PATH);
+
+	int result = NOTIFICATION_ERROR_NONE;
+	result = notification_set_image(notification, NOTIFICATION_IMAGE_TYPE_ICON, __iconPath.c_str());
+	if(result == NOTIFICATION_ERROR_NONE)
+	{
+		WDEBUG("Set icon %s", __iconPath.c_str());
+	}
+	else
+	{
+		WDEBUG("Failed to set icon. [%s]", __iconPath.c_str());
+	}
 
 	notification_add_button(notification, NOTIFICATION_BUTTON_1);
 	notification_set_text(notification, NOTIFICATION_TEXT_TYPE_BUTTON_1, _L_("IDS_CLD_BUTTON_DISMISS"), NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
