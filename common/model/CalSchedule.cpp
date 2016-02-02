@@ -120,7 +120,7 @@ void CalSchedule::getFromToDisplayString(std::string& text) const
 
 	if (startTime.isAllDay( )== true ||
 			myTimezone == NULL ||
-			g_str_has_prefix(myTimezone, "Etc/GMT") ||
+			g_str_has_prefix(myTimezone, TIMEZONE_ETC_GMT) ||
 			displayCalendarTz.compare(displayMyTz) == 0)
 	{
 		__getFromToDisplayString(NULL, startTime, endTime, text);
@@ -155,7 +155,7 @@ void CalSchedule::getFromToString(std::string& text) const
 
 	if (startTime.isAllDay( )== true ||
 			myTimezone == NULL ||
-			g_strcmp0(myTimezone, "Etc/GMT") == 0 ||
+			g_strcmp0(myTimezone, TIMEZONE_ETC_GMT) == 0 ||
 			calendarTimezone.compare(myTimezone) == 0)
 	{
 		__getFromToString(NULL, startTime, endTime, text);
@@ -814,8 +814,8 @@ char* CalSchedule::getExceptionString() const
 				start.getYear(), start.getMonth(), start.getMday());
 	else
 		return g_strdup_printf("%04d%02d%02dT%02d%02d%02dZ",
-				start.getYear(), start.getMonth(), start.getMday(),
-				start.getHour(), start.getMinute(), start.getSecond());
+				start.getYear(TIMEZONE_ETC_GMT), start.getMonth(TIMEZONE_ETC_GMT), start.getMday(TIMEZONE_ETC_GMT),
+				start.getHour(TIMEZONE_ETC_GMT), start.getMinute(TIMEZONE_ETC_GMT), start.getSecond(TIMEZONE_ETC_GMT));
 }
 
 std::shared_ptr<CalSchedule> CalSchedule::__createDefaultSchedule()

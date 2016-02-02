@@ -409,7 +409,7 @@ std::shared_ptr<CalOriginalSchedule> CalDataManager::__getWorkingOriginalCopy(co
 	if (!workingCopy->hasRepeat())
 	{
 		const char* myTimezone = workingCopy->getTimeZone();
-		if (myTimezone == NULL || g_strcmp0(myTimezone, "Etc/GMT") == 0)
+		if (myTimezone == NULL || g_strcmp0(myTimezone, TIMEZONE_ETC_GMT) == 0)
 		{
 			WHIT();
 			std::string calendarTimezone;

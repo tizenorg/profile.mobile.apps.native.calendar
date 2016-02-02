@@ -20,6 +20,9 @@
 
 #include <time.h>
 #include "WDefine.h"
+
+#define TIMEZONE_ETC_GMT "Etc/GMT"
+
 class WAPP_ASSIST_EXPORT CalDateTime
 {
 public:
@@ -47,12 +50,12 @@ public:
 	void setAllDay(const bool isAllDay);
 
 	// get
-	int getYear() const;
-	int getMonth() const;
-	int getMday() const;
-	int getHour() const;
-	int getMinute() const;
-	int getSecond() const;
+	int getYear(const char *timeZone = nullptr) const;
+	int getMonth(const char *timeZone = nullptr) const;
+	int getMday(const char *timeZone = nullptr) const;
+	int getHour(const char *timeZone = nullptr) const;
+	int getMinute(const char *timeZone = nullptr) const;
+	int getSecond(const char *timeZone = nullptr) const;
 	void getTmFromUtime(struct tm* dateTm) const;
 	long long int getUtimeFromTm() const;
 	void getString(std::string& text) const;

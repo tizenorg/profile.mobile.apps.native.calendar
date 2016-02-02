@@ -831,7 +831,7 @@ void CalLocaleManager::getDisplayTextTimeZone(const std::string& timeZone, std::
 	if (!tmpTZ.empty())
 		i18n_ustring_copy_ua_n(utf16_timezone,  tmpTZ.c_str(), DATETIME_BUFFER);
 	else
-		i18n_ustring_copy_ua_n(utf16_timezone, "Etc/GMT", DATETIME_BUFFER);
+		i18n_ustring_copy_ua_n(utf16_timezone, TIMEZONE_ETC_GMT, DATETIME_BUFFER);
 
 	i18n_ucalendar_h cal;
 	status = i18n_ucalendar_create(utf16_timezone, -1, language, I18N_UCALENDAR_GREGORIAN , &cal);
@@ -860,7 +860,7 @@ void CalLocaleManager::getDisplayTextTimeZone(const std::string& timeZone, std::
 
 	char *tz_text = NULL;
 
-	if (timeZone.find("Etc/GMT") == std::string::npos)
+	if (timeZone.find(TIMEZONE_ETC_GMT) == std::string::npos)
 		tz_text = g_strdup_printf("(%s) %s", tz_offset, tz_name);
 	else
 		tz_text = g_strdup_printf("(%s)", tz_offset);
