@@ -495,7 +495,7 @@ int CalDetailView::__getPersonIdFromEventId(const int eventId, std::string& imag
 void CalDetailView::__shareByVcs()
 {
 	WENTER();
-	char *resPath = app_get_shared_data_path();
+	char *resPath = app_get_data_path();
 	char *pathFormat = g_strdup_printf("%s%s", resPath, CAL_VCS_FILE_TEMPLATE);
 	free(resPath);
 
