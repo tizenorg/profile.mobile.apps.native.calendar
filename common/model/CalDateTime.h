@@ -47,12 +47,12 @@ public:
 	void setAllDay(const bool isAllDay);
 
 	// get
-	int getYear() const;
-	int getMonth() const;
-	int getMday() const;
-	int getHour() const;
-	int getMinute() const;
-	int getSecond() const;
+	int getYear(bool isUTCFormat = false) const;
+	int getMonth(bool isUTCFormat = false) const;
+	int getMday(bool isUTCFormat = false) const;
+	int getHour(bool isUTCFormat = false) const;
+	int getMinute(bool isUTCFormat = false) const;
+	int getSecond(bool isUTCFormat = false) const;
 	void getTmFromUtime(struct tm* dateTm) const;
 	long long int getUtimeFromTm() const;
 	void getString(std::string& text) const;

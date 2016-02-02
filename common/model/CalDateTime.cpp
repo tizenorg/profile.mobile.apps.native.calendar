@@ -156,7 +156,7 @@ void CalDateTime::set(const struct tm& dateTm)
 	__utime = CalLocaleManager::getInstance().getUtime(tmp);
 }
 
-int CalDateTime::getYear() const
+int CalDateTime::getYear(bool isUTCFormat) const
 {
 	if (__allday == true)
 	{
@@ -165,12 +165,17 @@ int CalDateTime::getYear() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		if (isUTCFormat) {
+			CalLocaleManager::getInstance().getUTCTmFromUtime(__utime, time);
+		} else {
+			CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		}
 		return time.tm_year + 1900;
 	}
 }
 
-int CalDateTime::getMonth() const
+
+int CalDateTime::getMonth(bool isUTCFormat) const
 {
 	if (__allday == true)
 	{
@@ -179,12 +184,16 @@ int CalDateTime::getMonth() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		if (isUTCFormat) {
+			CalLocaleManager::getInstance().getUTCTmFromUtime(__utime, time);
+		} else {
+			CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		}
 		return time.tm_mon + 1;
 	}
 }
 
-int CalDateTime::getMday() const
+int CalDateTime::getMday(bool isUTCFormat) const
 {
 	if (__allday == true)
 	{
@@ -193,12 +202,16 @@ int CalDateTime::getMday() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		if (isUTCFormat) {
+			CalLocaleManager::getInstance().getUTCTmFromUtime(__utime, time);
+		} else {
+			CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		}
 		return time.tm_mday;
 	}
 }
 
-int CalDateTime::getHour() const
+int CalDateTime::getHour(bool isUTCFormat) const
 {
 	if (__allday == true)
 	{
@@ -207,13 +220,17 @@ int CalDateTime::getHour() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		if (isUTCFormat) {
+			CalLocaleManager::getInstance().getUTCTmFromUtime(__utime, time);
+		} else {
+			CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		}
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_hour;
 	}
 }
 
-int CalDateTime::getMinute() const
+int CalDateTime::getMinute(bool isUTCFormat) const
 {
 	if (__allday == true)
 	{
@@ -222,13 +239,17 @@ int CalDateTime::getMinute() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		if (isUTCFormat) {
+			CalLocaleManager::getInstance().getUTCTmFromUtime(__utime, time);
+		} else {
+			CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		}
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_min;
 	}
 }
 
-int CalDateTime::getSecond() const
+int CalDateTime::getSecond(bool isUTCFormat) const
 {
 	if (__allday == true)
 	{
@@ -237,7 +258,11 @@ int CalDateTime::getSecond() const
 	else
 	{
 		struct tm time;
-		CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		if (isUTCFormat) {
+			CalLocaleManager::getInstance().getUTCTmFromUtime(__utime, time);
+		} else {
+			CalLocaleManager::getInstance().getTmFromUtime(NULL, __utime, time);
+		}
 		WDEBUG("%lld %d:%d:%d", __utime, time.tm_hour, time.tm_min, time.tm_sec);
 		return time.tm_sec;
 	}

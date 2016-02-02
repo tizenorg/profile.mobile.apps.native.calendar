@@ -540,6 +540,16 @@ long long int CalLocaleManager::getUtimeFromTm(const char *timezone, const struc
 	}
 }
 
+void CalLocaleManager::getUTCTmFromUtime(const long long int utime, struct tm &tm)
+{
+	WENTER();
+	int offset = 0;
+	i18n_ucalendar_get(__cal, I18N_UCALENDAR_ZONE_OFFSET, &offset);
+	i18n_ucalendar_set_milliseconds(__cal, sec2ms(utime) - offset);
+	__getUCalendar(__cal, &tm);
+}
+
+
 void CalLocaleManager::getTmFromUtime(const char *timezone, const long long int utime, struct tm &tm)
 {
 	WENTER();

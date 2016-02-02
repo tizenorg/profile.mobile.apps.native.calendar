@@ -814,8 +814,8 @@ char* CalSchedule::getExceptionString() const
 				start.getYear(), start.getMonth(), start.getMday());
 	else
 		return g_strdup_printf("%04d%02d%02dT%02d%02d%02dZ",
-				start.getYear(), start.getMonth(), start.getMday(),
-				start.getHour(), start.getMinute(), start.getSecond());
+				start.getYear(true), start.getMonth(true), start.getMday(true),
+				start.getHour(true), start.getMinute(true), start.getSecond(true));
 }
 
 std::shared_ptr<CalSchedule> CalSchedule::__createDefaultSchedule()
