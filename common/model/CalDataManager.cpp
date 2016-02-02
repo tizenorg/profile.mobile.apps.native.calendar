@@ -65,13 +65,18 @@ int CalDataManager::insertSchedule(const CalSchedule& schedule, int* newId)
 
 	const calendar_record_h record = schedule.getRecord();
 
-	int error = calendar_db_insert_record(record, newId);
+	int id = 0;
+	int error = calendar_db_insert_record(record, &id);
 	if (error != CALENDAR_ERROR_NONE)
 	{
 		WERROR("calendar_db_insert_record failed : %d", error);
 		return -1;
 	}
 	__notify(CalEvent::LOCAL);
+
+	if (newId) {
+		*newId = id;
+	}
 	WLEAVE();
 	return 0;
 }
