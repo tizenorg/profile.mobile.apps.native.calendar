@@ -55,7 +55,7 @@ std::shared_ptr<CalSchedule> CalListModel::getNext(bool& dayChanged)
 			if (!provider->getCurrentSchedule())
 				continue;
 			const CalDate& date = provider->getCurrentDate();
-			if (date < minDate) {
+			if (date <= minDate) {
 				minDate = date;
 				selectedProvider = provider;
 			}
@@ -69,7 +69,7 @@ std::shared_ptr<CalSchedule> CalListModel::getNext(bool& dayChanged)
 			if (!provider->getCurrentSchedule())
 				continue;
 			const CalDate& date = provider->getCurrentDate();
-			if (date > maxDate) {
+			if (date >= maxDate) {
 				maxDate = date;
 				selectedProvider = provider;
 			}
