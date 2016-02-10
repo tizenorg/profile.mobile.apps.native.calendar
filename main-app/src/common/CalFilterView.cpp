@@ -50,7 +50,7 @@ Evas_Object *CalFilterView::onCreate(Evas_Object *parent, void *viewParam)
 
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "CalFilterView");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalFilterView");
 
 	if(isBackButtonVisibile())
 	{

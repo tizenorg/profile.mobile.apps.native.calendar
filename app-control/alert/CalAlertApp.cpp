@@ -32,6 +32,7 @@
 #include "CalBookManager.h"
 #include "CalTheme.h"
 #include "CalLocaleManager.h"
+#include "CalPath.h"
 
 #define EXIT_DELAY 2.0
 
@@ -73,7 +74,7 @@ bool CalAlertApp::onCreate()
 {
 	WENTER();
 
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
+	bindtextdomain(CALENDAR, CalPath::getLocaleDir().c_str());
 	CalEventManager::getInstance();
 	CalDataManager::getInstance();
 	CalBookManager::getInstance();

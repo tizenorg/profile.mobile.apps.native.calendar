@@ -15,7 +15,6 @@
  *
  */
 
-
 #include <algorithm>
 #include <widget_app_efl.h>
 #include "CalWidget.h"
@@ -26,6 +25,7 @@
 #include "CalSettingsManager.h"
 #include "CalLocaleManager.h"
 #include "CalAppControlLauncher.h"
+#include "CalPath.h"
 
 #define DATETIME_BUFFER 64
 
@@ -111,7 +111,7 @@ void CalWidget::__createCalendar()
 	Evas_Object* layout = elm_layout_add(__window);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(layout, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_layout_file_set(layout, CAL_EDJE, "WidgetLayout");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "WidgetLayout");
 	evas_object_show(layout);
 
 	Evas_Object* boxTop = elm_box_add(layout);
@@ -125,7 +125,7 @@ void CalWidget::__createCalendar()
 	Evas_Object* layoutButton = elm_layout_add(__buttonToday);
 	evas_object_size_hint_weight_set(layoutButton, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(layoutButton, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_layout_file_set(layoutButton, CAL_EDJE, "today_button");
+	elm_layout_file_set(layoutButton, CalPath::getPath(CAL_EDJE).c_str(), "today_button");
 
 	elm_object_domain_translatable_part_text_set(layoutButton, "elm.text", CALENDAR, "IDS_CLD_ACBUTTON_TODAY");
 

@@ -17,10 +17,11 @@
 
 #include "CalCommon.h"
 #include "CalMonthControl2.h"
+#include "CalPath.h"
+#include "CalDebugInternal.h"
+
 #include <Elementary.h>
 #include <notification.h>
-
-#include "CalDebugInternal.h"
 
 CalMonthControl2::CalMonthControl2(int firstWeekday, int year, int month, const char* rowEdjeGroupName, const CalDate* originDate, CalDate lowerBound, CalDate upperBound)
 	: __scrollStartCb(NULL)
@@ -114,7 +115,7 @@ Evas_Object* CalMonthControl2::onCreate(Evas_Object* parent, void* param)
 {
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "CalMonthControl2");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalMonthControl2");
 	evas_object_show(layout);
 
 	__thisMonth->create(layout, param);
@@ -495,7 +496,7 @@ void CalMonthControl2::__fadeIn(int startRowOffset)
 Evas_Object* CalMonthControl2::__createAccessoryMonth(Evas_Object* parent, CalMonthRowControl* rowArray[])
 {
 	Evas_Object* layout = elm_layout_add(parent);
-	elm_layout_file_set(layout, CAL_EDJE, "CalMonthControl");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalMonthControl");
 	evas_object_size_hint_align_set(layout, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_show(layout);

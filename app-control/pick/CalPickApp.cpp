@@ -25,6 +25,7 @@
 #include "CalSettingsManager.h"
 #include "CalPickApp.h"
 #include "CalLocaleManager.h"
+#include "CalPath.h"
 
 CalPickApp::CalPickApp() :
 	__resultType(CalPickView::RESULT_TYPE_ERROR),
@@ -58,7 +59,7 @@ bool CalPickApp::onCreate()
 {
 	WENTER();
 
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
+	bindtextdomain(CALENDAR, CalPath::getLocaleDir().c_str());
 	CalEventManager::getInstance();
 	CalDataManager::getInstance();
 	CalBookManager::getInstance();

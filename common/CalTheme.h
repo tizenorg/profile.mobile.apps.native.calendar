@@ -28,7 +28,7 @@ public:
     static void initialize();
     static void initializeForUg();
     static void finalize();
-    static void setToObject(Evas_Object* object);
+	static void setToObject(Evas_Object* object);
 
 protected:
     CalTheme();

@@ -216,7 +216,6 @@
 								<option id="gnu.cpp.compiler.option.preprocessor.def.2013206617" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_DEBUG"/>
 									<listOptionValue builtIn="false" value="TIZEN_PLATFORM_VERSION=TIZEN_VERSION_3_0"/>
-									<listOptionValue builtIn="false" value="&quot;CAL_PREFIX=${ProjInstallPath}&quot;"/>
 									<listOptionValue builtIn="false" value="TIZEN_DEBUG_ENABLE"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.other.other.1449397123" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" value="-c -fmessage-length=0 -std=c++0x" valueType="string"/>
@@ -435,7 +434,7 @@
 									<listOptionValue builtIn="false" value="${ProjRefAssistName}"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.1149041765" name="Linker flags" superClass="gnu.cpp.link.option.flags" value="" valueType="string"/>
-								<option id="gnu.cpp.link.option.other.1609363378" superClass="gnu.cpp.link.option.other" valueType="stringList">
+								<option id="gnu.cpp.link.option.other.1609363378" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" valueType="stringList">
 									<listOptionValue builtIn="false" value="-rpath=$$&quot;ORIGIN&quot;/../lib"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1023727613" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">

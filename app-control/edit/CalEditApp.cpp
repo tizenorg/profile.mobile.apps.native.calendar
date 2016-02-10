@@ -25,6 +25,7 @@
 #include "CalSettingsManager.h"
 #include "CalEditApp.h"
 #include "CalLocaleManager.h"
+#include "CalPath.h"
 
 CalEditApp::CalEditApp() :
 	__replyToRequest(false),
@@ -56,8 +57,8 @@ bool CalEditApp::onCreate()
 {
 	WENTER();
 
-	WDEBUG("CAL_LOCALE_DIR %s", CAL_LOCALE_DIR);
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
+	WDEBUG("CAL_LOCALE_DIR %s", CalPath::getLocaleDir().c_str());
+	bindtextdomain(CALENDAR, CalPath::getLocaleDir().c_str());
 	CalEventManager::getInstance();
 	CalDataManager::getInstance();
 	CalBookManager::getInstance();

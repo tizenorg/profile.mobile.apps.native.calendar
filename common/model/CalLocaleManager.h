@@ -39,6 +39,7 @@ private:
 	WDISABLE_COPY_AND_ASSIGN(CalLocaleManager);
 
 public:
+
 	bool isRTL();
 	void updateLocaleForEvasObj();
 	void setEvasObjForRTL(Evas_Object* obj);
