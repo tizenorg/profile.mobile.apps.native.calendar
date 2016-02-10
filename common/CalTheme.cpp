@@ -17,6 +17,7 @@
 
 #include "CalTheme.h"
 #include "CalDefines.h"
+#include "CalPath.h"
 
 
 Elm_Theme* CalTheme::__theme = nullptr;
@@ -36,8 +37,8 @@ void CalTheme::initialize()
 
 void CalTheme::finalize()
 {
-    elm_theme_extension_del(__theme, CAL_EDJE);
-    elm_theme_extension_add(__theme, CAL_THEME_EDJE);
+	elm_theme_extension_del(__theme, CalPath::getPath(CAL_EDJE).c_str());
+	elm_theme_extension_add(__theme, CalPath::getPath(CAL_THEME, CalPath::THEME).c_str());
 
     if (__theme)
     {
@@ -66,11 +67,11 @@ void CalTheme::setToObject(Evas_Object* object)
         setExtension(__theme);
     }
 
-    elm_object_theme_set(object, __theme);
+	elm_object_theme_set(object, __theme);
 }
 
 void CalTheme::setExtension(Elm_Theme* theme)
 {
-    elm_theme_extension_add(theme, CAL_EDJE);
-    elm_theme_extension_add(theme, CAL_THEME_EDJE);
+	elm_theme_extension_add(theme, CalPath::getPath(CAL_EDJE).c_str());
+	elm_theme_extension_add(theme, CalPath::getPath(CAL_THEME, CalPath::THEME).c_str());
 }

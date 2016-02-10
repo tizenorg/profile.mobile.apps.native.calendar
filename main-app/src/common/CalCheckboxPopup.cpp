@@ -20,6 +20,7 @@
 #include "CalCheckboxPopup.h"
 #include "CalCommon.h"
 
+#include "CalPath.h"
 
 CalCheckboxPopup::CalCheckboxPopup(const char* title, const char* message, const char* checkboxMessage) :
     WPopup(title, NULL),
@@ -44,7 +45,7 @@ Evas_Object* CalCheckboxPopup::__createContent(Evas_Object* parent)
 {
     Evas_Object* layout = elm_layout_add(parent);
 
-    elm_layout_file_set(layout, CAL_EDJE, getClassName());
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), getClassName());
 
     evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 

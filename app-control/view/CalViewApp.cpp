@@ -29,6 +29,7 @@
 #include "CalOriginalSchedule.h"
 #include "CalViewApp.h"
 #include "CalLocaleManager.h"
+#include "CalPath.h"
 
 CalViewApp::CalViewApp() :
 	__replyToRequest(false),
@@ -56,7 +57,7 @@ void CalViewApp::onResume()
 
 bool CalViewApp::onCreate()
 {
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
+	bindtextdomain(CALENDAR, CalPath::getLocaleDir().c_str());
 
 	CalEventManager::getInstance();
 	CalDataManager::getInstance();

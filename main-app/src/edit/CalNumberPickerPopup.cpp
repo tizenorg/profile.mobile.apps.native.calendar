@@ -19,7 +19,7 @@
 #include "CalNumberPickerPopup.h"
 #include "CalEventManager.h"
 #include "WControl.h"
-
+#include "CalPath.h"
 
 #define MIN_UNIT_VALUE 1
 #define MAX_UNIT_VALUE 99
@@ -77,7 +77,7 @@ Evas_Object* CalNumberPickerPopup::__createContent(Evas_Object *parent)
 	WHIT();
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "CalNumberPickerPopup");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalNumberPickerPopup");
 
 	__unitValueSp = elm_spinner_add(layout);
 	elm_object_style_set(__unitValueSp, "vertical");

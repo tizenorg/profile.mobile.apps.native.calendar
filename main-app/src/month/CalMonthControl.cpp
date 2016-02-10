@@ -21,6 +21,7 @@
 #include "CalCommon.h"
 #include "CalListModelFactory.h"
 #include "CalDebugInternal.h"
+#include "CalPath.h"
 
 const CalMonthControl::Position CalMonthControl::__invalidPosition = {-1, -1};
 
@@ -93,7 +94,7 @@ Evas_Object* CalMonthControl::onCreate(Evas_Object* parent, void* param)
 {
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "CalMonthControl");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalMonthControl");
 	evas_object_show(layout);
 
 	for (int i = 0; i < GRID_ROW_COUNT; i++) {
@@ -466,7 +467,7 @@ Evas_Object* CalMonthControl::createHeader(Evas_Object* parent)
 {
 	__header = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(__header, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(__header, CAL_EDJE, "CalMonthControl.Header");
+	elm_layout_file_set(__header, CalPath::getPath(CAL_EDJE).c_str(), "CalMonthControl.Header");
 	updateHeaderText();
 	return __header;
 }

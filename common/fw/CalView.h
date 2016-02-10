@@ -20,6 +20,7 @@
 
 #include "WView.h"
 #include "CalEvent.h"
+#include "CalPath.h"
 #include "ICalEventListener.h"
 #include <Elementary.h>
 
