@@ -19,6 +19,7 @@
 #define _CAL_CONTROL_H_
 
 #include "WControl.h"
+#include "CalTheme.h"
 
 class WAPP_ASSIST_EXPORT CalControl : public WControl
 {

@@ -23,6 +23,7 @@
 #include "CalEventManager.h"
 #include "CalLocaleManager.h"
 #include "CalWidget.h"
+#include "CalPath.h"
 
 namespace
 {
@@ -125,7 +126,7 @@ int CalWidgetApp::onWidgetCreate(widget_context_h context, bundle *content, int 
 		return WIDGET_ERROR_OUT_OF_MEMORY;
 	}
 
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
+	bindtextdomain(CALENDAR, CalPath::getLocaleDir().c_str());
 	CalTheme::initialize();
 
 	elm_app_base_scale_set(APP_BASE_SCALE);

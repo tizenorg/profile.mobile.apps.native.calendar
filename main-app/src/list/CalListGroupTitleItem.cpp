@@ -18,6 +18,7 @@
 #include "CalCommon.h"
 #include "CalListGroupTitleItem.h"
 #include "CalLocaleManager.h"
+#include "CalPath.h"
 
 #define ITEM_FULL_HEIGHT        165  // 54 + 44 + 44 + 23 (padding) UI 1.5
 #define ITEM_NO_LOCATION_HEIGHT 121  // 54 + 44 + 23 (padding)
@@ -134,7 +135,7 @@ Elm_Genlist_Item_Class* CalListGroupTitleItem::getItemClassStatic()
 				const char* location = eventItem->getLocation();
 				if(location && strlen(location))
 				{
-					elm_layout_file_set(layout, CAL_EDJE, "CalEventItem");
+					elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem");
 					elm_object_part_text_set(layout, "elm.text.location", location);
 					height += ITEM_FULL_HEIGHT;
 				}
@@ -142,11 +143,11 @@ Elm_Genlist_Item_Class* CalListGroupTitleItem::getItemClassStatic()
 				{
 					if(eventItem->getSchedule()->getBookId() == DEFAULT_BIRTHDAY_CALENDAR_BOOK_ID)
 					{
-						elm_layout_file_set(layout, CAL_EDJE, "CalEventItem.Purple");
+						elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem.Purple");
 					}
 					else
 					{
-						elm_layout_file_set(layout, CAL_EDJE, "CalEventItem.NoLocation");
+						elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem.NoLocation");
 					}
 
 					height += ITEM_NO_LOCATION_HEIGHT;

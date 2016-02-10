@@ -20,6 +20,7 @@
 #include "CalDialogEditDateTimeItem.h"
 #include "CalDateTime.h"
 #include "CalSettingsManager.h"
+#include "CalPath.h"
 
 #define DATETIME_BUTTON_PADDING 16
 
@@ -297,7 +298,7 @@ Evas_Object* CalDialogEditDateTimeItem::onCreateDateTime(Evas_Object* parent, bo
 	}
 
 	Evas_Object* layout = elm_layout_add(parent);
-	elm_layout_file_set(layout, CAL_EDJE, "DateTimeLayout");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "DateTimeLayout");
 	evas_object_show(layout);
 
 	Evas_Object* dateBtn = elm_button_add(layout);

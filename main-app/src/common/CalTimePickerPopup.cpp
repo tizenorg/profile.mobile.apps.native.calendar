@@ -20,6 +20,7 @@
 #include "CalDateTime.h"
 #include "CalSettingsManager.h"
 
+#include "CalTheme.h"
 
 CalTimePickerPopup::CalTimePickerPopup(Evas_Object* dateTime, const char* title, CalDateTime startDateTime, bool isRepeat) :
 	__changedCb(nullptr),
