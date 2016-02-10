@@ -258,7 +258,7 @@ Evas_Object* CalMainView::onCreate(Evas_Object* parent, void* viewParam)
 
 	Evas_Object* layout = elm_layout_add(baseLayout);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "CalMainView");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalMainView");
 	elm_object_signal_callback_add(layout, "show-all-rows/done/cpp", "",
 			[](void *data, Evas_Object* obj, const char* emission, const char* source) {
 				CalMainView* view = (CalMainView*) data;
@@ -316,7 +316,7 @@ void CalMainView::onCreated()
 	elm_object_part_content_set(floatingButton, "button1", button);
 
 	Evas_Object *icon = elm_image_add(floatingButton);
-	elm_image_file_set(icon, CAL_IMAGE_DIR "core_floating_button_icon.png", NULL);
+	elm_image_file_set(icon, CalPath::getPath("core_floating_button_icon.png", CalPath::IMAGE).c_str(), NULL);
 	elm_object_part_content_set(button, "icon", icon);
 
 	evas_object_smart_callback_add(button, "clicked",

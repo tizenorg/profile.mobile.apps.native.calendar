@@ -17,7 +17,7 @@
 
 #include <Elementary.h>
 #include <string>
-
+#include "CalPath.h"
 #include "CalCommon.h"
 #include "CalDialogEditMoreItem.h"
 
@@ -70,19 +70,19 @@ Elm_Genlist_Item_Class* CalDialogEditMoreItem::getItemClassStatic()
 		CalDialogEditMoreItem* item = (CalDialogEditMoreItem*) data;
 		if (!strcmp(part, "button1"))
 		{
-			return item->__button1 = item->onCreateIcon(obj, CAL_IMAGE_DIR "icon_button_location.png", LOCATION);
+			return item->__button1 = item->onCreateIcon(obj, CalPath::getPath("icon_button_location.png", CalPath::IMAGE).c_str(), LOCATION);
 		}
 		else if (!strcmp(part, "button3"))
 		{
-			return item->__button3 = item->onCreateIcon(obj, CAL_IMAGE_DIR "icon_button_repeat.png", REPEAT);
+			return item->__button3 = item->onCreateIcon(obj, CalPath::getPath("icon_button_repeat.png", CalPath::IMAGE).c_str(), REPEAT);
 		}
 		else if (!strcmp(part, "button2"))
 		{
-			return item->__button2 = item->onCreateIcon(obj, CAL_IMAGE_DIR "icon_button_reminder.png", REMINDER);
+			return item->__button2 = item->onCreateIcon(obj, CalPath::getPath("icon_button_reminder.png", CalPath::IMAGE).c_str(), REMINDER);
 		}
 		else if (!strcmp(part, "button4"))
 		{
-			return item->__button4 = item->onCreateIcon(obj, CAL_IMAGE_DIR "icon_button_more.png", MORE);
+			return item->__button4 = item->onCreateIcon(obj, CalPath::getPath("icon_button_more.png", CalPath::IMAGE).c_str(), MORE);
 		}
 		else
 		{
