@@ -21,15 +21,23 @@
 #define XSTR(x) #x
 #define STR(x) XSTR(x)
 
-#define CAL_DIR      	 STR(CAL_PREFIX)
-#define CAL_PKGNAME      "org.tizen.calendar"
+#ifdef CAL_PREFIX
+#define CAL_DIR		STR(CAL_PREFIX)
+#endif
+
+#ifdef PACKAGE_NAME
+#define CAL_PKGNAME		PACKAGE_NAME
+#else
+#define CAL_PKGNAME		"org.tizen.calendar"
+#endif
+
 #define CALENDAR_NOTI_PACKAGE CAL_PKGNAME ".alert"
-#define CAL_RES_DIR      CAL_DIR "/res"
-#define CAL_IMAGE_DIR    CAL_RES_DIR "/images/"
-#define CAL_EDJE_DIR     CAL_RES_DIR "/edje"
-#define CAL_EDJE         CAL_EDJE_DIR "/master.edj"
-#define CAL_THEME_EDJE   CAL_EDJE_DIR "/theme/theme.edj"
-#define CAL_IMAGE_EDJE   CAL_EDJE_DIR "/image.edj"
-#define CAL_LOCALE_DIR   CAL_RES_DIR "/locale"
+
+#define CAL_IMAGE_DIR		"images/"
+#define CAL_EDJE_DIR		"edje/"
+#define CAL_THEME_DIR		"theme/"
+#define CAL_LOCALE_DIR		"locale/"
+#define CAL_EDJE			"master.edj"
+#define CAL_THEME			"theme.edj"
 
 #endif /* _C_CAL_DEFINES_H_ */

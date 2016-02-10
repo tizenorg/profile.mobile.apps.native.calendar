@@ -22,6 +22,7 @@
 #include "CalBookManager.h"
 #include "CalAppControlLauncher.h"
 #include "CalDialogDetailSummaryItem.h"
+#include "CalPath.h"
 
 #define CONTACT_LENGTH 16
 
@@ -59,18 +60,18 @@ Evas_Object* CalDialogDetailSummaryItem::__createIcon(Evas_Object *obj)
 	Evas_Object *image = elm_image_add(layout);
 	elm_image_aspect_fixed_set(image, EINA_TRUE);
 	elm_image_fill_outside_set(image, EINA_TRUE);
-	elm_layout_file_set(layout, CAL_EDJE, "thumbnail_96");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "thumbnail_96");
 	if(!__image.empty())
 	{
 		Eina_Bool result = elm_image_file_set(image, __image.c_str(), NULL);
 		if(!result)
 		{
-			elm_image_file_set(image, CAL_IMAGE_DIR "contacts_default.png", NULL);
+			elm_image_file_set(image, CalPath::getPath("contacts_default.png", CalPath::IMAGE).c_str(), NULL);
 		}
 	}
 	else
 	{
-		elm_image_file_set(image, CAL_IMAGE_DIR "contacts_default.png", NULL);
+		elm_image_file_set(image, CalPath::getPath("contacts_default.png", CalPath::IMAGE).c_str(), NULL);
 	}
 	elm_object_part_content_set(layout, "swallow.image", image);
 

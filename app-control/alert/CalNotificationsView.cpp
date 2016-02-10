@@ -228,7 +228,7 @@ Evas_Object* CalNotificationsView::onCreate( Evas_Object* parent, void* viewPara
 
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "Event_notification");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "Event_notification");
 
 	__createAlertEventGenlist(layout, NULL);
 
@@ -260,7 +260,7 @@ void CalNotificationsView::onPushed(Elm_Object_Item* naviItem)
 
 	Evas_Object* layout = elm_layout_add(getNaviframe()->getEvasObj());
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "toolbar_button");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "toolbar_button");
 
 	Evas_Object* left_button = elm_button_add(layout);
 	elm_object_style_set(left_button, "bottom");

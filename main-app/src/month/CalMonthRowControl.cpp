@@ -17,6 +17,7 @@
 
 #include "CalMonthRowControl.h"
 #include "CalCommon.h"
+#include "CalPath.h"
 
 #include <Elementary.h>
 
@@ -47,9 +48,9 @@ Evas_Object* CalMonthRowControl::onCreate(Evas_Object* parent, void* param)
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	if (__edjeGroupName)
-		elm_layout_file_set(layout, CAL_EDJE, __edjeGroupName);
+		elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), __edjeGroupName);
 	else
-		elm_layout_file_set(layout, CAL_EDJE, "CalMonthRowControl");
+		elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalMonthRowControl");
 	return layout;
 }
 
@@ -350,7 +351,7 @@ Evas_Object* CalMonthRowControl::__getContentObj()
 			sprintf(groupName, "%s.content", __edjeGroupName);
 		else
 			strcpy(groupName, "CalMonthRowControl.content");
-		elm_layout_file_set(__content, CAL_EDJE, groupName);
+		elm_layout_file_set(__content, CalPath::getPath(CAL_EDJE).c_str(), groupName);
 		elm_object_part_content_set(getEvasObj(), "cells/base", __content);
 	}
 	return __content;

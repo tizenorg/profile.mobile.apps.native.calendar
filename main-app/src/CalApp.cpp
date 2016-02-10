@@ -36,6 +36,8 @@
 #include "CalEditField.h"
 #include "CalLocaleManager.h"
 
+#include "CalPath.h"
+
 CalApp::CalApp()
 {
 }
@@ -105,8 +107,8 @@ bool CalApp::onCreate()
 
 	}, this );
 
-	WDEBUG("CAL_LOCALE_DIR %s", CAL_LOCALE_DIR);
-	bindtextdomain(CALENDAR, CAL_LOCALE_DIR);
+	WDEBUG("CAL_LOCALE_DIR %s", CalPath::getLocaleDir().c_str());
+	bindtextdomain(CALENDAR, CalPath::getLocaleDir().c_str());
 	CalEventManager::getInstance();
 	CalDataManager::getInstance();
 	CalBookManager::getInstance();

@@ -64,7 +64,7 @@ Evas_Object* CalAlertView::onCreate( Evas_Object* parent, void* viewParam )
 
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_layout_file_set(layout, CAL_EDJE, "CalAlertView");
+	elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalAlertView");
 
 	////  add title
 	auto alertItem = __model.getAt(0);
@@ -117,14 +117,14 @@ Evas_Object* CalAlertView::onCreate( Evas_Object* parent, void* viewParam )
 	__snoozeImageLine = (Evas_Object *) edje_object_part_object_get(elm_layout_edje_get(layout), "alert_icon_circle_line_right");
 
 	__dismiss = elm_layout_add(layout);
-	elm_layout_file_set(__dismiss, CAL_EDJE, "CalAlertDismissView");
+	elm_layout_file_set(__dismiss, CalPath::getPath(CAL_EDJE).c_str(), "CalAlertDismissView");
 	evas_object_size_hint_weight_set(__dismiss, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(__dismiss, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	elm_object_part_content_set(layout, "alert_bg_icon_sw_left", __dismiss);
 	evas_object_show(__dismiss);
 
 	__snooze = elm_layout_add(layout);
-	elm_layout_file_set(__snooze, CAL_EDJE, "CalAlertSnoozeView");
+	elm_layout_file_set(__snooze, CalPath::getPath(CAL_EDJE).c_str(), "CalAlertSnoozeView");
 	evas_object_size_hint_weight_set(__snooze, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(__snooze, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	elm_object_part_content_set(layout, "alert_bg_icon_sw_right", __snooze);
