@@ -216,31 +216,23 @@ void CalPickApp::__processResult(const std::list<std::shared_ptr<CalSchedule>>& 
 
 	if (__resultType == CalPickView::RESULT_TYPE_VCS)
 	{
-		// TODO:
-		//char *resPath = app_get_shared_data_path();
-		char *resPath = NULL;
-		char *pathFormat = NULL;
+		const char *pathFormat = NULL;
 		if(__mimeType == CalPickApp::MIME_ICS)
 		{
-			pathFormat = g_strdup_printf("%s%s", resPath, CAL_ICS_FILE_TEMPLATE);
+			pathFormat = CalPath::getPath(CAL_ICS_FILE_TEMPLATE, CalPath::DATA).c_str();
 		}
 		else
 		{
-			pathFormat = g_strdup_printf("%s%s", resPath, CAL_VCS_FILE_TEMPLATE);
+			pathFormat = CalPath::getPath(CAL_VCS_FILE_TEMPLATE, CalPath::DATA).c_str();
 		}
 
-		free(resPath);
-		if(NULL != pathFormat)
+		for (auto it : schedules)
 		{
-			for (auto it : schedules)
-			{
-				filePath = g_strdup_printf(pathFormat, it->getIndex());
-				CalDataManager::getInstance().generateVcsFromSchedule(*it, filePath);
-				resultArray[resultIndex] = filePath;
-				WDEBUG("resultArray[%d] = %s", resultIndex, resultArray[resultIndex]);
-				resultIndex++;
-			}
-			g_free(pathFormat);
+			filePath = g_strdup_printf(pathFormat, it->getIndex());
+			CalDataManager::getInstance().generateVcsFromSchedule(*it, filePath);
+			resultArray[resultIndex] = filePath;
+			WDEBUG("resultArray[%d] = %s", resultIndex, resultArray[resultIndex]);
+			resultIndex++;
 		}
 	}
 	else if (__resultType == CalPickView::RESULT_TYPE_ID)

@@ -36,6 +36,7 @@ public:
 		LOCALE,
 		IMAGE,
 		THEME,
+		DATA,
 	};
 
 	/**
@@ -60,6 +61,12 @@ public:
 	 * @return Image files directory path.
 	 */
 	static const std::string &getImageDir();
+
+
+	/**
+	 * @return Data files directory path.
+	 */
+	static const std::string &getDataDir();
 
 
 	/**

@@ -70,6 +70,18 @@ const std::string &CalPath::getImageDir()
 	return imageDir;
 }
 
+const std::string &CalPath::getDataDir()
+{
+	static std::string dataDir;
+	if(dataDir.empty())
+	{
+		char *dataPath = app_get_data_path();
+		dataDir = dataPath;
+		free(dataPath);
+	}
+	return dataDir;
+}
+
 const std::string &CalPath::getResourceDir()
 {
 	static std::string resourceDir;
@@ -100,6 +112,9 @@ std::string CalPath::getPath(const std::string &relativePath, DirType type)
 		break;
 	case IMAGE:
 		return std::string(getImageDir()).append(relativePath);
+		break;
+	case DATA:
+		return std::string(getDataDir()).append(relativePath);
 		break;
 	case RESOURCE:
 	default:
