@@ -495,9 +495,7 @@ int CalDetailView::__getPersonIdFromEventId(const int eventId, std::string& imag
 void CalDetailView::__shareByVcs()
 {
 	WENTER();
-	char *resPath = app_get_data_path();
-	char *pathFormat = g_strdup_printf("%s%s", resPath, CAL_VCS_FILE_TEMPLATE);
-	free(resPath);
+	const char *pathFormat = CalPath::getPath(CAL_VCS_FILE_TEMPLATE, CalPath::DATA).c_str();
 
 	std::shared_ptr<CalSchedule> workingCopy = CalDataManager::getInstance().getWorkingCopy(CalDataManager::ALL, *__workingCopy);
 	char* filePath = g_strdup_printf(pathFormat, workingCopy->getIndex());
@@ -516,7 +514,6 @@ void CalDetailView::__shareByVcs()
 	}
 
 	g_free(filePath);
-	g_free(pathFormat);
 
 	WLEAVE();
 }

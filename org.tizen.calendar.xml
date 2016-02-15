@@ -60,37 +60,37 @@
 	<ui-application appid="${PKGNAME}.alert" exec="${BINDIR}/calendar-alert" multiple="false" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
 		<label>${REF_APP_LABEL} Alert</label>
 		<icon>${REF_APP_NAME}.png</icon>
-		<application-service>
+		<app-control>
 			<operation name="http://tizen.org/appcontrol/operation/view" />
 			<mime name="application/x-tizen.calendar.reminder" />
-		</application-service>
+		</app-control>
 	</ui-application>
 	<ui-application appid="${PKGNAME}.pick" exec="${BINDIR}/calendar-pick" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
 		<label>${REF_APP_LABEL} Pick</label>
 		<icon>${REF_APP_NAME}.png</icon>
-		<application-service>
+		<app-control>
 			<operation name="http://tizen.org/appcontrol/operation/pick" />
 			<mime name="application/vnd.tizen.calendar"/>
-		</application-service>
+		</app-control>
 	</ui-application>
 	<ui-application appid="${PKGNAME}.view" exec="${BINDIR}/calendar-view" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
 		<label>${REF_APP_LABEL} View</label>
 		<icon>${REF_APP_NAME}.png</icon>
-		<application-service>
+		<app-control>
 			<operation name="http://tizen.org/appcontrol/operation/view" />
 			<mime name="application/vnd.tizen.calendar"/>
 			<mime name="text/calendar" />
 			<mime name="text/x-vcalendar" />
-		</application-service>
+		</app-control>
 	</ui-application>
 	<ui-application appid="${PKGNAME}.edit" exec="${BINDIR}/calendar-edit" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
 		<label>${REF_APP_LABEL} Edit</label>
 		<icon>${REF_APP_NAME}.png</icon>
-		<application-service>
+		<app-control>
 			<operation name="http://tizen.org/appcontrol/operation/add" />
 			<operation name="http://tizen.org/appcontrol/operation/edit" />
 			<mime name="application/vnd.tizen.calendar"/>
-		</application-service>
+		</app-control>
 	</ui-application>
 	<privileges>
 		<privilege>http://tizen.org/privilege/display</privilege>
