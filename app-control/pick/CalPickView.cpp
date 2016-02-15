@@ -64,7 +64,7 @@ void CalPickView::onPushed(Elm_Object_Item* naviItem)
 	);
 	elm_object_item_part_content_set(naviItem, "title_right_btn", button);
 
-	createList([this](std::shared_ptr<CalSchedule> schedule)
+	setSelectCb([this](std::shared_ptr<CalSchedule> schedule)
 		{
 			if(__selectedScheduleSet.exists(schedule))
 			{
@@ -77,7 +77,10 @@ void CalPickView::onPushed(Elm_Object_Item* naviItem)
 				__selectedScheduleSet.add(schedule);
 			}
 			this->__updateTitleInfo();
-		}, true);
+		});
+
+	setUseChecks(true);
+	createList();
 
 	if(__maxLimit > 0)
 	{

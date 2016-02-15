@@ -49,9 +49,11 @@ void CalSearchView ::onPushed(Elm_Object_Item* naviItem)
 	evas_object_smart_callback_add(getNaviframe()->getEvasObj(), "transition,finished",
 		CalSearchView ::__transitionFinishedCb, this);
 
-	createList([this](std::shared_ptr<CalSchedule> schedule) {
+	setSelectCb([this](std::shared_ptr<CalSchedule> schedule) {
 			getNaviframe()->push(new CalDetailView(schedule));
-		}, false);
+		});
+
+	createList();
 }
 
 /**

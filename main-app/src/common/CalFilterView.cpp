@@ -30,7 +30,8 @@ CalFilterView::CalFilterView(const char *name) : CalView(name),
 	__isNoContents(false),
 	__focusDate(),
 	__notificationTimer(NULL),
-	__backButtonVisibility(true)
+	__backButtonVisibility(true),
+	__useChecks(false)
 {
 	WENTER();
 }
@@ -46,7 +47,7 @@ CalFilterView::~CalFilterView()
 
 Evas_Object *CalFilterView::onCreate(Evas_Object *parent, void *viewParam)
 {
-	WENTER();
+	WENTER();	
 
 	Evas_Object* layout = elm_layout_add(parent);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -130,7 +131,17 @@ bool CalFilterView::isBackButtonVisibile()
 	return __backButtonVisibility;
 }
 
-void CalFilterView::createList(EVENT_ITEM_ONSELECT_CB selectCb, bool useChecks)
+void CalFilterView::setUseChecks(bool useChecks)
+{
+	__useChecks = useChecks;
+}
+
+bool CalFilterView::isChecksUsed()
+{
+	return __useChecks;
+}
+
+void CalFilterView::createList()
 {
 	WENTER();
 
@@ -142,10 +153,10 @@ void CalFilterView::createList(EVENT_ITEM_ONSELECT_CB selectCb, bool useChecks)
 
 	__deleteListModels();
 
-	__forwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, 1, __searchText.c_str());
-	__backwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, -1, __searchText.c_str());
+	__forwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, 1, "");
+	__backwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, -1, "");
 
-	__list = new CalScheduleListControl(__forwardModel, __backwardModel, selectCb, NULL, NULL, useChecks, !useChecks, __searchText.c_str());
+	__list = new CalScheduleListControl(__forwardModel, __backwardModel, __selectCb, NULL, NULL, isChecksUsed(), !isChecksUsed(), "");
 	__list->create(getEvasObj(), NULL);
 
 	showContent();
@@ -190,6 +201,7 @@ void CalFilterView::showContent()
 		evas_object_hide(__noContents);
 		__isNoContents = false;
 	}
+	WLEAVE();
 }
 
 CalUnderlineEditField *CalFilterView::createSearchBarEntry(Evas_Object *parent)
@@ -208,10 +220,10 @@ CalUnderlineEditField *CalFilterView::createSearchBarEntry(Evas_Object *parent)
 	searchBarEntry->setChangeCallback([this] (const char* text)->void
 		{
 			WDEBUG("Search text: [%p] [%s]", text, text);
-			if(text && strcasecmp(text, __searchText.c_str()))
+			if (text && strcasecmp(text, __searchText.c_str()))
 			{
-				__searchText = text;
 				WDEBUG("Update list");
+				__searchText = text;
 				updateList();
 			}
 		});
@@ -241,6 +253,7 @@ CalUnderlineEditField *CalFilterView::createSearchBarEntry(Evas_Object *parent)
 void CalFilterView::updateList()
 {
 	WENTER();
+
 	if(__list)
 	{
 		__deleteListModels();

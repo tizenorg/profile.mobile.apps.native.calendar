@@ -37,15 +37,19 @@ public:
 	virtual ~CalFilterView();
 
 	void setSelectCb(EVENT_ITEM_ONSELECT_CB selectCb);
+
 	void setBackButtonVisibility(bool isVisible);
 	bool isBackButtonVisibile();
 
+	void setUseChecks(bool useChecks);
+	bool isChecksUsed();
+
 protected:
-	void createList(EVENT_ITEM_ONSELECT_CB selectCb, bool useChecks = false);
+	void createList();
+	void updateList();
 	Evas_Object *createNoContent();
 	void showContent();
 	CalUnderlineEditField *createSearchBarEntry(Evas_Object *parent);
-	void updateList();
 
 	CalScheduleListControl* __list;
 
@@ -65,6 +69,7 @@ private:
 	Ecore_Timer *__notificationTimer;
 	EVENT_ITEM_ONSELECT_CB __selectCb;
 	bool __backButtonVisibility;
+	bool __useChecks;
 
 	void __deleteListModels();
 
