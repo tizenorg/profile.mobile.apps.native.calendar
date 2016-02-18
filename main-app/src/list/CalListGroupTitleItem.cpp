@@ -42,10 +42,16 @@ CalListGroupTitleItem::CalListGroupTitleItem(CalScheduleListControl* parent, con
 
 CalListGroupTitleItem::~CalListGroupTitleItem()
 {
-	for(auto it: __listEvents)
+	for(auto it: __allDayEvents)
 	{
 		delete it;
 	}
+
+	for(auto it: __normalEvents)
+	{
+		delete it;
+	}
+
 }
 
 CalListGroupTitleItem* CalListGroupTitleItem::search(const CalDate& date)
@@ -122,107 +128,17 @@ Elm_Genlist_Item_Class* CalListGroupTitleItem::getItemClassStatic()
 			evas_object_show(box);
 
 			int height = 0;
-			for(auto it: item->__listEvents)
+			CalEventItem *eventItem = NULL;
+			for(auto it: item->__allDayEvents)
 			{
-				CalEventItem* eventItem = (it);
+				eventItem = (it);
+				item->__addToBox(box, height, eventItem);
+			}
 
-				Evas_Object* button = elm_button_add(obj);
-				elm_object_style_set(button, "transparent");
-				evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-				evas_object_show(button);
-
-				Evas_Object* layout = elm_layout_add(obj);
-				const char* location = eventItem->getLocation();
-				if(location && strlen(location))
-				{
-					elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem");
-					elm_object_part_text_set(layout, "elm.text.location", location);
-					height += ITEM_FULL_HEIGHT;
-				}
-				else
-				{
-					if(eventItem->getSchedule()->getBookId() == DEFAULT_BIRTHDAY_CALENDAR_BOOK_ID)
-					{
-						elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem.Purple");
-					}
-					else
-					{
-						elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem.NoLocation");
-					}
-
-					height += ITEM_NO_LOCATION_HEIGHT;
-				}
-
-				evas_object_size_hint_align_set(layout, EVAS_HINT_FILL, EVAS_HINT_FILL);
-				evas_object_show(layout);
-
-				evas_object_smart_callback_add(button, "pressed",
-					[](void* data, Evas_Object* obj, void* event_info){
-						elm_object_signal_emit((Evas_Object*)data, "elm,button,pressed", "*");
-					},layout
-				);
-				evas_object_smart_callback_add(button, "unpressed",
-					[](void* data, Evas_Object* obj, void* event_info){
-						elm_object_signal_emit((Evas_Object*)data, "elm,button,unpressed", "*");
-					},layout
-				);
-				evas_object_smart_callback_add(button, "mouse,out",
-					[](void* data, Evas_Object* obj, void* event_info){
-						elm_object_signal_emit((Evas_Object*)data, "elm,button,unpressed", "*");
-					},layout
-				);
-
-				evas_object_smart_callback_add(button, "clicked",
-					[](void* data, Evas_Object* obj, void* event_info)
-					{
-						CalEventItem* eventItem = (CalEventItem*)data;
-						if(eventItem)
-						{
-							if(eventItem->isCheckboxRequired())
-							{
-								Evas_Object* layout = elm_object_content_get(obj);
-								if(layout)
-								{
-									Evas_Object* check = elm_object_part_content_get(layout, "elm.swallow.checkbox");
-									if(check)
-									{
-										Eina_Bool isChecked = elm_check_state_get(check);
-										elm_check_state_set(check, !isChecked);
-
-										eventItem->setCheckboxSelected(!isChecked);
-									}
-								}
-							}
-
-							if(eventItem->getOnTapCallback())
-							{
-								eventItem->getOnTapCallback()(eventItem);
-							}
-						}
-					},eventItem
-				);
-
-				elm_object_part_text_set(layout, "elm.text.title", eventItem->getTitle());
-				elm_object_part_text_set(layout, "elm.text.time", eventItem->getDateInterval());
-
-				if(eventItem->isCheckboxRequired())
-				{
-					Evas_Object* check = elm_check_add(obj);
-					evas_object_size_hint_align_set(check, EVAS_HINT_FILL, EVAS_HINT_FILL);
-					elm_object_part_content_set(layout, "elm.swallow.checkbox", check);
-					evas_object_repeat_events_set(check, EINA_TRUE);
-					evas_object_propagate_events_set(check, EINA_FALSE);
-					evas_object_freeze_events_set(check, EINA_TRUE);
-
-					eventItem->setCheckObject(check);
-					if(eventItem->isCheckboxSelected())
-					{
-						elm_check_state_set(check, EINA_TRUE);
-					}
-				}
-
-				elm_object_content_set(button, layout);
-				elm_box_pack_end(box, button);
+			for(auto it: item->__normalEvents)
+			{
+				eventItem = (it);
+				item->__addToBox(box, height, eventItem);
 			}
 
 			evas_object_size_hint_min_set(box, -1, ELM_SCALE_SIZE(height + ITEM_TOP_PADDING));
@@ -236,6 +152,107 @@ Elm_Genlist_Item_Class* CalListGroupTitleItem::getItemClassStatic()
 	return &itc;
 }
 
+void CalListGroupTitleItem::__addToBox(Evas_Object *box, int &height, CalEventItem *eventItem)
+{
+	Evas_Object* button = elm_button_add(box);
+	elm_object_style_set(button, "transparent");
+	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	evas_object_show(button);
+
+	Evas_Object* layout = elm_layout_add(box);
+	const char* location = eventItem->getLocation();
+	if(location && strlen(location))
+	{
+		elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem");
+		elm_object_part_text_set(layout, "elm.text.location", location);
+		height += ITEM_FULL_HEIGHT;
+	}
+	else
+	{
+		if(eventItem->getSchedule()->getBookId() == DEFAULT_BIRTHDAY_CALENDAR_BOOK_ID)
+		{
+			elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem.Purple");
+		}
+		else
+		{
+			elm_layout_file_set(layout, CalPath::getPath(CAL_EDJE).c_str(), "CalEventItem.NoLocation");
+		}
+
+		height += ITEM_NO_LOCATION_HEIGHT;
+	}
+
+	evas_object_size_hint_align_set(layout, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	evas_object_show(layout);
+
+	evas_object_smart_callback_add(button, "pressed",
+		[](void* data, Evas_Object* obj, void* event_info){
+			elm_object_signal_emit((Evas_Object*)data, "elm,button,pressed", "*");
+		},layout
+	);
+	evas_object_smart_callback_add(button, "unpressed",
+		[](void* data, Evas_Object* obj, void* event_info){
+			elm_object_signal_emit((Evas_Object*)data, "elm,button,unpressed", "*");
+		},layout
+	);
+	evas_object_smart_callback_add(button, "mouse,out",
+		[](void* data, Evas_Object* obj, void* event_info){
+			elm_object_signal_emit((Evas_Object*)data, "elm,button,unpressed", "*");
+		},layout
+	);
+
+	evas_object_smart_callback_add(button, "clicked",
+		[](void* data, Evas_Object* obj, void* event_info)
+		{
+			CalEventItem* eventItem = (CalEventItem*)data;
+			if(eventItem)
+			{
+				if(eventItem->isCheckboxRequired())
+				{
+					Evas_Object* layout = elm_object_content_get(obj);
+					if(layout)
+					{
+						Evas_Object* check = elm_object_part_content_get(layout, "elm.swallow.checkbox");
+						if(check)
+						{
+							Eina_Bool isChecked = elm_check_state_get(check);
+							elm_check_state_set(check, !isChecked);
+
+							eventItem->setCheckboxSelected(!isChecked);
+						}
+					}
+				}
+
+				if(eventItem->getOnTapCallback())
+				{
+					eventItem->getOnTapCallback()(eventItem);
+				}
+			}
+		},eventItem
+	);
+
+	elm_object_part_text_set(layout, "elm.text.title", eventItem->getTitle());
+	elm_object_part_text_set(layout, "elm.text.time", eventItem->getDateInterval());
+
+	if(eventItem->isCheckboxRequired())
+	{
+		Evas_Object* check = elm_check_add(box);
+		evas_object_size_hint_align_set(check, EVAS_HINT_FILL, EVAS_HINT_FILL);
+		elm_object_part_content_set(layout, "elm.swallow.checkbox", check);
+		evas_object_repeat_events_set(check, EINA_TRUE);
+		evas_object_propagate_events_set(check, EINA_FALSE);
+		evas_object_freeze_events_set(check, EINA_TRUE);
+
+		eventItem->setCheckObject(check);
+		if(eventItem->isCheckboxSelected())
+		{
+			elm_check_state_set(check, EINA_TRUE);
+		}
+	}
+
+	elm_object_content_set(button, layout);
+	elm_box_pack_end(box, button);
+}
+
 void CalListGroupTitleItem::addItem(const std::shared_ptr<CalSchedule>& schedule, bool isCheckboxRequired, bool isCheckboxSelected, const std::string& searchText, int dir)
 {
 	CalEventItem* eventItem = new CalEventItem(__date, schedule, isCheckboxRequired, isCheckboxSelected, searchText);
@@ -247,13 +264,20 @@ void CalListGroupTitleItem::addItem(const std::shared_ptr<CalSchedule>& schedule
 		}
 	});
 
-	if(dir > 0)
+	if(schedule->isAllDay())
 	{
-		__listEvents.push_back(eventItem);
+		__allDayEvents.push_back(eventItem);
 	}
 	else
 	{
-		__listEvents.push_front(eventItem);
+		if(dir > 0)
+		{
+			__normalEvents.push_back(eventItem);
+		}
+		else
+		{
+			__normalEvents.push_front(eventItem);
+		}
 	}
 }
 
@@ -261,7 +285,15 @@ int CalListGroupTitleItem::getSelectedItemsCount()
 {
 	int selectedItemsCount = 0;
 
-	for(auto it: __listEvents)
+	for(auto it: __allDayEvents)
+	{
+		if(it->isCheckboxSelected())
+		{
+			selectedItemsCount++;
+		}
+	}
+
+	for(auto it: __normalEvents)
 	{
 		if(it->isCheckboxSelected())
 		{
@@ -274,7 +306,12 @@ int CalListGroupTitleItem::getSelectedItemsCount()
 
 void CalListGroupTitleItem::selectAllItems(bool select)
 {
-	for(auto it: __listEvents)
+	for(auto it: __allDayEvents)
+	{
+		it->setCheckboxSelected(select);
+	}
+
+	for(auto it: __normalEvents)
 	{
 		it->setCheckboxSelected(select);
 	}
@@ -282,7 +319,15 @@ void CalListGroupTitleItem::selectAllItems(bool select)
 
 void CalListGroupTitleItem::getSelectedSchedules(std::list<std::shared_ptr<CalSchedule>>& list)
 {
-	for(auto it: __listEvents)
+	for(auto it: __allDayEvents)
+	{
+		if(it->isCheckboxSelected())
+		{
+			list.push_back(it->getSchedule());
+		}
+	}
+
+	for(auto it: __normalEvents)
 	{
 		if(it->isCheckboxSelected())
 		{

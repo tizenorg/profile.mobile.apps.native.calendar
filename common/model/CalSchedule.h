@@ -95,6 +95,7 @@ public:
 	virtual void initialize(const char* tzid, const CalDateTime& startTime);
 
 	bool isException() const {return getOriginalEventId() >= 0;}
+	bool isAllDay() const;
 
 	// make
 	static std::shared_ptr<CalSchedule> makeDefaultSchedule(bool isAllDay = false);

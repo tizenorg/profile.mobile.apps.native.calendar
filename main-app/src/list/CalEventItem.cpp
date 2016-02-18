@@ -85,7 +85,8 @@ CalEventItem::CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalS
 		itemNextDay = groupDateTime;
 		itemNextDay.addDays(1);
 
-		if(groupDateTime >= eventStartDate && eventEndDate >= itemNextDay)
+		if((groupDateTime >= eventStartDate && eventEndDate >= itemNextDay)
+			|| schedule->isAllDay())
 		{
 			textStartTime = _L_("IDS_CLD_OPT_ALL_DAY_ABB2");
 		}

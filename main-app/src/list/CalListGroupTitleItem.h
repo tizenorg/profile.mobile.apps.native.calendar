@@ -36,13 +36,15 @@ public:
 	void getSelectedSchedules(std::list<std::shared_ptr<CalSchedule>>& list);
 private:
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
+	void __addToBox(Evas_Object* box, int &height, CalEventItem *eventItem);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalListGroupTitleItem);
 private:
 	CalScheduleListControl* __parent;
 	std::string __weekDay;
 	std::string __monthDay;
-	std::list<CalEventItem*> __listEvents;
+	std::list<CalEventItem*> __normalEvents;
+	std::list<CalEventItem*> __allDayEvents;
 };
 
 #endif /* _CAL_LIST_GROUP_TITLE_ITEM_H_ */

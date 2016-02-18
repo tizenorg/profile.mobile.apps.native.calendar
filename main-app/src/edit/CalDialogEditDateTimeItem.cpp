@@ -355,6 +355,8 @@ Evas_Object* CalDialogEditDateTimeItem::onCreateAllDayCheckBox(Evas_Object* pare
 			CalDialogEditDateTimeItem* item = (CalDialogEditDateTimeItem*)data;
 
 			Eina_Bool isAllDay = elm_check_state_get(obj);
+			item->__start.setAllDay(isAllDay);
+			item->__end.setAllDay(isAllDay);
 			item->__isAllDay= isAllDay;
 
 			if (item->__changedCb)

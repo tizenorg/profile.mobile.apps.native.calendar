@@ -709,6 +709,14 @@ void CalSchedule::initialize(const char* tzid, const CalDateTime& startTime)
 	return;
 }
 
+bool CalSchedule::isAllDay() const
+{
+	CalDateTime eventStartDate, eventEndDate;
+	__getStart(eventStartDate);
+	__getEnd(eventEndDate);
+	return eventStartDate.isAllDay() && eventEndDate.isAllDay();
+}
+
 std::shared_ptr<CalSchedule> CalSchedule::makeDefaultSchedule(bool isAllDay)
 {
 	WENTER();
