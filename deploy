@@ -1,0 +1,152 @@
+#!/bin/bash
+
+usage()
+{
+    echo "Usage: `basename $0` [-h|--help] [-e|--emulator] | [-d|--device] [-r|--rpm] [--32] | [--64]
+    -h, --help      Show this message.
+    -e, --emulator  Install on emulator.
+    -d, --device    Install on device (default).
+    -r, --rpm       Install packages via RPM.
+
+        --32        Install 32-bit package (default).
+        --64        Install 64-bit package."
+}
+
+DEVS=($(sdb devices | tail -n+2))
+
+if [ -z $DEVS ]
+then
+    echo "Please connect device or launch emulator."
+    exit 1
+fi
+
+OPTS=$(getopt -o "hedr" -l "help,emulator,32,64,device,rpm" -- "$@" 2> /dev/null)
+
+if [ $? -ne 0 ]
+then
+    usage
+    exit 1
+fi
+
+TARGET="d"
+BIT="32"
+
+for opt in $OPTS
+do
+    case $opt in
+        -e|--emulator)
+        TARGET="e"
+        ;;
+        -d|--device)
+        TARGET="d"
+        ;;
+        --32)
+        BIT="32"
+        ;;
+        --64)
+        BIT="64"
+        ;;
+        -h|--help)
+        usage
+        exit 0
+        ;;
+        -r|--rpm)
+        RPM=true
+        ;;
+    esac
+done
+
+if [ $BIT = "32" ]
+then
+    if [ $TARGET = "e" ]
+    then
+        ARCH="i586"
+    else
+        ARCH="armv7l"
+    fi
+else
+    if [ $TARGET = "e" ]
+    then
+        ARCH="x86_64"
+    else
+        ARCH="aarch64"
+    fi
+fi
+
+push()
+{
+    GBS=~/GBS-ROOT
+    ROOT=$GBS/local/BUILD-ROOTS/scratch.$ARCH.0
+
+    if [ ! -e $ROOT/*.conf ]
+    then
+        echo "Build root is not ready at $ROOT."
+        exit 1
+    fi
+
+    REPO=$(basename $ROOT/*.conf)
+    REPO=${REPO%.*}
+    RPMS=$GBS/local/repos/$REPO/$ARCH/RPMS
+
+    if [ ! -e "$RPMS/$1" ]
+    then
+        echo "Can't find $1 in $RPMS. Run build first."
+        exit 1
+    fi
+
+    echo "Pushing $1 into $2..."
+    sdb -$TARGET push "$RPMS/$1" "$2"  2> /dev/null
+}
+
+install()
+{
+    echo "Installing $2..."
+
+    if [ $3 ]
+    then
+        sdb -$TARGET root on
+        sdb -$TARGET shell rpm -i --force "$1/$2"
+        sdb -$TARGET root off
+    else
+        sdb -$TARGET shell pkgcmd -iqt rpm -p "$1/$2"
+    fi
+}
+
+deploy()
+{
+    push "$1" "$2"
+    install "$2" "$1" "$3"
+    sdb -$TARGET shell rm "$2/$1" > /dev/null
+}
+
+DEST=/tmp
+VER=$(grep Version: packaging/*.spec | awk '{print $2}')
+REL=$(grep Release: packaging/*.spec | awk '{print $2}')
+SUFFIX="$VER-$REL.$ARCH.rpm"
+
+PKG=$(grep Name: packaging/*.spec | awk '{print $2}')
+PKGS=($(grep %package packaging/*.spec | awk '{print $3}'))
+
+if [ -z $PKGS ]
+then
+    deploy "$PKG-$SUFFIX" "$DEST" "$RPM"
+    deploy "$PKG-debuginfo-$SUFFIX" "$DEST" true
+else
+    echo "Current package contains several sub-packages:"
+    PKGS=($PKG ${PKGS[*]})
+    for i in ${!PKGS[@]}
+    do
+        echo "$((i + 1)). ${PKGS[$i]}"
+    done
+
+    echo "Specify packages and order of installation (for example: 5 1):"
+    read NUMS
+
+    for i in $NUMS
+    do
+        deploy "${PKGS[$((i - 1))]}-$SUFFIX" "$DEST" "$RPM"
+        deploy "${PKGS[$((i - 1))]}-debuginfo-$SUFFIX" "$DEST" true
+    done
+fi
+echo "Done."
+
