@@ -1,0 +1,423 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "Eseményértesítés"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "KÉSZ"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "MÉGSE"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "Alapértelmezett"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Törlés"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "Ugrás a mai napra"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Beállítások"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "Egész n."
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Ma"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Nincs esemény"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "Törli ezt az eseményt?"
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "%d eseményt törölni fog."
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "Minden eseményt törölni fog."
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Mégse"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "Összes kijelölése"
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "Nincs találat"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "%s születésnapja"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "Kezdéskor"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d perccel előtte"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "Egyedi"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "Kész"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "Mentette az eseményt."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "Az esemény és egy másik esemény között átfedés van."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "Másolás"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "Csak ez az egy esemény"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "Ez és a későbbi alkalmak"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "Minden ismétlődő esemény"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "Szundi"
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "Bezárás"
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "Időzóna"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "Időzóna zárolása"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "A hét első napja"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "Jelzés típusa"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "Értesítési hang"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "A kiválasztott időzónához kötheti az események idejét és dátumát. Ezek a beállítások akkor sem fognak változni, ha másik időzónába utazik."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "Alapért. területi beáll."
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Szombat"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Vasárnap"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Hétfő"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "Előugró értesítések"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "Nincs jelzés"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "Naponta"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Hetente"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Havonta"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "Évente"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "Minden"
+
+msgid "IDS_CLD_OPT_DAY"
+msgstr "Nap"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "p"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "óra"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "hét"
+
+msgid "IDS_CLD_BODY_WEEKS_LC_ABB"
+msgstr "hét"
+
+msgid "IDS_CLD_BODY_DAY_LC_ABB2"
+msgstr "nap"
+
+msgid "IDS_CLD_BODY_DAYS_LC_ABB2"
+msgstr "nap"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Cím"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "Partner születésnapja"
+
+msgid "IDS_CLD_BODY_DESCRIPTION_ABB2"
+msgstr "Leírás"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "Vége"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "Kezdete"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "Hely"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "Egyebek"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "Emlékeztető"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "Ismétlés"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Töröl"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "Minden naptár"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "Létrehoz"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Töröl"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "Saját naptár"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "Törli az összes naptárat."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "A törlésre kijelölt események között van %d ismétlődő esemény. Ezeknek az összes ismétlődését törölni szeretné?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "Minden ötödik %s"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "Minden első %s"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "Minden negyedik %s"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "Minden második %s"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "Minden harmadik %s"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "Mindig"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "hónap"
+
+msgid "IDS_CLD_BODY_WEEK_LC"
+msgstr "hét"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "év"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "Ismétlés határideje"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "A(z) %d. napon"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Keresés"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "alkalommal"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "Törölni fog 1 eseményt."
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Beállít"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "Naptár"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "Változtatások elvetése"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "Minden változtatás elvetése"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Szerkeszt"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Események"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "Saját esemény"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "Emlékeztető beállítása"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "VCS-fájl"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Szöveg"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "%d kijelölve"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "Megosztás mint"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "hónap"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "év"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "1 perccel előtte"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "1 órával előtte"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d órával előtte"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "1 nappal előtte"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d nappal előtte"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "1 héttel előtte"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d héttel előtte"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "A befejezés idejének a kezdés ideje után kell esnie."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "A befejező dátumnak a kezdés dátuma után kell esnie."
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "Elvetés"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "%s évfordulója"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_REACHED"
+msgstr "Elérte a karakterek maximális számát."
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "Töröl 1 naptárat."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "Idő beállítása"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "Mező hozzáadása"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "Másolás a vágólapra"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "Webcím megnyitása"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "Felvétel a Könyvjelzők közé"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "Szundi időtartamának beállítása"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "Állapotsor értesítései"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "Itt jelennek majd meg az eseményekre szóló meghívások, amelyeket létrehoz vagy elfogad."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "A törlésre kijelölt események között van 1 ismétlődő esemény. Ennek az összes ismétlődését törölni szeretné?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "Egyéb"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Nincs"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "minden %s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "Minden %1$d. %2$s, %3$s"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "Minden %1$d. %2$s"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Kedd"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Szerda"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Csütörtök"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Péntek"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "%s-ig"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "Nem sikerült menteni az eseményt. Ismeretlen eredetű hiba történt."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "VTS-fájlok nincsenek támogatva."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d perc"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "Elérte a mellékletek maximális számát (%d)."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "Az adatok kívül esnek az elfogadható tartományon. %1$s és %2$s közötti dátumot válasszon."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "Elérte a beszúrható események maximális számát (%d)."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "Mentés a Naptárba"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "Naptárak kezelése"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "Jegyzetek"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Részletek"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "Dátum beállítása"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "Soha"
+

@@ -1,0 +1,9 @@
+#define APP_BASE_SCALE 2.6
+
+collections {
+
+base_scale: APP_BASE_SCALE;
+
+#include "Common.h"
+
+}
