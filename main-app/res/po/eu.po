@@ -1,0 +1,423 @@
+msgid "IDS_CLD_HEADER_EVENT_NOTIFICATION"
+msgstr "Gertaeran jakinarazpena"
+
+msgid "IDS_TPLATFORM_ACBUTTON_DONE_ABB"
+msgstr "EGINA"
+
+msgid "IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"
+msgstr "UTZI"
+
+msgid "IDS_COM_BODY_DEFAULT"
+msgstr "Lehenetsia"
+
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Ezabatu"
+
+msgid "IDS_CLD_OPT_GO_TO_TODAY"
+msgstr "Gaurrera joan"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Ezarpenak"
+
+msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
+msgstr "Egun osoa"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Gaur"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Gertaerarik ez"
+
+msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
+msgstr "Gertaera hau ezabatu egingo da"
+
+msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
+msgstr "%d gertaera ezabatuko dira"
+
+msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
+msgstr "Gertaera guztiak ezabatuko dira"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Ezeztatu"
+
+msgid "IDS_CLD_OPT_SELECT_ALL"
+msgstr "Haut. den."
+
+msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
+msgstr "Ez da emaitzarik aurkitu"
+
+msgid "IDS_CLD_BODY_PSS_BIRTHDAY_ABB"
+msgstr "%s(r)en urtemuga"
+
+msgid "IDS_CLD_OPT_AT_START_TIME_ABB"
+msgstr "Hasiera orduan"
+
+msgid "IDS_CLD_OPT_PD_MINUTES_BEFORE_ABB"
+msgstr "%d minutu lehenago"
+
+msgid "IDS_CLD_OPT_CUSTOM"
+msgstr "Pertsonalizatua"
+
+msgid "IDS_CLD_BUTTON_DONE_ABB2"
+msgstr "Egina"
+
+msgid "IDS_CLD_TPOP_EVENT_SAVED"
+msgstr "Gertaera gorde da."
+
+msgid "IDS_CLD_TPOP_EVENT_OVERLAPS_WITH_ANOTHER_EVENT"
+msgstr "Gertaera hau beste gertaera batekin bat dator."
+
+msgid "IDS_CLD_OPT_COPY"
+msgstr "Kopiatu"
+
+msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
+msgstr "Bakarrik gertaera hau"
+
+msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
+msgstr "Gertaera hau eta gerokoak"
+
+msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
+msgstr "Gertaera errepikatu guztiak"
+
+msgid "IDS_CLD_BUTTON_SNOOZE"
+msgstr "Atzer."
+
+msgid "IDS_CLD_BUTTON_DISMISS"
+msgstr "Bazter."
+
+msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
+msgstr "Ordu eremua"
+
+msgid "IDS_CLD_MBODY_LOCK_TIME_ZONE"
+msgstr "Blokeatu ordu eremua"
+
+msgid "IDS_CLD_MBODY_WEEK_STARTS_ON"
+msgstr "Astea hemen hasten da"
+
+msgid "IDS_CLD_MBODY_ALERT_TYPE"
+msgstr "Alerta mota"
+
+msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
+msgstr "Jakinarazpen soinua"
+
+msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
+msgstr "Blokeatu gertaera orduak eta datak zuk hautatutako ordu zonan. Ez dira aldatuko nahiz eta beste ordu zona batera mugitu."
+
+msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
+msgstr "Lehenetsitako eszena"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Larunbata"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Igandea"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Astelehena"
+
+msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
+msgstr "Jakinarazpen agerkariak"
+
+msgid "IDS_CLD_OPT_NO_ALERTS"
+msgstr "Alertarik ez"
+
+msgid "IDS_CLD_OPT_DAILY"
+msgstr "Egunero"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Astero"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Hilero"
+
+msgid "IDS_CLD_OPT_YEARLY"
+msgstr "Urtero"
+
+msgid "IDS_CLD_OPT_EVERY"
+msgstr "Zenbatero"
+
+msgid "IDS_CLD_OPT_DAY"
+msgstr "Eguna"
+
+msgid "IDS_CLD_BODY_MIN_LC_ABB2"
+msgstr "min"
+
+msgid "IDS_CLD_BODY_HOUR_LC_ABB"
+msgstr "ordu"
+
+msgid "IDS_CLD_BODY_WEEK_LC_ABB"
+msgstr "aste"
+
+msgid "IDS_CLD_BODY_WEEKS_LC_ABB"
+msgstr "aste"
+
+msgid "IDS_CLD_BODY_DAY_LC_ABB2"
+msgstr "egun"
+
+msgid "IDS_CLD_BODY_DAYS_LC_ABB2"
+msgstr "egun"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Izenburua"
+
+msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
+msgstr "Kontaktuen urtebetetzeak"
+
+msgid "IDS_CLD_BODY_DESCRIPTION_ABB2"
+msgstr "Deskribapena"
+
+msgid "IDS_CLD_BODY_END_M_DATE"
+msgstr "Amaiera"
+
+msgid "IDS_CLD_BODY_START_M_DATE"
+msgstr "Hasiera"
+
+msgid "IDS_CLD_BUTTON_LOCATION_ABB"
+msgstr "Kokapena"
+
+msgid "IDS_CLD_BUTTON_MORE"
+msgstr "Gehiago"
+
+msgid "IDS_CLD_BUTTON_REMINDER_ABB"
+msgstr "Gogorarazpena"
+
+msgid "IDS_CLD_BUTTON_REPEAT_ABB"
+msgstr "Errepikatu"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Ezabatu"
+
+msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
+msgstr "Egutegia guztiak"
+
+msgid "IDS_CLD_OPT_CREATE"
+msgstr "Sortu"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Ezabatu"
+
+msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
+msgstr "Nire egutegia"
+
+msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
+msgstr "Egutegi guztiak ezabatuko dira."
+
+msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
+msgstr "Ezabatzeko hautatu dituzun gertaeretako %d errepikatuko diren gertaerak dira. Ezabatu gertaera horien errepikapen guztiak?"
+
+msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
+msgstr "Bosgarren %s guztietan"
+
+msgid "IDS_CLD_OPT_EVERY_FIRST_PS_ABB"
+msgstr "Lehen %s guztietan"
+
+msgid "IDS_CLD_OPT_EVERY_FOURTH_PS_ABB"
+msgstr "Laugarren %s guztietan"
+
+msgid "IDS_CLD_OPT_EVERY_SECOND_PS_ABB"
+msgstr "Bigarren %s guztietan"
+
+msgid "IDS_CLD_OPT_EVERY_THIRD_PS_ABB"
+msgstr "Hirugarren %s guztietan"
+
+msgid "IDS_CLD_OPT_FOREVER"
+msgstr "Betiko"
+
+msgid "IDS_CLD_BODY_MONTH_LC_ABB"
+msgstr "hila"
+
+msgid "IDS_CLD_BODY_WEEK_LC"
+msgstr "astea"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "urtea"
+
+msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
+msgstr "Errepikatu honaino:"
+
+msgid "IDS_CLD_OPT_ON_DAY_PD"
+msgstr "%d. egunean"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Bilatu"
+
+msgid "IDS_CLD_OPT_TIMES_LC"
+msgstr "aldiz"
+
+msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
+msgstr "Gertaera 1 ezabatuko da"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Ezarri"
+
+msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
+msgstr "Egutegia"
+
+msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
+msgstr "Baztertu aldaketak"
+
+msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
+msgstr "Aldaketa guztiak kenduko dira"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Editatu"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Gertaerak"
+
+msgid "IDS_CLD_MBODY_MY_EVENT"
+msgstr "Nire gertaera"
+
+msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
+msgstr "Ezarri oroigarria"
+
+msgid "IDS_CLD_OPT_VCS_FILE"
+msgstr "VCS fitxategia"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Testua"
+
+msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
+msgstr "%d hautatuta"
+
+msgid "IDS_CLD_HEADER_SHARE_AS"
+msgstr "Partekatu honela"
+
+msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
+msgstr "hilabete"
+
+msgid "IDS_CLD_OPT_YEARS_LC_ABB"
+msgstr "urte"
+
+msgid "IDS_CLD_OPT_1_MINUTE_BEFORE_ABB"
+msgstr "Minutu 1 lehenago"
+
+msgid "IDS_CLD_OPT_1_HOUR_BEFORE_ABB"
+msgstr "Ordu 1 lehenago"
+
+msgid "IDS_CLD_OPT_PD_HOURS_BEFORE_ABB"
+msgstr "%d ordu lehenago"
+
+msgid "IDS_CLD_OPT_1_DAY_BEFORE_ABB"
+msgstr "Egun 1 lehenago"
+
+msgid "IDS_CLD_OPT_PD_DAYS_BEFORE_ABB2"
+msgstr "%d egun lehenago"
+
+msgid "IDS_CLD_OPT_1_WEEK_BEFORE_ABB"
+msgstr "Aste 1 lehenago"
+
+msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
+msgstr "%d aste lehenago"
+
+msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
+msgstr "Amaiera ordua hasiera orduaren ondorengoa izan beharko litzateke."
+
+msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
+msgstr "Amaiera datak hasiera dataren ondorengoa izan behar du."
+
+msgid "IDS_CLD_BUTTON_DISCARD_ABB"
+msgstr "Baztertu"
+
+msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
+msgstr "%s-(r)en urteurrena"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_REACHED"
+msgstr "Gehieneko karaktere kopurura iritsi zara."
+
+msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
+msgstr "Egutegi 1 ezabatuko da."
+
+msgid "IDS_CLD_HEADER_SET_TIME"
+msgstr "Ezarri ordua"
+
+msgid "IDS_CLD_HEADER_ADD_FIELD"
+msgstr "Gehitu eremua"
+
+msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
+msgstr "Kopiatu arbelean"
+
+msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
+msgstr "Joan web helbidera"
+
+msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
+msgstr "Gehitu lastermarkak"
+
+msgid "IDS_CLD_HEADER_SET_SNOOZE_DURATION_ABB"
+msgstr "Ezarri lozorroaren iraupena"
+
+msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
+msgstr "Egoera barra jakinarazpenak"
+
+msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
+msgstr "Gertaeretarako gonbidapenak sortu edo onartu ondoren, hemen erakutsiko dira."
+
+msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
+msgstr "Ezabatzeko hautatu duzun gertaeretako 1 errepikatuko den gertaera da. Ezabatu gertaera horren errepikapen guztiak?"
+
+msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
+msgstr "Beste bat"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Bat ere ez"
+
+msgid "IDS_CLD_BODY_EVERY_PS_LC"
+msgstr "%s(e)ro"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS_ON_P3SS"
+msgstr "%1$d %2$s(e)ro, %3$s(e)an"
+
+msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
+msgstr "%1$d %2$s(e)ro"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Asteartea"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Asteazkena"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Osteguna"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Ostirala"
+
+msgid "IDS_CLD_BODY_UNTIL_PS_LC"
+msgstr "%s arte"
+
+msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
+msgstr "Ezin izan da gertaera gorde. Errore ezezaguna gertatu da."
+
+msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
+msgstr "Ez dira VTS fitxategiak onartzen."
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minutu"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
+msgstr "Eranskinen gehieneko kopurura (%d) iritsi zara."
+
+msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
+msgstr "Data onartutako tartetik kanpo dago. Hautatu %1$s eta %2$s arteko data."
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
+msgstr "Txerta daitezkeen gertaeren gehieneko kopurura (%d) iritsi zara."
+
+msgid "IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"
+msgstr "Gorde Egutegian"
+
+msgid "IDS_CLD_OPT_MANAGE_CALENDARS_ABB"
+msgstr "Kudeatu egutegiak"
+
+msgid "IDS_CLD_BUTTON_NOTES_ABB"
+msgstr "Oharrak"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Xehetasunak"
+
+msgid "IDS_CLD_HEADER_SET_DATE"
+msgstr "Ezarri data"
+
+msgid "IDS_CLD_OPT_NEVER"
+msgstr "Inoiz ez"
+

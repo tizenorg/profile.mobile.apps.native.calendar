@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="org.tizen.calendar2" version="0.1.1">
+    <author email="y.kolomiets@samsung.com" href="www.tizen.org">Yevgeniy Kolomiets</author>
+    <description>Calendar Reference Application.</description>
+    <ui-application appid="org.tizen.calendar2" exec="calendar" launch_mode="single" mainapp="true" multiple="false" process-pool="false" taskmanage="true" type="capp">
+        <label>Calendar</label>
+        <label xml:lang="ar-ae">التقويم</label>
+        <label xml:lang="az-az">Təqvim</label>
+        <label xml:lang="bg-bg">Календар</label>
+        <label xml:lang="ca-es">Calendari</label>
+        <label xml:lang="cs-cz">Kalendář</label>
+        <label xml:lang="da-dk">Kalender</label>
+        <label xml:lang="de-de">Kalender</label>
+        <label xml:lang="el-gr">Ημερολόγιο</label>
+        <label xml:lang="en-gb">Calendar</label>
+        <label xml:lang="en-ph">Calendar</label>
+        <label xml:lang="en-us">Calendar</label>
+        <label xml:lang="es-es">Calendario</label>
+        <label xml:lang="es-mx">Calendario</label>
+        <label xml:lang="et-ee">Kalender</label>
+        <label xml:lang="eu-es">Egutegia</label>
+        <label xml:lang="fi-fi">Kalenteri</label>
+        <label xml:lang="fr-ca">Calendrier</label>
+        <label xml:lang="fr-fr">Calendrier</label>
+        <label xml:lang="ga-ie">Féilire</label>
+        <label xml:lang="gl-es">Calendario</label>
+        <label xml:lang="hi-in">कैलेंडर</label>
+        <label xml:lang="hr-hr">Kalendar</label>
+        <label xml:lang="hu-hu">Naptár</label>
+        <label xml:lang="hy-am">Օրացույց</label>
+        <label xml:lang="is-is">Dagatal</label>
+        <label xml:lang="it-it">Calendario</label>
+        <label xml:lang="ja-jp">カレンダー</label>
+        <label xml:lang="ka-ge">კალენდარი</label>
+        <label xml:lang="kk-kz">Күнтізбе</label>
+        <label xml:lang="ko-kr">캘린더</label>
+        <label xml:lang="lt-lt">Kalendorius</label>
+        <label xml:lang="lv-lv">Kalendārs</label>
+        <label xml:lang="mk-mk">Календар</label>
+        <label xml:lang="nb-no">Kalender</label>
+        <label xml:lang="nl-nl">Agenda</label>
+        <label xml:lang="pl-pl">Kalendarz</label>
+        <label xml:lang="pt-br">Calendário</label>
+        <label xml:lang="pt-pt">Agenda</label>
+        <label xml:lang="ro-ro">Calendar</label>
+        <label xml:lang="ru-ru">Календарь</label>
+        <label xml:lang="sk-sk">Kalendár</label>
+        <label xml:lang="sl-si">Koledar</label>
+        <label xml:lang="sr-rs">Kalendar</label>
+        <label xml:lang="sv-se">Kalender</label>
+        <label xml:lang="tr-tr">Takvim</label>
+        <label xml:lang="uk-ua">Календар</label>
+        <label xml:lang="uz-uz">Kalendar</label>
+        <label xml:lang="zh-cn">日历</label>
+        <label xml:lang="zh-hk">日曆</label>
+        <label xml:lang="zh-tw">日曆</label>
+        <icon>org.tizen.calendar2.png</icon>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/calendar.read</privilege>
+        <privilege>http://tizen.org/privilege/notification</privilege>
+        <privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+        <privilege>http://tizen.org/privilege/calendar.write</privilege>
+        <privilege>http://tizen.org/privilege/account.read</privilege>
+        <privilege>http://tizen.org/privilege/message.read</privilege>
+        <privilege>http://tizen.org/privilege/window.priority.set</privilege>
+        <privilege>http://tizen.org/privilege/display</privilege>
+        <privilege>http://tizen.org/privilege/contact.read</privilege>
+    </privileges>
+</manifest>
