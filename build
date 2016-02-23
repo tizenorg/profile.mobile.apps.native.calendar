@@ -1,0 +1,78 @@
+#!/bin/bash
+
+usage()
+{
+    echo "Usage: `basename $0` [-h|--help] [-e|--emulator] | [-d|--device] [--32] | [--64] [-i|--init] [-t|--test]
+    -h, --help      Show this message.
+    -e, --emulator  Build for emulator.
+    -d, --device    Build for device (default).
+    -i, --init      Build online (without --noinit).
+    -t, --test      Build with tests.
+
+        --32        Build 32-bit package (default).
+        --64        Build 64-bit package."
+}
+
+TARGET="d"
+BIT="32"
+NOINIT="--noinit"
+OPTS=$(getopt -o "edith" -l "emulator,device,32,64,init,test,help" -- "$@" 2> /dev/null)
+
+if [ $? -ne 0 ]
+then
+    usage
+    exit 1
+fi
+
+for opt in $OPTS
+do
+    case $opt in
+        -e|--emulator)
+        TARGET="e"
+        ;;
+        -d|--device)
+        TARGET="d"
+        ;;
+        --32)
+        BIT="32"
+        ;;
+        --64)
+        BIT="64"
+        ;;
+        -i|--init)
+        NOINIT=""
+        ;;
+        -t|--test)
+        TEST=1
+        ;;
+        -h|--help)
+        usage
+        exit 1
+        ;;
+    esac
+done
+
+if [ $BIT = "32" ]
+then
+    if [ $TARGET = "e" ]
+    then
+        ARCH="i586"
+    else
+        ARCH="armv7l"
+    fi
+else
+    if [ $TARGET = "e" ]
+    then
+        ARCH="x86_64"
+    else
+        ARCH="aarch64"
+    fi
+fi
+
+if [ -z $TEST ]
+then
+    gbs build -A $ARCH --include-all --keep-packs $NOINIT
+else
+    gbs build -A $ARCH --include-all --keep-packs $NOINIT --define 'TEST ON'
+fi
+
