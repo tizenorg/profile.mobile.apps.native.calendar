@@ -119,4 +119,4 @@ cd %{BUILD_DIR}
 
 %{TZ_SYS_RO_PACKAGES}/%{name}.xml
 %{TZ_SYS_RO_ICONS}/default/small/*.png
-%{TZ_SYS_SHARE}/license/%{name}
+%{TZ_SYS_RO_SHARE}/license/%{name}
