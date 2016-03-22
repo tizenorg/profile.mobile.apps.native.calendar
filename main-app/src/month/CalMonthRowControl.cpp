@@ -24,6 +24,8 @@
 #define DAYS_PER_WEEK 7
 #define GRID_ROW_COUNT 6
 
+#define BUFFER_SIZE 128
+
 CalMonthRowControl::CalMonthRowControl(const char* edjeGroupName) :
 	__edjeGroupName(edjeGroupName),
 	__firstWeekday(0),
@@ -86,10 +88,10 @@ void CalMonthRowControl::resetDayNums(int firstWeekday, const CalDate& rowStartD
 	__firstWeekday = firstWeekday;
 	CalDate date(rowStartDate);
 	for (int j = 0; j < DAYS_PER_WEEK; j++) {
-		char partname[100];
-		sprintf(partname, "cell/%d/daynum", j);
-		char text[10];
-		sprintf(text, "%d", date.getMday());
+		char partname[BUFFER_SIZE];
+		snprintf(partname, sizeof(partname), "cell/%d/daynum", j);
+		char text[BUFFER_SIZE];
+		snprintf(text, sizeof(text), "%d", date.getMday());
 		elm_object_part_text_set(getEvasObj(), partname, text);
 		if (i >= 0)
 			__resetDayNumStyle(i, j, date.getMday());
@@ -148,8 +150,8 @@ void CalMonthRowControl::markToday(int j)
  */
 void CalMonthRowControl::__resetDayNumStyle(int i, int j)
 {
-	char partname[100];
-	sprintf(partname, "cell/%d/daynum", j);
+	char partname[BUFFER_SIZE];
+	snprintf(partname, sizeof(partname), "cell/%d/daynum", j);
 	const char* text = elm_object_part_text_get(getEvasObj(), partname);
 	__resetDayNumStyle(i, j, atoi(text));
 }
@@ -304,8 +306,8 @@ int CalMonthRowControl::identifyCell(Evas_Object* cell)
  */
 void CalMonthRowControl::__signal(const char* signal, int j)
 {
-	char buffer[100];
-	sprintf(buffer, signal, j);
+	char buffer[BUFFER_SIZE];
+	snprintf(buffer, BUFFER_SIZE, signal, j);
 	elm_layout_signal_emit(getEvasObj(), buffer, "");
 }
 
@@ -317,8 +319,8 @@ void CalMonthRowControl::__signal(const char* signal, int j)
  */
 void CalMonthRowControl::__signalContent(const char* signal, int j)
 {
-	char buffer[100];
-	sprintf(buffer, signal, j);
+	char buffer[BUFFER_SIZE];
+	snprintf(buffer, BUFFER_SIZE, signal, j);
 	elm_layout_signal_emit(__getContentObj(), buffer, "");
 }
 
@@ -331,8 +333,8 @@ void CalMonthRowControl::__signalContent(const char* signal, int j)
  */
 const Evas_Object* CalMonthRowControl::__getCell(int j)
 {
-	char partname[100];
-	sprintf(partname, "cell/%d", j);
+	char partname[BUFFER_SIZE];
+	snprintf(partname, sizeof(partname), "cell/%d", j);
 	return edje_object_part_object_get(elm_layout_edje_get(getEvasObj()), partname);
 }
 
@@ -346,11 +348,11 @@ Evas_Object* CalMonthRowControl::__getContentObj()
 	if (__content == NULL) {
 		 __content = elm_layout_add(getEvasObj());
 		evas_object_size_hint_weight_set(__content, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-		char groupName[100];
+		char groupName[BUFFER_SIZE];
 		if (__edjeGroupName)
-			sprintf(groupName, "%s.content", __edjeGroupName);
+			snprintf(groupName, sizeof(groupName), "%s.content", __edjeGroupName);
 		else
-			strcpy(groupName, "CalMonthRowControl.content");
+			strncpy(groupName, "CalMonthRowControl.content", sizeof(groupName));
 		elm_layout_file_set(__content, CalPath::getPath(CAL_EDJE).c_str(), groupName);
 		elm_object_part_content_set(getEvasObj(), "cells/base", __content);
 	}

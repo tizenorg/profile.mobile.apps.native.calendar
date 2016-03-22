@@ -40,6 +40,7 @@
 #endif
 
 #define RECT_REF(_rect_var) &_rect_var.x, &_rect_var.y, &_rect_var.w, &_rect_var.h
+#define BUFFER_SIZE 128
 
 #define TRACK_MODE_CHANGE_FLOW(_tag)\
 	WDEBUG("[mode] %s: __listMode(%d) __listDragRecognizerState(%d) __listIsBeingDragged(%d) __monthDragBegan(%d)",\
@@ -107,8 +108,8 @@ const char* CalMainView::getClassName()
  */
 static void __signal(Evas_Object* obj, const char* signal, int j)
 {
-	char buffer[100];
-	sprintf(buffer, signal, j);
+	char buffer[BUFFER_SIZE];
+	snprintf(buffer, sizeof(buffer), signal, j);
 	elm_layout_signal_emit(obj, buffer, "");
 }
 

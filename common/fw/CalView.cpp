@@ -25,7 +25,11 @@ CalView::CalView(const char* name) : WView(name)
 
 CalView::~CalView()
 {
-	((CalNaviframe*)getNaviframe())->destroyView(this, getNaviItem());
+	CalNaviframe *naviframe = static_cast<CalNaviframe *>(getNaviframe());
+	if(naviframe)
+	{
+		naviframe->destroyView(this, getNaviItem());
+	}
 }
 
 void CalView::activateMenuButton(Elm_Object_Item* naviItem)

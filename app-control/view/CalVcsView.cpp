@@ -23,6 +23,8 @@
 #include "CalCustomListModel.h"
 #include <notification.h>
 
+#define TITLE_SIZE 128
+
 CalVcsView::CalVcsView(const std::list<std::shared_ptr<CalSchedule>>& schedules) : CalView("CalVcsView"),
 	__schedules(schedules),
 	__isSelectMode(false),
@@ -280,15 +282,15 @@ void CalVcsView::__switchMode(bool isSelectMode)
 
 void CalVcsView::__updateTitleInfo()
 {
-	char title[100] = {0};
+	char title[TITLE_SIZE] = {0};
 
 	int selectedItemCount = __list->getSelectSchduleItemCount();
 	int itemCount = __list->getSchduleItemCount();
 
 	if(__isSelectMode){
-		sprintf(title, _L_("IDS_CLD_HEADER_PD_SELECTED_ABB3"), selectedItemCount);
+		snprintf(title, sizeof(title), _L_("IDS_CLD_HEADER_PD_SELECTED_ABB3"), selectedItemCount);
 	}else{
-		sprintf(title, _L_("IDS_CLD_HEADER_EVENTS"));
+		snprintf(title, sizeof(title), _L_("IDS_CLD_HEADER_EVENTS"));
 	}
 	setTitle(title);
 

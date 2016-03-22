@@ -23,6 +23,8 @@
 #include "CalListModelFactory.h"
 #include "WPopup.h"
 
+#define TITLE_SIZE 32
+
 CalPickView::CalPickView(int maxLimit, ResultType resultType) : CalFilterView("CalPickView"),
 	__maxLimit(maxLimit),
 	__resultType(resultType)
@@ -134,17 +136,17 @@ void CalPickView::setDoneCb(std::function<void (const std::list<std::shared_ptr<
 
 void CalPickView::__updateTitleInfo()
 {
-	char title[32] = {0};
+	char title[TITLE_SIZE] = {0};
 	int selectedItemCount = 0;
 	selectedItemCount = __selectedScheduleSet.getCount();
 
 	if (__maxLimit > 0)
 	{
-		sprintf(title, "%d/%d", selectedItemCount, __maxLimit);
+		snprintf(title, sizeof(title), "%d/%d", selectedItemCount, __maxLimit);
 	}
 	else
 	{
-		sprintf(title, _L_("IDS_CLD_HEADER_PD_SELECTED_ABB3"), selectedItemCount);
+		snprintf(title, sizeof(title), _L_("IDS_CLD_HEADER_PD_SELECTED_ABB3"), selectedItemCount);
 	}
 
 	setTitle(title);

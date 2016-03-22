@@ -23,6 +23,8 @@
 #include "CalDebugInternal.h"
 #include "CalPath.h"
 
+#define BUFFER_SIZE 128
+
 const CalMonthControl::Position CalMonthControl::__invalidPosition = {-1, -1};
 
 CalMonthControl::CalMonthControl(int firstWeekday, int year, int month, const char* rowEdjeGroupName, const CalDate* originDate) :
@@ -104,8 +106,8 @@ Evas_Object* CalMonthControl::onCreate(Evas_Object* parent, void* param)
 			__row[i] = new CalMonthRowControl("CalMonthRowControl");
 		__row[i]->create(layout, NULL);
 
-		char partname[100];
-		sprintf(partname, "row/%d/sw", i);
+		char partname[BUFFER_SIZE];
+		snprintf(partname, sizeof(partname), "row/%d/sw", i);
 		elm_object_part_content_set(layout, partname, __row[i]->getEvasObj());
 
 		__row[i]->receiveTouchInputFor(__cellTapRecognizer);
@@ -420,8 +422,8 @@ void CalMonthControl::__identifyCell(Evas_Object* cell, Position& position)
  */
 static void __signal(Evas_Object* obj, const char* signal, int j)
 {
-	char buffer[100];
-	sprintf(buffer, signal, j);
+	char buffer[BUFFER_SIZE];
+	snprintf(buffer, sizeof(buffer), signal, j);
 	elm_layout_signal_emit(obj, buffer, "");
 }
 
@@ -479,8 +481,8 @@ void CalMonthControl::updateHeaderText()
 {
 	WENTER();
 	for (int j = 0; j < DAYS_PER_WEEK; j++) {
-		char partname[100];
-		sprintf(partname, "cell/%d/weekday", j);
+		char partname[BUFFER_SIZE];
+		snprintf(partname, sizeof(partname), "cell/%d/weekday", j);
 		elm_object_part_text_set(__header, partname, CalDate::getWeekdayText(__getWeekdayOfColumn(j)));
 	}
 }

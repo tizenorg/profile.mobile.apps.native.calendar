@@ -260,8 +260,10 @@ void CalApp::__showMain(app_control_h request, bool firstLaunch)
 				WERROR("mainView is null");
 				elm_exit();
 			}
-
-			mainView->focus(date);
+			else
+			{
+				mainView->focus(date);
+			}
 		}
 	}
 	else if(firstLaunch)

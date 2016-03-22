@@ -539,16 +539,8 @@ void CalDateTime::__setLimit()
 	}
 }
 
-void CalDateTime::getStringParam(char buffer[]) const
-{
-	sprintf(buffer, "%.04d-%.02d-%.02d %.02d:%.02d:%.02d ",
-			getYear(), getMonth(), getMday(),
-			getHour(), getMinute(), getSecond());
-}
-
 int CalDateTime::getDateCompareVal() const
 {
 	return (getYear() << 9) | (getMonth() << 5) | getMday();
 }
-
 

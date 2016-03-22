@@ -486,7 +486,7 @@ void CalEditView::__onAddRepeatButton()
 
 void CalEditView::__reminderRemoveCb(CalDialogEditOneTextRemoveIconItem* reminderItem)
 {
-	const int reminderIndex = __getReminderIndexFromInterval(reinterpret_cast<long long>(reminderItem->getCustomData()));
+	const int reminderIndex = __getReminderIndexFromInterval((intptr_t)(reminderItem->getCustomData()));
 	WDEBUG("Reminder[%d] remove selected", reminderIndex);
 	__removeAllReminderItems();
 	__workingCopy->removeReminder(reminderIndex);
@@ -503,7 +503,7 @@ CalDialogEditOneTextRemoveIconItem* CalEditView::__createReminderItem(const CalS
 		new CalDialogEditOneTextRemoveIconItem(sortIndex, reminderText.c_str());
 
 	reminderItem->setSelectCb([this, reminderItem]() {
-		const int reminderInterval = reinterpret_cast<long long>(reminderItem->getCustomData());
+		const int reminderInterval = (intptr_t)(reminderItem->getCustomData());
 
 		CalScheduleReminder reminder;
 		const int count = __workingCopy->getRemindersCount();
@@ -617,7 +617,7 @@ void CalEditView::__addAllReminderItems()
 		__reminderItems[reminderIndex] = __createReminderItem((*it), reminderIndex + REMINDER1);
 		if(__reminderItems[reminderIndex])
 		{
-			__reminderItems[reminderIndex]->setCustomData((void*)((*it).getMinuteValue()));
+			__reminderItems[reminderIndex]->setCustomData((void*)(intptr_t)((*it).getMinuteValue()));
 			__dialog->add(__reminderItems[reminderIndex]);
 			++reminderIndex;
 		}
@@ -700,7 +700,7 @@ void CalEditView::__applyChangesToReminder(const CalScheduleReminder& reminder, 
 		return; // NONE selected
 	}
 
-	const int reminderIndex = __getReminderIndexFromInterval(reinterpret_cast<long long>(reminderItem->getCustomData()));
+	const int reminderIndex = __getReminderIndexFromInterval((intptr_t)(reminderItem->getCustomData()));
 	__workingCopy->setReminder(reminderIndex, reminder);
 
 	__removeAllReminderItems();
