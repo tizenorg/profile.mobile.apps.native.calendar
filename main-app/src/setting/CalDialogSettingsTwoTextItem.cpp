@@ -38,6 +38,8 @@ CalDialogSettingsTwoTextItem::CalDialogSettingsTwoTextItem()
 
 CalDialogSettingsTwoTextItem::~CalDialogSettingsTwoTextItem()
 {
+	g_free(__subText);
+	g_free(__mainText);
 }
 
 Elm_Genlist_Item_Class* CalDialogSettingsTwoTextItem::getItemClassStatic()

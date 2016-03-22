@@ -168,6 +168,7 @@ void CalEditApp::__makeScheduleForEditMode()
 
 		free(value);
 		elm_exit();
+		return;
 	}
 
 	int eventIndex = atoi(value);

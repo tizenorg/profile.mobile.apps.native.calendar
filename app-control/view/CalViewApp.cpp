@@ -178,6 +178,7 @@ void CalViewApp::__makeSchedule()
 			__replyError();
 
 			elm_exit();
+			return;
 		}
 
 		int eventIndex = atoi(value);

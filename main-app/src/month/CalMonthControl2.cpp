@@ -23,6 +23,8 @@
 #include <Elementary.h>
 #include <notification.h>
 
+#define GROUP_NAME_SIZE 128
+
 CalMonthControl2::CalMonthControl2(int firstWeekday, int year, int month, const char* rowEdjeGroupName, const CalDate* originDate, CalDate lowerBound, CalDate upperBound)
 	: __scrollStartCb(NULL)
 	, __scrollFinishCb(NULL)
@@ -48,6 +50,8 @@ CalMonthControl2::~CalMonthControl2()
 		ecore_idler_del(__monthIdler);
 		__monthIdler = NULL;
 	}
+
+	delete __thisMonth;
 }
 
 const char* CalMonthControl2::getClassName()
@@ -502,11 +506,11 @@ Evas_Object* CalMonthControl2::__createAccessoryMonth(Evas_Object* parent, CalMo
 	evas_object_show(layout);
 
 	for (int i = 0; i < GRID_ROW_COUNT; i++) {
-		char groupName[100];
+		char groupName[GROUP_NAME_SIZE];
 		if (__rowEdjeGroupName)
 			sprintf(groupName, "%s.accessory", __rowEdjeGroupName);
 		else
-			strcpy(groupName, "CalMonthRowControl.accessory");
+			strncpy(groupName, "CalMonthRowControl.accessory", GROUP_NAME_SIZE);
 		rowArray[i] = new CalMonthRowControl(groupName);
 		rowArray[i]->create(layout, NULL);
 

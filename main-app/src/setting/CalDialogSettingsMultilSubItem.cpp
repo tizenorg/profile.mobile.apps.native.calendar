@@ -32,6 +32,7 @@ CalDialogSettingsMultilSubItem::CalDialogSettingsMultilSubItem()
 
 CalDialogSettingsMultilSubItem::~CalDialogSettingsMultilSubItem()
 {
+	g_free(__text);
 }
 
 Elm_Genlist_Item_Class* CalDialogSettingsMultilSubItem::getItemClassStatic()
