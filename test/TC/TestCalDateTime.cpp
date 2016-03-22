@@ -333,16 +333,6 @@ TEST_F(TestCalDateTime, addYears)
 
 //____________________________________________________________________________//
 
-TEST_F(TestCalDateTime, getStringParam)
-{
-	CalDateTime birthday(year, month, mday, hour, min, sec);
-	char buffer[bufLength] = {0};
-	birthday.getStringParam(buffer);
-	ASSERT_TRUE(strlen(buffer));
-}
-
-//____________________________________________________________________________//
-
 TEST_F(TestCalDateTime, getDateCompareVal)
 {
 	CalDateTime birthday(year, month, mday, hour, min, sec);
