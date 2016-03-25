@@ -161,6 +161,8 @@ void CalDialogEditDateTimeItem::setDate(const CalDateTime & date)
 	CalDateTime tmpDate(date.getYear(), date.getMonth(),
 			date.getMday(), selectedDate.getHour(), selectedDate.getMinute(), selectedDate.getSecond());
 
+	tmpDate.setAllDay(selectedDate.isAllDay());
+
 	selectedDate = tmpDate;
 
 	__isDateChanged = true;
