@@ -514,8 +514,8 @@ Evas_Object* CalMonthControl2::__createAccessoryMonth(Evas_Object* parent, CalMo
 		rowArray[i] = new CalMonthRowControl(groupName);
 		rowArray[i]->create(layout, NULL);
 
-		char partname[100];
-		sprintf(partname, "row/%d/sw", i);
+		char partname[GROUP_NAME_SIZE];
+		snprintf(partname, sizeof(partname), "row/%d/sw", i);
 		WDEBUG("%s", partname);
 		elm_object_part_content_set(layout, partname, rowArray[i]->getEvasObj());
 	}

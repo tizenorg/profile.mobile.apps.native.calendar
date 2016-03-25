@@ -195,8 +195,9 @@ void WView::setName(const char* name)
 	}
 	if( name )
 	{
-		__pv->__name = (char*)malloc( strlen(name)+1);
-		strcpy( __pv->__name, name);
+		size_t len = strlen(name) + 1;
+		__pv->__name = (char*)malloc(len);
+		strncpy( __pv->__name, name, len);
 	}
 }
 
@@ -214,8 +215,9 @@ void WView::setTitle( const char* title )
 	}
 	if( title )
 	{
-		__pv->__title = (char*)malloc( strlen(title)+1);
-		strcpy( __pv->__title, title);
+		size_t len = strlen(title) + 1;
+		__pv->__title = (char*)malloc(len);
+		strncpy( __pv->__title, title, len);
 	}
 }
 const char* WView::getTitle()
