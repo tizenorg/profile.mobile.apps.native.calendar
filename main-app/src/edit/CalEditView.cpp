@@ -1676,67 +1676,68 @@ void CalEditView::__onSave()
 		elm_object_focus_set(__more->getButton(CalDialogEditMoreItem::MORE), true);/*to avoid keyboard is shown again*/
 	}
 
-	const char *summary = __workingCopy->getSummary();
-	if (!(summary && strlen(summary)))
+	if (__isChanged || __mode == CREATE || __mode == COPY)
 	{
-		__workingCopy->setSummary(_L_("IDS_CLD_MBODY_MY_EVENT"));
-	}
+		const char *summary = __workingCopy->getSummary();
+		if (!(summary && strlen(summary)))
+		{
+			__workingCopy->setSummary(_L_("IDS_CLD_MBODY_MY_EVENT"));
+		}
 
-	if(__time->isAllDay() &&
-			(__mode == CREATE || (__mode != COPY && __time->isDateChanged())))
-	{
-		CalDateTime startDateTime, endDateTime;
-		Eina_Bool allDay = EINA_TRUE;
-		__time->getDateTime(&startDateTime, &endDateTime, &allDay);
-		__workingCopy->setStart(startDateTime);
-		__workingCopy->setEnd(endDateTime);
-	}
-	else
-	{
-		struct tm time = {};
-		CalDateTime startDateTime;
-		__workingCopy->getStart(startDateTime);
-		startDateTime.getTmFromUtime(&time);
-		startDateTime.set(time);
-		memset(&time, 0, sizeof(time));
-		__workingCopy->setStart(startDateTime);
-		CalDateTime endDateTime;
-		__workingCopy->getEnd(endDateTime);
-		endDateTime.getTmFromUtime(&time);
-		endDateTime.set(time);
-		__workingCopy->setEnd(endDateTime);
-	}
+		if(__time->isAllDay())
+		{
+			CalDateTime startDateTime, endDateTime;
+			Eina_Bool allDay = EINA_TRUE;
+			__time->getDateTime(&startDateTime, &endDateTime, &allDay);
+			__workingCopy->setStart(startDateTime);
+			__workingCopy->setEnd(endDateTime);
+		}
+		else
+		{
+			struct tm time = {};
+			CalDateTime startDateTime;
+			__workingCopy->getStart(startDateTime);
+			startDateTime.getTmFromUtime(&time);
+			startDateTime.set(time);
+			memset(&time, 0, sizeof(time));
+			__workingCopy->setStart(startDateTime);
+			CalDateTime endDateTime;
+			__workingCopy->getEnd(endDateTime);
+			endDateTime.getTmFromUtime(&time);
+			endDateTime.set(time);
+			__workingCopy->setEnd(endDateTime);
+		}
 
-	switch(__mode)
-	{
-		case CREATE:
-		case COPY:
-			isOverlapped = CalDataManager::getInstance().isOverlapped(*__workingCopy);
-			ret = CalDataManager::getInstance().insertSchedule(*__workingCopy, &eventId);
-			break;
-		case EDIT:
-		case EDIT_EXTERNAL:
-			ret = CalDataManager::getInstance().updateSchedule(CalDataManager::ALL, *__inputSchedule, *__workingCopy, &eventId);
-			break;
-		case EDIT_INSTANCE:
-			ret = CalDataManager::getInstance().updateSchedule(CalDataManager::ONLY_THIS, *__inputSchedule, *__workingCopy, &eventId);
-			break;
-		case EDIT_THIS_AND_FURTURE:
-			ret = CalDataManager::getInstance().updateSchedule(CalDataManager::THIS_AND_FUTURE, *__inputSchedule, *__workingCopy, &eventId);
-			break;
-	}
+		switch(__mode)
+		{
+			case CREATE:
+			case COPY:
+				isOverlapped = CalDataManager::getInstance().isOverlapped(*__workingCopy);
+				ret = CalDataManager::getInstance().insertSchedule(*__workingCopy, &eventId);
+				break;
+			case EDIT:
+			case EDIT_EXTERNAL:
+				ret = CalDataManager::getInstance().updateSchedule(CalDataManager::ALL, *__inputSchedule, *__workingCopy, &eventId);
+				break;
+			case EDIT_INSTANCE:
+				ret = CalDataManager::getInstance().updateSchedule(CalDataManager::ONLY_THIS, *__inputSchedule, *__workingCopy, &eventId);
+				break;
+			case EDIT_THIS_AND_FURTURE:
+				ret = CalDataManager::getInstance().updateSchedule(CalDataManager::THIS_AND_FUTURE, *__inputSchedule, *__workingCopy, &eventId);
+				break;
+		}
 
-	if (!ret)
-	{
-		CalSettingsManager::getInstance().setLastUsedCalendar(__workingCopy->getBookId());
-		__postProcessAddButtons();
-	}
+		if (!ret)
+		{
+			__postProcessAddButtons();
+		}
 
-	__toastPopupWarning(isOverlapped, ret);
+		__toastPopupWarning(isOverlapped, ret);
 
-	if (__savedCb)
-	{
-		__savedCb(eventId);
+		if (__savedCb)
+		{
+			__savedCb(eventId);
+		}
 	}
 }
 
