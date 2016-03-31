@@ -23,6 +23,7 @@ BuildRequires: pkgconfig(feedback)
 BuildRequires: pkgconfig(libtzplatform-config)
 BuildRequires: pkgconfig(notification)
 BuildRequires: pkgconfig(storage)
+BuildRequires: pkgconfig(widget_service)
 
 %description
 Calendar Reference Application.
