@@ -6,6 +6,7 @@ pkg_check_modules(TIZEN_PACKAGES REQUIRED
 	badge
 	capi-appfw-application
 	capi-appfw-preference
+	capi-appfw-widget-application
 	capi-base-utils-i18n
 	contacts-service2
 	calendar-service2
@@ -16,6 +17,7 @@ pkg_check_modules(TIZEN_PACKAGES REQUIRED
 	libtzplatform-config
 	notification
 	storage
+	widget_service
 )
 
 set(INCLUDES      "${TIZEN_PACKAGES_INCLUDE_DIRS};inc")
@@ -35,6 +37,6 @@ add_definitions("-DTEXT_DOMAIN=\"${PACKAGE}\"")
 add_definitions("-DRES_DIR=\"${RES_DIR}/\"")
 add_definitions("-DLOCALE_DIR=\"${LOCALE_DIR}\"")
 
-add_subdirectory(apps-common)
+add_subdirectory(lib-apps-common)
 add_subdirectory(common)
 add_subdirectory(main-app)

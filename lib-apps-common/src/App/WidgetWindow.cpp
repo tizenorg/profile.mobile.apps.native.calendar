@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,28 +15,20 @@
  *
  */
 
-#ifndef CALENDAR_AGENDA_AGENDA_VIEW_H
-#define CALENDAR_AGENDA_AGENDA_VIEW_H
+#include "App/WidgetWindow.h"
+#include <widget_app_efl.h>
 
-#include "Ui/View.h"
+using namespace App;
 
-namespace Calendar
+WidgetWindow::WidgetWindow(widget_context_h context)
+	: m_Context(context)
 {
-	namespace Agenda
-	{
-		/**
-		 * @brief Agenda view
-		 */
-		class AgendaView : public Ui::View
-		{
-		public:
-			AgendaView();
-			virtual ~AgendaView() override;
-
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
-		};
-	}
 }
 
-#endif /* CALENDAR_AGENDA_AGENDA_VIEW_H */
+Evas_Object *WidgetWindow::onWindowCreate()
+{
+	Evas_Object *window = nullptr;
+	widget_app_get_elm_win(m_Context, &window);
+	evas_object_show(window);
+	return window;
+}

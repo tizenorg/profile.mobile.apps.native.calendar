@@ -4,7 +4,7 @@ project(calendar CXX)
 file(GLOB_RECURSE SOURCES src/*.cpp)
 
 include_directories(
-	${CMAKE_SOURCE_DIR}/apps-common/inc
+	${CMAKE_SOURCE_DIR}/lib-apps-common/inc
 	${CMAKE_SOURCE_DIR}/common/inc
 	${CMAKE_CURRENT_SOURCE_DIR}/inc
 )

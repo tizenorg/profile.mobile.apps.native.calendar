@@ -49,7 +49,7 @@ Evas_Object *AgendaView::onCreate(Evas_Object *parent)
 	return layout;
 }
 
-void AgendaView::onPageAttached()
+void AgendaView::onPageAttached(Ui::NavigatorPage *page)
 {
 	getPage()->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
 }
