@@ -20,6 +20,7 @@
 
 #include <tizen.h>
 
+SET_LOG_TAG("Calendar");
 
 int main(int argc, char *argv[])
 {
