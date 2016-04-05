@@ -19,8 +19,8 @@
 #define UTILS_LOGGER_H
 
 #ifndef LOG_TAG
-	extern const char *LogTag;
 	#define LOG_TAG LogTag
+	extern const char *LOG_TAG;
 	#define SET_LOG_TAG(tag) const char *LOG_TAG = tag
 #else
 	#define SET_LOG_TAG(tag)
