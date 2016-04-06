@@ -53,6 +53,6 @@
 		<label xml:lang="zh-cn">日历</label>
 		<label xml:lang="zh-hk">日曆</label>
 		<label xml:lang="zh-tw">日曆</label>
-		<support-size preview="/opt/usr/apps/org.tizen.calendar/shared/res/calendar_preview.png">4x4</support-size>
+		<support-size preview="calendar_preview.png">4x4</support-size>
 	</widget-application>
 </manifest>

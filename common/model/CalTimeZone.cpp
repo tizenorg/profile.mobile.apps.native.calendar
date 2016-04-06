@@ -11,11 +11,7 @@
 #define CAL_WORLDCLOCK_DB_TIMEZONE_QUERY \
 	"SELECT tz_path FROM city_table where timezone=\"%s\" limit 1"
 
-#ifdef TIZEN_3_0
 #define CAL_WORLDCLOCK_DB_FILE "/usr/dbspace/.worldclock.db"
-#else
-#define CAL_WORLDCLOCK_DB_FILE "/opt/dbspace/.worldclock.db"
-#endif
 
 #define DATETIME_BUFFER 64
 #define TIMEZONE_LABEL_BUFFER 128
