@@ -50,15 +50,6 @@ INCLUDE_DIRECTORIES(
 	${CMAKE_SOURCE_DIR}/main-app/src/setting
 )
 
-SET(pkgs_WIDGET_LIST "")
-SET(HTML_COMMENT_START "<!--")
-SET(HTML_COMMENT_END "-->")
-IF(NOT WIDGET_DISABLED)
-		SET(pkgs_WIDGET_LIST ${pkgs_WIDGET_LIST} capi-appfw-widget-application)
-		SET(HTML_COMMENT_START "")
-		SET(HTML_COMMENT_END "")
-ENDIF()
-
 INCLUDE(FindPkgConfig)
 pkg_check_modules(pkgs REQUIRED
 		dlog
@@ -71,6 +62,7 @@ pkg_check_modules(pkgs REQUIRED
 		capi-appfw-alarm
 		capi-appfw-application
 		capi-appfw-preference
+		capi-appfw-widget-application
 		notification
 		sqlite3
 		capi-appfw-app-manager
@@ -80,7 +72,6 @@ pkg_check_modules(pkgs REQUIRED
 		capi-base-utils-i18n
 		efl-extension
 		capi-ui-efl-util
-		${pkgs_WIDGET_LIST}
 )
 
 
@@ -116,7 +107,6 @@ ADD_DEFINITIONS("-DCALENDAR_PREFIX=\"${CALENDAR_PREFIX}\"")
 ADD_DEFINITIONS("-DRESDIR=\"${RESDIR}\"")
 ADD_DEFINITIONS("-DLOCALEDIR=\"${LOCALEDIR}\"")
 ADD_DEFINITIONS("-DEDJDIR=\"${EDJDIR}\"")
-ADD_DEFINITIONS("-DTIZEN_PLATFORM_VERSION=${TIZEN_PLATFORM_VERSION}")
 
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRCS})
 
@@ -125,12 +115,7 @@ TARGET_LINK_LIBRARIES(${PROJECT_NAME} app-assist-efl calendar-common ${pkgs_LDFL
 INSTALL(TARGETS ${PROJECT_NAME} DESTINATION ${BINDIR})
 
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/${PKGNAME}.xml ${CMAKE_BINARY_DIR}/${PKGNAME}.xml)
-IF("${TIZEN_PLATFORM_VERSION}" STREQUAL "24")
-CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/${PKGNAME}.2.4.manifest ${CMAKE_BINARY_DIR}/${PKGNAME}.manifest)
-CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/${PKGNAME}.efl ${CMAKE_BINARY_DIR}/${PKGNAME}.efl)
-ELSE()
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/${PKGNAME}.3.0.manifest ${CMAKE_BINARY_DIR}/${PKGNAME}.manifest)
-ENDIF()
 
 ADD_SUBDIRECTORY(main-app/res/edje)
 ADD_SUBDIRECTORY(main-app/res/po)
@@ -141,17 +126,11 @@ ADD_SUBDIRECTORY(app-control/alert)
 ADD_SUBDIRECTORY(app-control/pick)
 ADD_SUBDIRECTORY(app-control/view)
 ADD_SUBDIRECTORY(app-control/edit)
-
-IF(NOT WIDGET_DISABLED)
 ADD_SUBDIRECTORY(widget)
-ENDIF()
 
 # install tizen files
 INSTALL(FILES ${CMAKE_BINARY_DIR}/${PKGNAME}.xml DESTINATION /usr/share/packages)
 INSTALL(DIRECTORY main-app/res/images DESTINATION ${RESDIR})
-IF("${TIZEN_PLATFORM_VERSION}" STREQUAL "24")
-INSTALL(FILES ${CMAKE_BINARY_DIR}/${PKGNAME}.efl DESTINATION /etc/smack/accesses.d)
-ENDIF()
 
 # if Google tests are enabled
 if(DEFINED TEST)

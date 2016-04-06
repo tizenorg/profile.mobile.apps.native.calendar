@@ -37,13 +37,7 @@ extern "C" {
 #define ms2sec(ms) ((long long int)ms / 1000)
 #define sec2ms(s) ((i18n_udate)s * 1000.0)
 
-#ifdef TIZEN_2_4
-#define CAL_LOCALE_MANAGER_WORLDCLOCK_DB "/opt/dbspace/.worldclock.db"
-#elif defined(TIZEN_3_0)
 #define CAL_LOCALE_MANAGER_WORLDCLOCK_DB "/usr/dbspace/.worldclock.db"
-#else
-#define CAL_LOCALE_MANAGER_WORLDCLOCK_DB "/opt/dbspace/.worldclock.db"
-#endif
 
 static const char* __dateformat[CalLocaleManager::DateFormat::DATEFORMAT_END] = {
   "EEMMMddyyyy", /* Thu Aug 23 2001 */
