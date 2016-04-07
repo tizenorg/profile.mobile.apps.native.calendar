@@ -1,0 +1,126 @@
+/*
+ * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#include "inc/edc_macro.h"
+#include "inc/UiCommon.h"
+
+
+#define COLOR_BAR "event_item/images/bg_colorbar.#.png"
+
+#define PART_PADDING_TEXT_LEFT "padding.text.left"
+
+
+collections {
+
+	base_scale: UI_BASE_SCALE;
+
+	styles {
+			style {
+				name: "event_item_text";
+				base: "font=Tizen:style=Regular font_size=40 color=#000000 ellipsis=1.0";
+				STYLE_TAGS
+			}
+		}
+
+	images {
+		image: COLOR_BAR COMP;
+	}
+// --------------------------------------------------
+//   DAY   |             |             |  TITLE     |
+//         |  COLOR_BAR  |   PADDING   |  TIME      |
+//   WDAY  |             |             |  LOCATION  |
+// --------------------------------------------------
+	group {
+		name: "elm/genlist/item/"EVENT_LIST_ITEM"/default";
+		alias: "elm/genlist/item_compress/"EVENT_LIST_ITEM"/default";
+		alias: "elm/genlist/tree/"EVENT_LIST_ITEM"/default";
+		alias: "elm/genlist/tree_compress/"EVENT_LIST_ITEM"/default";
+
+
+		data.item: "texts" PART_DAY" "PART_WEEKDAY" "PART_TITLE" "PART_TIME" "PART_LOCATION;
+		data.item: "contents" PART_CHECKBOX;
+
+		data.item: "banded_bg_area" "elm.swallow.bg";
+		data.item: "banded_bg_color" "255 255 255 255";
+
+		parts {
+
+			//LRTB paddings
+			PART_LIST_PADDINGS(
+					32,
+					32,
+					22,
+					22)
+
+			PART(TEXTBLOCK, PART_DAY,
+				DSC_LT("default" 0.0,
+					PADDING_LEFT_NAME,
+					PADDING_TOP_NAME,
+					text.style: "event_item_text";
+					min: 64 60;
+				)
+			)
+			PART(TEXTBLOCK, PART_WEEKDAY,
+				DSC_LT("default" 0.0,
+					PADDING_LEFT_NAME,
+					PART_DAY,
+					text.style: "event_item_text";
+					min: 64 40;
+				)
+			)
+			PART(IMAGE, PART_COLOR_BAR,
+				DSC_L("default" 0.0,
+					PART_DAY,
+					min: 8 90;
+					max: 8 134;
+					color: ORANGE_BAR;
+					image.normal: COLOR_BAR;
+				)
+			)
+			PART(SPACER, PART_PADDING_TEXT_LEFT,
+				DSC_L("default" 0.0,
+					PART_COLOR_BAR,
+					min: 21 0;
+					max: 21 -1;
+				)
+			)
+			PART(TEXTBLOCK, PART_TITLE,
+				DSC_LRT("default" 0.0,
+					PART_PADDING_TEXT_LEFT, PADDING_RIGTH_NAME, PADDING_TOP_NAME,
+					text.style: "event_item_text";
+					min: 0 54;
+					max: -1 54;
+				)
+			)
+			PART(TEXTBLOCK, PART_TIME,
+				DSC_LRTB("default" 0.0,
+					PART_PADDING_TEXT_LEFT, PADDING_RIGTH_NAME, PART_TITLE, PART_LOCATION,
+					text.style: "event_item_text";
+					min: 0 44;
+					max: -1 44;
+				)
+			)
+			PART(TEXTBLOCK, PART_LOCATION,
+				DSC_LRB("default" 0.0,
+					PART_PADDING_TEXT_LEFT, PADDING_RIGTH_NAME, PADDING_BOTTOM_NAME,
+					text.style: "event_item_text";
+					min: 0 44;
+				)
+			)
+		}
+	}
+}
