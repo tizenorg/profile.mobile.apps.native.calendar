@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,25 +15,33 @@
  *
  */
 
-#ifndef CALENDAR_APP_H
-#define CALENDAR_APP_H
+#ifndef MAIN_APP_H
+#define MAIN_APP_H
 
 #include "App/Application.h"
 
 namespace Ui
 {
-	class Window;
 	class Navigator;
-	class View;
+	class Window;
 }
 
-/**
- * @brief Calendar application class
- */
-class EXPORT_API CalendarApp : public App::Application
+class OperationController;
+
+class MainApp : public App::Application
 {
 public:
-	CalendarApp();
+	MainApp();
+
+	/**
+	 * @return Application main Window
+	 */
+	Ui::Window *getWindow() const;
+
+	/**
+	 * @return Application main Navigator
+	 */
+	Ui::Navigator *getNavigator() const;
 
 private:
 	virtual bool onCreate() override;
@@ -45,8 +53,7 @@ private:
 
 	Ui::Window *m_Window;
 	Ui::Navigator *m_Navigator;
-	Ui::View *m_AgendaView;
+	OperationController *m_Controller;
 };
 
-
-#endif /* CALENDAR_APP_H */
+#endif /* MAIN_APP_H */
