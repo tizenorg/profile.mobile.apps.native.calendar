@@ -21,8 +21,8 @@ BuildRequires: pkgconfig(dlog)
 BuildRequires: pkgconfig(efl-extension)
 BuildRequires: pkgconfig(elementary)
 BuildRequires: pkgconfig(feedback)
-BuildRequires: pkgconfig(libtzplatform-config)
 BuildRequires: pkgconfig(notification)
+BuildRequires: pkgconfig(libtzplatform-config)
 BuildRequires: pkgconfig(storage)
 BuildRequires: pkgconfig(widget_service)
 
@@ -59,14 +59,14 @@ make %{?_smp_mflags}
 %find_lang %{name}
 
 %files -f %{name}.lang
-%manifest %{name}.manifest
 %license LICENSE
 
 %{_bin_dir}
 %{_lib_dir}
 
-%{_res_dir}/main
-%{_res_dir}/common
+%{_res_dir}/agenda
+%{_res_dir}/details
+%{_res_dir}/edit
 %{_res_dir}/apps-common
 
 %{_manifest_dir}/%{name}.xml
