@@ -65,8 +65,9 @@ make %{?_smp_mflags}
 %{_bin_dir}
 %{_lib_dir}
 
-%{_res_dir}/main
-%{_res_dir}/common
+%{_res_dir}/agenda
+%{_res_dir}/details
+%{_res_dir}/edit
 %{_res_dir}/apps-common
 
 %{_manifest_dir}/%{name}.xml
