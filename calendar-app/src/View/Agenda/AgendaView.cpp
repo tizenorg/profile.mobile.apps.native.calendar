@@ -17,26 +17,46 @@
 
 #include "App/Path.h"
 #include "Utils/Logger.h"
+
+#include "View/Common/EventList.h"
+#include "View/Common/EventListItem.h"
 #include "View/Agenda/AgendaView.h"
 
+#include "agenda/edje/inc/agenda_view.h"
+
 using namespace View::Agenda;
+using namespace View::Common;
 
 AgendaView::AgendaView()
 {
 
 }
 
-
 Evas_Object *AgendaView::onCreate(Evas_Object *parent)
 {
 	TRACE;
+	elm_theme_extension_add(NULL, App::getResourcePath("common/edje/event_item.edj").c_str());
+
 	Evas_Object *layout = elm_layout_add(parent);
-	elm_layout_theme_set(layout, "layout", "application", "default");
+	elm_layout_file_set(layout, App::getResourcePath("agenda/edje/agenda_view.edj").c_str(), AGENDA_VIEW);
+	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_show(layout);
+
+	m_EventList = new EventList();
+	m_EventList->create(layout);
+	elm_genlist_homogeneous_set(m_EventList->getEvasObject(), EINA_FALSE);
+
+	elm_object_part_content_set(layout, PART_LIST_CONTROL, m_EventList->getEvasObject());
+
 	return layout;
 }
 
 void AgendaView::onPageAttached(Ui::NavigatorPage *page)
 {
-	getPage()->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
+	TRACE;
+	page->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
+
+	for (int i = 0; i < 5; i++) {
+		m_EventList->insert(new EventListItem());
+	}
 }

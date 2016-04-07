@@ -15,35 +15,26 @@
  *
  */
 
-#ifndef VIEW_AGENDA_AGENDA_VIEW_H
-#define VIEW_AGENDA_AGENDA_VIEW_H
+#ifndef COMMON_UI_COMMON_H
+#define COMMON_UI_COMMON_H
 
-#include "Ui/View.h"
+#define UI_BASE_SCALE 2.6
 
-namespace View
-{
-	namespace Common
-	{
-		class EventList;
-	}
-	namespace Agenda
-	{
-		/**
-		 * @brief Agenda view
-		 */
-		class AgendaView : public Ui::View
-		{
-		public:
-			AgendaView();
+#define PADDING_VIEW_DEFAULT_SIZE 0
+#define PADDING_EVENT_ITEM_DEFAULT_SIZE 32
 
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
+#define PART_DAY		"elm.text.day"
+#define PART_WEEKDAY	"elm.text.weekday"
+#define PART_TITLE		"elm.text.title"
+#define PART_TIME		"elm.text.time"
+#define PART_LOCATION	"elm.text.location"
 
-		private:
-			Common::EventList *m_EventList;
-		};
-	}
-}
+#define PART_COLOR_BAR	"elm.swallow.color.bar"
+#define PART_CHECKBOX	"elm.swallow.checkbox"
 
+#define EVENT_LIST_ITEM	"event_list_item"
 
-#endif /* VIEW_AGENDA_AGENDA_VIEW_H */
+#define ORANGE_BAR 224 167 79 255
+#define PURPLE_BAR 141 17 27 255
+
+#endif /* COMMON_UI_COMMON_H */
