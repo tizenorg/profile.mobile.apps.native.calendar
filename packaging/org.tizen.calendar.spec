@@ -13,6 +13,7 @@ BuildRequires: gettext
 BuildRequires: pkgconfig(badge)
 BuildRequires: pkgconfig(capi-appfw-application)
 BuildRequires: pkgconfig(capi-appfw-preference)
+BuildRequires: pkgconfig(capi-appfw-widget-application)
 BuildRequires: pkgconfig(capi-base-utils-i18n)
 BuildRequires: pkgconfig(contacts-service2)
 BuildRequires: pkgconfig(calendar-service2)
@@ -20,9 +21,10 @@ BuildRequires: pkgconfig(dlog)
 BuildRequires: pkgconfig(efl-extension)
 BuildRequires: pkgconfig(elementary)
 BuildRequires: pkgconfig(feedback)
-BuildRequires: pkgconfig(libtzplatform-config)
 BuildRequires: pkgconfig(notification)
+BuildRequires: pkgconfig(libtzplatform-config)
 BuildRequires: pkgconfig(storage)
+BuildRequires: pkgconfig(widget_service)
 
 %description
 Calendar Reference Application.
@@ -63,8 +65,8 @@ make %{?_smp_mflags}
 %{_bin_dir}
 %{_lib_dir}
 
-%{_res_dir}/main
 %{_res_dir}/common
+%{_res_dir}/agenda
 %{_res_dir}/apps-common
 
 %{_manifest_dir}/%{name}.xml
