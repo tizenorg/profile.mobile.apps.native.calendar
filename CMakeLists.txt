@@ -14,7 +14,6 @@ pkg_check_modules(TIZEN_PACKAGES REQUIRED
 	efl-extension
 	elementary
 	feedback
-	libtzplatform-config
 	notification
 	storage
 	widget_service
@@ -38,5 +37,5 @@ add_definitions("-DRES_DIR=\"${RES_DIR}/\"")
 add_definitions("-DLOCALE_DIR=\"${LOCALE_DIR}\"")
 
 add_subdirectory(lib-apps-common)
-add_subdirectory(common)
-add_subdirectory(main-app)
+add_subdirectory(lib-common)
+add_subdirectory(calendar-app)
