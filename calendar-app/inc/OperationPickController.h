@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,14 +15,25 @@
  *
  */
 
-#include "MainApp.h"
-#include "Utils/Logger.h"
+#ifndef OPERATION_PICK_CONTROLLER_H
+#define OPERATION_PICK_CONTROLLER_H
 
-SET_LOG_TAG("Calendar");
+#include "OperationController.h"
 
-#include <tizen.h>
-
-int main(int argc, char *argv[])
+namespace Ui
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
+	class Navigator;
 }
+
+class OperationPickController : public OperationController
+{
+public:
+	OperationPickController();
+
+private:
+	virtual void onRequest(Operation operation, app_control_h request) override;
+
+	Ui::Navigator *m_Navigator;
+};
+
+#endif /* _OPERATION_PICK_CONTROLLER_H_ */

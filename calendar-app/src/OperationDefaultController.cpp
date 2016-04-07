@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,14 +15,29 @@
  *
  */
 
+#include "OperationDefaultController.h"
+
 #include "MainApp.h"
+#include "View/Agenda/AgendaView.h"
+
+#include "Ui/Navigator.h"
 #include "Utils/Logger.h"
 
-SET_LOG_TAG("Calendar");
-
-#include <tizen.h>
-
-int main(int argc, char *argv[])
+OperationDefaultController::OperationDefaultController()
+	: OperationController(OperationDefault),
+	  m_Agenda(nullptr)
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
 }
+
+void OperationDefaultController::onCreate()
+{
+	TRACE;
+	m_Agenda = new View::Agenda::AgendaView();
+	getNavigator()->navigateTo(m_Agenda);
+}
+
+void OperationDefaultController::onRequest(Operation operation, app_control_h request)
+{
+	//TODO: Do onRequest
+}
+
