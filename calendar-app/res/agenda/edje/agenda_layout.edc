@@ -15,35 +15,30 @@
  *
  */
 
-#ifndef VIEW_AGENDA_AGENDA_VIEW_H
-#define VIEW_AGENDA_AGENDA_VIEW_H
+#include "../../../../lib-common/res/common/edje/inc/edc_macro.h"
+#include "../../../../lib-common/res/common/edje/inc/UiCommon.h"
+#include "inc/AgendaLayout.h"
 
-#include "Ui/View.h"
+collections {
 
-namespace View
-{
-	namespace Common
-	{
-		class EventList;
-	}
-	namespace Agenda
-	{
-		/**
-		 * @brief Agenda view
-		 */
-		class AgendaView : public Ui::View
-		{
-		public:
-			AgendaView();
+	base_scale: UI_BASE_SCALE;
 
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
+	group {
+		name: AGENDA_LAYOUT;
 
-		private:
-			Common::EventList *m_EventList;
-		};
+		parts {
+
+			PART(RECT, PART_MONTH_CONTROL,
+				DSC_FROM_T("default" 0.0,
+					color: 255 192 192 192;
+					min: 0 MONTH_CONTROL_H;
+				)
+			)
+			PART(SWALLOW, PART_LIST_CONTROL,
+				DSC_TB("default" 0.0,
+					PART_MONTH_CONTROL,
+				)
+			)
+		}
 	}
 }
-
-
-#endif /* VIEW_AGENDA_AGENDA_VIEW_H */
