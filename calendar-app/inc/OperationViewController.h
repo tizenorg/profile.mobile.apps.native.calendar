@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,18 @@
  *
  */
 
-#include "MainApp.h"
-#include "Utils/Logger.h"
+#ifndef OPERATION_VIEW_CONTROLLER_H
+#define OPERATION_VIEW_CONTROLLER_H
 
-#include <tizen.h>
+#include "OperationController.h"
 
-int main(int argc, char *argv[])
+class OperationViewController : public OperationController
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
-}
+public:
+	OperationViewController();
+
+private:
+	virtual void onRequest(Operation operation, app_control_h request);
+};
+
+#endif /* _OPERATION_VIEW_CONTROLLER_H_ */

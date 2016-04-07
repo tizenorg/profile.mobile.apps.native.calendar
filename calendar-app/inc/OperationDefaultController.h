@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,27 @@
  *
  */
 
-#include "MainApp.h"
-#include "Utils/Logger.h"
+#ifndef OPERATION_DEFAULT_CONTROLLER_H
+#define OPERATION_DEFAULT_CONTROLLER_H
 
-#include <tizen.h>
+#include "OperationController.h"
 
-int main(int argc, char *argv[])
+namespace Ui
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
+	class View;
+	class Navigator;
 }
+
+class OperationDefaultController : public OperationController
+{
+public:
+	OperationDefaultController();
+
+private:
+	virtual void onCreate() override;
+	virtual void onRequest(Operation operation, app_control_h request) override;
+
+	Ui::View *m_Agenda;
+};
+
+#endif /* OPERATION_DEFAULT_CONTROLLER_H */

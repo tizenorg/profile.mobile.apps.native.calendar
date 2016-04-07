@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,12 +15,22 @@
  *
  */
 
+#include "OperationEditController.h"
+
 #include "MainApp.h"
-#include "Utils/Logger.h"
 
-#include <tizen.h>
+#include "App/AppControlRequest.h"
+#include "Ui/Navigator.h"
+#include "Ui/Window.h"
 
-int main(int argc, char *argv[])
+#include <string>
+
+OperationEditController::OperationEditController()
+	: OperationController(OperationAdd | OperationEdit)
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
+}
+
+void OperationEditController::onRequest(Operation operation, app_control_h request)
+{
+	//TODO: Show or Create event
 }
