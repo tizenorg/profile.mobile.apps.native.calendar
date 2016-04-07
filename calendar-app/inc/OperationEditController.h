@@ -15,38 +15,18 @@
  *
  */
 
-#ifndef CALENDAR_APP_H
-#define CALENDAR_APP_H
+#ifndef OPERATION_EDIT_CONTROLLER_H
+#define OPERATION_EDIT_CONTROLLER_H
 
-#include "App/Application.h"
+#include "OperationController.h"
 
-namespace Ui
-{
-	class Window;
-	class Navigator;
-	class View;
-}
-
-/**
- * @brief Calendar application class
- */
-class EXPORT_API CalendarApp : public App::Application
+class OperationEditController : public OperationController
 {
 public:
-	CalendarApp();
+	OperationEditController();
 
 private:
-	virtual bool onCreate() override;
-	virtual void onAppControl(app_control_h request) override;
-	virtual void onPause() override;
-	virtual void onResume() override;
-	virtual void onTerminate() override;
-	static void onLanguageChanged(app_event_info_h event, void *data);
-
-	Ui::Window *m_Window;
-	Ui::Navigator *m_Navigator;
-	Ui::View *m_AgendaView;
+	virtual void onRequest(Operation operation, app_control_h request);
 };
 
-
-#endif /* CALENDAR_APP_H */
+#endif /* OPERATION_EDIT_CONTROLLER_H */

@@ -15,14 +15,18 @@
  *
  */
 
-#include "MainApp.h"
-#include "Utils/Logger.h"
+#ifndef OPERATION_PICK_CONTROLLER_H
+#define OPERATION_PICK_CONTROLLER_H
 
-SET_LOG_TAG("Calendar");
+#include "OperationController.h"
 
-#include <tizen.h>
-
-int main(int argc, char *argv[])
+class OperationPickController : public OperationController
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
-}
+public:
+	OperationPickController();
+
+private:
+	virtual void onRequest(Operation operation, app_control_h request) override;
+};
+
+#endif /* OPERATION_PICK_CONTROLLER_H */

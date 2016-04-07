@@ -15,14 +15,18 @@
  *
  */
 
-#include "MainApp.h"
-#include "Utils/Logger.h"
+#include "OperationEditController.h"
 
-SET_LOG_TAG("Calendar");
+#include "App/AppControlRequest.h"
+#include "Ui/Navigator.h"
+#include "Ui/Window.h"
 
-#include <tizen.h>
-
-int main(int argc, char *argv[])
+OperationEditController::OperationEditController()
+	: OperationController(OperationAdd | OperationEdit)
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
+}
+
+void OperationEditController::onRequest(Operation operation, app_control_h request)
+{
+	//TODO: Show or Create event
 }

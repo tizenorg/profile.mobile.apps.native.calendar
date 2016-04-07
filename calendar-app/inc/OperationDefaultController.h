@@ -15,14 +15,26 @@
  *
  */
 
-#include "MainApp.h"
-#include "Utils/Logger.h"
+#ifndef OPERATION_DEFAULT_CONTROLLER_H
+#define OPERATION_DEFAULT_CONTROLLER_H
 
-SET_LOG_TAG("Calendar");
+#include "OperationController.h"
 
-#include <tizen.h>
-
-int main(int argc, char *argv[])
+namespace Ui
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
+	class View;
 }
+
+class OperationDefaultController : public OperationController
+{
+public:
+	OperationDefaultController();
+
+private:
+	virtual void onCreate() override;
+	virtual void onRequest(Operation operation, app_control_h request) override;
+
+	Ui::View *m_Agenda;
+};
+
+#endif /* OPERATION_DEFAULT_CONTROLLER_H */

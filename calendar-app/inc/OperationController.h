@@ -1,0 +1,131 @@
+/*
+ * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+#ifndef OPERATION_CONTROLLER_H
+#define OPERATION_CONTROLLER_H
+
+#include <app_control.h>
+#include <Evas.h>
+
+namespace Ui
+{
+	class Navigator;
+	class Window;
+}
+
+enum Operation
+{
+	OperationDefault = 1 << 0,
+	OperationAdd     = 1 << 1,
+	OperationEdit    = 1 << 2,
+	OperationView    = 1 << 3,
+	OperationPick    = 1 << 4
+};
+
+/**
+ * @brief Handles operations requested through App Control
+ */
+class OperationController
+{
+public:
+	virtual ~OperationController();
+
+	/**
+	 * @brief Create operation controller
+	 * @param[in]   window      Main application Window
+	 * @param[in]   navigator   Main application Navigator
+	 */
+	void create(Ui::Window *window, Ui::Navigator *navigator);
+
+	/**
+	 * @brief Request the controller to handle the operation
+	 */
+	void request(Operation operation, app_control_h request);
+
+	/**
+	 * @brief Called when application receives pause event
+	 */
+	virtual void onPause() { }
+
+	/**
+	 * @brief Called when application receives resume event
+	 */
+	virtual void onResume() { }
+
+	/**
+	 * @brief Check if operation is supported by the controller
+	 */
+	bool isOperationSupported(Operation operation) const;
+
+	/**
+	 * @brief Get operation from string representation
+	 * @param[in]   operation   Operation string representation
+	 * @return Operation value
+	 */
+	static Operation getOperation(const char *operation);
+
+protected:
+	/**
+	 * @brief Create operation controller
+	 * @param[in]   supportedOperations     Supported operations mask
+	 * @param[in]   isMinimizable           Whether application can be minimized
+	 * @see Operation
+	 */
+	OperationController(int supportedOperations, bool isMinimizable = false);
+
+	/**
+	 * @return Main application Window
+	 */
+	Ui::Window *getWindow() const;
+
+	/**
+	 * @return Main application Navigator
+	 */
+	Ui::Navigator *getNavigator() const;
+
+	/**
+	 * @return Last received request
+	 */
+	app_control_h getRequest() const;
+
+	/**
+	 * @brief Send failure reply to the last request
+	 */
+	void replyFailure();
+
+	/**
+	 * @brief Called after create() is called
+	 */
+	virtual void onCreate() { }
+
+	/**
+	 * @brief Called when application receives App Control request
+	 */
+	virtual void onRequest(Operation operation, app_control_h request) = 0;
+
+private:
+	static void onWindowLowered(void *data, Evas_Object *obj, void *eventInfo);
+
+	int m_SupportedOperations;
+	app_control_h m_Request;
+	bool m_IsMinimizable;
+
+	Ui::Window *m_Window;
+	Ui::Navigator *m_Navigator;
+};
+
+#endif /* OPERATION_CONTROLLER_H */

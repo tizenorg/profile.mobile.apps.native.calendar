@@ -15,14 +15,28 @@
  *
  */
 
-#include "MainApp.h"
+#include "OperationDefaultController.h"
+
+#include "View/Agenda/AgendaView.h"
+
+#include "Ui/Navigator.h"
 #include "Utils/Logger.h"
 
-SET_LOG_TAG("Calendar");
-
-#include <tizen.h>
-
-int main(int argc, char *argv[])
+OperationDefaultController::OperationDefaultController()
+	: OperationController(OperationDefault),
+	  m_Agenda(nullptr)
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
 }
+
+void OperationDefaultController::onCreate()
+{
+	TRACE;
+	m_Agenda = new View::Agenda::AgendaView();
+	getNavigator()->navigateTo(m_Agenda);
+}
+
+void OperationDefaultController::onRequest(Operation operation, app_control_h request)
+{
+	//TODO: Do onRequest
+}
+

@@ -15,14 +15,18 @@
  *
  */
 
-#include "MainApp.h"
-#include "Utils/Logger.h"
+#include "OperationPickController.h"
 
-SET_LOG_TAG("Calendar");
+#include "App/AppControlRequest.h"
+#include "Ui/Navigator.h"
+#include "Ui/Window.h"
 
-#include <tizen.h>
-
-int main(int argc, char *argv[])
+OperationPickController::OperationPickController()
+	: OperationController(OperationPick)
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
+}
+
+void OperationPickController::onRequest(Operation operation, app_control_h request)
+{
+	//TODO: Show event list.
 }
