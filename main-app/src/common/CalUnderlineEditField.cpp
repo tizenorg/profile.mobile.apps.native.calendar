@@ -120,6 +120,11 @@ void CalUnderlineEditField::setFocusToEntry(bool showKeypadIntentionally)
 
 void CalUnderlineEditField::setEntryReturnKeyType(ReturnKeyType type)
 {
+	if (__multiLine)
+	{
+		return;
+	}
+
 	if (__entry)
 	{
 		if (type == DONE)
