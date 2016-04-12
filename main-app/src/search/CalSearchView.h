@@ -47,22 +47,6 @@ private:
 	virtual void onEvent(const CalEvent& event);
 
 	/**
-	 * Executes the create entry
-	 *
-	 * @param [in]	parent		If non-null, the parent.
-	 *
-	 * @return	A pointer to entry object
-	 */
-	Evas_Object* __createEntry(Evas_Object* parent);
-
-	/**
-	 * Creates no content.
-	 *
-	 * @return	null if it fails, else the new no content.
-	 */
-	Evas_Object* __createNoContent();
-
-	/**
 	 * Shows the content.
 	 */
 	void __showContent();
@@ -75,19 +59,6 @@ private:
 	 * @param [in]	eventInfo	If non-null, information describing the event.
 	 */
 	static void __transitionFinishedCb(void* data, Evas_Object* obj, void* eventInfo);
-
-	/**
-	 * Entry change cb.
-	 *
-	 * @param [in]	data		If non-null, the data.
-	 * @param [in]	obj			If non-null, the object.
-	 * @param [in]	event_info	If non-null, information describing the event.
-	 */
-	static void __entryChangeCb(void* data, Evas_Object* obj, void* event_info);
-	WDISABLE_COPY_AND_ASSIGN(CalSearchView);
-
-private:
-	CalDate __focusDate;
 };
 
 #endif /* _CAL_SEARCH_VIEW_H_ */

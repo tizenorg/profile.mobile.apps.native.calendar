@@ -255,6 +255,16 @@ void CalFilterView::updateList()
 	WLEAVE();
 }
 
+void CalFilterView::setFocusToSearchEntry()
+{
+	WENTER();
+	if(__searchBarEntry)
+	{
+		__searchBarEntry->setFocusToEntry();
+	}
+	WLEAVE();
+}
+
 void CalFilterView::__deleteListModels()
 {
 	if(__forwardModel)

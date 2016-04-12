@@ -68,6 +68,7 @@ void CalSearchView::__transitionFinishedCb(void* data, Evas_Object* obj, void* e
 	evas_object_smart_callback_del_full(self->getNaviframe()->getEvasObj(), "transition,finished",
 			CalSearchView::__transitionFinishedCb, self);
 
+	self->setFocusToSearchEntry();
 }
 
 /**

@@ -46,6 +46,7 @@ protected:
 	void showContent();
 	CalUnderlineEditField *createSearchBarEntry(Evas_Object *parent);
 	void updateList();
+	void setFocusToSearchEntry();
 
 	CalScheduleListControl* __list;
 
