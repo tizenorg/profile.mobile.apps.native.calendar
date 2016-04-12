@@ -28,10 +28,9 @@ collections {
 
 		parts {
 
-			PART(RECT, PART_MONTH_CONTROL,
+			PART(SWALLOW, PART_MONTH_CONTROL,
 				DSC_FROM_T("default" 0.0,
 					color: 255 192 192 192;
-					min: 0 MONTH_CONTROL_H;
 				)
 			)
 			PART(SWALLOW, PART_LIST_CONTROL,

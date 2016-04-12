@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,20 @@
  *
  */
 
-#define AGENDA_LAYOUT		"agenda_layout"
-#define AGENDA_LAYOUT_PATH	"agenda/edje/agenda-layout.edj"
+#include "View/EventList/EventListControl.h"
+#include "event-list-item/edje/inc/EventListItemLayout.h"
 
-#define PART_MONTH_CONTROL	"swallow.month"
-#define PART_LIST_CONTROL	"swallow.list"
+#include "App/Path.h"
+#include "Utils/Logger.h"
+#include "Ui/Genlist.h"
+
+using namespace View::EventList;
+
+EventListControl::EventListControl()
+{
+}
+
+void EventListControl::onCreated()
+{
+	elm_theme_extension_add(NULL, App::getResourcePath(EVENT_LIST_ITEM_LAYOUT_PATH).c_str());
+}

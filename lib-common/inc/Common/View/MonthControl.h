@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,27 +15,27 @@
  *
  */
 
-#ifndef VIEW_COMMON_EVENT_LIST_H
-#define VIEW_COMMON_EVENT_LIST_H
+#ifndef COMMON_VIEW_MONTH_CONTROL_H
+#define COMMON_VIEW_MONTH_CONTROL_H
 
-#include "Ui/Genlist.h"
+#include "Ui/Control.h"
 
-namespace View
+namespace Common
 {
-	namespace Common
+	namespace View
 	{
 		/**
-		 * @brief EventList
+		 * @brief Agenda view
 		 */
-		class EventList : public Ui::Genlist
+		class MonthControl : public Ui::Control
 		{
 		public:
-			EventList();
+			MonthControl();
 
-		protected:
-			virtual void onCreated() override;
+			virtual Evas_Object *onCreate(Evas_Object *parent) override;
 		};
 	}
 }
 
-#endif /* VIEW_COMMON_EVENT_LIST_H */
+
+#endif /* COMMON_VIEW_MONTH_CONTROL_H */
