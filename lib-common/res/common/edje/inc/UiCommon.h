@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,20 +15,9 @@
  *
  */
 
-#include "View/Common/EventList.h"
-#include "common/edje/inc/UiCommon.h"
+#ifndef COMMON_UI_COMMON_H
+#define COMMON_UI_COMMON_H
 
-#include "App/Path.h"
-#include "Utils/Logger.h"
-#include "Ui/Genlist.h"
+#define UI_BASE_SCALE 2.6
 
-using namespace View::Common;
-
-EventList::EventList()
-{
-}
-
-void EventList::onCreated()
-{
-	elm_theme_extension_add(NULL, App::getResourcePath("event_list_item/edje/" EVENT_LIST_ITEM_LAYOUT ".edj").c_str());
-}
+#endif /* COMMON_UI_COMMON_H */
