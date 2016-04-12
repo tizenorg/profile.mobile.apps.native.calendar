@@ -17,12 +17,7 @@
 
 #include "../../../../lib-common/res/common/edje/inc/edc_macro.h"
 #include "../../../../lib-common/res/common/edje/inc/UiCommon.h"
-
-
-#define COLOR_BAR "event_list_item/images/bg_colorbar.#.png"
-
-#define PART_PADDING_TEXT_LEFT "padding.text.left"
-
+#include "inc/EventListItemLayout.h"
 
 collections {
 
@@ -37,7 +32,7 @@ collections {
 		}
 
 	images {
-		image: COLOR_BAR COMP;
+		image: COLOR_BAR_PATH COMP;
 	}
 // --------------------------------------------------
 //   DAY   |             |             |  TITLE     |
@@ -88,7 +83,7 @@ collections {
 					min: 8 90;
 					max: 8 134;
 					color: ORANGE_BAR;
-					image.normal: COLOR_BAR;
+					image.normal: COLOR_BAR_PATH;
 				)
 			)
 			PART(SPACER, PART_PADDING_TEXT_LEFT,
