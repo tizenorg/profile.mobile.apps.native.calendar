@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-set(EDJDIR "${RES_DIR}/event_list_item/edje")
+set(EDJDIR "${RES_DIR}/event-list-item/edje")
 file(GLOB EDCFILES "${CMAKE_CURRENT_SOURCE_DIR}/edje/*.edc")
 
 foreach(EDCFILE ${EDCFILES})
@@ -16,5 +16,5 @@ foreach(EDCFILE ${EDCFILES})
 	install(FILES ${EDJFILE} DESTINATION ${EDJDIR})
 endforeach(${EDCFILE})
 
-install(DIRECTORY images/ DESTINATION "${RES_DIR}/event_list_item/images")
+install(DIRECTORY images/ DESTINATION "${RES_DIR}/event-list-item/images")
 

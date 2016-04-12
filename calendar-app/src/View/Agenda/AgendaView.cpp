@@ -18,18 +18,23 @@
 #include "App/Path.h"
 #include "Utils/Logger.h"
 
-#include "View/Common/EventList.h"
-#include "View/Common/EventListItem.h"
+#include "Common/View/MonthControl.h"
+
 #include "View/Agenda/AgendaView.h"
+#include "View/EventList/EventListControl.h"
+#include "View/EventList/EventListControlItem.h"
 
 #include "agenda/edje/inc/AgendaLayout.h"
 
+using namespace Common::View;
+
+using namespace View::EventList;
 using namespace View::Agenda;
-using namespace View::Common;
 
-AgendaView::AgendaView()
+AgendaView::AgendaView():
+	m_EventListControl(nullptr),
+	m_MonthControl(nullptr)
 {
-
 }
 
 Evas_Object *AgendaView::onCreate(Evas_Object *parent)
@@ -37,16 +42,20 @@ Evas_Object *AgendaView::onCreate(Evas_Object *parent)
 	TRACE;
 
 	Evas_Object *layout = elm_layout_add(parent);
-	elm_layout_file_set(layout, App::getResourcePath("agenda/edje/" AGENDA_LAYOUT ".edj").c_str(), AGENDA_LAYOUT);
+	elm_layout_file_set(layout, App::getResourcePath(AGENDA_LAYOUT_PATH).c_str(), AGENDA_LAYOUT);
 	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+
+	m_EventListControl = new EventListControl();
+	m_EventListControl->create(layout);
+	elm_genlist_homogeneous_set(m_EventListControl->getEvasObject(), EINA_FALSE);
+	elm_object_part_content_set(layout, PART_LIST_CONTROL, m_EventListControl->getEvasObject());
+
+	m_MonthControl = new MonthControl();
+	m_MonthControl->create(layout);
+	elm_genlist_homogeneous_set(m_MonthControl->getEvasObject(), EINA_FALSE);
+	elm_object_part_content_set(layout, PART_MONTH_CONTROL, m_MonthControl->getEvasObject());
+
 	evas_object_show(layout);
-
-	m_EventList = new EventList();
-	m_EventList->create(layout);
-	elm_genlist_homogeneous_set(m_EventList->getEvasObject(), EINA_FALSE);
-
-	elm_object_part_content_set(layout, PART_LIST_CONTROL, m_EventList->getEvasObject());
-
 	return layout;
 }
 
@@ -56,6 +65,6 @@ void AgendaView::onPageAttached(Ui::NavigatorPage *page)
 	page->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
 
 	for (int i = 0; i < 5; i++) {
-		m_EventList->insert(new EventListItem());
+		m_EventListControl->insert(new EventListControlItem());
 	}
 }

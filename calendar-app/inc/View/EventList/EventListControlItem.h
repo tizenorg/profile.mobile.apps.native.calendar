@@ -15,22 +15,22 @@
  *
  */
 
-#ifndef VIEW_COMMON_EVENT_LIST_ITEM_H
-#define VIEW_COMMON_EVENT_LIST_ITEM_H
+#ifndef VIEW_EVENT_LIST_EVENT_LIST_CONTROL_ITEM_H
+#define VIEW_EVENT_LIST_EVENT_LIST_CONTROL_ITEM_H
 
 #include "Ui/GenlistItem.h"
 
 namespace View
 {
-	namespace Common
+	namespace EventList
 	{
 		/**
 		 * @brief EventListItem
 		 */
-		class EventListItem : public Ui::GenlistItem
+		class EventListControlItem : public Ui::GenlistItem
 		{
 		public:
-			EventListItem();
+			EventListControlItem();
 
 		protected:
 			/**
@@ -46,4 +46,4 @@ namespace View
 	}
 }
 
-#endif /* VIEW_COMMON_EVENT_LIST_ITEM_H */
+#endif /* VIEW_EVENT_LIST_EVENT_LIST_CONTROL_ITEM_H */

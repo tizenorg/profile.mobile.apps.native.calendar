@@ -18,28 +18,28 @@
 #include "Utils/Logger.h"
 #include "App/Path.h"
 
-#include "View/Common/EventListItem.h"
-#include "common/edje/inc/UiCommon.h"
+#include "View/EventList/EventListControlItem.h"
+#include "event-list-item/edje/inc/EventListItemLayout.h"
 #include "Common.h"
 
 #include <string.h>
 #include <app_i18n.h>
 
-using namespace View::Common;
 using namespace Ui;
+using namespace View::EventList;
 
-EventListItem::EventListItem()
+EventListControlItem::EventListControlItem()
 {
 }
 
-Elm_Genlist_Item_Class *EventListItem::getItemClass() const
+Elm_Genlist_Item_Class *EventListControlItem::getItemClass() const
 {
 	TRACE;
 	static Elm_Genlist_Item_Class itc = createItemClass(EVENT_LIST_ITEM_LAYOUT);
 	return &itc;
 }
 
-char *EventListItem::getText(Evas_Object *parent, const char *part)
+char *EventListControlItem::getText(Evas_Object *parent, const char *part)
 {
 	TRACE;
 	DBG("Part: %s", part);
@@ -60,12 +60,12 @@ char *EventListItem::getText(Evas_Object *parent, const char *part)
 	}
 }
 
-void EventListItem::onRealized()
+void EventListControlItem::onRealized()
 {
 	//TODO: If event does not have location, emit signal to collapse location textblock
 }
 
-void EventListItem::onUnrealized()
+void EventListControlItem::onUnrealized()
 {
 	//TODO: Unsubscribe from event data provider update/remove callbacks
 }
