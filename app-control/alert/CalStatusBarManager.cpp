@@ -132,13 +132,13 @@ void CalStatusBarManager::update(std::shared_ptr<CalAlertData>& alertData)
 void CalStatusBarManager::init()
 {
 	WENTER();
-	__iconPath = app_get_resource_path();
+	__iconPath = app_get_shared_resource_path();
 	if(!__iconPath.size())
 	{
-		WERROR("Failed to get resource path.");
+		WERROR("Failed to get shared resource path.");
 	}
 
-	__iconPath += CAL_ACTIVENOTIFICATION_ICON_REL_PATH;
+	__iconPath += CAL_ACTIVENOTIFICATION_ICON;
 }
 
 void CalStatusBarManager::removeFromNotification(const int id)
