@@ -24,14 +24,14 @@
 styles {
     // Agenda main text
     style { name: "event_title";
-      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" valign=middle align=left color=#000000 ellipsis=-1.0";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_MAIN_SIZE" valign=middle align=left color=#000000 ellipsis=1";
       STYLE_TAGS
       STYLE_TAG_MATCH
     }
 
     // Agenda sub text
     style { name: "event_subtitle";
-      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" valign=middle align=left color=#555555 ellipsis=-1.0";
+      base: "font=Tizen:style=Regular font_size="LIST_TEXT_SUB_SIZE" valign=middle align=left color=#555555 ellipsis=1";
       STYLE_TAGS
       STYLE_TAG_MATCH
     }
@@ -92,7 +92,7 @@ group
       }
       PART(TEXTBLOCK, "elm.text.title",
          DSC_LRT("default" 0.0,
-         "elm.padding.colorbar.left", "elm.padding.right", "elm.padding.top",
+         "elm.padding.colorbar.left", "elm.swallow.checkbox", "elm.padding.top",
             min: 0 LIST_TEXT_MAIN_HEIGHT;
             text.style: "event_title";
             text.min: 0 1;
@@ -110,7 +110,7 @@ group
       )
       PART(TEXTBLOCK, "elm.text.location",
          DSC_LRTB("default" 0.0,
-         "elm.padding.colorbar.left", "elm.padding.right", "elm.text.time", "elm.padding.bottom",
+         "elm.padding.colorbar.left", "elm.swallow.checkbox", "elm.text.time", "elm.padding.bottom",
             min: 0 LIST_TEXT_SUB_HEIGHT;
             text.style: "event_subtitle";
             text.min: 0 1;
@@ -120,7 +120,7 @@ group
       PART(SWALLOW, "elm.swallow.checkbox",
          DSC_R("default" 0.0,
          "elm.padding.right",
-            min: CHECK_SIZE CHECK_SIZE;
+            min: 0 CHECK_SIZE;
             max: CHECK_SIZE CHECK_SIZE;
             visible: 1;
          )
@@ -150,7 +150,7 @@ group { name: "CalEventItem.NoLocation";
     parts {
       PART(TEXTBLOCK, "elm.text.location",
          DSC_LRTB("default" 0.0,
-         "elm.padding.colorbar.left", "elm.padding.right",
+         "elm.padding.colorbar.left", "elm.swallow.checkbox",
          "elm.text.time", "elm.padding.bottom",
             min: 0 0;
             max: 0 0;
