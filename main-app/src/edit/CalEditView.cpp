@@ -1676,7 +1676,7 @@ void CalEditView::__onSave()
 		elm_object_focus_set(__more->getButton(CalDialogEditMoreItem::MORE), true);/*to avoid keyboard is shown again*/
 	}
 
-	if (__isChanged || __mode == CREATE || __mode == COPY)
+	if (__isChanged || __isTitleChanged() || __mode == CREATE || __mode == COPY)
 	{
 		const char *summary = __workingCopy->getSummary();
 		if (!(summary && strlen(summary)))
