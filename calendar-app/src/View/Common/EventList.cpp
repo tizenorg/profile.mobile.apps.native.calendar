@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,35 +15,20 @@
  *
  */
 
-#ifndef VIEW_AGENDA_AGENDA_VIEW_H
-#define VIEW_AGENDA_AGENDA_VIEW_H
+#include "View/Common/EventList.h"
+#include "common/edje/inc/UiCommon.h"
 
-#include "Ui/View.h"
+#include "App/Path.h"
+#include "Utils/Logger.h"
+#include "Ui/Genlist.h"
 
-namespace View
+using namespace View::Common;
+
+EventList::EventList()
 {
-	namespace Common
-	{
-		class EventList;
-	}
-	namespace Agenda
-	{
-		/**
-		 * @brief Agenda view
-		 */
-		class AgendaView : public Ui::View
-		{
-		public:
-			AgendaView();
-
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
-
-		private:
-			Common::EventList *m_EventList;
-		};
-	}
 }
 
-
-#endif /* VIEW_AGENDA_AGENDA_VIEW_H */
+void EventList::onCreated()
+{
+	elm_theme_extension_add(NULL, App::getResourcePath("event_list_item/edje/" EVENT_LIST_ITEM_LAYOUT ".edj").c_str());
+}

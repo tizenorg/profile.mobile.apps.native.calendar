@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,35 +15,35 @@
  *
  */
 
-#ifndef VIEW_AGENDA_AGENDA_VIEW_H
-#define VIEW_AGENDA_AGENDA_VIEW_H
+#ifndef VIEW_COMMON_EVENT_LIST_ITEM_H
+#define VIEW_COMMON_EVENT_LIST_ITEM_H
 
-#include "Ui/View.h"
+#include "Ui/GenlistItem.h"
 
 namespace View
 {
 	namespace Common
 	{
-		class EventList;
-	}
-	namespace Agenda
-	{
 		/**
-		 * @brief Agenda view
+		 * @brief EventListItem
 		 */
-		class AgendaView : public Ui::View
+		class EventListItem : public Ui::GenlistItem
 		{
 		public:
-			AgendaView();
+			EventListItem();
 
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
+		protected:
+			/**
+			 * @see GenlistItem::getItemClass()
+			 */
+			virtual Elm_Genlist_Item_Class *getItemClass() const override;
 
-		private:
-			Common::EventList *m_EventList;
+			virtual char *getText(Evas_Object *parent, const char *part) override;
+			virtual void onRealized() override;
+			virtual void onUnrealized() override;
+
 		};
 	}
 }
 
-
-#endif /* VIEW_AGENDA_AGENDA_VIEW_H */
+#endif /* VIEW_COMMON_EVENT_LIST_ITEM_H */
