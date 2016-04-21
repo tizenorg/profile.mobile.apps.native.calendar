@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,30 +15,27 @@
  *
  */
 
-#include "../../../../lib-common/res/common/edje/inc/edc_macro.h"
-#include "../../../../lib-common/res/common/edje/inc/UiCommon.h"
-#include "inc/AgendaLayout.h"
+#ifndef VIEW_EVENT_LIST_EVENT_LIST_CONTROL_H
+#define VIEW_EVENT_LIST_EVENT_LIST_CONTROL_H
 
-collections {
+#include "Ui/Genlist.h"
 
-	base_scale: UI_BASE_SCALE;
+namespace View
+{
+	namespace EventList
+	{
+		/**
+		 * @brief EventList
+		 */
+		class EventListControl : public Ui::Genlist
+		{
+		public:
+			EventListControl();
 
-	group {
-		name: AGENDA_LAYOUT;
-
-		parts {
-
-			PART(SWALLOW, PART_MONTH_CONTROL,
-				DSC_FROM_T("default" 0.0,
-					min: 0 MONTH_CONTROL_H;
-					max: -1 MONTH_CONTROL_H;
-				)
-			)
-			PART(SWALLOW, PART_LIST_CONTROL,
-				DSC_TB("default" 0.0,
-					PART_MONTH_CONTROL,
-				)
-			)
-		}
+		protected:
+			virtual void onCreated() override;
+		};
 	}
 }
+
+#endif /* VIEW_EVENT_LIST_EVENT_LIST_CONTROL_H */

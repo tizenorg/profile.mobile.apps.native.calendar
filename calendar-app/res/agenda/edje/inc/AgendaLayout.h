@@ -15,7 +15,7 @@
  *
  */
 
-#define AGENDA_LAYOUT		"agenda_layout"
+#define AGENDA_LAYOUT		"agenda-layout"
 #define AGENDA_LAYOUT_PATH	"agenda/edje/" AGENDA_LAYOUT ".edj"
 
 #define MONTH_CONTROL_H 694

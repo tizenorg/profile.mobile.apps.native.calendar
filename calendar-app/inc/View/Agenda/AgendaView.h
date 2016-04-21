@@ -22,6 +22,11 @@
 
 namespace View
 {
+	namespace EventList
+	{
+		class EventListControl;
+	}
+
 	namespace Agenda
 	{
 		/**
@@ -35,6 +40,8 @@ namespace View
 			virtual Evas_Object *onCreate(Evas_Object *parent) override;
 			virtual void onPageAttached(Ui::NavigatorPage *page) override;
 
+		private:
+			EventList::EventListControl *m_EventListControl;
 		};
 	}
 }
