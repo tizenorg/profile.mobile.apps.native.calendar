@@ -15,45 +15,20 @@
  *
  */
 
-#ifndef VIEW_AGENDA_AGENDA_VIEW_H
-#define VIEW_AGENDA_AGENDA_VIEW_H
+#include "Utils/Logger.h"
 
-#include "Ui/View.h"
+#include "Common/View/MonthControl.h"
 
-namespace Common
+using namespace Common::View;
+
+MonthControl::MonthControl()
 {
-	namespace View
-	{
-		class MonthControl;
-	}
+
 }
 
-namespace View
+Evas_Object *MonthControl::onCreate(Evas_Object *parent)
 {
-	namespace EventList
-	{
-		class EventListControl;
-	}
-
-	namespace Agenda
-	{
-		/**
-		 * @brief Agenda view
-		 */
-		class AgendaView : public Ui::View
-		{
-		public:
-			AgendaView();
-
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
-
-		private:
-			EventList::EventListControl *m_EventListControl;
-			Common::View::MonthControl *m_MonthControl;
-		};
-	}
+	TRACE;
+	Evas_Object *layout = elm_calendar_add(parent);
+	return layout;
 }
-
-
-#endif /* VIEW_AGENDA_AGENDA_VIEW_H */
