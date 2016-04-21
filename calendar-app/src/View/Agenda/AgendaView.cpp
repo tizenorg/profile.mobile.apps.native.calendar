@@ -17,26 +17,30 @@
 
 #include "App/Path.h"
 #include "Utils/Logger.h"
+
 #include "View/Agenda/AgendaView.h"
+#include "agenda/edje/inc/AgendaLayout.h"
 
 using namespace View::Agenda;
 
 AgendaView::AgendaView()
 {
-
 }
-
 
 Evas_Object *AgendaView::onCreate(Evas_Object *parent)
 {
 	TRACE;
 	Evas_Object *layout = elm_layout_add(parent);
-	elm_layout_theme_set(layout, "layout", "application", "default");
+	elm_layout_file_set(layout, App::getResourcePath(AGENDA_LAYOUT_PATH).c_str(), AGENDA_LAYOUT);
+	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+
 	evas_object_show(layout);
 	return layout;
 }
 
 void AgendaView::onPageAttached(Ui::NavigatorPage *page)
 {
-	getPage()->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
+	TRACE;
+	page->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
+
 }
