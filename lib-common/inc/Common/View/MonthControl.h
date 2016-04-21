@@ -15,45 +15,27 @@
  *
  */
 
-#ifndef VIEW_AGENDA_AGENDA_VIEW_H
-#define VIEW_AGENDA_AGENDA_VIEW_H
+#ifndef COMMON_VIEW_MONTH_CONTROL_H
+#define COMMON_VIEW_MONTH_CONTROL_H
 
-#include "Ui/View.h"
+#include "Ui/Control.h"
 
 namespace Common
 {
 	namespace View
 	{
-		class MonthControl;
-	}
-}
-
-namespace View
-{
-	namespace EventList
-	{
-		class EventListControl;
-	}
-
-	namespace Agenda
-	{
 		/**
-		 * @brief Agenda view
+		 * @brief Month control
 		 */
-		class AgendaView : public Ui::View
+		class MonthControl : public Ui::Control
 		{
 		public:
-			AgendaView();
+			MonthControl();
 
 			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
-
-		private:
-			EventList::EventListControl *m_EventListControl;
-			Common::View::MonthControl *m_MonthControl;
 		};
 	}
 }
 
 
-#endif /* VIEW_AGENDA_AGENDA_VIEW_H */
+#endif /* COMMON_VIEW_MONTH_CONTROL_H */

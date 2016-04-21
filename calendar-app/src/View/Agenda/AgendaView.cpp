@@ -23,11 +23,15 @@
 
 #include "View/EventList/EventListControl.h"
 
+#include "Common/View/MonthControl.h"
+
 using namespace View::Agenda;
 using namespace View::EventList;
+using namespace Common::View;
 
 AgendaView::AgendaView()
-	:m_EventListControl(nullptr)
+	:m_EventListControl(nullptr),
+	 m_MonthControl(nullptr)
 {
 }
 
@@ -40,6 +44,10 @@ Evas_Object *AgendaView::onCreate(Evas_Object *parent)
 	m_EventListControl->create(layout);
 	elm_genlist_homogeneous_set(m_EventListControl->getEvasObject(), EINA_FALSE);
 	elm_object_part_content_set(layout, PART_LIST_CONTROL, m_EventListControl->getEvasObject());
+
+	m_MonthControl = new MonthControl();
+	m_MonthControl->create(layout);
+	elm_object_part_content_set(layout, PART_MONTH_CONTROL, m_MonthControl->getEvasObject());
 
 	return layout;
 }
