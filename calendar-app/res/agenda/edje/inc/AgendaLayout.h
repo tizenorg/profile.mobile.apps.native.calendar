@@ -15,31 +15,10 @@
  *
  */
 
-#include "App/Path.h"
-#include "Utils/Logger.h"
+#define AGENDA_LAYOUT		"agenda-layout"
+#define AGENDA_LAYOUT_PATH	"agenda/edje/" AGENDA_LAYOUT ".edj"
 
-#include "View/Agenda/AgendaView.h"
-#include "AgendaLayout.h"
+#define MONTH_CONTROL_H 694
 
-using namespace View::Agenda;
-
-AgendaView::AgendaView()
-{
-}
-
-Evas_Object *AgendaView::onCreate(Evas_Object *parent)
-{
-	TRACE;
-	Evas_Object *layout = elm_layout_add(parent);
-	elm_layout_file_set(layout, App::getResourcePath(AGENDA_LAYOUT_PATH).c_str(), AGENDA_LAYOUT);
-	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-
-	return layout;
-}
-
-void AgendaView::onPageAttached(Ui::NavigatorPage *page)
-{
-	TRACE;
-	page->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
-
-}
+#define PART_MONTH_CONTROL	"swallow.month"
+#define PART_LIST_CONTROL	"swallow.list"
