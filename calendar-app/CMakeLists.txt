@@ -10,6 +10,7 @@ include_directories(
 	${CMAKE_SOURCE_DIR}/lib-common/res
 	${CMAKE_CURRENT_SOURCE_DIR}/inc
 	${CMAKE_CURRENT_SOURCE_DIR}/res
+	${CMAKE_CURRENT_SOURCE_DIR}/res/agenda/edje/inc
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})

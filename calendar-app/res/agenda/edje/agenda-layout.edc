@@ -15,30 +15,30 @@
  *
  */
 
-#include "App/Path.h"
-#include "Utils/Logger.h"
+#include "../../../../lib-common/res/common/edje/inc/edc_macro.h"
+#include "../../../../lib-common/res/common/edje/inc/UiCommon.h"
+#include "inc/AgendaLayout.h"
 
-#include "View/Agenda/AgendaView.h"
-#include "AgendaLayout.h"
+collections {
 
-using namespace View::Agenda;
+	base_scale: UI_BASE_SCALE;
 
-AgendaView::AgendaView()
-{
-}
+	group {
+		name: AGENDA_LAYOUT;
 
-Evas_Object *AgendaView::onCreate(Evas_Object *parent)
-{
-	TRACE;
-	Evas_Object *layout = elm_layout_add(parent);
-	elm_layout_file_set(layout, App::getResourcePath(AGENDA_LAYOUT_PATH).c_str(), AGENDA_LAYOUT);
+		parts {
 
-	return layout;
-}
-
-void AgendaView::onPageAttached(Ui::NavigatorPage *page)
-{
-	TRACE;
-	page->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
-
+			PART(SWALLOW, PART_MONTH_CONTROL,
+				DSC_FROM_T("default" 0.0,
+				min: 0 MONTH_CONTROL_H;
+				max: -1 MONTH_CONTROL_H;
+				)
+			)
+			PART(SWALLOW, PART_LIST_CONTROL,
+				DSC_FROM_B_TO_T("default" 0.0,
+					PART_MONTH_CONTROL,
+				)
+			)
+		}
+	}
 }

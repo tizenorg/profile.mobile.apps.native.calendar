@@ -15,30 +15,9 @@
  *
  */
 
-#include "App/Path.h"
-#include "Utils/Logger.h"
+#ifndef COMMON_UI_COMMON_H
+#define COMMON_UI_COMMON_H
 
-#include "View/Agenda/AgendaView.h"
-#include "AgendaLayout.h"
+#define UI_BASE_SCALE 2.6
 
-using namespace View::Agenda;
-
-AgendaView::AgendaView()
-{
-}
-
-Evas_Object *AgendaView::onCreate(Evas_Object *parent)
-{
-	TRACE;
-	Evas_Object *layout = elm_layout_add(parent);
-	elm_layout_file_set(layout, App::getResourcePath(AGENDA_LAYOUT_PATH).c_str(), AGENDA_LAYOUT);
-
-	return layout;
-}
-
-void AgendaView::onPageAttached(Ui::NavigatorPage *page)
-{
-	TRACE;
-	page->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
-
-}
+#endif /* COMMON_UI_COMMON_H */
