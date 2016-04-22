@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,27 +15,17 @@
  *
  */
 
-#ifndef COMMON_VIEW_MONTH_CONTROL_H
-#define COMMON_VIEW_MONTH_CONTROL_H
+#include "Utils/Logger.h"
+#include <stdio.h>
 
-#include "Ui/Control.h"
+static char appsCommonLogTag[64] = "DefaultLogTag";
 
-namespace Common
+void Utils::setLogTag(const char *logTag)
 {
-	namespace View
-	{
-		/**
-		 * @brief Month control
-		 */
-		class EXPORT_API MonthControl : public Ui::Control
-		{
-		public:
-			MonthControl();
-
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-		};
-	}
+	snprintf(appsCommonLogTag, sizeof(appsCommonLogTag), "%s", logTag);
 }
 
-
-#endif /* COMMON_VIEW_MONTH_CONTROL_H */
+const char *Utils::getLogTag()
+{
+	return appsCommonLogTag;
+}

@@ -7,8 +7,8 @@
     </platforms>
     <package>
         <blacklist/>
-        <referencedProject project="common" path="lib"/>
         <referencedProject project="lib-apps-common" path="lib"/>
+        <referencedProject project="lib-common" path="lib"/>
         <resFallback autoGen="true"/>
     </package>
 </tproject>

@@ -15,14 +15,32 @@
  *
  */
 
-#ifndef APPS_COMMON_PROGRESSBAR_LAYOUT_H
-#define APPS_COMMON_PROGRESSBAR_LAYOUT_H
+#include "Ux/SelectAllItem.h"
+#include <app_i18n.h>
 
-#include "AppsCommonPath.h"
+using namespace Ux;
 
-#define APPS_COMMON_PROGRESSBAR_LAYOUT_EDJ APPS_COMMON_EDJ_DIR"apps-common-progressbar-layout.edj"
+SelectAllItem::SelectAllItem(const char *text)
+{
+	if (text) {
+		m_Text = text;
+	}
+}
 
-#define GROUP_PROGRESSBAR_LAYOUT "progressbar_layout"
-#define PART_PROGRESSBAR         "swallow.progressbar"
+char *SelectAllItem::getText(Evas_Object *parent, const char *part)
+{
+	if (strcmp(part, "elm.text") == 0) {
+		return strdup(_(m_Text.c_str()));
+	}
 
-#endif /* APPS_COMMON_PROGRESSBAR_LAYOUT_H */
+	return nullptr;
+}
+
+Evas_Object *SelectAllItem::getContent(Evas_Object *parent, const char *part)
+{
+	if (strcmp(part, "elm.swallow.end") == 0) {
+		return GenlistCheckItem::getContent(parent, part);
+	}
+
+	return nullptr;
+}
