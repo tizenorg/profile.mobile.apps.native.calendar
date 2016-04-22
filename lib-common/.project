@@ -3,7 +3,7 @@
 	<name>lib-common</name>
 	<comment></comment>
 	<projects>
-		<project>apps-common</project>
+		<project>lib-apps-common</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
