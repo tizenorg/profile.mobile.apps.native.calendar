@@ -18,11 +18,12 @@
 #include "MainApp.h"
 #include "Utils/Logger.h"
 
-SET_LOG_TAG("Calendar");
-
 #include <tizen.h>
 
 int main(int argc, char *argv[])
 {
-	DBG("Exit %d", MainApp().run(argc, argv));
+	Utils::setLogTag("calendar");
+	int ret = MainApp().run(argc, argv);
+	DBG("Exit %d", ret);
+	return ret;
 }
