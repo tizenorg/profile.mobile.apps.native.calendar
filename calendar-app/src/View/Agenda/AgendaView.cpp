@@ -21,24 +21,30 @@
 #include "View/Agenda/AgendaView.h"
 #include "AgendaLayout.h"
 
+#include "View/EventList/EventListControl.h"
+
 using namespace View::Agenda;
+using namespace View::EventList;
 
 AgendaView::AgendaView()
+	:m_EventListControl(nullptr)
 {
 }
 
 Evas_Object *AgendaView::onCreate(Evas_Object *parent)
 {
-	TRACE;
 	Evas_Object *layout = elm_layout_add(parent);
 	elm_layout_file_set(layout, App::getResourcePath(AGENDA_LAYOUT_PATH).c_str(), AGENDA_LAYOUT);
+
+	m_EventListControl = new EventListControl();
+	m_EventListControl->create(layout);
+	elm_genlist_homogeneous_set(m_EventListControl->getEvasObject(), EINA_FALSE);
+	elm_object_part_content_set(layout, PART_LIST_CONTROL, m_EventListControl->getEvasObject());
 
 	return layout;
 }
 
 void AgendaView::onPageAttached(Ui::NavigatorPage *page)
 {
-	TRACE;
 	page->setTitle("IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB");
-
 }

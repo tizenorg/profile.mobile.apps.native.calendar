@@ -15,36 +15,23 @@
  *
  */
 
-#ifndef VIEW_AGENDA_AGENDA_VIEW_H
-#define VIEW_AGENDA_AGENDA_VIEW_H
+#include "View/EventList/EventListControl.h"
+#include "View/EventList/EventListControlItem.h"
+#include "event-list-item/edje/inc/EventListItemLayout.h"
 
-#include "Ui/View.h"
+#include "App/Path.h"
+#include "Utils/Logger.h"
 
-namespace View
+using namespace View::EventList;
+
+EventListControl::EventListControl()
 {
-	namespace EventList
-	{
-		class EventListControl;
-	}
-
-	namespace Agenda
-	{
-		/**
-		 * @brief Agenda view
-		 */
-		class AgendaView : public Ui::View
-		{
-		public:
-			AgendaView();
-
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
-
-		private:
-			EventList::EventListControl *m_EventListControl;
-		};
-	}
+	elm_theme_extension_add(NULL, App::getResourcePath(EVENT_LIST_ITEM_LAYOUT_PATH).c_str());
 }
 
-
-#endif /* VIEW_AGENDA_AGENDA_VIEW_H */
+void EventListControl::onCreated()
+{
+	for (int i = 0; i < 5; i++) {
+		insert(new EventListControlItem());
+	}
+}
