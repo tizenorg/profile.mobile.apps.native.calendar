@@ -15,36 +15,31 @@
  *
  */
 
-#ifndef VIEW_AGENDA_AGENDA_VIEW_H
-#define VIEW_AGENDA_AGENDA_VIEW_H
+#ifndef VIEW_EVENT_LIST_EVENT_LIST_CONTROL_ITEM_H
+#define VIEW_EVENT_LIST_EVENT_LIST_CONTROL_ITEM_H
 
-#include "Ui/View.h"
+#include "Ui/GenlistItem.h"
 
 namespace View
 {
 	namespace EventList
 	{
-		class EventListControl;
-	}
-
-	namespace Agenda
-	{
 		/**
-		 * @brief Agenda view
+		 * @brief EventListItem
 		 */
-		class AgendaView : public Ui::View
+		class EventListControlItem : public Ui::GenlistItem
 		{
 		public:
-			AgendaView();
+			EventListControlItem();
 
-			virtual Evas_Object *onCreate(Evas_Object *parent) override;
-			virtual void onPageAttached(Ui::NavigatorPage *page) override;
+		protected:
+			virtual Elm_Genlist_Item_Class *getItemClass() const override;
+			virtual char *getText(Evas_Object *parent, const char *part) override;
+			virtual void onRealized() override;
+			virtual void onUnrealized() override;
 
-		private:
-			EventList::EventListControl *m_EventListControl;
 		};
 	}
 }
 
-
-#endif /* VIEW_AGENDA_AGENDA_VIEW_H */
+#endif /* VIEW_EVENT_LIST_EVENT_LIST_CONTROL_ITEM_H */
