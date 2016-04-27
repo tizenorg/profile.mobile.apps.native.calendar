@@ -271,7 +271,7 @@ void CalLocaleManager::getDateTimeText(const char* timezone, const DateFormat df
 
 	if (timezone == NULL || (timezone != NULL && __tzid.compare(timezone) == 0) )
 	{
-		return getDateTimeText(df, tf, dt, text);
+		getDateTimeText(df, tf, dt, text);
 	}
 
 	i18n_udate_format_h formatter = __getUDateFormat(timezone, df, tf);
@@ -772,12 +772,6 @@ char* CalLocaleManager::__getTzName(i18n_ucalendar_h cal, const char *language, 
 	i18n_error_code_e error = I18N_ERROR_NONE;
 	i18n_ustring_to_UTF8(tz_standard_name_str, len_str, &len_utf8, tz_standard_name, i18n_ustring_get_length(tz_standard_name), &error);
 
-	// if ICU cannot make name for some language, city name will be shown.
-	if (strstr(tz_standard_name_str, "GMT")) {
-		free(tz_standard_name_str);
-		tz_standard_name_str = __getTzNameFromWorldclockDb(timeZone);
-	}
-
 	return tz_standard_name_str;
 }
 
@@ -799,33 +793,11 @@ void CalLocaleManager::getDisplayTextTimeZone(const std::string& timeZone, std::
 {
 	WENTER();
 	char *language = NULL;
-	int result = system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE, &language);
-	if (SYSTEM_SETTINGS_ERROR_PERMISSION_DENIED == result)
-	{
-		WDEBUG("SYSTEM_SETTINGS_ERROR_PERMISSION_DENIED");
-	}
-	if (SYSTEM_SETTINGS_ERROR_INVALID_PARAMETER == result)
-	{
-		WDEBUG("SYSTEM_SETTINGS_ERROR_INVALID_PARAMETER");
-	}
-	if (SYSTEM_SETTINGS_ERROR_NONE == result)
-	{
-		WDEBUG("Success, language is %s.", language);
-
-	}
-	CAL_ASSERT(language);
+	system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_LANGUAGE, &language);
 
 	int status = I18N_ERROR_NONE;
 	i18n_uchar utf16_timezone[DATETIME_BUFFER] = {0};
-
-	// for EAS
-	std::string tmpTZ = timeZone;
-	getEasTimeZone(timeZone, tmpTZ);
-
-	if (!tmpTZ.empty())
-		i18n_ustring_copy_ua_n(utf16_timezone,  tmpTZ.c_str(), DATETIME_BUFFER);
-	else
-		i18n_ustring_copy_ua_n(utf16_timezone, TIMEZONE_ETC_GMT, DATETIME_BUFFER);
+	i18n_ustring_copy_ua_n(utf16_timezone,  timeZone.c_str(), DATETIME_BUFFER);
 
 	i18n_ucalendar_h cal;
 	status = i18n_ucalendar_create(utf16_timezone, -1, language, I18N_UCALENDAR_GREGORIAN , &cal);
@@ -837,27 +809,16 @@ void CalLocaleManager::getDisplayTextTimeZone(const std::string& timeZone, std::
 	char *tz_name = NULL;
 	char *tz_offset = NULL;
 
-	tz_name = __getTzName(cal, language, tmpTZ);
+	tz_name = __getTzName(cal, language, displayText);
 	tz_offset = __getTzOffset(cal);
 
 	g_free(language);
 
 	i18n_ucalendar_destroy(cal);
 
-	if (!CAL_STRLEN(tz_name) || !CAL_STRLEN(tz_offset)) {
-		WERROR("tz_name : %s", tz_name);
-		WERROR("tz_offset : %s", tz_offset);
-		g_free(tz_name);
-		g_free(tz_offset);
-		return ;
-	}
-
 	char *tz_text = NULL;
 
-	if (timeZone.find(TIMEZONE_ETC_GMT) == std::string::npos)
-		tz_text = g_strdup_printf("(%s) %s", tz_offset, tz_name);
-	else
-		tz_text = g_strdup_printf("(%s)", tz_offset);
+	tz_text = g_strdup_printf("(%s) %s", tz_offset, tz_name);
 
 	g_free(tz_name);
 	g_free(tz_offset);
@@ -906,186 +867,4 @@ int CalLocaleManager::getLocaleFirstDayOfWeek()
 */
 	WLEAVE();
 	return first_day_of_week -1;
-}
-
-char* CalLocaleManager::__getTzNameFromWorldclockDb(const std::string& timeZone)
-{
-	WENTER();
-	char* cityName = NULL;
-	sqlite3* db = NULL;
-	sqlite3_stmt *stmt = NULL;
-	int ret = SQLITE_OK;
-
-	do {
-		ret = sqlite3_open(CAL_LOCALE_MANAGER_WORLDCLOCK_DB, &db);
-		if (ret != SQLITE_OK) {
-			WERROR("sqlite3_open(%s) is failed(%d)", CAL_LOCALE_MANAGER_WORLDCLOCK_DB, ret);
-			break;
-		}
-
-		std::string query;
-		query.append("select city from city_table where tz_path = '");
-		query.append(timeZone);
-		query.append("'  limit 1");
-		ret = sqlite3_prepare_v2(db, query.c_str(), query.length(), &stmt, NULL);
-		if (ret != SQLITE_OK) {
-			WERROR("sqlite3_prepare_v2(%s) is failed(%d)", query.c_str(), ret);
-			break;
-		}
-
-		ret = sqlite3_step(stmt);
-
-		const char* cityNameStringId = (const char*)sqlite3_column_text(stmt, 0);
-		if (!cityNameStringId) {
-			WERROR("sqlite3_column_text(stmt, 0) is failed");
-			break;
-		}
-
-		cityName = g_strdup(dgettext("clock-lite", cityNameStringId));
-	} while (0);
-
-	if (stmt)
-		sqlite3_finalize(stmt);
-	if (db)
-		sqlite3_close(db);
-
-	WLEAVE();
-	return cityName;
-}
-
-bool CalLocaleManager::isEasTimeZone(const std::string& timeZone)
-{
-	WENTER();
-	if (timeZone.find("/") != std::string::npos)
-		return false;
-	else
-		return true;
-}
-
-void CalLocaleManager::getEasTimeZone(const std::string& timeZone, std::string& newTimeZone)
-{
-	WENTER();
-	if (isEasTimeZone(timeZone) == true) {
-		WDEBUG("before[%s]",timeZone.c_str());
-		int offset = __getTimezoneOffsetFormCalDb(timeZone);
-		WDEBUG("offset[%d]",offset);
-		__getTzFromFromWorldclockDb(offset, newTimeZone);
-		WDEBUG("after[%s]",newTimeZone.c_str());
-	} else {
-		newTimeZone = timeZone;
-	}
-	WLEAVE();
-}
-
-void CalLocaleManager::__getTzFromFromWorldclockDb(int timezone_offset, std::string& timeZone)
-{
-	WENTER();
-
-	const int index_buffer = 8;
-	const int offset_buffer = 16;
-
-	sqlite3 *db = NULL;
-	sqlite3_stmt *stmt = NULL;
-	int ret = 0;
-
-	do {
-		ret = sqlite3_open( CAL_LOCALE_MANAGER_WORLDCLOCK_DB, &db);
-		if (ret != SQLITE_OK) {
-			WERROR("sqlite3_open(%s) is failed(%d)", CAL_LOCALE_MANAGER_WORLDCLOCK_DB, ret);
-			break;
-		}
-
-		char offset_hour[index_buffer];
-		int minutes_for_1_hour = 60;
-		int timezone_offset_hour = timezone_offset/minutes_for_1_hour;
-		int timezone_offset_minute = timezone_offset%minutes_for_1_hour;
-
-		if (0 <= timezone_offset_hour)
-			snprintf(offset_hour, sizeof(offset_hour), "+%d", timezone_offset_hour);
-		else
-			snprintf(offset_hour, sizeof(offset_hour), "%d", timezone_offset_hour);
-
-		char offset[offset_buffer];
-		if (timezone_offset_minute)
-			snprintf(offset, sizeof(offset), "GMT%s:%d", offset_hour, timezone_offset_minute);
-		else
-			snprintf(offset, sizeof(offset), "GMT%s", offset_hour);
-
-		char query[DATETIME_BUFFER * 4];
-		snprintf(query, DATETIME_BUFFER * 4, "SELECT tz_path FROM city_table where timezone=\"%s\" limit 1", offset);
-
-		ret = sqlite3_prepare_v2(db, query, strlen(query), &stmt, NULL);
-		if (ret != SQLITE_OK) {
-			WERROR("sqlite3_prepare_v2(%s) is failed(%d)", query, ret);
-			break;
-		}
-
-		ret = sqlite3_step(stmt);
-		if (ret != SQLITE_ROW
-			&& ret != SQLITE_OK
-			&& ret != SQLITE_DONE) {
-			WERROR("sqlite3_step is failed(%d) : %s", ret, sqlite3_errmsg(db));
-			break;
-		}
-
-		timeZone = (char *)sqlite3_column_text(stmt, 0);
-	} while (0);
-
-	if (stmt)
-		sqlite3_finalize(stmt);
-	if (db)
-		sqlite3_close(db);
-	WLEAVE();
-}
-
-int CalLocaleManager::__getTimezoneOffsetFormCalDb(const std::string& standardName)
-{
-	WENTER();
-	int timezone_offset = 0;
-	int error = CALENDAR_ERROR_NONE;
-	calendar_query_h query = NULL;
-	calendar_filter_h filter = NULL;
-	calendar_list_h list = NULL;
-	calendar_record_h timezone = NULL;
-
-	do
-	{
-		error = calendar_query_create(_calendar_timezone._uri, &query);
-		if (error != CALENDAR_ERROR_NONE) break;
-
-		error = calendar_filter_create(_calendar_timezone._uri, &filter);
-		if (error != CALENDAR_ERROR_NONE) break;
-
-		error = calendar_filter_add_str(filter, _calendar_timezone.standard_name, CALENDAR_MATCH_EXACTLY, standardName.c_str());
-		if (error != CALENDAR_ERROR_NONE) break;
-
-		error = calendar_query_set_filter(query, filter);
-		if (error != CALENDAR_ERROR_NONE) break;
-
-		error = calendar_db_get_records_with_query(query, 0, 1, &list);
-		if (error != CALENDAR_ERROR_NONE) break;
-
-		error = calendar_list_first(list);
-		if (error != CALENDAR_ERROR_NONE) break;
-
-		error = calendar_list_get_current_record_p(list, &timezone);
-		if (error != CALENDAR_ERROR_NONE) break;
-		if (timezone) {
-			error = calendar_record_get_int(timezone, _calendar_timezone.tz_offset_from_gmt, &timezone_offset);
-			if (error != CALENDAR_ERROR_NONE) break;
-		}
-	} while(0);
-
-	if (error != CALENDAR_ERROR_NONE) {
-		WERROR("fail");
-	}
-	if (query)
-		calendar_query_destroy(query);
-	if (filter)
-		calendar_filter_destroy(filter);
-	if (list)
-		calendar_list_destroy(list, true);
-
-	WLEAVE();
-	return (-1)*timezone_offset;
 }

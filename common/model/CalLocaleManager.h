@@ -118,10 +118,6 @@ public:
 
 	int getLocaleFirstDayOfWeek(); // 0 : sun ~ 6 : sat
 
-	// for  EAS
-	bool isEasTimeZone(const std::string& timeZone);
-	void getEasTimeZone(const std::string& timeZone, std::string& newTimeZone);
-
 private:
 	i18n_ucalendar_h __getUcal(const std::string &tzid); // __cal_locale_manager_get_ucal
 	void __getLocale(std::string &localeStr);
@@ -135,13 +131,10 @@ private:
 	void __getUCalendar(i18n_ucalendar_h calendar, struct tm *tm);
 	char* __getTzOffset(i18n_ucalendar_h cal);
 	char* __getTzName(i18n_ucalendar_h cal, const char *language, const std::string& timeZone);
-	char* __getTzNameFromWorldclockDb(const std::string& timeZone);
 
 	// for weekday
 	void __initWeekday();
 
-	// for EAS
-	void __getTzFromFromWorldclockDb(int timezone_offset, std::string& timeZone);
 	int __getTimezoneOffsetFormCalDb(const std::string& standardName);
 
 public:

@@ -519,18 +519,11 @@ const char* CalSchedule::getTimeZone() const
 	const unsigned int propertyId = getStartTimezoneProperty();
 	if (propertyId == 0)
 		return NULL;
-	char *tmp = NULL;
-	int error = calendar_record_get_str_p(__record, propertyId, &tmp);
+	char *timeZone = NULL;
+	int error = calendar_record_get_str_p(__record, propertyId, &timeZone);
 	WPRET_VM((error != CALENDAR_ERROR_NONE),NULL,"get_str fail");
 
-	// for EAS !
-	static std::string __timeZone;
-	std::string buf;
-	if(tmp)
-		buf = tmp;
-
-	CalLocaleManager::getInstance().getEasTimeZone(buf,__timeZone);
-	return __timeZone.c_str();
+	return timeZone;
 }
 
 const char* CalSchedule::getUid() const
