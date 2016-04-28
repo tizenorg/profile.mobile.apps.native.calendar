@@ -216,19 +216,12 @@ void CalPickApp::__processResult(const std::list<std::shared_ptr<CalSchedule>>& 
 
 	if (__resultType == CalPickView::RESULT_TYPE_VCS)
 	{
-		const char *pathFormat = NULL;
-		if(__mimeType == CalPickApp::MIME_ICS)
-		{
-			pathFormat = CalPath::getPath(CAL_ICS_FILE_TEMPLATE, CalPath::DATA).c_str();
-		}
-		else
-		{
-			pathFormat = CalPath::getPath(CAL_VCS_FILE_TEMPLATE, CalPath::DATA).c_str();
-		}
+		std::string fileTemplate = __mimeType == CalPickApp::MIME_ICS ? CAL_ICS_FILE_TEMPLATE : CAL_VCS_FILE_TEMPLATE;
+		std::string pathFormat = CalPath::getPath(fileTemplate, CalPath::DATA);
 
 		for (auto it : schedules)
 		{
-			filePath = g_strdup_printf(pathFormat, it->getIndex());
+			filePath = g_strdup_printf(pathFormat.c_str(), it->getIndex());
 			CalDataManager::getInstance().generateVcsFromSchedule(*it, filePath);
 			resultArray[resultIndex] = filePath;
 			WDEBUG("resultArray[%d] = %s", resultIndex, resultArray[resultIndex]);
@@ -253,10 +246,10 @@ void CalPickApp::__processResult(const std::list<std::shared_ptr<CalSchedule>>& 
 
 	for (int i = 0; i < resultIndex; i++)
 	{
-		free(resultArray[i]);
+		g_free(resultArray[i]);
 	}
 
-	free(resultArray);
+	g_free(resultArray);
 
 	__isDone = true;
 	WLEAVE();
