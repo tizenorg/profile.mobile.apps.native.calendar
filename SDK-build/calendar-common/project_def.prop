@@ -1,11 +1,65 @@
+
+# Project Name
 APPNAME = calendar-common
 
+# Project Type
 type = sharedLib
-profile = mobile-2.4
 
-USER_SRCS = src/calendar-common.c
-USER_DEFS =
-USER_INC_DIRS = inc
-USER_OBJS =
-USER_LIBS =
-USER_EDCS =
+# Project Profile
+profile = mobile-3.0
+
+# C Sources
+USER_SRCS = ../../common/model/CalOriginalSchedule.cpp ../../common/model/CalScheduleReminder.cpp ../../common/fw/CalEventManager.cpp ../../common/model/CalSettingsManager.cpp ../../common/model/CalListModel.cpp ../../common/fw/CalView.cpp ../../common/fw/CalWorker.cpp ../../common/fw/CalPath.cpp ../../common/fw/CalNaviframe.cpp ../../common/fw/CalSlideAnimator.cpp ../../common/fw/CalTapRecognizer.cpp ../../common/model/CalRecordBlockFetcher.cpp ../../common/model/CalTimeZone.cpp ../../common/model/CalBookManager.cpp ../../common/model/CalInstanceScheduleSet.cpp ../../common/CalTheme.cpp ../../common/model/CalEditModel.cpp ../../common/model/CalListModel2.cpp ../../common/model/CalBook.cpp ../../common/model/CalScheduleRepeat.cpp ../../common/model/CalDate.cpp ../../common/model/CalInstanceSchedule.cpp ../../common/fw/CalEvent.cpp ../../common/fw/CalControl.cpp ../../common/fw/CalTouchInputRecognizer.cpp ../../common/model/CalSchedule.cpp ../../common/model/CalComplexListProvider.cpp ../../common/model/CalSimpleListProvider.cpp ../../common/fw/CalDragRecognizer.cpp ../../common/model/CalListModelFactory.cpp ../../common/model/CalDataManager.cpp ../../common/fw/CalDialogControl.cpp ../../common/model/CalCustomListModel.cpp ../../common/model/CalDateTime.cpp ../../common/model/CalLocaleManager.cpp ../../common/fw/CalAppControlLauncher.cpp 
+
+# EDC Sources
+USER_EDCS =  
+
+# PO Sources
+USER_POS = 
+
+# User Defines
+USER_DEFS = 
+USER_CPP_DEFS = TIZEN_PLATFORM_VERSION=TIZEN_VERSION_3_0 TIZEN_DEBUG_ENABLE 
+
+# User Undefines
+USER_UNDEFS = 
+USER_CPP_UNDEFS = 
+
+# User Libraries
+USER_LIBS = app-assist-efl 
+
+# User Objects
+USER_OBJS = 
+USER_OBJS_ABS = 
+
+# User Includes
+## C Compiler
+USER_INC_DIRS = 
+USER_INC_DIRS_ABS = 
+USER_INC_FILES = 
+USER_INC_FILES_ABS = 
+## C++ Compiler
+USER_CPP_INC_DIRS = . 
+USER_CPP_INC_DIRS_ABS = $(workspace_loc)/common/fw $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/app-assist-efl/inc /home/aleksandr/tizen-sdk/library 
+USER_CPP_INC_FILES = 
+USER_CPP_INC_FILES_ABS = 
+
+# User Library Path
+USER_LIB_DIRS = 
+USER_LIB_DIRS_ABS = $(workspace_loc)/SDK-build/app-assist-efl/Debug 
+
+# EDC Resource Path
+USER_EDCS_IMAGE_DIRS = 
+USER_EDCS_IMAGE_DIRS_ABS = 
+USER_EDCS_SOUND_DIRS = 
+USER_EDCS_SOUND_DIRS_ABS = 
+USER_EDCS_FONT_DIRS = 
+USER_EDCS_FONT_DIRS_ABS = 
+
+# EDC Flags
+USER_EXT_EDC_KEYS = 
+
+# Resource Filter
+USER_RES_INCLUDE = 
+USER_RES_EXCLUDE = 
+
