@@ -1,6 +1,6 @@
 
 # Project Name
-APPNAME = calendar-alert
+APPNAME = calendar-widget
 
 # Project Type
 type = app
@@ -10,7 +10,7 @@ profile = mobile-3.0
 
 # C Sources
 USER_SRCS = 
-USER_SRCS_ABS = $(workspace_loc)/app-control/alert/CalAlertApp.cpp $(workspace_loc)/app-control/alert/CalAlertData.cpp $(workspace_loc)/app-control/alert/CalStatusBarManager.cpp $(workspace_loc)/app-control/alert/CalNotificationsSelectAllItem.cpp $(workspace_loc)/app-control/alert/main.cpp $(workspace_loc)/app-control/alert/CalAlertView.cpp $(workspace_loc)/app-control/alert/CalAlertNotificationItem.cpp $(workspace_loc)/app-control/alert/CalAlertModel.cpp $(workspace_loc)/app-control/alert/CalAlertItem.cpp $(workspace_loc)/app-control/alert/CalNotificationsView.cpp 
+USER_SRCS_ABS = $(workspace_loc)/main-app/src/month/CalMonthControl2.cpp $(workspace_loc)/widget/CalWidgetApp.cpp $(workspace_loc)/main-app/src/list/CalListGroupTitleItem.cpp $(workspace_loc)/widget/CalWidget.cpp $(workspace_loc)/main-app/src/month/CalMonthRowControl.cpp $(workspace_loc)/main-app/src/list/CalSearchChain.cpp $(workspace_loc)/main-app/src/list/CalScheduleListControl.cpp $(workspace_loc)/main-app/src/month/CalListMonthRowItem.cpp $(workspace_loc)/widget/main.cpp $(workspace_loc)/main-app/src/list/CalListControl.cpp $(workspace_loc)/main-app/src/list/CalListMonthItem.cpp $(workspace_loc)/main-app/src/month/CalMonthControl.cpp $(workspace_loc)/main-app/src/list/CalEventItem.cpp 
 
 # EDC Sources
 USER_EDCS =  
@@ -41,7 +41,7 @@ USER_INC_FILES =
 USER_INC_FILES_ABS = 
 ## C++ Compiler
 USER_CPP_INC_DIRS = 
-USER_CPP_INC_DIRS_ABS = $(workspace_loc)/app-assist-efl/inc $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/common/fw $(workspace_loc)/app-control/alert 
+USER_CPP_INC_DIRS_ABS = $(workspace_loc)/main-app/src/month $(workspace_loc)/main-app/src/list $(workspace_loc)/common/model $(workspace_loc)/app-assist-efl/inc $(workspace_loc)/common $(workspace_loc)/common/fw 
 USER_CPP_INC_FILES = 
 USER_CPP_INC_FILES_ABS = 
 

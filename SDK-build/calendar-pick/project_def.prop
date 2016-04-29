@@ -1,11 +1,66 @@
+
+# Project Name
 APPNAME = calendar-pick
 
+# Project Type
 type = app
+
+# Project Profile
 profile = mobile-3.0
 
-USER_SRCS = src/calendar-pick.c
-USER_DEFS =
-USER_INC_DIRS = inc
-USER_OBJS =
-USER_LIBS =
-USER_EDCS =
+# C Sources
+USER_SRCS = 
+USER_SRCS_ABS = $(workspace_loc)/app-control/pick/main.cpp $(workspace_loc)/main-app/src/list/CalListMonthItem.cpp $(workspace_loc)/main-app/src/common/CalFilterView.cpp $(workspace_loc)/main-app/src/common/CalDialogOneTextRadioItem.cpp $(workspace_loc)/main-app/src/common/CalCheckboxPopup.cpp $(workspace_loc)/app-control/pick/CalPickApp.cpp $(workspace_loc)/main-app/src/list/CalScheduleListControl.cpp $(workspace_loc)/main-app/src/list/CalEventItem.cpp $(workspace_loc)/main-app/src/common/CalDialogParticipantPopupItem.cpp $(workspace_loc)/main-app/src/list/CalSearchChain.cpp $(workspace_loc)/main-app/src/list/CalListGroupTitleItem.cpp $(workspace_loc)/main-app/src/list/CalListControl.cpp $(workspace_loc)/main-app/src/common/CalTimePickerPopup.cpp $(workspace_loc)/main-app/src/common/CalUnderlineEditField.cpp $(workspace_loc)/app-control/pick/CalPickView.cpp $(workspace_loc)/main-app/src/common/CalDialogOneLineItem.cpp $(workspace_loc)/main-app/src/common/CalDialogSimpleTitleItem.cpp 
+
+# EDC Sources
+USER_EDCS =  
+
+# PO Sources
+USER_POS = 
+
+# User Defines
+USER_DEFS = 
+USER_CPP_DEFS = TIZEN_PLATFORM_VERSION=TIZEN_VERSION_3_0 
+
+# User Undefines
+USER_UNDEFS = 
+USER_CPP_UNDEFS = 
+
+# User Libraries
+USER_LIBS = "app-assist-efl" "calendar-common" 
+
+# User Objects
+USER_OBJS = 
+USER_OBJS_ABS = 
+
+# User Includes
+## C Compiler
+USER_INC_DIRS = 
+USER_INC_DIRS_ABS = 
+USER_INC_FILES = 
+USER_INC_FILES_ABS = 
+## C++ Compiler
+USER_CPP_INC_DIRS = 
+USER_CPP_INC_DIRS_ABS = $(workspace_loc)/app-assist-efl/inc $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/common/fw $(workspace_loc)/app-control/pick $(workspace_loc)/main-app/src/common $(workspace_loc)/main-app/src/list 
+USER_CPP_INC_FILES = 
+USER_CPP_INC_FILES_ABS = 
+
+# User Library Path
+USER_LIB_DIRS = 
+USER_LIB_DIRS_ABS = $(workspace_loc)/SDK-build/app-assist-efl/Debug $(workspace_loc)/SDK-build/calendar-common/Debug 
+
+# EDC Resource Path
+USER_EDCS_IMAGE_DIRS = 
+USER_EDCS_IMAGE_DIRS_ABS = 
+USER_EDCS_SOUND_DIRS = 
+USER_EDCS_SOUND_DIRS_ABS = 
+USER_EDCS_FONT_DIRS = 
+USER_EDCS_FONT_DIRS_ABS = 
+
+# EDC Flags
+USER_EXT_EDC_KEYS = 
+
+# Resource Filter
+USER_RES_INCLUDE = 
+USER_RES_EXCLUDE = 
+

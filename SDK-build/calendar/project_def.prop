@@ -1,11 +1,74 @@
+
+# Project Name
 APPNAME = calendar
 
+# Project Type
 type = app
-profile = mobile-2.4
 
-USER_SRCS = src/calendar.c
-USER_DEFS =
-USER_INC_DIRS = inc
-USER_OBJS =
-USER_LIBS =
-USER_EDCS =
+# Project Profile
+profile = mobile-3.0
+
+# C Sources
+USER_SRCS = 
+USER_SRCS_ABS = $(workspace_loc)/main-app/src/list/CalListControl.cpp $(workspace_loc)/main-app/src/edit/CalEditDialogControl.cpp $(workspace_loc)/main-app/src/month/CalMonthControl2.cpp $(workspace_loc)/main-app/src/edit/CalEditReminderPopup.cpp $(workspace_loc)/main-app/src/CalApp.cpp $(workspace_loc)/main-app/src/detail/CalShareAsPopup.cpp $(workspace_loc)/main-app/src/common/CalDialogOneTextRadioItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatUntilDueDateItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditTextFieldItem.cpp $(workspace_loc)/main-app/src/common/CalDialogOneLineItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditOneTextRemoveIconItem.cpp $(workspace_loc)/main-app/src/edit/CalEditField.cpp $(workspace_loc)/main-app/src/edit/CalEditMoreMenuControl.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditMoreItem.cpp $(workspace_loc)/main-app/src/detail/CalDialogDetailDescriptionItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatUnitItem.cpp $(workspace_loc)/main-app/src/edit/CalDatePickerPopup.cpp $(workspace_loc)/main-app/src/search/CalSearchView.cpp $(workspace_loc)/main-app/src/list/CalListMonthItem.cpp $(workspace_loc)/main-app/src/common/CalDialogSimpleTitleItem.cpp $(workspace_loc)/main-app/src/book/CalBookView.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditDateTimeItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditReminderRadioItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatWeeklyUnitInfoItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatRadioItem.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatMonthlyView.cpp $(workspace_loc)/main-app/src/detail/CalDialogDetailReminderItem.cpp $(workspace_loc)/main-app/src/detail/CalDialogDetailLocationItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditOneTextNoRemoveIconItem.cpp $(workspace_loc)/main-app/src/list/CalEventItem.cpp $(workspace_loc)/main-app/src/common/CalDialogParticipantPopupItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditTwoTextRemoveIconItem.cpp $(workspace_loc)/main-app/src/setting/CalDialogSettingsTwoTextItem.cpp $(workspace_loc)/main-app/src/month/CalMonthControl.cpp $(workspace_loc)/main-app/src/main.cpp $(workspace_loc)/main-app/src/detail/CalDetailView.cpp $(workspace_loc)/main-app/src/edit/CalEditCustomReminderPopup.cpp $(workspace_loc)/main-app/src/detail/CalDialogDetailEventTimeItem.cpp $(workspace_loc)/main-app/src/setting/CalSettingAlertPopup.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatPopup.cpp $(workspace_loc)/main-app/src/detail/CalRepeatEventModeControl.cpp $(workspace_loc)/main-app/src/month/CalListMonthRowItem.cpp $(workspace_loc)/main-app/src/common/CalUnderlineEditField.cpp $(workspace_loc)/main-app/src/edit/CalNumberPickerPopup.cpp $(workspace_loc)/main-app/src/common/CalTimePickerPopup.cpp $(workspace_loc)/main-app/src/edit/CalEditView.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditMoreMenuItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatUntilForeverItem.cpp $(workspace_loc)/main-app/src/book/CalDialogBookLocalItem.cpp $(workspace_loc)/main-app/src/setting/CalDialogSettingsRadioItem.cpp $(workspace_loc)/main-app/src/common/CalFilterView.cpp $(workspace_loc)/main-app/src/detail/CalDialogDetailRepeatItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatMonthUnitItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditOptionalTextFieldItem.cpp $(workspace_loc)/main-app/src/list/CalScheduleListControl.cpp $(workspace_loc)/main-app/src/detail/CalDialogDetailSummaryItem.cpp $(workspace_loc)/main-app/src/common/CalCheckboxPopup.cpp $(workspace_loc)/main-app/src/setting/CalSettingsView.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatDailyView.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatWeeklyView.cpp $(workspace_loc)/main-app/src/setting/CalSettingFirstDayOfWeekPopup.cpp $(workspace_loc)/main-app/src/setting/CalDialogSettingsOneTextOneIconItem.cpp $(workspace_loc)/main-app/src/list/CalSearchChain.cpp $(workspace_loc)/main-app/src/setting/CalDialogSettingsMultilSubItem.cpp $(workspace_loc)/main-app/src/main/CalMainView.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatYearlyView.cpp $(workspace_loc)/main-app/src/month/CalMonthRowControl.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatUntilTimesItem.cpp $(workspace_loc)/main-app/src/list/CalListGroupTitleItem.cpp 
+
+# EDC Sources
+USER_EDCS =  
+
+# PO Sources
+USER_POS = res/po/ja_JP.po res/po/fr.po res/po/hi.po res/po/ru_RU.po res/po/nb.po res/po/eu.po res/po/bg.po res/po/ka.po res/po/tr_TR.po res/po/it_IT.po res/po/de.po res/po/en_PH.po res/po/lv.po res/po/sv.po res/po/ar.po res/po/mk.po res/po/en_US.po res/po/es_ES.po res/po/fi.po res/po/sk.po res/po/uz.po res/po/lt.po res/po/hy.po res/po/kk.po res/po/et.po res/po/hu.po res/po/fr_CA.po res/po/is.po res/po/el_GR.po res/po/cs.po res/po/az.po res/po/ko_KR.po res/po/gl.po res/po/hr.po res/po/zh_TW.po res/po/ca.po res/po/pt_BR.po res/po/ro.po res/po/pt_PT.po res/po/pl.po res/po/es_US.po res/po/sr.po res/po/ga.po res/po/sl.po res/po/en.po res/po/zh_HK.po res/po/zh_CN.po res/po/nl.po res/po/da.po res/po/uk.po 
+
+# User Defines
+USER_DEFS = 
+USER_CPP_DEFS = TIZEN_PLATFORM_VERSION=TIZEN_VERSION_3_0 TIZEN_DEBUG_ENABLE 
+
+# User Undefines
+USER_UNDEFS = 
+USER_CPP_UNDEFS = 
+
+# User Libraries
+USER_LIBS = 
+
+# User Objects
+USER_OBJS = 
+USER_OBJS_ABS = 
+
+# User Includes
+## C Compiler
+USER_INC_DIRS = 
+USER_INC_DIRS_ABS = 
+USER_INC_FILES = 
+USER_INC_FILES_ABS = 
+## C++ Compiler
+USER_CPP_INC_DIRS = 
+USER_CPP_INC_DIRS_ABS = $(workspace_loc)/app-assist-efl/inc $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/common/fw $(workspace_loc)/main-app/src $(workspace_loc)/main-app/src/book $(workspace_loc)/main-app/src/common $(workspace_loc)/main-app/src/detail $(workspace_loc)/main-app/src/list $(workspace_loc)/main-app/src/edit $(workspace_loc)/main-app/src/main $(workspace_loc)/main-app/src/month $(workspace_loc)/main-app/src/search $(workspace_loc)/main-app/src/setting 
+USER_CPP_INC_FILES = 
+USER_CPP_INC_FILES_ABS = 
+
+# User Library Path
+USER_LIB_DIRS = lib 
+USER_LIB_DIRS_ABS = 
+
+# EDC Resource Path
+USER_EDCS_IMAGE_DIRS = edje/images 
+USER_EDCS_IMAGE_DIRS_ABS = $(workspace_loc)/SDK-build/calendar/../../main-app/res/edje/images $(workspace_loc)/SDK-build/calendar/../../main-app/res/edje/images/AlertView 
+USER_EDCS_SOUND_DIRS = edje/sounds 
+USER_EDCS_SOUND_DIRS_ABS = 
+USER_EDCS_FONT_DIRS = edje/fonts 
+USER_EDCS_FONT_DIRS_ABS = 
+
+# EDC Flags
+USER_EXT_EDC_KEYS = EDC0 
+
+USER_EXT_EDC0_EDCS = res/edje/color_classes.edc res/edje/theme/theme.edc res/edje/image.edc res/edje/master.edc 
+USER_EXT_EDC0_EDCS_IMAGE_DIRS = edje/images 
+USER_EXT_EDC0_EDCS_IMAGE_DIRS_ABS = $(workspace_loc)/SDK-build/calendar/../../main-app/res/edje/images $(workspace_loc)/SDK-build/calendar/../../main-app/res/edje/images/AlertView 
+USER_EXT_EDC0_EDCS_SOUND_DIRS = edje/sounds 
+USER_EXT_EDC0_EDCS_SOUND_DIRS_ABS = 
+USER_EXT_EDC0_EDCS_FONT_DIRS = edje/fonts 
+USER_EXT_EDC0_EDCS_FONT_DIRS_ABS = 
+
+# Resource Filter
+USER_RES_INCLUDE = 
+USER_RES_EXCLUDE = 
+
