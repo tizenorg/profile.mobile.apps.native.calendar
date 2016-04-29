@@ -1,11 +1,66 @@
+
+# Project Name
 APPNAME = calendar-edit
 
+# Project Type
 type = app
+
+# Project Profile
 profile = mobile-3.0
 
-USER_SRCS = src/calendar-edit.c
-USER_DEFS =
-USER_INC_DIRS = inc
-USER_OBJS =
-USER_LIBS =
-USER_EDCS =
+# C Sources
+USER_SRCS = 
+USER_SRCS_ABS = $(workspace_loc)/main-app/src/list/CalEventItem.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatWeeklyView.cpp $(workspace_loc)/main-app/src/list/CalScheduleListControl.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatUnitItem.cpp $(workspace_loc)/main-app/src/common/CalTimePickerPopup.cpp $(workspace_loc)/main-app/src/common/CalFilterView.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatPopup.cpp $(workspace_loc)/main-app/src/month/CalMonthControl.cpp $(workspace_loc)/main-app/src/common/CalDialogSimpleTitleItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditOptionalTextFieldItem.cpp $(workspace_loc)/main-app/src/list/CalListControl.cpp $(workspace_loc)/main-app/src/edit/CalDatePickerPopup.cpp $(workspace_loc)/main-app/src/edit/CalEditDialogControl.cpp $(workspace_loc)/main-app/src/month/CalListMonthRowItem.cpp $(workspace_loc)/main-app/src/edit/CalEditMoreMenuControl.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditMoreMenuItem.cpp $(workspace_loc)/main-app/src/list/CalSearchChain.cpp $(workspace_loc)/main-app/src/edit/CalNumberPickerPopup.cpp $(workspace_loc)/main-app/src/common/CalDialogOneLineItem.cpp $(workspace_loc)/main-app/src/edit/CalEditView.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatWeeklyUnitInfoItem.cpp $(workspace_loc)/main-app/src/edit/CalEditCustomReminderPopup.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditMoreItem.cpp $(workspace_loc)/main-app/src/edit/CalEditReminderPopup.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatMonthUnitItem.cpp $(workspace_loc)/main-app/src/common/CalDialogOneTextRadioItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatUntilDueDateItem.cpp $(workspace_loc)/app-control/edit/main.cpp $(workspace_loc)/main-app/src/edit/CalEditField.cpp $(workspace_loc)/main-app/src/common/CalCheckboxPopup.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatYearlyView.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatUntilForeverItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditTextFieldItem.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatDailyView.cpp $(workspace_loc)/main-app/src/common/CalUnderlineEditField.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditDateTimeItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditOneTextRemoveIconItem.cpp $(workspace_loc)/main-app/src/edit/CalEditRepeatMonthlyView.cpp $(workspace_loc)/main-app/src/month/CalMonthRowControl.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditTwoTextRemoveIconItem.cpp $(workspace_loc)/app-control/edit/CalEditApp.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatRadioItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditOneTextNoRemoveIconItem.cpp $(workspace_loc)/main-app/src/list/CalListGroupTitleItem.cpp $(workspace_loc)/main-app/src/month/CalMonthControl2.cpp $(workspace_loc)/main-app/src/list/CalListMonthItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditRepeatUntilTimesItem.cpp $(workspace_loc)/main-app/src/common/CalDialogParticipantPopupItem.cpp $(workspace_loc)/main-app/src/edit/CalDialogEditReminderRadioItem.cpp 
+
+# EDC Sources
+USER_EDCS =  
+
+# PO Sources
+USER_POS = 
+
+# User Defines
+USER_DEFS = 
+USER_CPP_DEFS = TIZEN_PLATFORM_VERSION=TIZEN_VERSION_3_0 
+
+# User Undefines
+USER_UNDEFS = 
+USER_CPP_UNDEFS = 
+
+# User Libraries
+USER_LIBS = "app-assist-efl" "calendar-common" 
+
+# User Objects
+USER_OBJS = 
+USER_OBJS_ABS = 
+
+# User Includes
+## C Compiler
+USER_INC_DIRS = 
+USER_INC_DIRS_ABS = 
+USER_INC_FILES = 
+USER_INC_FILES_ABS = 
+## C++ Compiler
+USER_CPP_INC_DIRS = 
+USER_CPP_INC_DIRS_ABS = $(workspace_loc)/app-assist-efl/inc $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/common/fw $(workspace_loc)/app-control/edit $(workspace_loc)/main-app/src/common $(workspace_loc)/main-app/src/edit $(workspace_loc)/main-app/src/list $(workspace_loc)/main-app/src/month 
+USER_CPP_INC_FILES = 
+USER_CPP_INC_FILES_ABS = 
+
+# User Library Path
+USER_LIB_DIRS = 
+USER_LIB_DIRS_ABS = $(workspace_loc)/SDK-build/app-assist-efl/Debug $(workspace_loc)/SDK-build/calendar-common/Debug 
+
+# EDC Resource Path
+USER_EDCS_IMAGE_DIRS = 
+USER_EDCS_IMAGE_DIRS_ABS = 
+USER_EDCS_SOUND_DIRS = 
+USER_EDCS_SOUND_DIRS_ABS = 
+USER_EDCS_FONT_DIRS = 
+USER_EDCS_FONT_DIRS_ABS = 
+
+# EDC Flags
+USER_EXT_EDC_KEYS = 
+
+# Resource Filter
+USER_RES_INCLUDE = 
+USER_RES_EXCLUDE = 
+
