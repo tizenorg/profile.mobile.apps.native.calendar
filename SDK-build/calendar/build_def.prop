@@ -1,0 +1,6 @@
+
+# Add pre/post build process
+PREBUILD_DESC = 
+PREBUILD_COMMAND = echo "pree" ${ProjRefAssistName} "- " "${ProjRefAssistName}";  mkdir -p ../lib; cp ../../app-assist-efl/Debug/libapp-assist-efl.so ../lib/; cp ../../calendar-common/Debug/libcalendar-common.so ../lib
+POSTBUILD_DESC = 
+POSTBUILD_COMMAND = echo "post" ${ProjRefAssistName} "-" "${ProjRefAssistName}";
