@@ -552,10 +552,10 @@ void CalScheduleListControl::getSelectedSchedules(std::list<std::shared_ptr<CalS
 	while (it)
 	{
 		Item* item = (Item*)elm_object_item_data_get(it);
-		if (item->isGroupTitle())
+		if (item && item->isGroupTitle())
 		{
 			CalListGroupTitleItem* groupItem = (CalListGroupTitleItem*)item;
-			if(groupItem && groupItem->getSelectedItemsCount())
+			if (groupItem->getSelectedItemsCount())
 			{
 				std::list<std::shared_ptr<CalSchedule>> oneDayList;
 				groupItem->getSelectedSchedules(oneDayList);
@@ -583,15 +583,11 @@ void CalScheduleListControl::selectAllSchduleItem(Eina_Bool sellectedAll)
 	while (it)
 	{
 		Item* item = (Item*)elm_object_item_data_get(it);
-		if (item->isGroupTitle())
+		if (item && item->isGroupTitle())
 		{
 			CalListGroupTitleItem* groupItem = (CalListGroupTitleItem*)item;
-			if(groupItem)
-			{
-				groupItem ->selectAllItems(true);
-
-				__selectedCount += groupItem->getSelectedItemsCount();
-			}
+			groupItem ->selectAllItems(true);
+			__selectedCount += groupItem->getSelectedItemsCount();
 		}
 
 		it = elm_genlist_item_next_get(it);
@@ -915,13 +911,10 @@ void CalScheduleListControl::processEventItemTap(CalListGroupTitleItem* containe
 		while (it)
 		{
 			Item* item = (Item*)elm_object_item_data_get(it);
-			if (item->isGroupTitle())
+			if (item && item->isGroupTitle())
 			{
 				CalListGroupTitleItem* groupItem = (CalListGroupTitleItem*)item;
-				if(groupItem)
-				{
-					__selectedCount += groupItem->getSelectedItemsCount();
-				}
+				__selectedCount += groupItem->getSelectedItemsCount();
 			}
 
 			it = elm_genlist_item_next_get(it);

@@ -1096,10 +1096,12 @@ void CalEditView::__onAddMoreButton()
 	list->setSelectCb([this](CalDialogEditMoreMenuItem::TYPE type){
 			if (type == CalDialogEditMoreMenuItem::DESCRIPTION) {
 				__onAddDescriptionField();
-				elm_genlist_item_bring_in((Elm_Object_Item*)__description->getElmObjectItem(), ELM_GENLIST_ITEM_SCROLLTO_TOP);
-				if (__description && __description->getEditField())
-				{
-					 __setFocusToField(__description);
+				if (__description) {
+					elm_genlist_item_bring_in((Elm_Object_Item*)__description->getElmObjectItem(), ELM_GENLIST_ITEM_SCROLLTO_TOP);
+					if (__description->getEditField())
+					{
+						 __setFocusToField(__description);
+					}
 				}
 			} else if (type == CalDialogEditMoreMenuItem::TIMEZONE) {
 				__onAddTimezoneField();
