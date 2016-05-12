@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="org.calendar.calendar.edit" version="1.0.0">
 	<profile name="mobile"/>
-	<ui-application appid="org.calendar.calendar.edit" exec="calendar-edit" launch_mode="caller" multiple="true" nodisplay="true" taskmanage="false" type="capp">
+	<ui-application appid="org.calendar.calendar.edit" exec="calendar-edit" hw-acceleration="on" process-pool="true" launch_mode="caller" multiple="true" nodisplay="true" taskmanage="false" type="capp">
 		<label>Calendar Edit</label>
 		<app-control>
 			<operation name="http://tizen.org/appcontrol/operation/add" />

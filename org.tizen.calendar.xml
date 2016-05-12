@@ -57,7 +57,7 @@
 		<label xml:lang="zh-tw">日曆</label>
 		<icon>${REF_APP_NAME}.png</icon>
 	</ui-application>
-	<ui-application appid="${PKGNAME}.alert" exec="${BINDIR}/calendar-alert" multiple="false" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
+	<ui-application appid="${PKGNAME}.alert" exec="${BINDIR}/calendar-alert" hw-acceleration="use-GL" multiple="false" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
 		<label>${REF_APP_LABEL} Alert</label>
 		<icon>${REF_APP_NAME}.png</icon>
 		<app-control>
@@ -65,7 +65,7 @@
 			<mime name="application/x-tizen.calendar.reminder" />
 		</app-control>
 	</ui-application>
-	<ui-application appid="${PKGNAME}.pick" exec="${BINDIR}/calendar-pick" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
+	<ui-application appid="${PKGNAME}.pick" exec="${BINDIR}/calendar-pick" hw-acceleration="use-GL" process-pool="true" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
 		<label>${REF_APP_LABEL} Pick</label>
 		<icon>${REF_APP_NAME}.png</icon>
 		<app-control>
@@ -73,7 +73,7 @@
 			<mime name="application/vnd.tizen.calendar"/>
 		</app-control>
 	</ui-application>
-	<ui-application appid="${PKGNAME}.view" exec="${BINDIR}/calendar-view" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
+	<ui-application appid="${PKGNAME}.view" exec="${BINDIR}/calendar-view" hw-acceleration="use-GL" process-pool="true" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
 		<label>${REF_APP_LABEL} View</label>
 		<icon>${REF_APP_NAME}.png</icon>
 		<app-control>
@@ -83,7 +83,7 @@
 			<mime name="text/x-vcalendar" />
 		</app-control>
 	</ui-application>
-	<ui-application appid="${PKGNAME}.edit" exec="${BINDIR}/calendar-edit" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
+	<ui-application appid="${PKGNAME}.edit" exec="${BINDIR}/calendar-edit" hw-acceleration="use-GL" process-pool="true" multiple="true" nodisplay="true" taskmanage="false" type="capp" launch_mode="caller">
 		<label>${REF_APP_LABEL} Edit</label>
 		<icon>${REF_APP_NAME}.png</icon>
 		<app-control>

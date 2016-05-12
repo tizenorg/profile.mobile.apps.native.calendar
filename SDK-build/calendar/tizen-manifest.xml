@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest xmlns="http://tizen.org/ns/packages" api-version="3.0" package="org.tizen.calendar" version="1.0.0">
 	<profile name="mobile"/>
-	<ui-application appid="org.tizen.calendar" exec="calendar" auto-restart="false" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+	<ui-application appid="org.tizen.calendar" exec="calendar" hw-acceleration="on" process-pool="true" auto-restart="false" multiple="false" nodisplay="false" taskmanage="true" type="capp">
 		<icon>calendar.png</icon>
 		<label>calendar</label>
 		<label xml:lang="ar-ae">التقويم</label>
