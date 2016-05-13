@@ -37,7 +37,7 @@
 #define CAL_APPSETT_PARAM_MARKED_MODE "marked_mode"
 #define CAL_APPSETT_PARAM_MARKED_MODE_DEFAULT "default"
 #define CAL_APPSETT_PARAM_PATH "path"
-#define CAL_APPSETT_PARAM_PATH_VALUE "/opt/usr/share/settings/Alerts"
+#define CAL_APPSETT_PARAM_PATH_VALUE "/opt/share/settings/Alerts"
 #define CAL_APPSETT_PARAM_SILENT "silent"
 #define CAL_APPSETT_PARAM_SILENT_VALUE "silent show"
 #define CAL_APPSETT_PARAM_DEFAULT "default"
