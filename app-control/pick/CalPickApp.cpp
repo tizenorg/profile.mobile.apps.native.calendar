@@ -33,7 +33,7 @@ CalPickApp::CalPickApp() :
 	__mimeType(CalPickApp::MIME_VCS),
 	__maxLimit(1),
 	__isDone(false),
-	__request(NULL)
+	__request(nullptr)
 {
 }
 
@@ -116,6 +116,7 @@ void CalPickApp::onTerminate()
 	app_control_create(&reply);
 	app_control_reply_to_launch_request(reply, __request, APP_CONTROL_RESULT_FAILED);
 	app_control_destroy(__request);
+	__request = nullptr;
 	app_control_destroy(reply);
 	WLEAVE();
 }
@@ -123,10 +124,12 @@ void CalPickApp::onTerminate()
 void CalPickApp::onAppControl(app_control_h request, bool firstLaunch)
 {
 	WENTER();
-	__request = request;
-	char *value = NULL;
 
-	int ret = app_control_get_extra_data(__request, APP_CONTROL_DATA_SELECTION_MODE, &value);
+	char *value = NULL;
+	int ret = app_control_clone(&__request, request);
+	WPRET_M(ret != APP_CONTROL_ERROR_NONE, "Can't clone the request");
+
+	ret = app_control_get_extra_data(__request, APP_CONTROL_DATA_SELECTION_MODE, &value);
 	if(APP_CONTROL_ERROR_NONE == ret && value && !strcasecmp(APP_CONTROL_DATA_SELECTION_MODE_MULTIPLE, value))
 	{
 		__mode = CalPickApp::SELECTION_MODE_MULTIPLE;
@@ -164,6 +167,7 @@ void CalPickApp::onAppControl(app_control_h request, bool firstLaunch)
 			app_control_create(&reply);
 			app_control_reply_to_launch_request(reply, __request, APP_CONTROL_RESULT_FAILED);
 			app_control_destroy(__request);
+			__request = nullptr;
 			app_control_destroy(reply);
 			WERROR("Wrong app control data type!!!");
 			elm_exit();
@@ -242,6 +246,7 @@ void CalPickApp::__processResult(const std::list<std::shared_ptr<CalSchedule>>& 
 	app_control_add_extra_data_array(reply, APP_CONTROL_KEY_SELECTED, (const char**) resultArray, resultIndex);
 	app_control_reply_to_launch_request(reply, __request, APP_CONTROL_RESULT_SUCCEEDED);
 	app_control_destroy(__request);
+	__request = nullptr;
 	app_control_destroy(reply);
 
 	for (int i = 0; i < resultIndex; i++)
