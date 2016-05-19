@@ -249,9 +249,9 @@ void CalFilterView::updateList()
 		__forwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, 1, __searchText.c_str());
 		__backwardModel = CalListModelFactory::getInstance().getSearchList(__focusDate, -1, __searchText.c_str());
 		__list->setListModels(__forwardModel, __backwardModel);
-	}
 
-	showContent();
+		showContent();
+	}
 	WLEAVE();
 }
 
