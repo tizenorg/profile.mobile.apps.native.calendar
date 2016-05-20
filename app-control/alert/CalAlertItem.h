@@ -36,13 +36,12 @@ public:
 	bool isSnoozedItem();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalAlertItem);
-	virtual Elm_Genlist_Item_Class* getItemClassStatic();
-	virtual void onSelect();
+	virtual Elm_Genlist_Item_Class* getItemClassStatic() override;
+	virtual void onSelect() override;
 	virtual void onCheck();
 
 	std::shared_ptr<CalAlertNotificationItem> __alertItem;
 	Evas_Object *__check;
-	int __count;
 	std::function<void (void)> __selectCb;
 	std::function<void (void)> __checkCb;
 };

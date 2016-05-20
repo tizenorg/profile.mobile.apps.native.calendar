@@ -52,8 +52,6 @@ private:
 	void __updateButtonStatus(bool leftStatus, bool rightStatus);
 private:
 	bool __isAllVisible;
-	bool __isAllSelected;
-	int __radioIndex;
 	CalAlertModel __model;
 	CalDialogControl* __dialog;
 	CalNotificationsSelectAllItem *__selectAllItem;

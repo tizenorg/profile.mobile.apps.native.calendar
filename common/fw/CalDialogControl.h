@@ -41,21 +41,26 @@ public:
 	public:
 		Item(int sortIndex = 0);
 		virtual ~Item();
-	public:
+
 		virtual void onSelect();
 		const int getSortIndex() const;
 		void setSortIndex( int index);
 		int getSystemFontSize();
 		bool isGroupTitle() const {return __isGroupTitle;}
-	public:
+
 		void setCustomData(void* customData) {__customData = customData;}
 		void* getCustomData() const {return __customData;}
+
+	protected:
+		using WGenlistItem::onSelect;
+
+		bool __isGroupTitle;
+
 	private:
 		int __sortIndex;
 		void* __customData;
-	protected:
-		bool __isGroupTitle;
-	friend class CalDialogControl;
+
+		friend class CalDialogControl;
 	};
 public:
 	CalDialogControl();

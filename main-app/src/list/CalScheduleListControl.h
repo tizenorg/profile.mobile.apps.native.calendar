@@ -333,7 +333,6 @@ private:
 	CalDate __base;
 	CalDate __focusDate;
 	bool __appended;
-	bool __prepended;
 	bool __isCreateCheck;
 	bool __isHideCheck;
 	int __selectedCount;

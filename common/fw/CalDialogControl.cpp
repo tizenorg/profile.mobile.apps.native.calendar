@@ -21,9 +21,10 @@
 #include "CalCommon.h"
 
 CalDialogControl::Item::Item(int sortIndex) :
+	__isGroupTitle(false),
 	__sortIndex(sortIndex),
-	__customData(nullptr),
-	__isGroupTitle(false)
+	__customData(nullptr)
+
 {
 }
 
