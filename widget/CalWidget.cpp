@@ -118,31 +118,26 @@ void CalWidget::__createCalendar()
 	evas_object_size_hint_weight_set(boxTop, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(boxTop, EVAS_HINT_FILL, EVAS_HINT_FILL);
 	elm_box_horizontal_set(boxTop, EINA_TRUE);
+	elm_box_padding_set(boxTop, ELM_SCALE_SIZE(10), 0);
 	elm_box_homogeneous_set(boxTop, EINA_FALSE);
 
-	__buttonToday = elm_button_add(boxTop);
-	elm_object_style_set(__buttonToday, "transparent");
-	Evas_Object* layoutButton = elm_layout_add(__buttonToday);
-	evas_object_size_hint_weight_set(layoutButton, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(layoutButton, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_layout_file_set(layoutButton, CalPath::getPath(CAL_EDJE).c_str(), "today_button");
+	Evas_Object *buttonCreate = __addBoxButton(boxTop, "IDS_CLD_OPT_CREATE",
+		[](void* data, Evas_Object* obj, void* event_info)
+		{
+			CalWidget* self = (CalWidget*)data;
+			self->__AddEvent();
+		}
+	);
+	elm_box_pack_end(boxTop, buttonCreate);
 
-	elm_object_domain_translatable_part_text_set(layoutButton, "elm.text", CALENDAR, "IDS_CLD_ACBUTTON_TODAY");
-
-	evas_object_show(layoutButton);
-	elm_object_content_set(__buttonToday, layoutButton);
-
-	evas_object_show(__buttonToday);
-	elm_box_pack_end(boxTop, __buttonToday);
-	evas_object_show(boxTop);
-
-	evas_object_smart_callback_add(__buttonToday, "clicked",
+	__buttonToday = __addBoxButton(boxTop, "IDS_CLD_ACBUTTON_TODAY",
 		[](void* data, Evas_Object* obj, void* event_info)
 		{
 			CalWidget* self = (CalWidget*)data;
 			self->__focusToday();
-		}, this
+		}
 	);
+	elm_box_pack_end(boxTop, __buttonToday);
 
 	elm_object_part_content_set(layout, "widget.month.today", boxTop);
 
@@ -259,6 +254,26 @@ void CalWidget::__createCalendar()
 	__displayCurrentDate();
 }
 
+Evas_Object* CalWidget::__addBoxButton(Evas_Object* parent, const char *text, Evas_Smart_Cb cb)
+{
+	Evas_Object* button = elm_button_add(parent);
+	elm_object_style_set(button, "transparent");
+	evas_object_smart_callback_add(button, "clicked", cb, this);
+
+	Evas_Object* layoutButton = elm_layout_add(button);
+	evas_object_size_hint_weight_set(layoutButton, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(layoutButton, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	elm_layout_file_set(layoutButton, CalPath::getPath(CAL_EDJE).c_str(), "today_button");
+
+	elm_object_domain_translatable_part_text_set(layoutButton, "elm.text", CALENDAR, text);
+
+	evas_object_show(layoutButton);
+	elm_object_content_set(button, layoutButton);
+	evas_object_show(button);
+
+	return button;
+}
+
 int CalWidget::__getFirstDayOfWeek()
 {
 	int result = CalSettingsManager::getInstance().getFirstDayOfWeek();
@@ -284,7 +299,60 @@ Eina_Bool CalWidget::__onTimer(void* data)
 		CalAppControlLauncher::getInstance().sendLaunchRequest(service, NULL, NULL, NULL);
 	}
 
+	int eventCount = widget->__monthCalendar->getEventCount(widget->__dateTime);
+
+	if (eventCount == 0) {
+		widget->__AddEvent(&widget->__dateTime);
+	}
 	return ECORE_CALLBACK_CANCEL;
+}
+
+void CalWidget::__AddEvent(CalDate *dateTime)
+{
+	app_control_h service = NULL;
+	app_control_create(&service);
+	if(service)
+	{
+		app_control_set_operation(service, APP_CONTROL_OPERATION_ADD);
+		app_control_set_mime(service, APP_CONTROL_MIME_CALENDAR);
+		if (dateTime) {
+			app_control_add_extra_data(service, APP_CONTROL_DATA_CALENDAR_START_TIME, __getStartTime(*dateTime));
+		}
+		CalAppControlLauncher::getInstance().sendLaunchRequest(service, NULL, NULL, NULL);
+	}
+}
+
+const char *CalWidget::__getStartTime(CalDate dateTime)
+{
+	CalDateTime startTime;
+	struct tm startTm = {0};
+	startTime.getTmFromUtime(&startTm);
+	bool isToday = false;
+	if (startTm.tm_year == (dateTime.getYear() - 1900) &&
+			startTm.tm_mon == (dateTime.getMonth() - 1) &&
+			startTm.tm_mday == dateTime.getMday() ) {
+		isToday = true;
+	}
+	startTm.tm_year = dateTime.getYear() - 1900;
+	startTm.tm_mon = dateTime.getMonth() - 1;
+	startTm.tm_mday = dateTime.getMday();
+	startTm.tm_min = 0;
+	startTm.tm_sec = 0;
+	if (isToday == false) {
+		// If not Today, 08:00.
+		startTm.tm_hour = 8;
+		startTime.set(startTm);
+	} else {
+		// If Today, current hour + 1
+		startTime.set(startTm);
+		startTime.addHours(1);
+	}
+
+	static char buffer[DATETIME_BUFFER];
+	snprintf(buffer, DATETIME_BUFFER, "%04d-%.02d-%.02d %.02d:%.02d:%.02d",
+	startTime.getYear(), startTime.getMonth(), startTime.getMday(),
+	startTime.getHour(), startTime.getMinute(), startTime.getSecond());
+	return buffer;
 }
 
 void CalWidget::__focusToday()
