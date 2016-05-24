@@ -116,7 +116,7 @@ group {
 }
 
 group {
-	name: "today_button";
+	name: "box_buttons";
 	images {
 		image: "today_button.png" COMP;
 	}
