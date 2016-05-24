@@ -42,10 +42,13 @@ public:
 private:
 	static Eina_Bool __onTimer(void* data);
 	void __createCalendar();
+	Evas_Object *__addBoxButton(Evas_Object* box, const char *text, Evas_Smart_Cb cb);
 	int  __getFirstDayOfWeek();
 	void __setMonthLabel();
 	void __displayCurrentDate();
 	void __focusToday();
+	void __AddEvent(CalDate *dateTime = nullptr);
+	const char *__getStartTime(CalDate dateTime);
 	void onEvent(const CalEvent& event);
 
 private:
