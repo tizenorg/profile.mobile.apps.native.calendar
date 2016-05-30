@@ -830,6 +830,9 @@ void CalEditView::__removeTimezoneItem()
 		return;
 	}
 
+	__workingCopy->setTimeZone(NULL);
+	__isChanged = true;
+
 	__dialog->remove(__timezone);
 	__timezone = NULL;
 
