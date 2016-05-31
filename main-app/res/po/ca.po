@@ -38,7 +38,7 @@ msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "S'esborraran tots els esdeveniments"
 
 msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Cancel"
+msgstr "Cancel·lar"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Seleccionar tot"
