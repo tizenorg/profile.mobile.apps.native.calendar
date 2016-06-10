@@ -23,6 +23,22 @@
 #include "CalScheduleRepeat.h"
 #include "CalDialogEditRepeatUnitItem.h"
 
+#define SINGULAR	0
+#define PLURAL		1
+
+#define DAY_LABEL	0
+#define WEEK_LABEL	1
+#define MONTH_LABEL	2
+#define YEAR_LABEL	3
+
+static const char *unitLabels[][2] =
+{
+	{"IDS_CLD_BODY_DAY_M_DURATION_LC", "IDS_CLD_BODY_DAYS_M_DURATION_LC"},
+	{"IDS_CLD_BODY_WEEK_LC_ABB", "IDS_CLD_BODY_WEEKS_M_DURATION_LC"},
+	{"IDS_CLD_BODY_MONTH_LC_ABB", "IDS_CLD_OPT_MONTHS_LC_ABB"},
+	{"IDS_CLD_OPT_YEARS_LC_ABB", "IDS_CLD_BODY_YEAR_LC"}
+};
+
 CalDialogEditRepeatUnitItem::CalDialogEditRepeatUnitItem(std::function<void (CalScheduleRepeat::UnitType unitType, int unnitInterval)> changedCb, const CalScheduleRepeat repeat, CalScheduleRepeat::UnitType unitType)
 	: __changedCb(changedCb)
 	, __repeat(repeat)
@@ -46,6 +62,11 @@ CalDialogEditRepeatUnitItem::~CalDialogEditRepeatUnitItem()
 void CalDialogEditRepeatUnitItem::setDateButtonClickedCb(std::function<void (void)> dateButtonClickedCb)
 {
 	__dateButtonClickedCb = dateButtonClickedCb;
+}
+
+void CalDialogEditRepeatUnitItem::updateUnitsLabel()
+{
+	elm_genlist_item_fields_update(getElmObjectItem(), "elm.text.right", ELM_GENLIST_ITEM_FIELD_TEXT);
 }
 
 void CalDialogEditRepeatUnitItem::setDateButtonTime(const CalScheduleRepeat repeat)
@@ -88,21 +109,18 @@ Elm_Genlist_Item_Class* CalDialogEditRepeatUnitItem::getItemClassStatic()
 		}
 		else if (0 == strcmp("elm.text.right", part))
 		{
-			char temp[FORMAT_BUFFER] = {0};
+			int form = item->__unitInterval == 1 ? SINGULAR : PLURAL;
+
 			switch (item->__unitType)
 			{
 				case CalScheduleRepeat::DAY:
-					snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_DAY_M_DURATION_LC"));
-					return strdup(temp);
+					return strdup(_L_(unitLabels[DAY_LABEL][form]));
 				case CalScheduleRepeat::WEEK:
-					snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_WEEK_LC_ABB"));
-					return strdup(temp);
+					return strdup(_L_(unitLabels[WEEK_LABEL][form]));
 				case CalScheduleRepeat::MONTH:
-					snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_MONTH_LC_ABB"));
-					return strdup(temp);
+					return strdup(_L_(unitLabels[MONTH_LABEL][form]));
 				case CalScheduleRepeat::YEAR:
-					snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_YEAR_LC"));
-					return strdup(temp);
+					return strdup(_L_(unitLabels[YEAR_LABEL][form]));
 				default:
 					WERROR("Invalid unitType(%d)", item->__unitType);
 					return NULL;
