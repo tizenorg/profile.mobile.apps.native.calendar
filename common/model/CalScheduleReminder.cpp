@@ -105,10 +105,6 @@ void CalScheduleReminder::getString(std::string& text) const
 
 	switch(displayUnitType)
 	{
-	default:
-	case NONE:
-		snprintf(buffer, sizeof(buffer)-1, _L_("IDS_CLD_OPT_NONE"));
-		break;
 	case MIN:
 		if (displayUnitValue == 0)
 			snprintf(buffer, sizeof(buffer)-1, _L_("IDS_CLD_OPT_AT_START_TIME_ABB"));
@@ -137,6 +133,9 @@ void CalScheduleReminder::getString(std::string& text) const
 		} else {
 			snprintf(buffer, sizeof(buffer)-1, _L_("IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"), displayUnitValue);
 		}
+		break;
+	default:
+		snprintf(buffer, sizeof(buffer)-1, _L_("IDS_CLD_OPT_NONE"));
 		break;
 	}
 

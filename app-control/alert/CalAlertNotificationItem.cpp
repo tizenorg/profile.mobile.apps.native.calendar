@@ -112,7 +112,8 @@ char *CalAlertNotificationItem::getEventName()
 char *CalAlertNotificationItem::getEventOriginalName()
 {
 	WENTER();
-	return strdup(__schedule->getSummary());
+	const char *summary = __schedule->getSummary();
+	return summary ? strdup(summary) : nullptr;
 }
 
 char *CalAlertNotificationItem::getStartTime()

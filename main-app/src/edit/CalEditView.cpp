@@ -1414,7 +1414,12 @@ void CalEditView::__setFocusToField(CalDialogControl::Item *field)
 		__idler = ecore_idler_add([](void* data)
 			{
 				CalDialogEditTextFieldItem *self = (CalDialogEditTextFieldItem*) data;
-				self->getEditField()->setFocusToEntry();
+
+				CalUnderlineEditField *editField = self->getEditField();
+				if (editField)
+				{
+					self->getEditField()->setFocusToEntry();
+				}
 				return ECORE_CALLBACK_CANCEL;
 			}, field);
 	}
