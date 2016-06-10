@@ -26,6 +26,7 @@ public:
 	virtual ~CalDialogEditRepeatUnitItem();
 	void setDateButtonTime(const CalScheduleRepeat repeat);
 	void setDateButtonClickedCb(std::function<void (void)> dateButtonClickedCb);
+	void updateUnitsLabel();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatUnitItem);
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();

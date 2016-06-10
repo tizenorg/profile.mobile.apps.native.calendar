@@ -73,6 +73,7 @@ void CalEditRepeatDailyView::__createGenlist()
 			popup->setDoneCb([this, popup, unitItem](const CalScheduleRepeat & repeat) {
 					__repeat = repeat;
 					unitItem->setDateButtonTime(__repeat);
+					unitItem->updateUnitsLabel();
 			});
 			popup->create(getNaviframe()->getEvasObj(), NULL);
 			attachPopup(popup);

@@ -48,6 +48,11 @@ void CalDialogEditRepeatUnitItem::setDateButtonClickedCb(std::function<void (voi
 	__dateButtonClickedCb = dateButtonClickedCb;
 }
 
+void CalDialogEditRepeatUnitItem::updateUnitsLabel()
+{
+	elm_genlist_item_fields_update(getElmObjectItem(), "elm.text.right", ELM_GENLIST_ITEM_FIELD_TEXT);
+}
+
 void CalDialogEditRepeatUnitItem::setDateButtonTime(const CalScheduleRepeat repeat)
 {
 	__unitInterval = repeat.unitInterval;
@@ -89,23 +94,47 @@ Elm_Genlist_Item_Class* CalDialogEditRepeatUnitItem::getItemClassStatic()
 		else if (0 == strcmp("elm.text.right", part))
 		{
 			char temp[FORMAT_BUFFER] = {0};
-			switch (item->__unitType)
+			if (item->__unitInterval > 1)
 			{
-				case CalScheduleRepeat::DAY:
-					snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_DAY_M_DURATION_LC"));
-					return strdup(temp);
-				case CalScheduleRepeat::WEEK:
-					snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_WEEK_LC_ABB"));
-					return strdup(temp);
-				case CalScheduleRepeat::MONTH:
-					snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_MONTH_LC_ABB"));
-					return strdup(temp);
-				case CalScheduleRepeat::YEAR:
-					snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_YEAR_LC"));
-					return strdup(temp);
-				default:
-					WERROR("Invalid unitType(%d)", item->__unitType);
-					return NULL;
+				switch (item->__unitType)
+				{
+					case CalScheduleRepeat::DAY:
+						snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_DAYS_M_DURATION_LC"));
+						return strdup(temp);
+					case CalScheduleRepeat::WEEK:
+						snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_WEEKS_M_DURATION_LC"));
+						return strdup(temp);
+					case CalScheduleRepeat::MONTH:
+						snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_OPT_MONTHS_LC_ABB"));
+						return strdup(temp);
+					case CalScheduleRepeat::YEAR:
+						snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_OPT_YEARS_LC_ABB"));
+						return strdup(temp);
+					default:
+						WERROR("Invalid unitType(%d)", item->__unitType);
+						return NULL;
+				}
+			}
+			else
+			{
+				switch (item->__unitType)
+				{
+					case CalScheduleRepeat::DAY:
+						snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_DAY_M_DURATION_LC"));
+						return strdup(temp);
+					case CalScheduleRepeat::WEEK:
+						snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_WEEK_LC_ABB"));
+						return strdup(temp);
+					case CalScheduleRepeat::MONTH:
+						snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_MONTH_LC_ABB"));
+						return strdup(temp);
+					case CalScheduleRepeat::YEAR:
+						snprintf(temp, sizeof(temp) - 1, LABEL_FORMAT, item->getSystemFontSize(), _L_("IDS_CLD_BODY_YEAR_LC"));
+						return strdup(temp);
+					default:
+						WERROR("Invalid unitType(%d)", item->__unitType);
+						return NULL;
+				}
 			}
 		}
 		return NULL;
