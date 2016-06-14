@@ -23,19 +23,23 @@
 #include <assert.h>
 
 #define CALENDAR "calendar"
+#define __MODULE__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
+#define DLOG(prio, fmt, arg...) dlog_print(prio, CALENDAR, "%s: %s(%d) > " fmt, __MODULE__, __func__, __LINE__, ##arg)
+
 #ifndef LOGD
-#define LOGD(fmt, args...) dlog_print(DLOG_DEBUG, CALENDAR, fmt, ##args)
+#define LOGD(fmt, args...) DLOG(DLOG_DEBUG, fmt, ##args)
 #endif
 #ifndef LOGE
-#define LOGE(fmt, args...) dlog_print(DLOG_ERROR, CALENDAR, fmt, ##args)
+#define LOGE(fmt, args...) DLOG(DLOG_ERROR, fmt, ##args)
 #endif
 #ifndef LOGW
-#define LOGW(fmt, args...) dlog_print(DLOG_WARN, CALENDAR, fmt, ##args)
+#define LOGW(fmt, args...) DLOG(DLOG_WARN, fmt, ##args)
 #endif
 #ifndef LOGI
-#define LOGI(fmt, args...) dlog_print(DLOG_INFO, CALENDAR, fmt, ##args)
+#define LOGI(fmt, args...) DLOG(DLOG_INFO, fmt, ##args)
 #endif
 
+/* TODO Uncomment when colors will be supported in dlog
 #define WCOLOR_RED "\033[0;31m"
 #define WCOLOR_GREEN "\033[0;32m"
 #define WCOLOR_BROWN "\033[0;33m"
@@ -44,6 +48,17 @@
 #define WCOLOR_CYAN "\033[0;36m"
 #define WCOLOR_LIGHTBLUE "\033[0;37m"
 #define WCOLOR_END "\033[0;m"
+*/
+
+#define WCOLOR_RED ""
+#define WCOLOR_GREEN ""
+#define WCOLOR_BROWN ""
+#define WCOLOR_BLUE ""
+#define WCOLOR_PURPLE ""
+#define WCOLOR_CYAN ""
+#define WCOLOR_LIGHTBLUE ""
+#define WCOLOR_END ""
+
 
 // normal log
 #define WDEBUG(fmt, args...) LOGD(fmt, ##args)
