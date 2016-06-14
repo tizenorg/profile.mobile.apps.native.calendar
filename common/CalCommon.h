@@ -64,7 +64,7 @@
 #define PKG_3DPARTIES_MAPS "org.tizen.maps"
 #define APP_CONTROL_MAPS_KEY_SEARCHBYNAME "searchByName"
 #define PKG_3DPARTIES_CLOCK_SHORT "clock"
-#define PKG_3DPARTIES_WORLDCLOCK "worldclock-efl"
+#define PKG_3DPARTIES_WORLDCLOCK "org.tizen.worldclock-efl"
 #define APP_CONTROL_WORLDCLOCK_KEY_TZPATH "tzpath"
 #define PKG_3DPARTIES_SETTING_RINGTONE "setting-ringtone-efl"
 #define APP_CONTROL_SETTING_RINGTONE_KEY_RESULT "result"
