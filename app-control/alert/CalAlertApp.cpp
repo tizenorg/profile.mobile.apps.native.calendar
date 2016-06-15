@@ -128,6 +128,7 @@ void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 	case CALALERT_VIEW:
 		WDEBUG("Show Alert");
 		__createWindowSafe(firstLaunch, true);
+		CalStatusBarManager::getInstance().pushNotification(__alertData, false);
 		__launchAlertView(__alertData);
 		break;
 
