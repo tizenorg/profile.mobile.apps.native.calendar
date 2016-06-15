@@ -84,7 +84,6 @@ widget_class_h CalWidgetApp::onAppCreate(void *data)
 
 void CalWidgetApp::onAppTerminate(void *data)
 {
-
 }
 
 void CalWidgetApp::onAppLangChanged(app_event_info_h event_info, void *data)
@@ -144,6 +143,7 @@ int CalWidgetApp::onWidgetDestroy(widget_context_h context, widget_app_destroy_t
 	if(widget)
 	{
 		widget->destroy(reason);
+		delete widget;
 	}
 	CalTheme::finalize();
 

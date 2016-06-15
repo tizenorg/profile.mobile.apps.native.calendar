@@ -304,6 +304,8 @@ Eina_Bool CalWidget::__onTimer(void* data)
 			CalAppControlLauncher::getInstance().sendLaunchRequest(service, NULL, NULL, NULL);
 		}
 	}
+
+	widget->__timer = nullptr;
 	return ECORE_CALLBACK_CANCEL;
 }
 
