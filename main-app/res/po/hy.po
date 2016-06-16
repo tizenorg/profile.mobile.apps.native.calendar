@@ -10,23 +10,11 @@ msgstr "ԴԱԴԱՐԵՑՆԵԼ"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Լռելյայն"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Վերացնել"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Անցնել այսօրվան"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Պարամետրեր"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Ամբ. օրը"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Այսօր"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Իրադարձություններ չկան"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Այդ դեպքը կջնջվի:"
@@ -36,9 +24,6 @@ msgstr "%d իրադարձություններ կվերացվեն:"
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Բոլոր իրադարձությունները կվերացվեն:"
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Չեղարկել"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Ընտրել բոլորը"
@@ -106,15 +91,6 @@ msgstr "Կոպել իրադարձությունների ժամանակն ու ա
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Սկզբնադիր տեղույթ"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Շաբաթ"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Կիրակի"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Երկուշաբթի"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Ելնող ծանուցումներ"
 
@@ -123,12 +99,6 @@ msgstr "Զգուշացում չկա"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Օրական"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Շաբաթական"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Ամսական"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Ամեն տարի"
@@ -144,9 +114,6 @@ msgstr "ժամ"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "շբթ"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Վերնագիր"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Կոնտակտների ծննդյան օրերը"
@@ -169,17 +136,11 @@ msgstr "Հիշեցում"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Կրկնել"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Ջնջել"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Բոլոր օրացույցները"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Ստեղծել"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Ջնջել"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Իմ օրացույցը"
@@ -211,26 +172,17 @@ msgstr "Ընդմիշտ"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "ամիս"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "տարի"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Կրկնել մինչև"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "%d-րդ օրը"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Որոնել"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "անգամ"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 իրադարձություն կվերացվի:"
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Գործադրել"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Օրացույց"
@@ -241,12 +193,6 @@ msgstr "Դեն նետել փոփոխությունները"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Բոլոր փոփոխությունները կանտեսվեն:"
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Խմբագրել"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Իրադարձություններ"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Իմ իրադարձությունը"
 
@@ -255,9 +201,6 @@ msgstr "Նախադրել հիշեցում"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS նիշք"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Տեքստ"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d ընտրված"
@@ -337,9 +280,6 @@ msgstr "Իրադարձություններից 1-ը, որն ընտրել եք վ
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Այլ"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Չկա"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "ամեն %s"
 
@@ -349,18 +289,6 @@ msgstr "Ամեն %1$d %2$s %3$s օրը"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Ամեն %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Երեքշաբթի"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Չորեքշաբթի"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Հինգշաբթի"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Ուրբաթ"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "մինչև %s"
 
@@ -369,9 +297,6 @@ msgstr "Չհաջողվեց պահպանել իրադարձությունը: Ան
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS ֆայլերը չեն ապահովվում:"
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d րոպե"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Հասել է կցուրդների առավելագույն քանակին (%d):"
@@ -391,9 +316,6 @@ msgstr "Կառավարել օրացույցները"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Նշումներ"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Մանրամասներ"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Դնել թվական"
 
@@ -412,12 +334,93 @@ msgstr "օրեր"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "ԱՅՍՕՐ"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Հասել է նիշերի առավելագույն քանակին (%d)"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Վերացնել"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Պարամետրեր"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Այսօր"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Իրադարձություններ չկան"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Չեղարկել"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Շաբաթ"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Կիրակի"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Երկուշաբթի"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Շաբաթական"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Ամսական"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Վերնագիր"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Ջնջել"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Ջնջել"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "տարի"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Որոնել"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Գործադրել"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Խմբագրել"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Իրադարձություններ"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Տեքստ"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Չկա"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Երեքշաբթի"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Չորեքշաբթի"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Հինգշաբթի"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Ուրբաթ"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Իրադարձության ծանուցումներ"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (նիրհում է)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d րոպե"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Մանրամասներ"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Հասել է նիշերի առավելագույն քանակին (%d)"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "ՍՏԵՂԾԵԼ"
 

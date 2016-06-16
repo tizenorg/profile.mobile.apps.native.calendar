@@ -10,23 +10,11 @@ msgstr "ZRUŠIT"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Výchozí"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Odstranit"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Přejít na dnešek"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Nastavení"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Celý den"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Dnes"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Žádné události"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Událost bude odstraněna."
@@ -36,9 +24,6 @@ msgstr "%d událostí bude odstraněno."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Budou odstraněny všechny události."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Storno"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Vybrat vše"
@@ -106,15 +91,6 @@ msgstr "Svažte časy a data aktivit s vybraným časovým pásmem. Nezmění se
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Výchozí místní nastavení"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Sobota"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Neděle"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Pondělí"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Oznamování v okně"
 
@@ -123,12 +99,6 @@ msgstr "Žádná upozornění"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Denně"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Týdně"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Měsíčně"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Ročně"
@@ -144,9 +114,6 @@ msgstr "hod."
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "týd."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Název"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Narozeniny kontaktů"
@@ -169,17 +136,11 @@ msgstr "Připomenutí"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Opakovat"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Odstranit"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Všechny kalendáře"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Vytvořit"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Odstranit"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Můj kalendář"
@@ -211,26 +172,17 @@ msgstr "Stále"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "měsíc"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "rok"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Opakovat do"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Den: %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Hledat"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "krát"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 událost bude odstraněna."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Nastavit"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Kalendář"
@@ -241,12 +193,6 @@ msgstr "Zrušit změny"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Všechny změny budou zrušeny."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Upravit"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Události"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Moje událost"
 
@@ -255,9 +201,6 @@ msgstr "Nastavit připomenutí"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "Soubor VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Text"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "Vybráno %d"
@@ -299,7 +242,7 @@ msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
 msgstr "Datum ukončení musí být pozdější než datum zahájení."
 
 msgid "IDS_CLD_BUTTON_DISCARD_ABB"
-msgstr "Zrušit"
+msgstr "Smazat"
 
 msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
 msgstr "%s má výročí"
@@ -337,9 +280,6 @@ msgstr "1 z událostí, které jste vybrali pro odstranění, je opakovaná udá
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Jiné"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Žádná"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "vždy v %s"
 
@@ -349,18 +289,6 @@ msgstr "Každých %1$d %2$s v %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Každých %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Úterý"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Středa"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Čtvrtek"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Pátek"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "do %s"
 
@@ -369,9 +297,6 @@ msgstr "Událost se nepodařilo uložit. Došlo k neznámé chybě."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "Soubory VTS nejsou podporovány."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "Počet minut: %d"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Bylo dosaženo maximálního počtu příloh (%d)."
@@ -391,9 +316,6 @@ msgstr "Správa kalendářů"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Poznámky"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Podrobnosti"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Nastavit datum"
 
@@ -412,12 +334,93 @@ msgstr "dnů"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "DNES"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Bylo dosaženo maximálního počtu znaků (%d)."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Odstranit"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Nastavení"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Dnes"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Žádné události"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Storno"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Sobota"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Neděle"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Pondělí"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Týdně"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Měsíčně"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Název"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Odstranit"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Odstranit"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "rok"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Hledat"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Nastavit"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Upravit"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Události"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Text"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Žádná"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Úterý"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Středa"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Čtvrtek"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Pátek"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Upozorňování na události"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (odloženo)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "Počet minut: %d"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Podrobnosti"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Bylo dosaženo maximálního počtu znaků (%d)."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "VYTVOŘIT"
 

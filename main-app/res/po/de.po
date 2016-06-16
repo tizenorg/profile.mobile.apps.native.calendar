@@ -10,23 +10,11 @@ msgstr "ABBRECHEN"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Standard"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Löschen"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Zum aktuellen Datum wechseln"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Einstellungen"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Ganztäg."
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Heute"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Keine Ereignisse"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Dieses Ereignis wird gelöscht."
@@ -36,9 +24,6 @@ msgstr "%d Ereignisse werden gelöscht."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Alle Ereignisse werden gelöscht."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Abbruch"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Alle auswählen"
@@ -106,15 +91,6 @@ msgstr "Uhrzeit und Datum von Ereignissen auf die ausgewählte Zeitzone festlege
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Standardregion"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Samstag"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Sonntag"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Montag"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Pop-up-Benachrichtigungen"
 
@@ -123,12 +99,6 @@ msgstr "Keine Benachrichtigungen"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Täglich"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Wöchentlich"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Monatlich"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Jährlich"
@@ -144,9 +114,6 @@ msgstr "Std."
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "Wo."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Titel"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Geburtstage von Kontakten"
@@ -169,17 +136,11 @@ msgstr "Erinnerung"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Wiederholen"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Löschen"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Alle Kalender"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Erstellen"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Löschen"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Eigener Kalender"
@@ -211,26 +172,17 @@ msgstr "Für immer"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "Monat"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "Jahr"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Wiederholen bis"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Am %d."
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Suche"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "mal"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 Ereignis wird gelöscht."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Festlegen"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Kalender"
@@ -241,12 +193,6 @@ msgstr "Änderungen verwerfen"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Alle Änderungen werden verworfen."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Bearbeiten"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Ereignisse"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Mein Ereignis"
 
@@ -255,9 +201,6 @@ msgstr "Erstellen einer Erinnerung"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS-Datei"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Text"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "Auswahl von %d"
@@ -337,9 +280,6 @@ msgstr "Eines der zum Löschen ausgewählten Ereignisse ist ein wiederkehrendes 
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Weitere"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Ohne"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "jeden %s"
 
@@ -349,18 +289,6 @@ msgstr "Alle %1$d %2$s am %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Alle %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Dienstag"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Mittwoch"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Donnerstag"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Freitag"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "bis %s"
 
@@ -369,9 +297,6 @@ msgstr "Fehler beim Speichern des Ereignisses. Es ist ein unbekannter Fehler auf
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS-Dateien nicht unterstützt."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d Minuten"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Maximale Anzahl von Anhängen (%d) erreicht."
@@ -391,9 +316,6 @@ msgstr "Kalender verwalten"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Notizen"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Details"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Datum einstellen"
 
@@ -412,12 +334,93 @@ msgstr "Tage"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "HEUTE"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Maximale Anzahl an Zeichen (%d) erreicht."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Löschen"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Einstellungen"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Heute"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Keine Ereignisse"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Abbruch"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Samstag"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Sonntag"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Montag"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Wöchentlich"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Monatlich"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Titel"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Löschen"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Löschen"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "Jahr"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Suche"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Festlegen"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Bearbeiten"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Ereignisse"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Text"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Ohne"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Dienstag"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Mittwoch"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Donnerstag"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Freitag"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Ereignisbenachrichtigungen"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (schlummernd)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d Minuten"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Details"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Maximale Anzahl an Zeichen (%d) erreicht."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "ERSTELLEN"
 

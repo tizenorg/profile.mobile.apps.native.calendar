@@ -10,23 +10,11 @@ msgstr "ATŠAUKTI"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Numatytoji"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Trinti"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Pereiti prie šiandienos"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Nustatymai"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Visa d."
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Šiandien"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Nėra įvykių"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Šis įvykis bus panaikintas."
@@ -36,9 +24,6 @@ msgstr "Bus ištrinta įvykių: %d."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Visi įvykiai bus ištrinti."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Atšaukti"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Rinktis viską"
@@ -106,15 +91,6 @@ msgstr "Užfiksuoja įvykių laiką ir datą pagal pasirinktą laiko juostą. La
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Numatytoji lokalė"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Šeštadienis"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Sekmadienis"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Pirmadienis"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Iškylantieji pranešimai"
 
@@ -123,12 +99,6 @@ msgstr "Įspėjimų nėra"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Kasdien"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Kas savaitę"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Kas mėnesį"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Kasmetinis"
@@ -144,9 +114,6 @@ msgstr "val."
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "sav."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Pavadinimas"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Adresatų gimtadieniai"
@@ -169,17 +136,11 @@ msgstr "Priminimas"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Kartoti"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Trinti"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Visi kalendoriai"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Kurti"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Trinti"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Mano kalendorius"
@@ -211,26 +172,17 @@ msgstr "Visada"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "mėnuo"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "metai"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Kartoti iki"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "%d dieną"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Paieška"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "kartai"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 įvykis bus panaikintas."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Nustatyti"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Kalendorius"
@@ -241,12 +193,6 @@ msgstr "Atmesti pakeitimus"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Visi pokyčiai bus panaikinti."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Redaguoti"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Įvykiai"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Mano įvykis"
 
@@ -255,9 +201,6 @@ msgstr "Nustatyti priminimą"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS failas"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Tekstas"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "Pasirinkta: %d"
@@ -337,9 +280,6 @@ msgstr "1 iš įvykių, kurį pasirinkote trinti, yra pasikartojantis įvykis. T
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Kitas"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Nėra"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "kiekvieną %s"
 
@@ -349,18 +289,6 @@ msgstr "Kas %1$d %2$s, %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Kas %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Antradienis"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Trečiadienis"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Ketvirtadienis"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Penktadienis"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "iki %s"
 
@@ -369,9 +297,6 @@ msgstr "Nepavyko išsaugoti įvykio. Įvyko nežinoma klaida."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS failai nepalaikomi."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d min."
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Pasiektas didžiausias priedų skaičius (%d)."
@@ -391,9 +316,6 @@ msgstr "Tvarkyti kalendorius"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Pastabos"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Išsami informacija"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Nustatykite datą"
 
@@ -412,12 +334,93 @@ msgstr "d."
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "ŠIANDIEN"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Pasiektas didžiausias simbolių skaičius (%d)"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Trinti"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Nustatymai"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Šiandien"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Nėra įvykių"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Atšaukti"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Šeštadienis"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Sekmadienis"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Pirmadienis"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Kas savaitę"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Kas mėnesį"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Pavadinimas"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Trinti"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Trinti"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "metai"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Paieška"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Nustatyti"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Redaguoti"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Įvykiai"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Tekstas"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Nėra"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Antradienis"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Trečiadienis"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Ketvirtadienis"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Penktadienis"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Įspėjimai apie įvykius"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (atidėta)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d min."
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Išsami informacija"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Pasiektas didžiausias simbolių skaičius (%d)"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "SUKURTI"
 

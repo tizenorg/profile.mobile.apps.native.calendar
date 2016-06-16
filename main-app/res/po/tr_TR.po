@@ -10,23 +10,11 @@ msgstr "İPTAL"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Varsayılan"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Sil"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Bugüne git"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Ayarlar"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Gün boyu"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Bugün"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Olay yok"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Bu olay silinecek."
@@ -36,9 +24,6 @@ msgstr "%d olay silinecek."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Tüm olaylar silinecek."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "İptal"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Tümünü seç"
@@ -106,15 +91,6 @@ msgstr "Etkinlik saat ve tarihlerini seçtiğiniz saat dilimine kilitleyin. Baş
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Yerel varsayılan"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Cumartesi"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Pazar"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Pazartesi"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Açılır pencere bildirmleri"
 
@@ -123,12 +99,6 @@ msgstr "Uyarı yok"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Günlük"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Haftalık"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Aylık"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Yıllık"
@@ -144,9 +114,6 @@ msgstr "Saat"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "hft"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Başlık"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Kişilerin doğum günleri"
@@ -169,17 +136,11 @@ msgstr "Hatırlatıcı"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Tekrarla"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Sil"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Tüm takvimler"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Oluştur"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Sil"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Takvimim"
@@ -211,26 +172,17 @@ msgstr "Her zaman"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "ay"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "Yıl"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Son tekrarlama"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "%d günü"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Ara"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "defa"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 olay silinecek."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Ayarla"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Takvim"
@@ -241,12 +193,6 @@ msgstr "Değişiklikleri iptal et"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Tüm değişiklikler iptal edilecek."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Düzenle"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Olaylar"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Etkinliğim"
 
@@ -255,9 +201,6 @@ msgstr "Hatırlatıcı ayarla"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS dosyası"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Metin"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d seçildi"
@@ -337,9 +280,6 @@ msgstr "Silinmek üzere seçilen etkinliklerin 1'i tekrarlanan bir etkinlik. Tek
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Diğer"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Hiçbiri"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "her %s"
 
@@ -349,18 +289,6 @@ msgstr "Her %1$d %2$s sürede bir, %3$s günü"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Her %1$d %2$s sürede bir"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Salı"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Çarşamba"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Perşembe"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Cuma"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "%s tarihine kadar"
 
@@ -369,9 +297,6 @@ msgstr "Etkinlik kaydedilemedi. Bilinmeyen hata oluştu."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS dosyaları desteklenmez."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d dakika"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Maksimum ek sayısına (%d) ulaşıldı."
@@ -391,9 +316,6 @@ msgstr "Takvimleri yönet"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Notlar"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Ayrıntılar"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Tarihi ayarla"
 
@@ -412,12 +334,93 @@ msgstr "gün"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "BUGÜN"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Maksimum karakter sayısına (%d) ulaşıldı"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Sil"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Ayarlar"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Bugün"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Olay yok"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "İptal"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Cumartesi"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Pazar"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Pazartesi"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Haftalık"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Aylık"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Başlık"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Sil"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Sil"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "Yıl"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Ara"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Ayarla"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Düzenle"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Olaylar"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Metin"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Hiçbiri"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Salı"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Çarşamba"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Perşembe"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Cuma"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Etkinlik bildirimleri"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (duraklatıldı)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d dakika"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Ayrıntılar"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Maksimum karakter sayısına (%d) ulaşıldı"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "OLUŞTUR"
 

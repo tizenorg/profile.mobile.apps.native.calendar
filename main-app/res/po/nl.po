@@ -10,23 +10,11 @@ msgstr "ANNULEREN"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Standaard"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Wissen"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Ga naar vandaag"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Instellingen"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Hele dag"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Vandaag"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Geen gebeurtenissen"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Deze gebeurtenis wordt verwijderd."
@@ -36,9 +24,6 @@ msgstr "%d gebeurtenissen worden verwijderd."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Alle agenda-items worden verwijderd."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Annuleer"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Alles selecteren"
@@ -106,15 +91,6 @@ msgstr "Zet de tijd en datum van de gebeurtenis vast op de geselecteerde tijdzon
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Standaardinstellingen land"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Zaterdag"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Zondag"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Maandag"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Pop-upmeldingen"
 
@@ -123,12 +99,6 @@ msgstr "Geen waarschuwingen"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Dagelijks"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Week"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Maand"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Jaarlijks"
@@ -144,9 +114,6 @@ msgstr "uur"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "week"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Titel"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Verjaardagen van contacten"
@@ -169,17 +136,11 @@ msgstr "Herinnering"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Herhalen"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Verwijderen"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Alle agenda's"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Nieuw"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Verwijderen"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Mijn agenda"
@@ -211,26 +172,17 @@ msgstr "Altijd"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "maand"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "jaar"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Herhalen tot"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Op dag %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Zoeken"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "keer"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 agenda-item wordt verwijderd."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Instellen"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Agenda"
@@ -241,12 +193,6 @@ msgstr "Wijzigingen negeren"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Alle wijzigingen worden verwijderd."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Bewerken"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Gebeurtenissen"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Mijn gebeurtenis"
 
@@ -255,9 +201,6 @@ msgstr "Herinnering instellen"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS-bestand"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Tekst"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d geselecteerd"
@@ -337,9 +280,6 @@ msgstr "1 van de geselecteerde gebeurtenissen die u wilt verwijderen, is een ter
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Overig"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Geen"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "elke %s"
 
@@ -349,18 +289,6 @@ msgstr "Om de %1$d %2$s op %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Om de %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Dinsdag"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Woensdag"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Donderdag"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Vrijdag"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "tot %s"
 
@@ -369,9 +297,6 @@ msgstr "Kan gebeurtenis niet opslaan. Onbekende fout opgetreden."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS-bestanden niet ondersteund."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d minuten"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Maximumaantal bijlagen (%d) bereikt."
@@ -391,9 +316,6 @@ msgstr "Agenda's beheren"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Notities"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Gegevens"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Datum instellen"
 
@@ -412,12 +334,93 @@ msgstr "dagen"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "VANDAAG"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Maximumaantal tekens (%d) bereikt."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Wissen"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Instellingen"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Vandaag"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Geen gebeurtenissen"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Annuleer"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Zaterdag"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Zondag"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Maandag"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Wekelijks"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Maandelijks"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Titel"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Verwijderen"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Verwijderen"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "jaar"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Zoeken"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Instellen"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Bewerken"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Gebeurtenissen"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Tekst"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Geen"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Dinsdag"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Woensdag"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Donderdag"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Vrijdag"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Gebeurtenismeldingen"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (sluimerend)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minuten"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Gegevens"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Maximumaantal tekens (%d) bereikt."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "MAKEN"
 

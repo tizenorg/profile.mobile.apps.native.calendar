@@ -10,23 +10,11 @@ msgstr "HÆTTA VIÐ"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Sjálfgefið"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Eyða"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Fara í í dag"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Stillingar"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Dagurinn"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Í dag"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Enginn viðburður"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Þessum viðburði verður eytt."
@@ -36,9 +24,6 @@ msgstr "%d atvikum verður eytt."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Öllum viðburðum verður eytt."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Hætta v."
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Velja allt"
@@ -106,15 +91,6 @@ msgstr "Læsa tíma og dagsetningum viðburðar á valið tímabelti. Þetta bre
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Sjálfgildi landsstaðals"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Laugardagur"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Sunnudagur"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Mánudagur"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Sprettitilkynningar"
 
@@ -123,12 +99,6 @@ msgstr "Engar áminningar"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Daglega"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Vikulega"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Mánaðarlega"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Árlega"
@@ -144,9 +114,6 @@ msgstr "klst"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "vika"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Titill"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Afmælisdagar tengiliða"
@@ -169,17 +136,11 @@ msgstr "Áminning"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Endurtaka"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Eyða"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Öll dagatöl"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Búa til"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Eyða"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Dagatalið mitt"
@@ -211,26 +172,17 @@ msgstr "Endalaust"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "mánuður"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "ár"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Endurtaka fram til"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Á degi %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Leita"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "sinnum"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 atviki verður eytt."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Stilla"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Dagatal"
@@ -241,12 +193,6 @@ msgstr "Hunsa breytingar"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Öllum breytingum verður fleygt."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Breyta"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Viðburðir"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Minn viðburður"
 
@@ -255,9 +201,6 @@ msgstr "Stilla áminningu"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS-skrá"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Texti"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d valin"
@@ -337,9 +280,6 @@ msgstr "Einn af viðburðunum sem þú valdir að eyða er endurtekinn viðburð
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Annað"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Ekkert"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "hver %s"
 
@@ -349,18 +289,6 @@ msgstr "%3$s með millibilinu: %1$d %2$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Millibil: %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Þriðjudagur"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Miðvikudagur"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Fimmtudagur"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Föstudagur"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "fram til %s"
 
@@ -369,9 +297,6 @@ msgstr "Mistókst að vista viðburð. Óþekkt villa kom upp."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS-skrár eru ekki studdar."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d mínútur"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Hámarksfjölda viðhengja (%d) hefur verið náð."
@@ -391,9 +316,6 @@ msgstr "Vinna með dagatöl"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Glósur"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Upplýsingar"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Veldu dag"
 
@@ -412,12 +334,93 @@ msgstr "dagar"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "Í DAG"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Hámarksfjölda stafa (%d) hefur verið náð."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Eyða"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Stillingar"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Í dag"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Enginn viðburður"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Hætta v."
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Laugardagur"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Sunnudagur"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Mánudagur"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Vikulega"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Mánaðarlega"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Titill"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Eyða"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Eyða"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "ár"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Leita"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Stilla"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Breyta"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Viðburðir"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Texti"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Ekkert"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Þriðjudagur"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Miðvikudagur"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Fimmtudagur"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Föstudagur"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Viðburðir og tilkynningar"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (stillt á blund)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d mínútur"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Upplýsingar"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Hámarksfjölda stafa (%d) hefur verið náð."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "BÚA TIL"
 

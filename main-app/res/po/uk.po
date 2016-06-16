@@ -10,23 +10,11 @@ msgstr "СКАСУВАТИ"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Стандартний"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Видалити"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Перейти до сьогодні"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Налаштування"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Ціл.день"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Сьогодні"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Немає подій"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Цю подію буде видалено."
@@ -36,9 +24,6 @@ msgstr "Буде видалено стільки подій: %d."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Усі події буде видалено."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Скасувати"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Вибрати всі"
@@ -106,15 +91,6 @@ msgstr "Збереження дати й часу подій відповідн�
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Станд. налашт. локалізації"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Субота"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Неділя"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Понеділок"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Спливні сповіщення"
 
@@ -123,12 +99,6 @@ msgstr "Немає сповіщень"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Щоденно"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Щотижня"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Щомісяця"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Щороку"
@@ -144,9 +114,6 @@ msgstr "год."
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "тиж."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Назва"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Дні народження контактів"
@@ -169,17 +136,11 @@ msgstr "Нагадування"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Повторити"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Видалити"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Усі календарі"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Створити"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Видалити"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Мій календар"
@@ -211,26 +172,17 @@ msgstr "Завжди"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "місяць"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "рік"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Повторення до"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "%d числа"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Пошук"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "раз"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 подію буде видалено."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Установити"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Календар"
@@ -241,12 +193,6 @@ msgstr "Скасувати внесені зміни"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Усі зміни буде скасовано."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Редагувати"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Події"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Моя подія"
 
@@ -255,9 +201,6 @@ msgstr "Установлення нагадування"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "Файл VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Текст"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "Вибрано: %d"
@@ -337,9 +280,6 @@ msgstr "1 подія з вибраних для видалення є повто
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Інші"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Немає"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "кожен(-ну) %s"
 
@@ -349,18 +289,6 @@ msgstr "Кожні %1$d %2$s у %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Кожні %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Вівторок"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Середа"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Четвер"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "П'ятниця"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "до %s"
 
@@ -369,9 +297,6 @@ msgstr "Не вдалося зберегти подію. Сталася неві
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "Файли VTS не підтримуються."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d хвилин"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Досягнуто максимальної кількості вкладень (%d)."
@@ -391,9 +316,6 @@ msgstr "Керування календарями"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Нотатки"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Деталі"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Оберіть дату"
 
@@ -412,12 +334,93 @@ msgstr "днів"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "СЬОГОДНІ"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Досягнуто максимальної кількості символів (%d)"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Видалити"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Налаштування"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Сьогодні"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Немає подій"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Скасувати"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Щосуботи"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Щонеділі"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Щопонеділка"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Щотижня"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Щомісяця"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Назва"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Видалити"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Видалити"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "рік"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Пошук"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Установити"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Редагувати"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Події"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Текст"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Немає"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Щовівторка"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Щосереди"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Щочетверга"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Щоп'ятниці"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Сповіщення про події"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (відкладено)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d хвилин"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Деталі"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Досягнуто максимальної кількості символів (%d)"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "СТВОРИТИ"
 

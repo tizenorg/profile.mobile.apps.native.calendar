@@ -10,23 +10,11 @@ msgstr "CANCEL·LAR"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Predeterminat"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Esborrar"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Anar a avui"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Ajustaments"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Tot dia"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Avui"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "No hi ha cap esdeveniment"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "S'esborrarà aquest esdeveniment"
@@ -36,9 +24,6 @@ msgstr "S'esborraran %d esdeveniments"
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "S'esborraran tots els esdeveniments"
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Cancel·lar"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Seleccionar tot"
@@ -106,15 +91,6 @@ msgstr "Bloquegi les dates i hores dels esdeveniments a la zona horària selecci
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Config regional predet"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Dissabte"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Diumenge"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Dilluns"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Notificacions emergents"
 
@@ -123,12 +99,6 @@ msgstr "Sense avisos"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Diàriament"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Setmanal"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Mensual"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Anualment"
@@ -144,9 +114,6 @@ msgstr "hora"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "setm"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Títol"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Aniversaris dels contactes"
@@ -169,17 +136,11 @@ msgstr "Recordatori"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Repetir"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Esborrar"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Tots el calendaris"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Crear"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Esborrar"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "El meu calendari"
@@ -211,26 +172,17 @@ msgstr "Per sempre"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "mes"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "any"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Repetir fins"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "El dia %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Cercar"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "vegades"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "S'esborrarà 1 esdeveniment"
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Definir"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Calendari"
@@ -241,12 +193,6 @@ msgstr "Descartar canvis"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Es descartaran tots els canvis"
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Editar"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Esdeveniments"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "El meu esdeveniment"
 
@@ -255,9 +201,6 @@ msgstr "Definir recordatori"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "Fitxer VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Text"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d seleccionats"
@@ -337,9 +280,6 @@ msgstr "1 dels esdeveniments que ha seleccionat esborrar es un esdeveniment recu
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Altres"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Cap"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "cada %s"
 
@@ -349,18 +289,6 @@ msgstr "Cada %1$d %2$s el %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Cada %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Dimarts"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Dimecres"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Dijous"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Divendres"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "fins a %s"
 
@@ -369,9 +297,6 @@ msgstr "Error en desar l'esdeveniment. S'ha produït un error desconegut."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "No s'admeten els fitxers VTS."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d minuts"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "S'ha assolit el nombre màxim d'adjunts (%d)."
@@ -391,9 +316,6 @@ msgstr "Gestionar calendaris"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Notes"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Detalls"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Definir data"
 
@@ -412,12 +334,93 @@ msgstr "dies"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "AVUI"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "S'ha assolit el nombre màxim de caràcters (%d)."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Esborrar"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Ajustaments"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Avui"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "No hi ha cap esdeveniment"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Cancel·lar"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Dissabte"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Diumenge"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Dilluns"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Setmanal"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Mensual"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Títol"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Esborrar"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Esborrar"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "any"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Cercar"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Definir"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Editar"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Esdeveniments"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Text"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Cap"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Dimarts"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Dimecres"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Dijous"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Divendres"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Avisos d'esdeveniments"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (repetit)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minuts"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Detalls"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "S'ha assolit el nombre màxim de caràcters (%d)."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "CREAR"
 

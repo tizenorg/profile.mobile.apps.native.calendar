@@ -10,23 +10,11 @@ msgstr "キャンセル"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "標準"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "削除"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "今日に移動"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "設定"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "終日"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "今日"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "イベントは​ありません。"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "このイベントを削除します。"
@@ -36,9 +24,6 @@ msgstr "%d件のイベントを削除します。"
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "全てのイベントを削除します。"
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "キャンセル"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "全て選択"
@@ -101,19 +86,10 @@ msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
 msgstr "通知音"
 
 msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
-msgstr "イベント日時を選択したタイムゾーンに固定します。他のタイムゾーンに移動しても、日時は変更されません。"
+msgstr "選択したタイムゾーンにイベント日時を固定します。他のタイムゾーンに移動しても、日時は変更されません。"
 
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "地域ごとの初期設定"
-
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "土曜日"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "日曜日"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "月曜日"
 
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "ポップアップ通知"
@@ -123,12 +99,6 @@ msgstr "通知なし"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "毎日"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "毎週"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "毎月"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "毎年"
@@ -144,9 +114,6 @@ msgstr "時間"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "週"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "タイトル"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "連絡先の誕生日"
@@ -169,17 +136,11 @@ msgstr "通知"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "繰り返し"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "削除"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "全てのカレンダー"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "作成"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "削除"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "マイカレンダー"
@@ -211,26 +172,17 @@ msgstr "制限なし"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "月"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "年"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "繰り返し終了日"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "毎月%d日"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "検索"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "回"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1件のイベントが削除されます。"
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "設定"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "カレンダー"
@@ -241,12 +193,6 @@ msgstr "変更を破棄"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "全ての変更を破棄します。"
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "編集"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "イベント"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "マイイベント"
 
@@ -255,9 +201,6 @@ msgstr "通知を設定"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCSファイル"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "テキスト"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d件選択"
@@ -337,9 +280,6 @@ msgstr "削除するイベントのうち、1件が繰り返しイベントで�
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "その他"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "なし"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "%sごと"
 
@@ -349,18 +289,6 @@ msgstr "%1$d%2$sごとの%3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "%1$d%2$sごと"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "火曜日"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "水曜日"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "木曜日"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "金曜日"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "%sまで"
 
@@ -369,9 +297,6 @@ msgstr "イベントの保存に失敗しました。不明なエラーが発生
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTSファイルには対応していません。"
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d分"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "添付ファイルの最大件数(%d件)に達しました。"
@@ -391,9 +316,6 @@ msgstr "カレンダーを管理"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "メモ"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "詳細"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "日付を設定"
 
@@ -412,12 +334,93 @@ msgstr "日"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "今日"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "最大文字数(%d文字)に達しました。"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "削除"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "設定"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "今日"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "イベントは​ありません。"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "キャンセル"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "土曜日"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "日曜日"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "月曜日"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "毎週"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "毎月"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "タイトル"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "削除"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "削除"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "年"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "検索"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "設定"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "編集"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "イベント"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "テキスト"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "なし"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "火曜日"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "水曜日"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "木曜日"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "金曜日"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "イベント通知"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s(スヌーズ)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d分"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "詳細"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "最大文字数(%d文字)に達しました。"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "作成"
 

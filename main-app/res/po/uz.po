@@ -10,23 +10,11 @@ msgstr "BEKOR QILISH"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Birlamchi"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "O‘chirish"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Bugungi sanaga o‘tish"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Parametrlar"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Kun mob."
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Bugun"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Hodisalar yo‘q"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Ushbu hodisa o'chirildi."
@@ -36,9 +24,6 @@ msgstr "%d voqealar o'chiriladi."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Barcha voqealar o'chiriladi."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Bekor qilish"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Barchasini tanlash"
@@ -106,15 +91,6 @@ msgstr "Hodisa vaqti va sanasini tanlangan vaqt mintaqangizga mahkamlang. Boshqa
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Birlamchi mahalliy qiymat"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Shanba"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Yakshanba"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Dushanba"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Qalquvchi bildirishnomalar"
 
@@ -123,12 +99,6 @@ msgstr "Signallar yo‘q"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Kundalik"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Haftalik"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Oylik"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Yillik"
@@ -144,9 +114,6 @@ msgstr "soat"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "hft"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Sarlavha"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Kontaktlar tug‘ilgan kunlari"
@@ -169,17 +136,11 @@ msgstr "Eslatma"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Takrorlash"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "O'chirish"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Barcha kalendarlar"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Yaratish"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "O'chirish"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Mening kalendarim"
@@ -211,26 +172,17 @@ msgstr "Har doim"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "oy"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "yil"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Quyidagigacha takrorlash"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "%d kunida"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Qidirish"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "marta"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 voqea o'chiriladi."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "O‘rnatish"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Kalendar"
@@ -241,12 +193,6 @@ msgstr "O‘zgartirishlarni rad etish"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Barcha o‘zgartirishlar rad etiladi."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Tahrirlash"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Hodisalar"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Mening hodisam"
 
@@ -255,9 +201,6 @@ msgstr "Eslatma o‘rnatish"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS fayl"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Matn"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d tanlandi"
@@ -337,9 +280,6 @@ msgstr "Yo‘q qilish uchun tanlangan hodisalardan 1tasi takrorlanuvchi hodisa h
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Boshqa"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Hech qaysi"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "har %s"
 
@@ -349,18 +289,6 @@ msgstr "Har %1$d %2$s %3$s da"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Har %1$d/%2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Seshanba"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Chorshanba"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Payshanba"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Juma"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "%s gacha"
 
@@ -369,9 +297,6 @@ msgstr "Hodisani saqlab bo‘lmadi. Noma’lum xato yuz berdi."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS fayllari qo‘llab-quvvatlanmaydi."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d daqiqa"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Biriktirmalar soni maksimal miqdorga (%d) yetdi."
@@ -391,9 +316,6 @@ msgstr "Kalendarlarni boshqarish"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Eslatmalar"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Tafsilotlar"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Sana o‘rnatish"
 
@@ -412,12 +334,93 @@ msgstr "kun"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "BUGUN"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Belgilar soni ruxsat etilgan maksimal miqdorga (%d) yetdi"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "O‘chirish"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Parametrlar"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Bugun"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Hodisalar yo‘q"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Bekor qilish"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Shanba"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Yakshanba"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Dushanba"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Haftalik"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Oylik"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Sarlavha"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "O'chirish"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "O'chirish"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "yil"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Qidirish"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "O‘rnatish"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Tahrirlash"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Hodisalar"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Matn"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Hech qaysi"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Seshanba"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Chorshanba"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Payshanba"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Juma"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Hodisa bildirishnomalari"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (To‘xtatib qo‘yilgan)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d daqiqa"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Tafsilotlar"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Belgilar soni ruxsat etilgan maksimal miqdorga (%d) yetdi"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "YARATISH"
 

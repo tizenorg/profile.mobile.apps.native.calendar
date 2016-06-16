@@ -10,23 +10,11 @@ msgstr "UTZI"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Lehenetsia"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Ezabatu"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Gaurrera joan"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Ezarpenak"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Egun osoa"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Gaur"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Gertaerarik ez"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Gertaera hau ezabatu egingo da"
@@ -36,9 +24,6 @@ msgstr "%d gertaera ezabatuko dira"
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Gertaera guztiak ezabatuko dira"
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Ezeztatu"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Haut. den."
@@ -106,15 +91,6 @@ msgstr "Blokeatu gertaera orduak eta datak zuk hautatutako ordu zonan. Ez dira a
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Lehenetsitako eszena"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Larunbata"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Igandea"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Astelehena"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Jakinarazpen agerkariak"
 
@@ -123,12 +99,6 @@ msgstr "Alertarik ez"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Egunero"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Astero"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Hilero"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Urtero"
@@ -144,9 +114,6 @@ msgstr "ordu"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "aste"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Izenburua"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Kontaktuen urtebetetzeak"
@@ -169,17 +136,11 @@ msgstr "Gogorarazpena"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Errepikatu"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Ezabatu"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Egutegia guztiak"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Sortu"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Ezabatu"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Nire egutegia"
@@ -211,26 +172,17 @@ msgstr "Betiko"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "hila"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "urtea"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Errepikatu honaino:"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "%d. egunean"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Bilatu"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "aldiz"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "Gertaera 1 ezabatuko da"
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Ezarri"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Egutegia"
@@ -241,12 +193,6 @@ msgstr "Baztertu aldaketak"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Aldaketa guztiak kenduko dira"
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Editatu"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Gertaerak"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Nire gertaera"
 
@@ -255,9 +201,6 @@ msgstr "Ezarri oroigarria"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS fitxategia"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Testua"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d hautatuta"
@@ -305,7 +248,7 @@ msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
 msgstr "%s-(r)en urteurrena"
 
 msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
-msgstr "Egutegi 1 ezabatuko da."
+msgstr "1 egutegi ezabatuko da."
 
 msgid "IDS_CLD_HEADER_SET_TIME"
 msgstr "Ezarri ordua"
@@ -337,9 +280,6 @@ msgstr "Ezabatzeko hautatu duzun gertaeretako 1 errepikatuko den gertaera da. Ez
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Beste bat"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Bat ere ez"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "%s(e)ro"
 
@@ -349,18 +289,6 @@ msgstr "%1$d %2$s(e)ro, %3$s(e)an"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "%1$d %2$s(e)ro"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Asteartea"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Asteazkena"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Osteguna"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Ostirala"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "%s arte"
 
@@ -369,9 +297,6 @@ msgstr "Ezin izan da gertaera gorde. Errore ezezaguna gertatu da."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "Ez dira VTS fitxategiak onartzen."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d minutu"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Eranskinen gehieneko kopurura (%d) iritsi zara."
@@ -391,9 +316,6 @@ msgstr "Kudeatu egutegiak"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Oharrak"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Xehetasunak"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Ezarri data"
 
@@ -412,12 +334,93 @@ msgstr "egun"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "GAUR"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Gehieneko karaktere kopurura (%d) iritsi zara."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Ezabatu"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Ezarpenak"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Gaur"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Gertaerarik ez"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Ezeztatu"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Larunbata"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Igandea"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Astelehena"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Astero"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Hilero"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Izenburua"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Ezabatu"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Ezabatu"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "urtea"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Bilatu"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Ezarri"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Editatu"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Gertaerak"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Testua"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Bat ere ez"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Asteartea"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Asteazkena"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Osteguna"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Ostirala"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Gertaeren jakinarazpenak"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (lozorroan)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minutu"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Xehetasunak"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Gehieneko karaktere kopurura (%d) iritsi zara."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "SORTU"
 
