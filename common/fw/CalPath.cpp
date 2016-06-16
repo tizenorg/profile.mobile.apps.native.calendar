@@ -37,6 +37,18 @@ const std::string &CalPath::getEdjeDir()
 	return edjeDir;
 }
 
+const std::string &CalPath::getSharedResourceDir()
+{
+	static std::string sharedResDir;
+	if(sharedResDir.empty())
+	{
+		char *sharedPath = app_get_shared_resource_path();
+		sharedResDir = sharedPath;
+		free(sharedPath);
+	}
+	return sharedResDir;
+}
+
 const std::string &CalPath::getLocaleDir()
 {
 	static std::string localeDir;
@@ -115,6 +127,9 @@ std::string CalPath::getPath(const std::string &relativePath, DirType type)
 		break;
 	case DATA:
 		return std::string(getDataDir()).append(relativePath);
+		break;
+	case SHARED_RESOURCE:
+		return std::string(getSharedResourceDir()).append(relativePath);
 		break;
 	case RESOURCE:
 	default:
