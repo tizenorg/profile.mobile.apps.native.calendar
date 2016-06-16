@@ -10,23 +10,11 @@ msgstr "PERUUTA"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Oletus"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Poista"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Siirry tähän päivään"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Asetukset"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Koko pvä"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Tänään"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Ei tapahtumia"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Tämä tapahtuma poistetaan."
@@ -36,9 +24,6 @@ msgstr "%d tapahtumaa poistetaan."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Kaikki tapahtumat poistetaan."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Peruuta"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Valitse kaikki"
@@ -106,15 +91,6 @@ msgstr "Lukitse tapahtumien kellonajat ja päivämäärät valitun aikavyöhykke
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Oletusalue"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Lauantai"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Sunnuntai"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Maanantai"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Ponnahdusilmoitukset"
 
@@ -123,12 +99,6 @@ msgstr "Hälytyksiä ei ole"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Päivittäin"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Viikoittain"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Kuukausittain"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Joka vuosi"
@@ -144,9 +114,6 @@ msgstr "t."
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "vko"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Otsikko"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Yhteyshenk. syntymäpäivät"
@@ -169,17 +136,11 @@ msgstr "Muistutus"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Toista"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Poista"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Kaikki kalenterit"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Luo"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Poista"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Oma kalenteri"
@@ -211,26 +172,17 @@ msgstr "Ikuisesti"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "kuukausi"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "vuosi"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Toista asti"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Päivänä %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Hae"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "kertaa"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 tapahtuma poistetaan."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Aseta"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Kalenteri"
@@ -241,12 +193,6 @@ msgstr "Hylkää muutokset"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Kaikki muutokset hylätään."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Muokkaa"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Tapahtumat"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Oma tapahtuma"
 
@@ -255,9 +201,6 @@ msgstr "Aseta muistutus"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS-tiedosto"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Teksti"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d valittu"
@@ -337,9 +280,6 @@ msgstr "Yksi valitsemasi tapahtuma on toistuva tapahtuma. Poistetaanko tämän t
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Muu"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Ei mitään"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "joka %s"
 
@@ -349,18 +289,6 @@ msgstr "Joka %1$d. %2$s %3$sna"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Joka %1$d. %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Tiistai"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Keskiviikko"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Torstai"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Perjantai"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "%s asti"
 
@@ -369,9 +297,6 @@ msgstr "Tapahtuman tallennus epäonnistui. Tuntematon virhe."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS-tiedostoja ei tueta."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d minuuttia"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Liitteiden enimmäismäärä (%d) on saavutettu."
@@ -391,9 +316,6 @@ msgstr "Hallitse kalentereita"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Muistiinp."
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Lisätiedot"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Aseta päivämäärä"
 
@@ -412,12 +334,93 @@ msgstr "päivää"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "TÄNÄÄN"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Merkkien enimmäismäärä (%d) on saavutettu."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Poista"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Asetukset"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Tänään"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Ei tapahtumia"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Peruuta"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Lauantai"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Sunnuntai"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Maanantai"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Viikoittain"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Kuukausittain"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Otsikko"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Poista"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Poista"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "vuosi"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Hae"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Aseta"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Muokkaa"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Tapahtumat"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Teksti"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Ei mitään"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Tiistai"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Keskiviikko"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Torstai"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Perjantai"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Tapahtumailmoitukset"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (torkku)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minuuttia"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Lisätiedot"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Merkkien enimmäismäärä (%d) on saavutettu."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "LUO"
 

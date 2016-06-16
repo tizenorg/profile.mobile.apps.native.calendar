@@ -10,23 +10,11 @@ msgstr "MÉGSE"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Alapértelmezett"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Törlés"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Ugrás a mai napra"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Beállítások"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Egész n."
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Ma"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Nincs esemény"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Törli ezt az eseményt?"
@@ -36,9 +24,6 @@ msgstr "%d eseményt törölni fog."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Minden eseményt törölni fog."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Mégse"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Összes kijelölése"
@@ -106,15 +91,6 @@ msgstr "A kiválasztott időzónához kötheti az események idejét és dátum�
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Alapért. területi beáll."
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Szombat"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Vasárnap"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Hétfő"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Előugró értesítések"
 
@@ -123,12 +99,6 @@ msgstr "Nincs jelzés"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Naponta"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Hetente"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Havonta"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Évente"
@@ -144,9 +114,6 @@ msgstr "óra"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "hét"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Cím"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Partner születésnapja"
@@ -169,17 +136,11 @@ msgstr "Emlékeztető"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Ismétlés"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Töröl"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Minden naptár"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Létrehoz"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Töröl"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Saját naptár"
@@ -211,26 +172,17 @@ msgstr "Mindig"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "hónap"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "év"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Ismétlés határideje"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "A(z) %d. napon"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Keresés"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "alkalommal"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "Törölni fog 1 eseményt."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Beállít"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Naptár"
@@ -241,12 +193,6 @@ msgstr "Változtatások elvetése"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Minden változtatás elvetése"
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Szerkeszt"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Események"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Saját esemény"
 
@@ -255,9 +201,6 @@ msgstr "Emlékeztető beállítása"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS-fájl"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Szöveg"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d kijelölve"
@@ -337,9 +280,6 @@ msgstr "A törlésre kijelölt események között van 1 ismétlődő esemény. 
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Egyéb"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Nincs"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "minden %s"
 
@@ -349,18 +289,6 @@ msgstr "Minden %1$d. %2$s, %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Minden %1$d. %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Kedd"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Szerda"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Csütörtök"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Péntek"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "%s-ig"
 
@@ -369,9 +297,6 @@ msgstr "Nem sikerült menteni az eseményt. Ismeretlen eredetű hiba történt."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS-fájlok nincsenek támogatva."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d perc"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Elérte a mellékletek maximális számát (%d)."
@@ -391,9 +316,6 @@ msgstr "Naptárak kezelése"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Jegyzetek"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Részletek"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Dátum beállítása"
 
@@ -412,12 +334,93 @@ msgstr "nap"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "MA"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Elérte a karakterek maximális számát (%d)."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Törlés"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Beállítások"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Ma"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Nincs esemény"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Mégse"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Szombat"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Vasárnap"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Hétfő"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Hetente"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Havonta"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Cím"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Töröl"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Töröl"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "év"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Keresés"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Beállít"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Szerkeszt"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Események"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Szöveg"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Nincs"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Kedd"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Szerda"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Csütörtök"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Péntek"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Eseményértesítések"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (szundi módban)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d perc"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Részletek"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Elérte a karakterek maximális számát (%d)."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "LÉTREHOZÁS"
 

@@ -10,23 +10,11 @@ msgstr "ОТМЕНА"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "По умолчанию"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Удалить"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Перейти к сегодняшнему дню"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Настройки"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Весь день"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Сегодня"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Нет событий"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Событие будет удалено."
@@ -36,9 +24,6 @@ msgstr "События (%d) будут удалены."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Все события будут удалены."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Отмена"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Выбрать все"
@@ -106,15 +91,6 @@ msgstr "Фиксация времени и дат событий выбранн�
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "По умолчанию для региона"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Суббота"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Воскресенье"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Понедельник"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Всплыв. уведомления"
 
@@ -123,12 +99,6 @@ msgstr "Оповещений нет"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Ежедневно"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Еженедельно"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Ежемесячно"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Ежегодно"
@@ -144,9 +114,6 @@ msgstr "час"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "нед."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Название"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Дни рождения контактов"
@@ -169,17 +136,11 @@ msgstr "Напоминание"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Повторить"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Удалить"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Все календари"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Создать"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Удалить"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Мой календарь"
@@ -211,26 +172,17 @@ msgstr "Бесконечно"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "месяц"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "г."
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Повторять до"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Повтор по %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Поиск"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "раз."
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 событие будет удалено."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Установить"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Календарь"
@@ -241,12 +193,6 @@ msgstr "Отменить изменения"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Все изменения будут потеряны."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Изменить"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "События"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Мое событие"
 
@@ -255,9 +201,6 @@ msgstr "Настроить напоминание"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "Файл VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Текст"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "Выбрано: %d"
@@ -337,9 +280,6 @@ msgstr "1 из событий, которые вы хотите удалить, 
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Другое"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Нет"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "кажд. %s"
 
@@ -349,18 +289,6 @@ msgstr "Кажд. %1$d %2$s в %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Кажд. %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Вторник"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Среда"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Четверг"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Пятница"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "до %s"
 
@@ -369,9 +297,6 @@ msgstr "Не удалось сохранить событие. Произошл�
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "Файлы VTS не поддерживаются."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d мин."
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Достигнуто максимальное количество вложений (%d)."
@@ -391,9 +316,6 @@ msgstr "Управление календарями"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Примечания"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Свойства"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Выберите дату"
 
@@ -412,12 +334,93 @@ msgstr "дн."
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "СЕГОДНЯ"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Достигнуто максимальное число символов (%d)"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Удалить"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Настройки"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Сегодня"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Нет событий"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Отмена"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Суббота"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Воскресенье"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Понедельник"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Еженедельно"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Ежемесячно"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Название"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Удалить"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Удалить"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "г."
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Поиск"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Установить"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Изменить"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "События"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Текст"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Нет"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Вторник"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Среда"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Четверг"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Пятница"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Уведомления о событиях"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (приостановлен)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d мин."
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Свойства"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Достигнуто максимальное число символов (%d)"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "СОЗДАТЬ"
 

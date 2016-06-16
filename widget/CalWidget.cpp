@@ -122,7 +122,7 @@ void CalWidget::__createCalendar()
 	elm_box_padding_set(boxTop, ELM_SCALE_SIZE(BOX_W_PAD), 0);
 	elm_box_homogeneous_set(boxTop, EINA_FALSE);
 
-	__addBoxButton(boxTop, "IDS_CLD_OPT_CREATE",
+	__addBoxButton(boxTop, "IDS_CLD_ACBUTTON_CREATE_ABB",
 		[](void* data, Evas_Object* obj, void* event_info)
 		{
 			CalWidget* self = (CalWidget*)data;

@@ -10,23 +10,11 @@ msgstr "გაუქმება"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "ნაგულისხმევი"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "წაშლა"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "გადადი დღევანდელზე"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "პარამეტრები"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "მთელიდღე"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "დღეს"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "მოვლენები არ არის"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "ეს მოვლენა წაიშლება."
@@ -36,9 +24,6 @@ msgstr "%d მოვლენა წაიშლება."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "ყველა მოვლენა წაიშლება."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "გაუქმება"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "აირჩიეთ ყველა"
@@ -106,15 +91,6 @@ msgstr "დააფიქსირეთ მოვლენის დროე�
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "ადგილობრივად ნაგულისხმევი"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "შაბათი"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "კვირა"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "ორშაბათი"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "შეტყობინების სარკმლები"
 
@@ -123,12 +99,6 @@ msgstr "სიგნალები არ არის"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "ყოველდღიური"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "ყოველკვირა"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "ყოველთვე"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "წლიური"
@@ -144,9 +114,6 @@ msgstr "სთ."
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "კვ."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "სათაური"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "კონტაქტების დაბადების დღეები"
@@ -169,17 +136,11 @@ msgstr "შეხსენება"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "გამეორება"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "წაშლა"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "ყველა კალენდარი"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "შექმნა"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "წაშლა"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "ჩემი კალენდარი"
@@ -211,26 +172,17 @@ msgstr "მუდმივად"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "თვე"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "წელი"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "გამეორება დრომდე"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "%d რიცხვში"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "ძებნა"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "დროები"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "წაიშლება 1 მოვლენა."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "დაყენება"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "კალენდარი"
@@ -241,12 +193,6 @@ msgstr "ცვლილებების გაუქმება"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "ყველა ცვლილება გაუქმდება."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "შეცვლა"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "მოვლენები"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "ჩემი მოვლენა"
 
@@ -255,9 +201,6 @@ msgstr "შეხსენების დაყენება"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS ფაილი"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "ტექსტი"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d არჩეულია"
@@ -337,9 +280,6 @@ msgstr "თქვენ მიერ წასაშლელად არჩე
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "სხვა"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "არც ერთი"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "ყოველი %s"
 
@@ -349,18 +289,6 @@ msgstr "ყოველი %1$d %2$s, %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "ყოველი %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "სამშაბათი"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "ოთხშაბათი"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "ხუთშაბათი"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "პარასკევი"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "საბოლოო თარიღია %s"
 
@@ -369,9 +297,6 @@ msgstr "ღონისძიება ვერ შეინახა. მო�
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS ფაილები არ არის გათვალისწინებული."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d წუთი"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "მიღწეულია დანართების მაქსიმალური რაოდენობა (%d)."
@@ -391,9 +316,6 @@ msgstr "კალენდრების მართვა"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "შენიშვნები"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "დეტალები"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "თარიღის დაყენება"
 
@@ -412,12 +334,93 @@ msgstr "დღე"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "დღეს"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "მიღწეულია სიმბოლოების მაქსიმალური რაოდენობა (%d)"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "წაშლა"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "პარამეტრები"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "დღეს"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "მოვლენები არ არის"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "გაუქმება"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "შაბათი"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "კვირა"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "ორშაბათი"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "ყოველკვირა"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "ყოველთვე"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "სათაური"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "წაშლა"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "წაშლა"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "წელი"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "ძებნა"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "დაყენება"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "შეცვლა"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "მოვლენები"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "ტექსტი"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "არც ერთი"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "სამშაბათი"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "ოთხშაბათი"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "ხუთშაბათი"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "პარასკევი"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "მოვლენის შეტყობინებები"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (თვლემს)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d წუთი"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "დეტალები"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "მიღწეულია სიმბოლოების მაქსიმალური რაოდენობა (%d)"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "შექმნა"
 

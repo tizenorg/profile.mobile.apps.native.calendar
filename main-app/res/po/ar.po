@@ -10,23 +10,11 @@ msgstr "إلغاء"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "إفتراضي"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "حذف"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "الانتقال إلى قائمة اليوم"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "الضبط"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "طوال اليوم"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "اليوم"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "لا توجد أحداث"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "سيتم حذف هذا الحدث."
@@ -36,9 +24,6 @@ msgstr "سيتم حذف %d حدث (أحداث)."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "سيتم حذف جميع الأحداث."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "إلغاء"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "تحديد الكل"
@@ -106,15 +91,6 @@ msgstr "قم بتثبيت أوقات الأحداث وتواريخها على ا
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "الموقع المحلي الافتراضي"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "سبت"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "أحد"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "إثنين"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "إشعارات منبثقة"
 
@@ -123,12 +99,6 @@ msgstr "ما من تنبيهات"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "يوميا"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "أسبوعيا"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "شهريا"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "سنويا"
@@ -144,9 +114,6 @@ msgstr "ساعة"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "أسبوع"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "العنوان"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "أعياد ميلاد جهات الاتصال"
@@ -169,17 +136,11 @@ msgstr "التذكير"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "التكرار"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "مسح"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "جميع التقاويم"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "إنشاء"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "مسح"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "تقويمي"
@@ -211,26 +172,17 @@ msgstr "إلى الأبد"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "الشهر"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "سنة"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "تكرار حتى"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "في اليوم %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "البحث"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "الأوقات"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "سيتم حذف حدث واحد."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "ضبط"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "التقويم"
@@ -241,12 +193,6 @@ msgstr "تجاهل التغييرات"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "سيتم تجاهل جميع التغييرات."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "تعديل"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "الأحداث"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "الحدث"
 
@@ -255,9 +201,6 @@ msgstr "ضبط التذكير"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "ملف VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "نص"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "تم تحديد %d"
@@ -337,9 +280,6 @@ msgstr "يوجد حدث واحد متكرر من بين الأحداث المح�
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "غير ذلك"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "لاشيء"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "كل يوم %s"
 
@@ -349,18 +289,6 @@ msgstr "كل %1$d‏ %2$s في يوم %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "كل %1$d‏ %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "ثلاثاء"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "أربعاء"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "خميس"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "جمعة"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "حتى %s"
 
@@ -369,9 +297,6 @@ msgstr "فشل حفظ الحدث. حدث خطأ غير معروف."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "إن ملفات VTS غير مدعومة."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d دقيقة"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "تم بلوغ الحد الأقصى لعدد المرفقات (%d)."
@@ -391,9 +316,6 @@ msgstr "إدارة التقويمات"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "الملاحظات"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "التفاصيل"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "اختر التاريخ"
 
@@ -412,12 +334,93 @@ msgstr "أيام"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "اليوم"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "تم بلوغ أقصى عدد من الأحرف (%d)"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "حذف"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "الضبط"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "اليوم"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "لا توجد أحداث"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "إلغاء"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "سبت"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "أحد"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "إثنين"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "أسبوعيا"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "شهريا"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "العنوان"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "حذف"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "حذف"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "سنة"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "البحث"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "ضبط"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "تعديل"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "الأحداث"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "نص"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "لاشيء"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "ثلاثاء"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "أربعاء"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "خميس"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "جمعة"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "إشعارات الحدث"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (في غفوة)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d دقيقة"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "التفاصيل"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "تم بلوغ أقصى عدد من الأحرف (%d)"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "إنشاء"
 

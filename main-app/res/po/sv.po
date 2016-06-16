@@ -10,23 +10,11 @@ msgstr "AVBRYT"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Standard"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Ta bort"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Gå till idag"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Inställningar"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Hel dag"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Idag"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Inga händelser"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Denna händelse kommer tas bort."
@@ -36,9 +24,6 @@ msgstr "%d händelser kommer att tas bort."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Alla händelser kommer att raderas."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Avbryt"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Välj alla"
@@ -106,15 +91,6 @@ msgstr "Lås händelsetider och -datum till din valda tidszon. De kommer inte at
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Platsstandard"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "lördag"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "söndag"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "måndag"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Popup-aviseringar"
 
@@ -123,12 +99,6 @@ msgstr "Inga aviseringar"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Varje dag"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Veckovis"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Månadsvis"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Varje år"
@@ -144,9 +114,6 @@ msgstr "tim"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "vecka"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Rubrik"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Kontakters födelsedagar"
@@ -169,17 +136,11 @@ msgstr "Påminnelse"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Upprepa"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Ta bort"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Alla kalendrar"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Skapa"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Ta bort"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Min kalender"
@@ -211,26 +172,17 @@ msgstr "För evigt"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "månad"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "år"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Upprepa fram till"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "På dag %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Sök"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "gånger"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 händelse kommer att raderas."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Ange"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Kalender"
@@ -241,12 +193,6 @@ msgstr "Ignorera ändringar"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Alla ändringar kommer att ignoreras."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Redigera"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Händelser"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Min händelse"
 
@@ -255,9 +201,6 @@ msgstr "Ange påminnelse"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS-fil"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Text"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d valda"
@@ -337,9 +280,6 @@ msgstr "1 av de valda händelserna som ska tas bort är en återkommande händel
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Annat"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Ingen"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "varje %s"
 
@@ -349,18 +289,6 @@ msgstr "Var %1$d %2$s på %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Var %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "tisdag"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "onsdag"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "torsdag"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "fredag"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "tills %s"
 
@@ -369,9 +297,6 @@ msgstr "Det gick inte att spara händelsen. Ett okänt fel inträffade."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS-filer stöds inte."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d minuter"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Det högsta antalet bilagor (%d) har uppnåtts."
@@ -391,9 +316,6 @@ msgstr "Hantera kalendrar"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Anteckn."
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Detaljer"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Ställ in datum"
 
@@ -412,12 +334,93 @@ msgstr "dagar"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "IDAG"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Högsta antal tecken (%d) har uppnåtts."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Ta bort"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Inställningar"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Idag"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Inga händelser"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Avbryt"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "lördag"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "söndag"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "måndag"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Veckovis"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Månadsvis"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Rubrik"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Ta bort"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Ta bort"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "år"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Sök"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Ange"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Redigera"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Händelser"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Text"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Ingen"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "tisdag"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "onsdag"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "torsdag"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "fredag"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Händelseaviseringar"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (snoozad)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minuter"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Detaljer"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Högsta antal tecken (%d) har uppnåtts."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "SKAPA"
 

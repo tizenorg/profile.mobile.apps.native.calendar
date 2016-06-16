@@ -10,23 +10,11 @@ msgstr "ZRUŠIŤ"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Predvolený"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Odstrániť"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Prejsť na dnešok"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Nastavenia"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Celý deň"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Dnes"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Žiadne udalosti"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Táto udalosť bude vymazaná."
@@ -36,9 +24,6 @@ msgstr "%d udalosti sa vymažú."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Všetky udalosti sa vymažú."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Zrušiť"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Vybrať všetko"
@@ -106,15 +91,6 @@ msgstr "Časy a dátumy udalostí sa uzamknú k vybratému časovému pásmu. Ne
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Predv. miestne nastavenia"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Sobota"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Nedeľa"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Pondelok"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Kontextové oznámenia"
 
@@ -123,12 +99,6 @@ msgstr "Žiadne upozornenia"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Denne"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Týždenne"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Mesačne"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Ročne"
@@ -144,9 +114,6 @@ msgstr "hod."
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "týž."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Názov"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Narodeniny kontaktu"
@@ -169,17 +136,11 @@ msgstr "Pripomenutie"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Opakovať"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Odstrániť"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Všetky kalendáre"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Vytvoriť"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Odstrániť"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Môj kalendár"
@@ -211,26 +172,17 @@ msgstr "Neobmedzene"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "mesiac"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "rok"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Opakovať do"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Na %d. deň"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Vyhľadávanie"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "krát"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 udalosť sa vymaže."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Nastaviť"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Kalendár"
@@ -241,12 +193,6 @@ msgstr "Zahodiť zmeny"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Všetky zmeny sa zrušia."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Upraviť"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Udalosti"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Moja udalosť"
 
@@ -255,9 +201,6 @@ msgstr "Nastavenie pripomenutia"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "Súbor VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Text"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "Vybraté: %d"
@@ -337,9 +280,6 @@ msgstr "1 z udalostí, ktoré ste vybrali na odstránenie, je opakujúca sa udal
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Iné"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Žiadny"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "každý %s"
 
@@ -349,18 +289,6 @@ msgstr "Každý %1$d %2$s v %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Každý %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Utorok"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Streda"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Štvrtok"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Piatok"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "do %s"
 
@@ -369,9 +297,6 @@ msgstr "Udalosť sa nepodarilo uložiť. Vyskytla sa neznáma chyba."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "Súbory VTS nie sú podporované."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "Počet minút: %d"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Dosiahol sa maximálny počet príloh (%d)."
@@ -391,9 +316,6 @@ msgstr "Spravovať kalendáre"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Poznámky"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Podrobnosti"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Nastavte dátum"
 
@@ -412,12 +334,93 @@ msgstr "dni"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "DNES"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Dosiahol sa maximálny počet znakov (%d)."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Odstrániť"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Nastavenia"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Dnes"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Žiadne udalosti"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Zrušiť"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Sobota"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Nedeľa"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Pondelok"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Týždenne"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Mesačne"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Názov"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Odstrániť"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Odstrániť"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "rok"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Vyhľadávanie"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Nastaviť"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Upraviť"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Udalosti"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Text"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Žiadny"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Utorok"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Streda"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Štvrtok"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Piatok"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Oznámenia udalostí"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (odložený)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "Počet minút: %d"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Podrobnosti"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Dosiahol sa maximálny počet znakov (%d)."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "VYTVORIŤ"
 

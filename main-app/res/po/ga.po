@@ -10,23 +10,11 @@ msgstr "CUIR AR CEAL"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Réamhshocrú"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Scrios"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Gabh chuig inniu"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Socruithe"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Lá ar fad"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Inniu"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Níl imeachtaí ann"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Scriosfar an t-imeacht seo"
@@ -36,9 +24,6 @@ msgstr "Scriosfar %d imeacht"
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Scriosfar gach imeacht"
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Cealaigh"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Roghnaigh gach"
@@ -106,15 +91,6 @@ msgstr "Glasáil amanna agus dátaí imeachtaí chuig d'amchrios roghnaithe. Ní
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Réamhshocrú logchaighdeáin"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Dé Sathairn"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Dé Domhnaigh"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Dé Luain"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Míreanna fógraí aníos"
 
@@ -123,12 +99,6 @@ msgstr "Níl foláirimh ann"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Laethúil"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Seachtainiúil"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Míosúil"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Bliantúil"
@@ -144,9 +114,6 @@ msgstr "uair"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "scht"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Teideal"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Lá breithe teagmhálaithe"
@@ -169,17 +136,11 @@ msgstr "Meabhrúchán"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Déan arís"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Scrios"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Gach féilire"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Déan"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Scrios"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "M’fhéilire"
@@ -211,26 +172,17 @@ msgstr "Choíche"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "mí"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "bliain"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Athdhéan go dtí"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Ar lá %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Cuardaigh"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "uaireanta"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "Scriosfar 1 imeacht"
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Socraigh"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Féilire"
@@ -241,12 +193,6 @@ msgstr "Cuileáil athruithe"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Cuileálfar gach athrú"
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Cuir in eagar"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Imeachtaí"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "M’imeacht"
 
@@ -255,9 +201,6 @@ msgstr "Socraigh meabhrúchán"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "Comhad VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Téacs"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d roghnaithe"
@@ -337,9 +280,6 @@ msgstr "Is imeacht athfhillteach 1 de na himeachtaí a roghnaigh tú le scriosad
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Eile"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Dada"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "gach %s"
 
@@ -349,18 +289,6 @@ msgstr "Gach %1$d %2$s ar an %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Gach %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Dé Máirt"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Dé Céadaoin"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Déardaoin"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Dé hAoine"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "go dtí %s"
 
@@ -369,9 +297,6 @@ msgstr "Theip ar shábháil an imeachta. Tharla earráid neamhaithnid."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "Níl tacú ann do chomhaid VTS."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d nóiméad"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Uaslíon na gceangaltán (%d) bainte amach."
@@ -391,9 +316,6 @@ msgstr "Bainistigh féilirí"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Nótaí"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Sonraí"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Socraigh dáta"
 
@@ -412,12 +334,93 @@ msgstr "lá"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "INNIU"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Uaslíon na gcarachtar (%d) bainte amach."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Scrios"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Socruithe"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Inniu"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Níl imeachtaí ann"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Cealaigh"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Dé Sathairn"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Dé Domhnaigh"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Dé Luain"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Seachtainiúil"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Míosúil"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Teideal"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Scrios"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Scrios"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "bliain"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Cuardaigh"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Socraigh"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Cuir in eagar"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Imeachtaí"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Téacs"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Dada"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Dé Máirt"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Dé Céadaoin"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Déardaoin"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Dé hAoine"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Fógra maidir le himeachtaí"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (ar néal codlata)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d nóiméad"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Sonraí"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Uaslíon na gcarachtar (%d) bainte amach."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "CRUTHAIGH"
 

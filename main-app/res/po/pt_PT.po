@@ -10,23 +10,11 @@ msgstr "CANCELAR"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Padrão"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Eliminar"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Ir para hoje"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Definições"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Todo dia"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Hoje"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Sem eventos"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Este evento será eliminado."
@@ -36,9 +24,6 @@ msgstr "%d eventos serão eliminados."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Todos os eventos serão eliminados."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Cancelar"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Seleccionar tudo"
@@ -106,15 +91,6 @@ msgstr "Bloqueie as horas e as datas de eventos no fuso horário seleccionado. E
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Padrão regional"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Sábado"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Domingo"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Segunda-feira"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Notificações de pop-up"
 
@@ -123,12 +99,6 @@ msgstr "Sem alertas"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Diariamente"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Semanalmente"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Mensalmente"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Anualmente"
@@ -144,9 +114,6 @@ msgstr "hora"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "Sem."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Título"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Aniversários dos contactos"
@@ -169,17 +136,11 @@ msgstr "Lembrete"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Repetir"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Eliminar"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Todas as agendas"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Criar"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Eliminar"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "A minha agenda"
@@ -211,26 +172,17 @@ msgstr "Para sempre"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "mês"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "ano"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Repetir até"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "No dia %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Procurar"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "vezes"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 evento será eliminado."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Definir"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Agenda"
@@ -241,12 +193,6 @@ msgstr "Eliminar alterações"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "As alterações serão todas eliminadas."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Editar"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Eventos"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "O meu evento"
 
@@ -255,9 +201,6 @@ msgstr "Definir lembrete"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "Ficheiro VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Texto"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d seleccionado(s)"
@@ -337,9 +280,6 @@ msgstr "1 dos eventos que seleccionou para eliminar é um evento recorrente. Eli
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Outro"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Desligado"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "a cada %s"
 
@@ -349,18 +289,6 @@ msgstr "A cada %1$d %2$s, %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "A cada %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Terça-feira"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Quarta-feira"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Quinta-feira"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Sexta-feira"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "até %s"
 
@@ -369,9 +297,6 @@ msgstr "Falha ao guardar evento. Ocorreu erro desconhecido."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "Ficheiros VTS não suportados."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d minutos"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Número máximo de anexos (%d) atingido."
@@ -391,9 +316,6 @@ msgstr "Gerir agendas"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Notas"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Detalhes"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Definir data"
 
@@ -412,12 +334,93 @@ msgstr "dias"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "HOJE"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Número máximo de caracteres (%d) atingido."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Eliminar"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Definições"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Hoje"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Sem eventos"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Cancelar"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Sábado"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Domingo"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Segunda-feira"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Semanalmente"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Mensalmente"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Título"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Eliminar"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Eliminar"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "ano"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Procurar"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Definir"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Editar"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Eventos"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Texto"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Desligado"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Terça-feira"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Quarta-feira"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Quinta-feira"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Sexta-feira"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Notificações de eventos"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (adiado)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minutos"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Detalhes"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Número máximo de caracteres (%d) atingido."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "CRIAR"
 

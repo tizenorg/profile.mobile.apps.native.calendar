@@ -10,38 +10,23 @@ msgstr "ANULARE"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Implicit"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Ştergere"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Salt la azi"
-
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Setări"
 
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Toată ziua"
 
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Azi"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Nu există evenimente"
-
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
-msgstr "Acest eveniment va fi şters."
+msgstr "Acest eveniment va fi șters."
 
 msgid "IDS_CLD_POP_PD_EVENTS_WILL_BE_DELETED"
-msgstr "%d evenimente vor fi şterse."
+msgstr "%d evenimente vor fi șterse."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
-msgstr "Toate evenimentele vor fi şterse."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Anulare"
+msgstr "Toate evenimentele vor fi șterse."
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
-msgstr "Selectaţi-le pe toate"
+msgstr "Selectați-le pe toate"
 
 msgid "IDS_CLD_NPBODY_NO_RESULTS_FOUND"
 msgstr "Nu au fost găsite rezultate"
@@ -74,7 +59,7 @@ msgid "IDS_CLD_OPT_ONLY_THIS_EVENT_ABB"
 msgstr "Numai acest eveniment"
 
 msgid "IDS_CLD_OPT_THIS_AND_FUTURE_EVENTS_ABB"
-msgstr "Even. acesta şi cele viitoare"
+msgstr "Even. acesta și cele viitoare"
 
 msgid "IDS_CLD_OPT_ALL_REPEATED_EVENTS_ABB"
 msgstr "Toate evenimentele repetate"
@@ -83,7 +68,7 @@ msgid "IDS_CLD_BUTTON_SNOOZE"
 msgstr "Amânare"
 
 msgid "IDS_CLD_BUTTON_DISMISS"
-msgstr "Renunţare"
+msgstr "Renunțare"
 
 msgid "IDS_CLD_HEADER_TIME_ZONE_ABB"
 msgstr "Fus orar"
@@ -101,19 +86,10 @@ msgid "IDS_CLD_MBODY_NOTIFICATION_SOUND"
 msgstr "Sunet notificare"
 
 msgid "IDS_CLD_BODY_LOCK_EVENT_TIMES_AND_DATES_TO_YOUR_SELECTED_TIME_ZONE_THEY_WILL_NOT_CHANGE_EVEN_IF_YOU_MOVE_TO_ANOTHER_TIME_ZONE"
-msgstr "Blocaţi orele şi datele evenimentelor la fusul orar selectat de dvs. Acestea nu se vor modifica, chiar dacă vă deplasaţi în alt fus orar."
+msgstr "Blocați orele și datele evenimentelor la fusul orar selectat de dvs. Acestea nu se vor modifica, chiar dacă vă deplasați în alt fus orar."
 
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Setare locală implicită"
-
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Sâmbătă"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Duminică"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Luni"
 
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Notificări pop-up"
@@ -123,12 +99,6 @@ msgstr "Nicio alertă"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Zilnic"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Săptămânal"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Lunar"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Anual"
@@ -145,20 +115,17 @@ msgstr "oră"
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "săp."
 
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Titlu"
-
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
-msgstr "Zile de naştere contacte"
+msgstr "Zile de naștere contacte"
 
 msgid "IDS_CLD_BODY_END_M_DATE"
-msgstr "Sfârşit"
+msgstr "Sfârșit"
 
 msgid "IDS_CLD_BODY_START_M_DATE"
 msgstr "Început"
 
 msgid "IDS_CLD_BUTTON_LOCATION_ABB"
-msgstr "Locaţie"
+msgstr "Locație"
 
 msgid "IDS_CLD_BUTTON_MORE"
 msgstr "Mai multe"
@@ -169,26 +136,20 @@ msgstr "Memento"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Repetare"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Ştergere"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Toate calendarele"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Creare"
 
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Ştergere"
-
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Calendarul meu"
 
 msgid "IDS_CLD_POP_ALL_CALENDARS_WILL_BE_DELETED"
-msgstr "Toate calendarele vor fi şterse."
+msgstr "Toate calendarele vor fi șterse."
 
 msgid "IDS_CLD_POP_PD_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_ARE_RECURRING_EVENTS_DELETE_ALL_OCCURRENCES_OF_THESE_EVENTS_Q"
-msgstr "%d dintre evenimentele pe care le-aţi selectat pentru a fi şterse sunt evenimente repetitive. Ştergeţi toate ocurenţele acestor evenimente?"
+msgstr "%d dintre evenimentele pe care le-ați selectat pentru a fi șterse sunt evenimente repetitive. Ștergeți toate ocurențele acestor evenimente?"
 
 msgid "IDS_CLD_OPT_EVERY_FIFTH_PS_ABB"
 msgstr "În fiecare a cincea zi de %s"
@@ -211,41 +172,26 @@ msgstr "Pentru totdeauna"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "lună"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "an"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Repetare până la"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "În ziua de %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Căutare"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "ori"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
-msgstr "1 eveniment va fi şters."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Afişare"
+msgstr "1 eveniment va fi șters."
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Calendar"
 
 msgid "IDS_CLD_HEADER_DISCARD_CHANGES_ABB"
-msgstr "Anulaţi modificările"
+msgstr "Anulați modificările"
 
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Toate modificările vor fi eliminate."
-
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Editare"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Evenimente"
 
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Evenimentul meu"
@@ -254,16 +200,13 @@ msgid "IDS_CLD_HEADER_SET_REMINDER_ABB"
 msgstr "Setare memento"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
-msgstr "Fişier VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Text"
+msgstr "Fișier VCS"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d selectate"
 
 msgid "IDS_CLD_HEADER_SHARE_AS"
-msgstr "Partajaţi ca"
+msgstr "Partajați ca"
 
 msgid "IDS_CLD_OPT_MONTHS_LC_ABB"
 msgstr "luni"
@@ -293,22 +236,22 @@ msgid "IDS_CLD_OPT_PD_WEEKS_BEFORE_ABB"
 msgstr "Cu %d săptămâni înainte"
 
 msgid "IDS_CLD_TPOP_END_TIME_SHOULD_BE_LATER_THAN_START_TIME"
-msgstr "Ora de sfârşit trebuie să fie ulterioară de început."
+msgstr "Ora de sfârșit trebuie să fie ulterioară de început."
 
 msgid "IDS_CLD_TPOP_END_DATE_SHOULD_BE_LATER_THAN_START_DATE"
-msgstr "Data de sfârşit trebuie să fie ulterioară datei de început."
+msgstr "Data de sfârșit trebuie să fie ulterioară datei de început."
 
 msgid "IDS_CLD_BUTTON_DISCARD_ABB"
-msgstr "Renunţare"
+msgstr "Renunțare"
 
 msgid "IDS_CLD_MBODY_PSS_ANNIVERSARY"
 msgstr "Aniversare %s"
 
 msgid "IDS_CLD_POP_1_CALENDAR_WILL_BE_DELETED"
-msgstr "1 calendar va fi şters."
+msgstr "1 calendar va fi șters."
 
 msgid "IDS_CLD_HEADER_SET_TIME"
-msgstr "Setaţi ora"
+msgstr "Setați ora"
 
 msgid "IDS_CLD_HEADER_ADD_FIELD"
 msgstr "Adăugare câmp"
@@ -317,7 +260,7 @@ msgid "IDS_CLD_OPT_COPY_TO_CLIPBOARD_ABB2"
 msgstr "Copiere în clipboard"
 
 msgid "IDS_CLD_OPT_GO_TO_WEB_ADDRESS_ABB"
-msgstr "Accesaţi adresa web"
+msgstr "Accesați adresa web"
 
 msgid "IDS_CLD_OPT_ADD_TO_BOOKMARKS_ABB"
 msgstr "Adăugare la Marcaje"
@@ -329,16 +272,13 @@ msgid "IDS_CLD_OPT_STATUS_BAR_NOTIFICATIONS_ABB"
 msgstr "Notificări în bara de stare"
 
 msgid "IDS_CLD_BODY_AFTER_YOU_CREATE_OR_ACCEPT_INVITATIONS_TO_EVENTS_THEY_WILL_BE_SHOWN_HERE"
-msgstr "După ce creaţi sau acceptaţi invitaţii la evenimente, acestea vor fi afişate aici."
+msgstr "După ce creați sau acceptați invitații la evenimente, acestea vor fi afișate aici."
 
 msgid "IDS_CLD_POP_1_OF_THE_EVENTS_YOU_HAVE_SELECTED_TO_DELETE_IS_A_RECURRING_EVENT_DELETE_ALL_OCCURRENCES_OF_THIS_EVENT_Q"
-msgstr "1 dintre evenimentele pe care le-aţi selectat pentru a fi şterse este un eveniment repetitiv. Ştergeţi toate ocurenţele acestui eveniment?"
+msgstr "1 dintre evenimentele pe care le-ați selectat pentru a fi șterse este un eveniment repetitiv. Ștergeți toate ocurențele acestui eveniment?"
 
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Altele"
-
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Niciuna"
 
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "în fiecare %s"
@@ -349,18 +289,6 @@ msgstr "La fiecare %1$d %2$s în ziua de %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "La fiecare %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Marţi"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Miercuri"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Joi"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Vineri"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "până la %s"
 
@@ -368,16 +296,13 @@ msgid "IDS_CLD_TPOP_FAILED_TO_SAVE_EVENT_UNKNOWN_ERROR_OCCURRED"
 msgstr "Evenimentul nu a putut fi salvat. A apărut o eroare necunoscută."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
-msgstr "Fişierele VTS nu sunt acceptate."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d minute"
+msgstr "Fișierele VTS nu sunt acceptate."
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
-msgstr "A fost atins numărul maxim de ataşări (%d)."
+msgstr "A fost atins numărul maxim de atașări (%d)."
 
 msgid "IDS_CLD_TPOP_DATE_OUTSIDE_ACCEPTED_RANGE_SELECT_DATE_BETWEEN_P1SS_AND_P2SS"
-msgstr "Data se află în afara intervalului acceptat. Selectaţi o dată cuprinsă între %1$s şi %2$s."
+msgstr "Data se află în afara intervalului acceptat. Selectați o dată cuprinsă între %1$s și %2$s."
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_EVENTS_THAT_CAN_BE_INSERTED_HPD_REACHED"
 msgstr "S-a atins numărul maxim de evenimente care pot fi inserate (%d)."
@@ -391,11 +316,8 @@ msgstr "Gestionare calendare"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Note"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Detalii"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
-msgstr "Setaţi data"
+msgstr "Setați data"
 
 msgid "IDS_CLD_OPT_NEVER"
 msgstr "Niciodată"
@@ -412,12 +334,93 @@ msgstr "zile"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "ASTĂZI"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "A fost atins numărul maxim de caractere (%d)."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Ștergere"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Setări"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Azi"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Nu există evenimente"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Anulare"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Sâmbătă"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Duminică"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Luni"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Săptămânal"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Lunar"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Titlu"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Ștergere"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Ștergere"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "an"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Căutare"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Afișare"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Editare"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Evenimente"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Text"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Niciuna"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Marți"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Miercuri"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Joi"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Vineri"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Notificări privind evenimentul"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (Amânată)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minute"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Detalii"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "A fost atins numărul maxim de caractere (%d)."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "CREARE"
 

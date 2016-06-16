@@ -10,23 +10,11 @@ msgstr "OTKAŽI"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Podrazumevano"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Izbriši"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Idi na današnji datum"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Podešavanja"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Celi dan"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Danas"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Nema događaja"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Ovaj događaj će biti obrisan."
@@ -36,9 +24,6 @@ msgstr "Biće izbrisan sledeći broj događaja:  %d."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Biće obrisani svi događaji."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Otkaži"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Izaberi sve"
@@ -106,15 +91,6 @@ msgstr "Zaključaj vremena događaja i datume prema izabranoj vremenskoj zoni. O
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Podrazumevano mesto"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Subota"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Nedelja"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Ponedeljak"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Iskačuća obaveštenja"
 
@@ -123,12 +99,6 @@ msgstr "Nema upozorenja"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Svakodnevno"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Nedeljno"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Mesečno"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Godišnje"
@@ -144,9 +114,6 @@ msgstr "sat"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "ned."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Naslov"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Rođendani kontakata"
@@ -169,17 +136,11 @@ msgstr "Podsetnik"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Ponovi"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Izbriši"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Svi kalendari"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Kreiraj"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Izbriši"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Moj kalendar"
@@ -211,26 +172,17 @@ msgstr "Beskrajno"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "mesec"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "godina"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Ponavljaj do"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Dana %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Pretraga"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "puta"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "Biće obrisan 1 događaj."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Podesi"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Kalendar"
@@ -241,12 +193,6 @@ msgstr "Odbaci promene"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Sve promene će biti odbačene."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Izmeni"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Događaji"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Moj događaj"
 
@@ -255,9 +201,6 @@ msgstr "Podesi podsetnik"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS fajl"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Tekst"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "Izabrano: %d"
@@ -337,9 +280,6 @@ msgstr "1 događaj koje ste izabrali za brisanje je događaj koji se ponavlja. I
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Drugo"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Nema"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "svake/svakog %s"
 
@@ -349,18 +289,6 @@ msgstr "Svake/ih %1$d %2$s u %3$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Svaka/ih %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Utorak"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Sreda"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Četvrtak"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Petak"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "do %s"
 
@@ -369,9 +297,6 @@ msgstr "Neuspešno čuvanje događaja. Došlo je do nepoznate greške."
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS fajlovi nisu podržani."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d minuta"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Dostignut je maksimalan broj priloga (%d)."
@@ -391,9 +316,6 @@ msgstr "Podesi kalendare"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Beleške"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Detalji"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Podesi datum"
 
@@ -412,12 +334,93 @@ msgstr "dana"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "DANAS"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Dostignut je maksimalan broj karaktera (%d)."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Izbriši"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Podešavanja"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Danas"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Nema događaja"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Otkaži"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Subota"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Nedelja"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Ponedeljak"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Nedeljno"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Mesečno"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Naslov"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Izbriši"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Izbriši"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "godina"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Pretraga"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Podesi"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Izmeni"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Događaji"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Tekst"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Nema"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Utorak"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Sreda"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Četvrtak"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Petak"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Obaveštenja o događaju"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (odložen)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d minuta"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Detalji"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Dostignut je maksimalan broj karaktera (%d)."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "KREIRAJ"
 

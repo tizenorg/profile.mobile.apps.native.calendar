@@ -10,23 +10,11 @@ msgstr "ΑΚΥΡΟ"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Προεπιλογή"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Διαγραφή"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Μετάβαση στο σήμερα"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Ρυθμίσεις"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Ολοήμερο"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Σήμερα"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Κανένα συμβάν"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Αυτό το συμβάν θα διαγραφεί."
@@ -36,9 +24,6 @@ msgstr "Θα διαγραφούν %d συμβάντα."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Θα διαγραφούν όλα τα συμβάντα."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Ακύρωση"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Επιλογή όλων"
@@ -106,15 +91,6 @@ msgstr "Κλείδωμα της ώρας και της ημερομηνίας σ
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Προεπιλ. τοπικές ρυθμίσεις"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Σάββατο"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Κυριακή"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Δευτέρα"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Αναδυόμενες ειδοποιήσεις"
 
@@ -123,12 +99,6 @@ msgstr "Καμία ειδοποίηση"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Καθημερινά"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Εβδομαδιαία"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Κάθε μήνα"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Κάθε έτος"
@@ -144,9 +114,6 @@ msgstr "ώρα"
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "εβδ."
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Τίτλος"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Γενέθλια επαφών"
@@ -169,17 +136,11 @@ msgstr "Υπενθύμιση"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Επανάληψη"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Διαγραφή"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Όλα τα ημερολόγια"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Δημιουργία"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Διαγραφή"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Το ημερολόγιό μου"
@@ -211,26 +172,17 @@ msgstr "Για πάντα"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "μήνας"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "έτος"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Επανάληψη μέχρι"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "Ημέρα: %d"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Αναζήτηση"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "φορές"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 συμβάν θα διαγραφεί."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Ορισμός"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Ημερολόγιο"
@@ -241,12 +193,6 @@ msgstr "Απόρριψη αλλαγών"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Θα γίνει απόρριψη όλων των αλλαγών."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Επεξεργασία"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Συμβάντα"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Το συμβάν μου"
 
@@ -255,9 +201,6 @@ msgstr "Ορισμός υπενθύμισης"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "Αρχείο VCS"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Κείμενο"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "Επιλέχθηκαν %d"
@@ -337,9 +280,6 @@ msgstr "1 από τα συμβάντα που έχετε επιλέξει για
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Άλλες"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Κανένα"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "κάθε %s"
 
@@ -349,18 +289,6 @@ msgstr "Κάθε %3$s ανά %1$d %2$s"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Κάθε %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Τρίτη"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Τετάρτη"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Πέμπτη"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Παρασκευή"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "έως τις %s"
 
@@ -369,9 +297,6 @@ msgstr "Αποτυχία αποθήκευσης συμβάντος. Προέκυ
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "Τα αρχεία VTS δεν υποστηρίζονται."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d λεπτά"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Συμπληρώθηκε ο μέγιστος αριθμός συνημμένων (%d)."
@@ -391,9 +316,6 @@ msgstr "Διαχείριση ημερολογίων"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Σημειώσεις"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Λεπτομέρειες"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Ορισμός ημερομηνίας"
 
@@ -412,12 +334,93 @@ msgstr "ημέρες"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "ΣΗΜΕΡΑ"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Συμπληρώθηκε ο μέγιστος αριθμός χαρακτήρων (%d)."
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Διαγραφή"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Ρυθμίσεις"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Σήμερα"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Κανένα συμβάν"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Ακύρωση"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Σάββατο"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Κυριακή"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Δευτέρα"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Εβδομαδιαία"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Κάθε μήνα"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Τίτλος"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Διαγραφή"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Διαγραφή"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "έτος"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Αναζήτηση"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Ορισμός"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Επεξεργασία"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Συμβάντα"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Κείμενο"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Κανένα"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Τρίτη"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Τετάρτη"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Πέμπτη"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Παρασκευή"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Ειδοποιήσεις συμβάντων"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (σε αναβολή)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d λεπτά"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Λεπτομέρειες"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Συμπληρώθηκε ο μέγιστος αριθμός χαρακτήρων (%d)."
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "ΔΗΜΙΟΥΡΓΙΑ"
 

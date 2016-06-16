@@ -10,23 +10,11 @@ msgstr "БАС ТАРТУ"
 msgid "IDS_COM_BODY_DEFAULT"
 msgstr "Өздігінен"
 
-msgid "IDS_CLD_BUTTON_DELETE_ABB"
-msgstr "Жою"
-
 msgid "IDS_CLD_OPT_GO_TO_TODAY"
 msgstr "Бүгінгі күнге өту"
 
-msgid "IDS_CLD_OPT_SETTINGS"
-msgstr "Қондырғылар"
-
 msgid "IDS_CLD_OPT_ALL_DAY_ABB2"
 msgstr "Күн бойы"
-
-msgid "IDS_CLD_OPT_TODAY"
-msgstr "Бүгін"
-
-msgid "IDS_CLD_BODY_NO_EVENTS"
-msgstr "Оқиға жоқ"
 
 msgid "IDS_CLD_POP_THIS_EVENT_WILL_BE_DELETED"
 msgstr "Бұл оқиға жойылады."
@@ -36,9 +24,6 @@ msgstr "%d оқиға жойылады."
 
 msgid "IDS_CLD_POP_ALL_EVENTS_WILL_BE_DELETED"
 msgstr "Барлық оқиғалар жойылады."
-
-msgid "IDS_CLD_BUTTON_CANCEL"
-msgstr "Тоқтату"
 
 msgid "IDS_CLD_OPT_SELECT_ALL"
 msgstr "Барлығын таңдау"
@@ -106,15 +91,6 @@ msgstr "Таңдалған уақыт белдеуі үшін оқиға уақ�
 msgid "IDS_CLD_OPT_LOCALE_DEFAULT_ABB"
 msgstr "Жергілікті әдепкі"
 
-msgid "IDS_CLD_OPT_SATURDAY"
-msgstr "Сенбі"
-
-msgid "IDS_CLD_OPT_SUNDAY"
-msgstr "Жексенбі"
-
-msgid "IDS_CLD_OPT_MONDAY"
-msgstr "Дүйсенбі"
-
 msgid "IDS_CLD_OPT_POP_UP_NOTIFICATIONS_ABB"
 msgstr "Қалқымалы хабарландырулар"
 
@@ -123,12 +99,6 @@ msgstr "Дабылдар жоқ"
 
 msgid "IDS_CLD_OPT_DAILY"
 msgstr "Күн сайын"
-
-msgid "IDS_CLD_OPT_WEEKLY"
-msgstr "Апта сайын"
-
-msgid "IDS_CLD_OPT_MONTHLY"
-msgstr "Ай сайын"
 
 msgid "IDS_CLD_OPT_YEARLY"
 msgstr "Жыл сайын"
@@ -144,9 +114,6 @@ msgstr "сағ."
 
 msgid "IDS_CLD_BODY_WEEK_LC_ABB"
 msgstr "апта"
-
-msgid "IDS_CLD_BODY_TITLE"
-msgstr "Тақырыбы"
 
 msgid "IDS_CLD_BODY_CONTACTS_BIRTHDAYS_ABB"
 msgstr "Контактінің туғар күндері"
@@ -169,17 +136,11 @@ msgstr "Еске салғыш"
 msgid "IDS_CLD_BUTTON_REPEAT_ABB"
 msgstr "Қайталау"
 
-msgid "IDS_CLD_HEADER_DELETE"
-msgstr "Жою"
-
 msgid "IDS_CLD_OPT_ALL_CALENDARS_ABB2"
 msgstr "Барлық күнтізбелер"
 
 msgid "IDS_CLD_OPT_CREATE"
 msgstr "Құру"
-
-msgid "IDS_CLD_OPT_DELETE"
-msgstr "Жою"
 
 msgid "IDS_CLD_OPT_MY_CALENDAR_ABB"
 msgstr "Менің күнтізбем"
@@ -211,26 +172,17 @@ msgstr "Мәңгі"
 msgid "IDS_CLD_BODY_MONTH_LC_ABB"
 msgstr "ай"
 
-msgid "IDS_CLD_BODY_YEAR_LC"
-msgstr "жыл"
-
 msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "Келесіге дейін қайталау"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
 msgstr "%d күні"
 
-msgid "IDS_CLD_OPT_SEARCH"
-msgstr "Іздеу"
-
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "рет"
 
 msgid "IDS_CLD_BODY_1_EVENT_WILL_BE_DELETED"
 msgstr "1 оқиға жойылады."
-
-msgid "IDS_CLD_BUTTON_SET"
-msgstr "Орнату"
 
 msgid "IDS_CLD_BODY_CALENDAR_M_APPLICATION_NAME_ABB"
 msgstr "Күнтізбе"
@@ -241,12 +193,6 @@ msgstr "Өзгертулерді алып тастау"
 msgid "IDS_CLD_POP_ALL_CHANGES_WILL_BE_DISCARDED"
 msgstr "Барлық өзгерістер алынып тасталады."
 
-msgid "IDS_CLD_OPT_EDIT"
-msgstr "Өзгерту"
-
-msgid "IDS_CLD_HEADER_EVENTS"
-msgstr "Оқиғалар"
-
 msgid "IDS_CLD_MBODY_MY_EVENT"
 msgstr "Менің оқиғам"
 
@@ -255,9 +201,6 @@ msgstr "Еске салғышты орнату"
 
 msgid "IDS_CLD_OPT_VCS_FILE"
 msgstr "VCS файлы"
-
-msgid "IDS_CLD_OPT_TEXT"
-msgstr "Мәтінді"
 
 msgid "IDS_CLD_HEADER_PD_SELECTED_ABB3"
 msgstr "%d таңдалды"
@@ -337,9 +280,6 @@ msgstr "Жою үшін таңдаған оқиғаларыңыздың 1-і қ�
 msgid "IDS_CLD_BODY_OTHER_M_EVENT_TYPE"
 msgstr "Басқа"
 
-msgid "IDS_CLD_OPT_NONE"
-msgstr "Жоқ"
-
 msgid "IDS_CLD_BODY_EVERY_PS_LC"
 msgstr "әр %s"
 
@@ -349,18 +289,6 @@ msgstr "Әр %1$d %2$s %3$s арнасында"
 msgid "IDS_CLD_BODY_EVERY_P1SD_P2SS"
 msgstr "Әр %1$d %2$s"
 
-msgid "IDS_CLD_BODY_TUESDAY"
-msgstr "Сейсенбі"
-
-msgid "IDS_CLD_BODY_WEDNESDAY"
-msgstr "Сәрсенбі"
-
-msgid "IDS_CLD_BODY_THURSDAY"
-msgstr "Бейсенбі"
-
-msgid "IDS_CLD_BODY_FRIDAY"
-msgstr "Жұма"
-
 msgid "IDS_CLD_BODY_UNTIL_PS_LC"
 msgstr "%s дейін"
 
@@ -369,9 +297,6 @@ msgstr "Оқиға сақталмады. Белгісіз қате пайда б
 
 msgid "IDS_CLD_TPOP_VTS_FILES_NOT_SUPPORTED"
 msgstr "VTS файлдарына қолдау көрсетілмейді."
-
-msgid "IDS_CLD_OPT_PD_MINUTES"
-msgstr "%d минут"
 
 msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_ATTACHMENTS_HPD_REACHED"
 msgstr "Тіркемелердің ең көп санынан (%d) асып кетті."
@@ -391,9 +316,6 @@ msgstr "Күнтізбелерді басқару"
 msgid "IDS_CLD_BUTTON_NOTES_ABB"
 msgstr "Жазбалар"
 
-msgid "IDS_CLD_HEADER_DETAILS"
-msgstr "Өзгешеліктері"
-
 msgid "IDS_CLD_HEADER_SET_DATE"
 msgstr "Күнді орнату"
 
@@ -412,12 +334,93 @@ msgstr "күндер"
 msgid "IDS_CLD_ACBUTTON_TODAY"
 msgstr "БҮГІН"
 
-msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
-msgstr "Ең көп таңбалар санына (%d) жетті"
+msgid "IDS_CLD_BUTTON_DELETE_ABB"
+msgstr "Жою"
+
+msgid "IDS_CLD_OPT_SETTINGS"
+msgstr "Қондырғылар"
+
+msgid "IDS_CLD_OPT_TODAY"
+msgstr "Бүгін"
+
+msgid "IDS_CLD_BODY_NO_EVENTS"
+msgstr "Оқиға жоқ"
+
+msgid "IDS_CLD_BUTTON_CANCEL"
+msgstr "Тоқтату"
+
+msgid "IDS_CLD_OPT_SATURDAY"
+msgstr "Сенбі"
+
+msgid "IDS_CLD_OPT_SUNDAY"
+msgstr "Жексенбі"
+
+msgid "IDS_CLD_OPT_MONDAY"
+msgstr "Дүйсенбі"
+
+msgid "IDS_CLD_OPT_WEEKLY"
+msgstr "Апта сайын"
+
+msgid "IDS_CLD_OPT_MONTHLY"
+msgstr "Ай сайын"
+
+msgid "IDS_CLD_BODY_TITLE"
+msgstr "Тақырыбы"
+
+msgid "IDS_CLD_HEADER_DELETE"
+msgstr "Жою"
+
+msgid "IDS_CLD_OPT_DELETE"
+msgstr "Жою"
+
+msgid "IDS_CLD_BODY_YEAR_LC"
+msgstr "жыл"
+
+msgid "IDS_CLD_OPT_SEARCH"
+msgstr "Іздеу"
+
+msgid "IDS_CLD_BUTTON_SET"
+msgstr "Орнату"
+
+msgid "IDS_CLD_OPT_EDIT"
+msgstr "Өзгерту"
+
+msgid "IDS_CLD_HEADER_EVENTS"
+msgstr "Оқиғалар"
+
+msgid "IDS_CLD_OPT_TEXT"
+msgstr "Мәтінді"
+
+msgid "IDS_CLD_OPT_NONE"
+msgstr "Жоқ"
+
+msgid "IDS_CLD_BODY_TUESDAY"
+msgstr "Сейсенбі"
+
+msgid "IDS_CLD_BODY_WEDNESDAY"
+msgstr "Сәрсенбі"
+
+msgid "IDS_CLD_BODY_THURSDAY"
+msgstr "Бейсенбі"
+
+msgid "IDS_CLD_BODY_FRIDAY"
+msgstr "Жұма"
 
 msgid "IDS_CLD_HEADER_EVENT_NOTIFICATIONS"
 msgstr "Оқиға ескертулері"
 
 msgid "IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"
 msgstr "%s (қалғу режимінде)"
+
+msgid "IDS_CLD_OPT_PD_MINUTES"
+msgstr "%d минут"
+
+msgid "IDS_CLD_HEADER_DETAILS"
+msgstr "Өзгешеліктері"
+
+msgid "IDS_CLD_TPOP_MAXIMUM_NUMBER_OF_CHARACTERS_HPD_REACHED"
+msgstr "Ең көп таңбалар санына (%d) жетті"
+
+msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
+msgstr "ЖАСАУ"
 
