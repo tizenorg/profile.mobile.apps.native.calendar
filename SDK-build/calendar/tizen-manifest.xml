@@ -65,6 +65,7 @@
         <privilege>http://tizen.org/privilege/display</privilege>
         <privilege>http://tizen.org/privilege/notification</privilege>
         <privilege>http://tizen.org/privilege/message.read</privilege>
+        <privilege>http://tizen.org/privilege/alarm.set</privilege>
     </privileges>
     <feature name="http://tizen.org/feature/screen.size.all">true</feature>
 </manifest>
