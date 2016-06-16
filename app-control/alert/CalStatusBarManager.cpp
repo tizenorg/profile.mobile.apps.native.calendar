@@ -112,6 +112,7 @@ void CalStatusBarManager::update(std::shared_ptr<CalAlertData>& alertData)
 			notification_get_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, (void*)&service);
 			if(service)
 			{
+				__setupStatusBarNotification(notification, alertData);
 				__setNotificationData(service, alertData);
 				notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, service);
 				notification_update(notification);
@@ -643,15 +644,16 @@ void CalStatusBarManager::__setNotificationTitle(notification_h notification, co
 		WDEBUG("Single event");
 		auto alertItem = alertData->getAt(0);
 		char *eventName = alertItem->getEventOriginalName();
-		if (eventName && *eventName)
-		{
-			notification_set_text(notification, NOTIFICATION_TEXT_TYPE_TITLE, eventName, NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
+		char title[CAL_EVENT_TITLE_MAX_CHAR_LIMIT];
+		if (alertData->isSnoozed(0)) {
+			snprintf(title, sizeof(title), _L_("IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"), (eventName && *eventName) ? eventName : _L_("IDS_CLD_MBODY_MY_EVENT"));
+		} else {
+			snprintf(title, sizeof(title), (eventName && *eventName) ? eventName : _L_("IDS_CLD_MBODY_MY_EVENT"));
+		}
+		if (eventName && *eventName) {
 			free(eventName);
 		}
-		else
-		{
-			notification_set_text(notification, NOTIFICATION_TEXT_TYPE_TITLE, _L_("IDS_CLD_MBODY_MY_EVENT"), NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
-		}
+		notification_set_text(notification, NOTIFICATION_TEXT_TYPE_TITLE, title, NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
 
 		char* startTime = alertItem->getStartTime();
 		subTitle << startTime;
@@ -666,7 +668,8 @@ void CalStatusBarManager::__setNotificationTitle(notification_h notification, co
 		free(startTime);
 
 		notification_set_text(notification, NOTIFICATION_TEXT_TYPE_CONTENT, subTitle.str().c_str(), NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
-		WDEBUG("Title: %s", title.str().c_str());
+
+		WDEBUG("Title: %s", title);
 		WDEBUG("Sub-title: %s", subTitle.str().c_str());
 	}
 	else
