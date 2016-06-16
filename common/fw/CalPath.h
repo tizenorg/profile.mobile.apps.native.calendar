@@ -32,6 +32,7 @@ public:
 	enum DirType
 	{
 		RESOURCE = 0,
+		SHARED_RESOURCE,
 		EDJE,
 		LOCALE,
 		IMAGE,
@@ -44,6 +45,10 @@ public:
 	 */
 	static const std::string &getEdjeDir();
 
+	/**
+	 * @return Shared resource files directory path.
+	 */
+	static const std::string &getSharedResourceDir();
 
 	/**
 	 * @return Localization files directory path.

@@ -24,6 +24,7 @@
 #include "CalSettingsManager.h"
 #include "CalLocaleManager.h"
 #include "CalAlertType.h"
+#include "CalPath.h"
 
 #define INDEX_BUFFER 8
 #define APP_MAX_NOTI_COUNT   16
@@ -131,14 +132,6 @@ void CalStatusBarManager::update(std::shared_ptr<CalAlertData>& alertData)
 
 void CalStatusBarManager::init()
 {
-	WENTER();
-	__iconPath = app_get_shared_resource_path();
-	if(!__iconPath.size())
-	{
-		WERROR("Failed to get shared resource path.");
-	}
-
-	__iconPath += CAL_ACTIVENOTIFICATION_ICON;
 }
 
 void CalStatusBarManager::removeFromNotification(const int id)
@@ -301,6 +294,11 @@ void CalStatusBarManager::__setupStatusBarNotification(notification_h notificati
 	WENTER();
 
 	__setNotificationTitle(notification, alertData);
+
+	notification_set_image(notification,
+		NOTIFICATION_IMAGE_TYPE_ICON,
+		CalPath::getPath(CAL_NOTIFICATION_ICON, CalPath::DirType::SHARED_RESOURCE).c_str());
+
 	notification_set_property(notification, NOTIFICATION_PROP_DISABLE_AUTO_DELETE);
 
 	WLEAVE();
@@ -347,16 +345,9 @@ void CalStatusBarManager::__pushActiveNotification(const std::shared_ptr<CalSche
 
 	notification_set_layout(notification, NOTIFICATION_LY_NOTI_EVENT_SINGLE);
 
-	int result = NOTIFICATION_ERROR_NONE;
-	result = notification_set_image(notification, NOTIFICATION_IMAGE_TYPE_ICON, __iconPath.c_str());
-	if(result == NOTIFICATION_ERROR_NONE)
-	{
-		WDEBUG("Set icon %s", __iconPath.c_str());
-	}
-	else
-	{
-		WDEBUG("Failed to set icon. [%s]", __iconPath.c_str());
-	}
+	notification_set_image(notification,
+		NOTIFICATION_IMAGE_TYPE_ICON,
+		CalPath::getPath(CAL_ACTIVENOTIFICATION_ICON, CalPath::DirType::SHARED_RESOURCE).c_str());
 
 	notification_add_button(notification, NOTIFICATION_BUTTON_1);
 	notification_set_text(notification, NOTIFICATION_TEXT_TYPE_BUTTON_1, _L_("IDS_CLD_BUTTON_DISMISS"), NULL, NOTIFICATION_VARIABLE_TYPE_NONE);
