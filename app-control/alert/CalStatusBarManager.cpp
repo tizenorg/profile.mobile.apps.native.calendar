@@ -639,7 +639,7 @@ void CalStatusBarManager::__setNotificationTitle(notification_h notification, co
 		if (alertData->isSnoozed(0)) {
 			snprintf(title, sizeof(title), _L_("IDS_CLD_MBODY_PS_HSNOOZED_T_CALENDAR"), (eventName && *eventName) ? eventName : _L_("IDS_CLD_MBODY_MY_EVENT"));
 		} else {
-			snprintf(title, sizeof(title), (eventName && *eventName) ? eventName : _L_("IDS_CLD_MBODY_MY_EVENT"));
+			snprintf(title, sizeof(title), "%s", (eventName && *eventName) ? eventName : _L_("IDS_CLD_MBODY_MY_EVENT"));
 		}
 		if (eventName && *eventName) {
 			free(eventName);
