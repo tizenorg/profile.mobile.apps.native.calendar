@@ -27,9 +27,34 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>common</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/common</locationURI>
+		</link>
+		<link>
+			<name>detail</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/detail</locationURI>
+		</link>
+		<link>
+			<name>edit</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/edit</locationURI>
+		</link>
+		<link>
+			<name>list</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/list</locationURI>
+		</link>
+		<link>
+			<name>month</name>
+			<type>2</type>
+			<locationURI>PARENT-2-PROJECT_LOC/main-app/src/month</locationURI>
+		</link>
+		<link>
 			<name>src</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/app-control/alert</locationURI>
+			<locationURI>PARENT-2-PROJECT_LOC/app-control/view</locationURI>
 		</link>
 	</linkedResources>
 	<filteredResources>
