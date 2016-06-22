@@ -67,7 +67,8 @@ void CalNotificationsView::__updateSelectAllItems()
 	{
 		CalAlertItem* item = it->second;
 		elm_check_state_set(item->getCheckObject(), __isAllVisible);
-		if(item->isSnoozedItem())
+		Evas_Object* obj = item->getCheckObject();
+		if(!elm_check_state_get(obj) || item->isSnoozedItem())
 		{
 			__updateButtonStatus(!__isAllVisible, true);
 		}
@@ -357,6 +358,8 @@ void CalNotificationsView::onPushed(Elm_Object_Item* naviItem)
 		{
 			__updateButtonStatus(false, false);
 		}
+	} else {
+		__updateButtonStatus(true, true);
 	}
 
 	elm_object_item_part_content_set(naviItem, "toolbar", layout);
