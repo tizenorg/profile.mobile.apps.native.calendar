@@ -203,7 +203,7 @@ CalUnderlineEditField *CalFilterView::createSearchBarEntry(Evas_Object *parent)
 	guideText += _L_("IDS_CLD_OPT_SEARCH");
 	guideText += "</color>";
 
-	searchBarEntry->setGuideText(guideText.c_str());
+	searchBarEntry->setGuideText(guideText.c_str(), 0);
 
 	searchBarEntry->setChangeCallback([this] (const char* text)->void
 		{
