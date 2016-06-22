@@ -62,20 +62,18 @@ void CalNotificationsView::__updateSelectAllItems()
 	WENTER();
 	__isAllVisible = !__isAllVisible;
 	__updateSelectAllCheck();
+	bool needDisableSnoozed = true;
 
 	for (auto it = __itemMap.begin(); it != __itemMap.end(); ++it)
 	{
 		CalAlertItem* item = it->second;
 		elm_check_state_set(item->getCheckObject(), __isAllVisible);
-		if(item->isSnoozedItem())
+		if(__isAllVisible && !item->isSnoozedItem())
 		{
-			__updateButtonStatus(!__isAllVisible, true);
-		}
-		else
-		{
-			__updateButtonStatus(!__isAllVisible, false);
+			needDisableSnoozed = false;
 		}
 	}
+	__updateButtonStatus(!__isAllVisible, needDisableSnoozed);
 	WLEAVE();
 }
 
@@ -357,6 +355,8 @@ void CalNotificationsView::onPushed(Elm_Object_Item* naviItem)
 		{
 			__updateButtonStatus(false, false);
 		}
+	} else {
+		__updateButtonStatus(true, true);
 	}
 
 	elm_object_item_part_content_set(naviItem, "toolbar", layout);
