@@ -418,6 +418,7 @@ void CalWidget::onEvent(const CalEvent& event)
 		case CalEvent::SETTING_CHANGED:
 		case CalEvent::TIME_CHANGED:
 			__originDate = CalDate(CalDate::INIT_TODAY);
+			__dateTime = __originDate;
 			__monthCalendar->reset(__getFirstDayOfWeek(), __originDate.getYear(), __originDate.getMonth());
 			__monthCalendar->update();
 			__setMonthLabel();
