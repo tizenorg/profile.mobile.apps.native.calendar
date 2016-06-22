@@ -9,7 +9,7 @@ type = app
 profile = mobile-3.0
 
 # C Sources
-USER_SRCS = ../../app-control/alert/CalNotificationsSelectAllItem.cpp ../../app-control/alert/CalAlertApp.cpp ../../app-control/alert/CalAlertNotificationItem.cpp ../../app-control/alert/main.cpp ../../app-control/alert/CalAlertView.cpp ../../app-control/alert/CalAlertModel.cpp ../../app-control/alert/CalStatusBarManager.cpp ../../app-control/alert/CalAlertData.cpp ../../app-control/alert/CalAlertItem.cpp ../../app-control/alert/CalNotificationsView.cpp 
+USER_SRCS = ../../app-control/view/*.cpp ../../main-app/src/month/*.cpp ../../main-app/src/list/*.cpp ../../main-app/src/edit/*.cpp ../../main-app/src/detail/*.cpp ../../main-app/src/common/*.cpp
 
 # EDC Sources
 USER_EDCS =  
@@ -39,8 +39,8 @@ USER_INC_DIRS_ABS =
 USER_INC_FILES = 
 USER_INC_FILES_ABS = 
 ## C++ Compiler
-USER_CPP_INC_DIRS = ../calendar-view/inc 
-USER_CPP_INC_DIRS_ABS = $(workspace_loc)/app-assist-efl/inc $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/common/fw $(workspace_loc)/app-control/alert 
+USER_CPP_INC_DIRS =  
+USER_CPP_INC_DIRS_ABS = $(workspace_loc)/app-assist-efl/inc $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/common/fw $(workspace_loc)/app-control/alert $(workspace_loc)/main-app/src/month $(workspace_loc)/main-app/src/list $(workspace_loc)/main-app/src/edit $(workspace_loc)/main-app/src/detail $(workspace_loc)/main-app/src/common
 USER_CPP_INC_FILES = 
 USER_CPP_INC_FILES_ABS = 
 
