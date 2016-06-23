@@ -300,6 +300,10 @@ void CalStatusBarManager::__setupStatusBarNotification(notification_h notificati
 		NOTIFICATION_IMAGE_TYPE_ICON,
 		CalPath::getPath(CAL_NOTIFICATION_ICON, CalPath::DirType::SHARED_RESOURCE).c_str());
 
+	notification_set_image(notification,
+		NOTIFICATION_IMAGE_TYPE_ICON_FOR_INDICATOR,
+		CalPath::getPath(CAL_INDICATOR_ICON, CalPath::DirType::SHARED_RESOURCE).c_str());
+
 	notification_set_property(notification, NOTIFICATION_PROP_DISABLE_AUTO_DELETE);
 
 	WLEAVE();
