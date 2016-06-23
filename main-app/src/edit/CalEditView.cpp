@@ -705,6 +705,7 @@ void CalEditView::__applyChangesToReminder(const CalScheduleReminder& reminder, 
 
 	__removeAllReminderItems();
 	__addAllReminderItems();
+	__isChanged = true;
 }
 
 void CalEditView::__onAddReminderButton()
