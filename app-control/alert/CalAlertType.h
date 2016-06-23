@@ -47,8 +47,10 @@
 #define CAL_APPCALSVC_PARAM_IDS "ids"
 #define CAL_APPCALSVC_PARAM_IDS_DEFAULT_ARRAY_LENGTH 1
 
-#define CAL_NOTIFICATION_ICON "noti_calendar.png"
-#define CAL_ACTIVENOTIFICATION_ICON "noti_calendar_02.png"
+#define CAL_NOTIFICATION_ICON_DIR "/usr/apps/org.tizen.quickpanel/shared/res/noti_icons/Calendar/"
+#define CAL_NOTIFICATION_ICON_PATH CAL_NOTIFICATION_ICON_DIR"noti_calendar.png"
+#define CAL_ACTIVENOTIFICATION_ICON_PATH CAL_NOTIFICATION_ICON_DIR"noti_calendar_02.png"
+
 #define CALENDAR_ALERT_NOTI_MIN_KEY "alert_noti_min"
 
 #endif
