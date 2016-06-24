@@ -1,6 +1,6 @@
 Name:       org.tizen.calendar
 VCS:         profile/mobile/apps/native/calendar#bf31631af4df0014e4212e04be16a8f3acc34820
-#RS_Ver:    20160622_2 
+#RS_Ver:    20160623_1 
 Summary:    %{REF_APP_LABEL} application
 Version:    1.0.0
 Release:    1
