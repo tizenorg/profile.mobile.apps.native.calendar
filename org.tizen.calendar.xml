@@ -157,5 +157,8 @@
 		<privilege>http://tizen.org/privilege/account.read</privilege>
 		<privilege>http://tizen.org/privilege/contact.read</privilege>
 		<privilege>http://tizen.org/privilege/window.priority.set</privilege>
+		<privilege>http://tizen.org/privilege/alarm.set</privilege>
+		<privilege>http://tizen.org/privilege/mediastorage</privilege>
+		<privilege>http://tizen.org/privilege/externalstorage</privilege>
 	</privileges>
 </manifest>
