@@ -424,3 +424,6 @@ msgstr "वर्णों की अधिकतम संख्या (%d) प
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "बनाएँ"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "सेव करे"
+

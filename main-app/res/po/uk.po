@@ -424,3 +424,6 @@ msgstr "Досягнуто максимальної кількості симв�
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "СТВОРИТИ"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "ЗБЕРЕГ."
+

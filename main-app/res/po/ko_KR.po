@@ -424,3 +424,6 @@ msgstr "%d자까지 입력할 수 있습니다."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "추가"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "저장"
+

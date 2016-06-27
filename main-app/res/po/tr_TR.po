@@ -424,3 +424,6 @@ msgstr "Maksimum karakter sayısına (%d) ulaşıldı"
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "OLUŞTUR"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "KAYDET"
+

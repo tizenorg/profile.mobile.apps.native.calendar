@@ -424,3 +424,6 @@ msgstr "Högsta antal tecken (%d) har uppnåtts."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "SKAPA"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "SPARA"
+

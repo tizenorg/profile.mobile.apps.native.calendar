@@ -424,3 +424,6 @@ msgstr "Elérte a karakterek maximális számát (%d)."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "LÉTREHOZÁS"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "MENTÉS"
+

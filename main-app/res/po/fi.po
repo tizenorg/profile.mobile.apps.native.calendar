@@ -424,3 +424,6 @@ msgstr "Merkkien enimmäismäärä (%d) on saavutettu."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "LUO"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "TALL."
+

@@ -424,3 +424,6 @@ msgstr "Ең көп таңбалар санына (%d) жетті"
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "ЖАСАУ"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "САҚТАУ"
+

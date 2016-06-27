@@ -424,3 +424,6 @@ msgstr "Le nombre maximal de caractères (%d) est atteint."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "CRÉER"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "ENREG."
+

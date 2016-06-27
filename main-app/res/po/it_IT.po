@@ -424,3 +424,6 @@ msgstr "Il numero massimo di caratteri (%d) è stato raggiunto."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "CREA"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "SALVA"
+

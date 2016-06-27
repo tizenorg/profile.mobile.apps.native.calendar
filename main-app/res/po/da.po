@@ -424,3 +424,6 @@ msgstr "Det maksimale antal tegn (%d) er nået."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "OPRET"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "GEM"
+

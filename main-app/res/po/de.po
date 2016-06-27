@@ -424,3 +424,6 @@ msgstr "Maximale Anzahl an Zeichen (%d) erreicht."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "ERSTELLEN"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "SPEICHERN"
+

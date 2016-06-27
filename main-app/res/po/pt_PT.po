@@ -424,3 +424,6 @@ msgstr "Número máximo de caracteres (%d) atingido."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "CRIAR"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "GUARDAR"
+

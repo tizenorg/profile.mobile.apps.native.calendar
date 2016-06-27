@@ -424,3 +424,6 @@ msgstr "Belgilar soni ruxsat etilgan maksimal miqdorga (%d) yetdi"
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "YARATISH"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "SAQLASH"
+

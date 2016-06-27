@@ -424,3 +424,6 @@ msgstr "Sasniegts maksimālais rakstzīmju skaits (%d)"
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "IZVEIDOT"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "SAGLAB."
+

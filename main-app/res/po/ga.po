@@ -424,3 +424,6 @@ msgstr "Uaslíon na gcarachtar (%d) bainte amach."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "CRUTHAIGH"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "SÁBHÁIL"
+

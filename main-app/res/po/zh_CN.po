@@ -176,7 +176,7 @@ msgid "IDS_CLD_HEADER_REPEAT_UNTIL"
 msgstr "重复直至"
 
 msgid "IDS_CLD_OPT_ON_DAY_PD"
-msgstr "在第 %d 日"
+msgstr "第 %d 天"
 
 msgid "IDS_CLD_OPT_TIMES_LC"
 msgstr "次"
@@ -423,4 +423,7 @@ msgstr "已达最大字符数（%d）"
 
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "创建"
+
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "保存"
 

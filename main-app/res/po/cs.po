@@ -424,3 +424,6 @@ msgstr "Bylo dosaženo maximálního počtu znaků (%d)."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "VYTVOŘIT"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "ULOŽIT"
+

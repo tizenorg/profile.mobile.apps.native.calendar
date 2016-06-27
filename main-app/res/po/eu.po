@@ -424,3 +424,6 @@ msgstr "Gehieneko karaktere kopurura (%d) iritsi zara."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "SORTU"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "GORDE"
+

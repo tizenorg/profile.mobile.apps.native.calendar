@@ -424,3 +424,6 @@ msgstr "تم بلوغ أقصى عدد من الأحرف (%d)"
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "إنشاء"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "حفظ"
+

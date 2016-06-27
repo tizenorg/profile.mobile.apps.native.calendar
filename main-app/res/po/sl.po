@@ -424,3 +424,6 @@ msgstr "Doseženo je največje dovoljeno število znakov (%d)."
 msgid "IDS_CLD_ACBUTTON_CREATE_ABB"
 msgstr "USTVARI"
 
+msgid "IDS_CLD_ACBUTTON_SAVE"
+msgstr "SHRANI"
+
