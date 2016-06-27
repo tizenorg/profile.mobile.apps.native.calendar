@@ -158,7 +158,7 @@ void CalVcsView::onPushed(Elm_Object_Item* naviItem)
 
 		Evas_Object* button1 = elm_button_add(getNaviframe()->getEvasObj());
 		elm_object_style_set(button1, "naviframe/title_right");
-		elm_object_text_set(button, _L_("IDS_TPLATFORM_ACBUTTON_DONE_ABB"));
+		elm_object_text_set(button1, _L_("IDS_TPLATFORM_ACBUTTON_DONE_ABB"));
 		evas_object_smart_callback_add(button1, "clicked",
 			[](void* data, Evas_Object* obj, void* eventInfo){
 				CalVcsView* self = (CalVcsView*)data;

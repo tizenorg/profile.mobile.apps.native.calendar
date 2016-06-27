@@ -38,7 +38,7 @@ public:
 	};
 
 public:
-	CalDetailView(const std::shared_ptr<CalSchedule> schedule, MenuState state = CalDetailView::MENU_ENABLED);
+	CalDetailView(const std::shared_ptr<CalSchedule> schedule, MenuState state = CalDetailView::MENU_ENABLED, bool pushLeftRightBtns = false);
 	virtual ~CalDetailView();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDetailView);
@@ -183,6 +183,7 @@ private:
 	int __radioIndex;
 	bool __isCheck;
 	MenuState __menuState;
+	bool __pushLeftRightBtns;
 };
 
 #endif

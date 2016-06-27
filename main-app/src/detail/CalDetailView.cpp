@@ -41,7 +41,7 @@
 #include "CalEditModel.h"
 #include "CalEventManager.h"
 
-CalDetailView::CalDetailView(const std::shared_ptr<CalSchedule> schedule, MenuState state) :
+CalDetailView::CalDetailView(const std::shared_ptr<CalSchedule> schedule, MenuState state, bool pushLeftRightBtns) :
 	CalView("CalDetailView"),
 	__inputSchedule(schedule),
 	__dialog(NULL),
@@ -50,7 +50,8 @@ CalDetailView::CalDetailView(const std::shared_ptr<CalSchedule> schedule, MenuSt
 	__description(nullptr),
 	__radioIndex(1),
 	__isCheck(false),
-	__menuState(state)
+	__menuState(state),
+	__pushLeftRightBtns(pushLeftRightBtns)
 {
 	WASSERT_EX(__inputSchedule, "The input schedule is null");
 	if(0 < __inputSchedule->getIndex())
@@ -612,6 +613,30 @@ void CalDetailView::onPushed(Elm_Object_Item* naviItem)
 {
 	WENTER();
 	std::shared_ptr<CalBook>book = CalBookManager::getInstance().getBook(__workingCopy->getBookId());
+
+	if (__pushLeftRightBtns) {
+		Evas_Object* button = elm_button_add(getNaviframe()->getEvasObj());
+		elm_object_style_set(button, "naviframe/title_left");
+		elm_object_text_set(button, _L_("IDS_TPLATFORM_ACBUTTON_CANCEL_ABB"));
+		evas_object_smart_callback_add(button, "clicked",
+			[](void* data, Evas_Object* obj, void* eventInfo){
+			CalDetailView* self = (CalDetailView*)data;
+				self->popOut();
+			}, this
+		);
+		elm_object_item_part_content_set(naviItem, "title_left_btn", button);
+
+		button = elm_button_add(getNaviframe()->getEvasObj());
+		elm_object_style_set(button, "naviframe/title_right");
+		elm_object_text_set(button, _L_("IDS_CLD_ACBUTTON_SAVE"));
+		evas_object_smart_callback_add(button, "clicked",
+			[](void* data, Evas_Object* obj, void* eventInfo){
+			CalDetailView* self = (CalDetailView*)data;
+				self->__save();
+			}, this
+		);
+		elm_object_item_part_content_set(naviItem, "title_right_btn", button);
+	}
 	activateMenuButton(naviItem);
 }
 
