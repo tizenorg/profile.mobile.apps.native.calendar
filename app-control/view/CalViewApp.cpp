@@ -155,7 +155,7 @@ void CalViewApp::__makeSchedule()
 		if (count == 1)
 		{
 			std::shared_ptr<CalSchedule> inputSchedule = *(schedules.begin());
-			frame->push(new CalDetailView(inputSchedule, __getMenuState()));
+			frame->push(new CalDetailView(inputSchedule, CalDetailView::MENU_DISABLED, true));
 		}
 		else
 		{
