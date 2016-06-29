@@ -1290,10 +1290,21 @@ void CalEditView::__update()
 	//update timezone
 	if (__timezone)
 	{
-		const char* defaultTz = __workingCopy->getTimeZone();
-		std::string dT;
-		CalLocaleManager::getInstance().getDisplayTextTimeZone(defaultTz, dT);
-		__timezone->setSubText(dT.c_str());
+		std::string eventTz = __workingCopy->getTimeZone();
+		std::string currentTz;
+
+		CalSettingsManager::getInstance().getCalendarTimeZone(currentTz);
+
+		if (eventTz != currentTz)
+		{
+			__workingCopy->setTimeZone(currentTz.c_str());
+			eventTz = currentTz.c_str();
+		}
+
+		std::string displayTimeZone;
+		CalLocaleManager::getInstance().getDisplayTextTimeZone(eventTz, displayTimeZone);
+
+		__timezone->setSubText(displayTimeZone.c_str());
 		elm_genlist_item_update((Elm_Object_Item*)__timezone->getElmObjectItem());
 	}
 
