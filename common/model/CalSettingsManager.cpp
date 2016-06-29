@@ -232,21 +232,19 @@ void CalSettingsManager::__setLocaleTimeZone(void)
 	{
 		CalLocaleManager::getInstance().setTimeZone(timeZone);
 	}
+
 	WLEAVE();
 }
 
 void CalSettingsManager::getDeviceTimeZone(std::string& timeZone)
 {
 	WENTER();
-	const int32_t length = 256;
-	i18n_uchar str[length] = {0};
-	char tz[length] = {0};
-	i18n_ucalendar_get_default_timezone(str, length);
-	i18n_ustring_copy_au_n(tz, str, length);
 
+	char *tz = nullptr;
+	system_settings_get_value_string(SYSTEM_SETTINGS_KEY_LOCALE_TIMEZONE, &tz);
 	timeZone = tz;
+	free(tz);
 
-	WDEBUG("deviceTimeZone == %s", timeZone.c_str());
 	WLEAVE();
 }
 
@@ -500,6 +498,7 @@ void CalSettingsManager::__systemSettingsChangeCb(system_settings_key_e key, voi
 {
 	WENTER();
 	CalSettingsManager::getInstance().updateRegion();
+	CalSettingsManager::getInstance().__setLocaleTimeZone();
 	CalEvent event(CalEvent::SETTING_CHANGED, CalEvent::REMOTE);
 	CalEventManager::getInstance().notify(event);
 }
