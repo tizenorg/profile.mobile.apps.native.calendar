@@ -30,6 +30,7 @@ public:
 	CalDateTime(const struct tm& dateTm);
 	CalDateTime(int year, int month, int mday);
 	CalDateTime(int year, int month, int mday, int hour, int min, int sec);
+	CalDateTime(const CalDateTime &base, const char *timeZone);
 	virtual ~CalDateTime();
 
 	CalDateTime( const CalDateTime& );
