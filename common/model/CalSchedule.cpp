@@ -199,18 +199,13 @@ void CalSchedule::getFromToString(const CalDate& date, std::string& text) const
 
 void CalSchedule::__getFromToString(const char* timezone, const CalDateTime& start, const CalDateTime& end, std::string& text) const
 {
-	std::string startText, endText, endNoDataText;
+	std::string startText, endText;
 	start.getString(startText);
 	end.getString(endText);
-	end.getTimeString(endNoDataText);
 
-	bool isSameDay = (start.getYear() == end.getYear()) &&
-			(start.getMonth() == end.getMonth()) &&
-			(start.getMday() == end.getMday());
-
-	if (start.isAllDay() == true)
+	if (start.isAllDay())
 	{
-		if (isSameDay == true)
+		if (start.isSameDay(end))
 		{
 			text = startText;
 		}
@@ -221,13 +216,37 @@ void CalSchedule::__getFromToString(const char* timezone, const CalDateTime& sta
 	}
 	else
 	{
-		if (isSameDay == true)
+		if (timezone)
 		{
-			text = startText + " - " + endNoDataText;
+			CalDateTime startInTimeZone(start, timezone);
+			CalDateTime endInTimeZone(end, timezone);
+
+			startInTimeZone.getString(startText);
+			endInTimeZone.getString(endText);
+
+			if (startInTimeZone.isSameDay(endInTimeZone))
+			{
+				std::string endNoDataText;
+				endInTimeZone.getTimeString(endNoDataText);
+				text = startText + " - " + endNoDataText;
+			}
+			else
+			{
+				text = startText + " - \r\n" + endText;
+			}
 		}
 		else
 		{
-			text = startText + " - \r\n" + endText;
+			if (start.isSameDay(end))
+			{
+				std::string endNoDataText;
+				end.getTimeString(endNoDataText);
+				text = startText + " - " + endNoDataText;
+			}
+			else
+			{
+				text = startText + " - \r\n" + endText;
+			}
 		}
 	}
 }
