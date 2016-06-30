@@ -52,13 +52,19 @@ Evas_Object* CalVcsView::onCreate(Evas_Object* parent, void* viewParam)
 	elm_object_part_content_set(layout, "elm.swallow.content", __box);
 
 	__selectAllLayout = elm_layout_add(__box);
-	elm_layout_theme_set(__selectAllLayout, "genlist", "item", "select_all/default");
+	elm_layout_theme_set(__selectAllLayout, "genlist", "item", "type1/default");
 	evas_object_size_hint_weight_set(__selectAllLayout, EVAS_HINT_EXPAND, EVAS_HINT_FILL);
 	evas_object_size_hint_align_set(__selectAllLayout, EVAS_HINT_FILL, EVAS_HINT_FILL);
+
+	Evas_Object *bg = elm_bg_add(__selectAllLayout);
+	elm_bg_color_set(bg, 255, 255, 255);
+	evas_object_show(bg);
+	elm_object_part_content_set(__selectAllLayout, "elm.swallow.bg", bg);
+
 	evas_object_event_callback_add(__selectAllLayout, EVAS_CALLBACK_MOUSE_UP,
 		[](void *data, Evas *e, Evas_Object *obj, void *eventInfo){
 			CalVcsView* self = (CalVcsView*)data;
-			Evas_Object* check = elm_object_part_content_get(obj, "elm.icon");
+			Evas_Object* check = elm_object_part_content_get(obj, "elm.swallow.end");
 			if(!check)
 				return;
 
@@ -68,9 +74,9 @@ Evas_Object* CalVcsView::onCreate(Evas_Object* parent, void* viewParam)
 			self->__updateTitleInfo();
 		}, this);
 
-	elm_object_part_text_set(__selectAllLayout, "elm.text.main", _L_("IDS_CLD_OPT_SELECT_ALL"));
+	elm_object_part_text_set(__selectAllLayout, "elm.text", _L_("IDS_CLD_OPT_SELECT_ALL"));
 
-	Evas_Object* check = elm_check_add(__selectAllLayout);
+	Evas_Object *check = elm_check_add(__selectAllLayout);
 	evas_object_smart_callback_add(check, "changed",
 		[](void *data, Evas_Object *obj, void *eventInfo){
 				CalVcsView* self = (CalVcsView*)data;
@@ -80,9 +86,9 @@ Evas_Object* CalVcsView::onCreate(Evas_Object* parent, void* viewParam)
 
 	evas_object_propagate_events_set(check, EINA_FALSE);
 
-	elm_object_part_content_set(__selectAllLayout, "elm.icon", check);
+	elm_object_part_content_set(__selectAllLayout, "elm.swallow.end", check);
 
-	if(__isSelectMode){
+	if(__isSelectMode) {
 		elm_box_pack_start(__box, __selectAllLayout);
 		evas_object_show(__selectAllLayout);
 	} else {
@@ -96,14 +102,15 @@ Evas_Object* CalVcsView::onCreate(Evas_Object* parent, void* viewParam)
 	__emptyModel = new CalCustomListModel(emptySchedules);
 	__list = new CalScheduleListControl(__fowardModel, __emptyModel,
 		[this](std::shared_ptr<CalSchedule> schedule) {
-			if(__isSelectMode)
+			if(__isSelectMode) {
 				__updateTitleInfo();
-			else
-				getNaviframe()->push(new CalDetailView(schedule, CalDetailView::MENU_SAVEONLY));
+			} else {
+				getNaviframe()->push(new CalDetailView(schedule, CalDetailView::MENU_DISABLED, true));
+			}
 		}, NULL, NULL, true, !__isSelectMode);
 
 	__list->create(layout, NULL);
-	if(__list->isEmpty()){
+	if(__list->isEmpty()) {
 		Evas_Object* noContents = elm_layout_add(layout);
 		elm_layout_theme_set(noContents,"layout","nocontents","search");
 		evas_object_size_hint_weight_set(noContents, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -111,9 +118,10 @@ Evas_Object* CalVcsView::onCreate(Evas_Object* parent, void* viewParam)
 		elm_object_part_text_set(noContents, "elm.text", _L_("IDS_CLD_BODY_NO_EVENTS"));
 		evas_object_show(noContents);
 		elm_box_pack_end(__box, noContents);
-	}else{
+	} else {
 		elm_box_pack_end(__box, __list->getEvasObj());
 	}
+
 	return layout;
 }
 
@@ -178,6 +186,10 @@ void CalVcsView::onPushed(Elm_Object_Item* naviItem)
 		activateMenuButton(naviItem);
 
 	__updateTitleInfo();
+
+	if(!__isSelectMode){
+		__list->showCheckBox(false);
+	}
 }
 
 void CalVcsView::__save()
@@ -243,7 +255,6 @@ void CalVcsView::__switchMode(bool isSelectMode)
 	__list->showCheckBox(__isSelectMode);
 
 	if(__isSelectMode){
-		__list->selectAllSchduleItem(false);
 		elm_box_pack_start(__box, __selectAllLayout);
 		evas_object_show(__selectAllLayout);
 	} else {
@@ -262,7 +273,7 @@ void CalVcsView::__switchMode(bool isSelectMode)
 		);
 		Evas_Object* button1 = elm_button_add(getNaviframe()->getEvasObj());
 		elm_object_style_set(button1, "naviframe/title_right");
-		elm_object_text_set(button, _L_("IDS_TPLATFORM_ACBUTTON_DONE_ABB"));
+		elm_object_text_set(button1, _L_("IDS_TPLATFORM_ACBUTTON_DONE_ABB"));
 		evas_object_smart_callback_add(button1, "clicked",
 			[](void* data, Evas_Object* obj, void* eventInfo){
 				CalVcsView* self = (CalVcsView*)data;
@@ -300,7 +311,7 @@ void CalVcsView::__updateTitleInfo()
 		elm_object_disabled_set(button, selectedItemCount > 0 ? EINA_FALSE : EINA_TRUE);
 	}
 
-	Evas_Object* check = elm_object_part_content_get(__selectAllLayout, "elm.icon");
+	Evas_Object* check = elm_object_part_content_get(__selectAllLayout, "elm.swallow.end");
 
 	if(!check)
 		return;

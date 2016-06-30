@@ -86,11 +86,22 @@ CalListControl::Item::Item()
 	, __date()
 	, __elmObjectItem(NULL)
 	, __index(0)
+	, __showCheckBox(true)
 {
 }
 
 CalListControl::Item::~Item()
 {
+}
+
+void CalListControl::Item::setShowCheckBox(bool showCheckBox)
+{
+	__showCheckBox = showCheckBox;
+}
+
+bool CalListControl::Item::getShowCheckBox()
+{
+	return __showCheckBox;
 }
 
 /**

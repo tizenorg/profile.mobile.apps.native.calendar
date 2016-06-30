@@ -33,8 +33,7 @@ public:
 	enum MenuState
 	{
 		MENU_ENABLED,
-		MENU_DISABLED,
-		MENU_SAVEONLY
+		MENU_DISABLED
 	};
 
 public:

@@ -192,22 +192,6 @@ void CalViewApp::__makeSchedule()
 	}
 }
 
-CalDetailView::MenuState CalViewApp::__getMenuState()
-{
-	CalDetailView::MenuState state = CalDetailView::MENU_SAVEONLY;
-
-	char* value = NULL;
-	int ret = app_control_get_extra_data(__request, APP_CONTROL_DATA_MENU_STATE, &value);
-	if (APP_CONTROL_ERROR_NONE == ret && value && atoi(value) > 0)
-	{
-		state = CalDetailView::MENU_DISABLED;
-	}
-
-	free(value);
-
-	return state;
-}
-
 bool CalViewApp::__isVtsFile(const char* filePath)
 {
 	if (!filePath)
