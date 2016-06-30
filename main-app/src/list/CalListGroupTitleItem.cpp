@@ -24,8 +24,8 @@
 #define ITEM_NO_LOCATION_HEIGHT 121  // 54 + 44 + 23 (padding)
 #define ITEM_TOP_PADDING        23
 
-CalListGroupTitleItem::CalListGroupTitleItem(CalScheduleListControl* parent, const CalDate& date) :
-	__parent(parent)
+CalListGroupTitleItem::CalListGroupTitleItem(CalScheduleListControl* parent, const CalDate& date)
+	: __parent(parent)
 {
 	__isGroupTitle = true;
 	__date = date;
@@ -233,7 +233,7 @@ void CalListGroupTitleItem::__addToBox(Evas_Object *box, int &height, CalEventIt
 	elm_object_part_text_set(layout, "elm.text.title", eventItem->getTitle());
 	elm_object_part_text_set(layout, "elm.text.time", eventItem->getDateInterval());
 
-	if(eventItem->isCheckboxRequired())
+	if(eventItem->isCheckboxRequired() && getCheckable())
 	{
 		Evas_Object* check = elm_check_add(box);
 		evas_object_size_hint_align_set(check, EVAS_HINT_FILL, EVAS_HINT_FILL);

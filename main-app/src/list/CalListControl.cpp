@@ -86,11 +86,22 @@ CalListControl::Item::Item()
 	, __date()
 	, __elmObjectItem(NULL)
 	, __index(0)
+	, __isCheckable(true)
 {
 }
 
 CalListControl::Item::~Item()
 {
+}
+
+void CalListControl::Item::setCheckable(bool isCheckable)
+{
+	__isCheckable = isCheckable;
+}
+
+bool CalListControl::Item::getCheckable() const
+{
+	return __isCheckable;
 }
 
 /**

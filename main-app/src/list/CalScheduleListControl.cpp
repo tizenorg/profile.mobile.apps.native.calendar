@@ -586,7 +586,7 @@ void CalScheduleListControl::selectAllSchduleItem(Eina_Bool sellectedAll)
 		if (item && item->isGroupTitle())
 		{
 			CalListGroupTitleItem* groupItem = (CalListGroupTitleItem*)item;
-			groupItem ->selectAllItems(true);
+			groupItem ->selectAllItems(sellectedAll);
 			__selectedCount += groupItem->getSelectedItemsCount();
 		}
 
@@ -612,16 +612,9 @@ void CalScheduleListControl::showCheckBox(Eina_Bool showCheck)
 	while(next)
 	{
 		Item* item = (Item*)elm_object_item_data_get(next);
-		if (!item->isGroupTitle())
-		{
-			if(__isHideCheck)
-			{
-				elm_layout_signal_emit(next, "checkbox/hide", "elm");
-			}
-			else
-			{
-				elm_layout_signal_emit(next, "checkbox/show", "elm");
-			}
+		if (item->isGroupTitle()) {
+				item->setCheckable(showCheck);
+				elm_genlist_item_fields_update(next, "elm.swallow.content", ELM_GENLIST_ITEM_FIELD_CONTENT);
 		}
 		next = elm_genlist_item_next_get(next);
 	}

@@ -70,6 +70,13 @@ public:
 		 */
 		const CalDate& getDate() const {return __date;}
 
+		/**
+		 * Sets checkable state.
+		 *
+		 * @param [in]   isCheckable   checkable state.
+		 */
+		void setCheckable(bool isCheckable);
+
 	protected:
 
 		/**
@@ -85,6 +92,13 @@ public:
 		 * @return	null if it fails, else the string.
 		 */
 		virtual const char* getString() {return "(some item)";}
+
+		/**
+		 * Gets checkable state.
+		 *
+		 * @return   checkable state.
+		 */
+		bool getCheckable() const;
 
 	protected:
 		bool __isGroupTitle;
@@ -104,6 +118,7 @@ public:
 	private:
 		Elm_Object_Item* __elmObjectItem;
 		int __index;
+		bool __isCheckable;
 
 	friend class CalListControl;
 	};

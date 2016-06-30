@@ -43,7 +43,6 @@ private:
 	const char* __getFilePath();
 	void __replyError();
 	void __makeSchedule();
-	CalDetailView::MenuState __getMenuState();
 private:
 	bool __replyToRequest;
 	app_control_h __request;

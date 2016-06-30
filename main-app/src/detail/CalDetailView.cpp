@@ -565,16 +565,6 @@ void CalDetailView::onMenuButton()
 	WMenuPopup* popup = new WMenuPopup();
 	popup->prepare(getWindow()->getEvasObj(), getNaviframe()->getEvasObj());
 
-	if (__menuState == MENU_SAVEONLY)
-	{
-		popup->appendItem(_L_("IDS_CLD_OPT_SAVE_IN_CALENDAR_ABB"), [this]() {
-			this->__save();
-		});
-
-		attachPopup(popup);
-		return;
-	}
-
 	std::shared_ptr<CalBook> book = CalBookManager::getInstance().getBook(__workingCopy->getBookId());
 
 	if (!(book && book->getIndex() == DEFAULT_BIRTHDAY_CALENDAR_BOOK_ID))
