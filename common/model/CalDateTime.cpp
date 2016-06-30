@@ -63,6 +63,21 @@ CalDateTime::CalDateTime(int year, int month, int mday, int hour, int min, int s
 	__year = year;
 }
 
+CalDateTime::CalDateTime(const CalDateTime &base, const char *timeZone)
+		:CalDateTime()
+{
+	if (timeZone && *timeZone)
+	{
+		struct tm time;
+		CalLocaleManager::getInstance().getTmFromUtime(timeZone, base.__utime, time);
+		__utime = CalLocaleManager::getInstance().getUtimeFromTm(NULL, time);
+		__year = time.tm_year;
+		__month = time.tm_mon;
+		__mday = time.tm_mday;
+		__allday = base.__allday;
+	}
+}
+
 CalDateTime::~CalDateTime()
 {
 }
