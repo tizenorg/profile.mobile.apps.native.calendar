@@ -70,6 +70,13 @@ public:
 		 */
 		const CalDate& getDate() const {return __date;}
 
+		/**
+		 * Sets show checkBox state.
+		 *
+		 * @param [in]   showCheckBox   show checkBox state.
+		 */
+		void setShowCheckBox(bool showCheckBox);
+
 	protected:
 
 		/**
@@ -85,6 +92,13 @@ public:
 		 * @return	null if it fails, else the string.
 		 */
 		virtual const char* getString() {return "(some item)";}
+
+		/**
+		 * Gets show checkBox state.
+		 *
+		 * @return   show checkBox state.
+		 */
+		bool getShowCheckBox() const;
 
 	protected:
 		bool __isGroupTitle;
@@ -104,6 +118,7 @@ public:
 	private:
 		Elm_Object_Item* __elmObjectItem;
 		int __index;
+		bool __showCheckBox;
 
 	friend class CalListControl;
 	};
