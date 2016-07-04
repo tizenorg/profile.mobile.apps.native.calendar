@@ -36,7 +36,7 @@ static const char *unitLabels[][2] =
 	{"IDS_CLD_BODY_DAY_M_DURATION_LC", "IDS_CLD_BODY_DAYS_M_DURATION_LC"},
 	{"IDS_CLD_BODY_WEEK_LC_ABB", "IDS_CLD_BODY_WEEKS_M_DURATION_LC"},
 	{"IDS_CLD_BODY_MONTH_LC_ABB", "IDS_CLD_OPT_MONTHS_LC_ABB"},
-	{"IDS_CLD_OPT_YEARS_LC_ABB", "IDS_CLD_BODY_YEAR_LC"}
+	{"IDS_CLD_BODY_YEAR_LC", "IDS_CLD_OPT_YEARS_LC_ABB"}
 };
 
 CalDialogEditRepeatUnitItem::CalDialogEditRepeatUnitItem(std::function<void (CalScheduleRepeat::UnitType unitType, int unnitInterval)> changedCb, const CalScheduleRepeat repeat, CalScheduleRepeat::UnitType unitType)
