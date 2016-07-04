@@ -129,7 +129,8 @@ void CalViewApp::onAppControl(app_control_h request, bool firstLaunch)
 
 	WDEBUG("firstLaunch = %u", firstLaunch);
 
-	__request = request;
+	int ret = app_control_clone(&__request, request);
+	WPRET_M(ret != APP_CONTROL_ERROR_NONE, "Can't clone the request");
 
 	__makeSchedule();
 
