@@ -695,13 +695,16 @@ int CalEditView::__getReminderIndexFromInterval(const int reminderInterval)
 
 void CalEditView::__applyChangesToReminder(const CalScheduleReminder& reminder, CalDialogEditOneTextRemoveIconItem* reminderItem)
 {
+	const int reminderIndex = __getReminderIndexFromInterval((intptr_t)(reminderItem->getCustomData()));
+
 	if(reminder.unitType == CalScheduleReminder::NONE)
 	{
-		return; // NONE selected
+		__workingCopy->removeReminder(reminderIndex);
 	}
-
-	const int reminderIndex = __getReminderIndexFromInterval((intptr_t)(reminderItem->getCustomData()));
-	__workingCopy->setReminder(reminderIndex, reminder);
+	else
+	{
+		__workingCopy->setReminder(reminderIndex, reminder);
+	}
 
 	__removeAllReminderItems();
 	__addAllReminderItems();
