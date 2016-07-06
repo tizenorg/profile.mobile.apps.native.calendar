@@ -201,7 +201,7 @@ int CalDataManager::deleteSchedule(const CalSchedule& inputSchedule)
 	if (ret == 0)
 	{
 		__notify(CalEvent::LOCAL);
-		__notifyAlert();
+		__notifyAlert(inputSchedule.getIndex());
 	}
 	WLEAVE();
 	return ret;
@@ -301,19 +301,6 @@ void CalDataManager::__deleteAllInstances(const CalSchedule& inputSchedule)
 	{
 		deleteSchedule(inputSchedule);
 	}
-}
-
-int CalDataManager::deleteSchedules(const std::list<std::shared_ptr<CalSchedule>>& inputSchedules)
-{
-	WENTER();
-	for (auto it = inputSchedules.begin(); it != inputSchedules.end(); ++it)
-	{
-		__deleteSchedule(**it);
-	}
-	__notify(CalEvent::LOCAL);
-	__notifyAlert();
-	WLEAVE();
-	return 0;
 }
 
 std::shared_ptr<CalSchedule> CalDataManager::getUpdatedWorkingCopy(OperationMode mode, const CalSchedule& inputSchedule)
@@ -1112,7 +1099,7 @@ void CalDataManager::__notify(CalEvent::Source source)
 	CalEventManager::getInstance().notify(event);
 }
 
-void CalDataManager::__notifyAlert(void)
+void CalDataManager::__notifyAlert(int recordIndex)
 {
 	WENTER();
 	app_control_h service = NULL;
@@ -1121,6 +1108,8 @@ void CalDataManager::__notifyAlert(void)
 	app_control_set_app_id(service, CALENDAR_NOTI_PACKAGE);
 	app_control_set_operation(service, APP_CONTROL_OPERATION_DEFAULT);
 	app_control_add_extra_data(service, CAL_APPSVC_PARAM_CALLER, CAL_APPSVC_PARAM_CALLER_CALENDAR);
+
+	app_control_add_extra_data(service, CAL_APPSVC_PARAM_INDEX, std::to_string(recordIndex).c_str());
 
 	int ret = app_control_send_launch_request(service, NULL, NULL);
 	if( ret != APP_CONTROL_ERROR_NONE )

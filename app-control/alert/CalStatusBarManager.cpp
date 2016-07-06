@@ -150,65 +150,20 @@ void CalStatusBarManager::removeFromNotification(const int id)
 		std::shared_ptr<CalAlertData> alertData = std::make_shared<CalAlertData>();
 		alertData->removeById(id);
 
-				if (alertData->getCount() == 0)
-				{
-					WDEBUG("No more events! Delete notification");
-					notification_delete(notification);
-					app_control_destroy(service);
-					return;
-				}
-
-				__setNotificationData(service, alertData);
-				__setNotificationTitle(notification, alertData);
-
-				notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, service);
-				notification_update(notification);
-
-		notification_update(notification);
-		notification_free(notification);
-	}
-	WLEAVE();
-}
-
-void CalStatusBarManager::removeFromNotification(std::vector<int> &idsToRemove)
-{
-	WENTER();
-	notification_h notification = __getHandle();
-
-	if (notification != NULL)
-	{
-		WDEBUG("Remove %d IDs from notification", idsToRemove.size());
-
-		app_control_h service = NULL;
-		service = __createAppControl();
-
-		std::shared_ptr<CalAlertData> alertData = std::make_shared<CalAlertData>();
-		for (auto id : idsToRemove)
-		{
-			alertData->removeById(id);
-		}
-
 		if (alertData->getCount() == 0)
 		{
-			notification_delete(notification);
-			return;
-		}
-		__setNotificationData(service, alertData);
-		__setNotificationTitle(notification, alertData);
-
-		if (alertData->getCount() == 0)
-		{
+			WDEBUG("No more events! Delete notification");
 			notification_delete(notification);
 			app_control_destroy(service);
 			return;
 		}
+
 		__setNotificationData(service, alertData);
 		__setNotificationTitle(notification, alertData);
 
-		notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, (void *)service);
+		notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, service);
 		notification_update(notification);
 
-		app_control_destroy(service);
 		notification_free(notification);
 	}
 	WLEAVE();

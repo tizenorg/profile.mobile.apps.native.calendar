@@ -209,17 +209,14 @@ void CalAlertData::remove(int nth)
 
 void CalAlertData::removeById(int id)
 {
+
 	WENTER();
-	int idx = 0;
-	for (auto alertNotiItem = __alerts.begin(); alertNotiItem != __alerts.end(); ++idx)
+	for (auto alertNotiItem = __alerts.begin() ; alertNotiItem != __alerts.end(); ++alertNotiItem)
 	{
-		if ((*alertNotiItem)->getScheduleId() == id)
+		if ((*alertNotiItem)->getRecordIndex() == id)
 		{
-			alertNotiItem = __alerts.erase(alertNotiItem);
-		}
-		else
-		{
-			++alertNotiItem;
+			__alerts.erase(alertNotiItem);
+			break;
 		}
 	}
 	WLEAVE();
