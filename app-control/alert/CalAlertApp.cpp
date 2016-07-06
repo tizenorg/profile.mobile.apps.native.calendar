@@ -153,15 +153,14 @@ void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 		__launchNotificationView(__alertData);
 		break;
 
-	case CALALERT_UPDATE_STATUSBAR:
-		if (firstLaunch)
-		{
-			WDEBUG("exit");
-			__exit();
-			WLEAVE();
-			return;
+	case CALALERT_UPDATE_STATUSBAR: {
+		char* recordIndex = NULL;
+		app_control_get_extra_data(request, CAL_APPSVC_PARAM_INDEX, &recordIndex);
+		if (recordIndex) {
+			CalStatusBarManager::getInstance().removeFromNotification(atoi(recordIndex));
+			free(recordIndex);
 		}
-		CalStatusBarManager::getInstance().checkDeletedEvent();
+	}
 		break;
 
 	case CALALERT_NONE:

@@ -73,16 +73,6 @@ public:
 	 */
 	void removeFromNotification(const int id);
 
-
-	/**
-	 * Remove infromation about events with IDs from Status-Bar.
-	 *
-	 * @param [in]	idsToRemove		Event IDs.
-	 *
-	 */
-	void removeFromNotification(std::vector<int> &idsToRemove);
-
-
 	/**
 	 * Remove notification from Status-Bar.
 	 *

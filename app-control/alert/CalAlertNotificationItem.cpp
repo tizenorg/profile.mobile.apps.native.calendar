@@ -22,7 +22,8 @@
 
 CalAlertNotificationItem::CalAlertNotificationItem(int recordIndex):
 	__isSnoozed(false),
-	__alarmId(0)
+	__alarmId(0),
+	__recordIndex(recordIndex)
 {
 	WENTER();
 	__getRecord(recordIndex);
@@ -55,6 +56,11 @@ bool CalAlertNotificationItem::isSnoozed()
 int CalAlertNotificationItem::getScheduleId()
 {
 	return __schedule->getIndex();
+}
+
+int CalAlertNotificationItem::getRecordIndex()
+{
+	return __recordIndex;
 }
 
 int CalAlertNotificationItem::getAlarmId()

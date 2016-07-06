@@ -48,6 +48,12 @@ public:
 	int getScheduleId();
 
 	/**
+	 * @brief Get saved record index.
+	 * @return Record index.
+	 */
+	int getRecordIndex();
+
+	/**
 	 * @brief Get alarm ID.
 	 * @return Alarm ID.
 	 */
@@ -99,6 +105,7 @@ private:
 	std::shared_ptr<CalSchedule> __schedule;
 	bool __isSnoozed;
 	int __alarmId;
+	int __recordIndex;
 
 	void __getRecord(int recordIndex);
 };
