@@ -39,7 +39,6 @@ public:
 	int updateSchedule(OperationMode mode, const CalSchedule& inputSchedule, CalSchedule& workingCopy, int* newId = NULL);
 	int deleteSchedule(const CalSchedule& inputSchedule);
 	int deleteSchedule(OperationMode mode, const CalSchedule& inputSchedule);
-	int deleteSchedules(const std::list<std::shared_ptr<CalSchedule>>& instances);
 	std::shared_ptr<CalSchedule> getUpdatedWorkingCopy(OperationMode mode, const CalSchedule& inputSchedule);
 	std::shared_ptr<CalSchedule> getWorkingCopy(OperationMode mode, const CalSchedule& inputSchedule);
 	std::shared_ptr<CalSchedule> getWorkingCopyForForward(OperationMode mode, const CalSchedule& inputSchedule);
@@ -69,7 +68,7 @@ private:
 	std::shared_ptr<CalOriginalSchedule> __getWorkingUpdatedCopy(const CalSchedule& inputSchedule);
 private:
 	void __notify(CalEvent::Source source);
-	void __notifyAlert(void);
+	void __notifyAlert(int recordIndex);
 	static void __onChanged(const char* uri, void* userData);
 private:
 	static std::shared_ptr<CalOriginalSchedule> __getOriginalSchedule(const CalSchedule& instance);
