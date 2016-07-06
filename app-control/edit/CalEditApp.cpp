@@ -99,7 +99,6 @@ bool CalEditApp::onCreate()
 			elm_exit();
 		});
 	getWindow()->attachBaseUiObject(naviframe);
-	evas_object_hide(getWindow()->getEvasObj());
 	elm_win_indicator_mode_set(getWindow()->getEvasObj(), ELM_WIN_INDICATOR_SHOW);
 	elm_win_indicator_opacity_set(getWindow()->getEvasObj(), ELM_WIN_INDICATOR_TRANSPARENT);
 	int rots[1] = {0};
