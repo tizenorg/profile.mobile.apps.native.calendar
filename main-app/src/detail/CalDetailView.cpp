@@ -638,6 +638,7 @@ void CalDetailView::onPushed(Elm_Object_Item* naviItem)
 void CalDetailView::onEvent(const CalEvent& event)
 {
 	WENTER();
+	WPRET_M(__inputSchedule->getIndex() < 1, "No need to handle event for not saved record");
 	WDEBUG("type = %u, source = %u", event.type, event.source);
 
 	switch (event.type) {
@@ -648,6 +649,7 @@ void CalDetailView::onEvent(const CalEvent& event)
 			book = CalBookManager::getInstance().getBook(__inputSchedule->getBookId());
 			if (book == NULL)  // It is edited schedule is deleted, treat it as default ,and mode is changed to create
 			{
+				//Fixme Remove invoke of popOut in the callback, because it detaches this listener
 				popOut();
 				return;
 			}
@@ -660,6 +662,7 @@ void CalDetailView::onEvent(const CalEvent& event)
 				}
 				else
 				{
+					//Fixme Remove invoke of popOut and destroy in the callback, because it detaches this listener
 					if (((CalNaviframe*)getNaviframe())->getTopView() == this)
 					{
 						popOut();
