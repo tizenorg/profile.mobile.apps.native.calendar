@@ -51,7 +51,9 @@ CalMonthControl2::~CalMonthControl2()
 		__monthIdler = NULL;
 	}
 
-	delete __thisMonth;
+	/*
+	 * __thisMonth will be removed automatically in __WControlImpl::__objDelCb callback
+	 */
 }
 
 const char* CalMonthControl2::getClassName()
