@@ -22,6 +22,8 @@
 #include "CalOriginalSchedule.h"
 #include "CalStatusBarManager.h"
 
+using std::vector;
+
 CalAlertData::CalAlertData(app_control_h request) :
 	__tick(0),
 	__unit(0)
@@ -207,7 +209,7 @@ void CalAlertData::remove(int nth)
 	__alerts.erase(__alerts.begin() + nth);
 }
 
-void CalAlertData::removeById(int id)
+bool CalAlertData::removeById(int id)
 {
 
 	WENTER();
@@ -216,10 +218,13 @@ void CalAlertData::removeById(int id)
 		if ((*alertNotiItem)->getRecordIndex() == id)
 		{
 			__alerts.erase(alertNotiItem);
-			break;
+
+			WLEAVE();
+			return true;
 		}
 	}
 	WLEAVE();
+	return false;
 }
 
 void CalAlertData::clear()

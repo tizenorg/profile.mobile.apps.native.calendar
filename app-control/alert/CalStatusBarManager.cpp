@@ -144,27 +144,27 @@ void CalStatusBarManager::removeFromNotification(const int id)
 	{
 		WDEBUG("Remove id[%d] from notification", id);
 
-		app_control_h service = NULL;
-		service = __createAppControl();
-
 		std::shared_ptr<CalAlertData> alertData = std::make_shared<CalAlertData>();
-		alertData->removeById(id);
-
-		if (alertData->getCount() == 0)
+		if (alertData->removeById(id))
 		{
-			WDEBUG("No more events! Delete notification");
-			notification_delete(notification);
-			app_control_destroy(service);
-			return;
+			if (alertData->getCount() == 0)
+			{
+				WDEBUG("No more events! Delete notification");
+				notification_delete(notification);
+				return;
+			}
+
+			app_control_h service = NULL;
+			service = __createAppControl();
+
+			__setNotificationData(service, alertData);
+			__setNotificationTitle(notification, alertData);
+
+			notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, service);
+			notification_update(notification);
+
+			notification_free(notification);
 		}
-
-		__setNotificationData(service, alertData);
-		__setNotificationTitle(notification, alertData);
-
-		notification_set_launch_option(notification, NOTIFICATION_LAUNCH_OPTION_APP_CONTROL, service);
-		notification_update(notification);
-
-		notification_free(notification);
 	}
 	WLEAVE();
 }
@@ -172,11 +172,14 @@ void CalStatusBarManager::removeFromNotification(const int id)
 void CalStatusBarManager::checkDeletedEvent()
 {
 	WENTER();
-	std::vector<int> missed;
-	for (auto it = missed.begin() ; it != missed.end(); ++it)
+
+	std::vector<std::shared_ptr<CalAlertNotificationItem> > items;
+	getAllStatusBar(items);
+
+	for (auto it = items.begin() ; it != items.end(); ++it)
 	{
 		calendar_record_h record = NULL;
-		int recordIndex = *it;
+		int recordIndex = (*it)->getRecordIndex();
 		int error = calendar_db_get_record(_calendar_event._uri, recordIndex, &record);
 		if (error != CALENDAR_ERROR_NONE)
 		{
