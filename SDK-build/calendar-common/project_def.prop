@@ -39,14 +39,14 @@ USER_INC_DIRS_ABS =
 USER_INC_FILES = 
 USER_INC_FILES_ABS = 
 ## C++ Compiler
-USER_CPP_INC_DIRS = . 
+USER_CPP_INC_DIRS = $(workspace_loc)/common/fw $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/app-assist-efl/inc /home/aleksandr/tizen-sdk/library 
 USER_CPP_INC_DIRS_ABS = $(workspace_loc)/common/fw $(workspace_loc)/common $(workspace_loc)/common/model $(workspace_loc)/app-assist-efl/inc /home/aleksandr/tizen-sdk/library 
 USER_CPP_INC_FILES = 
 USER_CPP_INC_FILES_ABS = 
 
 # User Library Path
-USER_LIB_DIRS = 
-USER_LIB_DIRS_ABS = $(workspace_loc)/SDK-build/app-assist-efl/${BUILD_CONFIG} 
+USER_LIB_DIRS =$(workspace_loc)/SDK-build/app-assist-efl/${BUILD_CONFIG}
+USER_LIB_DIRS_ABS = $(workspace_loc)/SDK-build/app-assist-efl/${BUILD_CONFIG}
 
 # EDC Resource Path
 USER_EDCS_IMAGE_DIRS = 
