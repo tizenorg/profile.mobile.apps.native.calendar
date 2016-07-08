@@ -154,16 +154,17 @@ void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 		break;
 
 	case CALALERT_UPDATE_STATUSBAR:
-	{
-		char* recordIndex = NULL;
-		app_control_get_extra_data(request, CAL_APPSVC_PARAM_INDEX, &recordIndex);
-		if (recordIndex) {
-			CalStatusBarManager::getInstance().removeFromNotification(atoi(recordIndex));
-			free(recordIndex);
+		WDEBUG("Update status bar");
+		if (firstLaunch)
+		{
+			WDEBUG("exit");
+			__exit();
+			WLEAVE();
+			return;
 		}
-	}
+		CalStatusBarManager::getInstance().checkDeletedEvent();
+		//Fixme The notification view is shown when alert is on pause and remove first event from several
 		break;
-
 	case CALALERT_NONE:
 	default:
 		CalStatusBarManager::getInstance().checkDeletedEvent();
@@ -189,8 +190,8 @@ void CalAlertApp::__createWindowSafe(bool isFirstLaunch, bool isAlertPopup)
 		if (win == NULL)
 		{
 			__stopExit();
+			__createWindow(isAlertPopup);
 		}
-		__createWindow(isAlertPopup);
 	}
 }
 void CalAlertApp::__createWindow(bool isAlertPopup)
