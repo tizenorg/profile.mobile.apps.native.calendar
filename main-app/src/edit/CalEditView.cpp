@@ -1856,7 +1856,6 @@ void CalEditView::__preProcessAddButtons()
 	if (__model.isOn(CalEditModel::LOCATION))
 	{
 		__onAddLocationField();
-		__setFocusToField(__location);
 	}
 
 	if (__model.isOn(CalEditModel::REMINDER))
