@@ -68,7 +68,7 @@ private:
 	std::shared_ptr<CalOriginalSchedule> __getWorkingUpdatedCopy(const CalSchedule& inputSchedule);
 private:
 	void __notify(CalEvent::Source source);
-	void __notifyAlert(int recordIndex);
+	void __notifyAlert();
 	static void __onChanged(const char* uri, void* userData);
 private:
 	static std::shared_ptr<CalOriginalSchedule> __getOriginalSchedule(const CalSchedule& instance);
