@@ -41,7 +41,7 @@ public:
 
 	// remove
 	void remove(int nth);
-	void removeById(int id);
+	bool removeById(int id);
 	void clear();
 
 	// set
