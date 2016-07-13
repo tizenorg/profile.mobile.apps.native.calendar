@@ -1,6 +1,6 @@
 Name:       org.tizen.calendar
-#VCS_FROM:   profile/mobile/apps/native/calendar#c2ec09035f4db4d4fa20a7fd1d011a8c50b5756b
-#RS_Ver:    20160711_2 
+#VCS_FROM:   profile/mobile/apps/native/calendar#ace08d86e9739852ffd9cf9e93fbc9826d0ca7c3
+#RS_Ver:    20160713_3 
 Summary:    %{REF_APP_LABEL} application
 Version:    1.0.0
 Release:    1
@@ -28,7 +28,7 @@ Requires(post):  /usr/bin/tpk-backend
 %endif
 
 %description
-profile/mobile/apps/native/calendar#c2ec09035f4db4d4fa20a7fd1d011a8c50b5756b
+profile/mobile/apps/native/calendar#ace08d86e9739852ffd9cf9e93fbc9826d0ca7c3
 This is a container package which have preload TPK files
 
 %prep
