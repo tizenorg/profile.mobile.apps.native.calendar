@@ -27,11 +27,13 @@
 class CalDialogEditTextFieldItem: public CalDialogControl::Item
 {
 public:
-	CalDialogEditTextFieldItem(int sortIndex, std::function<void (CalUnderlineEditField* editField)> onCreateEditField);
+	CalDialogEditTextFieldItem(int sortIndex, std::function<void (CalUnderlineEditField* editField)> onCreateEditField,
+	std::function<void (CalUnderlineEditField* editField)> onFocusSet);
 	CalDialogEditTextFieldItem();
 	virtual ~CalDialogEditTextFieldItem();
 public:
 	CalUnderlineEditField* getEditField();
+	virtual void onRealized() override;
 private:
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
 private:
@@ -41,6 +43,9 @@ protected:
 protected:
 	CalUnderlineEditField* __editField;
 	std::function<void (CalUnderlineEditField* editField)> __onCreateEditField;
+	std::function<void (CalUnderlineEditField* editField)> __onFocusSet;
+	bool __isRealized;
+	bool __isFocusPending;
 };
 
 #endif /* _CAL_DIALOG_TEXTFIELD_ITEM_H_ */

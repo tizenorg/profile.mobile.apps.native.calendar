@@ -50,6 +50,7 @@ public:
 
 		void setCustomData(void* customData) {__customData = customData;}
 		void* getCustomData() const {return __customData;}
+		virtual void onRealized() {}
 
 	protected:
 		using WGenlistItem::onSelect;
