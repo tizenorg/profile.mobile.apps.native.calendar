@@ -1361,7 +1361,7 @@ void CalEditView::__onAddTitleField()
 		{
 			editField->setEntryReturnKeyType(CalUnderlineEditField::DONE);
 		}
-
+	}, [this](CalUnderlineEditField* editField) {
 		if (__mode == CREATE)
 		{
 			editField->setFocusToEntry();
@@ -1514,10 +1514,15 @@ Evas_Object* CalEditView::onCreate(Evas_Object* parent, void* viewParam)
 	Evas_Object *genlist = dialog->getEvasObj();
 	elm_genlist_highlight_mode_set(genlist, EINA_FALSE);
 
-	evas_object_smart_callback_add(genlist, "realized", [](void* data, Evas_Object* obj, void* event_info) {
-	 	CalEditView* self = (CalEditView*)data;
+	evas_object_smart_callback_add(genlist, "realized", [](void* data, Evas_Object* obj, void *event_info) {
+		CalEditView* self = (CalEditView*)data;
 		self->__updateMoreItemButtonStatus();/*for location, reminder, repeat 3 buttons*/
 		self->__updateMoreButtonStatus(); /*for more button*/
+
+		CalDialogControl::Item *item = (CalDialogControl::Item *)elm_object_item_data_get((Elm_Object_Item *) event_info);
+		if (item) {
+			item->onRealized();
+		}
 	 }, this);
 
 	//add title item;
