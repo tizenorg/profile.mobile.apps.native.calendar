@@ -23,18 +23,14 @@ std::function<void (CalUnderlineEditField* editField)> onFocusSet)
 	: CalDialogControl::Item(sortIndex),
 	__editField(NULL),
 	__onCreateEditField(onCreateEditField),
-	__onFocusSet(onFocusSet),
-	__isRealized(false),
-	__isFocusPending(false)
+	__onFocusSet(onFocusSet)
 {
 }
 
 CalDialogEditTextFieldItem::CalDialogEditTextFieldItem()
 	: __editField(NULL),
 	__onCreateEditField(NULL),
-	__onFocusSet(NULL),
-	__isRealized(false),
-	__isFocusPending(false)
+	__onFocusSet(NULL)
 {
 }
 
@@ -74,14 +70,6 @@ Evas_Object* CalDialogEditTextFieldItem::createEntry(Evas_Object* parent)
 		__onCreateEditField(__editField);
 	}
 
-	if (__onFocusSet) {
-		if (__isRealized) {
-			__onFocusSet(__editField);
-		} else {
-			__isFocusPending = true;
-		}
-	}
-
 	return __editField->getEvasObj();
 }
 
@@ -92,12 +80,11 @@ CalUnderlineEditField* CalDialogEditTextFieldItem::getEditField()
 
 void CalDialogEditTextFieldItem::onRealized()
 {
-	if (__onFocusSet && __isFocusPending)
+	if (__onFocusSet)
 	{
 		__onFocusSet(__editField);
-		__isFocusPending = false;
+		__onFocusSet = nullptr;
 	}
-	__isRealized = true;
 }
 
 void CalDialogEditTextFieldItem::onEditFieldDestroyed(void* data, Evas* evas, Evas_Object* obj, void* event_info)

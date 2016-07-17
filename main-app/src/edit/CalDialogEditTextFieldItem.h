@@ -44,8 +44,6 @@ protected:
 	CalUnderlineEditField* __editField;
 	std::function<void (CalUnderlineEditField* editField)> __onCreateEditField;
 	std::function<void (CalUnderlineEditField* editField)> __onFocusSet;
-	bool __isRealized;
-	bool __isFocusPending;
 };
 
 #endif /* _CAL_DIALOG_TEXTFIELD_ITEM_H_ */
