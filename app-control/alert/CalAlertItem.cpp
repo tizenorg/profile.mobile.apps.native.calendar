@@ -24,9 +24,12 @@
 #include "CalBookManager.h"
 #include "CalAlertNotificationItem.h"
 
+#define PART_CHECK "elm.swallow.checkbox"
+
 CalAlertItem::CalAlertItem(const std::shared_ptr<CalAlertNotificationItem> &alertItem) :
 	__alertItem(alertItem),
 	__check(NULL),
+	__isCheckVisible(true),
 	__selectCb(nullptr),
 	__checkCb(nullptr)
 {
@@ -68,9 +71,9 @@ Elm_Genlist_Item_Class* CalAlertItem::getItemClassStatic()
 	};
 	itc.func.content_get = [](void *data, Evas_Object *obj, const char *part)->Evas_Object*
 	{
-		if (!strcmp(part, "elm.swallow.checkbox"))
+		CalAlertItem* self = (CalAlertItem*)data;
+		if (!strcmp(part, PART_CHECK) && self->__isCheckVisible)
 		{
-			CalAlertItem* self = (CalAlertItem*)data;
 			Evas_Object *check = elm_check_add(obj);
 			elm_check_state_set(check, EINA_FALSE);
 			evas_object_propagate_events_set(check, EINA_FALSE);
@@ -84,8 +87,6 @@ Elm_Genlist_Item_Class* CalAlertItem::getItemClassStatic()
 		}
 		else if (!strcmp(part, "elm.swallow.color.bar"))
 		{
-			CalAlertItem *self = (CalAlertItem *)data;
-
 			Evas_Object* icon = evas_object_rectangle_add(evas_object_evas_get(obj));
 			evas_object_size_hint_align_set(icon, EVAS_HINT_FILL, EVAS_HINT_FILL);
 
@@ -130,6 +131,15 @@ void CalAlertItem::onSelect()
 void CalAlertItem::setSelectCb(std::function<void (void)> selectCb)
 {
 	__selectCb = selectCb;
+}
+
+void CalAlertItem::setCheckVisibility(bool isVisible)
+{
+	if (__isCheckVisible != isVisible)
+	{
+		__isCheckVisible = isVisible;
+		elm_genlist_item_fields_update (getElmObjectItem(), PART_CHECK, ELM_GENLIST_ITEM_FIELD_CONTENT);
+	}
 }
 
 Evas_Object * CalAlertItem::getCheckObject()

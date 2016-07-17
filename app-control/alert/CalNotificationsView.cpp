@@ -62,18 +62,13 @@ void CalNotificationsView::__updateSelectAllItems()
 	WENTER();
 	__isAllVisible = !__isAllVisible;
 	__updateSelectAllCheck();
-	bool needDisableSnoozed = true;
 
 	for (auto it = __itemMap.begin(); it != __itemMap.end(); ++it)
 	{
 		CalAlertItem* item = it->second;
 		elm_check_state_set(item->getCheckObject(), __isAllVisible);
-		if(__isAllVisible && !item->isSnoozedItem())
-		{
-			needDisableSnoozed = false;
-		}
 	}
-	__updateButtonStatus(!__isAllVisible, needDisableSnoozed);
+	__updateButtonStatus(!__isAllVisible, !__isAllVisible);
 	WLEAVE();
 }
 
@@ -81,7 +76,6 @@ void CalNotificationsView::__updateCheckStatus()
 {
 	WENTER();
 	int checkedCount = 0;
-	int snoozedCount = 0;
 	for (auto it = __itemMap.begin(); it != __itemMap.end(); ++it)
 	{
 		CalAlertItem* item = it->second;
@@ -89,35 +83,11 @@ void CalNotificationsView::__updateCheckStatus()
 		if (elm_check_state_get(obj) == EINA_TRUE)
 		{
 			++checkedCount;
-			if(item->isSnoozedItem())
-			{
-				++snoozedCount;
-			}
 		}
 
 	}
-	WHIT();
 
-	bool snooze = false;
-	bool dismiss = false;
-
-	if(checkedCount == 0)
-	{
-		snooze = true;
-		dismiss = true;
-	}
-	else if (checkedCount > 0 && snoozedCount == 0)
-	{
-		snooze = false;
-		dismiss = false;
-	}
-	else
-	{
-		snooze = true;
-		dismiss = false;
-	}
-
-	__updateButtonStatus(dismiss, snooze);
+	__updateButtonStatus(!checkedCount, !checkedCount);
 
 	if (__model.getCount() > 1)
 	{
@@ -194,6 +164,15 @@ void CalNotificationsView::__update()
 		__dialog->add(item);
 		__itemMap.insert(std::pair<int, CalAlertItem*>(i, item));
 	}
+
+	if (__itemMap.size() == 1)
+	{
+		__itemMap[0]->setCheckVisibility(false);
+	}
+
+	bool buttonStatus = !(__model.getCount() == 1);
+	__updateButtonStatus(buttonStatus, buttonStatus);
+
 	WLEAVE();
 }
 
@@ -344,20 +323,8 @@ void CalNotificationsView::onPushed(Elm_Object_Item* naviItem)
 	__left_button = left_button;
 	__right_button = right_button;
 
-	if(__model.getCount() == 1)
-	{
-		auto item = __model.getAt(0);
-		if(item->isSnoozed())
-		{
-			__updateButtonStatus(false, true);
-		}
-		else
-		{
-			__updateButtonStatus(false, false);
-		}
-	} else {
-		__updateButtonStatus(true, true);
-	}
+	bool buttonStatus = !(__model.getCount() == 1);
+	__updateButtonStatus(buttonStatus, buttonStatus);
 
 	elm_object_item_part_content_set(naviItem, "toolbar", layout);
 }

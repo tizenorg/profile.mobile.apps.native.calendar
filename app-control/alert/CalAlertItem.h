@@ -31,6 +31,8 @@ public:
 
 	void setCheckCb(std::function<void (void)> checkCb);
 	void setSelectCb(std::function<void (void)> selectCb);
+
+	void setCheckVisibility(bool isVisible);
 	Evas_Object * getCheckObject();
 
 	bool isSnoozedItem();
@@ -42,6 +44,7 @@ private:
 
 	std::shared_ptr<CalAlertNotificationItem> __alertItem;
 	Evas_Object *__check;
+	bool __isCheckVisible;
 	std::function<void (void)> __selectCb;
 	std::function<void (void)> __checkCb;
 };
