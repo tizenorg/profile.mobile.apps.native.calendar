@@ -36,6 +36,7 @@ public:
 	virtual void onRealized() override;
 private:
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
+	void onFocusPending();
 private:
 	static void onEditFieldDestroyed(void* data, Evas* evas, Evas_Object* obj, void* event_info);
 protected:
@@ -44,8 +45,6 @@ protected:
 	CalUnderlineEditField* __editField;
 	std::function<void (CalUnderlineEditField* editField)> __onCreateEditField;
 	std::function<void (CalUnderlineEditField* editField)> __onFocusSet;
-	bool __isRealized;
-	bool __isFocusPending;
 };
 
 #endif /* _CAL_DIALOG_TEXTFIELD_ITEM_H_ */
