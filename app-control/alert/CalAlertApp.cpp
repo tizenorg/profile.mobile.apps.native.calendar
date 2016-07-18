@@ -196,7 +196,7 @@ void CalAlertApp::__createWindow(bool isAlertPopup)
 
 		attachWindow(new WWindow("Calendar", ELM_WIN_NOTIFICATION));
 
-		efl_util_set_notification_window_level(getWindow()->getEvasObj(), EFL_UTIL_NOTIFICATION_LEVEL_3);
+		efl_util_set_notification_window_level(getWindow()->getEvasObj(), EFL_UTIL_NOTIFICATION_LEVEL_TOP);
 	}
 	else
 	{
