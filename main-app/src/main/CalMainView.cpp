@@ -291,12 +291,13 @@ void CalMainView::onCreated()
 
 	__createListControl();
 
-	WUiTimer::addTimer(LIST_FOCUS_ACTION_DELAY, [](void* data) {
-			CalMainView* self = (CalMainView*) data;
-			self->__focusList();
-		return ECORE_CALLBACK_CANCEL;
-		}, this, getWeakPtr());
-
+	if (!__list->isEmpty()) {
+		WUiTimer::addTimer(LIST_FOCUS_ACTION_DELAY, [](void* data) {
+				CalMainView* self = (CalMainView*) data;
+				self->__focusList();
+			return ECORE_CALLBACK_CANCEL;
+			}, this, getWeakPtr());
+	}
 	__monthSlideAnimator = new CalSlideAnimator(
 		getMonth(0).getEvasObj(),
 		[this](int dir) {
