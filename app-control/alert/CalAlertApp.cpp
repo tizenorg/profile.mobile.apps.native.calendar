@@ -37,8 +37,7 @@
 #define EXIT_DELAY 2.0
 
 CalAlertApp::CalAlertApp() :
-	__timer(nullptr),
-	__mode(CALALERT_NONE)
+	__timer(nullptr)
 {
 	WENTER();
 }
@@ -120,8 +119,8 @@ void CalAlertApp::onTerminate()
 void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 {
 	WENTER();
-	__checkRequest(request);
-	switch (__mode)
+	Mode mode = __getMode(request);
+	switch (mode)
 	{
 	case CALALERT_VIEW:
 		WDEBUG("Show Alert");
@@ -158,6 +157,7 @@ void CalAlertApp::onAppControl(app_control_h request, bool firstLaunch)
 		break;
 	case CALALERT_NONE:
 	default:
+		WDEBUG("None");
 		CalStatusBarManager::getInstance().checkDeletedEvent();
 		break;
 	}
@@ -222,9 +222,10 @@ void CalAlertApp::__createWindow(bool isAlertPopup)
 	CalTheme::initialize();
 }
 
-void CalAlertApp::__checkRequest(const app_control_h request)
+CalAlertApp::Mode CalAlertApp::__getMode(const app_control_h request)
 {
 	WENTER();
+	Mode mode = CALALERT_NONE;
 	char *caller = NULL;
 	app_control_get_extra_data(request, CAL_APPSVC_PARAM_CALLER, &caller);
 
@@ -241,15 +242,15 @@ void CalAlertApp::__checkRequest(const app_control_h request)
 				WDEBUG("action [%s]", action);
 				if (!strcmp(action, CAL_APPALERT_ACTION_DISMISS))
 				{
-					__mode = CALALERT_DISMISS;
+					mode = CALALERT_DISMISS;
 				}
 				else if (!strcmp(action, CAL_APPALERT_ACTION_SNOOZE))
 				{
-					__mode = CALALERT_SNOOZE;
+					mode = CALALERT_SNOOZE;
 				}
 				else if (!strcmp(action, CAL_APPALERT_ACTION_SHOW_NOTIFICATION_LIST))
 				{
-					__mode = CALALERT_SHOW_NOTIFICATION_LIST;
+					mode = CALALERT_SHOW_NOTIFICATION_LIST;
 				}
 				else
 				{
@@ -260,26 +261,23 @@ void CalAlertApp::__checkRequest(const app_control_h request)
 
 			__alertData = std::make_shared<CalAlertData>();
 			__model = std::make_shared<CalAlertModel>(__alertData);
-			return;
 		}
 		else if(!strcmp(caller, CAL_APPSVC_PARAM_CALLER_CALENDAR))
 		{
-			__mode = CALALERT_UPDATE_STATUSBAR;
+			mode = CALALERT_UPDATE_STATUSBAR;
 		}
 		free(caller);
 	}
 	else
 	{
 		__alertData = std::make_shared<CalAlertData>(request);
-		if (CalAlertModel::isDeviceLocked())
+		if(__alertData->getCount())
 		{
-			__mode = CALALERT_VIEW;
-		}
-		else
-		{
-			__mode = CALALERT_ACTIVE_NOTIFICATION;
+			mode = CalAlertModel::isDeviceLocked() ? CALALERT_VIEW :
+					CALALERT_ACTIVE_NOTIFICATION;
 		}
 	}
+	return mode;
 }
 
 void CalAlertApp::__launchAlertView(std::shared_ptr<CalAlertData> alertData)
