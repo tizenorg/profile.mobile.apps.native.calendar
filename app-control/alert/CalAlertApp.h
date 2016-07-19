@@ -23,6 +23,7 @@
 #include "WApp.h"
 #include "CalAlertModel.h"
 #include "WAppEventHandler.h"
+#include "IWUiObject.h"
 
 class CalAlertView;
 class CalNotificationsView;
@@ -62,8 +63,8 @@ private:
 	void __exit();
 	void __stopExit();
 private:
-	CalAlertView* __alertView;
-	CalNotificationsView* __notificationsView;
+	WUiObjectPtr __alertView;
+	WUiObjectPtr __notificationsView;
 	Ecore_Timer* __timer;
 	WAppEventHandler __languageChangedHandler;
 	WAppEventHandler __regionFormatChangedHandler;

@@ -37,8 +37,6 @@
 #define EXIT_DELAY 2.0
 
 CalAlertApp::CalAlertApp() :
-	__alertView(nullptr),
-	__notificationsView(nullptr),
 	__timer(nullptr),
 	__mode(CALALERT_NONE)
 {
@@ -288,14 +286,15 @@ void CalAlertApp::__launchAlertView(std::shared_ptr<CalAlertData> alertData)
 {
 	WENTER();
 	CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
-	if (__alertView == NULL)
+	if (auto view = __alertView.lock())
 	{
-		__alertView = new CalAlertView(alertData);
-		frame->push(__alertView);
+		static_cast<CalAlertView *>(view.get())->replaceAlertData(alertData);
 	}
 	else
 	{
-		__alertView->replaceAlertData(alertData);
+		CalAlertView *newView = new CalAlertView(alertData);
+		frame->push(newView);
+		__alertView = newView->getWeakPtr();
 	}
 }
 
@@ -303,15 +302,15 @@ void CalAlertApp::__launchNotificationView(std::shared_ptr<CalAlertData> alertDa
 {
 	WENTER();
 	CalNaviframe* frame = (CalNaviframe*)getWindow()->getBaseUiObject();
-	if (__notificationsView == NULL)
+	if (auto view = __notificationsView.lock())
 	{
-		__notificationsView = new CalNotificationsView(alertData);
-		frame->push(__notificationsView);
+		static_cast<CalNotificationsView *>(view.get())->replaceAlertData(alertData);
 	}
 	else
 	{
-		WHIT();
-		__notificationsView->replaceAlertData(alertData);
+		CalNotificationsView *newView = new CalNotificationsView(alertData);
+		frame->push(newView);
+		__notificationsView = newView->getWeakPtr();
 	}
 
 	WDEBUG("alertData [%p]", __alertData.get());
