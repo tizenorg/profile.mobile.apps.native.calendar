@@ -262,7 +262,18 @@ void CalAlertData::replace(const CalAlertData& obj)
 
 void CalAlertData::__addRecord(int recordIndex, bool isSnoozed)
 {
-	auto item = std::make_shared<CalAlertNotificationItem>(recordIndex);
-	item->setSnoozed(isSnoozed);
-	__alerts.push_back(item);
+	calendar_record_h record = nullptr;
+	int error = calendar_db_get_record(_calendar_event._uri, recordIndex, &record);
+	if (error == CALENDAR_ERROR_NONE)
+	{
+		auto item = std::make_shared<CalAlertNotificationItem>(recordIndex);
+		item->setSnoozed(isSnoozed);
+		__alerts.push_back(item);
+
+		calendar_record_destroy(record, true);
+	}
+	else
+	{
+		WERROR("Record %d isn't found in the calendar database", recordIndex);
+	}
 }

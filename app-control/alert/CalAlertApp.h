@@ -56,7 +56,7 @@ private:
 private:
 	void __createWindowSafe(bool isFirstLaunch, bool isAlertPopup);
 	void __createWindow(bool isAlertPopup);
-	void __checkRequest(const app_control_h request);
+	Mode __getMode(const app_control_h request);
 	void __launchAlertView(std::shared_ptr<CalAlertData> alertData);
 	void __launchNotificationView(std::shared_ptr<CalAlertData> alertData);
 	void __setStatusBar(std::shared_ptr<CalAlertData> alertData);
@@ -68,7 +68,6 @@ private:
 	Ecore_Timer* __timer;
 	WAppEventHandler __languageChangedHandler;
 	WAppEventHandler __regionFormatChangedHandler;
-	Mode __mode;
 	std::shared_ptr<CalAlertData> __alertData;
 	std::shared_ptr<CalAlertModel> __model;
 };
