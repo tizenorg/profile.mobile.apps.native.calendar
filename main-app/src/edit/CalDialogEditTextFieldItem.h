@@ -35,7 +35,7 @@ public:
 	CalUnderlineEditField* getEditField();
 	virtual void onRealized() override;
 private:
-	virtual Elm_Genlist_Item_Class* getItemClassStatic();
+	virtual Elm_Genlist_Item_Class* getItemClassStatic() override;
 private:
 	static void onEditFieldDestroyed(void* data, Evas* evas, Evas_Object* obj, void* event_info);
 protected:
