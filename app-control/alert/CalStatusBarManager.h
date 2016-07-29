@@ -24,21 +24,17 @@
 #include "CalSingleton.h"
 #include "CalAlertData.h"
 
-// see noti-handler
-
+/**
+ * @brief This class manage status bar natification.
+ */
 class CalStatusBarManager
 {
 SINGLETON_IDIOM(CalStatusBarManager);
-protected:
-	CalStatusBarManager();
-	virtual ~CalStatusBarManager();
-private:
-	WDISABLE_COPY_AND_ASSIGN(CalStatusBarManager);
 
 public:
 
 	/**
-	 * Push notification to Status-Bar.
+	 * @brief Push notification to Status-Bar.
 	 *
 	 * @param [in]	alertData	Alert descriptor.
 	 * @param [in]	addSound	Play sound while notification.
@@ -48,7 +44,7 @@ public:
 
 
 	/**
-	 * Push Active Notification.
+	 * @brief Push Active Notification.
 	 *
 	 * @param [in]	alertData	Alert descriptor.
 	 * @param [in]	addSound	Play sound while notification.
@@ -58,7 +54,7 @@ public:
 
 	/**
 	 *
-	 * Update Status-Bar notifications app-control.
+	 * @brief Update Status-Bar notifications app-control.
 	 *
 	 * @param [in]	alertData	New alert data.
 	 *
@@ -66,7 +62,7 @@ public:
 	void update(std::shared_ptr<CalAlertData> &alertData);
 
 	/**
-	 * Remove infromation about event with ID from Status-Bar.
+	 * @brief Remove infromation about event with ID from Status-Bar.
 	 *
 	 * @param [in]	id	Event ID.
 	 *
@@ -74,7 +70,7 @@ public:
 	void removeFromNotification(const int id);
 
 	/**
-	 * Remove notification from Status-Bar.
+	 * @brief Remove notification from Status-Bar.
 	 *
 	 * @param [in]	notification	Status-Bar notification handle.
 	 *
@@ -83,7 +79,7 @@ public:
 
 
 	/**
-	 * Get IDs of events from Status-Bar notification.
+	 * @brief Get IDs of events from Status-Bar notification.
 	 *
 	 * @param [out]	items		Array of alert items.
 	 *
@@ -92,11 +88,17 @@ public:
 
 
 	/**
-	 * Check deleted events on Status-Bar notification.
+	 * @brief Check deleted events on Status-Bar notification.
 	 */
 	void checkDeletedEvent(void);
 
+
 private:
+	CalStatusBarManager();
+	virtual ~CalStatusBarManager();
+
+	WDISABLE_COPY_AND_ASSIGN(CalStatusBarManager);
+
 	void __addVib(notification_h handle);
 	void __addSound(notification_h handle);
 	void __getSound(std::string& sound);

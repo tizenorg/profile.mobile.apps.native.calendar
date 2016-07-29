@@ -21,42 +21,136 @@
 #include "WApp.h"
 #include "CalAlertData.h"
 
+/**
+ * @brief Alert model class
+ *
+ */
 class CalAlertModel
 {
 public:
 	CalAlertModel(std::shared_ptr<CalAlertData> alertData);
 	virtual ~CalAlertModel();
-private:
-	WDISABLE_COPY_AND_ASSIGN(CalAlertModel);
-public:
-	// manage alertData
+
+	/**
+	 * @brief Append alert data to alert model.
+	 *
+	 * @param alertData    alert data to append.
+	 *
+	 */
 	void addAlertData(const std::shared_ptr<CalAlertData>& alertData);
+
+	/**
+	 * @brief Replace alert data to alert model.
+	 *
+	 * @param alertData    alert data to relace.
+	 *
+	 */
 	void relaceAlertData(const std::shared_ptr<CalAlertData>& alertData);
 
-	// get alertData
+	/**
+	 * @brief Get count of alert data items.
+	 *
+	 * @return alert data count.
+	 *
+	 */
 	int getCount(void);
 
+	/**
+	 * @brief Get alert notification item by number.
+	 *
+	 * @param nth    number of item.
+	 *
+	 * @return alert notification item.
+	 *
+	 */
 	std::shared_ptr<CalAlertNotificationItem> getAt(int nth);
 
+	/**
+	 * @brief Snooze all alerts.
+	 *
+	 */
 	void snoozeAll(void);
+
+	/**
+	 * @brief Snooze alert by number.
+	 *
+	 * @param nth    number of alert to snooze.
+	 *
+	 */
 	void snooze(int nth);
+
+	/**
+	 * @brief Dissmiss all alerts.
+	 *
+	 */
 	void dismissAll(void);
+
+	/**
+	 * @brief Dissmiss alert by number.
+	 *
+	 * @param nth    number of alert to dismiss.
+	 *
+	 */
 	void dismiss(int nth);
+
+	/**
+	 * @brief Dissmiss alerts.
+	 *
+	 * @param nths    alerts to dissmiss.
+	 *
+	 */
 	void dismiss(std::vector<int> &nths);
+
+	/**
+	 * @brief Remove alert by number.
+	 *
+	 * @param nth    number of alert to remove.
+	 *
+	 */
 	void remove(int nth);
 
-	// lcd !
+	/**
+	 * @brief Turn ON display.
+	 *
+	 */
 	void turnOnLcd(void);
+
+	/**
+	 * @brief Turn OFF display.
+	 *
+	 */
 	void turnOffLcd(void);
+
+	/**
+	 * @brief Check whether device is locked.
+	 *
+	 * @return lock state.
+	 *
+	 */
 	static bool isDeviceLocked(void);
 
-	// snooze time
+	/**
+	 * @brief Set snooze timeout preference.
+	 *
+	 * @param min     snooze timeout.
+	 *
+	 */
 	void setSnoozeMinute(const int min);
+
+	/**
+	 * @brief Get snooze time out preference's value.
+	 *
+	 * @return snooze timeout.
+	 *
+	 */
 	int getSnoozeMinute(void);
+
 private:
+	WDISABLE_COPY_AND_ASSIGN(CalAlertModel);
+
 	void __snooze(std::shared_ptr<CalAlertNotificationItem> &item);
 	void __dismiss(std::shared_ptr<CalAlertNotificationItem> &item);
-private:
+
 	std::shared_ptr<CalAlertData> __alertData;
 };
 
