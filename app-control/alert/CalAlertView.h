@@ -22,13 +22,24 @@
 #include "CalAlertData.h"
 #include "CalAlertModel.h"
 
+/**
+ * @brief Alert main view class.
+ */
 class CalAlertView : public CalView
 {
 public:
 	CalAlertView(std::shared_ptr<CalAlertData> alertData);
-public:
+	virtual ~CalAlertView();
+
+	/**
+	 * @brief Replace alert view model.
+	 * @param alertData     alert view model.
+	 */
 	void replaceAlertData(std::shared_ptr<CalAlertData> alertData);
+
 private:
+	WDISABLE_COPY_AND_ASSIGN(CalAlertView);
+
 	virtual Evas_Object* onCreate( Evas_Object* parent, void* viewParam );
 	virtual void onDestroy();
 	virtual void onBecomeTop();
@@ -36,7 +47,7 @@ private:
 	virtual void onPushed(Elm_Object_Item* naviItem);
 	virtual void onEvent(const CalEvent& event);
 	virtual void onMenuButton();
-private:
+
 	CalAlertModel __model;
 	bool __dismissDown;
 	bool __snoozeDown;
@@ -48,11 +59,6 @@ private:
 	int __startYPostion;
 	Evas_Object* __dismiss;
 	Evas_Object* __snooze;
-
-protected:
-	virtual ~CalAlertView();
-private:
-	WDISABLE_COPY_AND_ASSIGN(CalAlertView);
 };
 
 

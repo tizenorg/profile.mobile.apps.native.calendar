@@ -23,19 +23,45 @@
 
 class CalAlertNotificationItem;
 
+/**
+ * @brief Alert item class.
+ */
 class CalAlertItem : public CalDialogControl::Item
 {
 public:
 	CalAlertItem(const std::shared_ptr<CalAlertNotificationItem>& alertItem);
 	virtual ~CalAlertItem();
 
+	/**
+	 * @brief Set check state changed callback.
+	 * @param checkCb     change callback.
+	 */
 	void setCheckCb(std::function<void (void)> checkCb);
+
+	/**
+	 * @brief Set select callback.
+	 * @param selectCb    select callback.
+	 */
 	void setSelectCb(std::function<void (void)> selectCb);
 
+	/**
+	 * @brief Set visibility to checkbox.
+	 * @param isVisible    visibility.
+	 */
 	void setCheckVisibility(bool isVisible);
-	Evas_Object * getCheckObject();
 
+	/**
+	 * @brief Get checkbox object.
+	 * @return object of checkbox.
+	 */
+	Evas_Object *getCheckObject();
+
+	/**
+	 * @brief Check whether alert item is snoozed.
+	 * @return snoozed state.
+	 */
 	bool isSnoozedItem();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalAlertItem);
 	virtual Elm_Genlist_Item_Class* getItemClassStatic() override;

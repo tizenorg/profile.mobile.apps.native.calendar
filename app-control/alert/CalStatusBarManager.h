@@ -24,16 +24,12 @@
 #include "CalSingleton.h"
 #include "CalAlertData.h"
 
-// see noti-handler
-
+/**
+ * @brief This class manage status bar natification.
+ */
 class CalStatusBarManager
 {
 SINGLETON_IDIOM(CalStatusBarManager);
-protected:
-	CalStatusBarManager();
-	virtual ~CalStatusBarManager();
-private:
-	WDISABLE_COPY_AND_ASSIGN(CalStatusBarManager);
 
 public:
 
@@ -96,7 +92,13 @@ public:
 	 */
 	void checkDeletedEvent(void);
 
+
 private:
+	CalStatusBarManager();
+	virtual ~CalStatusBarManager();
+
+	WDISABLE_COPY_AND_ASSIGN(CalStatusBarManager);
+
 	void __addVib(notification_h handle);
 	void __addSound(notification_h handle);
 	void __getSound(std::string& sound);
