@@ -39,16 +39,43 @@ typedef void* cal_books_h;
 class WAPP_ASSIST_EXPORT CalBookManager
 {
 SINGLETON_IDIOM(CalBookManager);
+
 public:
+
+	/**
+	 * @brief Get book by index.
+	 *
+	 * @param[in] index         book index
+	 *
+	 * @return book object.
+	 */
 	std::shared_ptr<CalBook> getBook(int index);
+
+	/**
+	 * @brief Get book list.
+	 *
+	 * @param[out] bookMap         book list
+	 *
+	 */
 	void getBooks(std::map<int, std::shared_ptr<CalBook>>& bookMap);
+
+	/**
+	 * @brief Update book.
+	 *
+	 * @param[in] book         book
+	 *
+	 * @return operation result.
+	 *
+	 */
 	int updateBook(const std::shared_ptr<CalBook>& book);
+
 protected:
 	CalBookManager();
 	virtual ~CalBookManager();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalBookManager);
-private:
+
 	void __notify(CalEvent::Source source);
 	static void __onChanged(const char* uri, void* userData);
 	void __createBookMap();
@@ -56,7 +83,6 @@ private:
 	void __addLocalBooks(std::map<int, std::shared_ptr<CalBook>>& bookMap);
 	void __fillColorlessBook(std::map<int, std::shared_ptr<CalBook>>& bookMap);
 
-private:
 	std::map<int, std::shared_ptr<CalBook>> __bookMap;
 };
 

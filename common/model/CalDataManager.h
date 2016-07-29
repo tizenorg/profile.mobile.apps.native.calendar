@@ -26,55 +26,195 @@
 #include "CalOriginalSchedule.h"
 #include "CalEvent.h"
 
+/**
+* @class     CalDataManager
+*
+* @brief    This class manage changings of %CalSchedule and translate
+*           them to calendar service DB.
+*
+*/
 class WAPP_ASSIST_EXPORT CalDataManager
 {
 SINGLETON_IDIOM(CalDataManager);
+
 public:
-	enum OperationMode {
+
+	/**
+	 * @brief OperationMode indicate witch events will bechanged/deleted.
+	 */
+	enum OperationMode
+	{
 		ONLY_THIS = 0,
 		THIS_AND_FUTURE,
 		ALL,
 	};
+
+	/**
+	 * @brief Insert event to DB.
+	 *
+	 * @param[in]  schedule      new event to insert
+	 * @param[out] newId         ID of newly inserted event
+	 *
+	 * @return operation result.
+	 *
+	 */
 	int insertSchedule(const CalSchedule& schedule, int* newId = NULL);
+
+	/**
+	 * @brief Update event on DB.
+	 *
+	 * @param[in]  mode           operation mode
+	 * @param[in]  inputSchedule  destination event
+	 * @param[in]  workingCopy    source event
+	 * @param[out] newId          ID of newly inserted event
+	 *
+	 * @return operation result.
+	 *
+	 */
 	int updateSchedule(OperationMode mode, const CalSchedule& inputSchedule, CalSchedule& workingCopy, int* newId = NULL);
+
+	/**
+	 * @brief Delete event from DB.
+	 *
+	 * @param[in]  inputSchedule     event to delete
+	 *
+	 * @return operation result.
+	 *
+	 */
 	int deleteSchedule(const CalSchedule& inputSchedule);
+
+	/**
+	 * @brief Delete event from DB with operation mode.
+	 *
+	 * @param[in]  mode              operation mode
+	 * @param[in]  inputSchedule     event to delete
+	 *
+	 * @return operation result.
+	 *
+	 */
 	int deleteSchedule(OperationMode mode, const CalSchedule& inputSchedule);
+
+	/**
+	 * @brief Get updated working copy of event.
+	 *
+	 * @param[in]  mode              operation mode
+	 * @param[in]  inputSchedule     event to update
+	 *
+	 * @return updated working copy of event.
+	 */
 	std::shared_ptr<CalSchedule> getUpdatedWorkingCopy(OperationMode mode, const CalSchedule& inputSchedule);
+
+	/**
+	 * @brief Get working copy of event.
+	 *
+	 * @param[in]  mode              operation mode
+	 * @param[in]  inputSchedule     original event
+	 *
+	 * @return working copy of event.
+	 *
+	 */
 	std::shared_ptr<CalSchedule> getWorkingCopy(OperationMode mode, const CalSchedule& inputSchedule);
+
+	/**
+	 * @brief Get working copy of this or this and future events.
+	 *
+	 * @param[in]  mode              operation mode
+	 * @param[in]  inputSchedule     original event
+	 *
+	 * @return working copy of event.
+	 *
+	 */
 	std::shared_ptr<CalSchedule> getWorkingCopyForForward(OperationMode mode, const CalSchedule& inputSchedule);
+
+	/**
+	 * @brief Import events from VCS file.
+	 *
+	 * @param[in]  filePath         path to file
+	 * @param[out] inputSchedules   list of events
+	 *
+	 */
 	void getSchedulesFromVcs(const char* filePath, std::list<std::shared_ptr<CalSchedule>>& inputSchedules);
+
+	/**
+	 * @brief Generate VCS from given event.
+	 *
+	 * @param[in] inputSchedules        list of events
+	 * @param[in] filePath              path to file
+	 * @param[in] isOriginalSchedule    is instance in list are original
+	 *
+	 */
 	void generateVcsFromSchedule(const CalSchedule& schedule, const char* filePath, bool isOriginalSchedule = false);
+
+	/**
+	 * @brief Generate text from given event.
+	 *
+	 * @param[in]  schedule     event to generation
+	 *
+	 * @return generated text.
+	 *
+	 */
 	char* generateTextFromSchedule(const CalSchedule& schedule);
+
+	/**
+	 * @brief Get event by ID.
+	 *
+	 * @param[in]  eventIndex     event ID
+	 *
+	 * @return event.
+	 *
+	 */
 	std::shared_ptr<CalSchedule> getSchedule(const int eventIndex);
+
+	/**
+	 * @brief Get event instance by ID and date.
+	 *
+	 * @param[in]  eventIndex     event ID
+	 * @param[in]  dateTime       event instance date
+	 *
+	 * @return event instance.
+	 *
+	 */
 	std::shared_ptr<CalSchedule> getInstanceSchedule(const int eventIndex, const CalDateTime& dateTime);
+
+	/**
+	 * @brief Check whetheer event is overlapped.
+	 *
+	 * @param schedule        event
+	 *
+	 * @return true if overlapped, otherwise false.
+	 */
 	bool isOverlapped(const CalSchedule& schedule);
+
 protected:
 	CalDataManager();
 	virtual ~CalDataManager();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDataManager);
-private:
+
 	void __updateSchedule(CalOriginalSchedule& workingCopy);
 	void __updateOnlyThisInstance(const CalSchedule& inputSchedule, CalOriginalSchedule& workingCopy);
 	void __updateThisAndFutureInstances(const CalSchedule& inputSchedule, CalOriginalSchedule& workingCopy, int* newId);
 	void __updateAllInstances(const CalSchedule& inputSchedule, CalOriginalSchedule& workingCopy);
+
 	int __deleteSchedule(const CalSchedule& inputSchedule);
 	void __deleteOnlyThisInstance(const CalSchedule& inputSchedule);
 	void __deleteThisAndFutureInstances(const CalSchedule& inputSchedule);
 	void __deleteAllInstances(const CalSchedule& inputSchedule);
+
 	std::shared_ptr<CalOriginalSchedule> __getWorkingInstanceCopy(const CalSchedule& inputSchedule);
 	std::shared_ptr<CalOriginalSchedule> __getWorkingOriginalCopy(const CalSchedule& inputSchedule);
 	void __setThisAndFutureRepeatCount(const CalSchedule& inputSchedule, CalOriginalSchedule& workingCopy);
 	std::shared_ptr<CalOriginalSchedule> __getWorkingUpdatedCopy(const CalSchedule& inputSchedule);
-private:
+
 	void __notify(CalEvent::Source source);
 	void __notifyAlert();
+
 	static void __onChanged(const char* uri, void* userData);
-private:
 	static std::shared_ptr<CalOriginalSchedule> __getOriginalSchedule(const CalSchedule& instance);
 	static void __deleteExceptionRecordsOnAndAfter(const CalOriginalSchedule& originalSchedule, const CalDateTime& inputInstanceStartTime);
 	static void __deleteAllExceptionRecords(const CalOriginalSchedule& originalSchedule);
-private:
+
 	int __localVersion;
 	int __version;
 };

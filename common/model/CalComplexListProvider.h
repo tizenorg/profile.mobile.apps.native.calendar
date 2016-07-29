@@ -27,50 +27,88 @@
 #include "CalInstanceSchedule.h"
 #include "CalDate.h"
 
+/**
+* @class	CalComplexListProvider
+*
+* @brief	This class provides %CalSchedule objects in complex list model.
+*
+*/
 class CalComplexListProvider : public ICalListProvider
 {
+	class Occupant
+	{
+	public:
+		Occupant(std::shared_ptr<CalInstanceSchedule>& schedule, int remainingDays);
+		virtual ~Occupant();
+
+		static bool normalOrderPredicate(const Occupant& a, const Occupant& b);
+		static bool reverseOrderPredicate(const Occupant& a, const Occupant& b);
+
+		std::shared_ptr<CalInstanceSchedule> __schedule;
+		int __remainingDays;
+	};
+
 public:
 	CalComplexListProvider(const CalDate& base, int dir, bool allDay, calendar_filter_h filter);
 	virtual ~CalComplexListProvider();
-public:
+
+	/**
+	 * @brief Prefetch events from calendar service.
+	 *
+	 * @param fillBothBuffers       prefetch current buffer or current and next
+	 *
+	 */
 	virtual void prefetch(bool fillBothBuffers);
+
+	/**
+	 * @brief Get current event.
+	 *
+	 * @return current event object.
+	 *
+	 */
 	virtual std::shared_ptr<CalSchedule> getCurrentSchedule();
+
+	/**
+	 * @brief Get date of currently provided event.
+	 *
+	 * @return event date.
+	 *
+	 */
 	virtual const CalDate& getCurrentDate();
+
+	/**
+	 * @brief Prefetch continue.
+	 *
+	 */
 	virtual void loadNext();
+
+	/**
+	 * @brief Check whether list is ended.
+	 *
+	 */
 	virtual bool eof();
+
 private:
 	void __deleteFinishedFromList();
 	void __updateCurrentDateAndFillList();
 	std::shared_ptr<CalInstanceSchedule> __getNextScheduleFromDbList(CalDate& date);
 	void __getAdjustedDates(const CalInstanceSchedule& schedule, CalDate& start, CalDate& end) const;
 	int __getDuration(const CalInstanceSchedule& schedule) const;
-private:
+
 	const CalDate __base;
 	const int __dir;
 	const int __allDay;
-private:
 	CalDate __currentDate;
+
 	std::shared_ptr<CalInstanceSchedule> __currentSchedule;
-private:
 	CalRecordBlockFetcher __fetcher;
+
 	std::shared_ptr<CalInstanceSchedule> __pending;
 	CalDate __pendingDate;
-private:
-	class Occupant
-	{
-	public:
-		Occupant(std::shared_ptr<CalInstanceSchedule>& schedule, int remainingDays);
-		virtual ~Occupant();
-	public:
-		static bool normalOrderPredicate(const Occupant& a, const Occupant& b);
-		static bool reverseOrderPredicate(const Occupant& a, const Occupant& b);
-	public:
-		std::shared_ptr<CalInstanceSchedule> __schedule;
-		int __remainingDays;
-	};
-private:
+
 	std::list<Occupant> __list;
 	std::list<Occupant>::iterator __iter;
+
 };
 
 #endif
