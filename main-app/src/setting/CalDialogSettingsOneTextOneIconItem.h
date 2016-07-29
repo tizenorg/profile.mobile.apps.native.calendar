@@ -21,15 +21,50 @@
 #include "CalCommon.h"
 #include "CalDialogControl.h"
 
+/**
+ * @brief Genlist item with text and icon in calendar settings
+ */
 class CalDialogSettingsOneTextOneIconItem: public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item with icon and text
+	 *
+	 * @param selectCb Select callback
+	 * @param Text     Text that appears in item
+	 */
 	CalDialogSettingsOneTextOneIconItem(std::function<void (void)> selectCb, const char* Text);
+
+	/**
+	 * @brief Default constructor
+	 */
 	CalDialogSettingsOneTextOneIconItem();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogSettingsOneTextOneIconItem();
+
+	/**
+	 * @brief Set radio button check callback
+	 *
+	 * @param radioCb Check callback
+	 */
 	void setRadioCb(std::function<void (void)> radioCb);
+
 public:
+	/**
+	 * @brief Set item text
+	 *
+	 * @param text Item text
+	 */
 	void setText(const char* text);
+
+	/**
+	 * @brief Get item content
+	 *
+	 * @return content on success, otherwise NULL
+	 */
 	Evas_Object * getIconObject();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogSettingsOneTextOneIconItem);

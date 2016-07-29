@@ -23,11 +23,22 @@
 #include "CalCommon.h"
 #include "WPopup.h"
 
-
+/**
+ * @brief Popup to chose first day of the week
+ */
 class CalSettingFirstDayOfWeekPopup: public WPopup
 {
 public:
+	/**
+	 * @brief Create popup
+	 *
+	 * @param callbackFun Popup item select callback
+	 */
 	CalSettingFirstDayOfWeekPopup (std::function<void ()> callbackFun);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalSettingFirstDayOfWeekPopup();
 private:
 	static void __dialogDeleteCallback(void *data, Evas *e, Evas_Object *obj, void *event_info);
