@@ -17,6 +17,10 @@
 
 #include "CalSchedule.h"
 
+/**
+ * @brief Notification item class
+ *
+ */
 class CalAlertNotificationItem
 {
 public:
@@ -25,78 +29,107 @@ public:
 
 	/**
 	 * @brief Set alert to snoozed.
+	 *
 	 * @param [in]	isSnoozed	Is snoozed.
+	 *
 	 */
 	void setSnoozed(bool isSnoozed);
 
 	/**
 	 * @brief Set alarm ID.
+	 *
 	 * @param [in]	alarmId	Alarm ID.
+	 *
 	 */
 	void setAlarmId(int alarmId);
 
 	/**
 	 * @brief Get snooze status.
+	 *
 	 * @return Snooze status value.
+	 *
 	 */
 	bool isSnoozed();
 
 	/**
 	 * @brief Get schedule ID.
+	 *
 	 * @return Schedule ID.
+	 *
 	 */
 	int getScheduleId();
 
 	/**
 	 * @brief Get saved record index.
+	 *
 	 * @return Record index.
+	 *
 	 */
 	int getRecordIndex();
 
 	/**
 	 * @brief Get alarm ID.
+	 *
 	 * @return Alarm ID.
+	 *
 	 */
 	int getAlarmId();
 
 	/**
 	 * @brief Get schedule instance.
+	 *
 	 * @return Schedule instance.
+	 *
 	 */
 	const std::shared_ptr<CalSchedule> getSchedule();
 
 	/**
 	 * @brief Get formated event name.
+	 *
 	 * @remarks Result mast be freed.
+	 *
 	 * @return Copy of formated event name.
+	 *
 	 */
 	char *getEventName();
 
 	/**
 	 * @brief Get original event name.
+	 *
 	 * @remarks Result mast be freed.
+	 *
 	 * @return Copy of original event name.
+	 *
 	 */
 	char *getEventOriginalName();
 
 	/**
 	 * @brief Get event start time.
+	 *
 	 * @remarks Result mast be freed.
+	 *
 	 * @return Copy of event start time.
+	 *
 	 */
 	char *getStartTime();
 
 	/**
 	 * @brief Get event end time.
+	 *
 	 * @remarks Result mast be freed.
+	 *
 	 * @return Copy of event end time.
+	 *
 	 */
 	char *getEndTime();
 
 	/**
 	 * @brief Get event location.
+	 *
 	 * @remarks Result mast be freed.
+	 *
 	 * @return Copy of event location.
+	 *
 	 */
 	char *getLocation();
 

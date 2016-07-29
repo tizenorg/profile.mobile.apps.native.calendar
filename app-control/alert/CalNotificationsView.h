@@ -27,16 +27,24 @@
 #include "CalAlertItem.h"
 #include "CalNaviframe.h"
 
+/**
+ * @brief Notifications view class.
+ */
 class CalNotificationsView : public CalView
 {
 public:
 	CalNotificationsView(std::shared_ptr<CalAlertData> alertData);
 	virtual ~CalNotificationsView();
+
+	/**
+	 * @brief Replace notifications view model.
+	 * @param alertData     notifications view model.
+	 */
+	void replaceAlertData(std::shared_ptr<CalAlertData> alertData);
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalNotificationsView);
-public:
-	void replaceAlertData(std::shared_ptr<CalAlertData> alertData);
-private:
+
 	virtual Evas_Object* onCreate( Evas_Object* parent, void* viewParam );
 	virtual void onDestroy();
 	virtual void onBecomeTop();
@@ -50,7 +58,7 @@ private:
 	void __updateCheckStatus();
 	void __updateSelectAllCheck(void);
 	void __updateButtonStatus(bool leftStatus, bool rightStatus);
-private:
+
 	bool __isAllVisible;
 	CalAlertModel __model;
 	CalDialogControl* __dialog;
