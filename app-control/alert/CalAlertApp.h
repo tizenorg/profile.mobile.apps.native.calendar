@@ -28,6 +28,9 @@
 class CalAlertView;
 class CalNotificationsView;
 
+/**
+ * @brief Alert applicaiton class pepresents reminder functionality.
+ */
 class CalAlertApp : public WApp
 {
 public:
@@ -35,6 +38,10 @@ public:
 	virtual ~CalAlertApp();
 
 protected:
+
+	/**
+	 * @brief Start mode
+	 */
 	enum Mode
 	{
 		CALALERT_NONE = 0,
@@ -46,14 +53,37 @@ protected:
 		CALALERT_UPDATE_STATUSBAR
 	};
 
+	/**
+	 * @brief Called when application is created
+	 * @return true on success, otherwise false
+	 */
 	virtual bool onCreate();
+
+	/**
+	 * @brief Called when application is terminated
+	 */
 	virtual void onTerminate();
+
+	/**
+	 * @brief Called when application receives App Control request
+	 * @param   request       App Control request
+	 * @param   firstLaunch   Whether the launch is first
+	 */
 	virtual void onAppControl(app_control_h request, bool firstLaunch);
+
+	/**
+	 * @brief Called when application is paused
+	 */
 	virtual void onPause();
+
+	/**
+	 * @brief Called when application is resumed
+	 */
 	virtual void onResume();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalAlertApp);
-private:
+
 	void __createWindowSafe(bool isFirstLaunch, bool isAlertPopup);
 	void __createWindow(bool isAlertPopup);
 	Mode __getMode(const app_control_h request);
@@ -62,7 +92,7 @@ private:
 	void __setStatusBar(std::shared_ptr<CalAlertData> alertData);
 	void __exit();
 	void __stopExit();
-private:
+
 	WUiObjectPtr __alertView;
 	WUiObjectPtr __notificationsView;
 	Ecore_Timer* __timer;

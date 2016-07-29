@@ -231,13 +231,13 @@ void CalAlertData::clear()
 	__alerts.clear();
 }
 
-void CalAlertData::add(const CalAlertData& obj)
+void CalAlertData::add(const CalAlertData& data)
 {
 	WENTER();
-	__tick = obj.__tick;
-	__unit = obj.__unit;
+	__tick = data.__tick;
+	__unit = data.__unit;
 
-	for (auto item : obj.__alerts)
+	for (auto item : data.__alerts)
 	{
 		auto result = std::find_if(__alerts.begin(), __alerts.end(),
 			[item](const std::shared_ptr<CalAlertNotificationItem> &it) -> bool
