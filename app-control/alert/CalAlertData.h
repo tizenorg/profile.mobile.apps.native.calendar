@@ -22,38 +22,111 @@
 #include "WApp.h"
 #include "CalAlertNotificationItem.h"
 
+/**
+ * @brief Alert data class.
+ *
+ */
 class CalAlertData
 {
 public:
 	CalAlertData(app_control_h request);
 	CalAlertData();
-	virtual ~CalAlertData();
 	CalAlertData(const CalAlertData&);
 	const CalAlertData& operator=(const CalAlertData&);
+	virtual ~CalAlertData();
 
-public:
-	// get value
+	/**
+	 * @brief Get tick.
+	 *
+	 * @return tick from alert data.
+	 *
+	 */
 	int getTick(void);
+
+	/**
+	 * @brief Get units.
+	 *
+	 * @return unit from alert data.
+	 *
+	 */
 	int getUnit(void);
+
+	/**
+	 * @brief Get notification items count.
+	 *
+	 * @return count of notification items.
+	 *
+	 */
 	int getCount(void);
+
+	/**
+	 * @brief Get element by number.
+	 *
+	 * @param nth    number of item.
+	 *
+	 * @return notification item.
+	 *
+	 */
 	std::shared_ptr<CalAlertNotificationItem> getAt(int nth);
+
+	/**
+	 * @brief Check whether notification item is snoozed.
+	 *
+	 * @param nth    number of item.
+	 *
+	 * @return snoozed state.
+	 *
+	 */
 	bool isSnoozed(int nth);
 
-	// remove
+	/**
+	 * @brief Remove notification item.
+	 *
+	 * @param nth    number of item.
+	 *
+	 * @return true if removed successfully, false otherwise.
+	 *
+	 */
 	void remove(int nth);
+
+	/**
+	 * @brief Remove notification item by event id.
+	 *
+	 * @param id    event id.
+	 *
+	 * @return true if removed successfully, false otherwise.
+	 *
+	 */
 	bool removeById(int id);
+
+	/**
+	 * @brief Clear alert list.
+	 *
+	 */
 	void clear();
 
-	// set
-	void add(const CalAlertData&);
-	void replace(const CalAlertData&);
+	/**
+	 * @brief Append alert data.
+	 *
+	 * @param data    alert data to append.
+	 *
+	 */
+	void add(const CalAlertData& data);
+
+	/**
+	 * @brief Replace alert data.
+	 *
+	 * @param data    alert data to replace.
+	 *
+	 */
+	void replace(const CalAlertData& data);
+
 private:
 	void __addRecord(int recordIndex, bool isSnoozed = false);
-private:
-	// see alarm-data.h
+
 	int __tick;
 	int __unit;
-	std::vector<std::shared_ptr<CalAlertNotificationItem> > __alerts;
+	std::vector<std::shared_ptr<CalAlertNotificationItem>> __alerts;
 };
 
 #endif
