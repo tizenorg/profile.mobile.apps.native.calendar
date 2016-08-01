@@ -28,9 +28,9 @@
 #include "CalDate.h"
 
 /**
-* @class	CalComplexListProvider
+* @class    CalComplexListProvider
 *
-* @brief	This class provides %CalSchedule objects in complex list model.
+* @brief    This class provides %CalSchedule objects in complex list model.
 *
 */
 class CalComplexListProvider : public ICalListProvider
