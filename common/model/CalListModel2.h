@@ -23,28 +23,60 @@
 class WAPP_ASSIST_EXPORT CalListModel2 : public CalListModel
 {
 public:
-	virtual ~CalListModel2();
-public:
-//	virtual void prefetch(bool fillBothBuffers);
-	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged);
+
+	/**
+	 * @brief Get next event.
+	 *
+	 * @param[out] dayChanged    indicate whether the date has changed
+	 *
+	 * @return next event object.
+	 *
+	 */
+	virtual std::shared_ptr<CalSchedule> getNext(bool &dayChanged);
+
+	/**
+	 * @brief Get date of currently provided event.
+	 *
+	 * @return event date.
+	 *
+	 */
 	virtual const CalDate& getCurrentDate();
+
+	/**
+	 * @brief Check whether list is ended.
+	 *
+	 */
 	virtual bool eof();
-public:
+
+	/**
+	 * @brief Set EnableNoEvent flag.
+	 *
+	 * @param enable    flag value
+	 *
+	 */
 	void setEnableNoEvent(bool enable) {__enableNoEvent = enable;}
+
+	/**
+	 * @brief Check whether EnableNoEvent flag is enabled.
+	 *
+	 * @return EnableNoEvent flag state.
+	 *
+	 */
 	bool getEnableNoEvent() {return __enableNoEvent;}
+
 private:
-	CalListModel2(const CalDate& base, int dir);
 	WDISABLE_COPY_AND_ASSIGN(CalListModel2);
-private:
+
+	CalListModel2(const CalDate& base, int dir);
+
 	bool __fresh;
-private:
 	CalDate __currentMonth;
 	bool __currentMonthItemReturned;
 	std::shared_ptr<CalSchedule> __currentSchedule;
 	bool __dayChanged;
-private:
 	bool __enableNoEvent;
-friend class CalListModelFactory;
+
+	friend class CalListModelFactory;
 };
 
 #endif
