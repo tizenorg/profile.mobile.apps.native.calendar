@@ -72,33 +72,33 @@ public:
 	int getMday() const {return __date.tm_mday;}
 
 	/**
-	 * @brief Get date as string.
+	 * @brief Get date as text.
 	 *
-	 * @return date string.
+	 * @return date text.
 	 *
 	 */
 	const char* getString() const;
 
 	/**
-	 * @brief Get date as string in *nix format.
+	 * @brief Get date as text in *nix format.
 	 *
-	 * @return date string.
+	 * @return date text.
 	 *
 	 */
 	const char* getUnixTimeString() const;
 
 	/**
-	 * @brief Get date month as string.
+	 * @brief Get date month as text.
 	 *
-	 * @return date month string.
+	 * @return date month text.
 	 *
 	 */
 	const char* getMonthString() const;
 
 	/**
-	 * @brief Get date as string.
+	 * @brief Get date as text.
 	 *
-	 * @param[in] text    string buffer
+	 * @param[out] text    text buffer
 	 *
 	 */
 	void getDateString(std::string& text) const;
@@ -152,7 +152,7 @@ public:
 	/**
 	 * @brief Get date compare value.
 	 *
-	 * @return comppare value.
+	 * @return compare value.
 	 *
 	 */
 	int getDateCompareVal() const;
@@ -300,7 +300,7 @@ public:
 	 * @param[in] date1    first date to compare
 	 * @param[in] date2    second date to compare
 	 *
-	 * @return true if year and month are equal, otherwise false.
+	 * @return true if year and month of both objrets are equal, otherwise false.
 	 *
 	 */
 	static int compareMonth(const CalDate& date1, const CalDate& date2);
@@ -313,7 +313,7 @@ public:
 	 * @param[in] year2    year of a second date
 	 * @param[in] month2   month of a second date
 	 *
-	 * @return true if year and month are equal, otherwise false.
+	 * @return true if year and month of both objrets are equal, otherwise false.
 	 *
 	 */
 	static int compareMonth(int year1, int month1, int year2, int month2);
