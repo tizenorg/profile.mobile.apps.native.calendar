@@ -82,10 +82,6 @@ CalDate::CalDate(const char* stringParam)
 	}
 }
 
-CalDate::~CalDate()
-{
-}
-
 const CalDate& CalDate::operator=( const CalDate& obj)
 {
 	if (this != &obj)
