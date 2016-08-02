@@ -28,12 +28,43 @@
 #include "CalDialogEditReminderRadioItem.h"
 #include "CalEditCustomReminderPopup.h"
 
+/**
+ * @brief Reminder popup
+ *
+ * @see WPopup
+ *
+ */
 class CalEditReminderPopup : public WPopup
 {
 public:
+	/**
+	 * @brief Create popup
+	 *
+	 * @param reminderOri Reminder info
+	 * @param isEditReminder Is currently reminder popup intended for edit
+	 *
+	 */
 	CalEditReminderPopup(const CalScheduleReminder& reminderOri, bool isEditReminder);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalEditReminderPopup();
+
+	/**
+	 * @brief Set done callback
+	 *
+	 * @param doneCb Done callback
+	 *
+	 */
 	void setDoneCb(std::function<void (const CalScheduleReminder& reminder, int radio_index)> doneCb);
+
+	/**
+	 * @brief Set custom select callback
+	 *
+	 * @param customSelectedCb Callback
+	 *
+	 */
 	void setCustomSelectedCb(std::function<void (const CalScheduleReminder& reminder, int radio_index)> customSelectedCb);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalEditReminderPopup);

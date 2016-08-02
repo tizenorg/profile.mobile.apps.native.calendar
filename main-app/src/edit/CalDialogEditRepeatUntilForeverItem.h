@@ -20,10 +20,25 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief Until forever radio item
+ */
 class CalDialogEditRepeatUntilForeverItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @Brief Create item
+	 *
+	 * @param ChangedCb Changed callback
+	 * @param repeatOri Repeat model
+	 * @param radioIndex Radio index
+	 *
+	 */
 	CalDialogEditRepeatUntilForeverItem(std::function<void (CalScheduleRepeat::UntilType untilType, CalScheduleRepeat::UntilInfo untilInfo)> ChangedCb, const CalScheduleRepeat repeatOri, int radioIndex);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditRepeatUntilForeverItem();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatUntilForeverItem);

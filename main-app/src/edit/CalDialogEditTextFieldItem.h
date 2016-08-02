@@ -24,15 +24,43 @@
 #include "CalDialogControl.h"
 #include "CalUnderlineEditField.h"
 
+/**
+ * @brief Text field item
+ */
 class CalDialogEditTextFieldItem: public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param sortIndex Sort index
+	 * @param onCreateEditField Create editfield callback
+	 * @param onFocusSet Editfield focus callback
+	 *
+	 */
 	CalDialogEditTextFieldItem(int sortIndex, std::function<void (CalUnderlineEditField* editField)> onCreateEditField,
-	std::function<void (CalUnderlineEditField* editField)> onFocusSet);
+			std::function<void (CalUnderlineEditField* editField)> onFocusSet);
+
+	/**
+	 * @brief Default constructor
+	 */
 	CalDialogEditTextFieldItem();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditTextFieldItem();
 public:
+	/**
+	 * @brief Get editfield
+	 *
+	 * @return Editfield on success, otherwise NULL
+	 */
 	CalUnderlineEditField* getEditField();
+
+	/**
+	 * @brief Method, that invokes on item realize
+	 */
 	virtual void onRealized() override;
 private:
 	virtual Elm_Genlist_Item_Class* getItemClassStatic() override;
