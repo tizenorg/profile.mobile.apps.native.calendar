@@ -78,10 +78,6 @@ CalDateTime::CalDateTime(const CalDateTime &base, const char *timeZone)
 	}
 }
 
-CalDateTime::~CalDateTime()
-{
-}
-
 CalDateTime::CalDateTime(const CalDateTime& obj)
 {
 	__utime = obj.__utime;
