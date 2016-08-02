@@ -29,23 +29,53 @@ class WAPP_ASSIST_EXPORT CalListModel : public ICalListModel
 {
 public:
 	virtual ~CalListModel();
-public:
+
+	/**
+	 * @brief Prefetch events from calendar service.
+	 *
+	 * @param fillBothBuffers       prefetch current buffer or current and next
+	 *
+	 */
 	virtual void prefetch(bool fillBothBuffers);
+
+	/**
+	 * @brief Get next event.
+	 *
+	 * @param[out] dayChanged    indicate whether the date has changed
+	 *
+	 * @return next event object.
+	 *
+	 */
 	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged);
+
+	/**
+	 * @brief Get date of currently provided event.
+	 *
+	 * @return event date.
+	 *
+	 */
 	virtual const CalDate& getCurrentDate();
+
+	/**
+	 * @brief Check whether list is ended.
+	 *
+	 */
 	virtual bool eof();
+
 protected:
 	CalListModel(const CalDate& base, int dir, bool enableFlowControl = true);
+
+	const int __dir;
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalListModel);
-protected:
-	const int __dir;
-private:
+
 	CalDate __currentDate;
 	std::vector<ICalListProvider*> __providers;
 	std::shared_ptr<CalSchedule> __currentSchedule;
 	bool __enableFlowControl;
-friend class CalListModelFactory;
+
+	friend class CalListModelFactory;
 };
 
 #endif
