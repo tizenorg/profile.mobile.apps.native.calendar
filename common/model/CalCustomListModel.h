@@ -22,18 +22,43 @@
 
 #include "ICalListModel.h"
 
+/**
+* @class	CalCustomListModel
+*
+* @brief	This class provides %CalSchedule objects in custom list model.
+*
+*/
 class WAPP_ASSIST_EXPORT CalCustomListModel: public ICalListModel
 {
 public:
 	CalCustomListModel(const std::list<std::shared_ptr<CalSchedule>>& schedules);
 	virtual ~CalCustomListModel();
-public:
+
+	/**
+	 * @brief Get next event.
+	 *
+	 * @return next event object.
+	 *
+	 */
 	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged);
+
+	/**
+	 * @brief Get date of currently provided event.
+	 *
+	 * @return event date.
+	 *
+	 */
 	virtual const CalDate& getCurrentDate();
+
+	/**
+	 * @brief Check whether list is ended.
+	 *
+	 */
 	virtual bool eof();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalCustomListModel);
-private:
+
 	CalDate __currentDate;
 	std::list<std::shared_ptr<CalSchedule>> __schedules;
 	std::list<std::shared_ptr<CalSchedule>>::iterator __it;
