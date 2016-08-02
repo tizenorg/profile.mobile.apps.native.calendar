@@ -21,15 +21,18 @@
 #include <memory>
 #include "CalSchedule.h"
 
+/**
+ * @brief The CalEditModel class represents default visibility of event fields.
+ *
+ */
 class WAPP_ASSIST_EXPORT CalEditModel
 {
 public:
-	CalEditModel();
-	virtual ~CalEditModel();
-private:
-	WDISABLE_COPY_AND_ASSIGN(CalEditModel);
 
-public:
+	/**
+	 * @brief Field type.
+	 *
+	 */
 	enum CalEditExpandField
 	{
 		LOCATION,
@@ -39,15 +42,33 @@ public:
 		TIME_ZONE
 	};
 
-	// get
+	CalEditModel();
+	virtual ~CalEditModel();
+
+	/**
+	 * @brief Check field default visibility.
+	 *
+	 * @param field    field to check
+	 *
+	 * @return true if visible, false otherwise.
+	 */
 	bool isOn(const CalEditExpandField field);
-	// set
+
+	/**
+	 * @brief Set field default visibility.
+	 *
+	 * @param field    field to set
+	 * @param isOn     visibility
+	 *
+	 */
 	void setOn(const CalEditExpandField field, bool isOn);
+
 private:
+	WDISABLE_COPY_AND_ASSIGN(CalEditModel);
+
 	int __getInt(const char *key);
 	void __setInt(const char *key, int value);
 	const char* __getKey(CalEditExpandField field);
 };
-
 
 #endif
