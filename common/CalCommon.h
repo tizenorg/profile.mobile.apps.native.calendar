@@ -93,6 +93,9 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+/**
+ * @brief Time checker class.
+ */
 class CalTimeChecker
 {
 public:
