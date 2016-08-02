@@ -23,15 +23,46 @@
 #include "CalDialogEditTextFieldItem.h"
 #include "CalEditField.h"
 
+/**
+ * @brief Optional text item
+ */
 class CalDialogEditOptionalTextFieldItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param sortIndex Sort index
+	 * @param onCreateEditField onCreate callback
+	 * @param multiLine Is multiline
+	 *
+	 */
 	CalDialogEditOptionalTextFieldItem(int sortIndex, std::function<void (CalUnderlineEditField* editField)> onCreateEditField, bool multiLine = false);
+
+	/**
+	 * @brief Default constructor
+	 */
 	CalDialogEditOptionalTextFieldItem();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditOptionalTextFieldItem();
 
 public:
+	/**
+	 * @brief Set remove callback
+	 *
+	 * @param removeCb Remove callback
+	 *
+	 */
 	void setRemoveCb(std::function<void ()> removeCb);
+
+	/**
+	 * @brief Get editfield
+	 *
+	 * @return Editfield on success, otherwise false
+	 */
 	CalUnderlineEditField* getEditField();
 
 private:

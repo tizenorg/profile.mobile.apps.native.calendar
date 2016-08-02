@@ -28,17 +28,53 @@
 #include "WDefine.h"
 #include "CalDialogEditMoreMenuItem.h"
 
+/**
+ * @brief Control for more menu functionality
+ *
+ * @see CalControl
+ *
+ */
 class CalEditMoreMenuControl : public CalControl
 {
 public:
+	/**
+	 * @brief Create control
+	 *
+	 * @param showDescription Should be shown description item
+	 * @param showTimezone Should be shown timezone item
+	 *
+	 */
 	CalEditMoreMenuControl(bool showDescription, bool showTimezone);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalEditMoreMenuControl();
+
+	/**
+	 * @brief Get class name
+	 *
+	 * @return Class name as string
+	 */
 	virtual const char* getClassName();
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
 	virtual void onDestroy();
 public:
+	/**
+	 * @brief Set Selected callback
+	 *
+	 * @param selectCb Selected callback
+	 *
+	 */
 	void setSelectCb(std::function<void (CalDialogEditMoreMenuItem::TYPE type)> selectCb);
+
+	/**
+	 * @brief Method, that calls on popup item selection
+	 *
+	 * @param selectType Select type
+	 * @see CalDialogEditMoreMenuItem::TYPE
+	 */
 	void onPopupListItemSelect(CalDialogEditMoreMenuItem::TYPE selectType);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalEditMoreMenuControl);

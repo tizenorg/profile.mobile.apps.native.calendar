@@ -21,10 +21,28 @@
 #include "CalSchedule.h"
 #include "CalDialogControl.h"
 
+/**
+ * @brief View for editing repeat yearly option
+ *
+ * @see CalView
+ *
+ */
 class CalEditRepeatYearlyView : public CalView
 {
 public:
+	/**
+	 * @brief Create view
+	 *
+	 * @param repeatOri Repeat infor
+	 * @param dateTime Date
+	 * @param doneCb Done callback
+	 *
+	 */
 	CalEditRepeatYearlyView(const CalScheduleRepeat repeatOri, const CalDateTime& dateTime, std::function<void (const CalScheduleRepeat repeat)> doneCb);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalEditRepeatYearlyView();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalEditRepeatYearlyView);

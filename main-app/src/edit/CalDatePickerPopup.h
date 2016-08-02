@@ -27,13 +27,29 @@
 #include "CalMonthControl2.h"
 #include "CalDate.h"
 
+/**
+ * @brief Popup with date picker control
+ */
 class CalDatePickerPopup: public WPopup
 {
 public:
+	/**
+	 * @brief Create popup
+	 *
+	 * @param startDateTime Start date in date picker
+	 */
 	CalDatePickerPopup(CalDateTime& startDateTime);
 protected:
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDatePickerPopup();
 public:
+	/**
+	 * @brief Set date picker change callback
+	 *
+	 * @param changedCb Change callback
+	 */
 	void setChangeCb(std::function<void (CalDate& date)> changedCb);
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);

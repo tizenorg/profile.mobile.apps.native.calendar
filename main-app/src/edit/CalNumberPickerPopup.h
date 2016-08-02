@@ -23,12 +23,42 @@
 #include "CalSchedule.h"
 #include <efl_extension.h>
 
+/**
+ * @brief Popup for choose repeat reminder
+ *
+ * @see WPopup
+ */
 class CalNumberPickerPopup: public WPopup
 {
 public:
+	/**
+	 * @brief Create popup
+	 *
+	 * @param repeat Repeat info
+	 * @param isTime Is time
+	 *
+	 */
 	CalNumberPickerPopup(const CalScheduleRepeat& repeat, bool isTime);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalNumberPickerPopup();
+
+	/**
+	 * @breif Set done callback
+	 *
+	 * @param doneCb Done callback
+	 *
+	 */
 	void setDoneCb(std::function<void (const CalScheduleRepeat& repeat)> doneCb);
+
+	/**
+	 * @brief Set cancel callback
+	 *
+	 * @param canceldCb Cancel callback
+	 *
+	 */
 	void setCancelCb(std::function<void (void)> canceldCb);
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);

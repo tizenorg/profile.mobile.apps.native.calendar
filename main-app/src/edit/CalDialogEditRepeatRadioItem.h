@@ -20,10 +20,27 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief Radio item for repeat option
+ */
 class CalDialogEditRepeatRadioItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param selectCb Select callback
+	 * @param changeCb Change callback
+	 * @param radioIndex Radio index
+	 * @param unitType Repeat unit type
+	 * @param defaultUnitType Default repeat unit type
+	 *
+	 */
 	CalDialogEditRepeatRadioItem(std::function<void (void)> selectCb, std::function<void (const CalScheduleRepeat::UnitType repeatType)> changeCb, int radioIndex, CalScheduleRepeat::UnitType unitType, CalScheduleRepeat::UnitType defaultUnitType);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditRepeatRadioItem();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatRadioItem);

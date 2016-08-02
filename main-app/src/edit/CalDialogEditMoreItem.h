@@ -22,23 +22,80 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief Item with buttons to add primary options to edit view
+ */
 class CalDialogEditMoreItem: public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Primary button type
+	 */
 	enum ButtonType {
-		LOCATION = 1,
-		REPEAT,
-		REMINDER,
-		MORE,
+		LOCATION = 1,//!< LOCATION
+		REPEAT,      //!< REPEAT
+		REMINDER,    //!< REMINDER
+		MORE,        //!< MORE
 	};
 public:
+	/**
+	 * @brief Create more item
+	 *
+	 * @param buttonClickedCb Button clicked callback
+	 * @param sortIndex Item sort index
+	 * @param disableLocation Determines whether location button is disabled
+	 * @param disableRepeat Determines whether repeat button is disabled
+	 * @param disableReminder Determines whether reminder button is disabled
+	 *
+	 */
 	CalDialogEditMoreItem(std::function<void (ButtonType buttonType, Evas_Object* button)> buttonClickedCb, int sortIndex, bool disableLocation, bool disableRepeat,  bool disableReminder);
+
+	/**
+	 * @brief Default constructor
+	 */
 	CalDialogEditMoreItem();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditMoreItem();
 public:
+	/**
+	 * @brief Set button disable state
+	 *
+	 * @param buttonType Button type @see ButtonType
+	 * @param isDisable Should be button disabled or not
+	 *
+	 */
 	void setButtonDisable(ButtonType buttonType, bool isDisable);
+
+	/**
+	 * @brief Get button disabled state
+	 *
+	 * @param buttonType Button type @see ButtonType
+	 * @param[out] isDisable Is disabled
+	 *
+	 */
 	void getButtonDisable(ButtonType buttonType, bool& isDisable);
+
+	/**
+	 * @brief Set item buttons disabled state
+	 *
+	 * @param locationDisabled Is location disabled
+	 * @param reminderDisable Is reminder disabled
+	 * @param repeatDisabled Is repeat disabled
+	 * @param MoreDisabled Is more disabled
+	 *
+	 */
 	void setButtonStatus(bool locationDisabled, bool reminderDisable, bool repeatDisabled, bool MoreDisabled);
+
+	/**
+	 * @brief Get button
+	 *
+	 * @param buttonType Button type @see ButtonType
+	 *
+	 * @return Button on success, otherwise NULL
+	 */
 	Evas_Object* getButton(ButtonType buttonType);
 private:
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();

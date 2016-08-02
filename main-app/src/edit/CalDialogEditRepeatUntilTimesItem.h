@@ -18,12 +18,41 @@
 #ifndef _CAL_DIALOG_EDIT_REPEAT_UNTIL_TIMES_ITEM_H_
 #define _CAL_DIALOG_EDIT_REPEAT_UNTIL_TIMES_ITEM_H_
 
+/**
+ * @brief Represents item with radio and repeat times button
+ */
 class CalDialogEditRepeatUntilTimesItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param changedCb Changed callback
+	 * @param repeatOri Repeat model
+	 * @param radioIndex Radio index
+	 *
+	 */
 	CalDialogEditRepeatUntilTimesItem(std::function<void (CalScheduleRepeat::UntilType untilType, CalScheduleRepeat::UntilInfo untilInfo)> changedCb, const CalScheduleRepeat repeatOri, int radioIndex);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditRepeatUntilTimesItem();
+
+	/**
+	 * @brief Set date button clicked callback
+	 *
+	 * @param dateButtonClickedCb Callback
+	 *
+	 */
 	void setDateButtonClickedCb(std::function<void (Evas_Object* dateTime)> dateButtonClickedCb);
+
+	/**
+	 * @brief Set button time
+	 *
+	 * @param repeat Repeat info
+	 *
+	 */
 	void setDateButtonTime(const CalScheduleRepeat repeat);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatUntilTimesItem);

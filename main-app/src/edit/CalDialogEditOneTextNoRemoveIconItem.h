@@ -22,12 +22,30 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief Item with editfield
+ */
 class CalDialogEditOneTextNoRemoveIconItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create Item
+	 *
+	 * @param sortIndex Item sort index
+	 * @param mainText Item text
+	 */
 	CalDialogEditOneTextNoRemoveIconItem(int sortIndex, const char* mainText);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditOneTextNoRemoveIconItem();
 public:
+	/**
+	 * @brief Set item text
+	 *
+	 * @param text Item text
+	 */
 	void setMainText(const char* text);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditOneTextNoRemoveIconItem);

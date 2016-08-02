@@ -26,43 +26,140 @@
 #include "CalControl.h"
 
 /**
- * CalEditField should be used in Create/Edit view to support focus & keypad concept.
- * For other views, CalEditField is not needed.
-*/
-
+ * @brief CalEditField should be used in Create/Edit view to support focus & keypad concept.
+ *
+ * @remark For other views, CalEditField is not needed.
+ *
+ * @see CalControl
+ */
 class WAPP_ASSIST_EXPORT CalEditField : public CalControl
 {
 public:
+	/**
+	 * @brief Create editfield
+	 *
+	 * @param multiline Is multiline
+	 *
+	 */
 	CalEditField(bool multiLine = false);
+
+	/**
+	 * @breif Destructor
+	 */
 	virtual ~CalEditField();
 public:
+	/**
+	 * @brief Set text
+	 *
+	 * @param text Text to set
+	 *
+	 */
 	void setText(const char* text);
+
+	/**
+	 * @brief Set guide text
+	 *
+	 * @param text Text
+	 * @param font Font
+	 *
+	 */
 	void setGuideText(const char* text, int font);
 
+	/**
+	 * @brief Get text
+	 *
+	 * @return text
+	 */
 	const char* getText();
+
+	/**
+	 * @brief Get guide text
+	 *
+	 * @return Guide text
+	 */
 	const char* getGuideText();
 
+	/**
+	 * @brief Set focus to entry
+	 *
+	 * @param showKeypadIntentionally Is show keypad intentionally
+	 */
 	void setFocusToEntry(bool showKeypadIntentionally = false);
+
+	/**
+	 * @brief Set font size
+	 *
+	 * @param size Text size
+	 */
 	void setFontSize(int size);
 
+	/**
+	 * @brief SIP return key type
+	 */
 	enum ReturnKeyType
 	{
 		DONE = 0,
 		NEXT
 	};
+
+	/**
+	 * @brief Set entry return key type
+	 *
+	 * @see ReturnKeyType
+	 *
+	 * @param type Return key type
+	 */
 	void setEntryReturnKeyType(ReturnKeyType type);
 
+	/**
+	 * @brief Set change callback
+	 *
+	 * @param changeCb Change callback
+	 *
+	 */
 	void setChangeCb(std::function<void (const char* text)> changeCb);
+
+	/**
+	 * @brief Set entry complete callback
+	 *
+	 * @param entryCompleteCb Entry complete callback
+	 *
+	 */
 	void setEntryCompletedCb(std::function<void ()> entryCompletedCb);
+
+	/**
+	 * @brief Set entry max length callback
+	 *
+	 * @param maxLenReachCb Callback
+	 * @param maxLength Max length
+	 *
+	 */
 	void setEntryMaxLenReachCb(std::function<void ()> maxLenReachCb, unsigned int maxLength = 1000);
+
+	/**
+	 * @brief Set input panel state change callback
+	 *
+	 * @param inputPanelStateChangeCb Callback
+	 *
+	 */
 	void setInputPanelStateChangeCb(std::function<void ()> inputPanelStateChangeCb);
+
+	/**
+	 * @brief Set showed callback
+	 *
+	 * @param showedCb Callback
+	 *
+	 */
 	void setShowedCb(std::function<void ()> showedCb);
 
 	/**
-	 * Entry focus policy should be reset when app is resumed or popup is destroyed.
-	*/
+	 * @brief Entry focus policy should be reset when app is resumed or popup is destroyed.
+	 */
 	static void resetFocusPolicy();
 
+	/**
+	 * @brief Entry list
+	 */
 	static std::list<Evas_Object*> entryList;
 
 protected:
