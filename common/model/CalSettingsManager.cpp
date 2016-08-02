@@ -426,7 +426,7 @@ void CalSettingsManager::setLockTimeZone(const bool isOn)
 	WLEAVE();
 }
 
-void CalSettingsManager::setTimeZone(const std::string& timezone)
+void CalSettingsManager::setTimeZone(const std::string &timezone)
 {
 	WENTER();
 	int error = 0;

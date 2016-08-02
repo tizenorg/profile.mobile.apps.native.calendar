@@ -182,7 +182,7 @@ bool CalLocaleManager::isRTL()
 	return (bidi == EVAS_BIDI_DIRECTION_RTL);
 }
 
-void CalLocaleManager::setTimeZone(const std::string& timeZone)
+void CalLocaleManager::setTimeZone(const std::string &timeZone)
 {
 	WENTER();
 
@@ -208,7 +208,7 @@ void CalLocaleManager::setTimeZone(const std::string& timeZone)
 	updateRegion();
 }
 
-void CalLocaleManager::getTimeZone(std::string& timeZone)
+void CalLocaleManager::getTimeZone(std::string &timeZone)
 {
 	WENTER();
 	WDEBUG("In CalLocaleManager::getTimeZone(): __tzid == %s", __tzid.c_str());
@@ -241,7 +241,7 @@ void CalLocaleManager::updateRegion(void)
 	__initWeekday();
 }
 
-void CalLocaleManager::getDateTimeText(const DateFormat df, const TimeFormat tf, const CalDateTime& dt, std::string& text)
+void CalLocaleManager::getDateTimeText(const DateFormat df, const TimeFormat tf, const CalDateTime &dt, std::string &text)
 {
 	WENTER();
 
@@ -265,7 +265,7 @@ void CalLocaleManager::getDateTimeText(const DateFormat df, const TimeFormat tf,
 	WLEAVE();
 }
 
-void CalLocaleManager::getDateTimeText(const char* timezone, const DateFormat df, const TimeFormat tf, const CalDateTime& dt, std::string& text)
+void CalLocaleManager::getDateTimeText(const char* timezone, const DateFormat df, const TimeFormat tf, const CalDateTime &dt, std::string &text)
 {
 	WENTER();
 
@@ -296,7 +296,7 @@ void CalLocaleManager::getDateTimeText(const char* timezone, const DateFormat df
 	WLEAVE();
 }
 
-void CalLocaleManager::getDateText(const DateFormat dateFormat, const CalDate& date, std::string& text)
+void CalLocaleManager::getDateText(const DateFormat dateFormat, const CalDate &date, std::string &text)
 {
 	WENTER();
 
@@ -502,7 +502,7 @@ i18n_udate_format_h CalLocaleManager::__getUDateFormat(const char* timezone, con
 	return formatter;
 }
 
-long long int CalLocaleManager::getUtime(struct tm& tm)
+long long int CalLocaleManager::getUtime(struct tm &tm)
 {
 	WENTER();
 	__setUCalendar(__cal, &tm);
@@ -627,7 +627,7 @@ int CalLocaleManager::getWeekday(const char *timezone, const long long int utime
 	}
 }
 
-void CalLocaleManager::updateTmHour(const int delta, struct tm& tm)
+void CalLocaleManager::updateTmHour(const int delta, struct tm &tm)
 {
 	WENTER();
 	if (!delta)
@@ -638,7 +638,7 @@ void CalLocaleManager::updateTmHour(const int delta, struct tm& tm)
 	__getUCalendar(__cal, &tm);
 }
 
-void CalLocaleManager::updateTmDay(const int delta, struct tm& tm)
+void CalLocaleManager::updateTmDay(const int delta, struct tm &tm)
 {
 	WENTER();
 	if (!delta)
@@ -649,7 +649,7 @@ void CalLocaleManager::updateTmDay(const int delta, struct tm& tm)
 	__getUCalendar(__cal, &tm);
 }
 
-void CalLocaleManager::updateTmMonth(const int delta, struct tm& tm)
+void CalLocaleManager::updateTmMonth(const int delta, struct tm &tm)
 {
 	WENTER();
 	if (!delta)
@@ -660,7 +660,7 @@ void CalLocaleManager::updateTmMonth(const int delta, struct tm& tm)
 	__getUCalendar(__cal, &tm);
 }
 
-void CalLocaleManager::updateTmYear(const int delta, struct tm& tm)
+void CalLocaleManager::updateTmYear(const int delta, struct tm &tm)
 {
 	WENTER();
 	if (!delta)
@@ -671,7 +671,7 @@ void CalLocaleManager::updateTmYear(const int delta, struct tm& tm)
 	__getUCalendar(__cal, &tm);
 }
 
-int CalLocaleManager::getDayDiff(const struct tm& date1, const struct tm& date2)
+int CalLocaleManager::getDayDiff(const struct tm &date1, const struct tm &date2)
 {
 	WENTER();
 	WASSERT(date1.tm_hour == 12);
@@ -736,7 +736,7 @@ char* CalLocaleManager::__getTzOffset(i18n_ucalendar_h cal)
 	return g_strdup_printf("GMT %+d:%02d", gmtoffset_hour, gmtoffset_min);
 }
 
-char* CalLocaleManager::__getTzName(i18n_ucalendar_h cal, const char *language, const std::string& timeZone)
+char* CalLocaleManager::__getTzName(i18n_ucalendar_h cal, const char *language, const std::string &timeZone)
 {
 	WENTER();
 	int status = I18N_ERROR_NONE;
@@ -789,7 +789,7 @@ void CalLocaleManager::__initWeekday()
 	}
 }
 
-void CalLocaleManager::getDisplayTextTimeZone(const std::string& timeZone, std::string& displayText)
+void CalLocaleManager::getDisplayTextTimeZone(const std::string &timeZone, std::string &displayText)
 {
 	WENTER();
 	char *language = NULL;
