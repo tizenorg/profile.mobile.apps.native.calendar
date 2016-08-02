@@ -58,10 +58,6 @@ CalInstanceSchedule::CalInstanceSchedule(calendar_record_h record, CalSchedule::
 	__type = type;
 }
 
-CalInstanceSchedule::~CalInstanceSchedule()
-{
-}
-
 CalInstanceSchedule::CalInstanceSchedule(const CalInstanceSchedule& obj) :
 		CalSchedule(obj)
 {
