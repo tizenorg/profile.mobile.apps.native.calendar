@@ -22,12 +22,32 @@
 
 #include <Elementary.h>
 
+/**
+ * @brief Theme manager class.
+ */
 class WAPP_ASSIST_EXPORT CalTheme
 {
 public:
+
+    /**
+     * @brief Initialize theme manager.
+     */
     static void initialize();
+
+    /**
+     * @brief Initialize theme manager for UG.
+     */
     static void initializeForUg();
+
+    /**
+     * @brief Finalize theme manager.
+     */
     static void finalize();
+
+	/**
+	 * @brief Set theme to object.
+	 * @param object	object to apply theme.
+	 */
 	static void setToObject(Evas_Object* object);
 
 protected:

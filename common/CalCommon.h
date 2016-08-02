@@ -93,9 +93,22 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+/**
+ * @brief The TimeChecker class is a stopwatch for debug and profiling.
+ *
+ */
 class CalTimeChecker
 {
 public:
+
+	/**
+	 * @brief CalTimeChecker constructor.
+	 *
+	 * @param file         file name for log
+	 * @param line         line for log
+	 * @param function     function name for log
+	 *
+	 */
 	CalTimeChecker(const char* file, int line, const char* function) :
 		__file(file), __line(line), __function(function)
 	{
