@@ -26,24 +26,91 @@
 #include "ICalEventListener.h"
 #include <Ecore.h>
 
+/**
+ * @brief Calendar event manager.
+ */
 class WAPP_ASSIST_EXPORT CalEventManager
 {
 SINGLETON_IDIOM(CalEventManager);
 public:
+	/**
+	 * @brief Attach event listener.
+	 *
+	 * @param[in]   listener   Event listener.
+	 *
+	 * @see ICalEventListener.
+	 */
 	void attach(ICalEventListener* listener);
+
+	/**
+	 * @brief Detach event listener.
+	 *
+	 * @param[in]   listener   Event listener.
+	 *
+	 * @see ICalEventListener.
+	 */
 	void detach(ICalEventListener* listener);
+
+	/**
+	 * @brief Get detach state.
+	 *
+	 * @param[in]   listener   Event listener.
+	 *
+	 * @return Whether the event listener is detached.
+	 *
+	 * @see ICalEventListener.
+	 */
 	bool isDetached(ICalEventListener* listener);
+
+	/**
+	 * @brief Block event listener.
+	 *
+	 * @param[in]   listener   Event listener.
+	 *
+	 * @see ICalEventListener.
+	 */
 	void block(ICalEventListener* listener);
+
+	/**
+	 * @brief Unblock event listener.
+	 *
+	 * @param[in]   listener   Event listener.
+	 *
+	 * @see ICalEventListener.
+	 */
 	void unblock(ICalEventListener* listener);
+
+	/**
+	 * @brief Notify event listener.
+	 *
+	 * @param[in]   event   Event.
+	 *
+	 * @see CalEvent.
+	 */
 	void notify(const CalEvent& event);
-	void clear(); /*clear all listener*/
+
+	/**
+	 * @brief Clear all event listeners.
+	 *
+	 */
+	void clear();
+
+	/**
+	 * @brief Suspend event.
+	 *
+	 */
 	void suspend();
+
+	/**
+	 * @brief Resume event.
+	 *
+	 */
 	void resume();
+
 protected:
 	CalEventManager();
 	virtual ~CalEventManager();
-private:
-	WDISABLE_COPY_AND_ASSIGN(CalEventManager);
+
 private:
 	struct ListenerNode
 	{
@@ -63,7 +130,9 @@ private:
 	int __getTimeoutForTimerForPendingEvents();
 	void __updateTimeoutForTimerForPendingEvents();
 	void __resetTimeoutForTimerForPendingEvents();
-private:
+
+	WDISABLE_COPY_AND_ASSIGN(CalEventManager);
+
 	std::map<ICalEventListener*, ListenerNode*> __listenerMap;
 	Ecore_Timer* __timerForPeindingEvents;
 	int __timeout;

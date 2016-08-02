@@ -24,20 +24,38 @@
 #include "ICalEventListener.h"
 #include <Elementary.h>
 
+/**
+ * @brief Calendar view.
+ *
+ * @see CalView.
+ * @see ICalEventListener.
+ */
 class WAPP_ASSIST_EXPORT CalView: public WView, public ICalEventListener
 {
 public:
+	/**
+	 * @brief Create calendar view.
+	 *
+	 * @param[in]   name   View name.
+	 */
 	CalView(const char* name);
-public:
+
+	/**
+	 * @brief Activate menu button.
+	 *
+	 * @param[in]   naviItem   Naviframe item.
+	 */
 	void activateMenuButton(Elm_Object_Item* naviItem);
+
 protected:
 	virtual ~CalView();
 	virtual void onMenuButton();
 	virtual void onEvent(const CalEvent& event);
+
 private:
 	Evas_Object* __createMenuBtn(Evas_Object* parent, Evas_Smart_Cb func, void* data);
 	static void __menuBtnSelectCb(void* data, Evas_Object* obj, void* event_info);
-private:
+
 	WDISABLE_COPY_AND_ASSIGN(CalView);
 	friend class CalNaviframe;
 };

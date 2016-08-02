@@ -21,16 +21,27 @@
 #include <functional>
 #include "CalTouchInputRecognizer.h"
 
+/**
+ * @brief Calendar tap recognizer.
+ *
+ * @see CalTouchInputRecognizer.
+ */
 class WAPP_ASSIST_EXPORT CalTapRecognizer: public CalTouchInputRecognizer
 {
 public:
+	/**
+	 * @brief Create tap recognizer.
+	 *
+	 * @param[in]   onTap   Tap callback.
+	 */
 	CalTapRecognizer(std::function<void (Evas_Object* obj)> onTap);
 	virtual ~CalTapRecognizer();
+
 private:
 	virtual void onPress(Evas_Object* obj, Evas_Event_Mouse_Down* eventInfo);
 	virtual void onMove(Evas_Object* obj, Evas_Event_Mouse_Move* eventInfo);
 	virtual void onRelease(Evas_Object* obj, Evas_Event_Mouse_Up* eventInfo);
-private:
+
 	const std::function<void (Evas_Object* obj)> __onTap;
 	Evas_Coord_Point __pressedPoint;
 };

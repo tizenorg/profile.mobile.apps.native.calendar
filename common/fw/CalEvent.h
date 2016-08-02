@@ -20,9 +20,15 @@
 
 #include "WDefine.h"
 
+/**
+ * @brief Calendar event.
+ */
 class WAPP_ASSIST_EXPORT CalEvent
 {
 public:
+	/**
+	 * @brief Event types.
+	 */
 	enum Type
 	{
 		NONE = 0,
@@ -37,17 +43,38 @@ public:
 		APP_RESUMED,
 		TYPE_MAX,
 	} type;
+
+	/**
+	 * @brief Event sources.
+	 */
 	enum Source
 	{
 		LOCAL = 0,
 		REMOTE,
 		SOURCE_MAX,
 	} source;
-public:
+
 	CalEvent();
+
+	/**
+	 * @brief Create event.
+	 *
+	 * @param[in]   _type     Event type.
+	 * @param[in]   _source   Event source.
+	 *
+	 * @see Type
+	 * @see Source
+	 */
 	CalEvent(Type _type, Source _source);
+
 	virtual ~CalEvent();
+	/**
+	 * @brief Create event.
+	 *
+	 * @param[in]   obj   Reference to CalEvent instance.
+	 */
 	CalEvent(const CalEvent& obj);
+
 	const CalEvent& operator=(const CalEvent& obj);
 };
 

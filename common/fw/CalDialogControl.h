@@ -33,23 +33,81 @@
 #define COUNT_FORMAT "<p font_size=%d>%d</p>"
 #define LABEL_FORMAT "<p font_size=%d>%s</p>"
 
+/**
+ * @brief Calendar dialog control.
+ *
+ * @see CalControl
+ */
 class WAPP_ASSIST_EXPORT CalDialogControl : public CalControl
 {
 public:
+	/**
+	 * @brief Genlist item.
+	 *
+	 * @see WGenlistItem
+	 */
 	class Item : public WGenlistItem
 	{
 	public:
+		/**
+		 * @brief Create item.
+		 *
+		 * @param[in]   sortIndex   Sort index
+		 */
 		Item(int sortIndex = 0);
+
 		virtual ~Item();
 
+		/**
+		 * @brief Called when item is selected.
+		 */
 		virtual void onSelect();
+
+		/**
+		 * @brief Get sort index.
+		 *
+		 * @return Sort index.
+		 */
 		const int getSortIndex() const;
-		void setSortIndex( int index);
+
+		/**
+		 * @brief Set sort index.
+		 *
+		 * @param[in]   index   Sort index
+		 */
+		void setSortIndex(int index);
+
+		/**
+		 * @brief Get system font size.
+		 *
+		 * @return System font size.
+		 */
 		int getSystemFontSize();
+
+		/**
+		 * @brief Called when item is selected.
+		 *
+		 * @return Whether the item is a group title.
+		 */
 		bool isGroupTitle() const {return __isGroupTitle;}
 
+		/**
+		 * @brief Set custom data.
+		 *
+		 * @param[in]   customData   Custom data.
+		 */
 		void setCustomData(void* customData) {__customData = customData;}
+
+		/**
+		 * @brief Get custom data.
+		 *
+		 * @return Custom data.
+		 */
 		void* getCustomData() const {return __customData;}
+
+		/**
+		 * @brief Called when item is realized (became visible).
+		 */
 		virtual void onRealized() {}
 
 	protected:
@@ -63,18 +121,35 @@ public:
 
 		friend class CalDialogControl;
 	};
+
 public:
 	CalDialogControl();
+
 	virtual ~CalDialogControl();
+
+	/**
+	 * @brief Get Class name.
+	 *
+	 * @return Class name.
+	 */
 	virtual const char* getClassName();
-public:
+
+	/**
+	 * @brief Add item to Dialog control.
+	 *
+	 * @param[in]   item   Item.
+	 *
+	 * @return Object item.
+	 */
 	virtual Elm_Object_Item* add(CalDialogControl::Item* item);
+
 protected:
 	static void onItemDelete(void *data, Evas_Object *obj, void *event_info);
+
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
 	virtual void onDestroy();
-private:
+
 	WDISABLE_COPY_AND_ASSIGN(CalDialogControl);
 };
 
