@@ -25,12 +25,15 @@
 
 #include "WDefine.h"
 
+/**
+ * @brief Calendar slide animator.
+ */
 class WAPP_ASSIST_EXPORT CalSlideAnimator
 {
 public:
-	CalSlideAnimator(Evas_Object* obj, std::function<void (int dir)> slideFinishedCb);
-	virtual ~CalSlideAnimator();
-public:
+	/**
+	 * @brief Slide animator modes.
+	 */
 	enum Mode
 	{
 		VERTICAL_MOVE = 0,
@@ -40,33 +43,97 @@ public:
 		HORIZONTAL_GROW_AND_SHRINK_LEFT,
 		HORIZONTAL_GROW_AND_SHRINK_RIGHT
 	};
-public:
+
+	/**
+	 * @brief Create slide animator.
+	 *
+	 * @param[in]   obj   Evas object.
+	 * @param[in]   slideFinishedCb   Slide finished callback.
+	 */
+	CalSlideAnimator(Evas_Object* obj, std::function<void (int dir)> slideFinishedCb);
+
+	virtual ~CalSlideAnimator();
+
+	/**
+	 * @brief Attach side kick.
+	 *
+	 * @param[in]   obj   Evas object.
+	 */
 	void attachSidekick(Evas_Object* obj);
-public:
+
+	/**
+	 * @brief Begin slide animation.
+	 *
+	 * @param[in]   mode   Slide animator mode.
+	 * @param[in]   min    Minimum coordinate.
+	 * @param[in]   max    Maximum coordinate.
+	 *
+	 * @see Mode.
+	 */
 	void begin(Mode mode, Evas_Coord min, Evas_Coord max);
+
+	/**
+	 * @brief Update animation.
+	 *
+	 * @param[in]   delta   Coordinate differences.
+	 *
+	 * @see Mode.
+	 */
 	void update(Evas_Coord delta);
+
+	/**
+	 * @brief Finish slide animation.
+	 *
+	 * @param[in]   dir           Direction.
+	 * @param[in]   noAnimation   Animation state.
+	 */
 	void finish(int dir, bool noAnimation = false);
+
+	/**
+	 * @brief Cancel slide animation.
+	 *
+	 * @param[in]   noAnimation   Animation state.
+	 */
 	void cancel(bool noAnimation = false);
-public:
+
+	/**
+	 * @brief Reset current position.
+	 */
 	void resetPosition();
-public:
+
+	/**
+	 * @brief Get slide animation state.
+	 *
+	 * @return Whether the slide animation is active.
+	 */
 	bool isActive() const { return __active; }
-public:
+
+	/**
+	 * @brief Get minimum coordinate.
+	 *
+	 * @return Minimum coordinate.
+	 */
 	Evas_Coord getMin() const {return __min;}
+
+	/**
+	 * @brief Get maximum coordinate.
+	 *
+	 * @return Maximum coordinate.
+	 */
 	Evas_Coord getMax() const {return __max;}
-private:
-	void __update(Evas_Object* obj, const Evas_Coord_Rectangle& origin, Evas_Coord delta);
-private:
-	void __slide(Evas_Coord target);
-	bool __tween(double pos);
-	void __finalize();
+
 private:
 	struct Sidekick
 	{
 		Evas_Object* obj;
 		Evas_Coord_Point offset;
 	};
-private:
+
+	void __update(Evas_Object* obj, const Evas_Coord_Rectangle& origin, Evas_Coord delta);
+	void __slide(Evas_Coord target);
+	bool __tween(double pos);
+	void __finalize();
+
 	Evas_Object* __obj;
 	std::list<Sidekick> __sidekicks;
 	Mode __mode;

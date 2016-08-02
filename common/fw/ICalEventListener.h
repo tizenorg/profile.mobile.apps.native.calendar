@@ -21,10 +21,21 @@
 #include "WDefine.h"
 #include "CalEvent.h"
 
+/**
+ * @brief Interface calendar event listener.
+ */
 class WAPP_ASSIST_EXPORT ICalEventListener
 {
 public:
+	/**
+	 * @brief Called when event occurs.
+	 *
+	 * @param[in]   event   Event.
+	 *
+	 * @see CalEvent.
+	 */
 	virtual void onEvent(const CalEvent& event) = 0;
+
 	virtual ~ICalEventListener() {};
 };
 

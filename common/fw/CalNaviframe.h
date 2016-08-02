@@ -20,14 +20,36 @@
 
 #include "WNaviframe.h"
 
+/**
+ * @brief Naviframe wrapper.
+ *
+ * @see WNaviframe.
+ */
 class WAPP_ASSIST_EXPORT CalNaviframe: public WNaviframe
 {
 public:
 	CalNaviframe();
 	virtual ~CalNaviframe();
-public:
+
+	/**
+	 * @brief Get top view.
+	 *
+	 * @return Top view.
+	 *
+	 * @see WView.
+	 */
 	WView* getTopView();
+
+	/**
+	 * @brief Destroy view.
+	 *
+	 * @param[in]   view   View to destroy.
+	 * @param[in]   item   Object item.
+	 *
+	 * @see WView.
+	 */
 	void destroyView(WView* view, Elm_Object_Item* item);
+
 private:
 	void __arrangeEventManager(WView* view, Elm_Object_Item* item);
 	virtual bool onPush( WView* view, void* viewParam);

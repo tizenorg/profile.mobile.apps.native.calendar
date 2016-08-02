@@ -21,11 +21,18 @@
 #include "WControl.h"
 #include "CalTheme.h"
 
+/**
+ * @brief This class is the UI control class linked with one evas object.
+ *
+ * @see WControl
+ */
 class WAPP_ASSIST_EXPORT CalControl : public WControl
 {
 public:
-	CalControl();
-	virtual ~CalControl();
+	CalControl() {}
+
+	virtual ~CalControl() {}
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalControl);
 };

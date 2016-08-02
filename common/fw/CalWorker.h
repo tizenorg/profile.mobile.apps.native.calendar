@@ -22,15 +22,28 @@
 #include "WDefine.h"
 #include <glib.h>
 
+/**
+ * @brief Calendar worker.
+ */
 class WAPP_ASSIST_EXPORT CalWorker {
 public:
+	/**
+	 * @brief Create calendar worker.
+	 *
+	 * @param[in]   job   Worker job.
+	 */
 	CalWorker(std::function<void ()> job);
+
 	virtual ~CalWorker();
-public:
+
+	/**
+	 * @brief Wait till ended running thread.
+	 */
 	void wait(void);
+
 private:
 	static gpointer __threadFunc(gpointer data);
-private:
+
 	std::function<void ()> __job;
 	GThread* __workerThread;
 };

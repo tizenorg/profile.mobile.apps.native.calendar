@@ -22,6 +22,9 @@
 
 #include <string>
 
+/**
+ * @brief Calendar path control.
+ */
 class WAPP_ASSIST_EXPORT CalPath
 {
 public:
@@ -41,34 +44,46 @@ public:
 	};
 
 	/**
+	 * @brief Get EDJE files directory path.
+	 *
 	 * @return EDJE files directory path.
 	 */
 	static const std::string &getEdjeDir();
 
 	/**
+	 * @brief Get shared resource files directory path.
+	 *
 	 * @return Shared resource files directory path.
 	 */
 	static const std::string &getSharedResourceDir();
 
 	/**
+	 * @brief Get localization files directory path.
+	 *
 	 * @return Localization files directory path.
 	 */
 	static const std::string &getLocaleDir();
 
 
 	/**
+	 * @brief Get theme files directory path.
+	 *
 	 * @return Theme files directory path.
 	 */
 	static const std::string &getThemeDir();
 
 
 	/**
+	 * @brief Get image files directory path.
+	 *
 	 * @return Image files directory path.
 	 */
 	static const std::string &getImageDir();
 
 
 	/**
+	 * @brief Get data files directory path.
+	 *
 	 * @return Data files directory path.
 	 */
 	static const std::string &getDataDir();
@@ -76,8 +91,10 @@ public:
 
 	/**
 	 * @brief Get resource file path.
-	 * @param[in]	relativePath	File path relative to resource directory
+	 *
+	 * @param[in]	relativePath	File path relative to resource directory.
 	 * @param[in]	type	Resource type such as IMAGES, EDJE, etc.
+	 *
 	 * @return Full file path
 	 */
 	static std::string getPath(const std::string &relativePath, DirType type = EDJE);
