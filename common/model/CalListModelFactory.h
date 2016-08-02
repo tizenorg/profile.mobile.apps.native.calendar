@@ -24,23 +24,79 @@
 #include "CalDate.h"
 #include "CalWorker.h"
 
+/**
+ * @brief The CalListModelFactory class is a factory for list model.
+ *
+ */
+
 class WAPP_ASSIST_EXPORT CalListModelFactory
 {
-SINGLETON_IDIOM(CalListModelFactory);
-private:
-	CalListModelFactory();
-	virtual ~CalListModelFactory();
+
+	SINGLETON_IDIOM(CalListModelFactory);
+
+public:
+
+	/**
+	 * @brief Create list model.
+	 *
+	 * @param base           focus date
+	 * @param dir            fetching direction
+	 * @param ignoreWorker   wait for async or not.
+	 *
+	 * @return list model.
+	 *
+	 */
+	ICalListModel* getList(const CalDate& base, int dir, bool ignoreWorker = false);
+
+	/**
+	 * @brief Create search list model.
+	 *
+	 * @param base           focus date
+	 * @param dir            fetching direction
+	 * @param keyword        keyword for searching
+	 *
+	 * @return list model.
+	 *
+	 */
+	ICalListModel* getSearchList(const CalDate& base, int dir, const char* keyword);
+
+	/**
+	 * @brief Create delete list model.
+	 *
+	 * @param base           focus date
+	 * @param dir            fetching direction
+	 *
+	 * @return list model.
+	 *
+	 */
+	ICalListModel* getDeleteList(const CalDate& base, int dir);
+
+	/**
+	 * @brief Create range list model.
+	 *
+	 * @param from            start date of the range
+	 * @param to              end date of the range
+	 * @param ignoreWorker    wait for async or not
+	 *
+	 * @return list model.
+	 *
+	 */
+	ICalListModel* getRangeList(const CalDate& from, const CalDate& to, bool ignoreWorker = false);
+
+	/**
+	 * @brief Prepare async job.
+	 *
+	 */
+	void prepare();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalListModelFactory);
-public:
-	ICalListModel* getList(const CalDate& base, int dir, bool ignoreWorker = false);
-	ICalListModel* getSearchList(const CalDate& base, int dir, const char* keyword);
-	ICalListModel* getDeleteList(const CalDate& base, int dir);
-	ICalListModel* getRangeList(const CalDate& from, const CalDate& to, bool ignoreWorker = false);
-	void prepare();
-private:
+
+	CalListModelFactory();
+
 	int __getFirstDayOfWeek();
-private:
+	virtual ~CalListModelFactory();
+
 	CalWorker* __worker;
 	ICalListModel* __forwardModel;
 	ICalListModel* __backwardModel;

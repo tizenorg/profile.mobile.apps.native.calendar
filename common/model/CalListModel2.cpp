@@ -34,16 +34,7 @@ CalListModel2::CalListModel2(const CalDate& base, int dir) :
 		__currentMonth.decrementMonth(); // to prevent returning No events for the base month
 }
 
-CalListModel2::~CalListModel2()
-{
-}
-
-//void CalListModel2::prefetch(bool fillBothBuffers)
-//{
-//	CalListModel::prefetch(fillBothBuffers);
-//}
-
-std::shared_ptr<CalSchedule> CalListModel2::getNext(bool& dayChanged)
+std::shared_ptr<CalSchedule> CalListModel2::getNext(bool &dayChanged)
 {
 	if (__fresh) {
 		__fresh = false;
