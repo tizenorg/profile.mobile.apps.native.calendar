@@ -21,45 +21,216 @@
 #include <calendar.h>
 #include "CalSchedule.h"
 
+/**
+ * @brief The CalInstanceSchedule class represents event instance.
+ */
 class WAPP_ASSIST_EXPORT CalInstanceSchedule: public CalSchedule
 {
 public:
+	/**
+	 * @brief CalInstanceSchedule constructor.
+	 *
+	 * @param[in] record       event record
+	 *
+	 */
 	CalInstanceSchedule(calendar_record_h record);
+
+	/**
+	 * @brief CalInstanceSchedule constructor.
+	 *
+	 * @param[in] record       event record
+	 * @param[in] type         event record type
+	 *
+	 */
 	CalInstanceSchedule(calendar_record_h record, CalSchedule::Type type);
-	virtual ~CalInstanceSchedule();
 
 	CalInstanceSchedule(const CalInstanceSchedule&);
 	const CalInstanceSchedule& operator=(const CalInstanceSchedule&);
 
 protected:
+
+	/**
+	 * @brief Get property index of DB record ID of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getIndexProperty(void) const;
+
+	/**
+	 * @brief Get property index of start time of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getStartProperty(void) const;
+
+	/**
+	 * @brief Get property index of end time of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getEndProperty(void) const;
+
+	/**
+	 * @brief Get property index of title of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getSummaryProperty(void) const;
+
+	/**
+	 * @brief Get property index of location of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getLocationProperty(void) const;
+
+	/**
+	 * @brief Get property index of description of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getDescriptionProperty(void) const;
+
+	/**
+	 * @brief Get property index of book ID of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getBookIdProperty(void) const;
+
+	/**
+	 * @brief Get property index whether or not the event has an alarm list.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getHasReminderProperty(void) const;
+
+	/**
+	 * @brief Get property index whether or not the event has recurrence rule.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getHasRepeatProperty(void) const;
+
+	/**
+	 * @brief Get property index of start time timezone of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getStartTimezoneProperty(void) const;
+
+	/**
+	 * @brief Get property index of end time timezone of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getEndTimezoneProperty(void) const;
+
+	/**
+	 * @brief Get property index of sync data #1 of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getSyncData1Property(void) const;
+
+	/**
+	 * @brief Get property index of ID of the original event if the event is an exception.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getOriginalEventIdProperty() const;
+
+	/**
+	 * @brief Get property index of recurrance ID, @see RFC #2445, 4.8.4.4 Recurrence ID.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getRecurranceIdProperty() const;
+
+	/**
+	 * @brief Get property index of unique ID of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getUidProperty() const;
+
+	/**
+	 * @brief Get property index of sync data #2 of the event.
+	 *
+	 * @return property index.
+	 *
+	 */
 	virtual unsigned int getSyncData2Property() const;
 
-protected:
+	/**
+	 * @brief Create calendar-service query for simple list model, @see CalSimpleListProvider.
+	 *
+	 * @param base                focus date
+	 * @param dir                 direction of fetching
+	 * @param allDay              fetch only allDay or not
+	 * @param additionalFilter    additional filter
+	 *
+	 * @return calendar-service query.
+	 *
+	 */
 	static calendar_query_h createSimpleListQuery(const CalDate& base, int dir, bool allDay, calendar_filter_h additionalFilter);
+
+	/**
+	 * @brief Create calendar-service query for range list model, @see CalSimpleListProvider.
+	 *
+	 * @param from                  from date
+	 * @param to                    to date
+	 * @param allDay                fetch only allDay or not
+	 * @param additionalFilter      additional filter
+	 *
+	 * @return calendar-service query.
+	 *
+	 */
 	static calendar_query_h createRangeListQuery(const CalDate& from, const CalDate& to, bool allDay, calendar_filter_h additionalFilter);
+
+	/**
+	 * @brief Create calendar-service query for complex list model, @see CalComplexListProvider.
+	 *
+	 * @param base                focus date
+	 * @param dir                 direction of fetching
+	 * @param allDay              fetch only allDay or not
+	 * @param additionalFilter    additional filter
+	 *
+	 * @return calendar-service query.
+	 *
+	 */
 	static calendar_query_h createComplexListQuery(const CalDate& base, int dir, bool allDay, calendar_filter_h additionalFilter);
-	static calendar_filter_h createListFilter(bool allDay,
-			bool visibleCalendarsOnly,
-			bool editableOnly,
-			const char* keyword);
-friend class CalSimpleListProvider;
-friend class CalComplexListProvider;
-friend class CalListModelFactory;
+
+	/**
+	 * @brief Create calendar-service filter.
+	 *
+	 * @param allDay                  fetch only allDay or not
+	 * @param visibleCalendarsOnly    fetch only visible or not
+	 * @param editableOnly            fetch only editable or not
+	 * @param keyword                 match keyword
+	 *
+	 * @return calendar-service filter.
+	 */
+	static calendar_filter_h createListFilter(bool allDay, bool visibleCalendarsOnly, bool editableOnly, const char* keyword);
+
+	friend class CalSimpleListProvider;
+	friend class CalComplexListProvider;
+	friend class CalListModelFactory;
 };
 
 #endif

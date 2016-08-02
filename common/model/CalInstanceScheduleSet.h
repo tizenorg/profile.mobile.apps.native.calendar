@@ -26,53 +26,109 @@
 #include "CalSchedule.h"
 #include "CalInstanceSchedule.h"
 
-struct SetKey {
-	 int eventId;
-	 int year;
-	 int month;
-	 int mday;
+/**
+ * @brief Event key for map.
+ *
+ */
+struct SetKey
+{
+	int eventId;
+	int year;
+	int month;
+	int mday;
 };
 
-struct classcomp {
-  bool operator() (const SetKey& lhs, const SetKey& rhs) const
-  {
-  	if(lhs.eventId < rhs.eventId)
-		return true;
-	else if(lhs.eventId > rhs.eventId)
-		return false;
+/**
+ * @brief Event key comparison class.
+ *
+ */
+struct classcomp
+{
+	/**
+	 * @brief Event key comparison function.
+	 *
+	 */
+	bool operator() (const SetKey& lhs, const SetKey& rhs) const
+	{
+		if(lhs.eventId < rhs.eventId)
+			return true;
+		else if(lhs.eventId > rhs.eventId)
+			return false;
 
-	if(lhs.year < rhs.year)
-		return true;
-	else if(lhs.year > rhs.year)
-		return false;
+		if(lhs.year < rhs.year)
+			return true;
+		else if(lhs.year > rhs.year)
+			return false;
 
-	if(lhs.month < rhs.month)
-		return true;
-	else if(lhs.month > rhs.month)
-		return false;
+		if(lhs.month < rhs.month)
+			return true;
+		else if(lhs.month > rhs.month)
+			return false;
 
-	if(lhs.mday < rhs.mday)
-		return true;
-	else if(lhs.mday > rhs.mday)
-		return false;
+		if(lhs.mday < rhs.mday)
+			return true;
+		else if(lhs.mday > rhs.mday)
+			return false;
 
-	return false;
-  }
+		return false;
+	}
 };
 
-
+/**
+ * @brief The CalInstanceScheduleSet class represents a set of events.
+ *
+ */
 class WAPP_ASSIST_EXPORT CalInstanceScheduleSet
 {
 public:
-	CalInstanceScheduleSet();
-	~CalInstanceScheduleSet();
-public:
+	/**
+	 * @brief Add event to set.
+	 *
+	 * @param[in] instance    event instance
+	 *
+	 */
 	 void add(std::shared_ptr<CalSchedule> instance);
-	 bool exists(std::shared_ptr<CalSchedule>& instance);
-	 void remove(std::shared_ptr<CalSchedule>& instance);
-	 void reset();
-	 void getList(std::list<std::shared_ptr<CalSchedule>>& list);
-	 int getCount();
+
+	/**
+	 * @brief Check whether the instance of event is present in set.
+	 *
+	 * @param[in] instance    event instance
+	 *
+	 * @return true if present, false otherwise.
+	 *
+	 */
+	bool exists(std::shared_ptr<CalSchedule>& instance);
+
+	/**
+	 * @brief Remove instance of event from the set.
+	 *
+	 * @param[in] instance    event instance
+	 *
+	 */
+	void remove(std::shared_ptr<CalSchedule>& instance);
+
+	/**
+	 * @brief Clear the set.
+	 *
+	 */
+	void reset();
+
+	/**
+	 * @brief Get event set as plain list.
+	 *
+	 * @param[out] list    event list
+	 *
+	 */
+	void getList(std::list<std::shared_ptr<CalSchedule>>& list);
+
+	/**
+	 * @brief Get events count.
+	 *
+	 * @return events count
+	 *
+	 */
+	int getCount();
+
 private:
 	 std::map<SetKey, std::shared_ptr<CalSchedule>, classcomp> __map;
 };

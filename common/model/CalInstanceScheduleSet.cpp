@@ -17,17 +17,6 @@
 
 #include "CalInstanceScheduleSet.h"
 
-
-CalInstanceScheduleSet::CalInstanceScheduleSet()
-{
-
-}
-
-CalInstanceScheduleSet::~CalInstanceScheduleSet()
-{
-
-}
-
 void CalInstanceScheduleSet::add(std::shared_ptr<CalSchedule> instance)
 {
 	if(exists(instance)){
