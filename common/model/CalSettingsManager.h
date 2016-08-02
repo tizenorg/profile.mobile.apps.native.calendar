@@ -29,55 +29,171 @@
 #define CAL_SETTING_NOTIFICATION_SILENT         "silent"
 #define CAL_SETTING_NOTIFICATION_SOUND_DEFAULT  "default ringtone"
 
+/**
+ * @brief The CalSettingsManager class handle settings.
+ *
+ */
 class WAPP_ASSIST_EXPORT CalSettingsManager
 {
 SINGLETON_IDIOM(CalSettingsManager);
+
+public:
+
+	/**
+	 * @brief First day of week.
+	 *
+	 */
+	enum FirstDayOfWeekType
+	{
+		SUN = 0, /*!< Sunday    */
+		MON = 1, /*!< Monday    */
+		SAT = 6, /*!< Saturday  */
+		LOCALES  /*!< by locale */
+	};
+
+	/**
+	 * @brief The type of alert.
+	 *
+	 */
+	enum AlertType
+	{
+		ALERT = 0,                /*!< Alert view               */
+		STATUS_BAR_NOTIFICATION,  /*!< Status bar notification  */
+		OFF                       /*!< No alert                 */
+	};
+
+	/**
+	 * @brief Get first day of week preference.
+	 *
+	 * @return number of first day.
+	 *
+	 */
+	int getFirstDayOfWeek(void);
+
+	/**
+	 * @brief Check whether the time zone locked in Calendar settings.
+	 *
+	 * @return preference state.
+	 *
+	 */
+	bool getLockTimeZone(void);
+
+	/**
+	 * @brief Get device/locked time zone.
+	 *
+	 * @param[out] timezone    text buffer.
+	 *
+	 */
+	void getTimeZone(std::string& timezone);
+
+	/**
+	 * @brief Get current alert type.
+	 *
+	 * @return alert type, @see AlertType.
+	 *
+	 */
+	AlertType getAlertType(void);
+
+	/**
+	 * @brief Get alert sound.
+	 *
+	 * @return alert sound.
+	 *
+	 */
+	const char* getAlertSound(void);
+
+	/**
+	 * @brief Get last used Calendar.
+	 *
+	 * @return last used Calendar ID.
+	 *
+	 */
+	int getLastUsedCalendar(void);
+
+	/**
+	 * @brief Set first day of week
+	 *
+	 * @param[in] type        first day of week, @see FirstDayOfWeekType.
+	 *
+	 */
+	void setFirstDayOfWeek(const FirstDayOfWeekType type);
+
+	/**
+	 * @brief Lock time zone.
+	 *
+	 * @param[in] isOn        lock state
+	 *
+	 */
+	void setLockTimeZone(const bool isOn);
+
+	/**
+	 * @brief Set time zone.
+	 *
+	 * @param[in] timezone       time zone
+	 *
+	 */
+	void setTimeZone(const std::string &timezone);
+
+	/**
+	 * @brief Set alert type.
+	 *
+	 * @param[in] type       type of alert, @see AlertType.
+	 *
+	 */
+	void setAlertType(const AlertType type);
+
+	/**
+	 * @brief Set alert sound.
+	 *
+	 * @param[in] sound        sound of alert.
+	 *
+	 */
+	void setAlertSound(const char* sound);
+
+	/**
+	 * @brief Set last used Calendar
+	 *
+	 * @param[in] bookId           last used Calendar ID.
+	 *
+	 */
+	void setLastUsedCalendar(const int bookId);
+
+	/**
+	 * @brief Check whether 24 hours format is used.
+	 *
+	 * @return true if used, otherwise false.
+	 *
+	 */
+	bool isHour24(void);
+
+	/**
+	 * @brief Set 24 hours format.
+	 *
+	 */
+	void setHour24(void);
+
+	/**
+	 * @brief Get Calendar application time zone.
+	 *
+	 * @param[out] timezone       text buffer
+	 *
+	 */
+	void getCalendarTimeZone(std::string& timezone);
+
+	/**
+	 * @brief Update regional settings, use this function after settings change.
+	 */
+	void updateRegion(void);
+
 protected:
 	CalSettingsManager();
 	virtual ~CalSettingsManager();
+
+	void getDeviceTimeZone(std::string& timeZone);
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalSettingsManager);
-public:
-	enum FirstDayOfWeekType
-	{
-		SUN = 0,
-		MON = 1,
-		SAT = 6,
-		LOCALES
-	};
-	enum AlertType
-	{
-		ALERT = 0,
-		STATUS_BAR_NOTIFICATION,
-		OFF
-	};
 
-	// get
-	int getFirstDayOfWeek(void);
-	bool getLockTimeZone(void);
-	void getTimeZone(std::string& timezone);
-	AlertType getAlertType(void);
-	const char* getAlertSound(void);
-	int getLastUsedCalendar(void);
-
-	// set
-	void setFirstDayOfWeek(const FirstDayOfWeekType type);
-	void setLockTimeZone(const bool isOn);
-	void setTimeZone(const std::string& timezone);
-	void setAlertType(const AlertType type);
-	void setAlertSound(const char* sound);
-	void setLastUsedCalendar(const int bookId);
-
-	// get date format
-	bool isHour24(void);
-	void setHour24(void);
-	void getCalendarTimeZone(std::string& timezone);
-
-	// update
-	void updateRegion(void);
-protected:
-	void getDeviceTimeZone(std::string& timeZone);
-private:
 	static void __changedCb(const char *key, void *userData);
 	void __setChangedCb(const char* key, CalEvent::Type type);
 	void __notify(CalEvent::Type type, CalEvent::Source source);
@@ -85,11 +201,11 @@ private:
 	void __setLocaleTimeZone(void);
 	void __notifyTimeChanged(void);
 	static void __systemSettingsChangeCb(system_settings_key_e key, void *user_data);
-private:
+
 	std::string __alertSound;
 	bool __isHour24;
 
-friend class CalSchedule;
+	friend class CalSchedule;
 };
 
 #endif
