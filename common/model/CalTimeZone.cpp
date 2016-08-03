@@ -19,7 +19,6 @@
 #define QUERY_DB_BUFFER (64 * 4)
 
 
-
 class __CalTimeZoneImpl {
 public:
 	__CalTimeZoneImpl(const std::string& tz);
@@ -217,10 +216,6 @@ const CalTimeZone& CalTimeZone::operator=(const CalTimeZone& obj)
 		__pv = obj.__pv;
 	}
 	return *this;
-}
-
-CalTimeZone::~CalTimeZone()
-{
 }
 
 std::string CalTimeZone::getString(LabelType typeFormat) const

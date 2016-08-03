@@ -22,15 +22,19 @@
 #include "CalDate.h"
 #include "CalDateTime.h"
 
+/**
+ * @brief The CalScheduleRepeat class represents event repeat rules.
+ */
 class WAPP_ASSIST_EXPORT CalScheduleRepeat
 {
 public:
-	CalScheduleRepeat();
-	virtual ~CalScheduleRepeat();
-	CalScheduleRepeat( const CalScheduleRepeat& );
-	const CalScheduleRepeat& operator=( const CalScheduleRepeat& );
-public:
-	enum UnitType {
+
+	/**
+	 * @brief Unit type.
+	 *
+	 */
+	enum UnitType
+	{
 		ONE_TIME = 0,
 		DAY,
 		WEEK,
@@ -38,51 +42,149 @@ public:
 		YEAR,
 	};
 
-	enum MonthlyType {
+	/**
+	 * @brief Monthly repeat type.
+	 *
+	 */
+	enum MonthlyType
+	{
 		MONTHDAY = 0,
 		WEEKDAY,
 	};
-	struct Date {
-		int year;
-		int month;
-		int mday;
-	};
 
-	union UnitInfo {
-		struct Weekly {
-			bool selected[7]; //0 : sun, 6: sat
-			int dafaultWeek;
-		};
-		struct Monthly {
-			MonthlyType type;
-			Date date;
-		};
-		Weekly weekly;
-		Monthly monthly;
-	};
-
-	enum UntilType {
+	/**
+	 * @brief Until repeat type.
+	 *
+	 */
+	enum UntilType
+	{
 		FOREVER = 0,
 		TIMES,
 		DUE_DATE,
 	};
 
-	struct UntilInfo {
+	/**
+	 * @brief The Date struct.
+	 *
+	 */
+	struct Date
+	{
+		int year;
+		int month;
+		int mday;
+	};
+
+	/**
+	 * @brief Until info.
+	 *
+	 */
+	struct UntilInfo
+	{
 		int times;
 		Date date;
 	};
 
+	/**
+	 * @brief Unit info union.
+	 *
+	 */
+	union UnitInfo
+	{
+		/**
+		 * @brief Weekly repeat.
+		 *
+		 */
+		struct Weekly
+		{
+			bool selected[7];
+			int dafaultWeek;
+		};
+
+		/**
+		 * @brief Monthly repeat.
+		 *
+		 */
+		struct Monthly
+		{
+			MonthlyType type;
+			Date date;
+		};
+
+		Weekly weekly;
+		Monthly monthly;
+	};
+
+	CalScheduleRepeat();
+	CalScheduleRepeat( const CalScheduleRepeat& );
+	const CalScheduleRepeat& operator=( const CalScheduleRepeat& );
+
+	/**
+	 * @brief Set default repeat.
+	 *
+	 * @param[in] type         repeat type
+	 * @param[in] start        start time
+	 * @param[in] timezone     time zone
+	 *
+	 */
 	void setDefault(const UnitType type, const CalDateTime& start, const char* timezone);
+
+	/**
+	 * @brief Get repeat type text.
+	 *
+	 * @param[out] text       text buffer
+	 *
+	 */
 	void getString(std::string& text) const;
+
+	/**
+	 * @brief Get repeat text.
+	 *
+	 * @param[in]  date        data
+	 * @param[in]  timezone    time zone
+	 * @param[out] text        text buffer
+	 *
+	 */
 	void getRepeatString(const Date date, const char* timezone, std::string& text) const;
+
+	/**
+	 * @brief Get monthly unit info text.
+	 *
+	 * @param[in]  date        data
+	 * @param[in]  timezone    time zone
+	 * @param[in]  type        monthly repeat type
+	 * @param[out] text        text buffer
+	 *
+	 */
 	void getMonthlyUnitInfoString(const Date date, const char* timezone, const MonthlyType type, std::string& text) const;
+
+	/**
+	 * @brief Print repeat rules to log.
+	 */
 	void print() const;
 
-private:
+	/**
+	 * @brief Get item text.
+	 *
+	 * @param[in]  date               data
+	 * @param[in]  timezone           time zone
+	 * @param[out] text               text buffer
+	 * @param[in]  textType           time type
+	 * @param[in]  textUnitInterval   unit interval
+	 * @param[in]  isMonth            is month
+	 * @param[in]  isWeek             is week
+	 * @param[in]  isNone             is none
+	 *
+	 */
 	void getItemString(const Date date, const char* timezone, std::string& text, char* textType, char* textUnitInterval, bool isMonth, bool isWeek, bool isNone) const;
+
+	/**
+	 * @brief Get first day of week.
+	 *
+	 * @return first day number.
+	 *
+	 */
 	int getFirstDayOfWeek() const;
 
-public:
 	UnitType unitType;
 	int unitInterval;
 	UnitInfo unitInfo;

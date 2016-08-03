@@ -19,23 +19,57 @@
 #define _CAL_SIMPLE_LIST_PROVIDER_H_
 
 #include "ICalListProvider.h"
+#include "CalRecordBlockFetcher.h"
 
 #include <memory>
 
-#include "CalRecordBlockFetcher.h"
-
+/**
+ * @brief The CalSimpleListProvider class represents simple list model.
+ *
+ */
 class CalSimpleListProvider : public ICalListProvider
 {
 public:
 	CalSimpleListProvider(const CalDate& base, int dir, bool allDay, calendar_filter_h filter);
 	CalSimpleListProvider(const CalDate& from, const CalDate& to, bool allDay, calendar_filter_h filter);
 	virtual ~CalSimpleListProvider();
-public:
+
+	/**
+	 * @brief Prefetch events from calendar service.
+	 *
+	 * @param fillBothBuffers       prefetch current buffer or current and next
+	 *
+	 */
 	virtual void prefetch(bool fillBothBuffers);
+
+	/**
+	 * @brief Get current event.
+	 *
+	 * @return current event object.
+	 *
+	 */
 	virtual std::shared_ptr<CalSchedule> getCurrentSchedule();
+
+	/**
+	 * @brief Get date of currently provided event.
+	 *
+	 * @return event date.
+	 *
+	 */
 	virtual const CalDate& getCurrentDate();
+
+	/**
+	 * @brief Prefetch continue.
+	 *
+	 */
 	virtual void loadNext();
+
+	/**
+	 * @brief Check whether list is ended.
+	 *
+	 */
 	virtual bool eof();
+
 private:
 	CalRecordBlockFetcher __fetcher;
 	CalDate __currentDate;

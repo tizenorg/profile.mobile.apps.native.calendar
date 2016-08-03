@@ -21,15 +21,50 @@
 #include <memory>
 #include "CalSchedule.h"
 
+/**
+ * @brief The ICalListProvider interface.
+ *
+ */
 class ICalListProvider
 {
 public:
 	virtual ~ICalListProvider() {}
-public:
+
+	/**
+	 * @brief Prefetch events from calendar service.
+	 *
+	 * @param fillBothBuffers       prefetch current buffer or current and next
+	 *
+	 */
 	virtual void prefetch(bool fillBothBuffers) = 0;
+
+
+	/**
+	 * @brief Get current event.
+	 *
+	 * @return current event object.
+	 *
+	 */
 	virtual std::shared_ptr<CalSchedule> getCurrentSchedule() = 0;
+
+	/**
+	 * @brief Get date of currently provided event.
+	 *
+	 * @return event date.
+	 *
+	 */
 	virtual const CalDate& getCurrentDate() = 0;
+
+	/**
+	 * @brief Prefetch continue.
+	 *
+	 */
 	virtual void loadNext() = 0;
+
+	/**
+	 * @brief Check whether list is ended.
+	 *
+	 */
 	virtual bool eof() = 0;
 };
 
