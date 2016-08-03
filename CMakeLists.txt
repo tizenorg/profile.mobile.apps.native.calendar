@@ -131,8 +131,3 @@ ADD_SUBDIRECTORY(widget)
 # install tizen files
 INSTALL(FILES ${CMAKE_BINARY_DIR}/${PKGNAME}.xml DESTINATION /usr/share/packages)
 INSTALL(DIRECTORY main-app/res/images DESTINATION ${RESDIR})
-
-# if Google tests are enabled
-if(DEFINED TEST)
-    add_subdirectory(test)
-endif(DEFINED TEST)
