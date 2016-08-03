@@ -23,29 +23,104 @@
 #include "WDefine.h"
 #include "CalControl.h"
 
+/**
+ * @brief Calendar underline edit field.
+ *
+ * @see CalControl.
+ */
 class WAPP_ASSIST_EXPORT CalUnderlineEditField : public CalControl
 {
 public:
-	CalUnderlineEditField(bool multiLine = false);
-	virtual ~CalUnderlineEditField();
-public:
-	void setText(const char* text);
-	void setGuideText(const char* text, int font = 40);
-	void setFontSize(int size);
-
-	const char* getText();
-	const char* getGuideText();
-
+	/**
+	 * @brief Return key types.
+	 */
 	enum ReturnKeyType
 	{
 		DONE = 0,
 		NEXT
 	};
 
+	/**
+	 * @brief Create underline edit field.
+	 *
+	 * @param[in]   multiLine   Multiline state.
+	 */
+	CalUnderlineEditField(bool multiLine = false);
+
+	virtual ~CalUnderlineEditField();
+
+	/**
+	 * @brief Set text.
+	 *
+	 * @param[in]   text   The text.
+	 */
+	void setText(const char* text);
+
+	/**
+	 * @brief Set guide text.
+	 *
+	 * @param[in]   text   The guide text.
+	 * @param[in]   font   The text font.
+	 */
+	void setGuideText(const char* text, int font = 40);
+
+	/**
+	 * @brief Set font size.
+	 *
+	 * @param[in]   size   The font size.
+	 */
+	void setFontSize(int size);
+
+	/**
+	 * @brief Get text.
+	 *
+	 * @return The text.
+	 */
+	const char* getText();
+
+	/**
+	 * @brief Get guide text.
+	 *
+	 * @return The guide text.
+	 */
+	const char* getGuideText();
+
+	/**
+	 * @brief Set entry return key type.
+	 *
+	 * @param[in]   type   Return key type.
+	 *
+	 * @see ReturnKeyType
+	 */
 	void setEntryReturnKeyType(ReturnKeyType type);
+
+	/**
+	 * @brief Set focus to entry.
+	 *
+	 * @param[in]   showKeypadIntentionally   Show keypad intentionally state.
+	 */
 	void setFocusToEntry(bool showKeypadIntentionally = false);
+
+	/**
+	 * @brief Set change callback.
+	 *
+	 * @param[in]   changeCallback   Change callback.
+	 */
 	void setChangeCallback(std::function<void (const char* text)> changeCallback);
+
+	/**
+	 * @brief Set complete callback to entry.
+	 *
+	 * @param[in]   entryCompleteCallback   Complete callback.
+	 */
 	void setCompleteCallback(std::function<void ()> entryCompleteCallback);
+
+	/**
+	 * @brief Set maximum length reach callback to entry.
+	 *
+	 * @param[in]   maxLenReachCallback   Maximum length reach callback.
+	 * @param[in]   maxLength             Maximum length.
+	 */
 	void setEntryMaxLenReachCallback(std::function<void ()> maxLenReachCallback, unsigned int maxLength = 1000);
 
 protected:
@@ -55,7 +130,6 @@ protected:
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalUnderlineEditField);
 
-private:
 	bool __multiLine;
 	Evas_Object* __layout;
 	Evas_Object* __entry;

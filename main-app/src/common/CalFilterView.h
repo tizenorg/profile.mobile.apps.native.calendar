@@ -27,17 +27,54 @@
 #include "ICalListModel.h"
 #include "CalUnderlineEditField.h"
 
+/**
+ * @brief Select callback.
+ *
+ * @param[in]   schedule   The shedule.
+ *
+ * @see CalSchedule.
+ */
 typedef std::function<void (std::shared_ptr<CalSchedule> schedule)> EVENT_ITEM_ONSELECT_CB;
 
+/**
+ * @brief Calendar filter view.
+ *
+ * @see CalView.
+ */
 class CalFilterView : public CalView
 {
 	WDISABLE_COPY_AND_ASSIGN(CalFilterView);
 public:
+	/**
+	 * @brief Create filter view.
+	 *
+	 * @param[in]   name   The name.
+	 */
 	CalFilterView(const char *name);
+
 	virtual ~CalFilterView();
 
+	/**
+	 * @brief Set select callback.
+	 *
+	 * @param[in]   selectCb   Select callback.
+	 *
+	 * @see EVENT_ITEM_ONSELECT_CB
+	 */
 	void setSelectCb(EVENT_ITEM_ONSELECT_CB selectCb);
+
+	/**
+	 * @brief Set back button visibility state.
+	 *
+	 * @param[in]   isVisible   Back button visibility state.
+	 */
 	void setBackButtonVisibility(bool isVisible);
+
+	/**
+	 * @brief Get back button visibility state.
+	 *
+	 * @return Whether the  back button is visibile.
+	 */
 	bool isBackButtonVisibile();
 
 protected:
@@ -68,7 +105,6 @@ private:
 	bool __backButtonVisibility;
 
 	void __deleteListModels();
-
 
 };
 

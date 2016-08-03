@@ -36,7 +36,6 @@
 #include "CalDialogDetailReminderItem.h"
 #include "CalDetailView.h"
 #include "CalAppControlLauncher.h"
-#include "CalCheckboxPopup.h"
 #include <notification.h>
 #include "CalEditModel.h"
 #include "CalEventManager.h"

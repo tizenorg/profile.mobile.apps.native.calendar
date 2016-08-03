@@ -20,16 +20,28 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief Calendar dialog one line item.
+ *
+ * @see CalDialogControl::Item.
+ */
 class CalDialogOneLineItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create dialog one line item.
+	 *
+	 * @param[in]   selectCb   Select callback.
+	 * @param[in]   text       The text.
+	 */
 	CalDialogOneLineItem(std::function<void (void)> selectCb, const char *text);
 	virtual ~CalDialogOneLineItem();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogOneLineItem);
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
 	virtual void onSelect();
-private:
+
 	const char *__text;
 	std::function<void (void)> __selectCb;
 };

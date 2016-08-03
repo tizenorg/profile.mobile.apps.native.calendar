@@ -25,22 +25,49 @@
 #include <string>
 #include "CalDateTime.h"
 
+/**
+ * @brief Calendar time picker pop-up.
+ *
+ * @see WPopup.
+ */
 class CalTimePickerPopup: public WPopup
 {
 public:
+	/**
+	 * @brief Create time picker pop-up.
+	 *
+	 * @param[in]   dateTime        Date and time.
+	 * @param[in]   title           Title.
+	 * @param[in]   startDateTime   Start date and time.
+	 * @param[in]   isRepeat        Repeat state.
+	 *
+	 * @see CalDateTime
+	 */
 	CalTimePickerPopup(Evas_Object* dateTime, const char* title = NULL, CalDateTime startDateTime = CalDateTime(1902,1,1), bool isRepeat = false);
+
+	/**
+	 * @brief Set change callback.
+	 *
+	 * @param[in]   changedCb   Change callback.
+	 */
+	void setChangeCb(std::function<void (CalDateTime& newTime)> changedCb);
+
+	/**
+	 * @brief Set timezone.
+	 *
+	 * @param[in]   timezone   Timezone.
+	 */
+	void setTimeZone(const std::string& timezone);
+
 protected:
 	virtual ~CalTimePickerPopup();
-public:
-	void setChangeCb(std::function<void (CalDateTime& newTime)> changedCb);
-	void setTimeZone(const std::string& timezone);
+
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);
 	virtual void onDestroy();
 	Evas_Object* __createContent(Evas_Object *parent);
-
-private:
 	CalTimePickerPopup();
+
 	std::function<void (CalDateTime& newTime)> __changedCb;
 	Evas_Object* __dateTime;
 	CalDateTime __startDateTime;

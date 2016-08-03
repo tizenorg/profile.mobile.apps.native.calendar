@@ -18,15 +18,26 @@
 #ifndef _CAL_DIALOG_SIMPLE_TITLE_ITEM_H_
 #define _CAL_DIALOG_SIMPLE_TITLE_ITEM_H_
 
+/**
+ * @brief Calendar dialog simple title item.
+ *
+ * @see CalDialogControl::Item.
+ */
 class CalDialogSimpleTitleItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create dialog simple title item.
+	 *
+	 * @param[in]   title   The title.
+	 */
 	CalDialogSimpleTitleItem(const char *title);
 	virtual ~CalDialogSimpleTitleItem();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogSimpleTitleItem);
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
-private:
+
 	const char *__title;
 };
 
