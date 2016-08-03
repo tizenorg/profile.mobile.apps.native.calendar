@@ -22,9 +22,9 @@
 #include <functional>
 
 /**
-* @class	WPopup
-* @brief	This class is the pop-up class to make easy to create pop-up.
+* @class WPopup.
 *
+* @brief This class is the pop-up class to make easy to create pop-up.
 *
 * The %WPopup is the general pop-up class.
 */
@@ -32,99 +32,114 @@ class WAPP_ASSIST_EXPORT WPopup : public WControl
 {
 public:
 	/**
-	 * This is the default constructor for this class.
-	 *
+	 * @brief This is the default constructor for this class.
 	 */
 	WPopup();
+
 	/**
-	 * This is the constructor with title and content string.
+	 * @brief This is the constructor with title and content string.
 	 *
+	 * @param[in]   title         Title text.
+	 * @param[in]   textContent   Content text.
 	 */
 	WPopup( const char* title, const char* textContent );
-public:
+
 	/**
-	 * Sets the title string of the pop-up.
+	 * @brief Set the title string of the pop-up.
 	 *
-	 * @param[in]	title	title text string
+	 * @param[in]   title   Title text string.
 	 *
 	 * @see setContent()
 	 */
 	void setTitle( const char* title );
+
 	/**
-	 * Sets the content string of the pop-up.
+	 * @brief Set the content string of the pop-up.
 	 *
-	 * @param[in]	text	content text string
+	 * @param[in]   text   Content text string.
 	 *
 	 * @see other setContent()
 	 */
 	void setContent( const char* text );
+
 	/**
-	 * Sets the content of the pop-up with WControl instance.
+	 * @brief Set the content of the pop-up with WControl instance.
 	 * This instance life-time will be attached to WPopup instance.
 	 *
-	 * @param[in]	control	WControl instance to be set
+	 * @param[in]   control   WControl instance to be set.
 	 *
 	 * @see other setContent()
 	 */
 	void setContent( WControl* control );
+
 	/**
-	 * Sets the creation function of the content Evas Object of the pop-up.
+	 * @brief Set the creation function of the content Evas Object of the pop-up.
 	 *
-	 * @param[in]	contentCreateCb	content creation function object. At this function, it should return evas object created for content.
+	 * @param[in]   contentCreateCb   Content creation function object.
+	 *                                At this function, it should return evas object created for content.
 	 *
 	 * @see other setContent()
 	 */
 	void setContent( const std::function<Evas_Object* (Evas_Object* parent)> contentCreateCb );
+
 	/**
-	 * Sets the string ID's domain name to be automatically translated on language change. The text content and title text should be set with string ID.
+	 * @brief Set the string ID's domain name to be automatically translated on language change.
+	 * The text content and title text should be set with string ID.
 	 *
-	 * @param[in]	textDomain	text domain name
+	 * @param[in]   textDomain   Text domain name.
 	 *
-	 * @see setTitle( const char* title), setContent( const char* text)
+	 * @see setTitle( const char* title)
+	 * @seesetContent( const char* text)
 	 */
 	void setTextTranslatable( const char* textDomain );
+
 	/**
-	 * Add buttons with button text string and button pressed callback function.
+	 * @brief Add buttons with button text string and button pressed callback function.
 	 *
-	 * @param[in]	buttonText	text string of button
-	 * @param[in]	buttonCb	callback function object to be called when button is pressed.
-	 *                          At this function, if it returns true, pop-up will be deleted. If not, pop-up will not.
+	 * @param[in]   buttonText   Text string of button.
+	 * @param[in]   buttonCb     Callback function object to be called when button is pressed.
+	 *                           At this function, if it returns true, pop-up will be deleted. If not, pop-up will not.
 	 *
-	 * @return true if succeeded
+	 * @return True if succeeded.
 	 */
 	bool addButton(const char* buttonText, const std::function<void (bool* destroyPopup)> buttonCb, const std::function<void (Evas_Object* button)> setPropertyCb = NULL );
+
 	/**
-	 * Add handler function when back button is pressed.
+	 * @brief Add handler function when back button is pressed.
 	 * If it is not set, pop-up will be closed.
 	 *
-	 * @param[in]	backCb	call back function object.
-	 *                      If it returns true, pop-up will be closed, if not, remained.
+	 * @param[in]   backCb   Call back function object.
+	 *                       If it returns true, pop-up will be closed, if not, remained.
 	 *
 	 */
 	void setOnBack( const std::function<void (bool* destroyPopup)> backCb );
+
 	/**
-	 * Add handler function to set more properties of pop-up.
+	 * @brief Add handler function to set more properties of pop-up.
 	 * It will be called just after pop-up evas object is created in onCreate method.
 	 *
-	 * @param[in]	morePropertiesCb	callback function object
+	 * @param[in]   morePropertiesCb   Callback function object.
 	 *
-	 * @return true if succeeded
+	 * @return True if succeeded.
 	 */
 	void setOnMoreProperties( const std::function<void(Evas_Object* popup)>& morePropertiesCb );
 
 protected:
 	/**
-	 * Override it, if you want to create your own pop-up. WPopup::onCreate will be called at the end of that function.
+	 * @brief Override it, if you want to create your own pop-up.
+	 * WPopup::onCreate will be called at the end of that function.
 	 * This method comes from WControl class.
 	 *
-	 * @param[in]	parent	parent evas object
-	 * @param[in]	param	user data
+	 * @param[in]   parent   Parent evas object.
+	 * @param[in]   param    User data.
 	 *
-	 * @return Evas object created
+	 * @return Evas object created.
 	 */
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
+
 	/**
-	 * It is called when pop-up instance is deleted. This method comes from WControl class.
+	 * @brief It is called when pop-up instance is deleted.
+	 * This method comes from WControl class.
 	 *
 	 * @see onCreate()
 	 */
@@ -132,10 +147,10 @@ protected:
 
 protected:
 	/**
-	 * This is the destructor for this class.
-	 *
+	 * @brief This is the destructor for this class.
 	 */
 	virtual ~WPopup();
+
 private:
 	WDECLARE_PRIVATE_IMPL(WPopup);
 	WDISABLE_COPY_AND_ASSIGN(WPopup);

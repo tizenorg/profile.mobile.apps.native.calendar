@@ -23,49 +23,46 @@
 #include "WDefine.h"
 
 /**
-* @class	WAppEventHandler
-* @brief	This class is
+* @class WAppEventHandler.
 *
+* @brief Application event handler.
 */
 class WAPP_ASSIST_EXPORT WAppEventHandler
 {
 public:
 	/**
-	 * This is the default constructor for this class.
-	 *
+	 * @brief This is the default constructor for this class.
 	 */
 	WAppEventHandler();
 
 	/**
-	 * This is the destructor for this class.
-	 *
+	 * @brief This is the destructor for this class.
 	 */
 	virtual ~WAppEventHandler();
 
-public:
 	/**
-	 * Adds application event handler of event type.
+	 * @brief Add application event handler of event type.
 	 *
-	 * @param[in]	eventType	event type to be handled
-	 * @param[in]	handlerFunc	The pointer to handler function
-	 * @param[in]	userData	user data pointer to be used in handler function
+	 * @param[in]   eventType     Event type to be handled.
+	 * @param[in]   handlerFunc   The pointer to handler function.
+	 * @param[in]   userData      User data pointer to be used in handler function.
 	 *
-	 * @return 0 on success, otherwise error
+	 * @return 0 on success, otherwise error.
 	 */
 	int addEventHandler( app_event_type_e eventType, const std::function<void (app_event_info_h eventInfo, void* userData)>& handlerFunc, void* userData );
+
 	/**
-	 * Removes application event handler
-	 *
+	 * @brief Remove application event handler.
 	 */
 	void removeEventHandler();
 
 protected:
 	/**
-	 * Returns the handle of added event handler
+	 * @brief Return the handle of added event handler.
 	 *
-	 * @return the handle
+	 * @return The handle.
 	 *
-	 * @see addEventHandler()
+	 * @see addEventHandler().
 	 */
 	app_event_handler_h getHandle();
 

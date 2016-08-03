@@ -24,9 +24,9 @@
 #include "IWUiObject.h"
 
 /**
-* @class	WControl
-* @brief	This class is the UI control class linked with one evas object.
+* @class WControl.
 *
+* @brief This class is the UI control class linked with one evas object.
 *
 * The %WControl is the abstract class managing an evas object
 */
@@ -34,31 +34,31 @@ class WAPP_ASSIST_EXPORT WControl : public IWUiObject
 {
 public:
 	/**
-	 * This is the default constructor for this class.
-	 *
+	 * @brief This is the default constructor for this class.
 	 */
 	WControl();
-	/**
-	 * Gets class name
-	 *
-	 * @return The class name
-	 */
-	virtual const char* getClassName();
-public:
 
 	/**
-	 * Initializes and creates the control. onCreate will be called subsequently
+	 * @brief Get class name.
 	 *
-	 * @param[in]	parent	parent evas object
-	 * @param[in]	param	user data
+	 * @return The class name.
+	 */
+	virtual const char* getClassName();
+
+	/**
+	 * @brief Initialize and creates the control. onCreate will be called subsequently.
 	 *
-	 * @return result
+	 * @param[in]   parent   Parent evas object.
+	 * @param[in]   param    User data.
+	 *
+	 * @return Result.
+	 *
 	 * @see onCreate()
 	 */
 	bool create(Evas_Object* parent, void* param );
 
 	/**
-	 * Destroys the control. The linked evas object will be delete together.
+	 * @brief Destroy the control. The linked evas object will be delete together.
 	 * "onDestroy" will be called subsequently.
 	 *
 	 * @see onDestroy()
@@ -66,86 +66,91 @@ public:
 	void destroy();
 
 	/**
-	 * Gets evas object of this class.
+	 * @brief Get evas object of this class.
 	 *
-	 * @return The pointer to evas object
+	 * @return The pointer to evas object.
 	 */
 	Evas_Object* getEvasObj();
 
 	/**
-	 * Gets evas object of this class for read-only reference.
+	 * @brief Get evas object of this class for read-only reference.
 	 *
-	 * @return The read-only pointer to evas object
+	 * @return The read-only pointer to evas object.
 	 */
 	const Evas_Object* getConstEvasObj() const;
 
 	/**
-	 * Sets the name of the instance.
+	 * @brief Set the name of the instance.
 	 *
-	 * @param[in]	name	blash
+	 * @param[in]   name   Name.
 	 */
 	void setName( const char* name);
 
 	/**
-	 * Gets the name of the instance.
+	 * @brief Get the name of the instance.
 	 *
-	 * @return The control name
+	 * @return The control name.
 	 */
 	const char* getName();
+
 	/**
-	 * Returns weak pointer of this instance to refer it safe.
+	 * @brief Return weak pointer of this instance to refer it safe.
 	 *
-	 * @return weak pointer of this class instance
+	 * @return Weak pointer of this class instance.
 	 */
 	WUiObjectPtr getWeakPtr();
 
 	/**
-	 * Attaches popup to the control.It means that it binds them to have same life-time.
+	 * @brief Attache popup to the control.It means that it binds them to have same life-time.
 	 * Internally create method of the pop-up will be called, if it is not yet created.
 	 * If previous pop-up exists, it will be destroyed.
 	 *
-	 * @param[in]	popup pop-up instance pointer to be attached
+	 * @param[in]   popup   pop-up instance pointer to be attached.
 	 *
 	 * @see destroyPopup()
 	 */
 	void attachPopup( WControl* popup );
+
 	/**
-	 * Destroys pop-up. Use this method when you want to destroy pop-up explicitly.
+	 * @brief Destroy pop-up. Use this method when you want to destroy pop-up explicitly.
 	 * Pop-up will be deleted when the control is deleted, although this method is not called.
 	 *
 	 * @see attachPopup()
 	 */
 	void destroyPopup();
+
 protected:
 	/**
-	 * Override this method to create evas object of this WControl class.
+	 * @brief Override this method to create evas object of this WControl class.
 	 *
-	 * @param[in]	parent	the parent evas object
-	 * @param[in]	param	user parameter
+	 * @param[in]   parent   The parent evas object.
+	 * @param[in]   param   User parameter.
 	 *
-	 * @return The pointer to evas object created, which should be the most parent evas object among them created in this method.
+	 * @return The pointer to evas object created, which should be the most
+	 * parent evas object among them created in this method.
+	 *
 	 * @see create()
 	 * @see onCreated()
 	 */
 	virtual Evas_Object* onCreate( Evas_Object* parent, void* param ) = 0;
+
 	/**
-	 * Override this method to do something after evas object is created.
+	 * @brief Override this method to do something after evas object is created.
 	 *
 	 * @see create()
 	 * @see onCreate()
 	 */
 	virtual void onCreated(){};
+
 	/**
-	 * Override this method to do something on this instance deletion.
+	 * @brief Override this method to do something on this instance deletion.
 	 *
 	 * @see destroy()
 	 */
 	virtual void onDestroy() = 0;
 
-protected:
 	/**
-	 * This is the destructor for this class.
-	 *
+	 * @brief This is the destructor for this class.
 	 */
 	virtual ~WControl();
 
@@ -154,12 +159,14 @@ private:
 	WDISABLE_COPY_AND_ASSIGN(WControl);
 
 };
+
 /**
- * Gets the class instance from evas object
+ * @brief Get the class instance from evas object
  *
- * @param[in]	obj	evas object
+ * @param[in]   obj   Evas object.
  *
- * @return The pointer to WControl class instance. It will be NULL, if no instance is related.
+ * @return The pointer to WControl class instance.
+ * It will be NULL, if no instance is related.
  */
 WAPP_ASSIST_EXPORT WControl* WControl_getInstanceFromEvasObj( Evas_Object* obj );
 

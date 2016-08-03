@@ -29,14 +29,46 @@
 #include "CalEvent.h"
 #include "ICalEventListener.h"
 
+/**
+ * @brief Calendar widget.
+ *
+ * @see ICalEventListener.
+ */
 class CalWidget : private ICalEventListener
 {
 public:
 	CalWidget();
+
 	~CalWidget();
 
+	/**
+	 * @brief Create widget.
+	 *
+	 * @param[in]   context   The handle for widget context.
+	 * @param[in]   content   The bundle handle.
+	 * @param[in]   w   The width.
+	 * @param[in]   h   The height.
+	 *
+	 * @see widget_context_h
+	 * @see bundle
+	 */
 	void create(widget_context_h context, bundle *content, int w, int h);
+
+	/**
+	 * @brief Destroy widget.
+	 *
+	 * @param[in]   reason   Destroy type of widget instance.
+	 *
+	 * @see widget_app_destroy_type_e
+	 */
 	void destroy(widget_app_destroy_type_e reason);
+
+	/**
+	 * @brief Resize widget.
+	 *
+	 * @param[in]   w   The width.
+	 * @param[in]   h   The height.
+	 */
 	void resize(int w, int h);
 
 private:
@@ -51,7 +83,6 @@ private:
 	const char *__getStartTime(CalDate dateTime);
 	void onEvent(const CalEvent& event);
 
-private:
 	Evas_Object *__window;
 	Evas_Object *__conform;
 

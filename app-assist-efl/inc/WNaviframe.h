@@ -25,13 +25,12 @@
 #include "IWUiObject.h"
 #include "WWindow.h"
 
-// forward declaration
 class WView;
 
 /**
-* @class	WNaviframe
-* @brief	This class is the wrapper class of naviframe elementary.
+* @class WNaviframe.
 *
+* @brief This class is the wrapper class of naviframe elementary.
 *
 * The %WNaviframe class is to use naviframe elementary.
 */
@@ -39,32 +38,32 @@ class WAPP_ASSIST_EXPORT WNaviframe : public IWUiObject
 {
 public:
 	/**
-	 * This is the default constructor for this class.
-	 *
+	 * @brief This is the default constructor for this class.
 	 */
 	WNaviframe();
+
 	/**
-	 * Gets the class name.
+	 * @brief Get the class name.
 	 *
-	 * @return The class name
+	 * @return The class name.
 	 */
 	virtual const char* getClassName();
 
-public:
 	/**
-	 * Initializes and creates the evas object.
+	 * @brief Initialize and creates the evas object.
 	 * "onCreate" will be called subsequently.
 	 *
-	 * @param[in]	parent	the parent evas object
-	 * @param[in]	param	user data
+	 * @param[in]   parent   The parent evas object.
+	 * @param[in]   param    User data.
 	 *
-	 * @return	true if the creation is succeeded, else false
+	 * @return True if the creation is succeeded, else false.
+	 *
 	 * @see onCreate()
 	 */
 	bool create( Evas_Object* parent, void* param );
 
 	/**
-	 * Destroy the instance. "onDestroy" will be called subsequently.
+	 * @brief Destroy the instance. "onDestroy" will be called subsequently.
 	 * The naviframe elementary will be deleted together.
 	 *
 	 * @see onDestroy()
@@ -72,136 +71,147 @@ public:
 	void destroy();
 
 	/**
-	 * Gets the evas object of this navi frame
+	 * @brief Get the evas object of this naviframe.
 	 *
 	 * @return The pointer to the evas object
 	 */
 	Evas_Object* getEvasObj();
 
 	/**
-	 * Sets the name of this instance.
+	 * @brief Set the name of this instance.
 	 *
-	 * @param[in]	name	The name to be set
+	 * @param[in]   name   The name to be set.
 	 */
 	void setName( const char* name);
 
 	/**
-	 * Gets the name of this instance.
+	 * @brief Get the name of this instance.
 	 *
-	 * @return The name of the navi frame
+	 * @return The name of the naviframe.
 	 */
 	const char* getName();
 
 	/**
-	 * Pushes the view instance into naviframe. "onPushToNaviframe" will be called subsequently.
+	 * @brief Push the view instance into naviframe. "onPushToNaviframe" will be called subsequently.
 	 * If the view is yet called "create", it will be called internally.
 	 *
-	 * @param[in]	view	the pointer to the view instance to be pushed
-	 * @param[in]	viewName	the view instance name to be set when it is pushed.
-	 * @param[in]	viewParam	the user data to be passed as parameter of "create" method of the view.
+	 * @param[in]   view        The pointer to the view instance to be pushed
+	 * @param[in]   viewName    The view instance name to be set when it is pushed.
+	 * @param[in]   viewParam   The user data to be passed as parameter of "create" method of the view.
 	 *
-	 * @return	true if succeed, else false
+	 * @return True if succeed, else false.
+	 *
 	 * @see onPushToNaviframe
 	 */
 	bool push( WView* view, const char* viewName = NULL, void* viewCreationParam = NULL );
 
 	/**
-	 * Destroy all views stacked on naviframe.
-	 *
+	 * @brief Destroy all views stacked on naviframe.
 	 */
 	void destroyAllViews();
 
 public:
 	/**
-	 * Sets the handler function pointer to override virtual function onCreate without defining a new inherited class.
+	 * @brief Set the handler function pointer to override virtual
+	 * function onCreate without defining a new inherited class.
 	 * If it is set, onCreate method will not be called.
 	 *
-	 * @param[in]	handlerFunc	The pointer to handler function
+	 * @param[in]   handlerFunc   The pointer to handler function.
+	 *
 	 * @see onCreate()
 	 */
 	void setOnCreate( const std::function<Evas_Object*(Evas_Object*, void*)>& handlerFunc);
 
 	/**
-	 * Sets the handler function pointer to override virtual function onLastItemPop without defining a new inherited class.
+	 * @brief Set the handler function pointer to override virtual
+	 * function onLastItemPop without defining a new inherited class.
 	 * If it is set, onLastItemPop method will not be called.
 	 *
-	 * @param[in]	handlerFunc	The pointer to handler function
+	 * @param[in]   handlerFunc   The pointer to handler function.
+	 *
 	 * @see onLastItemPop()
 	 */
 	void setOnLastItemPop( const std::function<void(bool*)>& handlerFunc);
-protected:
 
+protected:
 	/**
-	 * Override this method to create your own naviframe elementary.
+	 * @brief Override this method to create your own naviframe elementary.
 	 *
-	 * @param[in]	parent	The pointer to the parent evas object
-	 * @param[in]	param	user data
-	 * @return The pointer to naviframe evas object created
+	 * @param[in]   parent   The pointer to the parent evas object.
+	 * @param[in]   param   User data.
+	 * @return The pointer to naviframe evas object created.
 	 */
 	virtual Evas_Object* onCreate( Evas_Object* parent, void* param);
+
 	/**
-	 * Override this method to do something after evas object is created.
+	 * @brief Override this method to do something after evas object is created.
 	 *
 	 * @see create()
 	 * @see onCreate()
 	 */
 	virtual void onCreated(){};
+
 	/**
-	 * Override this method to do something on this instance deletion.
+	 * @brief Override this method to do something on this instance deletion.
 	 *
 	 * @see destroy()
 	 */
 	virtual void onDestroy();
+
 	/**
-	 * Override this method to do something before pushing the view to the naviframe.
+	 * @brief Override this method to do something before pushing the view to the naviframe.
 	 * In the overridden method, WNaviframe::onPush should be called to do the base operation.
 	 *
-	 * @param[in]	view	The pointer to the view instance to be pushed
-	 * @param[in]	viewParam	user data to be passed from "push". It is passed to the "create" method of the WView class
+	 * @param[in]   view        The pointer to the view instance to be pushed.
+	 * @param[in]   viewParam   User data to be passed from "push". It is passed to the "create" method of the WView class.
 	 *
-	 * @return result
+	 * @return Result.
+	 *
 	 * @see push
 	 */
 	virtual bool onPush( WView* view, void* viewParam);
 
 	/**
-	 * Override this method to do something before popping the view from the naviframe.
+	 * @brief Override this method to do something before popping the view from the naviframe.
 	 * If you override this method, call WNaviframe::onItemPop at the bottom of your method to do the base operations.
 	 *
-	 * @param[in]	view	The pointer to the view instance to be popped
-	 * @param[in]	item	The pointer to the navi item
+	 * @param[in]   view   The pointer to the view instance to be popped
+	 * @param[in]   item   The pointer to the navi item
 	 *
-	 * @return	true the view will be popped out, false the view will not be popped.
+	 * @return True the view will be popped out, false the view will not be popped.
+	 *
 	 * @see onLastItemPop()
 	 */
 	virtual bool onItemPop( WView* view, Elm_Object_Item* item);
 
 	/**
-	 * Override this method to change how the application should work when last view is popped from naviframe.
+	 * @brief Override this method to change how the application should work when last view is popped from naviframe.
 	 * If you don't override it, the application will go background by default.
 	 * Even though onLastItemPop is called, "onItemPop" will be called before.
 	 *
-	 * @param[out]	popOut	Set true, if you will pop out the last view and end the application. If not, set false before return
+	 * @param[out]   popOut   Set true, if you will pop out the last view and end the application. If not, set false before return.
+	 *
 	 * @see onItemPop()
 	 */
 	virtual void onLastItemPop( bool* popOut );
 
 	/**
-	 * Gets the pointer to the WWindow class instance.
+	 * @brief Get the pointer to the WWindow class instance.
 	 *
-	 * @return The pointer to the window instance. If the naviframe is the part of UG module, NULL will be returned.
+	 * @return The pointer to the window instance. If the naviframe
+	 * is the part of UG module, NULL will be returned.
 	 */
 	WWindow* getWindow();
 
 protected:
 	/**
-	 * This is the destructor for this class.
-	 *
+	 * @brief This is the destructor for this class.
 	 */
 	virtual ~WNaviframe();
+
 private:
 	static Eina_Bool __popCb( void* data, Elm_Object_Item* item);
-private:
+
 	WDECLARE_PRIVATE_IMPL(WNaviframe);
 	WDISABLE_COPY_AND_ASSIGN(WNaviframe);
 

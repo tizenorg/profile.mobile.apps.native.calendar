@@ -28,26 +28,33 @@
 #include "CalSchedule.h"
 #include "CalEditView.h"
 
+/**
+ * @brief Calendar edit application.
+ *
+ * @see WApp.
+ */
 class CalEditApp : public WApp
 {
 public:
 	CalEditApp();
 	virtual ~CalEditApp();
+
 protected:
 	virtual bool onCreate();
 	virtual void onTerminate();
 	virtual void onAppControl(app_control_h request, bool firstLaunch);
 	virtual void onPause();
 	virtual void onResume();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalEditApp);
-private:
+
 	void __makeScheduleFromExtraData();
 	void __makeScheduleForCreateMode();
 	void __makeScheduleForEditMode();
 	void __addExtraParams();
 	void __replyError();
-private:
+
 	bool __replyToRequest;
 	std::shared_ptr<CalSchedule> __schedule;
 	app_control_h __request;

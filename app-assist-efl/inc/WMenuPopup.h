@@ -24,9 +24,9 @@
 #include "WControl.h"
 
 /**
-* @class	WMenuPopup
-* @brief	This class is the menu pop-up class to make easy to manage menus.
+* @class WMenuPopup.
 *
+* @brief This class is the menu pop-up class to make easy to manage menus.
 *
 * The %WMenuPopup is the menu pop-up class.
 */
@@ -35,45 +35,46 @@ class WAPP_ASSIST_EXPORT WMenuPopup: public WControl
 public:
 	/**
 	 * This is the default constructor for this class.
-	 *
 	 */
 	WMenuPopup();
-public:
+
 	/**
-	 * Initializes and pre-creates menu pop-up to append menu items.
+	 * @brief Initialize and pre-creates menu pop-up to append menu items.
 	 *
-	 * @param[in]	win			parent window evas object
-	 * @param[in]	naviframe	naviframe evas object of the caller
+	 * @param[in]   win         Parent window evas object.
+	 * @param[in]   naviframe   Naviframe evas object of the caller.
 	 *
 	 * @see create()
 	 */
 	void prepare(Evas_Object* win, Evas_Object* naviframe);
+
 	/**
-	 * Appends menu items.
+	 * @brief Append menu items.
 	 *
-	 * @param[in]	label			label text of menu item
-	 * @param[in]	selectItemCb	callback function object when the item is selected
+	 * @param[in]   label          Label text of menu item.
+	 * @param[in]   selectItemCb   Callback function object when the item is selected.
 	 *
-	 * @return appended item. NULL,if failed.
+	 * @return Appended item. NULL, if failed.
 	 */
 	Elm_Object_Item* appendItem(const char* label, std::function< void()> selectItemCb);
+
 	/**
-	 * Creates and show menu pop-up.
+	 * @brief Create and show menu pop-up.
 	 *
 	 * @see onCreate()
 	 */
 	void createMenu();
-	//
+
 protected:
 	/**
-	 * This is the destructor for this class.
-	 *
+	 * @brief This is the destructor for this class.
 	 */
 	virtual ~WMenuPopup();
+
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
 	virtual void onDestroy();
-private:
+
 	WDECLARE_PRIVATE_IMPL(WMenuPopup);
 	WDISABLE_COPY_AND_ASSIGN(WMenuPopup);
 };

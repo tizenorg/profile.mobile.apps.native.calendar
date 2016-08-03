@@ -35,234 +35,273 @@
 #include "CalDragRecognizer.h"
 #include "CalSlideAnimator.h"
 
+/**
+ * @brief Calendar month control(second version).
+ *
+ * @see CalControl.
+ */
 class CalMonthControl2 : public CalControl
 {
 public:
+	/**
+	 * @brief Create month control.
+	 *
+	 * @param[in]   firstWeekday       The first week day.
+	 * @param[in]   year               The year.
+	 * @param[in]   month              The month.
+	 * @param[in]   rowEdjeGroupName   Row edje group name.
+	 * @param[in]   originDate         Original date.
+	 * @param[in]   lowerBound         The lower bound.
+	 * @param[in]   upperBound         The upper bound.
+	 *
+	 * @see CalDate
+	 * @see CalDate::InitialValue
+	 */
 	CalMonthControl2(int firstWeekday, int year, int month,
 		const char* rowEdjeGroupName = NULL,
 		const CalDate* originDate = NULL,
 		CalDate lowerBound = CalDate(CalDate::INIT_LOWER_BOUND),
 		CalDate upperBound = CalDate(CalDate::INIT_UPPER_BOUND));
+
 	virtual ~CalMonthControl2();
+
+	/**
+	 * @brief Get class name.
+	 *
+	 * return Class name.
+	 */
 	virtual const char* getClassName();
+
+	/**
+	 * @brief Set tap cell callback.
+	 *
+	 * @param[in]   tapCellCb   Tap cell callback.
+	 */
 	void setTapCellCb(std::function<void (int i, int j)> tapCellCb);
+
+	/**
+	 * @brief Set scroll callback.
+	 *
+	 * @param[in]   scrollStartCb    Scroll start callback.
+	 * @param[in]   scrollFinishCb   Scroll finish callback.
+	 */
 	void setScrollCb(std::function<void ()> scrollStartCb, std::function<void (int dir)> scrollFinishCb);
 
 	/**
-	 * Resets this object.
+	 * @brief Reset this object.
 	 *
-	 * @param	firstWeekday	The first weekday.
-	 * @param	year			The year.
-	 * @param	month			The month.
+	 * @param[in]   firstWeekday   The first weekday.
+	 * @param[in]   year           The year.
+	 * @param[in]   month          The month.
 	 */
 	void reset(int firstWeekday, int year, int month);
 
 	/**
-	 * Focus.
+	 * @brief Focu.
 	 *
-	 * @param	mday	The mday.
+	 * @param[in]   mday   The mday.
 	 */
 	void focus(int mday);
 
 	/**
-	 * Erase focus.
+	 * @brief Erase focus.
 	 */
 	void eraseFocus();
 
 	/**
-	 * Updates this object.
+	 * @brief Update this object.
 	 */
 	void update();
 
 	/**
-	 * Loads this object.
+	 * @brief Load this object.
 	 */
 	void load();
 
 	/**
-	 * Gets event count.
+	 * @brief Get event count.
 	 *
-	 * @param	date	The date.
+	 * @param[in]   date   The date.
 	 *
-	 * @return	The event count.
+	 * @return The event count.
 	 */
 	int getEventCount(const CalDate& date) const;
 
 	/**
-	 * Resets the by bound.
+	 * @brief Reset the by bound.
 	 */
 	void resetByBound();
 
 	/**
-	 * Gets focused row.
+	 * @brief Get focused row.
 	 *
-	 * @return	The focused row.
+	 * @return The focused row.
 	 */
 	int getFocusedRow();
 
 	/**
-	 * Gets a date.
+	 * @brief Get a date.
 	 *
-	 * @param	i				Zero-based index of the.
-	 * @param	j				The int to process.
-	 * @param [in]	date	The date.
+	 * @param[in]   i      Zero-based index of the.
+	 * @param[in]   j      The int to process.
+	 * @param[in]   date   The date.
 	 */
 	void getDate(int i, int j, CalDate& date);
 
 	/**
-	 * Creates a header.
+	 * @brief Create a header.
 	 *
-	 * @param [in]	parent	If non-null, the parent.
+	 * @param[in]   parent   If non-null, the parent.
 	 *
-	 * @return	null if it fails, else the new header.
+	 * @return Null if it fails, else the new header.
 	 */
 	Evas_Object* createHeader(Evas_Object* parent);
 
 	/**
-	 * Sets header focus.
+	 * @brief Set header focus.
 	 *
-	 * @param [in]	header	If non-null, the header.
+	 * @param[in]   header   If non-null, the header.
 	 */
 	void setHeaderFocus(Evas_Object* header);
 
 	/**
-	 * Gets a month.
+	 * @brief Get a month.
 	 *
-	 * @param [in]	year 	The year.
-	 * @param [in]	month	The month.
+	 * @param[in]   year    The year.
+	 * @param[in]   month   The month.
 	 */
 	void getMonth(int& year, int& month);
 
 	/**
-	 * Gets row position.
+	 * @brief Get row position.
 	 *
-	 * @param		offset	The offset.
-	 * @param [in]	x		If non-null, the Evas_Coord to process.
-	 * @param [in]	y		If non-null, the Evas_Coord to process.
-	 * @param [in]	w		If non-null, the Evas_Coord to process.
-	 * @param [in]	h		If non-null, the Evas_Coord to process.
+	 * @param[in]   offset   The offset.
+	 * @param[in]   x        If non-null, the Evas_Coord to process.
+	 * @param[in]   y        If non-null, the Evas_Coord to process.
+	 * @param[in]   w        If non-null, the Evas_Coord to process.
+	 * @param[in]   h        If non-null, the Evas_Coord to process.
 	 */
 	void getRowPosition(int offset, Evas_Coord* x, Evas_Coord* y, Evas_Coord* w, Evas_Coord* h) const;
 
 	/**
-	 * Slides.
+	 * @brief Slide.
 	 *
-	 * @param	dir	The dir.
+	 * @param[in]   dir   The dir.
 	 *
-	 * @return	true if it succeeds, false if it fails.
+	 * @return True if it succeeds, false if it fails.
 	 */
 	bool slide(int dir);
 
 	/**
-	 * Freeze scroll.
+	 * @brief Freeze scroll.
 	 *
-	 * @param	freeze	true to freeze.
+	 * @param[in]   freeze   True to freeze.
 	 */
 	void freezeScroll(bool freeze);
 
 private:
 
 	/**
-	 * Executes the create action.
+	 * @brief Execute the create action.
 	 *
-	 * @param [in]	parent	If non-null, the parent.
-	 * @param [in]	param 	If non-null, the parameter.
+	 * @param[in]   parent   If non-null, the parent.
+	 * @param[in]   param    If non-null, the parameter.
 	 *
-	 * @return	null if it fails, else an Evas_Object*.
+	 * @return Null if it fails, else an Evas_Object*.
 	 */
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
 
 	/**
-	 * Executes the destroy action.
+	 * @brief Execute the destroy action.
 	 */
 	virtual void onDestroy();
 
 	/**
-	 * Determines if we can is upper bound.
+	 * @brief Determine if we can is upper bound.
 	 *
-	 * @return	true if upper bound, false if not.
+	 * @return True if upper bound, false if not.
 	 */
 	bool __isUpperBound();
 
 	/**
-	 * Determines if we can is lower bound.
+	 * @brief Determine if we can is lower bound.
 	 *
-	 * @return	true if lower bound, false if not.
+	 * @return True if lower bound, false if not.
 	 */
 	bool __isLowerBound();
 
 	/**
-	 * Finds the getscrollrange of the given arguments.
+	 * @brief Find the getscrollrange of the given arguments.
 	 *
-	 * @param [in,out]	min	The minimum.
-	 * @param [in,out]	max	The maximum.
+	 * @param[in,out]   min   The minimum.
+	 * @param[in,out]   max   The maximum.
 	 */
 	void __getScrollRange(Evas_Coord& min, Evas_Coord& max);
 
 	/**
-	 * Out range warning.
+	 * @brief Out range warning.
 	 */
 	void __outRangeWarning();
 
 	/**
-	 * Gets the previous month row offset.
+	 * @brief Get the previous month row offset.
 	 *
-	 * @return	The previous month row offset.
+	 * @return The previous month row offset.
 	 */
 	int __getPreviousMonthRowOffset();
 
 	/**
-	 * Gets the next month row offset.
+	 * @brief Get the next month row offset.
 	 *
-	 * @return	The next month row offset.
+	 * @return The next month row offset.
 	 */
 	int __getNextMonthRowOffset();
 
 	/**
-	 * Gets a row.
+	 * @brief Get a row.
 	 *
-	 * @param	offset	The offset.
+	 * @param[in]   offset   The offset.
 	 *
-	 * @return	The row.
+	 * @return The row.
 	 */
 	const CalMonthRowControl& __getRow(int offset) const;
 
 	/**
-	 * Fade in.
+	 * @brief Fade in.
 	 *
-	 * @param	startRowOffset	The start row offset.
+	 * @param[in]   startRowOffset   The start row offset.
 	 */
 	void __fadeIn(int startRowOffset);
 
 	/**
-	 * Creates accessory month.
+	 * @brief Create accessory month.
 	 *
-	 * @param [in]	parent		If non-null, the parent.
-	 * @param [in]	rowArray	If non-null, array of rows.
+	 * @param[in]   parent     If non-null, the parent.
+	 * @param[in]   rowArray   If non-null, array of rows.
 	 *
-	 * @return	null if it fails, else the new accessory month.
+	 * @return Null if it fails, else the new accessory month.
 	 */
 	Evas_Object* __createAccessoryMonth(Evas_Object* parent, CalMonthRowControl* rowArray[]);
 
 	/**
-	 * Resets the given dir.
+	 * @brief Reset the given dir.
 	 *
-	 * @param	dir	The dir.
+	 * @param[in]   dir   The dir.
 	 */
 	void __reset(int dir);
 
 	/**
-	 * Resets the accessory months described by date.
+	 * @brief Reset the accessory months described by date.
 	 *
-	 * @param	date	The date.
+	 * @param[in]   date   The date.
 	 */
 	void __resetAccessoryMonths(const CalDate& date);
 
 	/**
-	 * Resets the day nums.
+	 * @brief Reset the day nums.
 	 *
-	 * @param [in]	rowArray	If non-null, array of rows.
-	 * @param		dir			The dir.
+	 * @param[in]   rowArray   If non-null, array of rows.
+	 * @param[in]   dir        The dir.
 	 */
 	void __resetDayNums(CalMonthRowControl* rowArray[], int dir);
 	WDISABLE_COPY_AND_ASSIGN(CalMonthControl2);

@@ -26,8 +26,9 @@
 class IWUiObject;
 
 /**
-* @class	WWindow
-* @brief	This class represents window and base layout evas object.
+* @class WWindow
+*
+* @brief This class represents window and base layout evas object.
 *
 * The %WWindow manages window evas object and common base evas objects.
 */
@@ -35,43 +36,44 @@ class WAPP_ASSIST_EXPORT WWindow
 {
 public:
 	/**
-	 * Constructor
-	 * Initializes this instance of WWindow with the specified value.
+	 * @brief Constructor.
+	 * Initialize this instance of WWindow with the specified value.
 	 *
-	 * @param[in]	name	The window name
-	 * @param[in]	winType The type of the window
+	 * @param[in]   name      The window name.
+	 * @param[in]   winType   The type of the window.
 	 */
 	WWindow(const char* name, Elm_Win_Type winType);
 
 	/**
-	 * Constructor
-	 * Initializes this instance of WWindow with the specified value.
+	 * @brief Constructor.
+	 * Initialize this instance of WWindow with the specified value.
 	 *
-	 * @param[in]	win			Pointer to evas object window
-	 * @param[in]	conform 	Pointer to evas object conformant
-	 * @param[in]	baseLayout	Pointer to evas object base layout
+	 * @param[in]   win          Pointer to evas object window.
+	 * @param[in]   conform      Pointer to evas object conformant.
+	 * @param[in]   baseLayout   Pointer to evas object base layout.
 	 */
 	WWindow(Evas_Object* win, Evas_Object* conform, Evas_Object* baseLayout);
 
 	/**
-	 * Gets the class name of this class
+	 * @brief Get the class name of this class.
 	 *
-	 * @return The class name
+	 * @return The class name.
 	 */
 	virtual const char* getClassName();
-public:
+
 	/**
-	 * Creates the windows
+	 * @brief Create the windows
 	 * "onCreateWin" and "onCreateBaseLayout" will be called subsequently.
 	 *
-	 * @return true if the windows created sucessfully, else false
+	 * @return True if the windows created successfully, else false.
+	 *
 	 * @see onCreateWin()
 	 * @see onCreateBaseLayout()
 	 */
 	bool create();
 
 	/**
-	 * Destroys the window class instance and delete window evas object.
+	 * @brief Destros the window class instance and delete window evas object.
 	 * "onDestroy" will be called subsequently.
 	 *
 	 * @see onDestroy()
@@ -79,134 +81,141 @@ public:
 	void destroy();
 
 	/**
-	 * Checks the object to owner the window handle
+	 * @brief Check the object to owner the window handle.
 	 *
-	 * @return Return true if object is owner, false otherwise
+	 * @return True if object is owner, false otherwise.
 	 */
 	bool isOwner() const;
 
 	/**
-	 * Gets the evas object of the window
+	 * @brief Get the evas object of the window.
 	 *
-	 * @return The pointer to the evas object of the window
+	 * @return The pointer to the evas object of the window.
+	 *
 	 * @see onCreateWin()
 	 */
 	Evas_Object* getEvasObj();
 
 	/**
-	 * Gets the base layout evas object
+	 * @brief Get the base layout evas object.
 	 *
-	 * @return The pointer to the evas object of the layout
+	 * @return The pointer to the evas object of the layout.
+	 *
 	 * @see onCreateBaseLayout()
 	 */
 	Evas_Object* getBaseLayoutEvasObj();
 
 	/**
-	 * Gets the conformant evas object.
+	 * @brief Get the conformant evas object.
 	 *
-	 * @return The pointer to the evas object of the conformant
+	 * @return The pointer to the evas object of the conformant.
 	 */
 	Evas_Object* getConformantEvasObj();
 
 	/**
-	 * Attaches base UI object, which can be WNaviframe or WView instance.
+	 * @brief Attache base UI object, which can be WNaviframe or WView instance.
 	 *
-	 * @param[in]	baseObj	IWUiObject instance to be attached
-	 * @param[in]	creationParam	parameter to be passed as parameter of create method of the IWUiObject class
+	 * @param[in]   baseObj         IWUiObject instance to be attached
+	 * @param[in]   creationParam   Parameter to be passed as parameter of
+	 *                              create method of the IWUiObject class.
 	 *
-	 * @return true if the base ui object attached sucessfully, else false
+	 * @return True if the base ui object attached successfully, else false.
+	 *
 	 * @see getBaseUiObject()
 	 */
 	bool attachBaseUiObject( IWUiObject* baseObj, void* creationParam = NULL );
 
 	/**
-	 * Gets the base UI object attached.
+	 * @brief Get the base UI object attached.
 	 *
-	 * @return The pointer to the base ui object
+	 * @return The pointer to the base ui object.
+	 *
 	 * @see attachBaseUiObject()
 	 */
 	IWUiObject* getBaseUiObject();
 
 	/**
-	 * Detaches the base UI object.
+	 * @brief Detach the base UI object.
 	 *
-	 * @return the base UI object, which should be deleted explicitly later.
+	 * @return The base UI object, which should be deleted explicitly later.
 	 */
 	IWUiObject* detachBaseUiObject();
 
 	/**
-	 * Destroys the base UI object.
-	 *
+	 * @brief Destroy the base UI object.
 	 */
 	void destroyBaseUiObject();
 
 	/**
-	 * Gets the window name
+	 * @brief Get the window name.
 	 *
-	 * @return The name of the window
+	 * @return The name of the window.
 	 */
 	const char* getName();
 
 	/**
-	 * Gets the type of the window
+	 * @brief Get the type of the window.
 	 *
-	 * @return The type of the window
+	 * @return The type of the window.
 	 */
 	Elm_Win_Type getWinType();
-public:
+
 	/**
-	 * Sets the handler function pointer to override virtual function onCreateWin without defining a new inherited class.
+	 * @brief Set the handler function pointer to override virtual function
+	 * onCreateWin without defining a new inherited class.
 	 * If it is set, onCreateWin method will not be called.
 	 *
-	 * @param[in]	handlerFunc	The pointer to handler function
+	 * @param[in]   handlerFunc   The pointer to handler function.
+	 *
 	 * @see onCreateWin()
 	 */
 	void setOnCreateWin( const std::function<Evas_Object* ()>& handlerFunc );
 
 	/**
-	 * Sets the handler function pointer to override virtual function onCreateBaseLayout without defining a new inherited class.
+	 * @brief Set the handler function pointer to override virtual function
+	 * onCreateBaseLayout without defining a new inherited class.
 	 * If it is set, onCreateBaseLayout method will not be called.
 	 *
-	 * @param[in]	handlerFunc	The pointer to handler function
+	 * @param[in]   handlerFunc   The pointer to handler function.
+	 *
 	 * @see onCreateBaseLayout()
 	 */
 	void setOnCreateBaseLayout( const std::function<Evas_Object* (Evas_Object*, Evas_Object** outConformant)>& handlerFunc );
 
 protected:
 	/**
-	 * Called when create method is called to create window
+	 * @brief Called when create method is called to create window
 	 * Override this method to create your own window evas object.
 	 *
 	 * @return The pointer to the evas object of the window created.
+	 *
 	 * @see create()
 	 */
 	virtual Evas_Object* onCreateWin();
 
 	/**
-	 * Called when create method is called to create base layout.
+	 * @brief Called when create method is called to create base layout.
 	 * Override this method to create your own base layout and conformant evas objects.
 	 *
-	 * @param[in]	win	A pointer to evas object of the window
-	 * @param[out]	outConformant The pointer to the evas object of the conformant created.
+	 * @param[in]    win             A pointer to evas object of the window
+	 * @param[out]   outConformant   The pointer to the evas object of the conformant created.
 	 *
 	 * @return The pointer to the evas object of base layout created.
 	 */
 	virtual Evas_Object* onCreateBaseLayout(Evas_Object* win, Evas_Object** outConformant);
 
 	/**
-	 * Called when the window is destroyed
+	 * @brief Called when the window is destroyed
 	 * Override this method to do something on destruction.
-	 *
 	 */
 	virtual void onDestroy();
 
-
 protected:
 	/**
-	 * This is the destructor for this class.
-	 *
+	 * @brief This is the destructor for this class.
 	 */
 	virtual ~WWindow();
+
 private:
 	WWindow();
 	WDECLARE_PRIVATE_IMPL(WWindow);

@@ -29,18 +29,29 @@
 
 #define MULTI_SELECT_MAX 10
 
+/**
+ * @brief Calendar pick application.
+ *
+ * @see WApp.
+ */
 class CalPickApp : public WApp
 {
 public:
 	CalPickApp();
 	virtual ~CalPickApp();
 
+	/**
+	 * @brief Selection modes.
+	 */
 	enum SelectionMode
 	{
 		SELECTION_MODE_SINGLE,
 		SELECTION_MODE_MULTIPLE
 	};
 
+	/**
+	 * @brief Mime types.
+	 */
 	enum MimeType
 	{
 		MIME_VCS,
@@ -53,12 +64,13 @@ protected:
 	virtual void onAppControl(app_control_h request, bool firstLaunch);
 	virtual void onPause();
 	virtual void onResume();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalPickApp);
-private:
+
 	void __readAppControlData();
 	void __processResult(const std::list<std::shared_ptr<CalSchedule>>& schedules);
-private:
+
 	CalPickView::ResultType __resultType;
 	int __mode;
 	int __mimeType;

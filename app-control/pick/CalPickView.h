@@ -27,9 +27,17 @@
 #include "ICalListModel.h"
 #include "CalInstanceScheduleSet.h"
 
+/**
+ * @brief Calendar pick view.
+ *
+ * @see CalFilterView.
+ */
 class CalPickView : public CalFilterView
 {
 public:
+	/**
+	 * @brief Result types.
+	 */
 	enum ResultType
 	{
 		RESULT_TYPE_ERROR = -1,
@@ -38,7 +46,23 @@ public:
 		RESULT_TYPE_ID
 	};
 
+	/**
+	 * @brief Create pick view.
+	 *
+	 * @param[in]   maxLimit     The maximum limit.
+	 * @param[in]   resultType   Result type
+	 *
+	 * @see ResultType
+	 */
 	CalPickView(int maxLimit, CalPickView::ResultType resultType = RESULT_TYPE_VCS);
+
+	/**
+	 * @brief Set done callback.
+	 *
+	 * @param[in]   selectCb   Select callback.
+	 *
+	 * @see CalSchedule
+	 */
 	void setDoneCb(std::function<void (const std::list<std::shared_ptr<CalSchedule>>& schedules)> selectCb);
 
 protected:

@@ -35,139 +35,162 @@
 #define GRID_ROW_COUNT 6
 #define DAYS_PER_WEEK 7
 
+/**
+ * @brief Calendar month control.
+ *
+ * @see CalControl.
+ */
 class CalMonthControl : public CalControl
 {
 public:
+	/**
+	 * @brief Create month control.
+	 *
+	 * @param[in]   firstWeekday       The first week day.
+	 * @param[in]   year               The year.
+	 * @param[in]   month              The month.
+	 * @param[in]   rowEdjeGroupName   Row edje group name.
+	 * @param[in]   originDate         Original date.
+	 *
+	 * @see CalDate
+	 */
 	CalMonthControl(int firstWeekday, int year, int month, const char* rowEdjeGroupName = NULL, const CalDate* originDate = NULL);
+
 	virtual ~CalMonthControl();
+
+	/**
+	 * @brief Get class name.
+	 *
+	 * return Class name.
+	 */
 	virtual const char* getClassName();
 
 	/**
-	 * Sets tap cell cb.
+	 * @brief Set tap cell cb.
 	 *
-	 * @param	tapCellCb	The tap cell cb.
+	 * @param[in]   tapCellCb   The tap cell cb.
 	 */
 	void setTapCellCb(std::function<void (int i, int j)> tapCellCb);
 
 	/**
-	 * Resets this object.
+	 * @brief Reset this object.
 	 *
-	 * @param	firstWeekday	The first weekday.
-	 * @param	year			The year.
-	 * @param	month			The month.
+	 * @param[in]   firstWeekday   The first weekday.
+	 * @param[in]   year           The year.
+	 * @param[in]   month          The month.
 	 */
 	void reset(int firstWeekday, int year, int month);
 
 	/**
-	 * Focus.
+	 * @brief Focu.
 	 *
-	 * @param	mday	The mday.
+	 * @param[in]   mday   The mday.
 	 */
 	void focus(int mday);
 
 	/**
-	 * Erase focus.
+	 * @brief Erase focus.
 	 *
-	 * @param	animated	true if animated.
+	 * @param[in]   animated   True if animated.
 	 */
 	void eraseFocus(bool animated = false);
 
 	/**
-	 * Loads this object.
+	 * @brief Load this object.
 	 */
 	void load();
 
 	/**
-	 * Gets event count.
+	 * @brief Get event count.
 	 *
-	 * @param	date	The date.
+	 * @param[in]   date   The date.
 	 *
-	 * @return	The event count.
+	 * @return The event count.
 	 */
 	int getEventCount(const CalDate& date) const;
 
 	/**
-	 * Resets the by bound.
+	 * @brief Reset the by bound.
 	 *
-	 * @param	lowerBound	The lower bound.
-	 * @param	upperBound	The upper bound.
+	 * @param[in]   lowerBound   The lower bound.
+	 * @param[in]   upperBound   The upper bound.
 	 */
 	void resetByBound(const CalDate& lowerBound, const CalDate& upperBound);
 
 	/**
-	 * Gets focused row.
+	 * @brief Get focused row.
 	 *
-	 * @return	The focused row.
+	 * @return The focused row.
 	 */
 	int getFocusedRow();
 
 	/**
-	 * Gets a date.
+	 * @brief Get a date.
 	 *
-	 * @param	i				Zero-based index of the.
-	 * @param	j				The int to process.
-	 * @param [in]	date	The date.
+	 * @param[in]   i      Zero-based index of the.
+	 * @param[in]   j      The int to process.
+	 * @param[in]   date   The date.
 	 */
 	void getDate(int i, int j, CalDate& date);
 
 	/**
-	 * Check boundary.
+	 * @brief Check boundary.
 	 *
-	 * @return	An int.
+	 * @return -1 if lower bound, 1 if upper bound, otherwise 0.
 	 */
 	int checkBoundary();
 
 	/**
-	 * Creates a header.
+	 * @brief Create a header.
 	 *
-	 * @param [in]	parent	If non-null, the parent.
+	 * @param[in]   parent   If non-null, the parent.
 	 *
-	 * @return	null if it fails, else the new header.
+	 * @return Null if it fails, else the new header.
 	 */
 	Evas_Object* createHeader(Evas_Object* parent);
 
 	/**
-	 * Updates the header text.
+	 * @brief Update the header text.
 	 */
 	void updateHeaderText();
 
 	/**
-	 * Sets header focus.
+	 * @brief Set header focus.
 	 *
-	 * @param [in]	header	If non-null, the header.
+	 * @param[in]   header   If non-null, the header.
 	 */
 	void setHeaderFocus(Evas_Object* header);
 
 	/**
-	 * Gets a month.
+	 * @brief Get a month.
 	 *
-	 * @param [in]	year 	The year.
-	 * @param [in]	month	The month.
+	 * @param[in]   year    The year.
+	 * @param[in]   month   The month.
 	 */
 	void getMonth(int& year, int& month);
 
 	/**
-	 * Gets row position.
+	 * @brief Get row position.
 	 *
-	 * @param			offset	The offset.
-	 * @param [in,out]	x		If non-null, the Evas_Coord to process.
-	 * @param [in,out]	y		If non-null, the Evas_Coord to process.
-	 * @param [in,out]	w		If non-null, the Evas_Coord to process.
-	 * @param [in,out]	h		If non-null, the Evas_Coord to process.
+	 * @param[in]       offset   The offset.
+	 * @param[in,out]   x       If non-null, the Evas_Coord to process.
+	 * @param[in,out]   y       If non-null, the Evas_Coord to process.
+	 * @param[in,out]   w       If non-null, the Evas_Coord to process.
+	 * @param[in,out]   h       If non-null, the Evas_Coord to process.
 	 */
 	void getRowPosition(int offset, Evas_Coord* x, Evas_Coord* y, Evas_Coord* w, Evas_Coord* h) const;
 
 	/**
-	 * Gets a row.
+	 * @brief Get a row.
 	 *
-	 * @param	index	Zero-based index of the.
+	 * @param[in]   index   Zero-based index of the.
 	 *
-	 * @return	The row.
+	 * @return The row.
 	 */
 	CalMonthRowControl& getRow(int index);
 
 	/**
-	 * Fade out.
+	 * @brief Fade out.
 	 */
 	void fadeOut();
 
@@ -178,81 +201,81 @@ private:
 	};
 
 	/**
-	 * Executes the create action.
+	 * @brief Execute the create action.
 	 *
-	 * @param [in]	parent	If non-null, the parent.
-	 * @param [in]	param 	If non-null, the parameter.
+	 * @param[in]   parent   If non-null, the parent.
+	 * @param[in]   param    If non-null, the parameter.
 	 *
-	 * @return		null	If it fails, else an Evas_Object*.
+	 * @return Null If it fails, else an Evas_Object*.
 	 */
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
 
 	/**
-	 * Executes the destroy action.
+	 * @brief Execute the destroy action.
 	 */
 	virtual void onDestroy();
 
 	WDISABLE_COPY_AND_ASSIGN(CalMonthControl);
 
 	/**
-	 * Updates the today position.
+	 * @brief Update the today position.
 	 */
 	void __updateTodayPos();
 
 	/**
-	 * Paints the day nums described by month.
+	 * @brief Paint the day nums described by month.
 	 *
-	 * @param [in]	month	If non-null, the month.
+	 * @param[in]   month   If non-null, the month.
 	 */
 	void __paintDayNums(Evas_Object* month);
 
 	/**
-	 * Occupies.
+	 * @brief Occupie.
 	 *
-	 * @param		startDate	The start date.
-	 * @param		endDate		The end date.
-	 * @param [in]	dateMap		The date map.
+	 * @param[in]   startDate   The start date.
+	 * @param[in]   endDate     The end date.
+	 * @param[in]   dateMap     The date map.
 	 */
 	void __occupy(const CalDate& startDate, const CalDate& endDate, std::map<int, int>& dateMap);
 
 	/**
-	 * Clears this object to its blank/initial state.
+	 * @brief Clear this object to its blank/initial state.
 	 */
 	void __clear();
 
 	/**
-	 * Gets a position.
+	 * @brief Get a position.
 	 *
-	 * @param	date	The date.
+	 * @param[in]   date   The date.
 	 *
-	 * @return	The position.
+	 * @return The position.
 	 */
 	Position __getPos(const CalDate& date) const;
 
 	/**
-	 * Gets weekday of column.
+	 * @brief Get weekday of column.
 	 *
-	 * @param	j	The int to process.
+	 * @param[in]   j   The int to process.
 	 *
-	 * @return	The weekday of column.
+	 * @return The weekday of column.
 	 */
 	int __getWeekdayOfColumn(int j);
 
 	/**
-	 * Sames.
+	 * @brief Same.
 	 *
-	 * @param	pos1	The first position.
-	 * @param	pos2	The second position.
+	 * @param[in]   pos1   The first position.
+	 * @param[in]   pos2   The second position.
 	 *
-	 * @return	true if it succeeds, false if it fails.
+	 * @return True if it succeeds, false if it fails.
 	 */
 	bool __same(const Position& pos1, const Position& pos2);
 
 	/**
-	 * Identify cell.
+	 * @brief Identify cell.
 	 *
-	 * @param [in]	cell		If non-null, the cell.
-	 * @param [in]	position	The position.
+	 * @param[in]   cell       If non-null, the cell.
+	 * @param[in]   position   The position.
 	 */
 	void __identifyCell(Evas_Object* cell, Position& position);
 	CalTapRecognizer __cellTapRecognizer;

@@ -24,10 +24,17 @@
 
 class IWUiObject;
 
-typedef std::weak_ptr<IWUiObject> WUiObjectPtr;
 /**
-* @class	IWUiObject
-* @brief	This class is the interface class of the view related class
+ * @brief Weak pointer to IWUiObject.
+ *
+ * @see IWUiObject
+ */
+typedef std::weak_ptr<IWUiObject> WUiObjectPtr;
+
+/**
+* @class   IWUiObject.
+*
+* @brief   This class is the interface class of the view related class.
 *
 * The %IWUiObject manages an evas object.
 */
@@ -35,38 +42,32 @@ class WAPP_ASSIST_EXPORT IWUiObject
 {
 public:
 	/**
-	 * Creates evas object linked to this instance.
+	 * @brief Creates evas object linked to this instance.
 	 *
-	 * @param[in]	parent
-	 * @param[in]	param
+	 * @param[in]   parent   Parent
+	 * @param[in]   param    Data
 	 *
 	 * @return true if succeed.
 	 */
-	virtual bool create(Evas_Object* parent, void* param )=0;
+	virtual bool create(Evas_Object* parent, void* param)=0;
 
 	/**
-	 * Destroys this class instance and deletes evas object.
-	 *
+	 * @brief Destroys this class instance and deletes evas object.
 	 */
 	virtual void destroy()=0;
 
 	/**
-	 * Gets the evas object created.
+	 * @brief Get the evas object created.
 	 *
-	 * @return evas object created
+	 * @return evas object created.
 	 */
 	virtual Evas_Object* getEvasObj()=0;
 
-
 protected:
 	/**
-	 * This is the destructor for this class.
-	 *
+	 * @brief This is the destructor for this class.
 	 */
 	virtual ~IWUiObject(){};
-
-	//
-
 };
 
 #endif /* _IWUI_OBJECT_H_ */

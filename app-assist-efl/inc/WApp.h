@@ -23,11 +23,11 @@
 #include "WDefine.h"
 
 /**
-* @class	WApp
-* @brief	This class is the base class of an application
+* @class WApp.
 *
+* @brief This class is the base class of an application.
 *
-* The %WApp class is the base class of an application. An application class must be inherited from this class
+* The %WApp class is the base class of an application. An application class must be inherited from this class.
 * @code
 *
 * // main.cpp
@@ -43,23 +43,20 @@ class WAPP_ASSIST_EXPORT WApp
 {
 public:
 	/**
-	 * This is the default constructor for this class.
-	 *
+	 * @brief This is the default constructor for this class.
 	 */
 	WApp();
 
 	/**
-	 * This is the destructor for this class.
-	 *
+	 * @brief This is the destructor for this class.
 	 */
 	virtual ~WApp();
 
-public:
 	/**
-	 * Starts the application.
+	 * @brief Starts the application.
 	 *
-	 * @param[in]	argc	The argument count
-	 * @param[in]	argv    The argument vector
+	 * @param[in]   argc   The argument count.
+	 * @param[in]   argv   The argument vector.
 	 *
 	 * @return result
 	 */
@@ -67,60 +64,57 @@ public:
 
 protected:
 	/**
-	 * Called when the application started
+	 * @brief Called when the application started.
 	 *
-	 * @param[in]	argc	The argument count
-	 * @param[in]	argv	The argument vector
+	 * @param[in]   argc   The argument count.
+	 * @param[in]   argv   The argument vector.
 	 *
-	 * @return result
+	 * @return result.
 	 */
 	virtual int onStart( int argc, char* argv[] );
 
 	/**
-	 * Called when the application created
+	 * @brief Called when the application created.
 	 *
-	 * @return	true if the application created successfully, else false
+	 * @return True if the application created successfully, else false.
 	 */
 	virtual bool onCreate(){return true;};
 
 	/**
-	 * Called when the application is terminated.
-	 *
+	 * @brief Called when the application is terminated.
 	 */
 	virtual void onTerminate(){};
 
 	/**
-	 * Called when the application is paused.
-	 *
+	 * @brief Called when the application is paused.
 	 */
 	virtual void onPause(){};
 
 	/**
-	 * Called when the application is resumed.
-	 *
+	 * @brief Called when the application is resumed.
 	 */
 	virtual void onResume(){};
 
 	/**
-	 * Called when some request comes to the application
+	 * @brief Called when some request comes to the application.
 	 *
-	 * @param[in]	request	handle of request information
-	 * @param[in]	firstLaunch	true, if it is called after creation
+	 * @param[in]   request       Handle of request information.
+	 * @param[in]   firstLaunch   True, if it is called after creation.
 	 */
 	virtual void onAppControl(app_control_h request, bool firstLaunch );
 
 	/**
-	 * Gets the window class instance of the application.
+	 * @brief Gets the window class instance of the application.
 	 *
-	 * @return	The pointer to the window
+	 * @return The pointer to the window.
 	 */
 	WWindow* getWindow();
 
 	/**
-	 * Attaches a window to the application.
+	 * @brief Attaches a window to the application.
 	 *
-	 * @param[in]	win	A pointer to the window to attach
-	 * @return	true if the window attached sucessfully, else false
+	 * @param[in]   win   A pointer to the window to attach.
+	 * @return True if the window attached successfully, else false.
 	 */
 	bool attachWindow(WWindow* win);
 

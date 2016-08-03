@@ -19,9 +19,9 @@
 #define _WDEFINE_H_
 
 /**
-* @file	WDefine.h
-* @brief	This file defines version number MACRO and functions.
+* @file WDefine.h
 *
+* @brief This file defines version number MACRO and functions.
 */
 
 #define WAPP_ASSIST_VERSION_MAJOR	1

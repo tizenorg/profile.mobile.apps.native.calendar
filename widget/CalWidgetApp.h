@@ -21,30 +21,48 @@
 
 #include <widget_app.h>
 
+/**
+ * @brief Calendar widget application.
+ */
 class CalWidgetApp
 {
 public:
 	CalWidgetApp();
 	~CalWidgetApp();
 
+	/**
+	 * @brief Start widget application.
+	 *
+	 * @param[in]   argc   The number of arguments.
+	 * @param[in]   argv   Argument vector.
+	 */
 	int start(int argc, char *argv[]);
 
 private:
-	// widget_app_lifecycle_callback_s callbacks
+	/** @{
+	 * @brief widget_app_lifecycle_callback_s callbacks
+	 */
 	static widget_class_h onAppCreate(void *data);
 	static void onAppTerminate(void *data);
+	/** @} */
 
-	// event_handler callbacks
+	/** @{
+	 * @brief event_handler callbacks
+	 */
 	static void onAppLangChanged(app_event_info_h event_info, void *data);
 	static void onAppRegionChanged(app_event_info_h event_info, void *data);
+	/** @} */
 
-	// widget_instance_lifecycle_callback_s callbacks
+	/** @{
+	 * @brief widget_instance_lifecycle_callback_s callbacks
+	 */
 	static int onWidgetCreate(widget_context_h context, bundle *content, int w, int h, void *data);
 	static int onWidgetDestroy(widget_context_h context, widget_app_destroy_type_e reason, bundle *content, void *data);
 	static int onWidgetPause(widget_context_h context, void *data);
 	static int onWidgetResume(widget_context_h context, void *data);
 	static int onWidgetResize(widget_context_h context, int w, int h, void *data);
 	static int onWidgetUpdate(widget_context_h context, bundle *content, int force, void *data);
+	/** @} */
 };
 
 #endif /* CALWIDGETAPP_H_ */

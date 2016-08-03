@@ -24,179 +24,187 @@
 #include "CalDate.h"
 #include "CalTouchInputRecognizer.h"
 
+/**
+ * @brief Calendar month row control.
+ *
+ * @see CalControl.
+ */
 class CalMonthRowControl : public CalControl
 {
 public:
+	/**
+	 * @brief Create month row control.
+	 *
+	 * @param[in]   rowEdjeGroupName   Row edje group name.
+	 */
 	CalMonthRowControl(const char* edjeGroupName = NULL);
+
 	virtual ~CalMonthRowControl();
 
 	/**
-	 * Executes the create action.
+	 * @brief Execute the create action.
 	 *
-	 * @param [in]	parent	If non-null, the parent.
-	 * @param [in]	param 	If non-null, the parameter.
+	 * @param[in]   parent   If non-null, the parent.
+	 * @param[in]   param    If non-null, the parameter.
 	 *
-	 * @return		null	If it fails, else an Evas_Object*.
+	 * @return Null if it fails, else an Evas_Object*.
 	 */
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
 
 	/**
-	 * Executes the destroy action.
+	 * @brief Execute the destroy action.
 	 */
 	virtual void onDestroy();
 
 	/**
-	 * Receive touch input for.
+	 * @brief Receive touch input for.
 	 *
-	 * @param [in]	touchInputRecognizer	The touch input recognizer.
+	 * @param[in]   touchInputRecognizer   The touch input recognizer.
 	 */
 	void receiveTouchInputFor(CalTouchInputRecognizer& touchInputRecognizer);
 
 	/**
-	 * Resets the day nums.
+	 * @brief Reset the day nums.
 	 *
-	 * @param	firstWeekday	The first weekday.
-	 * @param	rowStartDate	The row start date.
-	 * @param	i				Zero-based index of the.
+	 * @param[in]   firstWeekday   The first weekday.
+	 * @param[in]   rowStartDate   The row start date.
+	 * @param[in]   i              Zero-based index of the.
 	 */
 	void resetDayNums(int firstWeekday, const CalDate& rowStartDate, int i = -1);
 
 	/**
-	 * Resets the day number style described by i.
+	 * @brief Reset the day number style described by i.
 	 *
-	 * @param	i	Zero-based index of the.
+	 * @param[in]   i   Zero-based index of the.
 	 */
 	void resetDayNumStyle(int i);
 
 	/**
-	 * Resets the day by bound.
+	 * @brief Reset the day by bound.
 	 *
-	 * @param	rowStartDate	The row start date.
-	 * @param	lowerBound  	The lower bound.
-	 * @param	upperBound  	The upper bound.
+	 * @param[in]   rowStartDate   The row start date.
+	 * @param[in]   lowerBound     The lower bound.
+	 * @param[in]   upperBound     The upper bound.
 	 */
 	void resetDayByBound(const CalDate& rowStartDate, const CalDate& lowerBound, const CalDate& upperBound);
 
 	/**
-	 * Mark today.
+	 * @brief Mark today.
 	 *
-	 * @param	j	The int to process.
+	 * @param[in]   j   The int to process.
 	 */
 	void markToday(int j);
 
 	/**
-	 * Resets the circle described by j.
+	 * @brief Reset the circle described by j.
 	 *
-	 * @param	j	The int to process.
+	 * @param[in]   j   The int to process.
 	 */
 	void resetCircle(int j);
 
 	/**
-	 * Paints the focus.
+	 * @brief Paint the focus.
 	 *
-	 * @param	j			The int to process.
-	 * @param	eventcount	The eventcount.
+	 * @param[in]   j            The int to process.
+	 * @param[in]   eventcount   The eventcount.
 	 */
 	void paintFocus(int j, int eventcount = 0);
 
 	/**
-	 * Erase focus.
+	 * @brief Erase focus.
 	 *
-	 * @param	i			Zero-based index of the.
-	 * @param	j			The int to process.
-	 * @param	today		true to today.
-	 * @param	animated	true if animated.
-	 * @param	eventcount	The eventcount.
+	 * @param[in]   i            Zero-based index of the.
+	 * @param[in]   j            The int to process.
+	 * @param[in]   today        True to today.
+	 * @param[in]   animated     True if animated.
+	 * @param[in]   eventcount   The eventcount.
 	 */
 	void eraseFocus(int i, int j, bool today, bool animated = false, int eventcount = 0);
 
 	/**
-	 * Dots.
+	 * @brief Dot.
 	 *
-	 * @param	j			The int to process.
-	 * @param	thisMonth	true to this month.
-	 * @param	focus		true to focus.
+	 * @param[in]   j           The int to process.
+	 * @param[in]   thisMonth   True to this month.
+	 * @param[in]   focus       True to focus.
 	 */
 	void dot(int j, bool thisMonth, bool focus);
 
 	/**
-	 * Clears this object to its blank/initial state.
+	 * @brief Clear this object to its blank/initial state.
 	 */
 	void clear();
 
 	/**
-	 * Identify cell.
+	 * @brief Identify cell.
 	 *
-	 * @param [in]	cell	If non-null, the cell.
+	 * @param[in]   cell   If non-null, the cell.
 	 *
-	 * @return	An int.
+	 * @return Index of week day.
 	 */
 	int identifyCell(Evas_Object* cell);
 
 private:
-
 	/**
-	 * Resets the day number style.
+	 * @brief Reset the day number style.
 	 *
-	 * @param	i	Zero-based index of the.
-	 * @param	j	The int to process.
+	 * @param[in]   i   Zero-based index of the.
+	 * @param[in]   j   The int to process.
 	 */
 	void __resetDayNumStyle(int i, int j);
 
 	/**
-	 * Resets the day number style.
+	 * @brief Reset the day number style.
 	 *
-	 * @param	i		Zero-based index of the.
-	 * @param	j		The int to process.
-	 * @param	mday	The mday.
+	 * @param[in]   i      Zero-based index of the.
+	 * @param[in]   j      The int to process.
+	 * @param[in]   mday   The mday.
 	 */
 	void __resetDayNumStyle(int i, int j, int mday);
 
 	/**
-	 * Gets weekday of column.
+	 * @brief Get weekday of column.
 	 *
-	 * @param	j	The int to process.
+	 * @param[in]   j   The int to process.
 	 *
-	 * @return	The weekday of column.
+	 * @return The weekday of column.
 	 */
 	int __getWeekdayOfColumn(int j);
 
 	/**
-	 * Signals.
+	 * @brief Signal.
 	 *
-	 * @param	signal	The signal.
-	 * @param	j		The int to process.
+	 * @param[in]   signal   The signal.
+	 * @param[in]   j        The int to process.
 	 */
 	void __signal(const char* signal, int j);
 
 	/**
-	 * Raises the content event.
+	 * @brief Raise the content event.
 	 *
-	 * @param	signal	The signal.
-	 * @param	j		The int to process.
+	 * @param[in]   signal   The signal.
+	 * @param[in]   j        The int to process.
 	 */
 	void __signalContent(const char* signal, int j);
 
 	/**
-	 * Gets a cell.
+	 * @brief Gets a cell.
 	 *
-	 * @param	j		The int to process.
+	 * @param[in]   j   The int to process.
 	 *
-	 * @return	null	If it fails, else the cell.
+	 * @return Null if it fails, else the cell.
 	 */
 	const Evas_Object* __getCell(int j);
 
 	/**
-	 * Gets content object.
+	 * @brief Get content object.
 	 *
-	 * @return	null if it fails, else the content object.
+	 * @return Null if it fails, else the content object.
 	 */
 	Evas_Object* __getContentObj();
 
-private:
 	const char* __edjeGroupName;
 	int __firstWeekday;
-private:
 	Evas_Object* __content;
 };
 

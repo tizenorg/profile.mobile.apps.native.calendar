@@ -26,10 +26,26 @@
 #include "CalScheduleListControl.h"
 #include "CalCustomListModel.h"
 
+/**
+ * @brief Calendar VCS view.
+ *
+ * @see CalView.
+ */
 class CalVcsView : public CalView
 {
 public:
+	/**
+	 * @brief Create VCS view.
+	 *
+	 * @param[in]   schedules   The list of shedules.
+	 *
+	 * @see CalSchedule
+	 */
 	CalVcsView(const std::list<std::shared_ptr<CalSchedule>>& schedules);
+
+protected:
+	virtual ~CalVcsView();
+
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);
 	virtual void onDestroy();
@@ -42,11 +58,9 @@ private:
 	virtual bool onPop();
 	void __switchMode(bool isSelectMode);
 	void __save();
-protected:
-	virtual ~CalVcsView();
-private:
+
 	WDISABLE_COPY_AND_ASSIGN(CalVcsView);
-private:
+
 	std::list<std::shared_ptr<CalSchedule>> __schedules;
 	bool __isSelectMode;
 	Evas_Object* __box;

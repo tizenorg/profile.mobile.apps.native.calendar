@@ -21,8 +21,9 @@
 #include "WControl.h"
 
 /**
-* @class	WToastPopup
-* @brief	This class is the pop-up class to make easy to create toast pop-up.
+* @class WToastPopup.
+*
+* @brief This class is the pop-up class to make easy to create toast pop-up.
 *
 * The %WToastPopup is the toast pop-up class.
 * This is not cross-process system pop-up.
@@ -32,24 +33,27 @@ class WAPP_ASSIST_EXPORT WToastPopup : public WControl
 {
 public:
 	/**
-	 * This is the constructor with message text. Time-out time is set as default value.
+	 * @brief This is the constructor with message text.
+	 * Time-out time is set as default value.
 	 *
-	 * @param[in]	text	message text string
+	 * @param[in]   text   Message text string.
 	 */
 	WToastPopup(const char* text);
+
 	/**
-	 * This is the constructor with message text and time-out time.
+	 * @brief This is the constructor with message text and time-out time.
 	 *
-	 * @param[in]	text	message text string
- 	 * @param[in]	timeout	Time-out time to be destroyed. Unit is second.
+	 * @param[in]   text      Message text string.
+ 	 * @param[in]   timeout   Time-out time to be destroyed. Unit is second.
 	 */
-	WToastPopup(const char* text, double timeout );
+	WToastPopup(const char* text, double timeout);
+
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
 	virtual void onDestroy();
-private:
+
 	virtual ~WToastPopup();
-private:
+
 	WDECLARE_PRIVATE_IMPL(WToastPopup);
 	WDISABLE_COPY_AND_ASSIGN(WToastPopup);
 };

@@ -25,25 +25,32 @@
 #include "WAppEventHandler.h"
 #include "CalDetailView.h"
 
+/**
+ * @brief Calendar view application.
+ *
+ * @see WApp.
+ */
 class CalViewApp : public WApp
 {
 public:
 	CalViewApp();
 	virtual ~CalViewApp();
+
 protected:
 	virtual bool onCreate();
 	virtual void onTerminate();
 	virtual void onAppControl(app_control_h request, bool firstLaunch);
 	virtual void onPause();
 	virtual void onResume();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalViewApp);
-private:
+
 	bool __isVtsFile(const char* filePath);
 	const char* __getFilePath();
 	void __replyError();
 	void __makeSchedule();
-private:
+
 	bool __replyToRequest;
 	app_control_h __request;
 	std::shared_ptr<CalSchedule> __getScheduleFromExtraData(app_control_h request);

@@ -22,16 +22,39 @@
 #include <Evas.h>
 #include "WDefine.h"
 
+/**
+ * @brief Interface for evas object.
+ */
 class WAPP_ASSIST_EXPORT IWEvasObject
 {
+public:
+	/**
+	 * @brief Get evas object.
+	 *
+	 * @return Evas object.
+	 */
+	virtual Evas_Object* getEvasObj() = 0;
+
 protected:
 	virtual ~IWEvasObject(){};
-public:
-	virtual Evas_Object* getEvasObj() = 0;
 };
 
+/**
+ * @brief Weak pointer to IWEvasObject.
+ *
+ * @see IWEvasObject.
+ */
 typedef std::weak_ptr<IWEvasObject> WEvasObjectPtr;
 
+/**
+ * @brief Get the IWEvasObject instance.
+ *
+ * @param[in]   obj   Evas object.
+ *
+ * @return The weak pointer to IWEvasObject class instance.
+ *
+ * @see WEvasObjectPtr.
+ */
 WAPP_ASSIST_EXPORT WEvasObjectPtr WEvasObject_getWeakPtr( Evas_Object* obj );
 
 

@@ -29,7 +29,7 @@
 #include <vector>
 
 /**
- * A cal book view.
+ * @brief Calendar book view.
  */
 class CalBookView : public CalView
 {
@@ -41,36 +41,38 @@ private:
 	WDISABLE_COPY_AND_ASSIGN(CalBookView);
 
 	/**
-	 * Executes the create action. This function is called when CalBookView object is created.
+	 * Execute the create action. This function is called when CalBookView object is created.
 	 *
-	 * @param [in]	parent   	The parent object.
-	 * @param [in]	viewParam	Parameters for view creation.
+	 * @param [in]   parent      The parent object.
+	 * @param [in]   viewParam   Parameters for view creation.
 	 *
-	 * @return	null if it fails, else an created Evas_Object*.
+	 * @return Null if it fails, else an created Evas_Object*.
 	 */
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);
 
 	/**
-	 * Executes the pushed action. This function is called when our view was successfully pushed into naviframe container.
+	 * Execute the pushed action. This function is called when our
+	 * view was successfully pushed into naviframe container.
 	 *
-	 * @param [in]	naviItem	If non-null, the navi item.
+	 * @param [in]   naviItem   If non-null, the navi item.
 	 */
 	virtual void onPushed(Elm_Object_Item* naviItem);
 
 	/**
-	 * Executes the destroy action. This function is called when our view object is being destroyed.
+	 * Execute the destroy action. This function is called
+	 * when our view object is being destroyed.
 	 */
 	virtual void onDestroy();
 
 	/**
-	 * Updates this object.
+	 * Update this object.
 	 */
 	void __update();
 
 	/**
-	 * Executes some action, depending on event it receives.
+	 * Execute some action, depending on event it receives.
 	 *
-	 * @param	event	The event.
+	 * @param   event   The event.
 	 */
 	void onEvent(const CalEvent& event);
 
