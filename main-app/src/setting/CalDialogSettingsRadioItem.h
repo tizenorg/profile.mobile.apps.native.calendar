@@ -20,9 +20,15 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief Radio item in calendar settings
+ */
 class CalDialogSettingsRadioItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Sub item type
+	 */
 	enum sub_item_type
 	{
 		SUB_LOCALE_DEFAULT = 0,
@@ -33,15 +39,44 @@ public:
 		SUB_NOTIFICATION,
 		SUB_OFF,
 	};
+
+	/**
+	 * @brief Settings radio item constructor
+	 *
+	 * @param selectCb   Select callback
+	 * @param type Sub   item type
+	 * @param radioIndex Radio item index
+	 */
 	CalDialogSettingsRadioItem(std::function<void (void)> selectCb, sub_item_type type, int radioIndex);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogSettingsRadioItem();
+
+	/**
+	 * @brief Set radio item check callback
+	 *
+	 * @param radioCb Radio item callback
+	 */
 	void setRadioCb(std::function<void (void)> radioCb);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogSettingsRadioItem);
 	virtual void onSelect();
 	virtual Elm_Genlist_Item_Class* getItemClassStatic();
 public:
+	/**
+	 * @brief Get sub item type
+	 *
+	 * @return Sub item type
+	 */
 	sub_item_type getSubItemType();
+
+	/**
+	 * @brief Get item's radio object
+	 *
+	 * @return Item object on success, otherwise NULL
+	 */
 	Evas_Object *  getItemRadioObject();
 private:
 	int __radioIndex;

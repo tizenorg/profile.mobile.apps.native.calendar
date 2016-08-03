@@ -21,13 +21,35 @@
 #include "CalCommon.h"
 #include "CalDialogControl.h"
 
+/**
+ * @brief Multiline genlist item in calendar settings
+ */
 class CalDialogSettingsMultilSubItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param selectCb Select callback
+	 * @param text     Text displayed in item
+	 */
 	CalDialogSettingsMultilSubItem(std::function<void (void)> selectCb, const char *text);
+
+	/**
+	 * @brief Default constuctor
+	 */
 	CalDialogSettingsMultilSubItem();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogSettingsMultilSubItem();
-public:
+
+	/**
+	 * @brief Set text to item
+	 *
+	 * @param text Text that should be displayed in item
+	 */
 	void setText(const char* text);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogSettingsMultilSubItem);

@@ -21,9 +21,15 @@
 #include "CalCommon.h"
 #include "CalDialogControl.h"
 
+/**
+ * @brief Two text item in calendar's settings dialog
+ */
 class CalDialogSettingsTwoTextItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Sub item type
+	 */
 	enum sub_item_type
 	{
 		SUB_FIRST_DAY_OF_WEEK = 0,
@@ -32,11 +38,39 @@ public:
 		SUB_REMINDER_TYPE,
 		SUB_NOTIFICATION_SOUND,
 	};
+
+	/**
+	 * @brief Construct two text item
+	 *
+	 * @param selectCb Select callback
+	 * @param mainText Main text
+	 * @param subText  Sub text
+	 * @param type Sub item type
+	 */
 	CalDialogSettingsTwoTextItem(std::function<void (void)> selectCb, const char* mainText, const char* subText, sub_item_type type);
+
+	/**
+	 * @brief Default constructor
+	 */
 	CalDialogSettingsTwoTextItem();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogSettingsTwoTextItem();
 public:
+	/**
+	 * @brief Set main text
+	 *
+	 * @param text Main text
+	 */
 	void setMainText(const char* text);
+
+	/**
+	 * @brief Set sub text
+	 *
+	 * @param text Sub text
+	 */
 	void setSubText(const char* text);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogSettingsTwoTextItem);

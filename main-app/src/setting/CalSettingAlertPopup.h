@@ -23,11 +23,22 @@
 #include "CalCommon.h"
 #include "WPopup.h"
 
-
+/**
+ * @brief Calendar settings alert popup
+ */
 class CalSettingAlertPopup: public WPopup
 {
 public:
+	/**
+	 * @brief Construct alert popup
+	 *
+	 * @param callbackFun Popup callback
+	 */
 	CalSettingAlertPopup(std::function<void ()> callbackFun);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalSettingAlertPopup();
 private:
 	static void __dialogDeleteCallback(void *data, Evas *e, Evas_Object *obj, void *event_info);
