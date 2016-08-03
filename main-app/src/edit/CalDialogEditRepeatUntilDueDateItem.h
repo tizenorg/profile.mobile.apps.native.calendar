@@ -21,13 +21,49 @@
 #include "CalDialogControl.h"
 #include "CalDateTime.h"
 
+/**
+ * @brief Item with radio and date picker button in edit repeat view
+ */
 class CalDialogEditRepeatUntilDueDateItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param ChangedCb  Changed callback
+	 * @param repeatOri  Repeat model
+	 * @param radioIndex Radio index
+	 * @param dateTime   Date
+	 *
+	 */
 	CalDialogEditRepeatUntilDueDateItem(std::function<void (CalScheduleRepeat::UntilType untilType, CalScheduleRepeat::UntilInfo untilInfo)> ChangedCb, const CalScheduleRepeat repeatOri, int radioIndex, const CalDateTime& dateTime);
+
+	/**
+	 * @brief Destrutor
+	 */
 	virtual ~CalDialogEditRepeatUntilDueDateItem();
+
+	/**
+	 * @brief Set date button clicked callback
+	 *
+	 * @param dateButtonClickedCb Date button clicked callback
+	 *
+	 */
 	void setDateButtonClickedCb(std::function<void (Evas_Object* dateTime)> dateButtonClickedCb);
+
+	/**
+	 * @brief Set date
+	 *
+	 * @param repeat Date
+	 *
+	 */
 	void setDateButtonTime(const CalScheduleRepeat repeat);
+
+	/**
+	 * @brief Get until date
+	 *
+	 * @return Until date
+	 */
 	CalDateTime& getUntilDate();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatUntilDueDateItem);

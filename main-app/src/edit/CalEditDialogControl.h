@@ -22,15 +22,54 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief Edit dialog control
+ *
+ * @see CalDialogControl
+ *
+ */
 class CalEditDialogControl : public CalDialogControl
 {
 public:
+	/**
+	 * @brief Constructor
+	 */
 	CalEditDialogControl();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalEditDialogControl();
+
+	/**
+	 * @brief Get class name
+	 *
+	 * @return Class name
+	 */
 	virtual const char* getClassName();
 public:
+	/**
+	 * @brief Add item
+	 *
+	 * @param item Dialog control item
+	 *
+	 * @return Added item
+	 */
 	virtual Elm_Object_Item* add(CalDialogControl::Item* item);
+
+	/**
+	 * @brief Remove item
+	 *
+	 * @param item Item to remove
+	 *
+	 */
 	void remove(CalDialogControl::Item* item);
+
+	/**
+	 * @brief Set null
+	 *
+	 * @param item Item to set null
+	 */
 	void setNull(CalDialogControl::Item* item);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalEditDialogControl);

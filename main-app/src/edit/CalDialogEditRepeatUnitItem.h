@@ -18,14 +18,46 @@
 #ifndef _CAL_DIALOG_EDIT_REPEAT_UNIT_ITEM_H_
 #define _CAL_DIALOG_EDIT_REPEAT_UNIT_ITEM_H_
 
-
+/**
+ * @brief Repeat unit item
+ */
 class CalDialogEditRepeatUnitItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param changedCb Changed callback
+	 * @param repeatOri Repeat model
+	 * @param unitType  Unit type
+	 *
+	 */
 	CalDialogEditRepeatUnitItem(std::function<void (CalScheduleRepeat::UnitType unitType, int unnitInterval)> changedCb, const CalScheduleRepeat repeatOri, CalScheduleRepeat::UnitType unitType);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditRepeatUnitItem();
+
+	/**
+	 * @brief Set Date button time
+	 *
+	 * @param repeat Repeat
+	 *
+	 */
 	void setDateButtonTime(const CalScheduleRepeat repeat);
+
+	/**
+	 * @brief Set date button clicked callback
+	 *
+	 * @param dateButtonClickedCb Date button clicked callback
+	 *
+	 */
 	void setDateButtonClickedCb(std::function<void (void)> dateButtonClickedCb);
+
+	/**
+	 * @brief Update units label
+	 */
 	void updateUnitsLabel();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatUnitItem);

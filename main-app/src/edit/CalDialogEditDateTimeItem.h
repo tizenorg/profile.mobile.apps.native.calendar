@@ -24,28 +24,137 @@
 #include "CalDialogControl.h"
 #include "CalDateTime.h"
 
+/**
+ * @brief Item with date picker
+ */
 class CalDialogEditDateTimeItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param sortIndex     Item sort index
+	 * @param startDateTime Default start date
+	 * @param endDateTime   Default end date
+	 *
+	 */
 	CalDialogEditDateTimeItem( int sortIndex,const CalDateTime &startDateTime, const CalDateTime &endDateTime);
+
+	/**
+	 * @brief Default constructor
+	 */
 	CalDialogEditDateTimeItem();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditDateTimeItem();
 
 public:
+	/**
+	 * @brief Update value from picker popup
+	 *
+	 * @param dateTime Date picker
+	 *
+	 */
 	void updateValueFromPickerPopup(Evas_Object* dateTime);
+
+	/**
+	 * @brief Set item text
+	 *
+	 * @param title Title text
+	 */
 	void setTitle(const char* title);
+
+	/**
+	 * @brief Update date pickers values
+	 *
+	 * @param startDateTime Start date picker control
+	 * @param endDateTime   End date picker control
+	 *
+	 */
 	void updateStartAndEndTime(const CalDateTime & startDateTime, const CalDateTime &endDateTime);
+
+	/**
+	 * @brief Set change callback
+	 *
+	 * @param changedCb Changed callback
+	 *
+	 */
 	void setChangeCb(std::function<void (CalDateTime &startDateTime,CalDateTime &endDateTime)> changedCb);
+
+	/**
+	 * @brief Set date clicked callback
+	 *
+	 * @param dateButtonClickedCb Clicked callback
+	 *
+	 */
 	void setDateButtonClickedCb(std::function<void (Evas_Object* dateTime)> dateButtonClickedCb);
+
+	/**
+	 * @brief Set time clicked callback
+	 * @param timeButtonClickedCb Clicked callback
+	 *
+	 */
 	void setTimeButtonClickedCb(std::function<void (Evas_Object* dateTime)> timeButtonClickedCb);
 
+	/**
+	 * @brief Set time zone
+	 *
+	 * @param timezone Time zone string representation
+	 *
+	 */
 	void setTimeZone(const std::string& timezone);
+
+	/**
+	 * @brief Get date, time and isAllday flag
+	 *
+	 * @param[out] startDateTime Start time
+	 * @param[out] endDateTime   End time
+	 * @param[out] allDay        Is all day
+	 *
+	 */
 	void getDateTime(CalDateTime* startDateTime, CalDateTime* endDateTime, Eina_Bool* allDay);
+
+	/**
+	 * @brief Set date
+	 *
+	 * @param date Date to set
+	 *
+	 */
 	void setDate(const CalDateTime & date);
+
+	/**
+	 * @brief Set time
+	 * @param time Time to set
+	 *
+	 */
 	void setTime(const CalDateTime & time);
+
+	/**
+	 * @brief Is start selected
+	 *
+	 * @return true if selected, otherwise false
+	 */
 	bool isStartSelected();
+
+	/**
+	 * @brief Determines whether all day is checked
+	 *
+	 * @return true is checked, otherwise false
+	 */
 	bool isAllDay();
+
+	/**
+	 * @brief Determines if date is changed
+	 *
+	 * @return true if it changed, otherwise false
+	 */
 	bool isDateChanged();
+
+	/**
+	 * @brief Updates item
+	 */
 	void update();
 
 private:

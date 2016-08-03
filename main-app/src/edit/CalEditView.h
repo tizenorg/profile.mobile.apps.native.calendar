@@ -35,9 +35,18 @@
 
 class CalDialogEditDateTimeItem;
 
+/**
+ * @brief Main edit view
+ *
+ * @see CalView
+ *
+ */
 class CalEditView : public CalView
 {
 public:
+	/**
+	 * @brief View mode
+	 */
 	enum CalEditMode
 	{
 		CREATE,
@@ -48,6 +57,9 @@ public:
 		EDIT_EXTERNAL,
 	};
 
+	/**
+	 * @brief Sort index
+	 */
 	enum CalEditSortIndex
 	{
 		TITLE = 1,
@@ -69,10 +81,34 @@ public:
 	};
 
 public:
+	/**
+	 * @breif Default constructor
+	 */
 	CalEditView();
+
+	/**
+	 * @brief Create view
+	 *
+	 * @param focusedDate Current date
+	 *
+	 */
 	CalEditView(const CalDate& focusedDate);
+
+	/**
+	 * @brief Create view
+	 *
+	 * @param schedule            Schedule
+	 * @param mode                View mode
+	 * @param savedCb             Saved callback
+	 * @param setLastUsedCalendar Is last used calendar
+	 *
+	 */
 	CalEditView(std::shared_ptr<CalSchedule> schedule, CalEditMode mode = CREATE,
 	            std::function<void (int newId)> savedCb = nullptr, bool setLastUsedCalendar = true);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalEditView();
 
 protected:

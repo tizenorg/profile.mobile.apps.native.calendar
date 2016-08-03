@@ -24,16 +24,57 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief Item with main text, sub text and icon
+ */
 class CalDialogEditTwoTextRemoveIconItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param sortIndex Item sort index
+	 * @param mainText  Main text
+	 * @param subText   Sub text
+	 *
+	 */
 	CalDialogEditTwoTextRemoveIconItem(int sortIndex, const char* mainText, const char* subText);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditTwoTextRemoveIconItem();
 public:
+	/**
+	 * @brief Set select callback
+	 *
+	 * @param selectCb Select callback
+	 *
+	 */
 	void setSelectCb(std::function<void (void)> selectCb);
+
+	/**
+	 * @brief Set remove callback
+	 *
+	 * @param removeCb Remove callback
+	 *
+	 */
 	void setRemoveCb(std::function<void (void)> removeCb);
 public:
+	/**
+	 * @brief Set main text
+	 *
+	 * @param text Main text
+	 *
+	 */
 	void setMainText(const char* text);
+
+	/**
+	 * @brief Set sub text
+	 *
+	 * @param text Sub text
+	 *
+	 */
 	void setSubText(const char* text);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditTwoTextRemoveIconItem);
