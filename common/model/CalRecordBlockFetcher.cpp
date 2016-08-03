@@ -17,6 +17,8 @@
 
 #include "CalRecordBlockFetcher.h"
 
+static bool __integrityCheck(calendar_record_h record);
+
 CalRecordBlockFetcher::CalRecordBlockFetcher(calendar_query_h query, bool fetchAllAtOnce) :
 	__query(query),
 	__fetchAllAtOnce(fetchAllAtOnce)
@@ -46,8 +48,6 @@ void CalRecordBlockFetcher::prefetch(bool fillBothBuffers)
 	if (fillBothBuffers && __nextBlock == NULL)
 		__fetch(__nextBlock);
 }
-
-static bool __integrityCheck(calendar_record_h record);
 
 calendar_record_h CalRecordBlockFetcher::getNext(bool autoFetch)
 {

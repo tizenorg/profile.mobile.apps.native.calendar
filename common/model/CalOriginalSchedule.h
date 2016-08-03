@@ -22,33 +22,100 @@
 #include "CalScheduleReminder.h"
 #include "CalScheduleRepeat.h"
 
+/**
+ * @brief The CalOriginalSchedule class represents original event record.
+ *
+ */
 class WAPP_ASSIST_EXPORT CalOriginalSchedule: public CalSchedule
 {
 public:
 	CalOriginalSchedule(int year, int month);
 	CalOriginalSchedule(calendar_record_h record);
+	CalOriginalSchedule(const CalOriginalSchedule&);
 	virtual ~CalOriginalSchedule();
 
-	CalOriginalSchedule(const CalOriginalSchedule&);
-	const CalOriginalSchedule& operator=(const CalOriginalSchedule&);
+	const CalOriginalSchedule& operator=(const CalOriginalSchedule& obj);
 
-public:
-	virtual void setStart(const CalDateTime& startTime);
+	/**
+	 * @brief Set start time to event.
+	 *
+	 * @param[in] startTime      event start time
+	 *
+	 */
+	virtual void setStart(const CalDateTime &startTime);
 
+	/**
+	 * @brief Get reminders count.
+	 *
+	 * @return reminders count.
+	 *
+	 */
 	virtual const int getRemindersCount() const;
-	virtual const CalScheduleRepeat& getRepeat() const;
-	virtual void setRepeat(const CalScheduleRepeat& repeat);
-	virtual void getReminder(const int nth, CalScheduleReminder& reminder);
-	virtual void setReminder(const int nth, const CalScheduleReminder& reminder);
-	virtual int addReminder(const CalScheduleReminder& reminder);
+
+	/**
+	 * @brief Get event repeat.
+	 *
+	 * @return event repeat.
+	 *
+	 */
+	virtual const CalScheduleRepeat &getRepeat() const;
+
+	/**
+	 * @brief Set repeat to event.
+	 *
+	 * @param[in] repeat      event repeat
+	 *
+	 */
+	virtual void setRepeat(const CalScheduleRepeat &repeat);
+
+	/**
+	 * @brief Get event reminder by index.
+	 *
+	 * @param[in]  nth        reminder index
+	 * @param[out] reminder   reminder
+	 *
+	 */
+	virtual void getReminder(const int nth, CalScheduleReminder &reminder);
+
+	/**
+	 * @brief Set event reminder by index.
+	 *
+	 * @param[in] nth        reminder index
+	 * @param[in] reminder   reminder to set
+	 */
+	virtual void setReminder(const int nth, const CalScheduleReminder &reminder);
+
+	/**
+	 * @brief Add reminder to event.
+	 *
+	 * @param[in] reminder   reminder to add
+	 *
+	 * @return 0 - success, -1 if failed.
+	 *
+	 */
+	virtual int addReminder(const CalScheduleReminder &reminder);
+
+	/**
+	 * @brief Remove reminder by index.
+	 *
+	 * @param[in] nth        reminder index
+	 *
+	 */
 	virtual void removeReminder(const int nth);
-	virtual void initialize(const char* tzid, const CalDateTime& startTime);
+
+	/**
+	 * @brief Initialization.
+	 *
+	 * @param[in] tzid        time zone
+	 * @param[in] startTime   event start time
+	 *
+	 */
+	virtual void initialize(const char *tzid, const CalDateTime &startTime);
 
 protected:
 	int getInstanceCountBeforeDate(const CalDateTime& date) const;
 	void truncateRepeatToBeforeDate(const CalDateTime& date);
 
-protected:
 	virtual unsigned int getIndexProperty(void) const;
 	virtual unsigned int getStartProperty(void) const;
 	virtual unsigned int getEndProperty(void) const;
