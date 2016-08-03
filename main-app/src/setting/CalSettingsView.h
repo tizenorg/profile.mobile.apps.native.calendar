@@ -25,11 +25,20 @@
 #include "CalDialogSettingsTwoTextItem.h"
 #include "CalDialogSettingsOneTextOneIconItem.h"
 
-
+/**
+ * @brief Calendar settings view
+ */
 class CalSettingsView  : public CalView
 {
 public:
+	/**
+	 * @brief Create calendar settings view
+	 */
 	CalSettingsView();
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalSettingsView();
 
 private:
@@ -37,6 +46,9 @@ private:
 
 private:
 
+	/**
+	 * @brief Setting select type
+	 */
 	enum SettingSelectType
 	{
 		SETTING_FIRST_DAY_OF_WEEK_SELECT = 0,
