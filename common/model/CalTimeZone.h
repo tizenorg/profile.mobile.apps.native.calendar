@@ -25,15 +25,17 @@
 
 class __CalTimeZoneImpl;
 
-
 /**
- * @brief %CalTimeZone class for work with timezones
+ * @brief %CalTimeZone class for work with timezones.
+ *
  */
 class CalTimeZone
 {
 public:
+
 	/**
-	 * @brief Enumeration for the string representation of timezone
+	 * @brief Enumeration for the string representation of timezone.
+	 *
 	 */
 	typedef enum {
 		TIMEZONE_TIZEN_FORMAT = 0,   /**< Format of string output in tz_databaze format, e.g. Asia/Seoul*/
@@ -44,23 +46,30 @@ public:
 	const CalTimeZone& operator=(const CalTimeZone& obj);
 
 	/**
-	 * @brief CalTimeZone constructor
+	 * @brief CalTimeZone constructor.
+	 *
 	 * @param tz    TimeZone string identificator in tz_database
+	 *
 	 */
 	CalTimeZone(const char *tz = TIMEZONE_UNKNOWN);
-	~CalTimeZone();
 
 	/**
-	 * @brief Return timezone string representation
+	 * @brief Return timezone string representation.
+	 *
 	 * @description Return formatted output of timezone string
-	 * representation depends of current locale of target
+	 * representation depends of current locale of target.
+	 *
 	 * @param typeFormat[in] Format of text output of %Timezone instance
-	 * @return String of timezone representation
+	 *
+	 * @return String of timezone representation.
+	 *
 	 */
 	std::string getString(LabelType typeFormat = TIMEZONE_TIZEN_FORMAT) const;
+
 	/**
-	 * @brief Return UTC offset, the number of seconds to add to UTC to get local time
-	 * @return  Amout of offset in second
+	 * @brief Return UTC offset, the number of seconds to add to UTC to get local time.
+	 *
+	 * @return Amount of offset in second
 	 */
 	int getOffset() const;
 

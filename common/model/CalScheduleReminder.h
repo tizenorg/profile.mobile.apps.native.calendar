@@ -22,20 +22,19 @@
 #include "CalDate.h"
 #include "CalCommon.h"
 
+/**
+ * @brief The CalScheduleReminder class represents event remainder.
+ */
 class WAPP_ASSIST_EXPORT CalScheduleReminder
 {
 public:
-	CalScheduleReminder();
-	virtual ~CalScheduleReminder();
-	CalScheduleReminder(CalScheduleReminder&);
-	CalScheduleReminder(const CalScheduleReminder&);
-	const CalScheduleReminder& operator=(const CalScheduleReminder&);
-	const bool operator<(const CalScheduleReminder&) const;
-public:
-	int getMinuteValue() const;
 
-public:
-	enum UnitType {
+	/**
+	 * @brief Unit type.
+	 *
+	 */
+	enum UnitType
+	{
 		NONE = 0,
 		MIN,
 		HOUR,
@@ -43,9 +42,29 @@ public:
 		WEEK,
 	};
 
+	CalScheduleReminder();
+	CalScheduleReminder(CalScheduleReminder&);
+	CalScheduleReminder(const CalScheduleReminder&);
+
+	const CalScheduleReminder& operator=(const CalScheduleReminder&);
+	const bool operator<(const CalScheduleReminder&) const;
+
+	/**
+	 * @brief Get value in minutes.
+	 *
+	 * @return value in minutes.
+	 *
+	 */
+	int getMinuteValue() const;
+
+	/**
+	 * @brief Get text from reminder.
+	 *
+	 * @param[out] text   text buffer
+	 *
+	 */
 	void getString(std::string& text) const;
 
-public:
 	UnitType unitType;
 	int unitValue;
 	bool isCustom;

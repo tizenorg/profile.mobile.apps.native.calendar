@@ -27,10 +27,6 @@ CalScheduleReminder::CalScheduleReminder() :
 {
 }
 
-CalScheduleReminder::~CalScheduleReminder()
-{
-}
-
 CalScheduleReminder::CalScheduleReminder(CalScheduleReminder& obj)
 {
 	unitType = obj.unitType;

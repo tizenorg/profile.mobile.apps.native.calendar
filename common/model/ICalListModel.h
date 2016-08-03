@@ -22,15 +22,46 @@
 #include "CalSchedule.h"
 #include "CalDate.h"
 
+/**
+ * @brief The ICalListModel interface.
+ *
+ */
 class WAPP_ASSIST_EXPORT ICalListModel
 {
 public:
-	virtual void prefetch(bool fillBothBuffers) {}
-	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged) = 0;
-	virtual const CalDate& getCurrentDate() = 0;
-	virtual bool eof() = 0;
-public:
 	virtual ~ICalListModel() {}
+
+	/**
+	 * @brief Prefetch events from calendar service.
+	 *
+	 * @param fillBothBuffers       prefetch current buffer or current and next
+	 *
+	 */
+	virtual void prefetch(bool fillBothBuffers) {}
+
+	/**
+	 * @brief Get next event.
+	 *
+	 * @param[out] dayChanged    indicate whether the date has changed
+	 *
+	 * @return next event object.
+	 *
+	 */
+	virtual std::shared_ptr<CalSchedule> getNext(bool& dayChanged) = 0;
+
+	/**
+	 * @brief Get date of currently provided event.
+	 *
+	 * @return event date.
+	 *
+	 */
+	virtual const CalDate& getCurrentDate() = 0;
+
+	/**
+	 * @brief Check whether list is ended.
+	 *
+	 */
+	virtual bool eof() = 0;
 };
 
 #endif

@@ -38,10 +38,6 @@ CalScheduleRepeat::CalScheduleRepeat()
 	startDate.mday = 0;
 }
 
-CalScheduleRepeat::~CalScheduleRepeat()
-{
-}
-
 CalScheduleRepeat::CalScheduleRepeat( const CalScheduleRepeat& obj)
 {
 	unitType = obj.unitType;
