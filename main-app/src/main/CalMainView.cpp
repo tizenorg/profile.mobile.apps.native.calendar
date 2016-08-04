@@ -475,6 +475,18 @@ void CalMainView::onPushed(Elm_Object_Item* naviItem)
 {
 	WENTER();
 	activateMenuButton(naviItem);
+
+	Evas_Object *button = elm_button_add(getNaviframe()->getEvasObj());
+	elm_object_style_set(button, "naviframe/title_right");
+	elm_object_text_set(button, _L_("IDS_CLD_ACBUTTON_TODAY"));
+	evas_object_smart_callback_add(button, "clicked",
+		[](void* data, Evas_Object* obj, void* event_info) {
+			auto self = (CalMainView *) data;
+			self->__focusMonth(CalDate());
+			self->__focusList();
+		}, this
+	);
+	elm_object_item_part_content_set(naviItem, "title_right_btn", button);
 }
 
 /**
