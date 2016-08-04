@@ -24,312 +24,364 @@
 
 class CalListGroupTitleItem;
 
+/**
+ * @brief Calendar schedule list control.
+ *
+ * @see CalListControl
+ */
 class CalScheduleListControl : public CalListControl
 {
 public:
-	CalScheduleListControl(ICalListModel* fowardModel, ICalListModel* backwardModel,
-	std::function<void (std::shared_ptr<CalSchedule> schedule)> onTapScheduleItem,
-	std::function<void (int dir)> onScrollStart,
-	std::function<void (int dir, CalListControl::Item* topShowingGroupItem)> onScrollStop,
-	bool isCreateCheck = false, bool isHideCheck = false, std::string searchText = std::string(),
-	int looperCount = 1, bool enableNoEvent = false);
+	/**
+	 * @brief Create calendar schedule list control.
+	 *
+	 * @param[in]   fowardModel         The forward model.
+	 * @param[in]   backwardModel       The backward model.
+	 * @param[in]   onTapScheduleItem   Tap schedule item callback.
+	 * @param[in]   onScrollStart       Start scroll callback.
+	 * @param[in]   onScrollStop        Stop scroll callback.
+	 * @param[in]   isCreateCheck       To create checkbox or not.
+	 * @param[in]   isHideCheck         To hide checkbox or not.
+	 * @param[in]   searchText          The search text.
+	 * @param[in]   looperCount         The looper count.
+	 * @param[in]   enableNoEvent       True to enable no event, false otherwise.
+	 *
+	 * @see ICalListModel
+	 * @see CalSchedule
+	 * @see CalListControl::Item
+	 */
+	CalScheduleListControl(ICalListModel *fowardModel, ICalListModel *backwardModel,
+			std::function<void (std::shared_ptr<CalSchedule> schedule)> onTapScheduleItem,
+			std::function<void (int dir)> onScrollStart,
+			std::function<void (int dir, CalListControl::Item *topShowingGroupItem)> onScrollStop,
+			bool isCreateCheck = false, bool isHideCheck = false, std::string searchText = std::string(),
+			int looperCount = 1, bool enableNoEvent = false);
 	virtual ~CalScheduleListControl();
-	virtual const char* getClassName();
 
 	/**
-	 * Sets maximum limit select cb.
+	 * @brief Get class name.
 	 *
-	 * @param	onMaxLimitSelectCb	The on maximum limit select cb.
+	 * @return the class name.
+	 *
+	 * @see CalListControl::getClassName()
+	 */
+	virtual const char *getClassName();
+
+	/**
+	 * @brief Set maximum limit select callback.
+	 *
+	 * @param[in]   onMaxLimitSelectCb  The on maximum limit select callback.
 	 */
 	void setMaxLimitSelectCb(std::function<void (void)> onMaxLimitSelectCb);
 
 	/**
-	 * Sets maximum limit count.
+	 * @brief Set maximum limit of the selected items.
 	 *
-	 * @param	maxCount	Number of maximums.
+	 * @param[in]   maxCount    Maximum number of selected items.
 	 */
 	void setMaxLimitCount(int maxCount);
 
 	/**
-	 * Sets is selected cb.
+	 * @brief Set is selected callback.
 	 *
-	 * @param [in]	isSelectedCb	The is selected cb.
+	 * @param[in]   isSelectedCb    The is selected callback.
 	 */
-	void setIsSelectedCb(std::function<bool (std::shared_ptr<CalSchedule>& schedule)> isSelectedCb);
+	void setIsSelectedCb(std::function<bool (std::shared_ptr<CalSchedule> &schedule)> isSelectedCb);
 
 	/**
-	 * Gets select schdule item count.
+	 * @brief Get selected schedule item count.
 	 *
-	 * @return	The select schdule item count.
+	 * @return the selected schedule item count.
 	 */
-	int getSelectSchduleItemCount();
+	int getSelectScheduleItemCount();
 
 	/**
-	 * Gets schdule item count.
+	 * @brief Get schedule item count.
 	 *
-	 * @return	The schdule item count.
+	 * @return the schedule item count.
 	 */
-	int getSchduleItemCount();
+	int getScheduleItemCount();
 
 	/**
-	 * Scroll to specific date.
+	 * @brief Scroll to specific date.
 	 *
-	 * @param	date	The date.
+	 * @param[in]   date    The date.
 	 *
-	 * @return	true if it succeeds, false if it fails.
+	 * @return true if it succeeds, false if it fails.
+	 *
+	 * @see CalDate
 	 */
 	bool scrollTo(const CalDate& date);
 
 	/**
-	 * Gets selected schedules.
+	 * @brief Get selected schedules.
 	 *
-	 * @param [in]	list	The list.
+	 * @param[in]   list    The list.
 	 */
-	void getSelectedSchedules(std::list<std::shared_ptr<CalSchedule>>& list);
+	void getSelectedSchedules(std::list<std::shared_ptr<CalSchedule>> &list);
 
 	/**
-	 * Select all schdule item.
+	 * @brief Select/Deselect all schedule item.
 	 *
-	 * @param	sellectedAll	The sellected all.
+	 * @param[in]   sellectedAll    Determines whether all schedules items should be selected.
 	 */
-	void selectAllSchduleItem(Eina_Bool sellectedAll);
+	void selectAllScheduleItem(Eina_Bool sellectedAll);
 
 	/**
-	 * Shows the check box.
+	 * @brief Show/Hide the check box.
 	 *
-	 * @param	showCheck	The show check.
+	 * @param[in]   showCheck   Determines whether the checkbox should be shown or hidden.
 	 */
 	void showCheckBox(Eina_Bool showCheck);
 
 	/**
-	 * Query if this object is empty.
+	 * @brief Query if this object is empty.
 	 *
-	 * @return	true if empty, false if not.
+	 * @return true if empty, false if not.
 	 */
 	bool isEmpty();
 
 	/**
-	 * Process the event item tap.
+	 * @brief Process the event item tap.
 	 *
-	 * @param [in]	container	If non-null, the container.
-	 * @param [in]	item	 	If non-null, the item.
+	 * @param[in]   container   If non-null, the container.
+	 * @param[in]   item        If non-null, the item.
 	 */
-	void processEventItemTap(CalListGroupTitleItem* container, CalEventItem* item);
+	void processEventItemTap(CalListGroupTitleItem *container, CalEventItem *item);
 
 	/**
-	 * Query if this object is scrolling.
+	 * @brief Query if this object is scrolling.
 	 *
-	 * @return	true if scrolling, false if not.
+	 * @return true if scrolling, false if not.
 	 */
-	bool isScrolling() {return __scrollAnimStarted || __scrollIsUserInitiatedByDragging;}
+	bool isScrolling() { return __scrollAnimStarted || __scrollIsUserInitiatedByDragging; }
 
 	/**
-	 * Locks the drag.
+	 * @brief Lock the drag.
 	 *
-	 * @param	lock	true to lock, false to unlock.
+	 * @param[in]   lock    True to lock, false to unlock.
 	 */
 	void lockDrag(bool lock);
 
 	/**
-	 * Gets list height.
+	 * @brief Get list height.
 	 *
-	 * @return	The list height.
+	 * @return the list height.
 	 */
 	Evas_Coord getListHeight();
 
 	/**
-	 * Gets shown items height under top.
+	 * @brief Get shown items height under top.
 	 *
-	 * @return	The shown items height under top.
+	 * @return the shown items height under top.
 	 */
 	Evas_Coord getShownItemsHeightUnderTop();
 
 	/**
-	 * Gets hidden items height under bottom.
+	 * @brief Get hidden items height under bottom.
 	 *
-	 * @return	The hidden items height under bottom.
+	 * @return the hidden items height under bottom.
 	 */
 	Evas_Coord getHiddenItemsHeightUnderBottom();
 
 	/**
-	 * Scroll to last item.
+	 * @brief Scroll to last item.
 	 *
-	 * @param	noAnimation	true to no animation.
+	 * @param[in]   noAnimation     True to no animation.
 	 */
 	void scrollToLastItem(bool noAnimation = false);
 
 	/**
-	 * Query if this object is scrolled to top item.
+	 * @brief Query if this object is scrolled to top item.
 	 *
-	 * @return	true if scrolled to top item, false if not.
+	 * @return true if scrolled to top item, false if not.
 	 */
 	bool isScrolledToTopItem();
 
 	/**
-	 * Gets top showing group item.
+	 * @brief Get top showing group item.
 	 *
-	 * @return	null if it fails, else the top showing group item.
+	 * @return null if it fails, else the top showing group item.
 	 */
-	CalListControl::Item* getTopShowingGroupItem();
+	CalListControl::Item *getTopShowingGroupItem();
 
 	/**
-	 * Sets selected count.
+	 * @brief Set selected count.
 	 *
-	 * @param	count	Number of.
+	 * @param[in]   count   Number of selected item.
 	 */
 	void setSelectedCount(int count);
 
 	/**
-	 * Sets list models.
+	 * @brief Set list models.
 	 *
-	 * @param [in]	forwardModel 	If non-null, the forward model.
-	 * @param [in]	backwardModel	If non-null, the backward model.
+	 * @param[in]   forwardModel    If non-null, the forward model.
+	 * @param[in]   backwardModel   If non-null, the backward model.
 	 */
-	void setListModels(ICalListModel* forwardModel, ICalListModel* backwardModel);
+	void setListModels(ICalListModel *forwardModel, ICalListModel *backwardModel);
 
 	/**
-	 * Adds initial batch of items.
+	 * @brief Add initial batch of items.
 	 */
 	void addInitialBatchOfItems();
 
 	/**
-	 * Updates the search text described by searchText.
+	 * @brief Update the search text described by @p searchText.
 	 *
-	 * @param	searchText	The search text.
+	 * @param[in]   searchText  The search text.
 	 */
-	void updateSearchText(const char* searchText);
+	void updateSearchText(const char *searchText);
 
 private:
+	/**
+	 * @brief Execute the created action.
+	 *
+	 * @see CalListControl::onCreated()
+	 */
 	virtual void onCreated();
+
+	/**
+	 * @brief Execute the destroy action.
+	 *
+	 * @see CalListControl::onDestroy()
+	 */
 	virtual void onDestroy();
+
 	WDISABLE_COPY_AND_ASSIGN(CalScheduleListControl);
 
 	/**
-	 * Initialises the initialise backward model.
+	 * @brief Initialise the initialise backward model.
 	 *
-	 * @param	enableNoEvent	true to enable, false to disable the no event.
+	 * @param[in]   enableNoEvent   True to enable, false to disable the no event.
 	 */
 	void __initBackwardModel(bool enableNoEvent);
 
 	/**
-	 * Finalize scroll if animation doesnt start at all.
+	 * @brief Finalize scroll if animation doesn't start at all.
 	 */
 	void __finalizeScrollIfAnimationDoesntStartAtAll();
 
 	/**
-	 * Enables the scroll.
+	 * @brief Enable the scroll.
 	 */
 	void __enableScroll();
 
 	/**
-	 * Initializes the initialize scroll.
+	 * @brief Initialize the initialize scroll.
 	 */
 	void __initializeScroll();
 
 	/**
-	 * Finalize scroll.
+	 * @brief Finalize scroll.
 	 */
 	void __finalizeScroll();
 
 	/**
-	 * Loads the more.
+	 * @brief Load the more.
 	 */
 	void __loadMore();
 
 	/**
-	 * Determines if we can is near tail.
+	 * @brief Determine if we are near tail.
 	 *
-	 * @return	true if near tail, false if not.
+	 * @return true if near tail, false if not.
 	 */
 	bool __isNearTail();
 
 	/**
-	 * Determines if we can is near head.
+	 * @brief Determine if we are near head.
 	 *
-	 * @return	true if near head, false if not.
+	 * @return true if near head, false if not.
 	 */
 	bool __isNearHead();
 
 	/**
-	 * Appends the next.
+	 * @brief Append the next.
 	 *
 	 * @return	true if it succeeds, false if it fails.
 	 */
 	bool __appendNext();
 
 	/**
-	 * Prepends the next.
+	 * @brief Prepend the next.
 	 *
-	 * @return	true if it succeeds, false if it fails.
+	 * @return true if it succeeds, false if it fails.
 	 */
 	bool __prependNext();
+
 private:
-
 	/**
-	 * Adds a group item to 'dir'.
+	 * @brief Add a group item to 'dir'.
 	 *
-	 * @param	date	The date.
-	 * @param	dir 	The dir.
+	 * @param[in]   date    The date.
+	 * @param[in]   dir     The dir.
 	 *
-	 * @return	null if it fails, else an Item*.
+	 * @return null if it fails, else an Item*.
+	 *
+	 * @see CalDate
 	 */
-	Item* __addGroupItem(const CalDate& date, int dir);
+	Item *__addGroupItem(const CalDate &date, int dir);
 
 	/**
-	 * Inserts an item.
+	 * @brief Insert an item.
 	 *
-	 * @param	schedule  	The schedule.
-	 * @param	date	  	The date.
-	 * @param	isSelected	true if this object is selected.
-	 * @param	dir		  	The dir.
+	 * @param[in]   schedule    The schedule.
+	 * @param[in]   date        The date.
+	 * @param[in]   isSelected  True if this object is selected.
+	 * @param[in]   dir         The dir.
+	 *
+	 * @see CalSchedule
+	 * @see CalDate
 	 */
-	void __insertItem(const std::shared_ptr<CalSchedule>& schedule, CalDate date, bool isSelected, int dir);
+	void __insertItem(const std::shared_ptr<CalSchedule>& schedule, CalDate date,
+			bool isSelected, int dir);
 
 	/**
-	 * Inserts a month item if needed.
+	 * @brief Insert a month item if needed.
 	 *
-	 * @param	date	The date.
-	 * @param	dir 	The dir.
+	 * @param[in]   date    The date.
+	 * @param[in]   dir     The dir.
+	 *
+	 * @see CalDate
 	 */
 	void __insertMonthItemIfNeeded(CalDate date, int dir);
-private:
 
 	/**
-	 * Executes the select group item action.
+	 * @brief Execute the select group item action.
 	 *
-	 * @param [in]	data	  	If non-null, the data.
-	 * @param [in]	obj		  	If non-null, the object.
-	 * @param [in]	event_info	If non-null, information describing the event.
+	 * @param[in]   data        If non-null, the data.
+	 * @param[in]   obj         If non-null, the object.
+	 * @param[in]   event_info  If non-null, information describing the event.
 	 */
-	static void __onSelectGroupItem(void* data, Evas_Object* obj, void* event_info);
+	static void __onSelectGroupItem(void *data, Evas_Object *obj, void *event_info);
 
 	/**
-	 * Executes the scroll animation stop action.
+	 * @brief Execute the scroll animation stop action.
 	 *
-	 * @param [in]	data	  	If non-null, the data.
-	 * @param [in]	obj		  	If non-null, the object.
-	 * @param [in]	event_info	If non-null, information describing the event.
+	 * @param[in]   data        If non-null, the data.
+	 * @param[in]   obj         If non-null, the object.
+	 * @param[in]   event_info  If non-null, information describing the event.
 	 */
-	static void __onScrollAnimStop(void* data, Evas_Object* obj, void* event_info);
+	static void __onScrollAnimStop(void *data, Evas_Object *obj, void *event_info);
 
 	/**
-	 * Executes the scroll drag stop action.
+	 * @brief Execute the scroll drag stop action.
 	 *
-	 * @param [in]	data	  	If non-null, the data.
-	 * @param [in]	obj		  	If non-null, the object.
-	 * @param [in]	event_info	If non-null, information describing the event.
+	 * @param[in]   data        If non-null, the data.
+	 * @param[in]   obj         If non-null, the object.
+	 * @param[in]   event_info  If non-null, information describing the event.
 	 */
-	static void __onScrollDragStop(void* data, Evas_Object* obj, void* event_info);
+	static void __onScrollDragStop(void *data, Evas_Object *obj, void *event_info);
 
 	/**
-	 * Is on hold.
+	 * @brief Is on hold.
 	 *
-	 * @param [in]	obj	If non-null, the object.
+	 * @param[in]   obj     If non-null, the object.
 	 *
-	 * @return	An int.
+	 * @return true if is in hold, false otherwise.
 	 */
-	int __isOnHold(Evas_Object *obj);
-private:
+	bool __isOnHold(Evas_Object *obj);
+
 	CalDate __base;
 	CalDate __focusDate;
 	bool __appended;
@@ -344,22 +396,22 @@ private:
 	bool __initialPageDrawComplete;
 	std::string __searchText;
 	bool __isMouseDown;
-	ICalListModel* __forwardModel;
-	ICalListModel* __backwardModel;
-	Ecore_Timer* __checkFirstDrawTimer;
-	Ecore_Animator* __forwardPreloader;
-	Ecore_Animator* __backwardPreloader;
+	ICalListModel *__forwardModel;
+	ICalListModel *__backwardModel;
+	Ecore_Timer *__checkFirstDrawTimer;
+	Ecore_Animator *__forwardPreloader;
+	Ecore_Animator *__backwardPreloader;
 	bool __backwardModelInitialized;
 	std::shared_ptr<CalSchedule> __peekBackwardSchedule;
 	std::shared_ptr<CalSchedule> __peekForwardSchedule;
 	bool __baseMonthIsNotEmpty;
-	const Item* __latestRealizedItem;
+	const Item *__latestRealizedItem;
 	CalSearchChain __groupItemChain;
 	std::function<void (std::shared_ptr<CalSchedule> schedule)> __onTapScheduleItem;
 	std::function<void (int dir)> __onScrollStart;
-	std::function<void (int dir, CalListControl::Item* topShowingGroupItem)> __onScrollStop;
+	std::function<void (int dir, CalListControl::Item *topShowingGroupItem)> __onScrollStop;
 	std::function<void (void)> __onMaxLimitSelectCb;
-	std::function<bool (std::shared_ptr<CalSchedule>& schedule)> __isSelectedCb;
+	std::function<bool (std::shared_ptr<CalSchedule> &schedule)> __isSelectedCb;
 };
 
 #endif

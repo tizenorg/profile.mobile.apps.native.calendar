@@ -18,7 +18,7 @@
 #include "CalListMonthItem.h"
 #include "CalCommon.h"
 
-CalListMonthItem::CalListMonthItem(const CalDate& date)
+CalListMonthItem::CalListMonthItem(const CalDate &date)
 {
 	__isGroupTitle = false;
 	__date = date;
@@ -28,14 +28,13 @@ CalListMonthItem::~CalListMonthItem()
 {
 }
 
-Elm_Genlist_Item_Class* CalListMonthItem::getItemClassStatic()
+Elm_Genlist_Item_Class *CalListMonthItem::getItemClassStatic()
 {
 	static Elm_Genlist_Item_Class itc = {};
 
 	itc.item_style = "1text.custom";
-	itc.func.text_get = [](void* data, Evas_Object* obj, const char* part)->char*
-	{
-		CalListMonthItem *item = (CalListMonthItem*)data;
+	itc.func.text_get = [](void *data, Evas_Object *obj, const char *part)->char* {
+		CalListMonthItem *item = (CalListMonthItem *)data;
 		return strdup(item->__date.getMonthString());
 	};
 	itc.func.content_get = NULL;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2009-2016 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,211 +31,228 @@
 
 #define ITEM_SHOWING_THRESHOLD_HEIGHT 50
 
+/**
+ * @brief Calendar list contol.
+ *
+ * @see CalControl
+ */
 class CalListControl : public CalControl
 {
 public:
+	/**
+	 * @brief Item.
+	 *
+	 * @see CalSearchChain::Node
+	 */
 	class Item : public CalSearchChain::Node
 	{
 	public:
+		/**
+		 * @brief Create item.
+		 */
 		Item();
 		virtual ~Item();
 
-	public:
-
 		/**
-		 * Query if this object is group title.
+		 * @brief Query if this object is group title.
 		 *
-		 * @return	true if group title, false if not.
+		 * @return true if group title, false if not.
 		 */
-		bool isGroupTitle() const {return __isGroupTitle;}
+		bool isGroupTitle() const { return __isGroupTitle; }
 
 		/**
-		 * Gets elm object item.
+		 * @brief Get elm object item.
 		 *
-		 * @return	null if it fails, else the elm object item.
+		 * @return null if it fails, else the elm object item.
 		 */
-		Elm_Object_Item* getElmObjectItem() {return __elmObjectItem;}
+		Elm_Object_Item *getElmObjectItem() { return __elmObjectItem; }
 
 		/**
-		 * Gets the index.
+		 * @brief Get the index.
 		 *
-		 * @return	The index.
+		 * @return the index.
 		 */
-		int getIndex() const {return __index;}
+		int getIndex() const { return __index; }
 
 		/**
-		 * Gets the date.
+		 * @brief Get the date.
 		 *
-		 * @return	The date.
+		 * @return the date.
 		 */
-		const CalDate& getDate() const {return __date;}
+		const CalDate &getDate() const { return __date; }
 
 		/**
-		 * Sets checkable state.
+		 * @brief Set checkable state.
 		 *
-		 * @param [in]   isCheckable   checkable state.
+		 * @param[in]   isCheckable    The checkable state.
 		 */
 		void setCheckable(bool isCheckable);
 
 	protected:
-
 		/**
-		 * Gets item class static.
+		 * @brief Get item class static.
 		 *
-		 * @return	null if it fails, else the item class static.
+		 * @return null if it fails, else the item class static.
 		 */
-		virtual Elm_Genlist_Item_Class* getItemClassStatic() = 0;
+		virtual Elm_Genlist_Item_Class *getItemClassStatic() = 0;
 
 		/**
-		 * Gets the string.
+		 * @brief Get the string.
 		 *
-		 * @return	null if it fails, else the string.
+		 * @return null if it fails, else the string.
 		 */
-		virtual const char* getString() {return "(some item)";}
+		virtual const char* getString() { return "(some item)"; }
 
 		/**
-		 * Gets checkable state.
+		 * @brief Get checkable state.
 		 *
-		 * @return   checkable state.
+		 * @return checkable state.
 		 */
 		bool getCheckable() const;
 
-	protected:
 		bool __isGroupTitle;
 		CalDate __date;
 
 	private:
-
 		/**
-		 * Gets nearest group item.
+		 * @brief Get nearest group item.
 		 *
-		 * @param	dir	The dir.
+		 * @param[in]   dir     The dir.
 		 *
-		 * @return	null if it fails, else the nearest group item.
+		 * @return null if it fails, else the nearest group item.
 		 */
-		Item* __getNearestGroupItem(int dir);
+		Item *__getNearestGroupItem(int dir);
 
-	private:
-		Elm_Object_Item* __elmObjectItem;
+		Elm_Object_Item *__elmObjectItem;
 		int __index;
 		bool __isCheckable;
 
-	friend class CalListControl;
+		friend class CalListControl;
 	};
-public:
+
+	/**
+	 * @brief Create calendar list control.
+	 */
 	CalListControl();
 	virtual ~CalListControl();
+
+	/**
+	 * @brief Get class name.
+	 *
+	 * @return null if it fails, else the class name.
+	 */
 	virtual const char* getClassName();
+
+	/**
+	 * @brief Clear this object to its blank/initial state.
+	 */
 	void clear();
 
 protected:
-
 	/**
-	 * Executes the create action.
+	 * @brief Execute the create action.
 	 *
-	 * @param [in]	parent	If non-null, the parent.
-	 * @param [in]	param 	If non-null, the parameter.
+	 * @param[in]   parent  If non-null, the parent.
+	 * @param[in]   param   If non-null, the parameter.
 	 *
-	 * @return	null if it fails, else an Evas_Object*.
+	 * @return null if it fails, else an Evas_Object*.
 	 */
-	virtual Evas_Object* onCreate(Evas_Object* parent, void* param);
+	virtual Evas_Object *onCreate(Evas_Object *parent, void *param);
 
 	/**
-	 * Executes the destroy action.
+	 * @brief Execute the destroy action.
 	 */
 	virtual void onDestroy();
 
 	/**
-	 * Adds an item.
+	 * @brief Add an item.
 	 *
-	 * @param	[in]	item		If non-null, the item.
-	 * @param			dir			The dir.
-	 * @param			selectCb	The select cb.
+	 * @param[in]   item        If non-null, the item.
+	 * @param[in]   dir         The dir.
+	 * @param[in]   selectCb    The select cb.
 	 *
-	 * @return	null if it fails, else an Elm_Object_Item*.
+	 * @return null if it fails, else an Elm_Object_Item*.
 	 */
-	Elm_Object_Item* __addItem(CalListControl::Item* item, int dir, Evas_Smart_Cb selectCb);
+	Elm_Object_Item *__addItem(CalListControl::Item *item, int dir, Evas_Smart_Cb selectCb);
 
 	/**
-	 * Gets the first item.
+	 * @brief Get the first item.
 	 *
-	 * @return	null if it fails, else the first item.
+	 * @return null if it fails, else the first item.
 	 */
-	Elm_Object_Item* __getFirstItem() {return elm_genlist_first_item_get(getEvasObj());}
+	Elm_Object_Item *__getFirstItem() { return elm_genlist_first_item_get(getEvasObj()); }
 
 	/**
-	 * Gets the last item.
+	 * @brief Get the last item.
 	 *
-	 * @return	null if it fails, else the last item.
+	 * @return null if it fails, else the last item.
 	 */
-	Elm_Object_Item* __getLastItem() {return elm_genlist_last_item_get(getEvasObj());}
+	Elm_Object_Item *__getLastItem() { return elm_genlist_last_item_get(getEvasObj()); }
 
 	/**
-	 * Searches for the first item.
+	 * @brief Search for the first item.
 	 *
-	 * @param	date	The date.
+	 * @param[in]   date    The date.
 	 *
-	 * @return	null if it fails, else the found item.
+	 * @return null if it fails, else the found item.
 	 */
-	CalListControl::Item* __findItem(const CalDate& date);
+	CalListControl::Item *__findItem(const CalDate &date);
 
 	/**
-	 * Gets top showing item.
+	 * @brief Get top showing item.
 	 *
-	 * @param	offset	The offset.
+	 * @param[in]   offset  The offset.
 	 *
-	 * @return	null if it fails, else the top showing item.
+	 * @return null if it fails, else the top showing item.
 	 */
-	CalListControl::Item* __getTopShowingItem(int offset = ITEM_SHOWING_THRESHOLD_HEIGHT);
+	CalListControl::Item *__getTopShowingItem(int offset = ITEM_SHOWING_THRESHOLD_HEIGHT);
 
 	/**
-	 * Gets top showing group item.
+	 * @brief Get top showing group item.
 	 *
-	 * @param	offset	The offset.
+	 * @param[in]   offset  The offset.
 	 *
-	 * @return	null if it fails, else the top showing group item.
+	 * @return null if it fails, else the top showing group item.
 	 */
-	CalListControl::Item* __getTopShowingGroupItem(int offset = ITEM_SHOWING_THRESHOLD_HEIGHT);
+	CalListControl::Item *__getTopShowingGroupItem(int offset = ITEM_SHOWING_THRESHOLD_HEIGHT);
 
 	/**
-	 * Gets the next item.
+	 * @brief Get the next item.
 	 *
-	 * @param [in]	item	If non-null, the item.
+	 * @param[in]   item    If non-null, the item.
 	 *
-	 * @return	null if it fails, else the next item.
+	 * @return null if it fails, else the next item.
 	 */
-	CalListControl::Item* __getNextItem(CalListControl::Item* item);
+	CalListControl::Item *__getNextItem(CalListControl::Item *item);
 
 	/**
-	 * Gets the previous item.
+	 * @brief Get the previous item.
 	 *
-	 * @param [in]	item	If non-null, the item.
+	 * @param[in]   item    If non-null, the item.
 	 *
-	 * @return	null if it fails, else the previous item.
+	 * @return null if it fails, else the previous item.
 	 */
-	CalListControl::Item* __getPreviousItem(CalListControl::Item* item);
+	CalListControl::Item *__getPreviousItem(CalListControl::Item *item);
 
 	/**
-	 * Gets the last appended index.
+	 * @brief Get the last appended index.
 	 *
-	 * @return	The last appended index.
+	 * @return the last appended index.
 	 */
-	int getLastAppendedIndex() const {return __lastAppendedIndex;}
+	int getLastAppendedIndex() const { return __lastAppendedIndex; }
 
 	/**
-	 * Gets the last prepended index.
+	 * @brief Get the last prepended index.
 	 *
-	 * @return	The last prepended index.
+	 * @return the last prepended index.
 	 */
-	int getLastPrependedIndex() const {return __lastPrependedIndex;}
+	int getLastPrependedIndex() const { return __lastPrependedIndex; }
 
-protected:
 	bool __scrollDir;
 
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalListControl);
 
-private:
 	int __lastAppendedIndex;
 	int __lastPrependedIndex;
 };

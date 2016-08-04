@@ -20,30 +20,63 @@
 
 #include <glib.h>
 
+/**
+ * @brief Calendar search chain.
+ */
 class CalSearchChain
 {
 public:
+	/**
+	 * @brief Node.
+	 */
 	class Node
 	{
 	public:
+		/**
+		 * @brief Create node.
+		 */
 		Node();
 		virtual ~Node();
-	public:
-		Node* getNext();
-		Node* getPrevious();
+
+		/**
+		 * @brief Get next node.
+		 *
+		 * @return next node.
+		 */
+		Node *getNext();
+
+		/**
+		 * @brief Get previous node.
+		 *
+		 * @return previous node.
+		 */
+		Node *getPrevious();
+
 	private:
-		GList* __node;
-	friend class CalSearchChain;
+		GList *__node;
+
+		friend class CalSearchChain;
 	};
-public:
+
+	/**
+	 * @brief Create search chain.
+	 */
 	CalSearchChain();
 	virtual ~CalSearchChain();
-public:
-	void append(Node* node);
-	void prepend(Node* node);
+
+	/**
+	 * @brief Append new node.
+	 */
+	void append(Node *node);
+
+	/**
+	 * @brief Prepend new node.
+	 */
+	void prepend(Node *node);
+
 private:
-	GList* __head;
-	GList* __tail;
+	GList *__head;
+	GList *__tail;
 };
 
 #endif

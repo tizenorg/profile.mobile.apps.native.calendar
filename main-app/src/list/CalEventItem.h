@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009-2015 Samsung Electronics Co., Ltd All Rights Reserved
+ * Copyright (c) 2009-2016 Samsung Electronics Co., Ltd All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,32 +24,114 @@
 #include "CalListControl.h"
 #include "CalSchedule.h"
 
+/**
+ * @brief Calendar event item.
+ */
 class CalEventItem
 {
 public:
-	CalEventItem(const CalDate& dayOfGroup, const std::shared_ptr<CalSchedule> schedule, bool isCheckboxRequired, bool isCheckboxSelected, const std::string& searchText = NULL);
+	/**
+	 * @brief Create event item.
+	 *
+	 * @param[in]   dayOfGroup          The day of group.
+	 * @param[in]   schedule            The schedule.
+	 * @param[in]   isCheckboxRequired  Is checkbox required or not.
+	 * @param[in]   isCheckboxSelected  Is checkbox selected or not.
+	 * @param[in]   searchText          The search text.
+	 *
+	 * @see CalDate
+	 * @see CalSchedule
+	 */
+	CalEventItem(const CalDate &dayOfGroup, const std::shared_ptr<CalSchedule> schedule,
+			bool isCheckboxRequired, bool isCheckboxSelected, const std::string &searchText = NULL);
 	~CalEventItem();
-public:
+
+	/**
+	 * @brief Get title.
+	 *
+	 * @return title.
+	 */
 	const char *getTitle();
+
+	/**
+	 * @brief Get location.
+	 *
+	 * @return location.
+	 */
 	const char *getLocation();
+
+	/**
+	 * @brief Get date interval.
+	 *
+	 * @return date interval.
+	 */
 	const char *getDateInterval();
+
+	/**
+	 * @brief Query if checkbox is required or not.
+	 *
+	 * @return true if checkbox is required, false otherwise.
+	 */
 	bool isCheckboxRequired();
+
+	/**
+	 * @brief Query if checkbox is selected or not.
+	 *
+	 * @return true if checkbox is selected, false otherwise.
+	 */
 	bool isCheckboxSelected();
+
+	/**
+	 * @brief Set checkbox selected state.
+	 *
+	 * @param[in]   isChecked   True - checkbox should be selected, false otherwise.
+	 */
 	void setCheckboxSelected(bool isChecked);
-	std::function<void (CalEventItem* item)> getOnTapCallback();
-	void setOnTapCallback(std::function<void (CalEventItem* item)> onTap);
-	void setCheckObject(Evas_Object* checkbox);
+
+	/**
+	 * @brief Get on tap callback.
+	 *
+	 * @return on tap callback.
+	 *
+	 * @see setOnTapCallback()
+	 */
+	std::function<void (CalEventItem *item)> getOnTapCallback();
+
+	/**
+	 * @brief Set on tap callback.
+	 *
+	 * @param[in]   onTap   On tap callback.
+	 *
+	 * @see CalEventItem
+	 */
+	void setOnTapCallback(std::function<void (CalEventItem *item)> onTap);
+
+	/**
+	 * @brief Set checkbox object.
+	 *
+	 * @param[in]   checkbox    The checkbox object.
+	 */
+	void setCheckObject(Evas_Object *checkbox);
+
+	/**
+	 * @brief Get schedule.
+	 *
+	 * @return schedule.
+	 *
+	 * @see CalSchedule
+	 */
 	const std::shared_ptr<CalSchedule> getSchedule();
+
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalEventItem);
-private:
-	void getHilightText(std::string& hilightText);
-private:
-	std::function<void (CalEventItem* item)> __onTranslateTapToGroup;
+
+	void getHilightText(std::string &hilightText);
+
+	std::function<void (CalEventItem *item)> __onTranslateTapToGroup;
 	std::shared_ptr<CalSchedule> __schedule;
 	bool __isCheckboxRequired;
 	bool __isCheckboxSelected;
-	Evas_Object* __checkbox;
+	Evas_Object *__checkbox;
 	std::string __title;
 	std::string __location;
 	std::string __searchText;

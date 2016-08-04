@@ -20,13 +20,26 @@
 
 #include "CalListControl.h"
 
+/**
+ * @brief Calendar list month item.
+ *
+ * @see CalListControl::Item
+ */
 class CalListMonthItem : public CalListControl::Item
 {
 public:
-	CalListMonthItem(const CalDate& date);
+	/**
+	 * @brief Create calendar list month item.
+	 *
+	 * @param[in]   date    The date
+	 *
+	 * @see CalDate
+	 */
+	CalListMonthItem(const CalDate &date);
 	virtual ~CalListMonthItem();
+
 private:
-	virtual Elm_Genlist_Item_Class* getItemClassStatic();
+	virtual Elm_Genlist_Item_Class *getItemClassStatic();
 	WDISABLE_COPY_AND_ASSIGN(CalListMonthItem);
 };
 

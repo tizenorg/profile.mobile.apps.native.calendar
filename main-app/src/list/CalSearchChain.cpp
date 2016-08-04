@@ -27,16 +27,16 @@ CalSearchChain::Node::~Node()
 {
 }
 
-CalSearchChain::Node* CalSearchChain::Node::getNext()
+CalSearchChain::Node *CalSearchChain::Node::getNext()
 {
-	GList* next = g_list_next(__node);
-	return next ? (Node*)next->data : NULL;
+	GList *next = g_list_next(__node);
+	return next ? (Node *)next->data : NULL;
 }
 
-CalSearchChain::Node* CalSearchChain::Node::getPrevious()
+CalSearchChain::Node *CalSearchChain::Node::getPrevious()
 {
-	GList* prev = g_list_previous(__node);
-	return prev ? (Node*)prev->data : NULL;
+	GList *prev = g_list_previous(__node);
+	return prev ? (Node *)prev->data : NULL;
 }
 
 CalSearchChain::CalSearchChain() :
@@ -49,7 +49,7 @@ CalSearchChain::~CalSearchChain()
 {
 }
 
-void CalSearchChain::append(Node* node)
+void CalSearchChain::append(Node *node)
 {
 	if (__tail == NULL) {
 		__tail = g_list_append(__tail, node);
@@ -59,13 +59,15 @@ void CalSearchChain::append(Node* node)
 	}
 	node->__node = __tail;
 
-	if (__head == NULL)
+	if (__head == NULL) {
 		__head = __tail;
+	}
 }
 
-void CalSearchChain::prepend(Node* node)
+void CalSearchChain::prepend(Node *node)
 {
 	node->__node = __head = g_list_prepend(__head, node);
-	if (__tail == NULL)
+	if (__tail == NULL) {
 		__tail = __head;
+	}
 }
