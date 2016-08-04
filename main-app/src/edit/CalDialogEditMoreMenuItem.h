@@ -20,9 +20,15 @@
 
 #include "CalDialogControl.h"
 
+/**
+ * @brief More popup item
+ */
 class CalDialogEditMoreMenuItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @Brief More popup type
+	 */
 	enum TYPE
 	{
 		PARTICIPANT = 0,
@@ -33,9 +39,29 @@ public:
 		TIMEZONE
 	};
 public:
+	/**
+	 * @brief Default constructor
+	 */
 	CalDialogEditMoreMenuItem();
+
+	/**
+	 * @brief Create item
+	 *
+	 * @param type Item type
+	 * @param text Item text
+	 */
 	CalDialogEditMoreMenuItem(CalDialogEditMoreMenuItem::TYPE type, const char *text);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditMoreMenuItem();
+
+	/**
+	 * @brief Set select callback
+	 *
+	 * @param selectCb Item select callback
+	 */
 	void setSelectCb(std::function<void (CalDialogEditMoreMenuItem::TYPE type)> selectCb);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditMoreMenuItem);

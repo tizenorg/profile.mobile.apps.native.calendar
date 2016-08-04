@@ -22,12 +22,42 @@
 #include "WPopup.h"
 #include "CalSchedule.h"
 
+/**
+ * @brief Popup for editing reminder
+ *
+ * @see WPopup
+ *
+ */
 class CalEditCustomReminderPopup: public WPopup
 {
 public:
+	/**
+	 * @brief Create popup
+	 *
+	 * @param reminder Reminder
+	 *
+	 */
 	CalEditCustomReminderPopup(const CalScheduleReminder& reminder);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalEditCustomReminderPopup();
+
+	/**
+	 * @brief Set done callback
+	 *
+	 * @param doneCb Done callback
+	 *
+	 */
 	void setDoneCb(std::function<void (const CalScheduleReminder& reminder)> doneCb);
+
+	/**
+	 * @brief Set cancel callback
+	 *
+	 * @param canceldCb Cancel callback
+	 *
+	 */
 	void setCancelCb(std::function<void (void)> canceldCb);
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);

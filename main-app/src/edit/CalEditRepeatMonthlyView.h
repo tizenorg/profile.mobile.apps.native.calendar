@@ -21,10 +21,29 @@
 #include "CalSchedule.h"
 #include "CalDialogControl.h"
 
+/**
+ * @brief View for editing repeat monthly functionality
+ *
+ * @see CalView
+ *
+ */
 class CalEditRepeatMonthlyView : public CalView
 {
 public:
+	/**
+	 * @brief Create view
+	 *
+	 * @param repeatOri Repeat info
+	 * @param dateTime  Date
+	 * @param timezone  Timezone
+	 * @param doneCb    Done callback
+	 *
+	 */
 	CalEditRepeatMonthlyView(const CalScheduleRepeat repeatOri, const CalDateTime& dateTime, const char* timezone, std::function<void (const CalScheduleRepeat repeat)> doneCb);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalEditRepeatMonthlyView();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalEditRepeatMonthlyView);

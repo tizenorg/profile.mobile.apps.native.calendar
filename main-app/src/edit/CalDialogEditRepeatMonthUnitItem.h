@@ -18,10 +18,28 @@
 #ifndef _CAL_DIALOG_EDIT_REPEAT_MONTH_UNIT_ITEM_H_
 #define _CAL_DIALOG_EDIT_REPEAT_MONTH_UNIT_ITEM_H_
 
+/**
+ * @brief Determines item with customization to monthly repeat
+ */
 class CalDialogEditRepeatMonthUnitItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param changedCb   Change callback
+	 * @param repeat      Repeat model
+	 * @param start       Start time
+	 * @param timezone    Timezone as string representation
+	 * @param radioIndex  Radio index
+	 * @param monthlyType Monthly type
+	 *
+	 */
 	CalDialogEditRepeatMonthUnitItem(std::function<void (CalScheduleRepeat::MonthlyType monthlyType)> changedCb, const CalScheduleRepeat repeat, const CalDateTime start, const std::string& timezone, int radioIndex, CalScheduleRepeat::MonthlyType monthlyType);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditRepeatMonthUnitItem();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatMonthUnitItem);
