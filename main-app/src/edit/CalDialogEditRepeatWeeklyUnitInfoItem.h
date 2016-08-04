@@ -19,11 +19,26 @@
 #define _CAL_DIALOG_EDIT_REPEAT_WEEKLY_UNIT_INFO_ITEM_H_
 #include "CalDateTime.h"
 
-
+/**
+ * @brief Repeat weekly radio item
+ */
 class CalDialogEditRepeatWeeklyUnitInfoItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create item
+	 *
+	 * @param changedCb Changed callback
+	 * @param repeatOri Repeat info
+	 * @param startDate Start date
+	 * @param timezone  Time zone as string
+	 *
+	 */
 	CalDialogEditRepeatWeeklyUnitInfoItem(std::function<void (CalScheduleRepeat::UnitInfo unitInfo)> changedCb, const CalScheduleRepeat repeatOri, const CalDateTime & startDate, const std::string& timezone);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditRepeatWeeklyUnitInfoItem();
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditRepeatWeeklyUnitInfoItem);

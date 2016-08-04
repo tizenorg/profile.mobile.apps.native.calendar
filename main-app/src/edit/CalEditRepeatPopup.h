@@ -21,10 +21,26 @@
 #include "WPopup.h"
 #include "CalDialogEditRepeatRadioItem.h"
 
+/**
+ * @brief Popup for editing repeat option
+ *
+ * @see WPopup
+ */
 class CalEditRepeatPopup: public WPopup
 {
 public:
+	/**
+	 * @brief Create popup
+	 *
+	 * @param defaultUnitType Default unit type
+	 * @param doneCb          Done callback
+	 *
+	 */
 	CalEditRepeatPopup(const CalScheduleRepeat::UnitType defaultUnitType, std::function<void (const CalScheduleRepeat::UnitType repeat)> doneCb);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalEditRepeatPopup();
 private:
 	virtual Evas_Object* onCreate(Evas_Object* parent, void* viewParam);

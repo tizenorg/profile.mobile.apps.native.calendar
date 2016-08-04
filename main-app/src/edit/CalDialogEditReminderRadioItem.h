@@ -21,13 +21,55 @@
 #include "CalScheduleReminder.h"
 #include "CalDialogControl.h"
 
+/**
+ * @brief Radio item for reminder popup
+ */
 class CalDialogEditReminderRadioItem : public CalDialogControl::Item
 {
 public:
+	/**
+	 * @brief Create radio item
+	 *
+	 * @param reminderOri Reminder model
+	 * @param radIndex    Radio item index
+	 * @param setRadio    Is radio item should be set
+	 * @param isOffItem   Is item should be off
+	 *
+	 */
 	CalDialogEditReminderRadioItem(const CalScheduleReminder& reminderOri, int radIndex, bool setRadio, bool isOffItem);
+
+	/**
+	 * @brief Create radio item
+	 *
+	 * @param reminderOri Reminder model
+	 * @param radIndex    Radio index
+	 * @param unitType    Reminder unit type
+	 * @param unitValue   Unit value
+	 * @param setRadio    Is radio item should be set
+	 * @param isOffItem   Is item should be off
+	 *
+	 */
 	CalDialogEditReminderRadioItem(const CalScheduleReminder& reminderOri, int radIndex, CalScheduleReminder::UnitType unitType, int unitValue, bool setRadio, bool isOffItem);
+
+	/**
+	 * @brief Destructor
+	 */
 	virtual ~CalDialogEditReminderRadioItem();
+
+	/**
+	 * @brief Set selected callback
+	 *
+	 * @param selectCb Select callback
+	 *
+	 */
 	void setSelectCb(std::function<void (void)> selectCb);
+
+	/**
+	 * @brief Set Radio change callback
+	 *
+	 * @param changeCb Radio changed callback
+	 *
+	 */
 	void setRadioChangeCb(std::function<void (const CalScheduleReminder& reminder)> changeCb);
 private:
 	WDISABLE_COPY_AND_ASSIGN(CalDialogEditReminderRadioItem);
